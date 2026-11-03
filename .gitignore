@@ -1,0 +1,80 @@
+# Fishing Online: Cocos Creator 3.8.x, ASP.NET Core, React/TypeScript
+# Keep source assets + .meta, Cocos settings/profiles, migrations,
+# package lockfiles, .env examples and shared editor settings tracked.
+
+# OS and per-user editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.swp
+*.swo
+
+# Node / React / TypeScript dependencies, caches and generated output
+node_modules/
+.pnpm-store/
+.npm/
+.yarn/cache/
+.yarn/unplugged/
+.yarn/install-state.gz
+dist/
+coverage/
+.nyc_output/
+.vite/
+.eslintcache
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Cocos Creator generated directories (also applies to nested projects)
+library/
+temp/
+local/
+build/
+build-templates/.cache/
+
+# .NET build, test and package output
+[Bb]in/
+[Oo]bj/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+*.nupkg
+*.snupkg
+
+# Local environment overrides; commit sanitized examples/templates
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
+!.env.*.sample
+!.env.template
+!.env.*.template
+appsettings.Local.json
+appsettings.*.Local.json
+secrets.json
+*.pubxml.user
+
+# Local logs and PostgreSQL / Redis runtime storage
+logs/
+*.log
+/pgdata/
+/redis-data/
+/docker-data/
+dump.rdb
+appendonly.aof
+appendonlydir/
+
+# Private signing keys / certificate bundles
+*.key
+*.pfx
+*.p12
