@@ -78,3 +78,6 @@ appendonlydir/
 *.key
 *.pfx
 *.p12
+
+# Workspace-local .NET CLI state
+/.local/

@@ -1,6 +1,6 @@
 # Fishing Online — Hướng dẫn làm việc
 
-Bộ hướng dẫn quy trình cho Playable v0.1. Đọc trước khi nhận việc; đây chưa phải bằng chứng game đã triển khai.
+Bộ hướng dẫn quy trình cho bản đầu v1 (hiện tài liệu còn nhãn Playable v0.1). Đọc trước khi nhận việc; đây chưa phải bằng chứng game đã triển khai.
 
 | Tài liệu | Dùng khi |
 | --- | --- |
@@ -20,4 +20,4 @@ Bối cảnh người dùng đã chốt và quyết định hiện hành trong `
 
 Nhãn **Đã chốt** chỉ dùng cho quyết định có nguồn. **Đề xuất** cần được duyệt nếu thay đổi scope/luật. **Đã kiểm chứng** cần kèm môi trường, cách kiểm tra và kết quả. Các quy ước kỹ thuật bên dưới là mặc định đề xuất để team áp dụng khi khởi tạo, không phải hiện trạng mã nguồn.
 
-Ba nhóm triển khai: Server, Web Client (kiêm Art), Admin Tool. GD cung cấp luật và acceptance; QA kiểm chứng xuyên nhóm, không mặc định cần thêm nhân sự riêng.
+Hai luồng triển khai: Web Client (kiêm Art) và BE (bao gồm Server và Admin Tool React/TypeScript riêng). Scope cập nhật: 5–10 skin, chat/emoji/khoe cá/ranking bắt buộc, loot map hoãn; phase câu bổ sung dần. [Kế hoạch Client & BE và khối lượng Art](https://app.notion.com/p/40d5f439904b8102ad9ffb12a209e72a) là nguồn kế hoạch duy nhất, không sao chép lịch/estimate tại đây. GD cung cấp luật và acceptance; QA kiểm chứng xuyên nhóm, không mặc định cần thêm nhân sự riêng.

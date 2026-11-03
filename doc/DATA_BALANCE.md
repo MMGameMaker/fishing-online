@@ -1,6 +1,6 @@
 # Cấu hình dữ liệu và balance
 
-GD sở hữu luật và giá trị balance; BE sở hữu validation và thực thi; Admin cung cấp UI validate/publish; Client ánh xạ data với asset và hiển thị. Không duy trì công thức riêng khác nhau ở các ứng dụng.
+GD sở hữu luật và giá trị balance; BE sở hữu validation và thực thi; BE thực hiện cả Admin UI validate/publish; Client ánh xạ data với asset và hiển thị. Không duy trì công thức riêng khác nhau ở các ứng dụng.
 
 ## Dữ liệu cần đặc tả
 
@@ -10,7 +10,10 @@ GD sở hữu luật và giá trị balance; BE sở hữu validation và thực
 | Trang bị | Rod/Line/Hook/Bait, chỉ số, yêu cầu dùng, tiêu hao |
 | Thính | Tác dụng, thời hạn, phạm vi, tương tác với mồi |
 | Vé/shop | Đơn vị, giá Gold, điều kiện mua/dùng, giới hạn |
-| Loot | Loại thưởng, lượng, vị trí, thời điểm xuất hiện/hết hạn, quyền nhặt |
+| Skin | 5–10 ID và asset, quyền dùng/chọn; không tự thêm chỉ số/shop skin |
+| Social/ranking | Emoji ID, trigger/phạm vi khoe cá, giới hạn; chỉ số/chu kỳ/đồng hạng/update time |
+| Nguồn ban đầu | Gold/vé/mồi khi bỏ loot, theo luật GD; không tự thêm quà ngày/nhiệm vụ |
+| Loot — để sau | Chưa cấu hình spawn/nhặt trong v1 |
 | Công thức | Các bước cắn/mắc/kéo, input Manual/Idle, thất bại và thưởng |
 
 Đây là danh mục thiết kế, chưa phải schema hoặc số balance đã duyệt. Mỗi trường cần kiểu, đơn vị, khoảng hợp lệ, mặc định và nguồn quyết định. ID ổn định; tên hiển thị có thể đổi mà không đổi ID.
