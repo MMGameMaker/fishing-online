@@ -1,0 +1,12 @@
+# Cocos Creator generated / local folders
+/temp/
+/library/
+/local/
+/build/
+/profiles/
+/native/
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,13 @@
+{
+  "name": "fishing-online-client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Web client (Cocos Creator 3.8.x + TypeScript) cho Fishing Online Playable v0.1",
+  "engines": {
+    "cocos-creator": "3.8.x"
+  },
+  "creator": {
+    "version": "3.8.8"
+  },
+  "uuid": "d2109551-9eba-41ad-b5c0-254d8d04a8c4"
+}
