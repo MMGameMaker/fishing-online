@@ -4,7 +4,7 @@ Mỗi việc phối hợp dùng một file trong work/, có phần GD, Web Clien
 
 | ID / Công việc | GD | Web Client | Server | Admin Tool | Link |
 | --- | --- | --- | --- | --- | --- |
-| S01 / Scope & kế hoạch v1 | Luật còn mở | Chờ review contract; chưa code/art | Build/transport smoke đạt; contract draft; thiếu Docker | Có plan/API draft; chưa React | [Chi tiết](work/S01-cap-nhat-scope-ke-hoach-v1.md) |
+| S01 / Scope & kế hoạch v1 | Luật còn mở | Chờ review contract; chưa code/art | Persistence/migration/readiness + outage test đạt; contract draft | Có plan/API draft; chưa React | [Chi tiết](work/S01-cap-nhat-scope-ke-hoach-v1.md) |
 
 S01 đã nhận phần BE nền tảng/contract/môi trường; không coi các ID backlog khác đã được giao hoặc bắt đầu.
 

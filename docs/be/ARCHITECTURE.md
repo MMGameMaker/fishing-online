@@ -1,6 +1,6 @@
 # Service, dữ liệu và luồng chơi BE
 
-Thiết kế kỹ thuật đề xuất 0.1-draft; scope theo [PROJECT](../PROJECT.md), chưa thay luật GD. Triển khai ban đầu một ASP.NET Core modular monolith, một instance sở hữu phòng; không tự tách microservice. Scaffold hiện chỉ có transport diagnostic.
+Thiết kế kỹ thuật đề xuất 0.1-draft; scope theo [PROJECT](../PROJECT.md), chưa thay luật GD. Triển khai ban đầu một ASP.NET Core modular monolith, một instance sở hữu phòng; không tự tách microservice. Đã có transport diagnostic, EF Core/Npgsql DbContext, migration profile nền tảng và Redis multiplexer; readiness truy vấn thật. Module gameplay bên dưới vẫn là thiết kế chưa triển khai.
 
 ## Service cần thiết
 
@@ -18,7 +18,7 @@ Thiết kế kỹ thuật đề xuất 0.1-draft; scope theo [PROJECT](../PROJEC
 | Ranking | Projection catch hợp lệ qua outbox, dedupe event; query/cursor/updatedAt theo luật GD |
 | AdminAudit | Quyền config.read/config.publish/player.read/audit.read, audit actor/action/version; không API sửa tiền trực tiếp |
 
-Postgres là nguồn chân lý wallet/item/attempt/catch/session/config/audit; Redis chỉ cache/presence/rate limit, không là ledger. Chưa có migration thực thi. Dự kiến constraints: unique identity, unique (roomId, seatId) cho seat đang giữ và unique player đang ngồi, unique (playerId, operation, requestId), unique settlement(attemptId), unique projection(eventId). Không lưu token thô hoặc dữ liệu nhạy cảm trong log.
+Postgres là nguồn chân lý wallet/item/attempt/catch/session/config/audit; Redis chỉ cache/presence/rate limit, không là ledger. Đã có migration game.players tối thiểu, chưa có schema phiên/kinh tế/gameplay. Dự kiến constraints: unique identity, unique (roomId, seatId) cho seat đang giữ và unique player đang ngồi, unique (playerId, operation, requestId), unique settlement(attemptId), unique projection(eventId). Không lưu token thô hoặc dữ liệu nhạy cảm trong log.
 
 ## Nhất quán và phục hồi
 

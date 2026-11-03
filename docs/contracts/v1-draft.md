@@ -7,7 +7,7 @@ Chủ nguồn: Codex BE. **Đề xuất, chưa được Client/GD xác nhận**.
 | Endpoint | Auth | Response |
 | --- | --- | --- |
 | GET /health/live | Public | 200 `{ "status":"alive" }` |
-| GET /health/ready | Public | 503 `{ "status":"notReady", "reason":"..." }`; chưa có adapters |
+| GET /health/ready | Public | 200 `{ "status":"ready", "checks":{"postgres":"ready","redis":"ready"} }`; 503 khi thiếu config/schema/migration hoặc dependency lỗi, check tương ứng là `notReady`; không trả lỗi nội bộ |
 | GET /api/v1/bootstrap | Public | 200 `{ "contractVersion":"0.1-draft", "mode":"transport-only", "gameplayAvailable":false, "hubPath":"/hubs/game" }` |
 | /hubs/game → Ping() | Development only, diagnostic | `{ "contractVersion":"0.1-draft", "serverTime":"ISO-8601 UTC" }` |
 

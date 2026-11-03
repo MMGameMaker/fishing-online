@@ -2,7 +2,13 @@
 import assert from 'node:assert/strict';
 const base = process.env.API_BASE ?? 'http://localhost:5080';
 assert.equal((await fetch(`${base}/health/live`)).status, 200);
-assert.equal((await fetch(`${base}/health/ready`)).status, 503);
+const readiness = await fetch(`${base}/health/ready`);
+const expectedStatus = Number(process.env.EXPECT_READY_STATUS ?? 200);
+assert.equal(readiness.status, expectedStatus);
+const health = await readiness.json();
+assert.equal(health.status, expectedStatus === 200 ? 'ready' : 'notReady');
+if (process.env.EXPECT_POSTGRES) assert.equal(health.checks.postgres, process.env.EXPECT_POSTGRES);
+if (process.env.EXPECT_REDIS) assert.equal(health.checks.redis, process.env.EXPECT_REDIS);
 const bootstrap = await fetch(`${base}/api/v1/bootstrap`).then(r => r.json());
 assert.equal(bootstrap.gameplayAvailable, false);
 const cors = await fetch(`${base}/api/v1/bootstrap`, { headers: { Origin: 'http://localhost:7456' } });
@@ -40,4 +46,4 @@ await new Promise((resolve, reject) => {
     }
   };
 });
-console.log('PASS: live, not-ready, bootstrap, CORS allow/deny, SignalR negotiate/handshake/Ping');
+console.log('PASS: live, readiness, bootstrap, CORS allow/deny, SignalR negotiate/handshake/Ping');

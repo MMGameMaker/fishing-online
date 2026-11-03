@@ -1,38 +1,87 @@
 # Server development
 
-Bootstrap S01, .NET SDK 10.0.401, ASP.NET Core/SignalR. Chưa có auth, gameplay, database adapter hoặc migration. Không triển khai production từ scaffold này.
+S01 foundation, .NET SDK 10.0.401, ASP.NET Core/SignalR + EF Core/Npgsql + StackExchange.Redis. Đã có persistence nền tảng và migration; chưa có login/gameplay/Admin UI. Không triển khai production từ scaffold này.
 
-Từ root repository, PowerShell:
+## Chạy local
+
+Tại root repository, sau khi Docker Desktop đã chạy:
 
 ```powershell
-$env:DOTNET_CLI_HOME = "$PWD/.local/dotnet"
-$env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE = '1'
-dotnet restore server/FishingOnline.Api
-dotnet build server/FishingOnline.Api --no-restore
-$env:ASPNETCORE_ENVIRONMENT = 'Development'
-dotnet run --project server/FishingOnline.Api --no-build --urls http://localhost:5080
+powershell -NoProfile -ExecutionPolicy Bypass -File .\server\start-infra.ps1
+# Lần đầu hoặc sau khi pull migration mới; không tự migrate khi API khởi động
+powershell -NoProfile -ExecutionPolicy Bypass -File .\server\migrate-local.ps1
+# Giữ terminal này chạy API
+powershell -NoProfile -ExecutionPolicy Bypass -File .\server\start-api.ps1
 ```
 
-Terminal khác: `Invoke-RestMethod http://localhost:5080/health/live` và `/api/v1/bootstrap`. `/health/ready` trả 503 có chủ ý đến khi có adapter và migration. Hub diagnostic chỉ bật Development, `Ping()` không phải login/gameplay.
+`start-api.ps1` đọc server/.env theo khóa cho phép, không thực thi nội dung file, rồi truyền connection strings qua biến môi trường của tiến trình. Mặc định DB localhost:15432, Redis localhost:6379; biến `ConnectionStrings__Postgres`/`ConnectionStrings__Redis` đã thiết lập được ưu tiên khi chạy API. `migrate-local.ps1` luôn dùng cấu hình Compose local, bỏ qua connection string từ môi trường trong thời gian chạy và phục hồi sau đó. Không in/chia sẻ các biến chứa connection string.
 
-Smoke test (Node 22+): `node server/smoke.mjs`. Đã đạt HTTP/CORS/SignalR ngày 2026-11-03. Khi chạy DLL trực tiếp, đặt working directory tại server/FishingOnline.Api để nạp appsettings. Chưa kiểm tra persistence/gameplay.
+Terminal khác:
+
+```powershell
+Invoke-RestMethod http://localhost:5080/health/live
+Invoke-RestMethod http://localhost:5080/health/ready
+node server/smoke.mjs
+```
+
+Readiness trả `200 {status:"ready",checks:{postgres:"ready",redis:"ready"}}` khi DB kết nối được, không còn migration pending, đọc được bảng game.players và Redis PING đạt. Thiếu config, chưa migrate hoặc dependency mất → 503 với trạng thái từng dependency, không lộ exception/credentials. Liveness vẫn 200 khi dependency mất. Hub Ping chỉ bật Development; readiness đạt không có nghĩa gameplay/auth đã sẵn sàng. Khi chạy DLL trực tiếp, dùng working directory server/FishingOnline.Api để nạp appsettings.
+
+## Build và kiểm tra persistence
+
+```powershell
+. .\server\load-local-env.ps1
+# .env chỉ đọc vào tiến trình hiện tại; không in các biến connection strings
+ dotnet tool restore
+ dotnet restore server/FishingOnline.IntegrationChecks --locked-mode
+ dotnet build server/FishingOnline.IntegrationChecks --no-restore
+ dotnet run --project server/FishingOnline.IntegrationChecks --no-build
+```
+
+Integration harness chỉ chấp nhận DB nguồn fishing_online ở localhost, tạo một database `fishing_check_<UUID>` riêng rồi xóa đúng DB đó trong finally. Không xóa/ghi player của DB ứng dụng. User local cần CREATEDB (user Compose hiện có quyền). Redis dùng key UUID có TTL và cleanup. Nếu máy bị tắt giữa test, kiểm tra DB/key thử còn sót trước dọn, không xóa database ứng dụng. Không chạy harness với credentials production.
+
+Đã kiểm chứng: build 0 warning/error; locked restore; migration trên DB trống và chạy lặp; lưu/đọc profile qua DbContext khác; primary key chặn trùng; DB trống/mất bảng không ready; Redis SET/GET/TTL. Smoke Node 22+ đạt HTTP/CORS/SignalR, missing config 503; dừng riêng PostgreSQL/Redis dự án → 503 rồi bật lại → 200 trên cùng tiến trình API. Hạ tầng cuối kiểm tra được khôi phục healthy. Chưa test Cocos/auth/gameplay/tải 20 phiên.
+
+## Migration
+
+Migration đầu tạo `game.players` (Id UUID, DisplayName max 80, CreatedAt UTC), không seed tài khoản/quyền/Gold/vé/cá. Phương thức login vẫn chờ S02; chưa có endpoint ghi player. EF tool 10.0.14 nằm trong .config/dotnet-tools.json; runtime/design EF cùng 10.0.14, Npgsql provider 10.0.3, Redis client 3.4.31, dependencies khóa trong packages.lock.json.
+
+Thêm migration sau thay model: dot-source load-local-env.ps1, chạy `dotnet ef migrations add <Name> --project server/FishingOnline.Api --output-dir Persistence/Migrations`, review Up/Down rồi chạy migrate-local.ps1. Không chỉnh migration đã áp dụng trong môi trường dùng chung. Production dùng migration job/bundle/SQL được review, không DDL tự động từ API startup. [EF migrations](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/applying), [Npgsql 10](https://www.npgsql.org/efcore/release-notes/10.0.html), [Redis multiplexer](https://github.com/StackExchange/StackExchange.Redis/blob/main/docs/Basics.md).
 
 ## PostgreSQL / Redis
 
-Cần Docker Desktop với Linux containers/Compose v2. Máy hiện tại chưa có Docker; cấu hình dưới đây chưa chạy kiểm chứng. Cài Docker Desktop và bật engine, rồi:
+Đã thiết lập ngày 2026-11-03 tại repo `D:\Zen-Workplace\fishing-online`: WSL 2.5.10, Docker Desktop 4.97.0, Docker CLI 29.9.2, Compose v5.6.1, Linux engine. PostgreSQL 17.6 và Redis 7.4.2 healthy; SELECT 1, truy vấn PostgreSQL có xác thực, Redis PING và TCP localhost đều đạt. Không cần cài Ubuntu riêng cho môi trường này.
+
+Mở Docker Desktop, đợi engine chạy; mở PowerShell tại repo:
 
 ```powershell
-Copy-Item server/.env.example server/.env
-# Điền mật khẩu local tự chọn vào server/.env, không lưu trong tài liệu.
-docker compose --project-directory server -f server/compose.yaml up -d --wait
-docker compose --project-directory server -f server/compose.yaml ps
-docker compose --project-directory server -f server/compose.yaml exec postgres pg_isready -U fishing_dev -d fishing_online
-docker compose --project-directory server -f server/compose.yaml exec redis redis-cli ping
+Set-Location D:\Zen-Workplace\fishing-online
+powershell -NoProfile -ExecutionPolicy Bypass -File .\server\start-infra.ps1
 ```
 
-DB `fishing_online`, user `fishing_dev`, localhost:5432; Redis localhost:6379. Chỉ bind loopback. Tag image cố định để tái lập, chưa kiểm định image/security; review trước dùng ngoài local. `docker compose ... stop` giữ dữ liệu; không dùng `down -v` nếu cần giữ DB.
+Script tìm Docker CLI cả khi terminal chưa nhận PATH mới, tạo `.env` với mật khẩu ngẫu nhiên nếu chưa có, giữ nguyên `.env` cũ, validate Compose, bật hai service và kiểm tra SQL/PING. Không in mật khẩu. `ExecutionPolicy Bypass` chỉ áp dụng cho tiến trình PowerShell này. Nếu engine chưa chạy, mở Docker Desktop rồi chạy lại. Nếu Docker báo cần restart Windows, lưu công việc và tự restart, sau đó mở Docker và chạy lại script; lần thiết lập này không cần restart.
 
-Khi thêm adapter: lấy connection string từ `ConnectionStrings__Postgres` và `ConnectionStrings__Redis` qua env/user-secrets; không đưa credentials vào appsettings. Chưa có schema/seed nên không chạy lệnh migration giả. Tiếp theo thêm EF Core/Npgsql, Redis client, migration và readiness kiểm tra truy vấn thật trong S02–S04. Không coi TCP mở là dữ liệu đã sẵn sàng.
+Thông tin kết nối local:
+
+| Service | Host / port | Database / user |
+| --- | --- | --- |
+| PostgreSQL | 127.0.0.1:15432 | fishing_online / fishing_dev |
+| Redis | 127.0.0.1:6379 | DB 0, không auth, chỉ bind loopback |
+
+Mật khẩu PostgreSQL nằm trong `server/.env`, Git đã ignore; không gửi nội dung lên chat hoặc commit. `POSTGRES_PORT` tùy chọn trong `.env`, mặc định 15432 vì cổng 5432 đang do tiến trình khác sử dụng. Không thay mật khẩu `.env` khi volume đã có DB rồi coi đó là đổi mật khẩu DB; cần đổi qua SQL có kiểm soát. Không xóa volume để khắc phục tùy tiện.
+
+Các lệnh quản lý (mở terminal mới sau cài Docker để nhận PATH):
+
+```powershell
+# Xem trạng thái và log
+ docker compose --project-directory server -f server/compose.yaml ps
+ docker compose --project-directory server -f server/compose.yaml logs --tail 50 postgres redis
+# Dừng mà giữ dữ liệu; chạy lại start-infra.ps1 để bật lại
+ docker compose --project-directory server -f server/compose.yaml stop
+```
+
+Dữ liệu nằm trong named volumes PostgreSQL/Redis. Không dùng `down -v` nếu cần giữ dữ liệu. Tag image cố định để tái lập; review patch/security trước môi trường dùng chung. Hướng dẫn Docker chính thức: https://docs.docker.com/desktop/setup/install/windows-install/ và https://docs.docker.com/desktop/features/wsl/.
+
+API lấy connection string từ `ConnectionStrings__Postgres` và `ConnectionStrings__Redis`; không đưa credentials vào appsettings. Redis multiplexer dùng singleton và reconnect; Postgres dùng DbContext scoped. Chưa seed luật/tài nguyên hoặc triển khai session/cache nghiệp vụ. Lát S02–S04 bổ sung schema theo contract và luật được chốt.
 
 ## Nguồn triển khai
 
