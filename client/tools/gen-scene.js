@@ -133,6 +133,7 @@ const MAP_H = 1440;
 const EDGE_PADDING = 48;     // rock border around the map
 const LAKE_RX = 624;         // water ellipse
 const LAKE_RY = 384;
+const LAKE_MARGIN = 48;    // one tile of clearance between the player and the water
 const PLAYER_SIZE = 96;      // 32px frame baked at scale 3, same scale as the map
 const PLAYER_HALF = 20;      // collision half-width; the body is ~14px wide at 1x
 const PLAYER_START_Y = -500; // on the shore below the lake
@@ -398,6 +399,7 @@ const pcIdx = push({
     edgePadding: EDGE_PADDING,
     lakeRadiusX: LAKE_RX,
     lakeRadiusY: LAKE_RY,
+    lakeMargin: LAKE_MARGIN,
     viewWidth: VIEW_W,
     viewHeight: VIEW_H,
     halfSize: PLAYER_HALF,

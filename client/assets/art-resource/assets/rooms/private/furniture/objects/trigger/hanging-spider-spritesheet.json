@@ -1,0 +1,245 @@
+{
+	"frames": [
+        {
+            "filename": "hangingSpider0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96 
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96 
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 96,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 192,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 288,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 384,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 480,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 576,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 672,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 768,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        },
+        {
+            "filename": "hangingSpider0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 864,
+                "w": 41,
+                "h": 96
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 96
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 96
+            }
+        }             
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "hanging-spider-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 41,
+			"h": 960            
+		},
+		"scale": "1"
+	}
+}

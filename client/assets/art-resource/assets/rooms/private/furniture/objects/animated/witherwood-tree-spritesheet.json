@@ -1,0 +1,119 @@
+{
+	"frames": [
+		{
+			"filename": "witherwoodTree0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 94,
+				"h": 111
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 94,
+				"h": 111
+			},
+			"sourceSize": {
+				"w": 94,
+				"h": 111
+			}
+		},
+        {
+			"filename": "witherwoodTree0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 111,
+				"w": 94,
+				"h": 111
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 94,
+				"h": 111
+			},
+			"sourceSize": {
+				"w": 94,
+				"h": 111
+			}
+		},
+        {
+			"filename": "witherwoodTree0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 222,
+				"w": 94,
+				"h": 111
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 94,
+				"h": 111
+			},
+			"sourceSize": {
+				"w": 94,
+				"h": 111
+			}
+		},
+        {
+			"filename": "witherwoodTree0Anim2",
+			"frame": {
+				"x": 0,
+				"y": 333,
+				"w": 94,
+				"h": 111
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 94,
+				"h": 111
+			},
+			"sourceSize": {
+				"w": 94,
+				"h": 111
+			}
+		},
+        {
+			"filename": "witherwoodTree0Anim3",
+			"frame": {
+				"x": 0,
+				"y": 444,
+				"w": 94,
+				"h": 111
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 94,
+				"h": 111
+			},
+			"sourceSize": {
+				"w": 94,
+				"h": 111
+			}
+		}        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "witherwood-tree-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 94,
+			"h": 555
+		},
+		"scale": "1"
+	}
+}

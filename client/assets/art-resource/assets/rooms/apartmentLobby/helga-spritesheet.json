@@ -1,0 +1,266 @@
+{
+	"frames": [
+		{
+			"filename": "helga0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga1",
+			"frame": {
+				"x": 0,
+				"y": 38,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga2",
+			"frame": {
+				"x": 0,
+				"y": 76,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga3",
+			"frame": {
+				"x": 0,
+				"y": 114,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga4",
+			"frame": {
+				"x": 0,
+				"y": 152,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga5",
+			"frame": {
+				"x": 0,
+				"y": 190,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga6",
+			"frame": {
+				"x": 0,
+				"y": 228,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga7",
+			"frame": {
+				"x": 0,
+				"y": 266,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga8",
+			"frame": {
+				"x": 0,
+				"y": 304,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga9",
+			"frame": {
+				"x": 0,
+				"y": 342,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga10",
+			"frame": {
+				"x": 0,
+				"y": 380,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		},
+        {
+			"filename": "helga11",
+			"frame": {
+				"x": 0,
+				"y": 418,
+				"w": 46,
+				"h": 38
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 38
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 38
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "helga-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 46,
+			"h": 456
+		},
+		"scale": "1"
+	}
+}

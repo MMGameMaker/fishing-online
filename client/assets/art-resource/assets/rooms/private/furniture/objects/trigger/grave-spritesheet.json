@@ -1,0 +1,865 @@
+{
+	"frames": [
+        {
+            "filename": "grave0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120 
+            }
+        },
+        {
+            "filename": "grave0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 120,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 240,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 360,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 480,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 600,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 720,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 840,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 960,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 1080,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        
+
+
+
+
+        {
+            "filename": "grave1",
+            "frame": {
+                "x": 90,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120 
+            }
+        },
+        {
+            "filename": "grave1Anim0",
+            "frame": {
+                "x": 90,
+                "y": 120,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim1",
+            "frame": {
+                "x": 90,
+                "y": 240,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim2",
+            "frame": {
+                "x": 90,
+                "y": 360,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim3",
+            "frame": {
+                "x": 90,
+                "y": 480,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim4",
+            "frame": {
+                "x": 90,
+                "y": 600,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim5",
+            "frame": {
+                "x": 90,
+                "y": 720,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim6",
+            "frame": {
+                "x": 90,
+                "y": 840,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim7",
+            "frame": {
+                "x": 90,
+                "y": 960,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave1Anim8",
+            "frame": {
+                "x": 90,
+                "y": 1080,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+
+
+
+        {
+            "filename": "grave2",
+            "frame": {
+                "x": 180,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120 
+            }
+        },
+        {
+            "filename": "grave2Anim0",
+            "frame": {
+                "x": 180,
+                "y": 120,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim1",
+            "frame": {
+                "x": 180,
+                "y": 240,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim2",
+            "frame": {
+                "x": 180,
+                "y": 360,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim3",
+            "frame": {
+                "x": 180,
+                "y": 480,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim4",
+            "frame": {
+                "x": 180,
+                "y": 600,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim5",
+            "frame": {
+                "x": 180,
+                "y": 720,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim6",
+            "frame": {
+                "x": 180,
+                "y": 840,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim7",
+            "frame": {
+                "x": 180,
+                "y": 960,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave2Anim8",
+            "frame": {
+                "x": 180,
+                "y": 1080,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+
+
+
+        {
+            "filename": "grave3",
+            "frame": {
+                "x": 270,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120 
+            }
+        },
+        {
+            "filename": "grave3Anim0",
+            "frame": {
+                "x": 270,
+                "y": 120,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim1",
+            "frame": {
+                "x": 270,
+                "y": 240,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim2",
+            "frame": {
+                "x": 270,
+                "y": 360,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+                "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim3",
+            "frame": {
+                "x": 270,
+                "y": 480,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim4",
+            "frame": {
+                "x": 270,
+                "y": 600,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim5",
+            "frame": {
+                "x": 270,
+                "y": 720,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim6",
+            "frame": {
+                "x": 270,
+                "y": 840,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim7",
+            "frame": {
+                "x": 270,
+                "y": 960,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        },
+        {
+            "filename": "grave3Anim8",
+            "frame": {
+                "x": 270,
+                "y": 1080,
+                "w": 90,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 120
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "grave-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 360,
+			"h": 1200            
+		},
+		"scale": "1"
+	}
+}

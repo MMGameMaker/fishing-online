@@ -1,0 +1,695 @@
+{
+	"frames": [
+        {
+            "filename": "gizmosGate0Open0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate0OpenAnim1",
+            "frame": {
+                "x": 0,
+                "y": 47,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate0OpenAnim2",
+            "frame": {
+                "x": 0,
+                "y": 94,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate0OpenAnim3",
+            "frame": {
+                "x": 0,
+                "y": 141,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate0OpenAnim4",
+            "frame": {
+                "x": 0,
+                "y": 188,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate0OpenAnim5",
+            "frame": {
+                "x": 0,
+                "y": 235,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate0OpenAnim6",
+            "frame": {
+                "x": 0,
+                "y": 282,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate0OpenAnim7",
+            "frame": {
+                "x": 0,
+                "y": 329,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        
+        
+        
+        {
+            "filename": "gizmosGate0Close0",
+            "frame": {
+                "x": 0,
+                "y": 329,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        {
+            "filename": "gizmosGate0CloseAnim1",
+            "frame": {
+                "x": 0,
+                "y": 376,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        {
+            "filename": "gizmosGate0CloseAnim2",
+            "frame": {
+                "x": 0,
+                "y": 423,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        {
+            "filename": "gizmosGate0CloseAnim3",
+            "frame": {
+                "x": 0,
+                "y": 470,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        {
+            "filename": "gizmosGate0CloseAnim4",
+            "frame": {
+                "x": 0,
+                "y": 517,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        {
+            "filename": "gizmosGate0CloseAnim5",
+            "frame": {
+                "x": 0,
+                "y": 564,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        {
+            "filename": "gizmosGate0CloseAnim6",
+            "frame": {
+                "x": 0,
+                "y": 611,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        {
+            "filename": "gizmosGate0CloseAnim7",
+            "frame": {
+                "x": 0,
+                "y": 658,
+                "w": 30,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47
+            }
+        },
+        
+        
+
+        {
+            "filename": "gizmosGate1Open0",
+            "frame": {
+                "x": 30,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1OpenAnim1",
+            "frame": {
+                "x": 30,
+                "y": 47,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1OpenAnim2",
+            "frame": {
+                "x": 30,
+                "y": 94,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1OpenAnim3",
+            "frame": {
+                "x": 30,
+                "y": 141,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1OpenAnim4",
+            "frame": {
+                "x": 30,
+                "y": 188,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1OpenAnim5",
+            "frame": {
+                "x": 30,
+                "y": 235,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1OpenAnim6",
+            "frame": {
+                "x": 30,
+                "y": 282,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1OpenAnim7",
+            "frame": {
+                "x": 30,
+                "y": 329,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        
+        
+        
+        {
+            "filename": "gizmosGate1Close0",
+            "frame": {
+                "x": 30,
+                "y": 329,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1CloseAnim1",
+            "frame": {
+                "x": 30,
+                "y": 376,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+            "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1CloseAnim2",
+            "frame": {
+                "x": 30,
+                "y": 423,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1CloseAnim3",
+            "frame": {
+                "x": 30,
+                "y": 470,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1CloseAnim4",
+            "frame": {
+                "x": 30,
+                "y": 517,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1CloseAnim5",
+            "frame": {
+                "x": 30,
+                "y": 564,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1CloseAnim6",
+            "frame": {
+                "x": 30,
+                "y": 611,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "gizmosGate1CloseAnim7",
+            "frame": {
+                "x": 30,
+                "y": 658,
+                "w": 30,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 47 
+            }
+        }       
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "gizmos-gate-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 60,
+			"h": 705            
+		},
+		"scale": "1"
+	}
+}

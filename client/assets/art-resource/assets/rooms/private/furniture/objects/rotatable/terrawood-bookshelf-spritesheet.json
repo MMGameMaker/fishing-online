@@ -1,0 +1,98 @@
+{
+	"frames": [
+		{
+			"filename": "terrawoodBookshelf0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 63
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 63
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 63
+			}
+		},
+		{
+			"filename": "terrawoodBookshelf1",
+			"frame": {
+				"x": 0,
+				"y": 63,
+				"w": 38,
+			    "h": 63
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 63
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 63
+			}
+		},
+		{
+			"filename": "terrawoodBookshelf2",
+			"frame": {
+				"x": 0,
+				"y": 126,
+				"w": 38,
+			    "h": 63
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 63
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 63
+			}
+		},
+		{
+			"filename": "terrawoodBookshelf3",
+			"frame": {
+				"x": 0,
+				"y": 189,
+				"w": 38,
+			    "h": 63
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 63
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 63
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "terrawood-bookshelf-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 38,
+			"h": 252
+		},
+		"scale": "1"
+	}
+}

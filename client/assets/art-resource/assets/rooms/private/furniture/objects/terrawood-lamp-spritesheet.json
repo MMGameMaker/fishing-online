@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "terrawoodLamp0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+			    "h": 25
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+			    "h": 25
+			},
+			"sourceSize": {
+				"w": 16,
+			    "h": 25
+			}
+		},
+		{
+			"filename": "terrawoodLamp1",
+			"frame": {
+				"x": 0,
+				"y": 25,
+				"w": 16,
+			    "h": 25
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 16,
+			    "h": 25
+			},
+			"sourceSize": {
+				"w": 16,
+			    "h": 25
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "terrawood-lamp-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 16,
+			"h": 50
+		},
+		"scale": "1"
+	}
+}

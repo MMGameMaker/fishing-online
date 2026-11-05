@@ -1,0 +1,2110 @@
+{
+	"frames": [
+		{
+			"filename": "basicArmchair0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "basicArmchair1",
+			"frame": {
+				"x": 0,
+				"y": 60,
+				"w": 90,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "basicArmchair1Overlay",
+			"frame": {
+				"x": 90,
+				"y": 0,
+				"w": 33,
+			    "h": 19 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+			    "h": 19 
+			},
+			"sourceSize": {
+				"w": 33,
+			    "h": 19 
+			}
+		},
+        {
+			"filename": "basicArmchair2",
+			"frame": {
+				"x": 0,
+				"y": 120,
+				"w": 90,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "basicArmchair2Overlay",
+			"frame": {
+				"x": 90,
+				"y": 19,
+				"w": 32,
+			    "h": 21 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 32,
+			    "h": 21 
+			},
+			"sourceSize": {
+				"w": 32,
+			    "h": 21 
+			}
+		},
+        {
+			"filename": "basicArmchair3",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 90,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "basicArmchair3Overlay",
+			"frame": {
+				"x": 90,
+				"y": 50,
+				"w": 33,
+			    "h": 19 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+			    "h": 19 
+			},
+			"sourceSize": {
+				"w": 33,
+			    "h": 19 
+			}
+		},
+
+
+
+        {
+            "filename": "basicArmchairRed0",
+            "frame": {
+                "x": 150,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairRed1",
+            "frame": {
+                "x": 150,
+                "y": 60,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairRed1Overlay",
+            "frame": {
+                "x": 240,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairRed2",
+            "frame": {
+                "x": 150,
+                "y": 120,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairRed2Overlay",
+            "frame": {
+                "x": 240,
+                "y": 19,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairRed3",
+            "frame": {
+                "x": 150,
+                "y": 180,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairRed3Overlay",
+            "frame": {
+                "x": 240,
+                "y": 50,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairOrange0",
+            "frame": {
+                "x": 300,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairOrange1",
+            "frame": {
+                "x": 300,
+                "y": 60,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairOrange1Overlay",
+            "frame": {
+                "x": 390,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairOrange2",
+            "frame": {
+                "x": 300,
+                "y": 120,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairOrange2Overlay",
+            "frame": {
+                "x": 390,
+                "y": 19,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairOrange3",
+            "frame": {
+                "x": 300,
+                "y": 180,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairOrange3Overlay",
+            "frame": {
+                "x": 390,
+                "y": 50,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairYellow0",
+            "frame": {
+                "x": 450,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairYellow1",
+            "frame": {
+                "x": 450,
+                "y": 60,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairYellow1Overlay",
+            "frame": {
+                "x": 540,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairYellow2",
+            "frame": {
+                "x": 450,
+                "y": 120,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairYellow2Overlay",
+            "frame": {
+                "x": 540,
+                "y": 19,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairYellow3",
+            "frame": {
+                "x": 450,
+                "y": 180,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairYellow3Overlay",
+            "frame": {
+                "x": 540,
+                "y": 50,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairGreen0",
+            "frame": {
+                "x": 600,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairGreen1",
+            "frame": {
+                "x": 600,
+                "y": 60,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairGreen1Overlay",
+            "frame": {
+                "x": 690,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairGreen2",
+            "frame": {
+                "x": 600,
+                "y": 120,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairGreen2Overlay",
+            "frame": {
+                "x": 690,
+                "y": 19,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairGreen3",
+            "frame": {
+                "x": 600,
+                "y": 180,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairGreen3Overlay",
+            "frame": {
+                "x": 690,
+                "y": 50,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairTeal0",
+            "frame": {
+                "x": 750,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTeal1",
+            "frame": {
+                "x": 750,
+                "y": 60,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTeal1Overlay",
+            "frame": {
+                "x": 840,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairTeal2",
+            "frame": {
+                "x": 750,
+                "y": 120,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTeal2Overlay",
+            "frame": {
+                "x": 840,
+                "y": 19,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairTeal3",
+            "frame": {
+                "x": 750,
+                "y": 180,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTeal3Overlay",
+            "frame": {
+                "x": 840,
+                "y": 50,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairTurquoise0",
+            "frame": {
+                "x": 0,
+                "y": 240,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTurquoise1",
+            "frame": {
+                "x": 0,
+                "y": 300,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTurquoise1Overlay",
+            "frame": {
+                "x": 90,
+                "y": 240,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairTurquoise2",
+            "frame": {
+                "x": 0,
+                "y": 360,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTurquoise2Overlay",
+            "frame": {
+                "x": 90,
+                "y": 259,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairTurquoise3",
+            "frame": {
+                "x": 0,
+                "y": 420,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairTurquoise3Overlay",
+            "frame": {
+                "x": 90,
+                "y": 290,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+        {
+            "filename": "basicArmchairBlue0",
+            "frame": {
+                "x": 150,
+                "y": 240,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlue1",
+            "frame": {
+                "x": 150,
+                "y": 300,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlue1Overlay",
+            "frame": {
+                "x": 240,
+                "y": 240,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairBlue2",
+            "frame": {
+                "x": 150,
+                "y": 360,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlue2Overlay",
+            "frame": {
+                "x": 240,
+                "y": 259,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairBlue3",
+            "frame": {
+                "x": 150,
+                "y": 420,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlue3Overlay",
+            "frame": {
+                "x": 240,
+                "y": 290,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairPurple0",
+            "frame": {
+                "x": 300,
+                "y": 240,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPurple1",
+            "frame": {
+                "x": 300,
+                "y": 300,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPurple1Overlay",
+            "frame": {
+                "x": 390,
+                "y": 240,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairPurple2",
+            "frame": {
+                "x": 300,
+                "y": 360,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPurple2Overlay",
+            "frame": {
+                "x": 390,
+                "y": 259,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairPurple3",
+            "frame": {
+                "x": 300,
+                "y": 420,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPurple3Overlay",
+            "frame": {
+                "x": 390,
+                "y": 290,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairPink0",
+            "frame": {
+                "x": 450,
+                "y": 240,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPink1",
+            "frame": {
+                "x": 450,
+                "y": 300,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPink1Overlay",
+            "frame": {
+                "x": 540,
+                "y": 240,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairPink2",
+            "frame": {
+                "x": 450,
+                "y": 360,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPink2Overlay",
+            "frame": {
+                "x": 540,
+                "y": 259,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairPink3",
+            "frame": {
+                "x": 450,
+                "y": 420,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairPink3Overlay",
+            "frame": {
+                "x": 540,
+                "y": 290,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairFuchsia0",
+            "frame": {
+                "x": 600,
+                "y": 240,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairFuchsia1",
+            "frame": {
+                "x": 600,
+                "y": 300,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairFuchsia1Overlay",
+            "frame": {
+                "x": 690,
+                "y": 240,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairFuchsia2",
+            "frame": {
+                "x": 600,
+                "y": 360,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairFuchsia2Overlay",
+            "frame": {
+                "x": 690,
+                "y": 259,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairFuchsia3",
+            "frame": {
+                "x": 600,
+                "y": 420,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairFuchsia3Overlay",
+            "frame": {
+                "x": 690,
+                "y": 290,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairBlack0",
+            "frame": {
+                "x": 750,
+                "y": 240,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlack1",
+            "frame": {
+                "x": 750,
+                "y": 300,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlack1Overlay",
+            "frame": {
+                "x": 840,
+                "y": 240,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairBlack2",
+            "frame": {
+                "x": 750,
+                "y": 360,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlack2Overlay",
+            "frame": {
+                "x": 840,
+                "y": 259,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairBlack3",
+            "frame": {
+                "x": 750,
+                "y": 420,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBlack3Overlay",
+            "frame": {
+                "x": 840,
+                "y": 290,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },        
+
+
+
+        {
+            "filename": "basicArmchairBeige0",
+            "frame": {
+                "x": 0,
+                "y": 480,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBeige1",
+            "frame": {
+                "x": 0,
+                "y": 540,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBeige1Overlay",
+            "frame": {
+                "x": 90,
+                "y": 480,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairBeige2",
+            "frame": {
+                "x": 0,
+                "y": 600,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBeige2Overlay",
+            "frame": {
+                "x": 90,
+                "y": 499,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairBeige3",
+            "frame": {
+                "x": 0,
+                "y": 660,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBeige3Overlay",
+            "frame": {
+                "x": 90,
+                "y": 530,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+
+
+
+        {
+            "filename": "basicArmchairBrown0",
+            "frame": {
+                "x": 150,
+                "y": 480,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBrown1",
+            "frame": {
+                "x": 150,
+                "y": 540,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBrown1Overlay",
+            "frame": {
+                "x": 240,
+                "y": 480,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        },
+        {
+            "filename": "basicArmchairBrown2",
+            "frame": {
+                "x": 150,
+                "y": 600,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBrown2Overlay",
+            "frame": {
+                "x": 240,
+                "y": 499,
+                "w": 32,
+                "h": 21 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 21 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 21 
+            }
+        },
+        {
+            "filename": "basicArmchairBrown3",
+            "frame": {
+                "x": 150,
+                "y": 660,
+                "w": 90,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 90,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 90,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "basicArmchairBrown3Overlay",
+            "frame": {
+                "x": 240,
+                "y": 530,
+                "w": 33,
+                "h": 19 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 19 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 19 
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "basic-armchair-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 900,
+			"h": 720            
+		},
+		"scale": "1"
+	}
+}

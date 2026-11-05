@@ -1,0 +1,224 @@
+{
+	"frames": [
+		{
+			"filename": "digit0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit1",
+			"frame": {
+				"x": 14,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit2",
+			"frame": {
+				"x": 28,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit3",
+			"frame": {
+				"x": 42,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit4",
+			"frame": {
+				"x": 56,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit5",
+			"frame": {
+				"x": 70,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit6",
+			"frame": {
+				"x": 84,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit7",
+			"frame": {
+				"x": 98,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit8",
+			"frame": {
+				"x": 112,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		},
+		{
+			"filename": "digit9",
+			"frame": {
+				"x": 126,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 14,
+				"h": 20
+			},
+			"sourceSize": {
+				"w": 14,
+				"h": 20
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "scoreboard-digit-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 140,
+			"h": 20
+		},
+		"scale": "1"
+	}
+}

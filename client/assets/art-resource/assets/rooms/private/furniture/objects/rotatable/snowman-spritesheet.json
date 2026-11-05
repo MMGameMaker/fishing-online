@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "snowman0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 42,
+				"h": 60
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 42,
+				"h": 60
+			},
+			"sourceSize": {
+				"w": 42,
+				"h": 60
+			}
+		},
+        {
+			"filename": "snowman1",
+			"frame": {
+				"x": 0,
+				"y": 60,
+				"w": 42,
+				"h": 60
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 42,
+				"h": 60
+			},
+			"sourceSize": {
+				"w": 42,
+				"h": 60
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "snowman-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 42,
+			"h": 120
+		},
+		"scale": "1"
+	}
+}

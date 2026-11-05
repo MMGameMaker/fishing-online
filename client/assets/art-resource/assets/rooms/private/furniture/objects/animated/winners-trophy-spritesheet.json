@@ -1,0 +1,839 @@
+{
+	"frames": [
+        {
+			"filename": "winnersTrophy0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophy0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 43,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim2",
+			"frame": {
+				"x": 0,
+				"y": 86,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim3",
+			"frame": {
+				"x": 0,
+				"y": 129,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim4",
+			"frame": {
+				"x": 0,
+				"y": 172,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim5",
+			"frame": {
+				"x": 0,
+				"y": 215,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim6",
+			"frame": {
+				"x": 0,
+				"y": 258,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim7",
+			"frame": {
+				"x": 0,
+				"y": 301,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim8",
+			"frame": {
+				"x": 0,
+				"y": 344,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim9",
+			"frame": {
+				"x": 0,
+				"y": 387,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim10",
+			"frame": {
+				"x": 0,
+				"y": 430,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+        {
+			"filename": "winnersTrophy0Anim11",
+			"frame": {
+				"x": 0,
+				"y": 473,
+				"w": 25,
+			    "h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 43 
+			}
+		},
+
+
+
+		{
+			"filename": "winnersTrophySilver0",
+			"frame": {
+				"x": 25,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim0",
+			"frame": {
+				"x": 25,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim1",
+			"frame": {
+				"x": 25,
+				"y": 43,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim2",
+			"frame": {
+				"x": 25,
+				"y": 86,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim3",
+			"frame": {
+				"x": 25,
+				"y": 129,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim4",
+			"frame": {
+				"x": 25,
+				"y": 172,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim5",
+			"frame": {
+				"x": 25,
+				"y": 215,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim6",
+			"frame": {
+				"x": 25,
+				"y": 258,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim7",
+			"frame": {
+				"x": 25,
+				"y": 301,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim8",
+			"frame": {
+				"x": 25,
+				"y": 344,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim9",
+			"frame": {
+				"x": 25,
+				"y": 387,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim10",
+			"frame": {
+				"x": 25,
+				"y": 430,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophySilver0Anim11",
+			"frame": {
+				"x": 25,
+				"y": 473,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		
+		
+
+		{
+			"filename": "winnersTrophyBronze0",
+			"frame": {
+				"x": 50,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim0",
+			"frame": {
+				"x": 50,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim1",
+			"frame": {
+				"x": 50,
+				"y": 43,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim2",
+			"frame": {
+				"x": 50,
+				"y": 86,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim3",
+			"frame": {
+				"x": 50,
+				"y": 129,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim4",
+			"frame": {
+				"x": 50,
+				"y": 172,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim5",
+			"frame": {
+				"x": 50,
+				"y": 215,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim6",
+			"frame": {
+				"x": 50,
+				"y": 258,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim7",
+			"frame": {
+				"x": 50,
+				"y": 301,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim8",
+			"frame": {
+				"x": 50,
+				"y": 344,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim9",
+			"frame": {
+				"x": 50,
+				"y": 387,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim10",
+			"frame": {
+				"x": 50,
+				"y": 430,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		},
+		{
+			"filename": "winnersTrophyBronze0Anim11",
+			"frame": {
+				"x": 50,
+				"y": 473,
+				"w": 25,
+				"h": 43 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+				"h": 43 
+			},
+			"sourceSize": {
+				"w": 25,
+				"h": 43 
+			}
+		}		
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "winners-trophy-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 25,
+			"h": 516            
+		},
+		"scale": "1"
+	}
+}

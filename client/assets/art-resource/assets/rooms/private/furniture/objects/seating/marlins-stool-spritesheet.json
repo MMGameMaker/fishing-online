@@ -1,0 +1,98 @@
+{
+	"frames": [
+		{
+			"filename": "marlinsStool0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "marlinsStool1",
+			"frame": {
+				"x": 0,
+				"y": 60,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "marlinsStool2",
+			"frame": {
+				"x": 0,
+				"y": 120,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "marlinsStool3",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "marlins-stool-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 30,
+			"h": 60            
+		},
+		"scale": "1"
+	}
+}

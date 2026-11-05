@@ -51,6 +51,13 @@ export class PlayerController extends Component {
     @property({ tooltip: 'Ban kinh doc cua mat nuoc' })
     public lakeRadiusY = 384;
 
+    @property({
+        tooltip: 'Khoang dem giu nhan vat cach xa mep nuoc. 0 = sat nuoc, 48 = mot o tile. '
+            + 'Duoi 16 thi vai cho nhan vat van dam len mat nuoc, vi ho ve theo o vuong '
+            + 'con va cham tinh theo hinh elip tron.',
+    })
+    public lakeMargin = 48;
+
     @property({ tooltip: 'Chieu ngang khung nhin (design resolution)' })
     public viewWidth = 960;
 
@@ -147,14 +154,17 @@ export class PlayerController extends Component {
     }
 
     /**
-     * Vi tri nay co nam tren mat nuoc khong.
-     * Ban kinh duoc cong them nua be rong nhan vat, de nhan vat dung lai tren bo
-     * thay vi loi nua nguoi xuong nuoc.
+     * Vi tri nay co bi cam khong.
+     *
+     * Ban kinh mat nuoc duoc cong them nua be rong nhan vat va `lakeMargin`,
+     * nen vung cam rong hon mat nuoc ve tren map. Can co dem vi ho duoc ve theo
+     * o vuong 48 don vi con va cham lai tinh theo hinh elip tron, hai hinh nay
+     * khong khop nhau; khong co dem thi vai cho nhan vat dam len mat nuoc.
      */
     private inWater(x: number, y: number): boolean {
         if (this.lakeRadiusX <= 0 || this.lakeRadiusY <= 0) return false;
-        const rx = this.lakeRadiusX + this.halfSize;
-        const ry = this.lakeRadiusY + this.halfSize;
+        const rx = this.lakeRadiusX + this.halfSize + this.lakeMargin;
+        const ry = this.lakeRadiusY + this.halfSize + this.lakeMargin;
         const dx = x / rx;
         const dy = y / ry;
         return dx * dx + dy * dy <= 1;

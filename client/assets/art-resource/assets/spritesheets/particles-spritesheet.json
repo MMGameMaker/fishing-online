@@ -1,0 +1,656 @@
+{
+	"frames": [
+        {
+            "filename": "yarnbloomParticle1",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 7,
+                "h": 12 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 7,
+                "h": 12 
+            },
+            "sourceSize": {
+                "w": 7,
+                "h": 12 
+            }
+        },
+        {
+            "filename": "yarnbloomParticle2",
+            "frame": {
+                "x": 7,
+                "y": 0,
+                "w": 5,
+                "h": 8 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 5,
+                "h": 8 
+            },
+            "sourceSize": {
+                "w": 5,
+                "h": 8 
+            }
+        },
+        {
+            "filename": "yarnbloomParticle3",
+            "frame": {
+                "x": 12,
+                "y": 0,
+                "w": 8,
+                "h": 8 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 8,
+                "h": 8 
+            },
+            "sourceSize": {
+                "w": 8,
+                "h": 8 
+            }
+        },
+
+
+
+        
+        {
+            "filename": "dragonEggPurpleParticle1",
+            "frame": {
+                "x": 20,
+                "y": 0,
+                "w": 10,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 10,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 10,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "dragonEggPurpleParticle2",
+            "frame": {
+                "x": 30,
+                "y": 0,
+                "w": 12,
+                "h": 13 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 12,
+                "h": 13 
+            },
+            "sourceSize": {
+                "w": 12,
+                "h": 13 
+            }
+        },
+        {
+            "filename": "dragonEggPurpleParticle3",
+            "frame": {
+                "x": 42,
+                "y": 0,
+                "w": 14,
+                "h": 15 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 14,
+                "h": 15 
+            },
+            "sourceSize": {
+                "w": 14,
+                "h": 15 
+            }
+        },
+        {
+            "filename": "dragonEggPurpleParticle4",
+            "frame": {
+                "x": 56,
+                "y": 0,
+                "w": 11,
+                "h": 12 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 11,
+                "h": 12 
+            },
+            "sourceSize": {
+                "w": 11,
+                "h": 12 
+            }
+        },
+        {
+            "filename": "dragonEggPurpleParticle5",
+            "frame": {
+                "x": 67,
+                "y": 0,
+                "w": 7,
+                "h": 10 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 7,
+                "h": 10 
+            },
+            "sourceSize": {
+                "w": 7,
+                "h": 10 
+            }
+        },
+
+
+
+        {
+            "filename": "dragonEggOrangeParticle1",
+            "frame": {
+                "x": 20,
+                "y": 16,
+                "w": 10,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 10,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 10,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "dragonEggOrangeParticle2",
+            "frame": {
+                "x": 30,
+                "y": 16,
+                "w": 12,
+                "h": 13 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 12,
+                "h": 13 
+            },
+            "sourceSize": {
+                "w": 12,
+                "h": 13 
+            }
+        },
+        {
+            "filename": "dragonEggOrangeParticle3",
+            "frame": {
+                "x": 42,
+                "y": 16,
+                "w": 14,
+                "h": 15 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 14,
+                "h": 15 
+            },
+            "sourceSize": {
+                "w": 14,
+                "h": 15 
+            }
+        },
+        {
+            "filename": "dragonEggOrangeParticle4",
+            "frame": {
+                "x": 56,
+                "y": 16,
+                "w": 11,
+                "h": 12 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 11,
+                "h": 12 
+            },
+            "sourceSize": {
+                "w": 11,
+                "h": 12 
+            }
+        },
+        {
+            "filename": "dragonEggOrangeParticle5",
+            "frame": {
+                "x": 67,
+                "y": 16,
+                "w": 7,
+                "h": 10 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 7,
+                "h": 10 
+            },
+            "sourceSize": {
+                "w": 7,
+                "h": 10 
+            }
+        },
+        {
+            "filename": "miniConfettiParticle1",
+            "frame": {
+                "x": 74,
+                "y": 1,
+                "w": 4,
+                "h": 5 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 5 
+            },
+            "sourceSize": {
+                "w": 4,
+                "h": 5 
+            }
+        },
+        {
+            "filename": "miniConfettiParticle2",
+            "frame": {
+                "x": 78,
+                "y": 0,
+                "w": 3,
+                "h": 5 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 3,
+                "h": 5 
+            },
+            "sourceSize": {
+                "w": 3,
+                "h": 5 
+            }
+        },
+        {
+            "filename": "miniConfettiParticle3",
+            "frame": {
+                "x": 81,
+                "y": 1,
+                "w": 4,
+                "h": 5 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 5 
+            },
+            "sourceSize": {
+                "w": 4,
+                "h": 5
+            }
+        },
+        {
+            "filename": "miniConfettiParticle4",
+            "frame": {
+                "x": 74,
+                "y": 5,
+                "w": 5,
+                "h": 3
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 5,
+                "h": 3 
+            },
+            "sourceSize": {
+                "w": 5,
+                "h": 3
+            }
+        },
+        {
+            "filename": "miniConfettiParticle5",
+            "frame": {
+                "x": 80,
+                "y": 5,
+                "w": 5,
+                "h": 3
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 5,
+                "h": 3 
+            },
+            "sourceSize": {
+                "w": 5,
+                "h": 3
+            }
+        },
+        {
+            "filename": "miniConfettiParticle6",
+            "frame": {
+                "x": 74,
+                "y": 8,
+                "w": 4,
+                "h": 4
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 4 
+            },
+            "sourceSize": {
+                "w": 4,
+                "h": 4
+            }
+        },
+        {
+            "filename": "miniConfettiParticle7",
+            "frame": {
+                "x": 78,
+                "y": 8,
+                "w": 3,
+                "h": 5
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 3,
+                "h": 5
+            },
+            "sourceSize": {
+                "w": 3,
+                "h": 5
+            }
+        },
+        {
+            "filename": "miniConfettiParticle8",
+            "frame": {
+                "x": 81,
+                "y": 8,
+                "w": 4,
+                "h": 4
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 4
+            },
+            "sourceSize": {
+                "w": 4,
+                "h": 4
+            }
+        },
+        {
+            "filename": "hyperionSparkPink",
+            "frame": {
+                "x": 85,
+                "y": 0,
+                "w": 17,
+                "h": 17
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 17,
+                "h": 17
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 17
+            }
+        },
+        {
+            "filename": "hyperionSparkBlue",
+            "frame": {
+                "x": 102,
+                "y": 0,
+                "w": 17,
+                "h": 17
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 17,
+                "h": 17
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 17
+            }
+        },
+
+
+        {
+            "filename": "nestedEggParticle1",
+            "frame": {
+                "x": 20,
+                "y": 32,
+                "w": 10,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 10,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 10,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "nestedEggParticle2",
+            "frame": {
+                "x": 30,
+                "y": 32,
+                "w": 12,
+                "h": 13 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 12,
+                "h": 13 
+            },
+            "sourceSize": {
+                "w": 12,
+                "h": 13 
+            }
+        },
+        {
+            "filename": "nestedEggParticle3",
+            "frame": {
+                "x": 42,
+                "y": 32,
+                "w": 14,
+                "h": 15 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 14,
+                "h": 15 
+            },
+            "sourceSize": {
+                "w": 14,
+                "h": 15 
+            }
+        },
+        {
+            "filename": "nestedEggParticle4",
+            "frame": {
+                "x": 56,
+                "y": 32,
+                "w": 11,
+                "h": 12 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 11,
+                "h": 12 
+            },
+            "sourceSize": {
+                "w": 11,
+                "h": 12 
+            }
+        },
+        {
+            "filename": "nestedEggParticle5",
+            "frame": {
+                "x": 67,
+                "y": 32,
+                "w": 7,
+                "h": 10 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 7,
+                "h": 10 
+            },
+            "sourceSize": {
+                "w": 7,
+                "h": 10 
+            }
+        },
+
+
+
+		{
+            "filename": "snowParticle1",
+            "frame": {
+                "x": 74,
+                "y": 17,
+                "w": 6,
+                "h": 6 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 6,
+                "h": 6 
+            },
+            "sourceSize": {
+                "w": 6,
+                "h": 6 
+            }
+        },
+		{
+            "filename": "snowParticle2",
+            "frame": {
+                "x": 80,
+                "y": 17,
+                "w": 4,
+                "h": 4 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 4,
+                "h": 4 
+            },
+            "sourceSize": {
+                "w": 4,
+                "h": 4 
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "particles-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 85,
+			"h": 32            
+		},
+		"scale": "1"
+	}
+}

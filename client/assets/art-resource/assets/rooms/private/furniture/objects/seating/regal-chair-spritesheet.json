@@ -1,0 +1,911 @@
+{
+	"frames": [
+		{
+			"filename": "regalChair0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "regalChair1",
+			"frame": {
+				"x": 0,
+				"y": 60,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "regalChair1Overlay",
+			"frame": {
+				"x": 34,
+				"y": 0,
+				"w": 24,
+			    "h": 16 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+			    "h": 16 
+			},
+			"sourceSize": {
+				"w": 24,
+			    "h": 16 
+			}
+		},
+        {
+			"filename": "regalChair2",
+			"frame": {
+				"x": 0,
+				"y": 120,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "regalChair2Overlay",
+			"frame": {
+				"x": 32,
+				"y": 16,
+				"w": 26,
+			    "h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 31 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 31 
+			}
+		},
+        {
+			"filename": "regalChair3",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "regalChair3Overlay",
+			"frame": {
+				"x": 32,
+				"y": 47,
+				"w": 24,
+			    "h": 16 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 24,
+			    "h": 16 
+			},
+			"sourceSize": {
+				"w": 24,
+			    "h": 16
+			}
+		},
+
+
+
+        {
+            "filename": "regalChairPurple0",
+            "frame": {
+                "x": 60,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairPurple1",
+            "frame": {
+                "x": 60,
+                "y": 60,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairPurple1Overlay",
+            "frame": {
+                "x": 94,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "regalChairPurple2",
+            "frame": {
+                "x": 60,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairPurple2Overlay",
+            "frame": {
+                "x": 92,
+                "y": 16,
+                "w": 26,
+                "h": 31 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31 
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31 
+            }
+        },
+        {
+            "filename": "regalChairPurple3",
+            "frame": {
+                "x": 60,
+                "y": 180,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairPurple3Overlay",
+            "frame": {
+                "x": 92,
+                "y": 47,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16
+            }
+        },
+        
+        
+
+        {
+            "filename": "regalChairGreen0",
+            "frame": {
+                "x": 120,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGreen1",
+            "frame": {
+                "x": 120,
+                "y": 60,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGreen1Overlay",
+            "frame": {
+                "x": 154,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "regalChairGreen2",
+            "frame": {
+                "x": 120,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGreen2Overlay",
+            "frame": {
+                "x": 152,
+                "y": 16,
+                "w": 26,
+                "h": 31 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31 
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31 
+            }
+        },
+        {
+            "filename": "regalChairGreen3",
+            "frame": {
+                "x": 120,
+                "y": 180,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGreen3Overlay",
+            "frame": {
+                "x": 152,
+                "y": 47,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16
+            }
+        },
+        
+        
+
+        {
+            "filename": "regalChairHotPink0",
+            "frame": {
+                "x": 180,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairHotPink1",
+            "frame": {
+                "x": 180,
+                "y": 60,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairHotPink1Overlay",
+            "frame": {
+                "x": 214,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "regalChairHotPink2",
+            "frame": {
+                "x": 180,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairHotPink2Overlay",
+            "frame": {
+                "x": 212,
+                "y": 16,
+                "w": 26,
+                "h": 31 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31 
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31 
+            }
+        },
+        {
+            "filename": "regalChairHotPink3",
+            "frame": {
+                "x": 180,
+                "y": 180,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairHotPink3Overlay",
+            "frame": {
+                "x": 212,
+                "y": 47,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16
+            }
+        },
+        
+        
+
+        {
+            "filename": "regalChairMidnight0",
+            "frame": {
+                "x": 240,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairMidnight1",
+            "frame": {
+                "x": 240,
+                "y": 60,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairMidnight1Overlay",
+            "frame": {
+                "x": 274,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "regalChairMidnight2",
+            "frame": {
+                "x": 240,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairMidnight2Overlay",
+            "frame": {
+                "x": 272,
+                "y": 16,
+                "w": 26,
+                "h": 31 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31 
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31 
+            }
+        },
+        {
+            "filename": "regalChairMidnight3",
+            "frame": {
+                "x": 240,
+                "y": 180,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairMidnight3Overlay",
+            "frame": {
+                "x": 272,
+                "y": 47,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16
+            }
+        },
+
+
+
+        {
+            "filename": "regalChairGold0",
+            "frame": {
+                "x": 300,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGold1",
+            "frame": {
+                "x": 300,
+                "y": 60,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGold1Overlay",
+            "frame": {
+                "x": 334,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16 
+            }
+        },
+        {
+            "filename": "regalChairGold2",
+            "frame": {
+                "x": 300,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGold2Overlay",
+            "frame": {
+                "x": 332,
+                "y": 16,
+                "w": 26,
+                "h": 31 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 31 
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 31 
+            }
+        },
+        {
+            "filename": "regalChairGold3",
+            "frame": {
+                "x": 300,
+                "y": 180,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "regalChairGold3Overlay",
+            "frame": {
+                "x": 332,
+                "y": 47,
+                "w": 24,
+                "h": 16 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 24,
+                "h": 16 
+            },
+            "sourceSize": {
+                "w": 24,
+                "h": 16
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "regal-chair-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 300,
+			"h": 240            
+		},
+		"scale": "1"
+	}
+}

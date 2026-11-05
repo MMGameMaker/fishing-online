@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "wallSegmentTallCurvedCapped0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 61
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 61
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 61
+			}
+		},
+        {
+			"filename": "wallSegmentTallCurvedCapped1",
+			"frame": {
+				"x": 30,
+				"y": 0,
+				"w": 30,
+				"h": 61
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 61
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 61
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "wall-segment-tall-curved-capped-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 60,
+			"h": 61
+		},
+		"scale": "1"
+	}
+}

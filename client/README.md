@@ -20,7 +20,24 @@ Scene
    └─ HUD             (Label hướng dẫn)
 ```
 
-Map là một hồ nước hình elip, có viền đá quanh hồ, nền đất rải sỏi và tảng đá, và viền đá quanh mép map. Nhân vật **không đi xuống nước được** và trượt dọc theo bờ khi đi sát mép hồ.
+Map là một hồ nước hình elip, có viền đá quanh hồ, nền đất rải sỏi và tảng đá, và viền đá quanh mép map. Nhân vật **không đi xuống nước được** và trượt dọc theo bờ khi đi sát vùng cấm.
+
+### Vùng cấm quanh hồ
+
+Hồ được **vẽ theo ô vuông 48 đơn vị**, còn va chạm lại tính theo **hình elip trơn**. Hai hình này không khớp nhau, sai lệch cỡ nửa ô tức 24 đơn vị. Vì vậy cần `lakeMargin` làm đệm, nếu không vài chỗ nhân vật sẽ dẫm lên mặt nước.
+
+Bán kính vùng cấm bằng `lakeRadius` cộng `halfSize` cộng `lakeMargin`.
+
+| `lakeMargin` | Chỗ dẫm lên nước | Khoảng cách tới mép nước |
+| --- | --- | --- |
+| 0 | còn nhiều | 2 đến 50 |
+| 16 | hết | 8 đến 66 |
+| 48 (đang dùng) | hết | 42 đến 100 |
+| 96 | hết | 92 đến 152 |
+
+Dưới 16 thì không bảo đảm được. Khoảng cách dao động vì mép hồ là bậc thang chứ không trơn.
+
+Muốn nhân vật đứng **sát mép nước** chứ không phải cách một quãng, cách đúng là bỏ hẳn va chạm hình elip và sinh lưới va chạm theo ô từ `tools/gen-map.js`, vì khi đó va chạm khớp với hình vẽ theo đúng định nghĩa.
 
 Joystick vẫn dùng sprite **built-in của Cocos** `default_radio_button_off` cho hai vòng tròn.
 
@@ -122,6 +139,7 @@ Node `Player`, component `PlayerController`:
 | `mapWidth` / `mapHeight` | 1920 / 1440 | Kích thước map, dùng để kẹp biên |
 | `edgePadding` | 48 | Bề dày viền đá quanh mép map |
 | `lakeRadiusX` / `lakeRadiusY` | 624 / 384 | Bán kính mặt nước; đặt 0 nếu map không có hồ |
+| `lakeMargin` | 48 | Khoảng đệm giữ nhân vật cách xa mép nước, 48 là đúng một ô tile |
 | `viewWidth` / `viewHeight` | 960 / 640 | Khung nhìn, dùng để kẹp camera |
 | `halfSize` | 20 | Nửa bề rộng va chạm, hẹp hơn sprite 96px cho sát thân nhân vật |
 

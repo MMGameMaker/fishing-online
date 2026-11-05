@@ -1,0 +1,98 @@
+{
+	"frames": [
+        {
+			"filename": "deckTile0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 31 
+			}
+		},
+        {
+			"filename": "deckTile1",
+			"frame": {
+				"x": 31,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 31 
+			}
+		},
+        {
+			"filename": "deckTile2",
+			"frame": {
+				"x": 62,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 31 
+			}
+		},
+        {
+			"filename": "deckTile3",
+			"frame": {
+				"x": 93,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 31 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 31 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "deck-tile-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 124,
+			"h": 31            
+		},
+		"scale": "1"
+	}
+}

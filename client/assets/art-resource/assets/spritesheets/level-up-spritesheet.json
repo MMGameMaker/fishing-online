@@ -1,0 +1,182 @@
+{
+	"frames": [
+		{
+			"filename": "levelUp0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		},
+        {
+			"filename": "levelUp1",
+			"frame": {
+				"x": 61,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		},
+        {
+			"filename": "levelUp2",
+			"frame": {
+				"x": 122,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		},
+        {
+			"filename": "levelUp3",
+			"frame": {
+				"x": 183,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		},
+        {
+			"filename": "levelUp4",
+			"frame": {
+				"x": 244,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		},
+        {
+			"filename": "levelUp5",
+			"frame": {
+				"x": 305,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		},
+        {
+			"filename": "levelUp6",
+			"frame": {
+				"x": 366,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		},
+        {
+			"filename": "levelUp7",
+			"frame": {
+				"x": 427,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 61,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 61,
+			    "h": 99 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "level-up-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 488,
+			"h": 99            
+		},
+		"scale": "1"
+	}
+}

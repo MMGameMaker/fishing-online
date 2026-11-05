@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "farmhouseCounterStraight0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "farmhouseCounterStraight1",
+			"frame": {
+				"x": 0,
+				"y": 60,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "farmhouse-counter-straight-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 30,
+			"h": 120            
+		},
+		"scale": "1"
+	}
+}

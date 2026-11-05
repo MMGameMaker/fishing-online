@@ -1,0 +1,278 @@
+{
+	"frames": [
+		{
+			"filename": "pumpkin0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+        {
+			"filename": "pumpkin1",
+			"frame": {
+				"x": 0,
+				"y": 45,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+        {
+			"filename": "pumpkin2",
+			"frame": {
+				"x": 0,
+				"y": 90,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+        {
+			"filename": "pumpkin3",
+			"frame": {
+				"x": 0,
+				"y": 135,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+
+
+
+        {
+			"filename": "pumpkin0Anim0",
+			"frame": {
+				"x": 46,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+        {
+			"filename": "pumpkin0Anim1",
+			"frame": {
+				"x": 92,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+
+
+
+        {
+			"filename": "pumpkin1Anim0",
+			"frame": {
+				"x": 46,
+				"y": 45,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+        {
+			"filename": "pumpkin1Anim1",
+			"frame": {
+				"x": 92,
+				"y": 45,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+
+
+
+        {
+			"filename": "pumpkin2Anim0",
+			"frame": {
+				"x": 46,
+				"y": 90,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+        {
+			"filename": "pumpkin2Anim1",
+			"frame": {
+				"x": 92,
+				"y": 90,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+
+
+
+        {
+			"filename": "pumpkin3Anim0",
+			"frame": {
+				"x": 46,
+				"y": 135,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		},
+        {
+			"filename": "pumpkin3Anim1",
+			"frame": {
+				"x": 92,
+				"y": 135,
+				"w": 46,
+				"h": 45
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 46,
+				"h": 45
+			},
+			"sourceSize": {
+				"w": 46,
+				"h": 45
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "pumpkin-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 138,
+			"h": 180
+		},
+		"scale": "1"
+	}
+}

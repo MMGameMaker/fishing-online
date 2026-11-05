@@ -1,0 +1,329 @@
+{
+	"frames": [
+		{
+            "filename": "pumpkinLeaderboard0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard1",
+            "frame": {
+                "x": 0,
+                "y": 63,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard2",
+            "frame": {
+                "x": 0,
+                "y": 126,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard3",
+            "frame": {
+                "x": 0,
+                "y": 189,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard4",
+            "frame": {
+                "x": 0,
+                "y": 252,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard5",
+            "frame": {
+                "x": 0,
+                "y": 315,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard6",
+            "frame": {
+                "x": 0,
+                "y": 378,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard7",
+            "frame": {
+                "x": 0,
+                "y": 441,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard8",
+            "frame": {
+                "x": 0,
+                "y": 504,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard9",
+            "frame": {
+                "x": 0,
+                "y": 567,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard10",
+            "frame": {
+                "x": 0,
+                "y": 630,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard11",
+            "frame": {
+                "x": 0,
+                "y": 693,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard12",
+            "frame": {
+                "x": 0,
+                "y": 756,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard13",
+            "frame": {
+                "x": 0,
+                "y": 819,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        },
+        {
+            "filename": "pumpkinLeaderboard14",
+            "frame": {
+                "x": 0,
+                "y": 882,
+                "w": 55,
+                "h": 63
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 55,
+                "h": 63
+            },
+            "sourceSize": {
+                "w": 55,
+                "h": 63
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "pumpkin-leaderboard-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 55,
+			"h": 945
+		},
+		"scale": "1"
+	}
+}

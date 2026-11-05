@@ -1,0 +1,560 @@
+{
+	"frames": [
+		{
+			"filename": "yarnBlockWhite0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 47 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 47 
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 47 
+			}
+		},
+        {
+			"filename": "yarnBlockWhite1",
+			"frame": {
+				"x": 0,
+				"y": 47,
+				"w": 35,
+			    "h": 47 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 47 
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 47 
+			}
+		},
+        {
+            "filename": "yarnBlockBrown0",
+            "frame": {
+                "x": 35,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockBrown1",
+            "frame": {
+                "x": 35,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockBlack0",
+            "frame": {
+                "x": 70,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockBlack1",
+            "frame": {
+                "x": 70,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockTurquoise0",
+            "frame": {
+                "x": 105,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockTurquoise1",
+            "frame": {
+                "x": 105,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockTeal0",
+            "frame": {
+                "x": 140,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockTeal1",
+            "frame": {
+                "x": 140,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockBlue0",
+            "frame": {
+                "x": 175,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockBlue1",
+            "frame": {
+                "x": 175,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockRed0",
+            "frame": {
+                "x": 210,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockRed1",
+            "frame": {
+                "x": 210,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockPink0",
+            "frame": {
+                "x": 245,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockPink1",
+            "frame": {
+                "x": 245,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockFuchsia0",
+            "frame": {
+                "x": 280,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockFuchsia1",
+            "frame": {
+                "x": 280,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockPurple0",
+            "frame": {
+                "x": 315,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockPurple1",
+            "frame": {
+                "x": 315,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockOrange0",
+            "frame": {
+                "x": 350,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockOrange1",
+            "frame": {
+                "x": 350,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockGreen0",
+            "frame": {
+                "x": 385,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockGreen1",
+            "frame": {
+                "x": 385,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockGold0",
+            "frame": {
+                "x": 420,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnBlockGold1",
+            "frame": {
+                "x": 420,
+                "y": 47,
+                "w": 35,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 35,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 35,
+                "h": 47
+            }
+        }                
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "yarn-blocks-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 455,
+			"h": 94            
+		},
+		"scale": "1"
+	}
+}

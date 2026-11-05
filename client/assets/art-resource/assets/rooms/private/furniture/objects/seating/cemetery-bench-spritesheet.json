@@ -1,0 +1,98 @@
+{
+	"frames": [
+		{
+			"filename": "cemeteryBench0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 120,
+			    "h": 90 
+			}
+		},
+        {
+			"filename": "cemeteryBench1",
+			"frame": {
+				"x": 0,
+				"y": 90,
+				"w": 120,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 120,
+			    "h": 90 
+			}
+		},
+        {
+			"filename": "cemeteryBench2",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 120,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 120,
+			    "h": 90 
+			}
+		},
+        {
+			"filename": "cemeteryBench3",
+			"frame": {
+				"x": 0,
+				"y": 270,
+				"w": 120,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 120,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 120,
+			    "h": 90 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "cemetery-bench-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 120,
+			"h": 360            
+		},
+		"scale": "1"
+	}
+}

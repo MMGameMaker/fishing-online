@@ -1,0 +1,275 @@
+{
+	"frames": [
+		{
+            "filename": "tillSoil",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "tillSoilHover",
+            "frame": {
+                "x": 100,
+                "y": 0,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "tillSoilPressed",
+            "frame": {
+                "x": 200,
+                "y": 0,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+
+
+
+        {
+            "filename": "sowSeed",
+            "frame": {
+                "x": 0,
+                "y": 46,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "sowSeedHover",
+            "frame": {
+                "x": 100,
+                "y": 46,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "sowSeedPressed",
+            "frame": {
+                "x": 200,
+                "y": 46,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+
+
+
+        {
+            "filename": "reset",
+            "frame": {
+                "x": 0,
+                "y": 92,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "resetHover",
+            "frame": {
+                "x": 100,
+                "y": 92,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "resetPressed",
+            "frame": {
+                "x": 200,
+                "y": 92,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+
+
+
+        {
+            "filename": "inspect",
+            "frame": {
+                "x": 0,
+                "y": 138,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "inspectHover",
+            "frame": {
+                "x": 100,
+                "y": 138,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        },
+        {
+            "filename": "inspectPressed",
+            "frame": {
+                "x": 200,
+                "y": 138,
+                "w": 100,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 100,
+                "h": 88
+            },
+            "sourceSize": {
+                "w": 100,
+                "h": 46
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "plot-interaction-buttons-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 300,
+			"h": 184
+		},
+		"scale": "1"
+	}
+}

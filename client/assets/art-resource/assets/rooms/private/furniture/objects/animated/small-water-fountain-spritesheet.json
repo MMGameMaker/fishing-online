@@ -1,0 +1,119 @@
+{
+	"frames": [
+		{
+			"filename": "smallWaterFountain0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+				"h": 41
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+				"h": 41
+			},
+			"sourceSize": {
+				"w": 28,
+				"h": 41
+			}
+		},
+        {
+			"filename": "smallWaterFountain0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 41,
+				"w": 28,
+				"h": 41
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+				"h": 41
+			},
+			"sourceSize": {
+				"w": 28,
+				"h": 41
+			}
+		},
+        {
+			"filename": "smallWaterFountain0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 82,
+				"w": 28,
+				"h": 41
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+				"h": 41
+			},
+			"sourceSize": {
+				"w": 28,
+				"h": 41
+			}
+		},
+        {
+			"filename": "smallWaterFountain0Anim2",
+			"frame": {
+				"x": 0,
+				"y": 123,
+				"w": 28,
+				"h": 41
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+				"h": 41
+			},
+			"sourceSize": {
+				"w": 28,
+				"h": 41
+			}
+		},
+        {
+			"filename": "smallWaterFountain0Anim3",
+			"frame": {
+				"x": 0,
+				"y": 164,
+				"w": 28,
+				"h": 41
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+				"h": 41
+			},
+			"sourceSize": {
+				"w": 28,
+				"h": 41
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "small-water-fountain-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 28,
+			"h": 205
+		},
+		"scale": "1"
+	}
+}

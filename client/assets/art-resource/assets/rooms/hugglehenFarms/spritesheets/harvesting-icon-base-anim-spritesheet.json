@@ -1,0 +1,215 @@
+{
+	"frames": [
+		{
+            "filename": "base-0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-1",
+            "frame": {
+                "x": 0,
+                "y": 41,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-2",
+            "frame": {
+                "x": 0,
+                "y": 82,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-3",
+            "frame": {
+                "x": 0,
+                "y": 123,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-4",
+            "frame": {
+                "x": 0,
+                "y": 164,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-5",
+            "frame": {
+                "x": 0,
+                "y": 205,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-6",
+            "frame": {
+                "x": 0,
+                "y": 246,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-7",
+            "frame": {
+                "x": 0,
+                "y": 287,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-8",
+            "frame": {
+                "x": 0,
+                "y": 328,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }, {
+            "filename": "base-9",
+            "frame": {
+                "x": 0,
+                "y": 369,
+                "w": 31,
+                "h": 41
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 31,
+                "h": 41
+            },
+            "sourceSize": {
+                "w": 31,
+                "h": 41
+            }
+        }
+	],
+    "meta": {
+		"version": "1.0",
+		"image": "harvesting-icon-base-anim-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 31,
+			"h": 410
+		},
+		"scale": "1"
+	}
+}

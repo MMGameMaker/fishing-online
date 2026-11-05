@@ -1,0 +1,77 @@
+{
+	"frames": [
+		{
+            "filename": "fill-water-btn-normal",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 60
+            }
+        },
+        {
+            "filename": "fill-water-btn-hover",
+            "frame": {
+                "x": 0,
+                "y": 60,
+                "w": 48,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 60
+            }
+        },
+        {
+            "filename": "fill-water-btn-pressed",
+            "frame": {
+                "x": 0,
+                "y": 120,
+                "w": 48,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 60
+            }
+        }
+	],
+    "meta": {
+		"version": "1.0",
+		"image": "watering-can-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 48,
+			"h": 180
+		},
+		"scale": "1"
+	}
+}

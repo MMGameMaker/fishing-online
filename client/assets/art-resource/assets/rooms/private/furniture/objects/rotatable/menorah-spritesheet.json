@@ -1,0 +1,143 @@
+{
+	"frames": [
+		{
+			"filename": "menorah0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 52
+			}
+		},
+        {
+			"filename": "menorah0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 52,
+				"w": 53,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 52
+			}
+		},
+        {
+			"filename": "menorah0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 104,
+				"w": 53,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 52
+			}
+		},
+        
+        
+
+        {
+			"filename": "menorah1",
+			"frame": {
+				"x": 53,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 52
+			}
+		},
+        {
+			"filename": "menorah1Anim0",
+			"frame": {
+				"x": 53,
+				"y": 52,
+				"w": 53,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 52
+			}
+		},
+        {
+			"filename": "menorah1Anim1",
+			"frame": {
+				"x": 53,
+				"y": 104,
+				"w": 53,
+				"h": 52
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 53,
+				"h": 52
+			},
+			"sourceSize": {
+				"w": 53,
+				"h": 52
+			}
+		} 
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "menorah-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 106,
+			"h": 156
+		},
+		"scale": "1"
+	}
+}

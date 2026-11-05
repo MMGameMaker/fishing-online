@@ -1,0 +1,446 @@
+{
+	"frames": [
+		{
+			"filename": "stove0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove1",
+			"frame": {
+				"x": 0,
+				"y": 60,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove2",
+			"frame": {
+				"x": 0,
+				"y": 120,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove3",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+
+
+
+        {
+			"filename": "stove0Anim0",
+			"frame": {
+				"x": 31,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove0Anim1",
+			"frame": {
+				"x": 62,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove0Anim2",
+			"frame": {
+				"x": 93,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove0Anim3",
+			"frame": {
+				"x": 124,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+
+
+
+        {
+			"filename": "stove1Anim0",
+			"frame": {
+				"x": 31,
+				"y": 60,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove1Anim1",
+			"frame": {
+				"x": 62,
+				"y": 60,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove1Anim2",
+			"frame": {
+				"x": 93,
+				"y": 60,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove1Anim3",
+			"frame": {
+				"x": 124,
+				"y": 60,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+
+
+
+        {
+			"filename": "stove2Anim0",
+			"frame": {
+				"x": 31,
+				"y": 120,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove2Anim1",
+			"frame": {
+				"x": 62,
+				"y": 120,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove2Anim2",
+			"frame": {
+				"x": 93,
+				"y": 120,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove2Anim3",
+			"frame": {
+				"x": 124,
+				"y": 120,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+
+
+
+        {
+			"filename": "stove3Anim0",
+			"frame": {
+				"x": 31,
+				"y": 180,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove3Anim1",
+			"frame": {
+				"x": 62,
+				"y": 180,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove3Anim2",
+			"frame": {
+				"x": 93,
+				"y": 180,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		},
+        {
+			"filename": "stove3Anim3",
+			"frame": {
+				"x": 124,
+				"y": 180,
+				"w": 31,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 31,
+			    "h": 60 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "stove-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 155,
+			"h": 240            
+		},
+		"scale": "1"
+	}
+}
