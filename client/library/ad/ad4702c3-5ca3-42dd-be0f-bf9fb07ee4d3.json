@@ -1,0 +1,273 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "snow-machine-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "snowMachine0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 112,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 168,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 224,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine1",
+        "frame": {
+          "x": 46,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine1Anim0",
+        "frame": {
+          "x": 46,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine1Anim1",
+        "frame": {
+          "x": 46,
+          "y": 56,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine1Anim2",
+        "frame": {
+          "x": 46,
+          "y": 112,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine1Anim3",
+        "frame": {
+          "x": 46,
+          "y": 168,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      },
+      {
+        "filename": "snowMachine1Anim4",
+        "frame": {
+          "x": 46,
+          "y": 224,
+          "w": 46,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 56
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "snow-machine-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 92,
+        "h": 280
+      },
+      "scale": "1"
+    }
+  }
+}

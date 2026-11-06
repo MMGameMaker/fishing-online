@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fishing-sign-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "fishingSign0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 75
+        }
+      },
+      {
+        "filename": "fishingSign1",
+        "frame": {
+          "x": 0,
+          "y": 75,
+          "w": 47,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 75
+        }
+      },
+      {
+        "filename": "fishingSign2",
+        "frame": {
+          "x": 0,
+          "y": 150,
+          "w": 47,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 75
+        }
+      },
+      {
+        "filename": "fishingSign3",
+        "frame": {
+          "x": 0,
+          "y": 225,
+          "w": 47,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 75
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "fishing-sign-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 47,
+        "h": 300
+      },
+      "scale": "1"
+    }
+  }
+}

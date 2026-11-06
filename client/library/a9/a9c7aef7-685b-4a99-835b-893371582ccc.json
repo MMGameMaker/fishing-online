@@ -1,0 +1,84 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "blood-spatter-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "bloodSpatter0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "bloodSpatter1",
+        "frame": {
+          "x": 30,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "bloodSpatter2",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "blood-spatter-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 90,
+        "h": 30
+      },
+      "scale": "1"
+    }
+  }
+}

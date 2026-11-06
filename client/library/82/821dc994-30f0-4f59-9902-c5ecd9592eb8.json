@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "sun-mobile-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "sunMobile0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 56
+        }
+      },
+      {
+        "filename": "sunMobile1",
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "w": 38,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 56
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "sun-mobile-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 38,
+        "h": 112
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,819 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "spell-book-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "spellBook0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option1",
+        "frame": {
+          "x": 90,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option2",
+        "frame": {
+          "x": 90,
+          "y": 120,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option3",
+        "frame": {
+          "x": 90,
+          "y": 240,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option4",
+        "frame": {
+          "x": 90,
+          "y": 360,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option5",
+        "frame": {
+          "x": 90,
+          "y": 480,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option6",
+        "frame": {
+          "x": 90,
+          "y": 600,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option7",
+        "frame": {
+          "x": 90,
+          "y": 720,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Option8",
+        "frame": {
+          "x": 90,
+          "y": 840,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 240,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 480,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 600,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 720,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 840,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 960,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 1080,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 1200,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 1320,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 1440,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 1560,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 1680,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 1800,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 1920,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim16",
+        "frame": {
+          "x": 0,
+          "y": 2040,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim17",
+        "frame": {
+          "x": 0,
+          "y": 2160,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim18",
+        "frame": {
+          "x": 0,
+          "y": 2280,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim19",
+        "frame": {
+          "x": 0,
+          "y": 2400,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim20",
+        "frame": {
+          "x": 0,
+          "y": 2520,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim21",
+        "frame": {
+          "x": 0,
+          "y": 2640,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim22",
+        "frame": {
+          "x": 0,
+          "y": 2760,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim23",
+        "frame": {
+          "x": 0,
+          "y": 2880,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim24",
+        "frame": {
+          "x": 0,
+          "y": 3000,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim25",
+        "frame": {
+          "x": 0,
+          "y": 3120,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim26",
+        "frame": {
+          "x": 0,
+          "y": 3240,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim27",
+        "frame": {
+          "x": 0,
+          "y": 3360,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      },
+      {
+        "filename": "spellBook0Anim28",
+        "frame": {
+          "x": 0,
+          "y": 3480,
+          "w": 90,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 120
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "spell-book-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 180,
+        "h": 3600
+      },
+      "scale": "1"
+    }
+  }
+}

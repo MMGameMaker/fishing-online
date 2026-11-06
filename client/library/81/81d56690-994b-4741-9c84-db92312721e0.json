@@ -1,0 +1,168 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "pumpkin-sofa-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "pumpkinSofa0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "pumpkinSofa1",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "pumpkinSofa2",
+        "frame": {
+          "x": 0,
+          "y": 240,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "pumpkinSofa3",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "pumpkinSofa1Overlay",
+        "frame": {
+          "x": 120,
+          "y": 53,
+          "w": 37,
+          "h": 23
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 23
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 23
+        }
+      },
+      {
+        "filename": "pumpkinSofa2Overlay",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 62,
+          "h": 53
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 53
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 53
+        }
+      },
+      {
+        "filename": "pumpkinSofa3Overlay",
+        "frame": {
+          "x": 120,
+          "y": 76,
+          "w": 37,
+          "h": 23
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 23
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 23
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "pumpkin-sofa-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 182,
+        "h": 480
+      },
+      "scale": "1"
+    }
+  }
+}

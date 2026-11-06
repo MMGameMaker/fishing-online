@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "skull-sign-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "skullSign0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 51
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 51
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 51
+        }
+      },
+      {
+        "filename": "skullSign1",
+        "frame": {
+          "x": 0,
+          "y": 51,
+          "w": 27,
+          "h": 51
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 51
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 51
+        }
+      },
+      {
+        "filename": "skullSign2",
+        "frame": {
+          "x": 0,
+          "y": 102,
+          "w": 27,
+          "h": 51
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 51
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 51
+        }
+      },
+      {
+        "filename": "skullSign3",
+        "frame": {
+          "x": 0,
+          "y": 153,
+          "w": 27,
+          "h": 51
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 51
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 51
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "skull-sign-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 27,
+        "h": 51
+      },
+      "scale": "1"
+    }
+  }
+}

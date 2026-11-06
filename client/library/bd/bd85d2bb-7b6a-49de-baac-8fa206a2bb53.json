@@ -1,0 +1,1281 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fishing-clothes-spritesheet-bottom-1",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "fishing-bottom-1-cast-down-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-down-1",
+        "frame": {
+          "x": 0,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-down-2",
+        "frame": {
+          "x": 0,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-left-0",
+        "frame": {
+          "x": 0,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-left-1",
+        "frame": {
+          "x": 0,
+          "y": 220,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-left-2",
+        "frame": {
+          "x": 0,
+          "y": 275,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-right-0",
+        "frame": {
+          "x": 0,
+          "y": 330,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-right-1",
+        "frame": {
+          "x": 0,
+          "y": 385,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-right-2",
+        "frame": {
+          "x": 0,
+          "y": 440,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-up-0",
+        "frame": {
+          "x": 0,
+          "y": 495,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-up-1",
+        "frame": {
+          "x": 0,
+          "y": 550,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-cast-up-2",
+        "frame": {
+          "x": 0,
+          "y": 605,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-0",
+        "frame": {
+          "x": 48,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-1",
+        "frame": {
+          "x": 48,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-2",
+        "frame": {
+          "x": 48,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-3",
+        "frame": {
+          "x": 48,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-4",
+        "frame": {
+          "x": 48,
+          "y": 220,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-5",
+        "frame": {
+          "x": 48,
+          "y": 275,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-6",
+        "frame": {
+          "x": 48,
+          "y": 330,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-7",
+        "frame": {
+          "x": 48,
+          "y": 385,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-8",
+        "frame": {
+          "x": 48,
+          "y": 440,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-9",
+        "frame": {
+          "x": 48,
+          "y": 495,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-10",
+        "frame": {
+          "x": 48,
+          "y": 550,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-down-11",
+        "frame": {
+          "x": 48,
+          "y": 605,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-0",
+        "frame": {
+          "x": 96,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-1",
+        "frame": {
+          "x": 96,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-2",
+        "frame": {
+          "x": 96,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-3",
+        "frame": {
+          "x": 96,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-4",
+        "frame": {
+          "x": 96,
+          "y": 220,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-5",
+        "frame": {
+          "x": 96,
+          "y": 275,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-6",
+        "frame": {
+          "x": 96,
+          "y": 330,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-7",
+        "frame": {
+          "x": 96,
+          "y": 385,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-8",
+        "frame": {
+          "x": 96,
+          "y": 440,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-9",
+        "frame": {
+          "x": 96,
+          "y": 495,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-10",
+        "frame": {
+          "x": 96,
+          "y": 550,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-left-11",
+        "frame": {
+          "x": 96,
+          "y": 605,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-0",
+        "frame": {
+          "x": 144,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-1",
+        "frame": {
+          "x": 144,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-2",
+        "frame": {
+          "x": 144,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-3",
+        "frame": {
+          "x": 144,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-4",
+        "frame": {
+          "x": 144,
+          "y": 220,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-5",
+        "frame": {
+          "x": 144,
+          "y": 275,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-6",
+        "frame": {
+          "x": 144,
+          "y": 330,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-7",
+        "frame": {
+          "x": 144,
+          "y": 385,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-8",
+        "frame": {
+          "x": 144,
+          "y": 440,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-9",
+        "frame": {
+          "x": 144,
+          "y": 495,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-10",
+        "frame": {
+          "x": 144,
+          "y": 550,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-right-11",
+        "frame": {
+          "x": 144,
+          "y": 605,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-0",
+        "frame": {
+          "x": 192,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-1",
+        "frame": {
+          "x": 192,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-2",
+        "frame": {
+          "x": 192,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-3",
+        "frame": {
+          "x": 192,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-4",
+        "frame": {
+          "x": 192,
+          "y": 220,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-5",
+        "frame": {
+          "x": 192,
+          "y": 275,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-6",
+        "frame": {
+          "x": 192,
+          "y": 330,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-7",
+        "frame": {
+          "x": 192,
+          "y": 385,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-8",
+        "frame": {
+          "x": 192,
+          "y": 440,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-9",
+        "frame": {
+          "x": 192,
+          "y": 495,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-10",
+        "frame": {
+          "x": 192,
+          "y": 550,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "fishing-bottom-1-reel-up-11",
+        "frame": {
+          "x": 192,
+          "y": 605,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "fishing-clothes-spritesheet-bottom-1.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 240,
+        "h": 660
+      },
+      "scale": "1"
+    }
+  }
+}

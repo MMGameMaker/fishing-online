@@ -1,0 +1,273 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "soil-tilling-anim-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "soil-tilling-down-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-down-1",
+        "frame": {
+          "x": 23,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-down-2",
+        "frame": {
+          "x": 46,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-left-0",
+        "frame": {
+          "x": 0,
+          "y": 20,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-left-1",
+        "frame": {
+          "x": 23,
+          "y": 20,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-left-2",
+        "frame": {
+          "x": 46,
+          "y": 20,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-right-0",
+        "frame": {
+          "x": 0,
+          "y": 20,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-right-1",
+        "frame": {
+          "x": 23,
+          "y": 20,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-right-2",
+        "frame": {
+          "x": 46,
+          "y": 20,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-up-0",
+        "frame": {
+          "x": 0,
+          "y": 40,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-up-1",
+        "frame": {
+          "x": 23,
+          "y": 40,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      },
+      {
+        "filename": "soil-tilling-up-2",
+        "frame": {
+          "x": 46,
+          "y": 40,
+          "w": 23,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 20
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "soil-tilling-anim-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 69,
+        "h": 60
+      },
+      "scale": "1"
+    }
+  }
+}

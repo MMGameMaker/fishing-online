@@ -1,0 +1,1533 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "competition-trophies-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "artTrophyGold0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 75,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 150,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 225,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 300,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 375,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 450,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 525,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 600,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 675,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 750,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyGold0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 825,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0",
+        "frame": {
+          "x": 34,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim0",
+        "frame": {
+          "x": 34,
+          "y": 75,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim1",
+        "frame": {
+          "x": 34,
+          "y": 150,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim2",
+        "frame": {
+          "x": 34,
+          "y": 225,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim3",
+        "frame": {
+          "x": 34,
+          "y": 300,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim4",
+        "frame": {
+          "x": 34,
+          "y": 375,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim5",
+        "frame": {
+          "x": 34,
+          "y": 450,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim6",
+        "frame": {
+          "x": 34,
+          "y": 525,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim7",
+        "frame": {
+          "x": 34,
+          "y": 600,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim8",
+        "frame": {
+          "x": 34,
+          "y": 675,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim9",
+        "frame": {
+          "x": 34,
+          "y": 750,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophySilver0Anim10",
+        "frame": {
+          "x": 34,
+          "y": 825,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0",
+        "frame": {
+          "x": 68,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim0",
+        "frame": {
+          "x": 68,
+          "y": 75,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim1",
+        "frame": {
+          "x": 68,
+          "y": 150,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim2",
+        "frame": {
+          "x": 68,
+          "y": 225,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim3",
+        "frame": {
+          "x": 68,
+          "y": 300,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim4",
+        "frame": {
+          "x": 68,
+          "y": 375,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim5",
+        "frame": {
+          "x": 68,
+          "y": 450,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim6",
+        "frame": {
+          "x": 68,
+          "y": 525,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim7",
+        "frame": {
+          "x": 68,
+          "y": 600,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim8",
+        "frame": {
+          "x": 68,
+          "y": 675,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim9",
+        "frame": {
+          "x": 68,
+          "y": 750,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "artTrophyBronze0Anim10",
+        "frame": {
+          "x": 68,
+          "y": 825,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0",
+        "frame": {
+          "x": 102,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim0",
+        "frame": {
+          "x": 102,
+          "y": 75,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim1",
+        "frame": {
+          "x": 102,
+          "y": 150,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim2",
+        "frame": {
+          "x": 102,
+          "y": 225,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim3",
+        "frame": {
+          "x": 102,
+          "y": 300,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim4",
+        "frame": {
+          "x": 102,
+          "y": 375,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim5",
+        "frame": {
+          "x": 102,
+          "y": 450,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim6",
+        "frame": {
+          "x": 102,
+          "y": 525,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim7",
+        "frame": {
+          "x": 102,
+          "y": 600,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim8",
+        "frame": {
+          "x": 102,
+          "y": 675,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim9",
+        "frame": {
+          "x": 102,
+          "y": 750,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyGold0Anim10",
+        "frame": {
+          "x": 102,
+          "y": 825,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0",
+        "frame": {
+          "x": 136,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim0",
+        "frame": {
+          "x": 136,
+          "y": 75,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim1",
+        "frame": {
+          "x": 136,
+          "y": 150,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim2",
+        "frame": {
+          "x": 136,
+          "y": 225,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim3",
+        "frame": {
+          "x": 136,
+          "y": 300,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim4",
+        "frame": {
+          "x": 136,
+          "y": 375,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim5",
+        "frame": {
+          "x": 136,
+          "y": 450,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim6",
+        "frame": {
+          "x": 136,
+          "y": 525,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim7",
+        "frame": {
+          "x": 136,
+          "y": 600,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim8",
+        "frame": {
+          "x": 136,
+          "y": 675,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim9",
+        "frame": {
+          "x": 136,
+          "y": 750,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophySilver0Anim10",
+        "frame": {
+          "x": 136,
+          "y": 825,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0",
+        "frame": {
+          "x": 170,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim0",
+        "frame": {
+          "x": 170,
+          "y": 75,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim1",
+        "frame": {
+          "x": 170,
+          "y": 150,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim2",
+        "frame": {
+          "x": 170,
+          "y": 225,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim3",
+        "frame": {
+          "x": 170,
+          "y": 300,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim4",
+        "frame": {
+          "x": 170,
+          "y": 375,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim5",
+        "frame": {
+          "x": 170,
+          "y": 450,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim6",
+        "frame": {
+          "x": 170,
+          "y": 525,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim7",
+        "frame": {
+          "x": 170,
+          "y": 600,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim8",
+        "frame": {
+          "x": 170,
+          "y": 675,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim9",
+        "frame": {
+          "x": 170,
+          "y": 750,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      },
+      {
+        "filename": "builderTrophyBronze0Anim10",
+        "frame": {
+          "x": 170,
+          "y": 825,
+          "w": 34,
+          "h": 75
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 75
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 75
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "monster-eye-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 204,
+        "h": 900
+      },
+      "scale": "1"
+    }
+  }
+}

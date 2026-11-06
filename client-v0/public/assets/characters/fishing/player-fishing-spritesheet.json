@@ -1,0 +1,1682 @@
+{
+	"frames": [
+		{
+			"filename": "player-fishing-cast-down-0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-down-1",
+			"frame": {
+				"x": 0,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-down-2",
+			"frame": {
+				"x": 0,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+
+        {
+			"filename": "player-fishing-cast-left-0",
+			"frame": {
+				"x": 0,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-left-1",
+			"frame": {
+				"x": 0,
+				"y": 220,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-left-2",
+			"frame": {
+				"x": 0,
+				"y": 275,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+
+        {
+			"filename": "player-fishing-cast-right-0",
+			"frame": {
+				"x": 0,
+				"y": 330,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-right-1",
+			"frame": {
+				"x": 0,
+				"y": 385,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-right-2",
+			"frame": {
+				"x": 0,
+				"y": 440,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+
+        {
+			"filename": "player-fishing-cast-up-0",
+			"frame": {
+				"x": 0,
+				"y": 495,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-up-1",
+			"frame": {
+				"x": 0,
+				"y": 550,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "player-fishing-cast-up-2",
+			"frame": {
+				"x": 0,
+				"y": 605,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+		
+		{
+			"filename": "player-fishing-hooked-down-0",
+			"frame": {
+				"x": 48,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-down-1",
+			"frame": {
+				"x": 48,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-down-2",
+			"frame": {
+				"x": 48,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-down-3",
+			"frame": {
+				"x": 48,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-down-4",
+			"frame": {
+				"x": 48,
+				"y": 220,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-down-5",
+			"frame": {
+				"x": 48,
+				"y": 275,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		
+		
+
+		{
+			"filename":"player-fishing-hooked-left-0",
+			"frame":{
+				"x":48,
+				"y":330,
+				"w":48,
+				"h":55
+			},
+			"rotated":false,
+			"trimmed":false,
+			"spriteSourceSize":{
+				"x":0,
+				"y":0,
+				"w":48,
+				"h":55
+			},
+			"sourceSize":{
+				"w":48,
+				"h":55
+			}
+		},
+		{
+			"filename":"player-fishing-hooked-left-1",
+			"frame":{
+				"x":48,
+				"y":385,
+				"w":48,
+				"h":55
+			},
+			"rotated":false,
+			"trimmed":false,
+			"spriteSourceSize":{
+				"x":0,
+				"y":0,
+				"w":48,
+				"h":55
+			},
+			"sourceSize":{
+				"w":48,
+				"h":55
+			}
+		},
+		{
+			"filename":"player-fishing-hooked-left-2",
+			"frame":{
+				"x":48,
+				"y":440,
+				"w":48,
+				"h":55
+			},
+			"rotated":false,
+			"trimmed":false,
+			"spriteSourceSize":{
+				"x":0,
+				"y":0,
+				"w":48,
+				"h":55
+			},
+			"sourceSize":{
+				"w":48,
+				"h":55
+			}
+		},
+		{
+			"filename":"player-fishing-hooked-left-3",
+			"frame":{
+				"x":48,
+				"y":495,
+				"w":48,
+				"h":55
+			},
+			"rotated":false,
+			"trimmed":false,
+			"spriteSourceSize":{
+				"x":0,
+				"y":0,
+				"w":48,
+				"h":55
+			},
+			"sourceSize":{
+				"w":48,
+				"h":55
+			}
+		},
+		{
+			"filename":"player-fishing-hooked-left-4",
+			"frame":{
+				"x":48,
+				"y":550,
+				"w":48,
+				"h":55
+			},
+			"rotated":false,
+			"trimmed":false,
+			"spriteSourceSize":{
+				"x":0,
+				"y":0,
+				"w":48,
+				"h":55
+			},
+			"sourceSize":{
+				"w":48,
+				"h":55
+			}
+		},
+		{
+			"filename":"player-fishing-hooked-left-5",
+			"frame":{
+				"x":48,
+				"y":605,
+				"w":48,
+				"h":55
+			},
+			"rotated":false,
+			"trimmed":false,
+			"spriteSourceSize":{
+				"x":0,
+				"y":0,
+				"w":48,
+				"h":55
+			},
+			"sourceSize":{
+				"w":48,
+				"h":55
+			}
+		},
+
+
+
+		{
+			"filename": "player-fishing-hooked-right-0",
+			"frame": {
+				"x": 48,
+				"y": 660,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-right-1",
+			"frame": {
+				"x": 48,
+				"y": 715,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-right-2",
+			"frame": {
+				"x": 48,
+				"y": 770,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-right-3",
+			"frame": {
+				"x": 48,
+				"y": 825,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-right-4",
+			"frame": {
+				"x": 48,
+				"y": 880,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-hooked-right-5",
+			"frame": {
+				"x": 48,
+				"y": 935,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+
+		{
+			"filename": "player-fishing-reeling-down-0",
+			"frame": {
+				"x": 96,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-1",
+			"frame": {
+				"x": 144,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-2",
+			"frame": {
+				"x": 192,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-3",
+			"frame": {
+				"x": 240,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-4",
+			"frame": {
+				"x": 288,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-5",
+			"frame": {
+				"x": 336,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-6",
+			"frame": {
+				"x": 384,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-7",
+			"frame": {
+				"x": 432,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-8",
+			"frame": {
+				"x": 480,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-9",
+			"frame": {
+				"x": 528,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-10",
+			"frame": {
+				"x": 576,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-down-11",
+			"frame": {
+				"x": 624,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+
+		{
+			"filename": "player-fishing-reeling-left-0",
+			"frame": {
+				"x": 96,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-1",
+			"frame": {
+				"x": 144,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-2",
+			"frame": {
+				"x": 192,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-3",
+			"frame": {
+				"x": 240,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-4",
+			"frame": {
+				"x": 288,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-5",
+			"frame": {
+				"x": 336,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-6",
+			"frame": {
+				"x": 384,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-7",
+			"frame": {
+				"x": 432,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-8",
+			"frame": {
+				"x": 480,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-9",
+			"frame": {
+				"x": 528,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-10",
+			"frame": {
+				"x": 576,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-left-11",
+			"frame": {
+				"x": 624,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+
+		{
+			"filename": "player-fishing-reeling-right-0",
+			"frame": {
+				"x": 96,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-1",
+			"frame": {
+				"x": 144,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-2",
+			"frame": {
+				"x": 192,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-3",
+			"frame": {
+				"x": 240,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-4",
+			"frame": {
+				"x": 288,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-5",
+			"frame": {
+				"x": 336,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-6",
+			"frame": {
+				"x": 384,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-7",
+			"frame": {
+				"x": 432,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-8",
+			"frame": {
+				"x": 480,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-9",
+			"frame": {
+				"x": 528,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-10",
+			"frame": {
+				"x": 576,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-right-11",
+			"frame": {
+				"x": 624,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+
+
+
+		{
+			"filename": "player-fishing-reeling-up-0",
+			"frame": {
+				"x": 96,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-1",
+			"frame": {
+				"x": 144,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-2",
+			"frame": {
+				"x": 192,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-3",
+			"frame": {
+				"x": 240,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-4",
+			"frame": {
+				"x": 288,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-5",
+			"frame": {
+				"x": 336,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-6",
+			"frame": {
+				"x": 384,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-7",
+			"frame": {
+				"x": 432,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-8",
+			"frame": {
+				"x": 480,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-9",
+			"frame": {
+				"x": 528,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-10",
+			"frame": {
+				"x": 576,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+		{
+			"filename": "player-fishing-reeling-up-11",
+			"frame": {
+				"x": 624,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "player-fishing-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 672,
+			"h": 990
+		},
+		"scale": "1"
+	}
+}

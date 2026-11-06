@@ -1,0 +1,126 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "grass-patch-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "grassPatch0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 44
+        }
+      },
+      {
+        "filename": "grassPatch0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 44
+        }
+      },
+      {
+        "filename": "grassPatch0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 37,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 44
+        }
+      },
+      {
+        "filename": "grassPatch0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 37,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 44
+        }
+      },
+      {
+        "filename": "grassPatch0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 37,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 44
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "grass-patch-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 37,
+        "h": 176
+      },
+      "scale": "1"
+    }
+  }
+}

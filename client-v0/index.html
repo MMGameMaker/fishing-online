@@ -53,14 +53,24 @@
         </form>
       </div>
 
+      <!-- Covers the game while the player creates their character on entry (see initLook). -->
+      <div id="look-backdrop" hidden></div>
       <section id="look-panel" class="panel" hidden>
-        <header><h2>Change look</h2><button class="close" type="button" data-close="look-panel">×</button></header>
+        <header><h2 id="look-title">Change look</h2><button class="close" type="button" data-close="look-panel">×</button></header>
         <div class="look-body">
           <div class="look-preview">
             <div id="look-canvas"></div>
             <button id="look-rotate" type="button">Rotate</button>
+            <div class="look-row">
+              <label>Skin</label>
+              <div id="look-skin"></div>
+            </div>
           </div>
-          <div id="look-options"></div>
+          <div id="look-options">
+            <div id="look-tabs" class="look-tabs" role="tablist"></div>
+            <div id="look-grid" class="look-grid"></div>
+            <div id="look-colors" class="look-row"></div>
+          </div>
         </div>
         <footer>
           <button id="look-random" type="button">Randomize</button>
@@ -136,14 +146,6 @@
           </div>
         </div>
       </section>
-
-      <div id="welcome" hidden>
-        <div class="welcome-card">
-          <h1>Pixadom Rebuild</h1>
-          <p>Choose a test account to enter Main Town.</p>
-          <div id="welcome-accounts"></div>
-        </div>
-      </div>
 
       <div id="loading">
         <div class="loading-card">

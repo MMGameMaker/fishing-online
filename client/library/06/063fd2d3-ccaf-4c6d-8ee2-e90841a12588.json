@@ -1,0 +1,1386 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fishing-caught-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "fishing-caught-base-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-1",
+        "frame": {
+          "x": 0,
+          "y": 68,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-2",
+        "frame": {
+          "x": 0,
+          "y": 136,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-3",
+        "frame": {
+          "x": 0,
+          "y": 204,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-4",
+        "frame": {
+          "x": 0,
+          "y": 272,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-5",
+        "frame": {
+          "x": 0,
+          "y": 340,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-6",
+        "frame": {
+          "x": 0,
+          "y": 408,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-gold-0",
+        "frame": {
+          "x": 244,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-gold-1",
+        "frame": {
+          "x": 244,
+          "y": 68,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-gold-2",
+        "frame": {
+          "x": 244,
+          "y": 136,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-gold-3",
+        "frame": {
+          "x": 244,
+          "y": 204,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-gold-4",
+        "frame": {
+          "x": 244,
+          "y": 272,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-gold-5",
+        "frame": {
+          "x": 244,
+          "y": 340,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-base-gold-6",
+        "frame": {
+          "x": 244,
+          "y": 408,
+          "w": 51,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 68
+        }
+      },
+      {
+        "filename": "fishing-caught-splash-0",
+        "frame": {
+          "x": 51,
+          "y": 0,
+          "w": 59,
+          "h": 61
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 61
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 61
+        }
+      },
+      {
+        "filename": "fishing-caught-splash-1",
+        "frame": {
+          "x": 51,
+          "y": 61,
+          "w": 59,
+          "h": 61
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 61
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 61
+        }
+      },
+      {
+        "filename": "fishing-caught-splash-2",
+        "frame": {
+          "x": 51,
+          "y": 122,
+          "w": 59,
+          "h": 61
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 61
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 61
+        }
+      },
+      {
+        "filename": "fishing-caught-splash-3",
+        "frame": {
+          "x": 51,
+          "y": 183,
+          "w": 59,
+          "h": 61
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 61
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 61
+        }
+      },
+      {
+        "filename": "fishing-caught-splash-4",
+        "frame": {
+          "x": 51,
+          "y": 244,
+          "w": 59,
+          "h": 61
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 61
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 61
+        }
+      },
+      {
+        "filename": "fishing-caught-splash-5",
+        "frame": {
+          "x": 51,
+          "y": 305,
+          "w": 59,
+          "h": 61
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 61
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 61
+        }
+      },
+      {
+        "filename": "plaintail",
+        "frame": {
+          "x": 110,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "rustyfin",
+        "frame": {
+          "x": 137,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "speckle",
+        "frame": {
+          "x": 164,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "darter",
+        "frame": {
+          "x": 191,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "rockback",
+        "frame": {
+          "x": 218,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "squiggles",
+        "frame": {
+          "x": 110,
+          "y": 25,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "jellykins",
+        "frame": {
+          "x": 137,
+          "y": 25,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "thornish",
+        "frame": {
+          "x": 164,
+          "y": 25,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "grinwhal",
+        "frame": {
+          "x": 191,
+          "y": 25,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "duskray",
+        "frame": {
+          "x": 218,
+          "y": 25,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "tuskeel",
+        "frame": {
+          "x": 110,
+          "y": 50,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "buttercod",
+        "frame": {
+          "x": 137,
+          "y": 50,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "lionfish",
+        "frame": {
+          "x": 164,
+          "y": 50,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "volcrab",
+        "frame": {
+          "x": 191,
+          "y": 50,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "clammy",
+        "frame": {
+          "x": 218,
+          "y": 50,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "bucky",
+        "frame": {
+          "x": 110,
+          "y": 75,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "kittykarp",
+        "frame": {
+          "x": 137,
+          "y": 75,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "cyhorse",
+        "frame": {
+          "x": 164,
+          "y": 75,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "pirahound",
+        "frame": {
+          "x": 191,
+          "y": 75,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "hammerslice",
+        "frame": {
+          "x": 218,
+          "y": 75,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "gumby",
+        "frame": {
+          "x": 110,
+          "y": 100,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "puckerlips",
+        "frame": {
+          "x": 137,
+          "y": 100,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "cerebrino",
+        "frame": {
+          "x": 164,
+          "y": 100,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "platooty",
+        "frame": {
+          "x": 191,
+          "y": 100,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "barrakka",
+        "frame": {
+          "x": 218,
+          "y": 100,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "marlin",
+        "frame": {
+          "x": 110,
+          "y": 125,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "kraken",
+        "frame": {
+          "x": 137,
+          "y": 125,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "nessie",
+        "frame": {
+          "x": 164,
+          "y": 125,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "cindereel",
+        "frame": {
+          "x": 191,
+          "y": 125,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "virakoi",
+        "frame": {
+          "x": 218,
+          "y": 125,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "hydrodon",
+        "frame": {
+          "x": 110,
+          "y": 150,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "grimlure",
+        "frame": {
+          "x": 137,
+          "y": 150,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "spirellus",
+        "frame": {
+          "x": 164,
+          "y": 150,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "pelagorn",
+        "frame": {
+          "x": 191,
+          "y": 150,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "narasol",
+        "frame": {
+          "x": 218,
+          "y": 150,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "tire",
+        "frame": {
+          "x": 110,
+          "y": 175,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "boot",
+        "frame": {
+          "x": 137,
+          "y": 175,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "can",
+        "frame": {
+          "x": 164,
+          "y": 175,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "newspaper",
+        "frame": {
+          "x": 191,
+          "y": 175,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "hat",
+        "frame": {
+          "x": 218,
+          "y": 175,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "plank",
+        "frame": {
+          "x": 110,
+          "y": 200,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "seaweed",
+        "frame": {
+          "x": 137,
+          "y": 200,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "bottle",
+        "frame": {
+          "x": 164,
+          "y": 200,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "rope",
+        "frame": {
+          "x": 191,
+          "y": 200,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      },
+      {
+        "filename": "sunglasses",
+        "frame": {
+          "x": 218,
+          "y": 200,
+          "w": 27,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 25
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "fishing-caught-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 296,
+        "h": 476
+      },
+      "scale": "1"
+    }
+  }
+}

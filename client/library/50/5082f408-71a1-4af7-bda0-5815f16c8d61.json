@@ -1,0 +1,294 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "snowflake-trophy-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "snowflakeTrophy0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 58,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 116,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 174,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 232,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 290,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 348,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 406,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 464,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 522,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 580,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 638,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "snowflakeTrophy0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 696,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "snowflake-trophy-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 30,
+        "h": 754
+      },
+      "scale": "1"
+    }
+  }
+}

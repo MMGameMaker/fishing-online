@@ -1,0 +1,441 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "christmas-window-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "christmasWindow0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 58,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 116,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 174,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 232,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 290,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 348,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 406,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 464,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 522,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 580,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 638,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 696,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 754,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 812,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 870,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim16",
+        "frame": {
+          "x": 0,
+          "y": 928,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim17",
+        "frame": {
+          "x": 0,
+          "y": 986,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      },
+      {
+        "filename": "christmasWindow0Anim18",
+        "frame": {
+          "x": 0,
+          "y": 1044,
+          "w": 51,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 58
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "christmas-window-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 51,
+        "h": 1102
+      },
+      "scale": "1"
+    }
+  }
+}

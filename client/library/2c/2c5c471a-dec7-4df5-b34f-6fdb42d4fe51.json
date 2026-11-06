@@ -1,0 +1,559 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "player-fishing-skin-2-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "player-fishing-cast-down-0": [
+        0,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-cast-down-1": [
+        0,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-cast-down-2": [
+        0,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-cast-left-0": [
+        0,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-cast-left-1": [
+        0,
+        220,
+        48,
+        55
+      ],
+      "player-fishing-cast-left-2": [
+        0,
+        275,
+        48,
+        55
+      ],
+      "player-fishing-cast-right-0": [
+        0,
+        330,
+        48,
+        55
+      ],
+      "player-fishing-cast-right-1": [
+        0,
+        385,
+        48,
+        55
+      ],
+      "player-fishing-cast-right-2": [
+        0,
+        440,
+        48,
+        55
+      ],
+      "player-fishing-cast-up-0": [
+        0,
+        495,
+        48,
+        55
+      ],
+      "player-fishing-cast-up-1": [
+        0,
+        550,
+        48,
+        55
+      ],
+      "player-fishing-cast-up-2": [
+        0,
+        605,
+        48,
+        55
+      ],
+      "player-fishing-hooked-down-0": [
+        48,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-hooked-down-1": [
+        48,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-hooked-down-2": [
+        48,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-hooked-down-3": [
+        48,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-hooked-down-4": [
+        48,
+        220,
+        48,
+        55
+      ],
+      "player-fishing-hooked-down-5": [
+        48,
+        275,
+        48,
+        55
+      ],
+      "player-fishing-hooked-left-0": [
+        48,
+        330,
+        48,
+        55
+      ],
+      "player-fishing-hooked-left-1": [
+        48,
+        385,
+        48,
+        55
+      ],
+      "player-fishing-hooked-left-2": [
+        48,
+        440,
+        48,
+        55
+      ],
+      "player-fishing-hooked-left-3": [
+        48,
+        495,
+        48,
+        55
+      ],
+      "player-fishing-hooked-left-4": [
+        48,
+        550,
+        48,
+        55
+      ],
+      "player-fishing-hooked-left-5": [
+        48,
+        605,
+        48,
+        55
+      ],
+      "player-fishing-hooked-right-0": [
+        48,
+        660,
+        48,
+        55
+      ],
+      "player-fishing-hooked-right-1": [
+        48,
+        715,
+        48,
+        55
+      ],
+      "player-fishing-hooked-right-2": [
+        48,
+        770,
+        48,
+        55
+      ],
+      "player-fishing-hooked-right-3": [
+        48,
+        825,
+        48,
+        55
+      ],
+      "player-fishing-hooked-right-4": [
+        48,
+        880,
+        48,
+        55
+      ],
+      "player-fishing-hooked-right-5": [
+        48,
+        935,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-0": [
+        96,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-1": [
+        144,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-2": [
+        192,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-3": [
+        240,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-4": [
+        288,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-5": [
+        336,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-6": [
+        384,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-7": [
+        432,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-8": [
+        480,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-9": [
+        528,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-10": [
+        576,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-down-11": [
+        624,
+        0,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-0": [
+        96,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-1": [
+        144,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-2": [
+        192,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-3": [
+        240,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-4": [
+        288,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-5": [
+        336,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-6": [
+        384,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-7": [
+        432,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-8": [
+        480,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-9": [
+        528,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-10": [
+        576,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-left-11": [
+        624,
+        55,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-0": [
+        96,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-1": [
+        144,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-2": [
+        192,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-3": [
+        240,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-4": [
+        288,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-5": [
+        336,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-6": [
+        384,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-7": [
+        432,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-8": [
+        480,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-9": [
+        528,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-10": [
+        576,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-right-11": [
+        624,
+        110,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-0": [
+        96,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-1": [
+        144,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-2": [
+        192,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-3": [
+        240,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-4": [
+        288,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-5": [
+        336,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-6": [
+        384,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-7": [
+        432,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-8": [
+        480,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-9": [
+        528,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-10": [
+        576,
+        165,
+        48,
+        55
+      ],
+      "player-fishing-reeling-up-11": [
+        624,
+        165,
+        48,
+        55
+      ]
+    },
+    "order": [
+      "player-fishing-cast-down-0",
+      "player-fishing-cast-down-1",
+      "player-fishing-cast-down-2",
+      "player-fishing-cast-left-0",
+      "player-fishing-cast-left-1",
+      "player-fishing-cast-left-2",
+      "player-fishing-cast-right-0",
+      "player-fishing-cast-right-1",
+      "player-fishing-cast-right-2",
+      "player-fishing-cast-up-0",
+      "player-fishing-cast-up-1",
+      "player-fishing-cast-up-2",
+      "player-fishing-hooked-down-0",
+      "player-fishing-hooked-down-1",
+      "player-fishing-hooked-down-2",
+      "player-fishing-hooked-down-3",
+      "player-fishing-hooked-down-4",
+      "player-fishing-hooked-down-5",
+      "player-fishing-hooked-left-0",
+      "player-fishing-hooked-left-1",
+      "player-fishing-hooked-left-2",
+      "player-fishing-hooked-left-3",
+      "player-fishing-hooked-left-4",
+      "player-fishing-hooked-left-5",
+      "player-fishing-hooked-right-0",
+      "player-fishing-hooked-right-1",
+      "player-fishing-hooked-right-2",
+      "player-fishing-hooked-right-3",
+      "player-fishing-hooked-right-4",
+      "player-fishing-hooked-right-5",
+      "player-fishing-reeling-down-0",
+      "player-fishing-reeling-down-1",
+      "player-fishing-reeling-down-2",
+      "player-fishing-reeling-down-3",
+      "player-fishing-reeling-down-4",
+      "player-fishing-reeling-down-5",
+      "player-fishing-reeling-down-6",
+      "player-fishing-reeling-down-7",
+      "player-fishing-reeling-down-8",
+      "player-fishing-reeling-down-9",
+      "player-fishing-reeling-down-10",
+      "player-fishing-reeling-down-11",
+      "player-fishing-reeling-left-0",
+      "player-fishing-reeling-left-1",
+      "player-fishing-reeling-left-2",
+      "player-fishing-reeling-left-3",
+      "player-fishing-reeling-left-4",
+      "player-fishing-reeling-left-5",
+      "player-fishing-reeling-left-6",
+      "player-fishing-reeling-left-7",
+      "player-fishing-reeling-left-8",
+      "player-fishing-reeling-left-9",
+      "player-fishing-reeling-left-10",
+      "player-fishing-reeling-left-11",
+      "player-fishing-reeling-right-0",
+      "player-fishing-reeling-right-1",
+      "player-fishing-reeling-right-2",
+      "player-fishing-reeling-right-3",
+      "player-fishing-reeling-right-4",
+      "player-fishing-reeling-right-5",
+      "player-fishing-reeling-right-6",
+      "player-fishing-reeling-right-7",
+      "player-fishing-reeling-right-8",
+      "player-fishing-reeling-right-9",
+      "player-fishing-reeling-right-10",
+      "player-fishing-reeling-right-11",
+      "player-fishing-reeling-up-0",
+      "player-fishing-reeling-up-1",
+      "player-fishing-reeling-up-2",
+      "player-fishing-reeling-up-3",
+      "player-fishing-reeling-up-4",
+      "player-fishing-reeling-up-5",
+      "player-fishing-reeling-up-6",
+      "player-fishing-reeling-up-7",
+      "player-fishing-reeling-up-8",
+      "player-fishing-reeling-up-9",
+      "player-fishing-reeling-up-10",
+      "player-fishing-reeling-up-11"
+    ]
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "token-redemption-items-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "plot-upgrade-token",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-note-token",
+        "frame": {
+          "x": 29,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-blue-token",
+        "frame": {
+          "x": 58,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-purple-token",
+        "frame": {
+          "x": 87,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-pink-token",
+        "frame": {
+          "x": 116,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-red-token",
+        "frame": {
+          "x": 145,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-orange-token",
+        "frame": {
+          "x": 174,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-green-token",
+        "frame": {
+          "x": 203,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-gold-token",
+        "frame": {
+          "x": 232,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-rainbow-token",
+        "frame": {
+          "x": 261,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "rain-token",
+        "frame": {
+          "x": 290,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-arrow-token",
+        "frame": {
+          "x": 319,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-disco-token",
+        "frame": {
+          "x": 348,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-electro-token",
+        "frame": {
+          "x": 377,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "plot-upgrade-emerald-token",
+        "frame": {
+          "x": 406,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "token-redemption-items-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 29,
+        "h": 29
+      },
+      "scale": "1"
+    }
+  }
+}

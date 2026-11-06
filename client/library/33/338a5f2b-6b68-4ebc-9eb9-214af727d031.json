@@ -1,0 +1,399 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "player-interaction-buttons-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "kick-button-default",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "kick-button-hover",
+        "frame": {
+          "x": 0,
+          "y": 33,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "kick-button-pressed",
+        "frame": {
+          "x": 0,
+          "y": 66,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "ban-button-default",
+        "frame": {
+          "x": 30,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "ban-button-hover",
+        "frame": {
+          "x": 30,
+          "y": 33,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "ban-button-pressed",
+        "frame": {
+          "x": 30,
+          "y": 66,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "open-close-button-default",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "open-close-button-hover",
+        "frame": {
+          "x": 60,
+          "y": 33,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "open-close-button-pressed",
+        "frame": {
+          "x": 60,
+          "y": 66,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "settings-button-default",
+        "frame": {
+          "x": 90,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "settings-button-hover",
+        "frame": {
+          "x": 90,
+          "y": 33,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "settings-button-pressed",
+        "frame": {
+          "x": 90,
+          "y": 66,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "mute-button-default",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "mute-button-hover",
+        "frame": {
+          "x": 120,
+          "y": 33,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "mute-button-pressed",
+        "frame": {
+          "x": 120,
+          "y": 66,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "unmute-button-default",
+        "frame": {
+          "x": 150,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "unmute-button-hover",
+        "frame": {
+          "x": 150,
+          "y": 33,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      },
+      {
+        "filename": "unmute-button-pressed",
+        "frame": {
+          "x": 150,
+          "y": 66,
+          "w": 30,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 33
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "player-interaction-buttons-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 90,
+        "h": 99
+      },
+      "scale": "1"
+    }
+  }
+}

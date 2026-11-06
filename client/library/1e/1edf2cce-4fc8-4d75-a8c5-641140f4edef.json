@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "cafe-table-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "cafeTable0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 45
+        }
+      },
+      {
+        "filename": "cafeTable1",
+        "frame": {
+          "x": 0,
+          "y": 45,
+          "w": 30,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 45
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "cafe-table-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 30,
+        "h": 90
+      },
+      "scale": "1"
+    }
+  }
+}

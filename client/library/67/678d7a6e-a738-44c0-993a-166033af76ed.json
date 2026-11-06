@@ -1,0 +1,252 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "coral-centrepiece-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "coralCentrepiece0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece1",
+        "frame": {
+          "x": 0,
+          "y": 153,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece2",
+        "frame": {
+          "x": 0,
+          "y": 306,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece3",
+        "frame": {
+          "x": 0,
+          "y": 459,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece4",
+        "frame": {
+          "x": 0,
+          "y": 612,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece5",
+        "frame": {
+          "x": 0,
+          "y": 765,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece6",
+        "frame": {
+          "x": 0,
+          "y": 918,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece7",
+        "frame": {
+          "x": 0,
+          "y": 1071,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece8",
+        "frame": {
+          "x": 0,
+          "y": 1224,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece9",
+        "frame": {
+          "x": 0,
+          "y": 1377,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      },
+      {
+        "filename": "coralCentrepiece10",
+        "frame": {
+          "x": 0,
+          "y": 1530,
+          "w": 206,
+          "h": 153
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 206,
+          "h": 153
+        },
+        "sourceSize": {
+          "w": 206,
+          "h": 153
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "coral-centrepiece-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 206,
+        "h": 1683
+      },
+      "scale": "1"
+    }
+  }
+}

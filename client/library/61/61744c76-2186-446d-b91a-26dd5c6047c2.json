@@ -1,0 +1,160 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "speech-bubble-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "speechBubble0": [
+        0,
+        0,
+        36,
+        35
+      ],
+      "speechBubble1": [
+        0,
+        35,
+        36,
+        35
+      ],
+      "speechBubble2": [
+        0,
+        70,
+        36,
+        35
+      ],
+      "speechBubble3": [
+        0,
+        105,
+        36,
+        35
+      ],
+      "speechBubble4": [
+        0,
+        140,
+        36,
+        35
+      ],
+      "speechBubble5": [
+        0,
+        175,
+        36,
+        35
+      ],
+      "speechBubble6": [
+        0,
+        210,
+        36,
+        35
+      ],
+      "speechBubble7": [
+        0,
+        245,
+        36,
+        35
+      ],
+      "speechBubble8": [
+        0,
+        280,
+        36,
+        35
+      ],
+      "speechBubble9": [
+        0,
+        280,
+        36,
+        35
+      ],
+      "speechBubble10": [
+        0,
+        280,
+        36,
+        35
+      ],
+      "speechBubble11": [
+        0,
+        280,
+        36,
+        35
+      ],
+      "speechBubble12": [
+        0,
+        315,
+        36,
+        35
+      ],
+      "speechBubble13": [
+        0,
+        350,
+        36,
+        35
+      ],
+      "speechBubble14": [
+        0,
+        385,
+        36,
+        35
+      ],
+      "speechBubble15": [
+        0,
+        420,
+        36,
+        35
+      ],
+      "speechBubble16": [
+        0,
+        455,
+        36,
+        35
+      ],
+      "speechBubble17": [
+        0,
+        490,
+        36,
+        35
+      ],
+      "speechBubble18": [
+        0,
+        525,
+        36,
+        35
+      ],
+      "speechBubble19": [
+        0,
+        560,
+        36,
+        35
+      ],
+      "speechBubble20": [
+        0,
+        595,
+        36,
+        35
+      ]
+    },
+    "order": [
+      "speechBubble0",
+      "speechBubble1",
+      "speechBubble2",
+      "speechBubble3",
+      "speechBubble4",
+      "speechBubble5",
+      "speechBubble6",
+      "speechBubble7",
+      "speechBubble8",
+      "speechBubble9",
+      "speechBubble10",
+      "speechBubble11",
+      "speechBubble12",
+      "speechBubble13",
+      "speechBubble14",
+      "speechBubble15",
+      "speechBubble16",
+      "speechBubble17",
+      "speechBubble18",
+      "speechBubble19",
+      "speechBubble20"
+    ]
+  }
+}

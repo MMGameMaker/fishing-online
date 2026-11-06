@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "bedside-table-wooden-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "bedsideTableWooden0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 36
+        }
+      },
+      {
+        "filename": "bedsideTableWooden1",
+        "frame": {
+          "x": 0,
+          "y": 36,
+          "w": 30,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 36
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "bedside-table-wooden-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 30,
+        "h": 72
+      },
+      "scale": "1"
+    }
+  }
+}

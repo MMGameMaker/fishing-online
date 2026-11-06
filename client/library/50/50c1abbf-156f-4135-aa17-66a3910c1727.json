@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "cupids-heart-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "cupidsHeart0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 45,
+          "h": 59
+        }
+      },
+      {
+        "filename": "cupidsHeart1",
+        "frame": {
+          "x": 0,
+          "y": 59,
+          "w": 45,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 45,
+          "h": 59
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "cupids-heart-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 45,
+        "h": 118
+      },
+      "scale": "1"
+    }
+  }
+}

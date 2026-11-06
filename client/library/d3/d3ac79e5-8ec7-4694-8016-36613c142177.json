@@ -1,0 +1,517 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "bottoms-spritesheet-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "player-down-0-bottom-1": [
+        0,
+        0,
+        48,
+        55
+      ],
+      "player-down-1-bottom-1": [
+        0,
+        55,
+        48,
+        55
+      ],
+      "player-down-2-bottom-1": [
+        0,
+        110,
+        48,
+        55
+      ],
+      "player-down-3-bottom-1": [
+        0,
+        165,
+        48,
+        55
+      ],
+      "player-left-0-bottom-1": [
+        0,
+        220,
+        48,
+        55
+      ],
+      "player-left-1-bottom-1": [
+        0,
+        275,
+        48,
+        55
+      ],
+      "player-left-2-bottom-1": [
+        0,
+        330,
+        48,
+        55
+      ],
+      "player-left-3-bottom-1": [
+        0,
+        385,
+        48,
+        55
+      ],
+      "player-right-0-bottom-1": [
+        0,
+        440,
+        48,
+        55
+      ],
+      "player-right-1-bottom-1": [
+        0,
+        495,
+        48,
+        55
+      ],
+      "player-right-2-bottom-1": [
+        0,
+        550,
+        48,
+        55
+      ],
+      "player-right-3-bottom-1": [
+        0,
+        605,
+        48,
+        55
+      ],
+      "player-up-0-bottom-1": [
+        0,
+        660,
+        48,
+        55
+      ],
+      "player-up-1-bottom-1": [
+        0,
+        715,
+        48,
+        55
+      ],
+      "player-up-2-bottom-1": [
+        0,
+        770,
+        48,
+        55
+      ],
+      "player-up-3-bottom-1": [
+        0,
+        825,
+        48,
+        55
+      ],
+      "player-sit-down-0-bottom-1": [
+        0,
+        880,
+        48,
+        55
+      ],
+      "player-sit-left-0-bottom-1": [
+        0,
+        935,
+        48,
+        55
+      ],
+      "player-sit-right-0-bottom-1": [
+        0,
+        990,
+        48,
+        55
+      ],
+      "player-sit-up-0-bottom-1": [
+        0,
+        1045,
+        48,
+        55
+      ],
+      "player-swipe-down-0-bottom-1": [
+        0,
+        1100,
+        48,
+        55
+      ],
+      "player-swipe-down-1-bottom-1": [
+        0,
+        1155,
+        48,
+        55
+      ],
+      "player-swipe-down-2-bottom-1": [
+        0,
+        1210,
+        48,
+        55
+      ],
+      "player-swipe-down-3-bottom-1": [
+        0,
+        1265,
+        48,
+        55
+      ],
+      "player-swipe-left-0-bottom-1": [
+        0,
+        1320,
+        48,
+        55
+      ],
+      "player-swipe-left-1-bottom-1": [
+        0,
+        1375,
+        48,
+        55
+      ],
+      "player-swipe-left-2-bottom-1": [
+        0,
+        1430,
+        48,
+        55
+      ],
+      "player-swipe-left-3-bottom-1": [
+        0,
+        1485,
+        48,
+        55
+      ],
+      "player-swipe-right-0-bottom-1": [
+        0,
+        1540,
+        48,
+        55
+      ],
+      "player-swipe-right-1-bottom-1": [
+        0,
+        1595,
+        48,
+        55
+      ],
+      "player-swipe-right-2-bottom-1": [
+        0,
+        1650,
+        48,
+        55
+      ],
+      "player-swipe-right-3-bottom-1": [
+        0,
+        1705,
+        48,
+        55
+      ],
+      "player-swipe-up-0-bottom-1": [
+        0,
+        1760,
+        48,
+        55
+      ],
+      "player-swipe-up-1-bottom-1": [
+        0,
+        1815,
+        48,
+        55
+      ],
+      "player-swipe-up-2-bottom-1": [
+        0,
+        1870,
+        48,
+        55
+      ],
+      "player-swipe-up-3-bottom-1": [
+        0,
+        1925,
+        48,
+        55
+      ],
+      "player-down-0-bottom-2": [
+        48,
+        0,
+        48,
+        55
+      ],
+      "player-down-1-bottom-2": [
+        48,
+        55,
+        48,
+        55
+      ],
+      "player-down-2-bottom-2": [
+        48,
+        110,
+        48,
+        55
+      ],
+      "player-down-3-bottom-2": [
+        48,
+        165,
+        48,
+        55
+      ],
+      "player-left-0-bottom-2": [
+        48,
+        220,
+        48,
+        55
+      ],
+      "player-left-1-bottom-2": [
+        48,
+        275,
+        48,
+        55
+      ],
+      "player-left-2-bottom-2": [
+        48,
+        330,
+        48,
+        55
+      ],
+      "player-left-3-bottom-2": [
+        48,
+        385,
+        48,
+        55
+      ],
+      "player-right-0-bottom-2": [
+        48,
+        440,
+        48,
+        55
+      ],
+      "player-right-1-bottom-2": [
+        48,
+        495,
+        48,
+        55
+      ],
+      "player-right-2-bottom-2": [
+        48,
+        550,
+        48,
+        55
+      ],
+      "player-right-3-bottom-2": [
+        48,
+        605,
+        48,
+        55
+      ],
+      "player-up-0-bottom-2": [
+        48,
+        660,
+        48,
+        55
+      ],
+      "player-up-1-bottom-2": [
+        48,
+        715,
+        48,
+        55
+      ],
+      "player-up-2-bottom-2": [
+        48,
+        770,
+        48,
+        55
+      ],
+      "player-up-3-bottom-2": [
+        48,
+        825,
+        48,
+        55
+      ],
+      "player-sit-down-0-bottom-2": [
+        48,
+        880,
+        48,
+        55
+      ],
+      "player-sit-left-0-bottom-2": [
+        48,
+        935,
+        48,
+        55
+      ],
+      "player-sit-right-0-bottom-2": [
+        48,
+        990,
+        48,
+        55
+      ],
+      "player-sit-up-0-bottom-2": [
+        48,
+        1045,
+        48,
+        55
+      ],
+      "player-swipe-down-0-bottom-2": [
+        48,
+        1100,
+        48,
+        55
+      ],
+      "player-swipe-down-1-bottom-2": [
+        48,
+        1155,
+        48,
+        55
+      ],
+      "player-swipe-down-2-bottom-2": [
+        48,
+        1210,
+        48,
+        55
+      ],
+      "player-swipe-down-3-bottom-2": [
+        48,
+        1265,
+        48,
+        55
+      ],
+      "player-swipe-left-0-bottom-2": [
+        48,
+        1320,
+        48,
+        55
+      ],
+      "player-swipe-left-1-bottom-2": [
+        48,
+        1375,
+        48,
+        55
+      ],
+      "player-swipe-left-2-bottom-2": [
+        48,
+        1430,
+        48,
+        55
+      ],
+      "player-swipe-left-3-bottom-2": [
+        48,
+        1485,
+        48,
+        55
+      ],
+      "player-swipe-right-0-bottom-2": [
+        48,
+        1540,
+        48,
+        55
+      ],
+      "player-swipe-right-1-bottom-2": [
+        48,
+        1595,
+        48,
+        55
+      ],
+      "player-swipe-right-2-bottom-2": [
+        48,
+        1650,
+        48,
+        55
+      ],
+      "player-swipe-right-3-bottom-2": [
+        48,
+        1705,
+        48,
+        55
+      ],
+      "player-swipe-up-0-bottom-2": [
+        48,
+        1760,
+        48,
+        55
+      ],
+      "player-swipe-up-1-bottom-2": [
+        48,
+        1815,
+        48,
+        55
+      ],
+      "player-swipe-up-2-bottom-2": [
+        48,
+        1870,
+        48,
+        55
+      ],
+      "player-swipe-up-3-bottom-2": [
+        48,
+        1925,
+        48,
+        55
+      ]
+    },
+    "order": [
+      "player-down-0-bottom-1",
+      "player-down-1-bottom-1",
+      "player-down-2-bottom-1",
+      "player-down-3-bottom-1",
+      "player-left-0-bottom-1",
+      "player-left-1-bottom-1",
+      "player-left-2-bottom-1",
+      "player-left-3-bottom-1",
+      "player-right-0-bottom-1",
+      "player-right-1-bottom-1",
+      "player-right-2-bottom-1",
+      "player-right-3-bottom-1",
+      "player-up-0-bottom-1",
+      "player-up-1-bottom-1",
+      "player-up-2-bottom-1",
+      "player-up-3-bottom-1",
+      "player-sit-down-0-bottom-1",
+      "player-sit-left-0-bottom-1",
+      "player-sit-right-0-bottom-1",
+      "player-sit-up-0-bottom-1",
+      "player-swipe-down-0-bottom-1",
+      "player-swipe-down-1-bottom-1",
+      "player-swipe-down-2-bottom-1",
+      "player-swipe-down-3-bottom-1",
+      "player-swipe-left-0-bottom-1",
+      "player-swipe-left-1-bottom-1",
+      "player-swipe-left-2-bottom-1",
+      "player-swipe-left-3-bottom-1",
+      "player-swipe-right-0-bottom-1",
+      "player-swipe-right-1-bottom-1",
+      "player-swipe-right-2-bottom-1",
+      "player-swipe-right-3-bottom-1",
+      "player-swipe-up-0-bottom-1",
+      "player-swipe-up-1-bottom-1",
+      "player-swipe-up-2-bottom-1",
+      "player-swipe-up-3-bottom-1",
+      "player-down-0-bottom-2",
+      "player-down-1-bottom-2",
+      "player-down-2-bottom-2",
+      "player-down-3-bottom-2",
+      "player-left-0-bottom-2",
+      "player-left-1-bottom-2",
+      "player-left-2-bottom-2",
+      "player-left-3-bottom-2",
+      "player-right-0-bottom-2",
+      "player-right-1-bottom-2",
+      "player-right-2-bottom-2",
+      "player-right-3-bottom-2",
+      "player-up-0-bottom-2",
+      "player-up-1-bottom-2",
+      "player-up-2-bottom-2",
+      "player-up-3-bottom-2",
+      "player-sit-down-0-bottom-2",
+      "player-sit-left-0-bottom-2",
+      "player-sit-right-0-bottom-2",
+      "player-sit-up-0-bottom-2",
+      "player-swipe-down-0-bottom-2",
+      "player-swipe-down-1-bottom-2",
+      "player-swipe-down-2-bottom-2",
+      "player-swipe-down-3-bottom-2",
+      "player-swipe-left-0-bottom-2",
+      "player-swipe-left-1-bottom-2",
+      "player-swipe-left-2-bottom-2",
+      "player-swipe-left-3-bottom-2",
+      "player-swipe-right-0-bottom-2",
+      "player-swipe-right-1-bottom-2",
+      "player-swipe-right-2-bottom-2",
+      "player-swipe-right-3-bottom-2",
+      "player-swipe-up-0-bottom-2",
+      "player-swipe-up-1-bottom-2",
+      "player-swipe-up-2-bottom-2",
+      "player-swipe-up-3-bottom-2"
+    ]
+  }
+}

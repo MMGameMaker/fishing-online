@@ -1,0 +1,125 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "npc-barnaby-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "barnaby0": [
+        0,
+        0,
+        47,
+        45
+      ],
+      "barnaby1": [
+        0,
+        45,
+        47,
+        45
+      ],
+      "barnaby2": [
+        0,
+        90,
+        47,
+        45
+      ],
+      "barnaby3": [
+        0,
+        135,
+        47,
+        45
+      ],
+      "barnaby4": [
+        0,
+        180,
+        47,
+        45
+      ],
+      "barnaby5": [
+        0,
+        225,
+        47,
+        45
+      ],
+      "barnaby6": [
+        0,
+        270,
+        47,
+        45
+      ],
+      "barnaby7": [
+        0,
+        315,
+        47,
+        45
+      ],
+      "barnaby8": [
+        0,
+        360,
+        47,
+        45
+      ],
+      "barnaby9": [
+        0,
+        405,
+        47,
+        45
+      ],
+      "barnaby10": [
+        0,
+        450,
+        47,
+        45
+      ],
+      "barnaby11": [
+        0,
+        495,
+        47,
+        45
+      ],
+      "barnaby12": [
+        0,
+        540,
+        47,
+        45
+      ],
+      "barnaby13": [
+        0,
+        585,
+        47,
+        45
+      ],
+      "barnaby14": [
+        0,
+        630,
+        47,
+        45
+      ],
+      "barnaby15": [
+        0,
+        675,
+        47,
+        45
+      ]
+    },
+    "order": [
+      "barnaby0",
+      "barnaby1",
+      "barnaby2",
+      "barnaby3",
+      "barnaby4",
+      "barnaby5",
+      "barnaby6",
+      "barnaby7",
+      "barnaby8",
+      "barnaby9",
+      "barnaby10",
+      "barnaby11",
+      "barnaby12",
+      "barnaby13",
+      "barnaby14",
+      "barnaby15"
+    ]
+  }
+}

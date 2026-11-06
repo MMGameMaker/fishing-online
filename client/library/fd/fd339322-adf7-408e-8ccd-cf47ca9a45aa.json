@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "shard-lamp-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "shardLamp0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 39
+        }
+      },
+      {
+        "filename": "shardLamp1",
+        "frame": {
+          "x": 0,
+          "y": 39,
+          "w": 21,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 39
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "shard-lamp-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 21,
+        "h": 78
+      },
+      "scale": "1"
+    }
+  }
+}

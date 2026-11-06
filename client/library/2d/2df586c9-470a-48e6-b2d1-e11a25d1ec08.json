@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "easter-egg-lamp-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "easterEggLamp0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 60
+        }
+      },
+      {
+        "filename": "easterEggLamp1",
+        "frame": {
+          "x": 23,
+          "y": 0,
+          "w": 23,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 23,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 23,
+          "h": 60
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "easter-egg-lamp-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 46,
+        "h": 60
+      },
+      "scale": "1"
+    }
+  }
+}

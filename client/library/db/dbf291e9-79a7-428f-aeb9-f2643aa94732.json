@@ -1,0 +1,1386 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "yarnbag-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "yarnbagWhite0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagWhite1",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagWhite2",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagWhite3",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagWhite2Overlay",
+        "frame": {
+          "x": 32,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagBrown0",
+        "frame": {
+          "x": 64,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBrown1",
+        "frame": {
+          "x": 64,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBrown2",
+        "frame": {
+          "x": 64,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBrown3",
+        "frame": {
+          "x": 64,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBrown2Overlay",
+        "frame": {
+          "x": 96,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagBlack0",
+        "frame": {
+          "x": 128,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlack1",
+        "frame": {
+          "x": 128,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlack2",
+        "frame": {
+          "x": 128,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlack3",
+        "frame": {
+          "x": 128,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlack2Overlay",
+        "frame": {
+          "x": 160,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagTurquoise0",
+        "frame": {
+          "x": 192,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTurquoise1",
+        "frame": {
+          "x": 192,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTurquoise2",
+        "frame": {
+          "x": 192,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTurquoise3",
+        "frame": {
+          "x": 192,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTurquoise2Overlay",
+        "frame": {
+          "x": 224,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagTeal0",
+        "frame": {
+          "x": 256,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTeal1",
+        "frame": {
+          "x": 256,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTeal2",
+        "frame": {
+          "x": 256,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTeal3",
+        "frame": {
+          "x": 256,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagTeal2Overlay",
+        "frame": {
+          "x": 288,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagBlue0",
+        "frame": {
+          "x": 320,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlue1",
+        "frame": {
+          "x": 320,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlue2",
+        "frame": {
+          "x": 320,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlue3",
+        "frame": {
+          "x": 320,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagBlue2Overlay",
+        "frame": {
+          "x": 352,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagRed0",
+        "frame": {
+          "x": 384,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagRed1",
+        "frame": {
+          "x": 384,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagRed2",
+        "frame": {
+          "x": 384,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagRed3",
+        "frame": {
+          "x": 384,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagRed2Overlay",
+        "frame": {
+          "x": 416,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagPink0",
+        "frame": {
+          "x": 448,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPink1",
+        "frame": {
+          "x": 448,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPink2",
+        "frame": {
+          "x": 448,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPink3",
+        "frame": {
+          "x": 448,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPink2Overlay",
+        "frame": {
+          "x": 480,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagFuchsia0",
+        "frame": {
+          "x": 512,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagFuchsia1",
+        "frame": {
+          "x": 512,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagFuchsia2",
+        "frame": {
+          "x": 512,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagFuchsia3",
+        "frame": {
+          "x": 512,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagFuchsia2Overlay",
+        "frame": {
+          "x": 544,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagPurple0",
+        "frame": {
+          "x": 576,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPurple1",
+        "frame": {
+          "x": 576,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPurple2",
+        "frame": {
+          "x": 576,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPurple3",
+        "frame": {
+          "x": 576,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagPurple2Overlay",
+        "frame": {
+          "x": 608,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagOrange0",
+        "frame": {
+          "x": 640,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagOrange1",
+        "frame": {
+          "x": 640,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagOrange2",
+        "frame": {
+          "x": 640,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagOrange3",
+        "frame": {
+          "x": 640,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagOrange2Overlay",
+        "frame": {
+          "x": 672,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagGreen0",
+        "frame": {
+          "x": 704,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGreen1",
+        "frame": {
+          "x": 704,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGreen2",
+        "frame": {
+          "x": 704,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGreen3",
+        "frame": {
+          "x": 704,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGreen2Overlay",
+        "frame": {
+          "x": 736,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      },
+      {
+        "filename": "yarnbagGold0",
+        "frame": {
+          "x": 768,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGold1",
+        "frame": {
+          "x": 768,
+          "y": 60,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGold2",
+        "frame": {
+          "x": 768,
+          "y": 120,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGold3",
+        "frame": {
+          "x": 768,
+          "y": 180,
+          "w": 32,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 60
+        }
+      },
+      {
+        "filename": "yarnbagGold2Overlay",
+        "frame": {
+          "x": 800,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 29
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "yarnbag-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 832,
+        "h": 240
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,209 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "jukebox-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "musicNote1",
+        "frame": {
+          "x": 0,
+          "y": 441,
+          "w": 11,
+          "h": 10
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 11,
+          "h": 10
+        },
+        "sourceSize": {
+          "w": 11,
+          "h": 10
+        }
+      },
+      {
+        "filename": "musicNote2",
+        "frame": {
+          "x": 11,
+          "y": 441,
+          "w": 8,
+          "h": 10
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 8,
+          "h": 10
+        },
+        "sourceSize": {
+          "w": 8,
+          "h": 10
+        }
+      },
+      {
+        "filename": "jukeboxClassic0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 63
+        }
+      },
+      {
+        "filename": "jukeboxClassic0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 63,
+          "w": 43,
+          "h": 63
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 63
+        }
+      },
+      {
+        "filename": "jukeboxClassic0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 126,
+          "w": 43,
+          "h": 63
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 63
+        }
+      },
+      {
+        "filename": "jukeboxClassic0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 189,
+          "w": 43,
+          "h": 63
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 63
+        }
+      },
+      {
+        "filename": "jukeboxClassic0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 252,
+          "w": 43,
+          "h": 63
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 63
+        }
+      },
+      {
+        "filename": "jukeboxClassic0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 315,
+          "w": 43,
+          "h": 63
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 63
+        }
+      },
+      {
+        "filename": "jukeboxClassic0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 378,
+          "w": 43,
+          "h": 63
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 63
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 63
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "format": "RGBA8888",
+      "size": {
+        "w": 43,
+        "h": 451
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "sunbeam-window-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "sunbeamWindow0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 38
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 38
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 38
+        }
+      },
+      {
+        "filename": "sunbeamWindow0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 38
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 38
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 38
+        }
+      },
+      {
+        "filename": "sunbeamWindow0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 38,
+          "w": 42,
+          "h": 38
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 38
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 38
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "sunbeam-window-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 42,
+        "h": 76
+      },
+      "scale": "1"
+    }
+  }
+}

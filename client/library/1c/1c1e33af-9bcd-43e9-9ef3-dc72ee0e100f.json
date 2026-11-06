@@ -1,0 +1,1083 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "bug-minigame-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "aphid-1",
+        "frame": {
+          "x": 54,
+          "y": 443,
+          "w": 21,
+          "h": 22
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 22
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 22
+        }
+      },
+      {
+        "filename": "aphid-2",
+        "frame": {
+          "x": 77,
+          "y": 443,
+          "w": 21,
+          "h": 22
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 22
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 22
+        }
+      },
+      {
+        "filename": "aphid-3",
+        "frame": {
+          "x": 100,
+          "y": 443,
+          "w": 21,
+          "h": 22
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 22
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 22
+        }
+      },
+      {
+        "filename": "aphid-4",
+        "frame": {
+          "x": 123,
+          "y": 443,
+          "w": 21,
+          "h": 22
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 22
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 22
+        }
+      },
+      {
+        "filename": "aphid-5",
+        "frame": {
+          "x": 147,
+          "y": 443,
+          "w": 19,
+          "h": 22
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 19,
+          "h": 22
+        },
+        "sourceSize": {
+          "w": 19,
+          "h": 22
+        }
+      },
+      {
+        "filename": "aphid-6",
+        "frame": {
+          "x": 169,
+          "y": 443,
+          "w": 21,
+          "h": 22
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 22
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 22
+        }
+      },
+      {
+        "filename": "base",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 302,
+          "h": 409
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 302,
+          "h": 409
+        },
+        "sourceSize": {
+          "w": 302,
+          "h": 409
+        }
+      },
+      {
+        "filename": "darkling-beetle-1",
+        "frame": {
+          "x": 55,
+          "y": 493,
+          "w": 24,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 29
+        }
+      },
+      {
+        "filename": "darkling-beetle-2",
+        "frame": {
+          "x": 83,
+          "y": 493,
+          "w": 24,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 29
+        }
+      },
+      {
+        "filename": "darkling-beetle-3",
+        "frame": {
+          "x": 109,
+          "y": 493,
+          "w": 28,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 29
+        }
+      },
+      {
+        "filename": "darkling-beetle-4",
+        "frame": {
+          "x": 141,
+          "y": 493,
+          "w": 20,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 29
+        }
+      },
+      {
+        "filename": "darkling-beetle-5",
+        "frame": {
+          "x": 167,
+          "y": 493,
+          "w": 24,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 29
+        }
+      },
+      {
+        "filename": "darkling-beetle-6",
+        "frame": {
+          "x": 195,
+          "y": 493,
+          "w": 24,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 29
+        }
+      },
+      {
+        "filename": "fail",
+        "frame": {
+          "x": 847,
+          "y": 0,
+          "w": 272,
+          "h": 361
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 361
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 361
+        }
+      },
+      {
+        "filename": "glass-overlay",
+        "frame": {
+          "x": 303,
+          "y": 0,
+          "w": 272,
+          "h": 362
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 362
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 362
+        }
+      },
+      {
+        "filename": "nest-1",
+        "frame": {
+          "x": 53,
+          "y": 522,
+          "w": 47,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 42
+        }
+      },
+      {
+        "filename": "nest-2",
+        "frame": {
+          "x": 100,
+          "y": 522,
+          "w": 47,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 42
+        }
+      },
+      {
+        "filename": "nest-3",
+        "frame": {
+          "x": 147,
+          "y": 522,
+          "w": 47,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 42
+        }
+      },
+      {
+        "filename": "nest-full",
+        "frame": {
+          "x": 194,
+          "y": 522,
+          "w": 47,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 42
+        }
+      },
+      {
+        "filename": "plant-healthy",
+        "frame": {
+          "x": 53,
+          "y": 564,
+          "w": 46,
+          "h": 100
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 100
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 100
+        }
+      },
+      {
+        "filename": "plant-stage1",
+        "frame": {
+          "x": 421,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "plant-stage2",
+        "frame": {
+          "x": 375,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "plant-stage3",
+        "frame": {
+          "x": 329,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "plant-stage4",
+        "frame": {
+          "x": 283,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "plant-stage5",
+        "frame": {
+          "x": 237,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "plant-stage6",
+        "frame": {
+          "x": 191,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "plant-stage7",
+        "frame": {
+          "x": 145,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "plant-stage8",
+        "frame": {
+          "x": 99,
+          "y": 567,
+          "w": 46,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 97
+        }
+      },
+      {
+        "filename": "progress-green",
+        "frame": {
+          "x": 53,
+          "y": 409,
+          "w": 272,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 11
+        }
+      },
+      {
+        "filename": "progress-red",
+        "frame": {
+          "x": 53,
+          "y": 431,
+          "w": 272,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 11
+        }
+      },
+      {
+        "filename": "progress-yellow",
+        "frame": {
+          "x": 53,
+          "y": 420,
+          "w": 272,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 11
+        }
+      },
+      {
+        "filename": "rules",
+        "frame": {
+          "x": 575,
+          "y": 361,
+          "w": 272,
+          "h": 361
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 361
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 361
+        }
+      },
+      {
+        "filename": "score-0",
+        "frame": {
+          "x": 0,
+          "y": 409,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-1",
+        "frame": {
+          "x": 0,
+          "y": 430,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-2",
+        "frame": {
+          "x": 0,
+          "y": 451,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-3",
+        "frame": {
+          "x": 0,
+          "y": 472,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-4",
+        "frame": {
+          "x": 0,
+          "y": 493,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-5",
+        "frame": {
+          "x": 0,
+          "y": 514,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-6",
+        "frame": {
+          "x": 0,
+          "y": 535,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-7",
+        "frame": {
+          "x": 0,
+          "y": 556,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-8",
+        "frame": {
+          "x": 0,
+          "y": 577,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "spider-1",
+        "frame": {
+          "x": 54,
+          "y": 466,
+          "w": 29,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 26
+        }
+      },
+      {
+        "filename": "spider-2",
+        "frame": {
+          "x": 85,
+          "y": 466,
+          "w": 29,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 26
+        }
+      },
+      {
+        "filename": "spider-3",
+        "frame": {
+          "x": 116,
+          "y": 466,
+          "w": 29,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 25
+        }
+      },
+      {
+        "filename": "spider-4",
+        "frame": {
+          "x": 147,
+          "y": 466,
+          "w": 29,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 26
+        }
+      },
+      {
+        "filename": "spider-5",
+        "frame": {
+          "x": 178,
+          "y": 466,
+          "w": 29,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 26
+        }
+      },
+      {
+        "filename": "spider-6",
+        "frame": {
+          "x": 209,
+          "y": 466,
+          "w": 29,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 26
+        }
+      },
+      {
+        "filename": "success",
+        "frame": {
+          "x": 575,
+          "y": 0,
+          "w": 272,
+          "h": 361
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 361
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 361
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "bug-minigame-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 1119,
+        "h": 722
+      },
+      "scale": "1",
+      "animations": {
+        "aphid": [
+          "aphid-1",
+          "aphid-2",
+          "aphid-3",
+          "aphid-4",
+          "aphid-5",
+          "aphid-6"
+        ],
+        "darkling-beetle": [
+          "darkling-beetle-1",
+          "darkling-beetle-2",
+          "darkling-beetle-3",
+          "darkling-beetle-4",
+          "darkling-beetle-5",
+          "darkling-beetle-6"
+        ],
+        "nest": [
+          "nest-1",
+          "nest-2",
+          "nest-3",
+          "nest-full"
+        ],
+        "score": [
+          "score-0",
+          "score-1",
+          "score-2",
+          "score-3",
+          "score-4",
+          "score-5",
+          "score-6",
+          "score-7",
+          "score-8"
+        ],
+        "spider": [
+          "spider-1",
+          "spider-2",
+          "spider-3",
+          "spider-4",
+          "spider-5",
+          "spider-6"
+        ],
+        "plant": [
+          "plant-healthy",
+          "plant-stage1",
+          "plant-stage2",
+          "plant-stage3",
+          "plant-stage4",
+          "plant-stage5",
+          "plant-stage6",
+          "plant-stage7",
+          "plant-stage8"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fishing-hooked-alert-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "fishingHookedAlert0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert1",
+        "frame": {
+          "x": 0,
+          "y": 36,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert2",
+        "frame": {
+          "x": 0,
+          "y": 72,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert3",
+        "frame": {
+          "x": 0,
+          "y": 108,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert4",
+        "frame": {
+          "x": 0,
+          "y": 144,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert5",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert6",
+        "frame": {
+          "x": 0,
+          "y": 216,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert7",
+        "frame": {
+          "x": 0,
+          "y": 252,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert8",
+        "frame": {
+          "x": 0,
+          "y": 288,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert9",
+        "frame": {
+          "x": 0,
+          "y": 324,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert10",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert11",
+        "frame": {
+          "x": 0,
+          "y": 396,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "fishingHookedAlert12",
+        "frame": {
+          "x": 0,
+          "y": 432,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "fishing-hooked-alert-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 21,
+        "h": 468
+      },
+      "scale": "1"
+    }
+  }
+}

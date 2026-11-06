@@ -1,0 +1,210 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "bz-sign-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "bzSign0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign1",
+        "frame": {
+          "x": 0,
+          "y": 91,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign2",
+        "frame": {
+          "x": 0,
+          "y": 182,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign3",
+        "frame": {
+          "x": 0,
+          "y": 273,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign4",
+        "frame": {
+          "x": 0,
+          "y": 364,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign5",
+        "frame": {
+          "x": 0,
+          "y": 455,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign6",
+        "frame": {
+          "x": 0,
+          "y": 546,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign7",
+        "frame": {
+          "x": 0,
+          "y": 637,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      },
+      {
+        "filename": "bzSign8",
+        "frame": {
+          "x": 0,
+          "y": 728,
+          "w": 91,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 91,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 91,
+          "h": 91
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "bz-sign-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 91,
+        "h": 819
+      },
+      "scale": "1"
+    }
+  }
+}

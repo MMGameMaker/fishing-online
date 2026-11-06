@@ -1,0 +1,90 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "coral-centrepiece-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "coralCentrepiece0": [
+        0,
+        0,
+        206,
+        153
+      ],
+      "coralCentrepiece1": [
+        0,
+        153,
+        206,
+        153
+      ],
+      "coralCentrepiece2": [
+        0,
+        306,
+        206,
+        153
+      ],
+      "coralCentrepiece3": [
+        0,
+        459,
+        206,
+        153
+      ],
+      "coralCentrepiece4": [
+        0,
+        612,
+        206,
+        153
+      ],
+      "coralCentrepiece5": [
+        0,
+        765,
+        206,
+        153
+      ],
+      "coralCentrepiece6": [
+        0,
+        918,
+        206,
+        153
+      ],
+      "coralCentrepiece7": [
+        0,
+        1071,
+        206,
+        153
+      ],
+      "coralCentrepiece8": [
+        0,
+        1224,
+        206,
+        153
+      ],
+      "coralCentrepiece9": [
+        0,
+        1377,
+        206,
+        153
+      ],
+      "coralCentrepiece10": [
+        0,
+        1530,
+        206,
+        153
+      ]
+    },
+    "order": [
+      "coralCentrepiece0",
+      "coralCentrepiece1",
+      "coralCentrepiece2",
+      "coralCentrepiece3",
+      "coralCentrepiece4",
+      "coralCentrepiece5",
+      "coralCentrepiece6",
+      "coralCentrepiece7",
+      "coralCentrepiece8",
+      "coralCentrepiece9",
+      "coralCentrepiece10"
+    ]
+  }
+}

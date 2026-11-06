@@ -1,0 +1,307 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fishing-interface-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "fishing-interface-base": [
+        0,
+        0,
+        302,
+        289
+      ],
+      "fishing-interface-bubbles-0": [
+        646,
+        0,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-1": [
+        646,
+        43,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-2": [
+        646,
+        86,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-3": [
+        646,
+        129,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-4": [
+        646,
+        172,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-5": [
+        646,
+        215,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-6": [
+        646,
+        258,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-7": [
+        646,
+        301,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-8": [
+        646,
+        344,
+        278,
+        43
+      ],
+      "fishing-interface-bubbles-9": [
+        646,
+        387,
+        278,
+        43
+      ],
+      "fishing-interface-zone-1": [
+        0,
+        289,
+        66,
+        45
+      ],
+      "fishing-interface-zone-2": [
+        0,
+        334,
+        56,
+        45
+      ],
+      "fishing-interface-zone-3": [
+        0,
+        379,
+        46,
+        45
+      ],
+      "fishing-interface-zone-4": [
+        0,
+        424,
+        36,
+        45
+      ],
+      "fishing-interface-zone-5": [
+        0,
+        469,
+        26,
+        45
+      ],
+      "fishing-interface-slider-tick-0": [
+        576,
+        0,
+        35,
+        97
+      ],
+      "fishing-interface-slider-tick-1": [
+        576,
+        97,
+        35,
+        97
+      ],
+      "fishing-interface-slider-tick-2": [
+        576,
+        194,
+        35,
+        97
+      ],
+      "fishing-interface-slider-tick-3": [
+        576,
+        291,
+        35,
+        97
+      ],
+      "fishing-interface-slider-tick-4": [
+        576,
+        388,
+        35,
+        97
+      ],
+      "fishing-interface-slider-tick-5": [
+        576,
+        485,
+        35,
+        97
+      ],
+      "fishing-interface-slider-tick-6": [
+        576,
+        582,
+        35,
+        97
+      ],
+      "fishing-interface-slider-tick-7": [
+        576,
+        679,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-0": [
+        611,
+        0,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-1": [
+        611,
+        97,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-2": [
+        611,
+        194,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-3": [
+        611,
+        291,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-4": [
+        611,
+        388,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-5": [
+        611,
+        485,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-6": [
+        611,
+        582,
+        35,
+        97
+      ],
+      "fishing-interface-slider-cross-7": [
+        611,
+        679,
+        35,
+        97
+      ],
+      "fishing-interface-reel-counter-0": [
+        302,
+        0,
+        113,
+        58
+      ],
+      "fishing-interface-reel-counter-1": [
+        302,
+        58,
+        113,
+        58
+      ],
+      "fishing-interface-reel-counter-2": [
+        302,
+        116,
+        113,
+        58
+      ],
+      "fishing-interface-reel-counter-3": [
+        302,
+        174,
+        113,
+        58
+      ],
+      "fishing-interface-reel-button": [
+        415,
+        0,
+        161,
+        58
+      ],
+      "fishing-interface-reel-button-hover": [
+        415,
+        58,
+        161,
+        58
+      ],
+      "fishing-interface-reel-button-pressed": [
+        415,
+        116,
+        161,
+        58
+      ],
+      "fishing-interface-timer-green": [
+        302,
+        232,
+        265,
+        9
+      ],
+      "fishing-interface-timer-orange": [
+        302,
+        241,
+        265,
+        9
+      ],
+      "fishing-interface-timer-red": [
+        302,
+        250,
+        265,
+        9
+      ]
+    },
+    "order": [
+      "fishing-interface-base",
+      "fishing-interface-bubbles-0",
+      "fishing-interface-bubbles-1",
+      "fishing-interface-bubbles-2",
+      "fishing-interface-bubbles-3",
+      "fishing-interface-bubbles-4",
+      "fishing-interface-bubbles-5",
+      "fishing-interface-bubbles-6",
+      "fishing-interface-bubbles-7",
+      "fishing-interface-bubbles-8",
+      "fishing-interface-bubbles-9",
+      "fishing-interface-zone-1",
+      "fishing-interface-zone-2",
+      "fishing-interface-zone-3",
+      "fishing-interface-zone-4",
+      "fishing-interface-zone-5",
+      "fishing-interface-slider-tick-0",
+      "fishing-interface-slider-tick-1",
+      "fishing-interface-slider-tick-2",
+      "fishing-interface-slider-tick-3",
+      "fishing-interface-slider-tick-4",
+      "fishing-interface-slider-tick-5",
+      "fishing-interface-slider-tick-6",
+      "fishing-interface-slider-tick-7",
+      "fishing-interface-slider-cross-0",
+      "fishing-interface-slider-cross-1",
+      "fishing-interface-slider-cross-2",
+      "fishing-interface-slider-cross-3",
+      "fishing-interface-slider-cross-4",
+      "fishing-interface-slider-cross-5",
+      "fishing-interface-slider-cross-6",
+      "fishing-interface-slider-cross-7",
+      "fishing-interface-reel-counter-0",
+      "fishing-interface-reel-counter-1",
+      "fishing-interface-reel-counter-2",
+      "fishing-interface-reel-counter-3",
+      "fishing-interface-reel-button",
+      "fishing-interface-reel-button-hover",
+      "fishing-interface-reel-button-pressed",
+      "fishing-interface-timer-green",
+      "fishing-interface-timer-orange",
+      "fishing-interface-timer-red"
+    ]
+  }
+}

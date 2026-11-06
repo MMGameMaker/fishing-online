@@ -1,0 +1,441 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "bathroom-sink-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "bathroomSink0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink1",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink2",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink3",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink0Anim0",
+        "frame": {
+          "x": 30,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink0Anim1",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink0Anim2",
+        "frame": {
+          "x": 90,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink0Anim3",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink1Anim0",
+        "frame": {
+          "x": 30,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink1Anim1",
+        "frame": {
+          "x": 60,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink1Anim2",
+        "frame": {
+          "x": 90,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink1Anim3",
+        "frame": {
+          "x": 120,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink2Anim0",
+        "frame": {
+          "x": 30,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink2Anim1",
+        "frame": {
+          "x": 60,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink2Anim2",
+        "frame": {
+          "x": 90,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink2Anim3",
+        "frame": {
+          "x": 120,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink3Anim0",
+        "frame": {
+          "x": 30,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink3Anim1",
+        "frame": {
+          "x": 60,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink3Anim2",
+        "frame": {
+          "x": 90,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "bathroomSink3Anim3",
+        "frame": {
+          "x": 120,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "bathroom-sink-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 150,
+        "h": 240
+      },
+      "scale": "1"
+    }
+  }
+}

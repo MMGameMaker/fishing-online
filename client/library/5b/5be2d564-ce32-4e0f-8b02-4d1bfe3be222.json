@@ -1,0 +1,5376 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "emotes-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "smileyRegular",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyStatic",
+        "frame": {
+          "x": 39,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "smileyAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadRegular",
+        "frame": {
+          "x": 0,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadStatic",
+        "frame": {
+          "x": 39,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "sadAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 39,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueRegular",
+        "frame": {
+          "x": 0,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueStatic",
+        "frame": {
+          "x": 39,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "tongueAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 78,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileRegular",
+        "frame": {
+          "x": 0,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileStatic",
+        "frame": {
+          "x": 39,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "wideSmileAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 117,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughRegular",
+        "frame": {
+          "x": 0,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughStatic",
+        "frame": {
+          "x": 39,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryLaughAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 156,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryRegular",
+        "frame": {
+          "x": 0,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryStatic",
+        "frame": {
+          "x": 39,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cryAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 195,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryRegular",
+        "frame": {
+          "x": 0,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryStatic",
+        "frame": {
+          "x": 39,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "angryAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 235,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkRegular",
+        "frame": {
+          "x": 0,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkStatic",
+        "frame": {
+          "x": 39,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "winkAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 273,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedRegular",
+        "frame": {
+          "x": 0,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedStatic",
+        "frame": {
+          "x": 39,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "annoyedAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 312,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartRegular",
+        "frame": {
+          "x": 0,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartStatic",
+        "frame": {
+          "x": 39,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "heartAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 351,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveRegular",
+        "frame": {
+          "x": 0,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveStatic",
+        "frame": {
+          "x": 39,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "waveAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 390,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsRegular",
+        "frame": {
+          "x": 0,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsStatic",
+        "frame": {
+          "x": 39,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "nailsAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 429,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceRegular",
+        "frame": {
+          "x": 0,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceStatic",
+        "frame": {
+          "x": 39,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "cuteFaceAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 468,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuRegular",
+        "frame": {
+          "x": 0,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuStatic",
+        "frame": {
+          "x": 39,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "uwuAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 507,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedRegular",
+        "frame": {
+          "x": 0,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedStatic",
+        "frame": {
+          "x": 39,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "surprisedAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 546,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsRegular",
+        "frame": {
+          "x": 0,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsStatic",
+        "frame": {
+          "x": 39,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "clapsAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 585,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadRegular",
+        "frame": {
+          "x": 0,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadStatic",
+        "frame": {
+          "x": 39,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated0",
+        "frame": {
+          "x": 78,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated1",
+        "frame": {
+          "x": 117,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated2",
+        "frame": {
+          "x": 156,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated3",
+        "frame": {
+          "x": 195,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated4",
+        "frame": {
+          "x": 234,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated5",
+        "frame": {
+          "x": 273,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated6",
+        "frame": {
+          "x": 312,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated7",
+        "frame": {
+          "x": 351,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated8",
+        "frame": {
+          "x": 390,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated9",
+        "frame": {
+          "x": 429,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated10",
+        "frame": {
+          "x": 468,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated11",
+        "frame": {
+          "x": 507,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      },
+      {
+        "filename": "deadAnimated12",
+        "frame": {
+          "x": 546,
+          "y": 624,
+          "w": 39,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 39
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "emotes-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 585,
+        "h": 663
+      },
+      "scale": "1"
+    }
+  }
+}

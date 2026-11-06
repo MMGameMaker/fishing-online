@@ -1,0 +1,252 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "gopher-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "gopher0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher1",
+        "frame": {
+          "x": 0,
+          "y": 28,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher2",
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher3",
+        "frame": {
+          "x": 0,
+          "y": 84,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher4",
+        "frame": {
+          "x": 0,
+          "y": 112,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher5",
+        "frame": {
+          "x": 0,
+          "y": 140,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher6",
+        "frame": {
+          "x": 0,
+          "y": 168,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher7",
+        "frame": {
+          "x": 0,
+          "y": 196,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher8",
+        "frame": {
+          "x": 0,
+          "y": 224,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher9",
+        "frame": {
+          "x": 0,
+          "y": 252,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      },
+      {
+        "filename": "gopher10",
+        "frame": {
+          "x": 0,
+          "y": 280,
+          "w": 18,
+          "h": 28
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 18,
+          "h": 28
+        },
+        "sourceSize": {
+          "w": 18,
+          "h": 28
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "gopher-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 18,
+        "h": 308
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,1721 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "slot-machine-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "slotMachineRainbow0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 240,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 300,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 420,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 480,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 540,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 600,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 660,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 720,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 780,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 840,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 900,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 960,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim16",
+        "frame": {
+          "x": 0,
+          "y": 1020,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim17",
+        "frame": {
+          "x": 0,
+          "y": 1080,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim18",
+        "frame": {
+          "x": 0,
+          "y": 1140,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim19",
+        "frame": {
+          "x": 0,
+          "y": 1200,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim20",
+        "frame": {
+          "x": 0,
+          "y": 1260,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim21",
+        "frame": {
+          "x": 0,
+          "y": 1320,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim22",
+        "frame": {
+          "x": 0,
+          "y": 1380,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim23",
+        "frame": {
+          "x": 0,
+          "y": 1440,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim24",
+        "frame": {
+          "x": 0,
+          "y": 1500,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRainbow0Anim25",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0",
+        "frame": {
+          "x": 41,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim0",
+        "frame": {
+          "x": 41,
+          "y": 60,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim1",
+        "frame": {
+          "x": 41,
+          "y": 120,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim2",
+        "frame": {
+          "x": 41,
+          "y": 180,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim3",
+        "frame": {
+          "x": 41,
+          "y": 240,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim4",
+        "frame": {
+          "x": 41,
+          "y": 300,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim5",
+        "frame": {
+          "x": 41,
+          "y": 360,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim6",
+        "frame": {
+          "x": 41,
+          "y": 420,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim7",
+        "frame": {
+          "x": 41,
+          "y": 480,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim8",
+        "frame": {
+          "x": 41,
+          "y": 540,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim9",
+        "frame": {
+          "x": 41,
+          "y": 600,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim10",
+        "frame": {
+          "x": 41,
+          "y": 660,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim11",
+        "frame": {
+          "x": 41,
+          "y": 720,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim12",
+        "frame": {
+          "x": 41,
+          "y": 780,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim13",
+        "frame": {
+          "x": 41,
+          "y": 840,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim14",
+        "frame": {
+          "x": 41,
+          "y": 900,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim15",
+        "frame": {
+          "x": 41,
+          "y": 960,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim16",
+        "frame": {
+          "x": 41,
+          "y": 1020,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim17",
+        "frame": {
+          "x": 41,
+          "y": 1080,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim18",
+        "frame": {
+          "x": 41,
+          "y": 1140,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim19",
+        "frame": {
+          "x": 41,
+          "y": 1200,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim20",
+        "frame": {
+          "x": 41,
+          "y": 1260,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim21",
+        "frame": {
+          "x": 41,
+          "y": 1320,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim22",
+        "frame": {
+          "x": 41,
+          "y": 1380,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim23",
+        "frame": {
+          "x": 41,
+          "y": 1440,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim24",
+        "frame": {
+          "x": 41,
+          "y": 1500,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineRed0Anim25",
+        "frame": {
+          "x": 41,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0",
+        "frame": {
+          "x": 82,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim0",
+        "frame": {
+          "x": 82,
+          "y": 60,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim1",
+        "frame": {
+          "x": 82,
+          "y": 120,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim2",
+        "frame": {
+          "x": 82,
+          "y": 180,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim3",
+        "frame": {
+          "x": 82,
+          "y": 240,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim4",
+        "frame": {
+          "x": 82,
+          "y": 300,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim5",
+        "frame": {
+          "x": 82,
+          "y": 360,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim6",
+        "frame": {
+          "x": 82,
+          "y": 420,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim7",
+        "frame": {
+          "x": 82,
+          "y": 480,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim8",
+        "frame": {
+          "x": 82,
+          "y": 540,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim9",
+        "frame": {
+          "x": 82,
+          "y": 600,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim10",
+        "frame": {
+          "x": 82,
+          "y": 660,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim11",
+        "frame": {
+          "x": 82,
+          "y": 720,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim12",
+        "frame": {
+          "x": 82,
+          "y": 780,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim13",
+        "frame": {
+          "x": 82,
+          "y": 840,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim14",
+        "frame": {
+          "x": 82,
+          "y": 900,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim15",
+        "frame": {
+          "x": 82,
+          "y": 960,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim16",
+        "frame": {
+          "x": 82,
+          "y": 1020,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim17",
+        "frame": {
+          "x": 82,
+          "y": 1080,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim18",
+        "frame": {
+          "x": 82,
+          "y": 1140,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim19",
+        "frame": {
+          "x": 82,
+          "y": 1200,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim20",
+        "frame": {
+          "x": 82,
+          "y": 1260,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim21",
+        "frame": {
+          "x": 82,
+          "y": 1320,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim22",
+        "frame": {
+          "x": 82,
+          "y": 1380,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim23",
+        "frame": {
+          "x": 82,
+          "y": 1440,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim24",
+        "frame": {
+          "x": 82,
+          "y": 1500,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      },
+      {
+        "filename": "slotMachineGreen0Anim25",
+        "frame": {
+          "x": 82,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 60
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "format": "RGBA8888",
+      "size": {
+        "w": 123,
+        "h": 1560
+      },
+      "scale": "1"
+    }
+  }
+}

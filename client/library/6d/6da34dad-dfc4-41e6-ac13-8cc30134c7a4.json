@@ -1,0 +1,798 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "christmas-cracker-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "christmasCracker0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 54,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 108,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 162,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 216,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 324,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 378,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 432,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 486,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 540,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 594,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 648,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 702,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 756,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 810,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 864,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim16",
+        "frame": {
+          "x": 0,
+          "y": 918,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim17",
+        "frame": {
+          "x": 0,
+          "y": 972,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim18",
+        "frame": {
+          "x": 0,
+          "y": 1026,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim19",
+        "frame": {
+          "x": 0,
+          "y": 1080,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim20",
+        "frame": {
+          "x": 0,
+          "y": 1134,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim21",
+        "frame": {
+          "x": 0,
+          "y": 1188,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim22",
+        "frame": {
+          "x": 0,
+          "y": 1242,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim23",
+        "frame": {
+          "x": 0,
+          "y": 1296,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim24",
+        "frame": {
+          "x": 0,
+          "y": 1350,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim25",
+        "frame": {
+          "x": 0,
+          "y": 1404,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim26",
+        "frame": {
+          "x": 0,
+          "y": 1458,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim27",
+        "frame": {
+          "x": 0,
+          "y": 1512,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim28",
+        "frame": {
+          "x": 0,
+          "y": 1566,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Anim29",
+        "frame": {
+          "x": 0,
+          "y": 1620,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Option1",
+        "frame": {
+          "x": 0,
+          "y": 1350,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Option2",
+        "frame": {
+          "x": 0,
+          "y": 1404,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Option3",
+        "frame": {
+          "x": 0,
+          "y": 1458,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Option4",
+        "frame": {
+          "x": 0,
+          "y": 1512,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Option5",
+        "frame": {
+          "x": 0,
+          "y": 1566,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      },
+      {
+        "filename": "christmasCracker0Option6",
+        "frame": {
+          "x": 0,
+          "y": 1620,
+          "w": 41,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 41,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 41,
+          "h": 54
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "christmas-cracker-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 41,
+        "h": 1674
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "farmhouse-lamp-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "farmhouseLamp-0-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      },
+      {
+        "filename": "farmhouseLamp-1-0",
+        "frame": {
+          "x": 0,
+          "y": 76,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      },
+      {
+        "filename": "farmhouseLamp-2-0",
+        "frame": {
+          "x": 0,
+          "y": 152,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      },
+      {
+        "filename": "farmhouseLamp-3-0",
+        "frame": {
+          "x": 0,
+          "y": 228,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      },
+      {
+        "filename": "farmhouseLamp-0-1",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      },
+      {
+        "filename": "farmhouseLamp-1-1",
+        "frame": {
+          "x": 62,
+          "y": 76,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      },
+      {
+        "filename": "farmhouseLamp-2-1",
+        "frame": {
+          "x": 62,
+          "y": 152,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      },
+      {
+        "filename": "farmhouseLamp-3-1",
+        "frame": {
+          "x": 62,
+          "y": 228,
+          "w": 62,
+          "h": 76
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 76
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 76
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "farmhouse-lamp-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 124,
+        "h": 304
+      },
+      "scale": "1"
+    }
+  }
+}

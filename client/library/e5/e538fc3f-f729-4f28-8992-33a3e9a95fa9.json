@@ -1,0 +1,231 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "collectable-pumpkin-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "pumpkin0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin1",
+        "frame": {
+          "x": 0,
+          "y": 45,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin2",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin3",
+        "frame": {
+          "x": 0,
+          "y": 135,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin4",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin5",
+        "frame": {
+          "x": 0,
+          "y": 225,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin6",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin7",
+        "frame": {
+          "x": 0,
+          "y": 315,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin8",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "pumpkin9",
+        "frame": {
+          "x": 0,
+          "y": 405,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "yarnblooms-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 24,
+        "h": 450
+      },
+      "scale": "1"
+    }
+  }
+}

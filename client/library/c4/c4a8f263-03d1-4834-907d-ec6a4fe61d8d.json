@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "farmhouse-stove-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "farmhouseStove0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 54
+        }
+      },
+      {
+        "filename": "farmhouseStove1",
+        "frame": {
+          "x": 0,
+          "y": 54,
+          "w": 32,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 54
+        }
+      },
+      {
+        "filename": "farmhouseStove2",
+        "frame": {
+          "x": 0,
+          "y": 108,
+          "w": 32,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 54
+        }
+      },
+      {
+        "filename": "farmhouseStove3",
+        "frame": {
+          "x": 0,
+          "y": 162,
+          "w": 32,
+          "h": 54
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 54
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 54
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "farmhouse-stove-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 32,
+        "h": 216
+      },
+      "scale": "1"
+    }
+  }
+}

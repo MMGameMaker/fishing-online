@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "cloud-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "cloud0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      },
+      {
+        "filename": "cloud1",
+        "frame": {
+          "x": 0,
+          "y": 65,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      },
+      {
+        "filename": "cloud2",
+        "frame": {
+          "x": 0,
+          "y": 130,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      },
+      {
+        "filename": "cloud3",
+        "frame": {
+          "x": 0,
+          "y": 195,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      },
+      {
+        "filename": "cloud4",
+        "frame": {
+          "x": 0,
+          "y": 260,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      },
+      {
+        "filename": "cloud5",
+        "frame": {
+          "x": 0,
+          "y": 325,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      },
+      {
+        "filename": "cloud6",
+        "frame": {
+          "x": 0,
+          "y": 390,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      },
+      {
+        "filename": "cloud7",
+        "frame": {
+          "x": 0,
+          "y": 455,
+          "w": 126,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 126,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 126,
+          "h": 65
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "cloud-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 126,
+        "h": 520
+      },
+      "scale": "1"
+    }
+  }
+}

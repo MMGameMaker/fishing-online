@@ -1,0 +1,126 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "pixel-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "pixel0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 11,
+          "h": 13
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 11,
+          "h": 13
+        },
+        "sourceSize": {
+          "w": 11,
+          "h": 13
+        }
+      },
+      {
+        "filename": "pixel1",
+        "frame": {
+          "x": 0,
+          "y": 13,
+          "w": 11,
+          "h": 13
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 11,
+          "h": 13
+        },
+        "sourceSize": {
+          "w": 11,
+          "h": 13
+        }
+      },
+      {
+        "filename": "pixel2",
+        "frame": {
+          "x": 0,
+          "y": 26,
+          "w": 11,
+          "h": 13
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 11,
+          "h": 13
+        },
+        "sourceSize": {
+          "w": 11,
+          "h": 13
+        }
+      },
+      {
+        "filename": "pixel3",
+        "frame": {
+          "x": 0,
+          "y": 39,
+          "w": 11,
+          "h": 13
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 11,
+          "h": 13
+        },
+        "sourceSize": {
+          "w": 11,
+          "h": 13
+        }
+      },
+      {
+        "filename": "pixel4",
+        "frame": {
+          "x": 0,
+          "y": 52,
+          "w": 11,
+          "h": 13
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 11,
+          "h": 13
+        },
+        "sourceSize": {
+          "w": 11,
+          "h": 13
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "pixel-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 11,
+        "h": 65
+      },
+      "scale": "1"
+    }
+  }
+}

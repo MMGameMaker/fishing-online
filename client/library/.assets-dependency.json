@@ -1,0 +1,16 @@
+{
+  "data": {
+    "path": {
+      "resources\\maps\\coralCove\\coralCove-above.tmx": [
+        "resources\\maps\\coralCove\\tiles.png",
+        "resources\\maps\\coralCove\\water-on-sand.png"
+      ],
+      "resources\\maps\\coralCove\\coralCove-below.tmx": [
+        "resources\\maps\\coralCove\\tiles.png",
+        "resources\\maps\\coralCove\\water-on-sand.png"
+      ]
+    },
+    "uuid": {}
+  },
+  "version": "1.0.0"
+}

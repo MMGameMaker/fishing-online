@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "christmas-fence-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "christmasFenceStraight0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "christmasFenceStraight1",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "christmasFenceStraight2",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "christmasFenceStraight3",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "christmasFenceCorner0",
+        "frame": {
+          "x": 59,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "christmasFenceCorner1",
+        "frame": {
+          "x": 59,
+          "y": 60,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "christmasFenceCorner2",
+        "frame": {
+          "x": 59,
+          "y": 120,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "christmasFenceCorner3",
+        "frame": {
+          "x": 59,
+          "y": 180,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "christmas-fence-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 92,
+        "h": 240
+      },
+      "scale": "1"
+    }
+  }
+}

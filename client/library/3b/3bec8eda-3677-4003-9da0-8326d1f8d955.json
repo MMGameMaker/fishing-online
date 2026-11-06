@@ -1,0 +1,441 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "marlin-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "marlin0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin1",
+        "frame": {
+          "x": 0,
+          "y": 52,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin2",
+        "frame": {
+          "x": 0,
+          "y": 104,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin3",
+        "frame": {
+          "x": 0,
+          "y": 156,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin4",
+        "frame": {
+          "x": 0,
+          "y": 208,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin5",
+        "frame": {
+          "x": 0,
+          "y": 260,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin6",
+        "frame": {
+          "x": 0,
+          "y": 312,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin7",
+        "frame": {
+          "x": 0,
+          "y": 364,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin8",
+        "frame": {
+          "x": 0,
+          "y": 416,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin9",
+        "frame": {
+          "x": 0,
+          "y": 468,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin10",
+        "frame": {
+          "x": 0,
+          "y": 520,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin11",
+        "frame": {
+          "x": 0,
+          "y": 572,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin12",
+        "frame": {
+          "x": 0,
+          "y": 624,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin13",
+        "frame": {
+          "x": 0,
+          "y": 676,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin14",
+        "frame": {
+          "x": 0,
+          "y": 728,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin15",
+        "frame": {
+          "x": 0,
+          "y": 780,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin16",
+        "frame": {
+          "x": 0,
+          "y": 832,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin17",
+        "frame": {
+          "x": 0,
+          "y": 884,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin18",
+        "frame": {
+          "x": 0,
+          "y": 936,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      },
+      {
+        "filename": "marlin19",
+        "frame": {
+          "x": 0,
+          "y": 988,
+          "w": 36,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 52
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "marlin-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 36,
+        "h": 1040
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "earth-and-plots-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "earthUntilled",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "earthTilled",
+        "frame": {
+          "x": 59,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "earthStage1",
+        "frame": {
+          "x": 118,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "basicPlotBoxBrown",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "bluePlotColorToken",
+        "frame": {
+          "x": 59,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "purplePlotColorToken",
+        "frame": {
+          "x": 118,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "pinkPlotColorToken",
+        "frame": {
+          "x": 177,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "redPlotColorToken",
+        "frame": {
+          "x": 236,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "orangePlotColorToken",
+        "frame": {
+          "x": 295,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "greenPlotColorToken",
+        "frame": {
+          "x": 354,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "goldPlotColorToken",
+        "frame": {
+          "x": 413,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "earth-and-plots-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 472,
+        "h": 352
+      },
+      "scale": "1"
+    }
+  }
+}

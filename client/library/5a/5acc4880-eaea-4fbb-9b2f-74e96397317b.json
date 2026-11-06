@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "coin-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "coin0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 10,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 10,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 10,
+          "h": 11
+        }
+      },
+      {
+        "filename": "coin1",
+        "frame": {
+          "x": 0,
+          "y": 11,
+          "w": 10,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 10,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 10,
+          "h": 11
+        }
+      },
+      {
+        "filename": "coin2",
+        "frame": {
+          "x": 0,
+          "y": 22,
+          "w": 10,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 10,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 10,
+          "h": 11
+        }
+      },
+      {
+        "filename": "coin3",
+        "frame": {
+          "x": 0,
+          "y": 33,
+          "w": 10,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 10,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 10,
+          "h": 11
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "coin-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 10,
+        "h": 44
+      },
+      "scale": "1"
+    }
+  }
+}

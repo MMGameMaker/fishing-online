@@ -1,0 +1,252 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "cherry-blossom-tree-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "cherryBlossomTree0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 95,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 190,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 285,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 380,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 475,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 570,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 665,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 760,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 855,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      },
+      {
+        "filename": "cherryBlossomTree0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 950,
+          "w": 86,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 95
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "cherry-blossom-tree-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 86,
+        "h": 1045
+      },
+      "scale": "1"
+    }
+  }
+}

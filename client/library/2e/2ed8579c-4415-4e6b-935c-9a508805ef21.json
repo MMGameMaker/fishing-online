@@ -1,0 +1,525 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fish-around-coral-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "fishAroundCoral0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral1",
+        "frame": {
+          "x": 0,
+          "y": 171,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 171,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral2",
+        "frame": {
+          "x": 0,
+          "y": 342,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 342,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral3",
+        "frame": {
+          "x": 0,
+          "y": 513,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 513,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral4",
+        "frame": {
+          "x": 0,
+          "y": 684,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 684,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral5",
+        "frame": {
+          "x": 0,
+          "y": 855,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 855,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral6",
+        "frame": {
+          "x": 0,
+          "y": 1026,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1026,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral7",
+        "frame": {
+          "x": 0,
+          "y": 1197,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1197,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral8",
+        "frame": {
+          "x": 0,
+          "y": 1368,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1368,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral9",
+        "frame": {
+          "x": 0,
+          "y": 1539,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1539,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral10",
+        "frame": {
+          "x": 0,
+          "y": 1710,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1710,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral11",
+        "frame": {
+          "x": 0,
+          "y": 1881,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1881,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral12",
+        "frame": {
+          "x": 226,
+          "y": 0,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral13",
+        "frame": {
+          "x": 226,
+          "y": 171,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 171,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral14",
+        "frame": {
+          "x": 226,
+          "y": 342,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 342,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral15",
+        "frame": {
+          "x": 226,
+          "y": 513,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 513,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral16",
+        "frame": {
+          "x": 226,
+          "y": 684,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 684,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral17",
+        "frame": {
+          "x": 226,
+          "y": 855,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 855,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral18",
+        "frame": {
+          "x": 226,
+          "y": 1026,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1026,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral19",
+        "frame": {
+          "x": 226,
+          "y": 1197,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1197,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral20",
+        "frame": {
+          "x": 226,
+          "y": 1368,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1368,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral21",
+        "frame": {
+          "x": 226,
+          "y": 1539,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1539,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral22",
+        "frame": {
+          "x": 226,
+          "y": 1710,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1710,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      },
+      {
+        "filename": "fishAroundCoral23",
+        "frame": {
+          "x": 226,
+          "y": 1881,
+          "w": 226,
+          "h": 171
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1881,
+          "w": 226,
+          "h": 171
+        },
+        "sourceSize": {
+          "w": 226,
+          "h": 171
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "fish-around-coral-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 452,
+        "h": 2052
+      },
+      "scale": "1"
+    }
+  }
+}

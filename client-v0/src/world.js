@@ -9,6 +9,21 @@ import { SeatController } from './seats.js';
 
 const SPEED = 130;
 const SEND_MS = 70;
+// The view always shows a 1024x716 area of the world at zoom 1 (VIEW_W x VIEW_H "game pixels").
+export const VIEW_W = 1024;
+export const VIEW_H = 716;
+// Camera zoom for rooms that look too small at 1:1 (e.g. the Tinkerbean shop). These rooms are
+// snapped to a whole number of screen pixels per art pixel so the pixel art stays sharp.
+const ROOM_ZOOM = { store: 1.5 };
+
+// The canvas is sized in real screen pixels (see main.js), so the camera zoom carries both the
+// fit-to-window scale and the room zoom.
+function cameraZoom(scene, roomKey) {
+  const fit = scene.scale.width / VIEW_W;
+  const roomZoom = ROOM_ZOOM[roomKey];
+  return roomZoom ? Math.max(1, Math.round(fit * roomZoom)) : fit;
+}
+
 const KEYS = {
   ArrowUp: 'up', KeyW: 'up', ArrowDown: 'down', KeyS: 'down', ArrowLeft: 'left', KeyA: 'left', ArrowRight: 'right', KeyD: 'right',
 };
@@ -73,6 +88,11 @@ export class WorldScene extends Phaser.Scene {
     const { tx, ty, w, h } = room.bounds;
     this.cameras.main.setBackgroundColor(room.background);
     this.cameras.main.setBounds(tx * TILE, ty * TILE, w * TILE, h * TILE);
+    // Small interiors are shown closer up (camera zoom per room key; default 1).
+    this.cameras.main.setZoom(cameraZoom(this, room.key));
+    const onResize = () => this.cameras.main.setZoom(cameraZoom(this, room.key));
+    this.scale.on('resize', onResize);
+    this.events.once('shutdown', () => this.scale.off('resize', onResize));
     this.cameras.main.startFollow(this.me.followTarget, true);
 
     this.input.on('pointerdown', (pointer) => {
@@ -130,13 +150,13 @@ export class WorldScene extends Phaser.Scene {
     socket.on('lookChanged', ({ id, look }) => this.players.get(id)?.setLook(look));
     socket.on('chat', ({ from, text }) => this.players.get(from)?.showBubble(text));
     socket.on('positionCorrect', ({ x, y }) => this.me.snapTo(x, y));
-    socket.on('playerFishing', ({ id, phase, dir }) => this.players.get(id)?.setFishing(phase, dir));
-    socket.on('playerSat', ({ id, x, y, dir }) => {
+    socket.on('playerFishing', ({ id, phase, dir, rodLevel }) => this.players.get(id)?.setFishing(phase, dir, rodLevel));
+    socket.on('playerSat', ({ id, x, y, dir, index }) => {
       const p = this.players.get(id);
       p?.setSitting(true);
       p?.snapTo(x, y);
       if (p) p.dir = dir;
-      if (id === this.session.me.id) this.session.sitting = true;
+      if (id === this.session.me.id) { this.session.sitting = true; this.session.seatIndex = index; }
     });
     socket.on('playerStood', ({ id, x, y, dir }) => {
       const p = this.players.get(id);
@@ -209,7 +229,9 @@ export class WorldScene extends Phaser.Scene {
       this.lastSend = now;
       this.sentMoving = moved;
     }
-    this.session.fishZone = fishingZoneAt(room, me.x, me.y);
+    // Fishing needs a stool by the water: the zone is the fishing edge under the seat.
+    const seat = this.session.sitting ? room.seats[this.session.seatIndex] : null;
+    this.session.fishZone = seat?.stool ? fishingZoneAt(room, seat.x, seat.y) : null;
     if (exit >= 0) this.changeRoom(exit);
   }
 
@@ -233,7 +255,7 @@ export class WorldScene extends Phaser.Scene {
     if (!this.changingRoom) this.moveMe(delta);
     for (const player of this.players.values()) player.update(time, delta);
     const busy = this.changingRoom || this.session.sitting || this.session.fishing.isFishing();
-    const showButton = this.session.fishing.canFish() && !this.me.moving && !this.changingRoom && !this.session.sitting;
+    const showButton = this.session.fishing.canFish() && !this.me.moving && !this.changingRoom;
     this.fishButton.setVisible(showButton).setPosition(this.me.x, this.me.y - 84);
     this.seats.update(this.me, busy);
     this.npcController.update(this.me);

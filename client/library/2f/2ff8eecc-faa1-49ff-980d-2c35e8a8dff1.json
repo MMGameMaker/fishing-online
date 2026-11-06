@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "greek-pillar-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "greekPillar0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      },
+      {
+        "filename": "greekPillar1",
+        "frame": {
+          "x": 30,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      },
+      {
+        "filename": "greekPillar2",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      },
+      {
+        "filename": "greekPillarMedium0",
+        "frame": {
+          "x": 90,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      },
+      {
+        "filename": "greekPillarMedium1",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      },
+      {
+        "filename": "greekPillarMedium2",
+        "frame": {
+          "x": 150,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      },
+      {
+        "filename": "greekPillarSmall0",
+        "frame": {
+          "x": 180,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      },
+      {
+        "filename": "greekPillarSmall1",
+        "frame": {
+          "x": 210,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 120
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "greek-pillar-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 240,
+        "h": 120
+      },
+      "scale": "1"
+    }
+  }
+}

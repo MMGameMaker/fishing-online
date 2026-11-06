@@ -1,0 +1,861 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "animated-plots-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "rainbowPlotColorToken0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "rainbowPlotColorToken1",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "rainbowPlotColorToken2",
+        "frame": {
+          "x": 0,
+          "y": 176,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "rainbowPlotColorToken3",
+        "frame": {
+          "x": 0,
+          "y": 264,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "rainbowPlotColorToken4",
+        "frame": {
+          "x": 0,
+          "y": 352,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "rainbowPlotColorToken5",
+        "frame": {
+          "x": 0,
+          "y": 440,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "rainbowPlotColorToken6",
+        "frame": {
+          "x": 0,
+          "y": 528,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "rainbowPlotColorToken7",
+        "frame": {
+          "x": 0,
+          "y": 616,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken0",
+        "frame": {
+          "x": 59,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken1",
+        "frame": {
+          "x": 59,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken2",
+        "frame": {
+          "x": 59,
+          "y": 176,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken3",
+        "frame": {
+          "x": 59,
+          "y": 264,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken4",
+        "frame": {
+          "x": 59,
+          "y": 352,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken5",
+        "frame": {
+          "x": 59,
+          "y": 440,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken6",
+        "frame": {
+          "x": 59,
+          "y": 528,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "arrowPlotColorToken7",
+        "frame": {
+          "x": 59,
+          "y": 616,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken0",
+        "frame": {
+          "x": 118,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken1",
+        "frame": {
+          "x": 118,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken2",
+        "frame": {
+          "x": 118,
+          "y": 176,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken3",
+        "frame": {
+          "x": 118,
+          "y": 264,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken4",
+        "frame": {
+          "x": 118,
+          "y": 352,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken5",
+        "frame": {
+          "x": 118,
+          "y": 440,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken6",
+        "frame": {
+          "x": 118,
+          "y": 528,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "discoPlotColorToken7",
+        "frame": {
+          "x": 118,
+          "y": 616,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken0",
+        "frame": {
+          "x": 177,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken1",
+        "frame": {
+          "x": 177,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken2",
+        "frame": {
+          "x": 177,
+          "y": 176,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken3",
+        "frame": {
+          "x": 177,
+          "y": 264,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken4",
+        "frame": {
+          "x": 177,
+          "y": 352,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken5",
+        "frame": {
+          "x": 177,
+          "y": 440,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken6",
+        "frame": {
+          "x": 177,
+          "y": 528,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "electroPlotColorToken7",
+        "frame": {
+          "x": 177,
+          "y": 616,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken0",
+        "frame": {
+          "x": 236,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken1",
+        "frame": {
+          "x": 236,
+          "y": 88,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken2",
+        "frame": {
+          "x": 236,
+          "y": 176,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken3",
+        "frame": {
+          "x": 236,
+          "y": 264,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken4",
+        "frame": {
+          "x": 236,
+          "y": 352,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken5",
+        "frame": {
+          "x": 236,
+          "y": 440,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken6",
+        "frame": {
+          "x": 236,
+          "y": 528,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      },
+      {
+        "filename": "emeraldPlotColorToken7",
+        "frame": {
+          "x": 236,
+          "y": 616,
+          "w": 59,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 59,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 59,
+          "h": 88
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "animated-plots-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 295,
+        "h": 704
+      },
+      "scale": "1"
+    }
+  }
+}

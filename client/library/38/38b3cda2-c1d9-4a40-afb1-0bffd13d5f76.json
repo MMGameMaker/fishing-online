@@ -1,0 +1,126 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "christmas-fireplace-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "christmasFireplace0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 78,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 78,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 78,
+          "h": 91
+        }
+      },
+      {
+        "filename": "christmasFireplace0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 91,
+          "w": 78,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 78,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 78,
+          "h": 91
+        }
+      },
+      {
+        "filename": "christmasFireplace0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 182,
+          "w": 78,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 78,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 78,
+          "h": 91
+        }
+      },
+      {
+        "filename": "christmasFireplace0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 273,
+          "w": 78,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 78,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 78,
+          "h": 91
+        }
+      },
+      {
+        "filename": "christmasFireplace0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 364,
+          "w": 78,
+          "h": 91
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 78,
+          "h": 91
+        },
+        "sourceSize": {
+          "w": 78,
+          "h": 91
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "christmas-fireplace-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 78,
+        "h": 455
+      },
+      "scale": "1"
+    }
+  }
+}

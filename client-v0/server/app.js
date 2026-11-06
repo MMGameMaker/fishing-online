@@ -8,8 +8,9 @@ import {
   FISH, FISH_BY_ID, LIMITS, REEL, ROD_PRICES, ROOM_KEYS, SEED_ACCOUNTS, START_ROOM,
   canStand, fishingZoneAt, isAtExit, isInZone, isRareFish, levelForPixels, nearestStandable, rollZone, validateLook,
 } from '../shared/config.js';
-import { NPC_REACH, NPCS, QUESTS, SEAT_REACH, npcsInRoom, questLine } from '../shared/npcs.js';
+import { NPC_REACH, NPCS, QUEST_NPCS, QUESTS, SEAT_REACH, npcsInRoom, questLine } from '../shared/npcs.js';
 import { CROP_BY_ID, FARM_REACH, PLOTS, SEED_COST, plotStage, plotsInRoom } from '../shared/farming.js';
+import { applyRoomExtras } from '../shared/roomExtras.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const BOT_REPLIES = [
@@ -22,7 +23,7 @@ const BOT_REPLIES = [
 const TELEPORT_MARGIN = 24;
 
 function loadRooms() {
-  const entries = ROOM_KEYS.map((key) => [key, JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'rooms', `${key}.json`), 'utf8'))]);
+  const entries = ROOM_KEYS.map((key) => [key, applyRoomExtras(JSON.parse(fs.readFileSync(path.join(ROOT, 'public', 'rooms', `${key}.json`), 'utf8')))]);
   return Object.fromEntries(entries);
 }
 
@@ -63,8 +64,8 @@ function questStatus(account, questId) {
 
 function npcsPublic(room, account) {
   return npcsInRoom(room).map((npc) => ({
-    id: npc.id, name: npc.name, color: npc.color, x: npc.x, y: npc.y, questId: npc.questId,
-    questStatus: questStatus(account, npc.questId),
+    id: npc.id, name: npc.name, color: npc.color, x: npc.x, y: npc.y, questId: npc.questId ?? null,
+    questStatus: npc.questId ? questStatus(account, npc.questId) : null, shop: Boolean(npc.shop),
   }));
 }
 
@@ -125,7 +126,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
     const account = db.accounts[p.id];
     return {
       id: p.id, display: account.display, look: account.look, x: p.x, y: p.y, dir: p.dir,
-      fishing: p.fishing ? { phase: p.fishing.phase } : null,
+      fishing: p.fishing ? { phase: p.fishing.phase, rodLevel: account.rodLevel } : null,
       sitting: p.sitting ?? null,
       dancing: Boolean(p.dancing),
     };
@@ -157,7 +158,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
   function advanceQuests(p, requirementType) {
     const account = db.accounts[p.id];
     let changed = false;
-    for (const npc of NPCS) {
+    for (const npc of QUEST_NPCS) {
       const quest = QUESTS[npc.questId];
       if (quest.requirement.type === requirementType && questStatus(account, npc.questId) === 'in_progress') {
         account.quests[npc.questId] = 'ready';
@@ -184,9 +185,17 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
     io.to(p.room).emit('playerFishing', { id: p.id, phase: null, dir: p.dir });
   }
 
+  // The fishing edge under the stool the player sits on, or null when not sitting on a stool.
+  function stoolFishingZone(p) {
+    if (p.sitting == null) return null;
+    const room = rooms[p.room];
+    const seat = room.seats[p.sitting];
+    return seat?.stool ? fishingZoneAt(room, seat.x, seat.y) : null;
+  }
+
   function setPhase(p, phase) {
     p.fishing.phase = phase;
-    io.to(p.room).emit('playerFishing', { id: p.id, phase, dir: p.dir });
+    io.to(p.room).emit('playerFishing', { id: p.id, phase, dir: p.dir, rodLevel: db.accounts[p.id].rodLevel });
   }
 
   // reason: fishEscaped | timeElapsed | failedHook | pulledEarly | unfocusedWindow
@@ -247,6 +256,8 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
         me: {
           ...publicPlayer(player), coins: account.coins, inventory: account.inventory,
           pixels: account.pixels, level: levelForPixels(account.pixels), rodLevel: account.rodLevel,
+          // False until the account saves a look once; the client shows the character creator until then.
+          characterCreated: Boolean(account.characterCreated),
         },
         players: playersIn(player.room, player),
         chat: chatHistory[player.room],
@@ -329,6 +340,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
     socket.on('standUp', (_payload, cb) => {
       if (!player) return reply(cb, { ok: false, error: 'Not logged in' });
       if (player.sitting == null) return reply(cb, { ok: false });
+      if (player.fishing) return reply(cb, { ok: false, error: 'Stop fishing first' });
       const room = rooms[player.room];
       const seat = room.seats[player.sitting];
       // Not every seat in the source maps carries an exit point; fall back to the
@@ -355,6 +367,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
       const npc = NPCS.find((n) => n.id === payload?.npcId);
       if (!npc || npc.room !== player.room) return reply(cb, { ok: false, error: 'NPC not here' });
       if (dist(player.x, player.y, npc.x, npc.y) > NPC_REACH) return reply(cb, { ok: false, error: 'Too far away' });
+      if (npc.shop) return reply(cb, { ok: true, npc: { id: npc.id, name: npc.name }, shop: true, text: npc.greeting });
       const account = db.accounts[player.id];
       const quest = QUESTS[npc.questId];
       const status = questStatus(account, npc.questId);
@@ -365,7 +378,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
       if (!player) return reply(cb, { ok: false, error: 'Not logged in' });
       const npc = NPCS.find((n) => n.id === payload?.npcId);
       const account = db.accounts[player.id];
-      if (!npc || questStatus(account, npc.questId) !== 'new') return reply(cb, { ok: false, error: 'Nothing to accept' });
+      if (!npc || !npc.questId || questStatus(account, npc.questId) !== 'new') return reply(cb, { ok: false, error: 'Nothing to accept' });
       const quest = QUESTS[npc.questId];
       const status = quest.requirement.type === 'talk' ? 'ready' : 'in_progress';
       account.quests[npc.questId] = status;
@@ -389,7 +402,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
     socket.on('getQuestLog', (_payload, cb) => {
       if (!player) return reply(cb, { ok: false, error: 'Not logged in' });
       const account = db.accounts[player.id];
-      const quests = NPCS.map((npc) => {
+      const quests = QUEST_NPCS.map((npc) => {
         const quest = QUESTS[npc.questId];
         return { questId: npc.questId, npcName: npc.name, name: quest.name, status: questStatus(account, npc.questId), coins: quest.reward.coins };
       });
@@ -401,6 +414,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
       const look = validateLook(payload?.look);
       if (!look) return reply(cb, { ok: false, error: 'Invalid look' });
       db.accounts[player.id].look = look;
+      db.accounts[player.id].characterCreated = true;
       save();
       io.to(player.room).emit('lookChanged', { id: player.id, look });
       advanceQuests(player, 'changeLook');
@@ -445,9 +459,9 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
     socket.on('startFishing', (_payload, cb) => {
       if (!player) return reply(cb, { ok: false, error: 'Not logged in' });
       if (player.fishing) return reply(cb, { ok: false, error: 'Already fishing' });
-      if (player.sitting != null) return reply(cb, { ok: false, error: 'Stand up first' });
-      const zone = fishingZoneAt(rooms[player.room], player.x, player.y);
-      if (!zone) return reply(cb, { ok: false, error: 'Stand at the edge of the dock to fish' });
+      // Fishing is only allowed from a stool by the water (see shared/roomExtras.js).
+      const zone = stoolFishingZone(player);
+      if (!zone) return reply(cb, { ok: false, error: 'Sit on a stool by the water to fish' });
       const p = player;
       p.dir = zone.direction;
       p.fishing = { phase: 'cast', fish: null, zone: null, hits: 0, lastReelAt: 0, timer: null };

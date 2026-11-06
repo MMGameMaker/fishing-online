@@ -1,0 +1,210 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "holoprint-teal-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "holoprintTeal0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 56,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 112,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 168,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 224,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 280,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 336,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 392,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      },
+      {
+        "filename": "holoprintTeal0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 448,
+          "w": 20,
+          "h": 56
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 20,
+          "h": 56
+        },
+        "sourceSize": {
+          "w": 20,
+          "h": 56
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "holoprint-teal-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 20,
+        "h": 504
+      },
+      "scale": "1"
+    }
+  }
+}

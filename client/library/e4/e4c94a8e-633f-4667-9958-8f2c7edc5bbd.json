@@ -1,0 +1,777 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "animated-plant-statuses-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "water0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water1",
+        "frame": {
+          "x": 0,
+          "y": 31,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water2",
+        "frame": {
+          "x": 0,
+          "y": 62,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water3",
+        "frame": {
+          "x": 0,
+          "y": 93,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water4",
+        "frame": {
+          "x": 0,
+          "y": 124,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water5",
+        "frame": {
+          "x": 0,
+          "y": 155,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water6",
+        "frame": {
+          "x": 0,
+          "y": 186,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water7",
+        "frame": {
+          "x": 0,
+          "y": 217,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "water8",
+        "frame": {
+          "x": 0,
+          "y": 248,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested0",
+        "frame": {
+          "x": 25,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested1",
+        "frame": {
+          "x": 25,
+          "y": 31,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested2",
+        "frame": {
+          "x": 25,
+          "y": 62,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested3",
+        "frame": {
+          "x": 25,
+          "y": 93,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested4",
+        "frame": {
+          "x": 25,
+          "y": 124,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested5",
+        "frame": {
+          "x": 25,
+          "y": 155,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested6",
+        "frame": {
+          "x": 25,
+          "y": 186,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested7",
+        "frame": {
+          "x": 25,
+          "y": 217,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "infested8",
+        "frame": {
+          "x": 25,
+          "y": 248,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead0",
+        "frame": {
+          "x": 50,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead1",
+        "frame": {
+          "x": 50,
+          "y": 31,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead2",
+        "frame": {
+          "x": 50,
+          "y": 62,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead3",
+        "frame": {
+          "x": 50,
+          "y": 93,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead4",
+        "frame": {
+          "x": 50,
+          "y": 124,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead5",
+        "frame": {
+          "x": 50,
+          "y": 155,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead6",
+        "frame": {
+          "x": 50,
+          "y": 186,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead7",
+        "frame": {
+          "x": 50,
+          "y": 217,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "dead8",
+        "frame": {
+          "x": 50,
+          "y": 248,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest0",
+        "frame": {
+          "x": 75,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest1",
+        "frame": {
+          "x": 75,
+          "y": 31,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest2",
+        "frame": {
+          "x": 75,
+          "y": 62,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest3",
+        "frame": {
+          "x": 75,
+          "y": 93,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest4",
+        "frame": {
+          "x": 75,
+          "y": 124,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest5",
+        "frame": {
+          "x": 75,
+          "y": 155,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest6",
+        "frame": {
+          "x": 75,
+          "y": 186,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest7",
+        "frame": {
+          "x": 75,
+          "y": 217,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      },
+      {
+        "filename": "harvest8",
+        "frame": {
+          "x": 75,
+          "y": 248,
+          "w": 25,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 31
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "animated-plant-statuses-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 100,
+        "h": 279
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "floating-candles-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "floatingCandles0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 72,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 144,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 216,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 288,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 432,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 504,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      },
+      {
+        "filename": "floatingCandles0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 576,
+          "w": 44,
+          "h": 72
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 44,
+          "h": 72
+        },
+        "sourceSize": {
+          "w": 44,
+          "h": 72
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "floating-candles-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 44,
+        "h": 648
+      },
+      "scale": "1"
+    }
+  }
+}

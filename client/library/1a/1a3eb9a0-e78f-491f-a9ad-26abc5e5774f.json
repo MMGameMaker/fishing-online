@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "terrawood-single-bed-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "terrawoodSingleBed0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 90
+        }
+      },
+      {
+        "filename": "terrawoodSingleBed1",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 90,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 90
+        }
+      },
+      {
+        "filename": "terrawoodSingleBed2",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 90,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 90
+        }
+      },
+      {
+        "filename": "terrawoodSingleBed3",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 90,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 90
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "terrawood-single-bed-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 90,
+        "h": 360
+      },
+      "scale": "1"
+    }
+  }
+}

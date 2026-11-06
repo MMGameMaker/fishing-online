@@ -1,0 +1,903 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fishing-interface-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "fishing-interface-base",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 302,
+          "h": 289
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 302,
+          "h": 289
+        },
+        "sourceSize": {
+          "w": 302,
+          "h": 289
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-0",
+        "frame": {
+          "x": 646,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-1",
+        "frame": {
+          "x": 646,
+          "y": 43,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-2",
+        "frame": {
+          "x": 646,
+          "y": 86,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-3",
+        "frame": {
+          "x": 646,
+          "y": 129,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-4",
+        "frame": {
+          "x": 646,
+          "y": 172,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-5",
+        "frame": {
+          "x": 646,
+          "y": 215,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-6",
+        "frame": {
+          "x": 646,
+          "y": 258,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-7",
+        "frame": {
+          "x": 646,
+          "y": 301,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-8",
+        "frame": {
+          "x": 646,
+          "y": 344,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-bubbles-9",
+        "frame": {
+          "x": 646,
+          "y": 387,
+          "w": 278,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 278,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 278,
+          "h": 43
+        }
+      },
+      {
+        "filename": "fishing-interface-zone-1",
+        "frame": {
+          "x": 0,
+          "y": 289,
+          "w": 66,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 66,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 66,
+          "h": 45
+        }
+      },
+      {
+        "filename": "fishing-interface-zone-2",
+        "frame": {
+          "x": 0,
+          "y": 334,
+          "w": 56,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 56,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 56,
+          "h": 45
+        }
+      },
+      {
+        "filename": "fishing-interface-zone-3",
+        "frame": {
+          "x": 0,
+          "y": 379,
+          "w": 46,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 46,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 46,
+          "h": 45
+        }
+      },
+      {
+        "filename": "fishing-interface-zone-4",
+        "frame": {
+          "x": 0,
+          "y": 424,
+          "w": 36,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 45
+        }
+      },
+      {
+        "filename": "fishing-interface-zone-5",
+        "frame": {
+          "x": 0,
+          "y": 469,
+          "w": 26,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 45
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-0",
+        "frame": {
+          "x": 576,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-1",
+        "frame": {
+          "x": 576,
+          "y": 97,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-2",
+        "frame": {
+          "x": 576,
+          "y": 194,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-3",
+        "frame": {
+          "x": 576,
+          "y": 291,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-4",
+        "frame": {
+          "x": 576,
+          "y": 388,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-5",
+        "frame": {
+          "x": 576,
+          "y": 485,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-6",
+        "frame": {
+          "x": 576,
+          "y": 582,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-tick-7",
+        "frame": {
+          "x": 576,
+          "y": 679,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-0",
+        "frame": {
+          "x": 611,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-1",
+        "frame": {
+          "x": 611,
+          "y": 97,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-2",
+        "frame": {
+          "x": 611,
+          "y": 194,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-3",
+        "frame": {
+          "x": 611,
+          "y": 291,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-4",
+        "frame": {
+          "x": 611,
+          "y": 388,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-5",
+        "frame": {
+          "x": 611,
+          "y": 485,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-6",
+        "frame": {
+          "x": 611,
+          "y": 582,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-slider-cross-7",
+        "frame": {
+          "x": 611,
+          "y": 679,
+          "w": 35,
+          "h": 97
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 35,
+          "h": 97
+        },
+        "sourceSize": {
+          "w": 35,
+          "h": 97
+        }
+      },
+      {
+        "filename": "fishing-interface-reel-counter-0",
+        "frame": {
+          "x": 302,
+          "y": 0,
+          "w": 113,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 113,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 113,
+          "h": 58
+        }
+      },
+      {
+        "filename": "fishing-interface-reel-counter-1",
+        "frame": {
+          "x": 302,
+          "y": 58,
+          "w": 113,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 113,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 113,
+          "h": 58
+        }
+      },
+      {
+        "filename": "fishing-interface-reel-counter-2",
+        "frame": {
+          "x": 302,
+          "y": 116,
+          "w": 113,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 113,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 113,
+          "h": 58
+        }
+      },
+      {
+        "filename": "fishing-interface-reel-counter-3",
+        "frame": {
+          "x": 302,
+          "y": 174,
+          "w": 113,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 113,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 113,
+          "h": 58
+        }
+      },
+      {
+        "filename": "fishing-interface-reel-button",
+        "frame": {
+          "x": 415,
+          "y": 0,
+          "w": 161,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 161,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 161,
+          "h": 58
+        }
+      },
+      {
+        "filename": "fishing-interface-reel-button-hover",
+        "frame": {
+          "x": 415,
+          "y": 58,
+          "w": 161,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 161,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 161,
+          "h": 58
+        }
+      },
+      {
+        "filename": "fishing-interface-reel-button-pressed",
+        "frame": {
+          "x": 415,
+          "y": 116,
+          "w": 161,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 161,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 161,
+          "h": 58
+        }
+      },
+      {
+        "filename": "fishing-interface-timer-green",
+        "frame": {
+          "x": 302,
+          "y": 232,
+          "w": 265,
+          "h": 9
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 265,
+          "h": 9
+        },
+        "sourceSize": {
+          "w": 265,
+          "h": 9
+        }
+      },
+      {
+        "filename": "fishing-interface-timer-orange",
+        "frame": {
+          "x": 302,
+          "y": 241,
+          "w": 265,
+          "h": 9
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 265,
+          "h": 9
+        },
+        "sourceSize": {
+          "w": 265,
+          "h": 9
+        }
+      },
+      {
+        "filename": "fishing-interface-timer-red",
+        "frame": {
+          "x": 302,
+          "y": 250,
+          "w": 265,
+          "h": 9
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 265,
+          "h": 9
+        },
+        "sourceSize": {
+          "w": 265,
+          "h": 9
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "fishing-interface-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 924,
+        "h": 776
+      },
+      "scale": "1"
+    }
+  }
+}

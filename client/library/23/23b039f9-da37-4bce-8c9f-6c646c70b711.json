@@ -1,0 +1,69 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "coral-cove-sign-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "coralCoveSign0": [
+        0,
+        0,
+        144,
+        95
+      ],
+      "coralCoveSign1": [
+        0,
+        95,
+        144,
+        95
+      ],
+      "coralCoveSign2": [
+        0,
+        190,
+        144,
+        95
+      ],
+      "coralCoveSign3": [
+        0,
+        285,
+        144,
+        95
+      ],
+      "coralCoveSign4": [
+        0,
+        380,
+        144,
+        95
+      ],
+      "coralCoveSign5": [
+        0,
+        475,
+        144,
+        95
+      ],
+      "coralCoveSign6": [
+        0,
+        570,
+        144,
+        95
+      ],
+      "coralCoveSign7": [
+        0,
+        665,
+        144,
+        95
+      ]
+    },
+    "order": [
+      "coralCoveSign0",
+      "coralCoveSign1",
+      "coralCoveSign2",
+      "coralCoveSign3",
+      "coralCoveSign4",
+      "coralCoveSign5",
+      "coralCoveSign6",
+      "coralCoveSign7"
+    ]
+  }
+}

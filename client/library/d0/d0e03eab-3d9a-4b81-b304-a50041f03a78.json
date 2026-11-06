@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "accordion-pine-tree-lr-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "accordionPineLR0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      },
+      {
+        "filename": "accordionPineLR1",
+        "frame": {
+          "x": 0,
+          "y": 59,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      },
+      {
+        "filename": "accordionPineLR2",
+        "frame": {
+          "x": 0,
+          "y": 118,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      },
+      {
+        "filename": "accordionPineLR3",
+        "frame": {
+          "x": 0,
+          "y": 177,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      },
+      {
+        "filename": "accordionPineLR4",
+        "frame": {
+          "x": 0,
+          "y": 236,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      },
+      {
+        "filename": "accordionPineLR5",
+        "frame": {
+          "x": 0,
+          "y": 295,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      },
+      {
+        "filename": "accordionPineLR6",
+        "frame": {
+          "x": 0,
+          "y": 354,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      },
+      {
+        "filename": "accordionPineLR7",
+        "frame": {
+          "x": 0,
+          "y": 413,
+          "w": 30,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 59
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "accordion-pine-tree-lr-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 30,
+        "h": 472
+      },
+      "scale": "1"
+    }
+  }
+}

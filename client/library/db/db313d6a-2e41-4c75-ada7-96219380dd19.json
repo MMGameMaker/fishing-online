@@ -1,0 +1,1050 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "toilet-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "toilet0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Overlay",
+        "frame": {
+          "x": 360,
+          "y": 0,
+          "w": 22,
+          "h": 27
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 27
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 27
+        }
+      },
+      {
+        "filename": "toilet3",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim0",
+        "frame": {
+          "x": 30,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim1",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim2",
+        "frame": {
+          "x": 90,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim3",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim4",
+        "frame": {
+          "x": 150,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim5",
+        "frame": {
+          "x": 180,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim6",
+        "frame": {
+          "x": 210,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim7",
+        "frame": {
+          "x": 240,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim8",
+        "frame": {
+          "x": 270,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim9",
+        "frame": {
+          "x": 300,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet0Anim10",
+        "frame": {
+          "x": 330,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim0",
+        "frame": {
+          "x": 30,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim1",
+        "frame": {
+          "x": 60,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim2",
+        "frame": {
+          "x": 90,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim3",
+        "frame": {
+          "x": 120,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim4",
+        "frame": {
+          "x": 150,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim5",
+        "frame": {
+          "x": 180,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim6",
+        "frame": {
+          "x": 210,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim7",
+        "frame": {
+          "x": 240,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim8",
+        "frame": {
+          "x": 270,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim9",
+        "frame": {
+          "x": 300,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet1Anim10",
+        "frame": {
+          "x": 330,
+          "y": 60,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim0",
+        "frame": {
+          "x": 30,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim1",
+        "frame": {
+          "x": 60,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim2",
+        "frame": {
+          "x": 90,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim3",
+        "frame": {
+          "x": 120,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim4",
+        "frame": {
+          "x": 150,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim5",
+        "frame": {
+          "x": 180,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim6",
+        "frame": {
+          "x": 210,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim7",
+        "frame": {
+          "x": 240,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim8",
+        "frame": {
+          "x": 270,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim9",
+        "frame": {
+          "x": 300,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet2Anim10",
+        "frame": {
+          "x": 330,
+          "y": 120,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim0",
+        "frame": {
+          "x": 30,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim1",
+        "frame": {
+          "x": 60,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim2",
+        "frame": {
+          "x": 90,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim3",
+        "frame": {
+          "x": 120,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim4",
+        "frame": {
+          "x": 150,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim5",
+        "frame": {
+          "x": 180,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim6",
+        "frame": {
+          "x": 210,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim7",
+        "frame": {
+          "x": 240,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim8",
+        "frame": {
+          "x": 270,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim9",
+        "frame": {
+          "x": 300,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      },
+      {
+        "filename": "toilet3Anim10",
+        "frame": {
+          "x": 330,
+          "y": 180,
+          "w": 30,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 60
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "toilet-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 382,
+        "h": 240
+      },
+      "scale": "1"
+    }
+  }
+}

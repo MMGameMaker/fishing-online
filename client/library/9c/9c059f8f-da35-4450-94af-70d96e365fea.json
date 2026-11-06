@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "orb-lamp-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "orbLamp0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 39
+        }
+      },
+      {
+        "filename": "orbLamp1",
+        "frame": {
+          "x": 0,
+          "y": 39,
+          "w": 32,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 39
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "orb-lamp-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 32,
+        "h": 39
+      },
+      "scale": "1"
+    }
+  }
+}

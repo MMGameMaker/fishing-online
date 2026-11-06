@@ -1,0 +1,420 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "amethyst-trophy-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "amethystTrophy0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 64,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 128,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 192,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 256,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 320,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 384,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 448,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 512,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 576,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 640,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 704,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 768,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 832,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 896,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 960,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim16",
+        "frame": {
+          "x": 0,
+          "y": 1024,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      },
+      {
+        "filename": "amethystTrophy0Anim17",
+        "frame": {
+          "x": 0,
+          "y": 1088,
+          "w": 34,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 64
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "amethyst-trophy-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 34,
+        "h": 1152
+      },
+      "scale": "1"
+    }
+  }
+}

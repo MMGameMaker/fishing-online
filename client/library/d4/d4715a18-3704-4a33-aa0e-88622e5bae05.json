@@ -1,0 +1,357 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "dancing-clothes-spritesheet-bottom-2",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "dancing-bottom-2-down-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-down-1",
+        "frame": {
+          "x": 0,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-down-2",
+        "frame": {
+          "x": 0,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-down-3",
+        "frame": {
+          "x": 0,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-left-0",
+        "frame": {
+          "x": 48,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-left-1",
+        "frame": {
+          "x": 48,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-left-2",
+        "frame": {
+          "x": 48,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-left-3",
+        "frame": {
+          "x": 48,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-right-0",
+        "frame": {
+          "x": 96,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-right-1",
+        "frame": {
+          "x": 96,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-right-2",
+        "frame": {
+          "x": 96,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-right-3",
+        "frame": {
+          "x": 96,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-up-0",
+        "frame": {
+          "x": 144,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-up-1",
+        "frame": {
+          "x": 144,
+          "y": 55,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-up-2",
+        "frame": {
+          "x": 144,
+          "y": 110,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      },
+      {
+        "filename": "dancing-bottom-2-up-3",
+        "frame": {
+          "x": 144,
+          "y": 165,
+          "w": 48,
+          "h": 55
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 48,
+          "h": 55
+        },
+        "sourceSize": {
+          "w": 48,
+          "h": 55
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "dancing-clothes-spritesheet-bottom-2.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 192,
+        "h": 220
+      },
+      "scale": "1"
+    }
+  }
+}

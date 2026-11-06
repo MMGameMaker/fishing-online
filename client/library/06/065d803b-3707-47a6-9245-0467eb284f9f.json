@@ -1,0 +1,252 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "bunny-trophy-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "bunnyTrophy0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 66,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 198,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 264,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 330,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 396,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 462,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 528,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 594,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      },
+      {
+        "filename": "bunnyTrophy0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 660,
+          "w": 27,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 27,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 27,
+          "h": 66
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "bunny-trophy-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 27,
+        "h": 726
+      },
+      "scale": "1"
+    }
+  }
+}

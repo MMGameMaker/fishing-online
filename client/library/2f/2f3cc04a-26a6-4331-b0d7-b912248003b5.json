@@ -1,0 +1,168 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "santas-chair-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "santasChair0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 90
+        }
+      },
+      {
+        "filename": "santasChair1",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 34,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 90
+        }
+      },
+      {
+        "filename": "santasChair2",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 34,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 90
+        }
+      },
+      {
+        "filename": "santasChair3",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 34,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 90
+        }
+      },
+      {
+        "filename": "santasChair1Overlay",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 25,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 20
+        }
+      },
+      {
+        "filename": "santasChair2Overlay",
+        "frame": {
+          "x": 62,
+          "y": 20,
+          "w": 32,
+          "h": 51
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 51
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 51
+        }
+      },
+      {
+        "filename": "santasChair3Overlay",
+        "frame": {
+          "x": 62,
+          "y": 71,
+          "w": 25,
+          "h": 20
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 25,
+          "h": 20
+        },
+        "sourceSize": {
+          "w": 25,
+          "h": 20
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "santas-chair-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 94,
+        "h": 360
+      },
+      "scale": "1"
+    }
+  }
+}

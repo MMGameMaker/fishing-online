@@ -1,0 +1,104 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fishing-hooked-alert-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "fishingHookedAlert0": [
+        0,
+        0,
+        21,
+        36
+      ],
+      "fishingHookedAlert1": [
+        0,
+        36,
+        21,
+        36
+      ],
+      "fishingHookedAlert2": [
+        0,
+        72,
+        21,
+        36
+      ],
+      "fishingHookedAlert3": [
+        0,
+        108,
+        21,
+        36
+      ],
+      "fishingHookedAlert4": [
+        0,
+        144,
+        21,
+        36
+      ],
+      "fishingHookedAlert5": [
+        0,
+        180,
+        21,
+        36
+      ],
+      "fishingHookedAlert6": [
+        0,
+        216,
+        21,
+        36
+      ],
+      "fishingHookedAlert7": [
+        0,
+        252,
+        21,
+        36
+      ],
+      "fishingHookedAlert8": [
+        0,
+        288,
+        21,
+        36
+      ],
+      "fishingHookedAlert9": [
+        0,
+        324,
+        21,
+        36
+      ],
+      "fishingHookedAlert10": [
+        0,
+        360,
+        21,
+        36
+      ],
+      "fishingHookedAlert11": [
+        0,
+        396,
+        21,
+        36
+      ],
+      "fishingHookedAlert12": [
+        0,
+        432,
+        21,
+        36
+      ]
+    },
+    "order": [
+      "fishingHookedAlert0",
+      "fishingHookedAlert1",
+      "fishingHookedAlert2",
+      "fishingHookedAlert3",
+      "fishingHookedAlert4",
+      "fishingHookedAlert5",
+      "fishingHookedAlert6",
+      "fishingHookedAlert7",
+      "fishingHookedAlert8",
+      "fishingHookedAlert9",
+      "fishingHookedAlert10",
+      "fishingHookedAlert11",
+      "fishingHookedAlert12"
+    ]
+  }
+}

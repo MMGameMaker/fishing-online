@@ -1,0 +1,567 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "fish-trophy-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "fishTrophy0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 112,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 224,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 336,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 448,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 560,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 672,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 784,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 896,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 1008,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 1120,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 1232,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 1344,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1",
+        "frame": {
+          "x": 37,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim0",
+        "frame": {
+          "x": 37,
+          "y": 112,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim1",
+        "frame": {
+          "x": 37,
+          "y": 224,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim2",
+        "frame": {
+          "x": 37,
+          "y": 336,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim3",
+        "frame": {
+          "x": 37,
+          "y": 448,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim4",
+        "frame": {
+          "x": 37,
+          "y": 560,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim5",
+        "frame": {
+          "x": 37,
+          "y": 672,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim6",
+        "frame": {
+          "x": 37,
+          "y": 784,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim7",
+        "frame": {
+          "x": 37,
+          "y": 896,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim8",
+        "frame": {
+          "x": 37,
+          "y": 1008,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim9",
+        "frame": {
+          "x": 37,
+          "y": 1120,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim10",
+        "frame": {
+          "x": 37,
+          "y": 1232,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      },
+      {
+        "filename": "fishTrophy1Anim11",
+        "frame": {
+          "x": 37,
+          "y": 1344,
+          "w": 37,
+          "h": 112
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 37,
+          "h": 112
+        },
+        "sourceSize": {
+          "w": 37,
+          "h": 112
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "fish-trophy-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 74,
+        "h": 1456
+      },
+      "scale": "1"
+    }
+  }
+}

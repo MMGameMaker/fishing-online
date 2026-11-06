@@ -1,0 +1,420 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "color-wheel-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "colorWheel0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Option1",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Option2",
+        "frame": {
+          "x": 0,
+          "y": 176,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Option3",
+        "frame": {
+          "x": 0,
+          "y": 220,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Option4",
+        "frame": {
+          "x": 0,
+          "y": 264,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 308,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 352,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 396,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 440,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 484,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 528,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 572,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 616,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 660,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 704,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 748,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      },
+      {
+        "filename": "colorWheel0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 792,
+          "w": 28,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 28,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 28,
+          "h": 44
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "color-wheel-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 28,
+        "h": 836
+      },
+      "scale": "1"
+    }
+  }
+}

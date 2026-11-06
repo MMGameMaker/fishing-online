@@ -1,0 +1,126 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "lips-sofa-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "lipsSofa0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 90
+        }
+      },
+      {
+        "filename": "lipsSofa1",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 120,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 90
+        }
+      },
+      {
+        "filename": "lipsSofa2",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 120,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 90
+        }
+      },
+      {
+        "filename": "lipsSofa3",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 120,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 90
+        }
+      },
+      {
+        "filename": "lipsSofa2Overlay",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 58,
+          "h": 38
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 58,
+          "h": 38
+        },
+        "sourceSize": {
+          "w": 58,
+          "h": 38
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "lips-sofa-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 178,
+        "h": 360
+      },
+      "scale": "1"
+    }
+  }
+}

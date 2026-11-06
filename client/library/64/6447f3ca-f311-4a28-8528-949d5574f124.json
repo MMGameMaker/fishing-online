@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "coral-cove-sign-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "coralCoveSign0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      },
+      {
+        "filename": "coralCoveSign1",
+        "frame": {
+          "x": 0,
+          "y": 95,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      },
+      {
+        "filename": "coralCoveSign2",
+        "frame": {
+          "x": 0,
+          "y": 190,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      },
+      {
+        "filename": "coralCoveSign3",
+        "frame": {
+          "x": 0,
+          "y": 285,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      },
+      {
+        "filename": "coralCoveSign4",
+        "frame": {
+          "x": 0,
+          "y": 380,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      },
+      {
+        "filename": "coralCoveSign5",
+        "frame": {
+          "x": 0,
+          "y": 475,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      },
+      {
+        "filename": "coralCoveSign6",
+        "frame": {
+          "x": 0,
+          "y": 570,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      },
+      {
+        "filename": "coralCoveSign7",
+        "frame": {
+          "x": 0,
+          "y": 665,
+          "w": 144,
+          "h": 95
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 144,
+          "h": 95
+        },
+        "sourceSize": {
+          "w": 144,
+          "h": 95
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "coral-cove-sign-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 144,
+        "h": 760
+      },
+      "scale": "1"
+    }
+  }
+}

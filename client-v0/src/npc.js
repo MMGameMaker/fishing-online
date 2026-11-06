@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { request, socket } from './net.js';
-import { npcFrameCount, npcFramePrefix, npcPortraitUrl, npcSheetKey } from './referenceArt.js';
-import { toast } from './ui.js';
+import { npcFrameCount, npcFramePrefix, npcPortraitUrl, npcScale, npcSheetKey } from './referenceArt.js';
+import { toast, togglePanel } from './ui.js';
 
 const $ = (id) => document.getElementById(id);
 const FONT = 'Trebuchet MS, Verdana, sans-serif';
@@ -39,12 +39,14 @@ export class NpcController {
       });
     }
     const sprite = scene.add.sprite(npc.x, npc.y, sheetKey, `${prefix}0`)
-      .setOrigin(0.5, 1).setScale(1.3).setDepth(npc.y).setInteractive({ useHandCursor: true })
+      .setOrigin(0.5, 1).setScale(npcScale(npc.id)).setDepth(npc.y).setInteractive({ useHandCursor: true })
       .play(animKey);
-    const label = scene.add.text(npc.x, npc.y - 38, npc.name, {
+    // Quest NPCs keep their old label height; the shopkeeper's label sits just above his head.
+    const labelY = npc.shop ? npc.y - sprite.displayHeight - 2 : npc.y - 38;
+    const label = scene.add.text(npc.x, labelY, npc.name, {
       fontFamily: FONT, fontSize: '12px', color: '#ffffff', stroke: '#000000', strokeThickness: 3,
     }).setOrigin(0.5, 1).setResolution(2).setDepth(3000);
-    const marker = scene.add.text(npc.x, npc.y - 48, '', {
+    const marker = scene.add.text(npc.x, labelY - 10, '', {
       fontFamily: FONT, fontSize: '18px', fontStyle: 'bold', color: '#ffd65a', stroke: '#000000', strokeThickness: 4,
     }).setOrigin(0.5, 1).setResolution(2).setDepth(3000);
     sprite.on('pointerover', () => sprite.setTint(0xdddddd));
@@ -67,7 +69,9 @@ export class NpcController {
     if (this.session.fishing.isFishing() || this.session.sitting) return;
     const res = await request('npcTalk', { npcId: npc.id });
     if (!res.ok) { toast(res.error); return; }
-    this.active = { npc, quest: res.quest };
+    this.active = res.shop
+      ? { npc, shop: true, quest: { status: 'shop', text: res.text } }
+      : { npc, quest: res.quest };
     this.render();
   }
 
@@ -85,7 +89,8 @@ export class NpcController {
     }
     const button = $('npc-action');
     button.hidden = false;
-    if (quest.status === 'new') { button.textContent = `Accept (${quest.coins} coins)`; button.dataset.step = 'accept'; }
+    if (this.active.shop) { button.textContent = 'Browse rods'; button.dataset.step = 'shop'; }
+    else if (quest.status === 'new') { button.textContent = `Accept (${quest.coins} coins)`; button.dataset.step = 'accept'; }
     else if (quest.status === 'ready') { button.textContent = `Claim Reward (${quest.coins} coins)`; button.dataset.step = 'claim'; }
     else { button.hidden = true; button.dataset.step = ''; }
     $('npc-panel').hidden = false;
@@ -94,7 +99,10 @@ export class NpcController {
   async act() {
     const step = $('npc-action').dataset.step;
     const { npc } = this.active;
-    if (step === 'accept') {
+    if (step === 'shop') {
+      this.close();
+      togglePanel('shop-panel');
+    } else if (step === 'accept') {
       const res = await request('acceptQuest', { npcId: npc.id });
       if (!res.ok) return toast(res.error);
       this.active.quest.status = res.status;

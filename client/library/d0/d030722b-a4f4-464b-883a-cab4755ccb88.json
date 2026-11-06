@@ -1,0 +1,294 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "cobbled-wall-gate-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "cobbledWallGate0Open0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate0OpenAnim1",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate0OpenAnim2",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate0Close0",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate0CloseAnim1",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate0CloseAnim2",
+        "frame": {
+          "x": 0,
+          "y": 240,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate1Open0",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate1OpenAnim1",
+        "frame": {
+          "x": 31,
+          "y": 60,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate1OpenAnim2",
+        "frame": {
+          "x": 31,
+          "y": 120,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate1Close0",
+        "frame": {
+          "x": 31,
+          "y": 120,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate1CloseAnim1",
+        "frame": {
+          "x": 31,
+          "y": 180,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate1CloseAnim2",
+        "frame": {
+          "x": 31,
+          "y": 240,
+          "w": 31,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 60
+        }
+      },
+      {
+        "filename": "cobbledWallGate1Overlay",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 16,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 16,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 16,
+          "h": 35
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "cobbled-wall-gate-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 47,
+        "h": 600
+      },
+      "scale": "1"
+    }
+  }
+}

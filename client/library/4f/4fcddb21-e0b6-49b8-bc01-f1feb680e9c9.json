@@ -1,0 +1,399 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "collectable-egg-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "eggPink0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink1",
+        "frame": {
+          "x": 0,
+          "y": 45,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink2",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink3",
+        "frame": {
+          "x": 0,
+          "y": 135,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink4",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink5",
+        "frame": {
+          "x": 0,
+          "y": 225,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink6",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink7",
+        "frame": {
+          "x": 0,
+          "y": 315,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggPink8",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue0",
+        "frame": {
+          "x": 24,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue1",
+        "frame": {
+          "x": 24,
+          "y": 45,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue2",
+        "frame": {
+          "x": 24,
+          "y": 90,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue3",
+        "frame": {
+          "x": 24,
+          "y": 135,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue4",
+        "frame": {
+          "x": 24,
+          "y": 180,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue5",
+        "frame": {
+          "x": 24,
+          "y": 225,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue6",
+        "frame": {
+          "x": 24,
+          "y": 270,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue7",
+        "frame": {
+          "x": 24,
+          "y": 315,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      },
+      {
+        "filename": "eggBlue8",
+        "frame": {
+          "x": 24,
+          "y": 360,
+          "w": 24,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 45
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "collectable-egg-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 48,
+        "h": 450
+      },
+      "scale": "1"
+    }
+  }
+}

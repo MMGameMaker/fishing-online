@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "porthole-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "porthole0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 26
+        }
+      },
+      {
+        "filename": "porthole0Anim0",
+        "frame": {
+          "x": 24,
+          "y": 0,
+          "w": 24,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 26
+        }
+      },
+      {
+        "filename": "porthole0Anim1",
+        "frame": {
+          "x": 24,
+          "y": 26,
+          "w": 24,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 26
+        }
+      },
+      {
+        "filename": "porthole0Anim2",
+        "frame": {
+          "x": 24,
+          "y": 52,
+          "w": 24,
+          "h": 26
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 26
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 26
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "amethyst-trophy-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 48,
+        "h": 26
+      },
+      "scale": "1"
+    }
+  }
+}

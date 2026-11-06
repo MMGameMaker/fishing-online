@@ -1,0 +1,378 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "gold-corn-lantern-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "goldCornLantern0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 68,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 136,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 204,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 272,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 340,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 408,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 476,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 544,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 612,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 680,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 748,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 816,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 884,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 952,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 1020,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      },
+      {
+        "filename": "goldCornLantern0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 1088,
+          "w": 50,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 50,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 50,
+          "h": 68
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "amethyst-fountain-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 50,
+        "h": 1156
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "holoprint-pink-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "holoprintPink0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 57,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 114,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 171,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 228,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 285,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 342,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 399,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      },
+      {
+        "filename": "holoprintPink0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 456,
+          "w": 22,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 22,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 22,
+          "h": 57
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "holoprint-pink-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 22,
+        "h": 513
+      },
+      "scale": "1"
+    }
+  }
+}

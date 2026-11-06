@@ -1,0 +1,273 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "farming-trophy-gold-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "farmingTrophyGold0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 68,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 136,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 204,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 272,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 340,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 408,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 476,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 544,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 612,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 680,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      },
+      {
+        "filename": "farmingTrophyGold0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 748,
+          "w": 34,
+          "h": 68
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 68
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 68
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "farming-trophy-gold-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 34,
+        "h": 816
+      },
+      "scale": "1"
+    }
+  }
+}

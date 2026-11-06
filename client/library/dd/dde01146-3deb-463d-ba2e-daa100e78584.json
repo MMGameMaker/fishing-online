@@ -1,0 +1,294 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "gifts-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "gift-blue",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-turquoise",
+        "frame": {
+          "x": 0,
+          "y": 49,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-teal",
+        "frame": {
+          "x": 0,
+          "y": 98,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-green",
+        "frame": {
+          "x": 0,
+          "y": 147,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-olive",
+        "frame": {
+          "x": 0,
+          "y": 196,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-yellow",
+        "frame": {
+          "x": 0,
+          "y": 245,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-orange",
+        "frame": {
+          "x": 0,
+          "y": 294,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-red",
+        "frame": {
+          "x": 0,
+          "y": 343,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-pink",
+        "frame": {
+          "x": 0,
+          "y": 392,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-fuchsia",
+        "frame": {
+          "x": 0,
+          "y": 441,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-purple",
+        "frame": {
+          "x": 0,
+          "y": 490,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-lavender",
+        "frame": {
+          "x": 0,
+          "y": 539,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      },
+      {
+        "filename": "gift-black",
+        "frame": {
+          "x": 0,
+          "y": 588,
+          "w": 31,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 49
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "gifts-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 31,
+        "h": 637
+      },
+      "scale": "1"
+    }
+  }
+}

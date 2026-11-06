@@ -1,0 +1,441 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "yarn-rugs-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "yarnRugWhite0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugBrown0",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugBlack0",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugTurquoise0",
+        "frame": {
+          "x": 180,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugTeal0",
+        "frame": {
+          "x": 240,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugBlue0",
+        "frame": {
+          "x": 300,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugRed0",
+        "frame": {
+          "x": 360,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugPink0",
+        "frame": {
+          "x": 420,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugFuchsia0",
+        "frame": {
+          "x": 480,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugPurple0",
+        "frame": {
+          "x": 540,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugOrange0",
+        "frame": {
+          "x": 600,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugGreen0",
+        "frame": {
+          "x": 660,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugGold0",
+        "frame": {
+          "x": 720,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugRainbow10",
+        "frame": {
+          "x": 780,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugRainbow20",
+        "frame": {
+          "x": 840,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugBlackAlt0",
+        "frame": {
+          "x": 900,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugBlueAlt0",
+        "frame": {
+          "x": 960,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugRedAlt0",
+        "frame": {
+          "x": 1020,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugPinkAlt0",
+        "frame": {
+          "x": 1080,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      },
+      {
+        "filename": "yarnRugPurpleAlt0",
+        "frame": {
+          "x": 1140,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 60,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 60,
+          "h": 58
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "yarn-rugs-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 1200,
+        "h": 58
+      },
+      "scale": "1"
+    }
+  }
+}

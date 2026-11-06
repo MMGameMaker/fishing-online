@@ -1,0 +1,462 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "quest-markers-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "unrepeatableIncomplete0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "unrepeatableIncomplete1",
+        "frame": {
+          "x": 0,
+          "y": 45,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "unrepeatableIncomplete2",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "unrepeatableIncomplete3",
+        "frame": {
+          "x": 0,
+          "y": 135,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "unrepeatableIncomplete4",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "unrepeatableIncomplete5",
+        "frame": {
+          "x": 0,
+          "y": 225,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "unrepeatableIncomplete6",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "unrepeatableIncomplete7",
+        "frame": {
+          "x": 0,
+          "y": 315,
+          "w": 29,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 45
+        }
+      },
+      {
+        "filename": "questInProgress0",
+        "frame": {
+          "x": 29,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questInProgress1",
+        "frame": {
+          "x": 29,
+          "y": 29,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questInProgress2",
+        "frame": {
+          "x": 29,
+          "y": 58,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questInProgress3",
+        "frame": {
+          "x": 29,
+          "y": 87,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questInProgress4",
+        "frame": {
+          "x": 29,
+          "y": 116,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questInProgress5",
+        "frame": {
+          "x": 29,
+          "y": 145,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questInProgress6",
+        "frame": {
+          "x": 29,
+          "y": 174,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questInProgress7",
+        "frame": {
+          "x": 29,
+          "y": 203,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questComplete0",
+        "frame": {
+          "x": 58,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questComplete1",
+        "frame": {
+          "x": 58,
+          "y": 29,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questComplete2",
+        "frame": {
+          "x": 58,
+          "y": 58,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questComplete3",
+        "frame": {
+          "x": 58,
+          "y": 87,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "questComplete4",
+        "frame": {
+          "x": 58,
+          "y": 116,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "quest-markers-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 87,
+        "h": 360
+      },
+      "scale": "1"
+    }
+  }
+}

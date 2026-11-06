@@ -1,0 +1,462 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "quiz-gate-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "quizGate0Open0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate0OpenAnim1",
+        "frame": {
+          "x": 0,
+          "y": 66,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate0OpenAnim2",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate0Close0",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate0CloseAnim1",
+        "frame": {
+          "x": 0,
+          "y": 66,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate0CloseAnim2",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate1Open0",
+        "frame": {
+          "x": 0,
+          "y": 198,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate1OpenAnim1",
+        "frame": {
+          "x": 0,
+          "y": 264,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate1OpenAnim2",
+        "frame": {
+          "x": 0,
+          "y": 330,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate1Close0",
+        "frame": {
+          "x": 0,
+          "y": 330,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate1CloseAnim1",
+        "frame": {
+          "x": 0,
+          "y": 264,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate1CloseAnim2",
+        "frame": {
+          "x": 0,
+          "y": 198,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate2Open0",
+        "frame": {
+          "x": 0,
+          "y": 396,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate2OpenAnim1",
+        "frame": {
+          "x": 0,
+          "y": 462,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate2OpenAnim2",
+        "frame": {
+          "x": 0,
+          "y": 528,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate2Close0",
+        "frame": {
+          "x": 0,
+          "y": 528,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate2CloseAnim1",
+        "frame": {
+          "x": 0,
+          "y": 462,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate2CloseAnim2",
+        "frame": {
+          "x": 0,
+          "y": 396,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "quizGate0Overlay",
+        "frame": {
+          "x": 11,
+          "y": 132,
+          "w": 30,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 58
+        }
+      },
+      {
+        "filename": "quizGate1Overlay",
+        "frame": {
+          "x": 22,
+          "y": 272,
+          "w": 7,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 7,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 7,
+          "h": 58
+        }
+      },
+      {
+        "filename": "quizGate2Overlay",
+        "frame": {
+          "x": 23,
+          "y": 470,
+          "w": 7,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 7,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 7,
+          "h": 58
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "quiz-gate-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 52,
+        "h": 594
+      },
+      "scale": "1"
+    }
+  }
+}

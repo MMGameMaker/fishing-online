@@ -1,0 +1,168 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "warp-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "warp0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "sourceSize": {
+          "w": 63,
+          "h": 99
+        }
+      },
+      {
+        "filename": "warp1",
+        "frame": {
+          "x": 0,
+          "y": 99,
+          "w": 63,
+          "h": 99
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "sourceSize": {
+          "w": 63,
+          "h": 99
+        }
+      },
+      {
+        "filename": "warp2",
+        "frame": {
+          "x": 0,
+          "y": 198,
+          "w": 63,
+          "h": 99
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "sourceSize": {
+          "w": 63,
+          "h": 99
+        }
+      },
+      {
+        "filename": "warp3",
+        "frame": {
+          "x": 0,
+          "y": 297,
+          "w": 63,
+          "h": 99
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "sourceSize": {
+          "w": 63,
+          "h": 99
+        }
+      },
+      {
+        "filename": "warp4",
+        "frame": {
+          "x": 0,
+          "y": 396,
+          "w": 63,
+          "h": 99
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "sourceSize": {
+          "w": 63,
+          "h": 99
+        }
+      },
+      {
+        "filename": "warp5",
+        "frame": {
+          "x": 0,
+          "y": 495,
+          "w": 63,
+          "h": 99
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "sourceSize": {
+          "w": 63,
+          "h": 99
+        }
+      },
+      {
+        "filename": "warp6",
+        "frame": {
+          "x": 0,
+          "y": 594,
+          "w": 63,
+          "h": 99
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 63,
+          "h": 99
+        },
+        "sourceSize": {
+          "w": 63,
+          "h": 99
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "warp-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 63,
+        "h": 693
+      },
+      "scale": "1"
+    }
+  }
+}

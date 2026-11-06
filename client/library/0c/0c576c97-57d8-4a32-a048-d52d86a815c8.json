@@ -1,0 +1,84 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "butterfly-poster-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "butterflyPoster10",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 55,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 55,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 55,
+          "h": 49
+        }
+      },
+      {
+        "filename": "butterflyPoster20",
+        "frame": {
+          "x": 0,
+          "y": 49,
+          "w": 55,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 55,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 55,
+          "h": 49
+        }
+      },
+      {
+        "filename": "butterflyPoster30",
+        "frame": {
+          "x": 0,
+          "y": 98,
+          "w": 55,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 55,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 55,
+          "h": 49
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "butterfly-poster-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 55,
+        "h": 147
+      },
+      "scale": "1"
+    }
+  }
+}

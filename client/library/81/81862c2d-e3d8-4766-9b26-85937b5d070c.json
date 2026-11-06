@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "tractor-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "tractorAnim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      },
+      {
+        "filename": "tractorAnim1",
+        "frame": {
+          "x": 0,
+          "y": 83,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      },
+      {
+        "filename": "tractorAnim2",
+        "frame": {
+          "x": 0,
+          "y": 166,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      },
+      {
+        "filename": "tractorAnim3",
+        "frame": {
+          "x": 0,
+          "y": 249,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      },
+      {
+        "filename": "tractorAnim4",
+        "frame": {
+          "x": 0,
+          "y": 332,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      },
+      {
+        "filename": "tractorAnim5",
+        "frame": {
+          "x": 0,
+          "y": 415,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      },
+      {
+        "filename": "tractorAnim6",
+        "frame": {
+          "x": 0,
+          "y": 498,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      },
+      {
+        "filename": "tractorAnim7",
+        "frame": {
+          "x": 0,
+          "y": 581,
+          "w": 86,
+          "h": 83
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 86,
+          "h": 83
+        },
+        "sourceSize": {
+          "w": 86,
+          "h": 83
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "water-hole-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 86,
+        "h": 664
+      },
+      "scale": "1"
+    }
+  }
+}

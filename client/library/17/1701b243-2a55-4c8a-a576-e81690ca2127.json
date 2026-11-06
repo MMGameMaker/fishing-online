@@ -1,0 +1,189 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "slash-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "slash-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "slash-1",
+        "frame": {
+          "x": 0,
+          "y": 29,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "slash-2",
+        "frame": {
+          "x": 0,
+          "y": 58,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "slash-3",
+        "frame": {
+          "x": 0,
+          "y": 87,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "slash-4",
+        "frame": {
+          "x": 0,
+          "y": 116,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "slash-5",
+        "frame": {
+          "x": 0,
+          "y": 145,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "slash-6",
+        "frame": {
+          "x": 0,
+          "y": 174,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "slash-7",
+        "frame": {
+          "x": 0,
+          "y": 203,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "slash-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 29,
+        "h": 232
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -9,9 +9,10 @@ import {
   DEFAULT_LOOK, REEL, ROD_PRICES, ROOM_KEYS, SEED_ACCOUNTS,
   canStand, fishingZoneAt, isAtExit, levelForPixels, nearestStandable, rollZone, validateLook,
 } from '../shared/config.js';
-import { NPCS } from '../shared/npcs.js';
+import { applyRoomExtras } from '../shared/roomExtras.js';
+import { NPCS, SEAT_REACH } from '../shared/npcs.js';
 
-const rooms = Object.fromEntries(ROOM_KEYS.map((key) => [key, JSON.parse(fs.readFileSync(new URL(`../public/rooms/${key}.json`, import.meta.url)))]));
+const rooms = Object.fromEntries(ROOM_KEYS.map((key) => [key, applyRoomExtras(JSON.parse(fs.readFileSync(new URL(`../public/rooms/${key}.json`, import.meta.url))))]));
 const SPAWN = { x: 1715, y: 1785 };
 
 let server;
@@ -48,8 +49,22 @@ async function login(username) {
 
 const dockEdge = { x: 1800, y: 1799 };
 
+// Fishing is only allowed from a stool by the water: walk up to the stool next to the dock edge
+// and sit down (a no-op when already seated there).
+const fishingStool = () => {
+  const seats = rooms.coralCove.seats;
+  const index = seats.reduce((best, s, i) => (s.stool && (best < 0
+    || Math.hypot(s.x - dockEdge.x, s.y - dockEdge.y) < Math.hypot(seats[best].x - dockEdge.x, seats[best].y - dockEdge.y)) ? i : best), -1);
+  return { index, seat: seats[index] };
+};
+async function sitOnStool(socket) {
+  const { index, seat } = fishingStool();
+  socket.emit('playerMovement', { x: seat.exitX, y: seat.exitY, dir: 'down', moving: false });
+  await call(socket, 'sitDown', { index });
+}
+
 async function hookFish(socket) {
-  socket.emit('playerMovement', { ...dockEdge, dir: 'down', moving: false });
+  await sitOnStool(socket);
   const bite = once(socket, 'fishBite');
   assert.equal((await call(socket, 'startFishing')).ok, true);
   await bite;
@@ -163,6 +178,16 @@ test('look changes are validated and broadcast', async () => {
   b.socket.disconnect();
 });
 
+test('the character creator is only needed until the first saved look', async () => {
+  const first = await login('cleo');
+  assert.equal(first.res.me.characterCreated, false);
+  assert.equal((await call(first.socket, 'changeLook', { look: DEFAULT_LOOK })).ok, true);
+  first.socket.disconnect();
+  const again = await login('cleo');
+  assert.equal(again.res.me.characterCreated, true);
+  again.socket.disconnect();
+});
+
 test('direct messages deliver live, track unread and reach offline accounts', async () => {
   const a = await login('alice');
   const b = await login('bob');
@@ -193,9 +218,19 @@ test('the bot replies to direct messages', async () => {
   a.socket.disconnect();
 });
 
-test('fishing requires a fishing edge of the dock', async () => {
+test('fishing requires sitting on a stool by the water', async () => {
   const a = await login('alice');
   assert.equal((await call(a.socket, 'startFishing')).ok, false);
+  // Standing right on the fishing edge is not enough any more.
+  a.socket.emit('playerMovement', { ...dockEdge, dir: 'down', moving: false });
+  assert.equal((await call(a.socket, 'startFishing')).ok, false);
+  await sitOnStool(a.socket);
+  assert.equal((await call(a.socket, 'startFishing')).ok, true);
+  // No standing up mid-cast; once fishing is over the player can stand again.
+  assert.equal((await call(a.socket, 'standUp')).ok, false);
+  a.socket.emit('cancelFishing', {});
+  await new Promise((resolve) => setTimeout(resolve, 20));
+  assert.equal((await call(a.socket, 'standUp')).ok, true);
   a.socket.disconnect();
 });
 
@@ -234,7 +269,7 @@ test('one reel outside the zone loses the fish', async () => {
 
 test('pulling before the bite fails the cast', async () => {
   const a = await login('alice');
-  a.socket.emit('playerMovement', { ...dockEdge, dir: 'down', moving: false });
+  await sitOnStool(a.socket);
   await call(a.socket, 'startFishing');
   await new Promise((resolve) => setTimeout(resolve, 20));
   const failed = once(a.socket, 'fishingFailed');
@@ -245,7 +280,7 @@ test('pulling before the bite fails the cast', async () => {
 
 test('a missed bite escapes and an unfinished reel times out', async () => {
   const a = await login('alice');
-  a.socket.emit('playerMovement', { ...dockEdge, dir: 'down', moving: false });
+  await sitOnStool(a.socket);
   const bite = once(a.socket, 'fishBite');
   await call(a.socket, 'startFishing');
   await bite;
@@ -258,7 +293,7 @@ test('a missed bite escapes and an unfinished reel times out', async () => {
 
 test('leaving the window cancels fishing with its own reason', async () => {
   const a = await login('alice');
-  a.socket.emit('playerMovement', { ...dockEdge, dir: 'down', moving: false });
+  await sitOnStool(a.socket);
   await call(a.socket, 'startFishing');
   const failed = once(a.socket, 'fishingFailed');
   a.socket.emit('cancelFishing', { reason: 'unfocusedWindow' });
@@ -500,4 +535,40 @@ test('friends can be added, listed with online status, and removed', async () =>
   assert.deepEqual(removed.friends, []);
   a.socket.disconnect();
   b.socket.disconnect();
+});
+
+test('the Tinkerbean shopkeeper has no quest and talking to him offers the shop', async () => {
+  const barnaby = NPCS.find((n) => n.id === 'npc_barnaby');
+  const dbPath = path.join(os.tmpdir(), `pixadom-shopkeeper-${Date.now()}.json`);
+  const shopServer = createGameServer({ port: 0, dbPath, startRoom: 'store', startAt: { x: barnaby.x, y: barnaby.y + 50 } });
+  const socket = io(`http://localhost:${await shopServer.start()}`, { transports: ['websocket'], forceNew: true });
+  await once(socket, 'connect');
+  const res = await call(socket, 'login', { username: 'alice' });
+  assert.ok(res.npcs.some((n) => n.id === barnaby.id && n.shop));
+  const talk = await call(socket, 'npcTalk', { npcId: barnaby.id });
+  assert.equal(talk.ok, true);
+  assert.equal(talk.shop, true);
+  assert.equal((await call(socket, 'acceptQuest', { npcId: barnaby.id })).ok, false);
+  assert.ok((await call(socket, 'getQuestLog')).quests.every((q) => q.npcName !== 'Barnaby'));
+  socket.disconnect();
+  await shopServer.stop();
+  fs.rmSync(dbPath, { force: true });
+});
+
+test('Coral Cove has 20 stools along the dock, each on a fishing edge facing the water', async () => {
+  const cove = rooms.coralCove;
+  const stools = cove.seats.filter((s) => s.stool);
+  assert.equal(stools.length, 20);
+  const walked = reachable(cove, SPAWN);
+  for (const s of stools) {
+    const zone = fishingZoneAt(cove, s.x, s.y);
+    assert.ok(zone, `stool at ${s.x},${s.y} is on a fishing edge`);
+    assert.equal(zone.direction, s.direction, 'stool faces the water');
+    assert.equal(canStand(cove, s.x, s.y), false, 'a stool blocks walking');
+    assert.equal(canStand(cove, s.exitX, s.exitY), true, 'standing up lands on the dock');
+    assert.ok(walked.some(([x, y]) => Math.hypot(x - s.x, y - s.y) <= SEAT_REACH), 'stool can be walked up to');
+  }
+  // The stools must not cut the dock: every exit is still reachable from the spawn.
+  cove.teleports.forEach((exit) => assert.ok(walked.some(([x, y]) => isAtExit(exit, x, y, 6))));
+  assert.ok(walked.some(([x, y]) => Math.hypot(x - 2420, y - 1900) < 40), 'the bridge to the island is still reachable');
 });

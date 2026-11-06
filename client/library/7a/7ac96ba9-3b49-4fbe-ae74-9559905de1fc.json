@@ -1,0 +1,20 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "menu-friends-icon-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "0": [
+        0,
+        0,
+        37,
+        38
+      ]
+    },
+    "order": [
+      "0"
+    ]
+  }
+}

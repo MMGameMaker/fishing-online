@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "scoreboard-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "scoreboard0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 73
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 73
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 73
+        }
+      },
+      {
+        "filename": "scoreboard1",
+        "frame": {
+          "x": 36,
+          "y": 0,
+          "w": 36,
+          "h": 73
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 73
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 73
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "scoreboard-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 72,
+        "h": 73
+      },
+      "scale": "1"
+    }
+  }
+}

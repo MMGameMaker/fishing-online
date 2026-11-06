@@ -1,0 +1,1533 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "watering-can-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "wateringCan-down-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-down-1",
+        "frame": {
+          "x": 30,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-down-2",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-left-0",
+        "frame": {
+          "x": 0,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-left-1",
+        "frame": {
+          "x": 30,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-left-2",
+        "frame": {
+          "x": 60,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-right-0",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-right-1",
+        "frame": {
+          "x": 30,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-right-2",
+        "frame": {
+          "x": 60,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-down-0",
+        "frame": {
+          "x": 90,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-down-1",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-down-2",
+        "frame": {
+          "x": 150,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-left-0",
+        "frame": {
+          "x": 90,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-left-1",
+        "frame": {
+          "x": 120,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-left-2",
+        "frame": {
+          "x": 150,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-right-0",
+        "frame": {
+          "x": 90,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-right-1",
+        "frame": {
+          "x": 120,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-right-2",
+        "frame": {
+          "x": 150,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-down-0",
+        "frame": {
+          "x": 180,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-down-1",
+        "frame": {
+          "x": 210,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-down-2",
+        "frame": {
+          "x": 240,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-left-0",
+        "frame": {
+          "x": 180,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-left-1",
+        "frame": {
+          "x": 210,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-left-2",
+        "frame": {
+          "x": 240,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-right-0",
+        "frame": {
+          "x": 180,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-right-1",
+        "frame": {
+          "x": 210,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-right-2",
+        "frame": {
+          "x": 240,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-down-0",
+        "frame": {
+          "x": 270,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-down-1",
+        "frame": {
+          "x": 300,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-down-2",
+        "frame": {
+          "x": 330,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-left-0",
+        "frame": {
+          "x": 270,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-left-1",
+        "frame": {
+          "x": 300,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-left-2",
+        "frame": {
+          "x": 330,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-right-0",
+        "frame": {
+          "x": 270,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-right-1",
+        "frame": {
+          "x": 300,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-right-2",
+        "frame": {
+          "x": 330,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-down-0",
+        "frame": {
+          "x": 360,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-down-1",
+        "frame": {
+          "x": 390,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-down-2",
+        "frame": {
+          "x": 420,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-left-0",
+        "frame": {
+          "x": 360,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-left-1",
+        "frame": {
+          "x": 390,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-left-2",
+        "frame": {
+          "x": 420,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-right-0",
+        "frame": {
+          "x": 360,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-right-1",
+        "frame": {
+          "x": 390,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-right-2",
+        "frame": {
+          "x": 420,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-down-0",
+        "frame": {
+          "x": 450,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-down-1",
+        "frame": {
+          "x": 480,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-down-2",
+        "frame": {
+          "x": 510,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-left-0",
+        "frame": {
+          "x": 450,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-left-1",
+        "frame": {
+          "x": 480,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-left-2",
+        "frame": {
+          "x": 510,
+          "y": 30,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-right-0",
+        "frame": {
+          "x": 450,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-right-1",
+        "frame": {
+          "x": 480,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-right-2",
+        "frame": {
+          "x": 510,
+          "y": 60,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-empty-down-0",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-empty-left-0",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCan-empty-right-0",
+        "frame": {
+          "x": 0,
+          "y": 150,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-empty-down-0",
+        "frame": {
+          "x": 30,
+          "y": 90,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-empty-left-0",
+        "frame": {
+          "x": 30,
+          "y": 120,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanBlue-empty-right-0",
+        "frame": {
+          "x": 30,
+          "y": 150,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-empty-down-0",
+        "frame": {
+          "x": 60,
+          "y": 90,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-empty-left-0",
+        "frame": {
+          "x": 60,
+          "y": 120,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPink-empty-right-0",
+        "frame": {
+          "x": 60,
+          "y": 150,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-empty-down-0",
+        "frame": {
+          "x": 90,
+          "y": 90,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-empty-left-0",
+        "frame": {
+          "x": 90,
+          "y": 120,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanPurple-empty-right-0",
+        "frame": {
+          "x": 90,
+          "y": 150,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-empty-down-0",
+        "frame": {
+          "x": 120,
+          "y": 90,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-empty-left-0",
+        "frame": {
+          "x": 120,
+          "y": 120,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGreen-empty-right-0",
+        "frame": {
+          "x": 120,
+          "y": 150,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-empty-down-0",
+        "frame": {
+          "x": 150,
+          "y": 90,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-empty-left-0",
+        "frame": {
+          "x": 150,
+          "y": 120,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      },
+      {
+        "filename": "wateringCanGold-empty-right-0",
+        "frame": {
+          "x": 150,
+          "y": 150,
+          "w": 30,
+          "h": 30
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 30
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 30
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "watering-can-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 540,
+        "h": 180
+      },
+      "scale": "1"
+    }
+  }
+}

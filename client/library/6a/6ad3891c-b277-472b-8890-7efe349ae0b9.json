@@ -1,0 +1,147 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "volt-reeds-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "voltReeds0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 60
+        }
+      },
+      {
+        "filename": "voltReeds1",
+        "frame": {
+          "x": 0,
+          "y": 60,
+          "w": 52,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 60
+        }
+      },
+      {
+        "filename": "voltReeds2",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 52,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 60
+        }
+      },
+      {
+        "filename": "voltReeds3",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 52,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 60
+        }
+      },
+      {
+        "filename": "voltReeds4",
+        "frame": {
+          "x": 0,
+          "y": 240,
+          "w": 52,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 60
+        }
+      },
+      {
+        "filename": "voltReeds5",
+        "frame": {
+          "x": 0,
+          "y": 300,
+          "w": 52,
+          "h": 60
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 60
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 60
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "volt-reeds-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 52,
+        "h": 60
+      },
+      "scale": "1"
+    }
+  }
+}

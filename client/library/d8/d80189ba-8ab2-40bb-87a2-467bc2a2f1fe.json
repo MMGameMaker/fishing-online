@@ -1,0 +1,441 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "kitchen-sink-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "kitchenSink0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink1",
+        "frame": {
+          "x": 0,
+          "y": 42,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink2",
+        "frame": {
+          "x": 0,
+          "y": 84,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink3",
+        "frame": {
+          "x": 0,
+          "y": 126,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink0Anim0",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink0Anim1",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink0Anim2",
+        "frame": {
+          "x": 93,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink0Anim3",
+        "frame": {
+          "x": 124,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink1Anim0",
+        "frame": {
+          "x": 31,
+          "y": 42,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink1Anim1",
+        "frame": {
+          "x": 62,
+          "y": 42,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink1Anim2",
+        "frame": {
+          "x": 93,
+          "y": 42,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink1Anim3",
+        "frame": {
+          "x": 124,
+          "y": 42,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink2Anim0",
+        "frame": {
+          "x": 31,
+          "y": 84,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink2Anim1",
+        "frame": {
+          "x": 62,
+          "y": 84,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink2Anim2",
+        "frame": {
+          "x": 93,
+          "y": 84,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink2Anim3",
+        "frame": {
+          "x": 124,
+          "y": 84,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink3Anim0",
+        "frame": {
+          "x": 31,
+          "y": 126,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink3Anim1",
+        "frame": {
+          "x": 62,
+          "y": 126,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink3Anim2",
+        "frame": {
+          "x": 93,
+          "y": 126,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      },
+      {
+        "filename": "kitchenSink3Anim3",
+        "frame": {
+          "x": 124,
+          "y": 126,
+          "w": 31,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 42
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "kitchen-sink-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 155,
+        "h": 168
+      },
+      "scale": "1"
+    }
+  }
+}

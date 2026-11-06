@@ -1,0 +1,441 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "giant-skull-candle-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "giantSkullCandle0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle0Anim0",
+        "frame": {
+          "x": 38,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle0Anim1",
+        "frame": {
+          "x": 38,
+          "y": 59,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle0Anim2",
+        "frame": {
+          "x": 38,
+          "y": 118,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle0Anim3",
+        "frame": {
+          "x": 38,
+          "y": 177,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle1",
+        "frame": {
+          "x": 0,
+          "y": 59,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle1Anim0",
+        "frame": {
+          "x": 76,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle1Anim1",
+        "frame": {
+          "x": 76,
+          "y": 59,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle1Anim2",
+        "frame": {
+          "x": 76,
+          "y": 118,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle1Anim3",
+        "frame": {
+          "x": 76,
+          "y": 177,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle2",
+        "frame": {
+          "x": 0,
+          "y": 118,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle2Anim0",
+        "frame": {
+          "x": 114,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle2Anim1",
+        "frame": {
+          "x": 114,
+          "y": 59,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle2Anim2",
+        "frame": {
+          "x": 114,
+          "y": 118,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle2Anim3",
+        "frame": {
+          "x": 114,
+          "y": 177,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle3",
+        "frame": {
+          "x": 0,
+          "y": 177,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle3Anim0",
+        "frame": {
+          "x": 152,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle3Anim1",
+        "frame": {
+          "x": 152,
+          "y": 59,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle3Anim2",
+        "frame": {
+          "x": 152,
+          "y": 118,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      },
+      {
+        "filename": "giantSkullCandle3Anim3",
+        "frame": {
+          "x": 152,
+          "y": 177,
+          "w": 38,
+          "h": 59
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 38,
+          "h": 59
+        },
+        "sourceSize": {
+          "w": 38,
+          "h": 59
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "giant-skull-candle-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 190,
+        "h": 236
+      },
+      "scale": "1"
+    }
+  }
+}

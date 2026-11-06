@@ -1,0 +1,966 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "rainbow-cloud-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "rainbowCloud0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim1",
+        "frame": {
+          "x": 34,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim2",
+        "frame": {
+          "x": 68,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim3",
+        "frame": {
+          "x": 102,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim4",
+        "frame": {
+          "x": 136,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim5",
+        "frame": {
+          "x": 170,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim6",
+        "frame": {
+          "x": 204,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim7",
+        "frame": {
+          "x": 238,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim8",
+        "frame": {
+          "x": 272,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud0Anim9",
+        "frame": {
+          "x": 306,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim0",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim1",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim2",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim3",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim4",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim5",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim6",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim7",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim8",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud1Anim9",
+        "frame": {
+          "x": 0,
+          "y": 44,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim0",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim1",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim2",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim3",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim4",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim5",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim6",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim7",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim8",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Anim9",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim0",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim1",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim2",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim3",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim4",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim5",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim6",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim7",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim8",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud3Anim9",
+        "frame": {
+          "x": 0,
+          "y": 132,
+          "w": 34,
+          "h": 44
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 34,
+          "h": 44
+        },
+        "sourceSize": {
+          "w": 34,
+          "h": 44
+        }
+      },
+      {
+        "filename": "rainbowCloud2Overlay",
+        "frame": {
+          "x": 340,
+          "y": 0,
+          "w": 30,
+          "h": 25
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 25
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 25
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "rainbow-cloud-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 370,
+        "h": 176
+      },
+      "scale": "1"
+    }
+  }
+}

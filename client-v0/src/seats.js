@@ -48,7 +48,10 @@ export class SeatController {
   update(me, busy) {
     if (this.session.sitting) {
       this.sitButton.setVisible(false);
-      this.standButton.setVisible(true).setPosition(me.x, me.y - 84);
+      // While fishing from a stool the Fish button takes this spot; stand up once done.
+      // On a stool by the water the Fish button sits at y - 84, so Stand up goes above it.
+      const above = this.session.fishZone ? 112 : 84;
+      this.standButton.setVisible(!this.session.fishing.isFishing()).setPosition(me.x, me.y - above);
       return;
     }
     this.standButton.setVisible(false);

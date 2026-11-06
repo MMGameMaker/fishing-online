@@ -1,0 +1,735 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "mini-windmill-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "miniWindmill0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 64,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 128,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 192,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 256,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 320,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 384,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 448,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 512,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 576,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 640,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 704,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 768,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 832,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 896,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 960,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1",
+        "frame": {
+          "x": 54,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim0",
+        "frame": {
+          "x": 54,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim1",
+        "frame": {
+          "x": 54,
+          "y": 64,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim2",
+        "frame": {
+          "x": 54,
+          "y": 128,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim3",
+        "frame": {
+          "x": 54,
+          "y": 192,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim4",
+        "frame": {
+          "x": 54,
+          "y": 256,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim5",
+        "frame": {
+          "x": 54,
+          "y": 320,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim6",
+        "frame": {
+          "x": 54,
+          "y": 384,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim7",
+        "frame": {
+          "x": 54,
+          "y": 448,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim8",
+        "frame": {
+          "x": 54,
+          "y": 512,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim9",
+        "frame": {
+          "x": 54,
+          "y": 576,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim10",
+        "frame": {
+          "x": 54,
+          "y": 640,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim11",
+        "frame": {
+          "x": 54,
+          "y": 704,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim12",
+        "frame": {
+          "x": 54,
+          "y": 768,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim13",
+        "frame": {
+          "x": 54,
+          "y": 832,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim14",
+        "frame": {
+          "x": 54,
+          "y": 896,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      },
+      {
+        "filename": "miniWindmill1Anim15",
+        "frame": {
+          "x": 54,
+          "y": 960,
+          "w": 54,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 54,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 54,
+          "h": 64
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "mini-windmill-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 108,
+        "h": 1024
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "marble-hatch-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "marbleHatch0Open0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch0OpenAnim1",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch0OpenAnim2",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch0Close0",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch0CloseAnim1",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch0CloseAnim2",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch1Open0",
+        "frame": {
+          "x": 30,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch1OpenAnim1",
+        "frame": {
+          "x": 30,
+          "y": 90,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch1OpenAnim2",
+        "frame": {
+          "x": 30,
+          "y": 180,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch1Close0",
+        "frame": {
+          "x": 30,
+          "y": 180,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch1CloseAnim1",
+        "frame": {
+          "x": 30,
+          "y": 270,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch1CloseAnim2",
+        "frame": {
+          "x": 30,
+          "y": 360,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      },
+      {
+        "filename": "marbleHatch1Overlay",
+        "frame": {
+          "x": 60,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 90
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 90
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "marble-hatch-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 90,
+        "h": 450
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "palm-tree-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "palmTree0": [
+        0,
+        0,
+        71,
+        88
+      ],
+      "palmTree1": [
+        0,
+        88,
+        71,
+        88
+      ],
+      "palmTree2": [
+        0,
+        176,
+        71,
+        88
+      ],
+      "palmTree3": [
+        0,
+        264,
+        71,
+        88
+      ]
+    },
+    "order": [
+      "palmTree0",
+      "palmTree1",
+      "palmTree2",
+      "palmTree3"
+    ]
+  }
+}

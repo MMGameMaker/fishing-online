@@ -1,0 +1,168 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "terrawood-sofa-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "terrawoodSofa0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "terrawoodSofa1",
+        "frame": {
+          "x": 0,
+          "y": 120,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "terrawoodSofa2",
+        "frame": {
+          "x": 0,
+          "y": 240,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "terrawoodSofa3",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 120,
+          "h": 120
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 120,
+          "h": 120
+        },
+        "sourceSize": {
+          "w": 120,
+          "h": 120
+        }
+      },
+      {
+        "filename": "terrawoodSofa1Overlay",
+        "frame": {
+          "x": 120,
+          "y": 29,
+          "w": 30,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 17
+        }
+      },
+      {
+        "filename": "terrawoodSofa2Overlay",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 51,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 51,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 51,
+          "h": 29
+        }
+      },
+      {
+        "filename": "terrawoodSofa3Overlay",
+        "frame": {
+          "x": 120,
+          "y": 46,
+          "w": 30,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 17
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "terrawood-sofa-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 171,
+        "h": 480
+      },
+      "scale": "1"
+    }
+  }
+}

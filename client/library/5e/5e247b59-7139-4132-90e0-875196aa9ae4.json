@@ -1,0 +1,672 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "watering-minigame-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "base",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 302,
+          "h": 409
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 302,
+          "h": 409
+        },
+        "sourceSize": {
+          "w": 302,
+          "h": 409
+        }
+      },
+      {
+        "filename": "glass-overlay",
+        "frame": {
+          "x": 302,
+          "y": 0,
+          "w": 273,
+          "h": 306
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 273,
+          "h": 306
+        },
+        "sourceSize": {
+          "w": 273,
+          "h": 306
+        }
+      },
+      {
+        "filename": "score-0",
+        "frame": {
+          "x": 0,
+          "y": 409,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-1",
+        "frame": {
+          "x": 0,
+          "y": 430,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-2",
+        "frame": {
+          "x": 0,
+          "y": 451,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-3",
+        "frame": {
+          "x": 0,
+          "y": 472,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-4",
+        "frame": {
+          "x": 0,
+          "y": 493,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-5",
+        "frame": {
+          "x": 0,
+          "y": 514,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-6",
+        "frame": {
+          "x": 0,
+          "y": 535,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-7",
+        "frame": {
+          "x": 0,
+          "y": 556,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "score-8",
+        "frame": {
+          "x": 0,
+          "y": 577,
+          "w": 53,
+          "h": 21
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 53,
+          "h": 21
+        },
+        "sourceSize": {
+          "w": 53,
+          "h": 21
+        }
+      },
+      {
+        "filename": "slider-normal",
+        "frame": {
+          "x": 53,
+          "y": 409,
+          "w": 42,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 49
+        }
+      },
+      {
+        "filename": "slider-hover",
+        "frame": {
+          "x": 95,
+          "y": 409,
+          "w": 42,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 49
+        }
+      },
+      {
+        "filename": "slider-pressed",
+        "frame": {
+          "x": 137,
+          "y": 409,
+          "w": 42,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 42,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 42,
+          "h": 49
+        }
+      },
+      {
+        "filename": "flower-0",
+        "frame": {
+          "x": 575,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-1",
+        "frame": {
+          "x": 575,
+          "y": 42,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-2",
+        "frame": {
+          "x": 575,
+          "y": 84,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-3",
+        "frame": {
+          "x": 575,
+          "y": 126,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-4",
+        "frame": {
+          "x": 575,
+          "y": 168,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-5",
+        "frame": {
+          "x": 575,
+          "y": 210,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-6",
+        "frame": {
+          "x": 575,
+          "y": 252,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-7",
+        "frame": {
+          "x": 575,
+          "y": 294,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "flower-8",
+        "frame": {
+          "x": 575,
+          "y": 336,
+          "w": 39,
+          "h": 42
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 39,
+          "h": 42
+        },
+        "sourceSize": {
+          "w": 39,
+          "h": 42
+        }
+      },
+      {
+        "filename": "droplet",
+        "frame": {
+          "x": 179,
+          "y": 409,
+          "w": 15,
+          "h": 27
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 15,
+          "h": 27
+        },
+        "sourceSize": {
+          "w": 15,
+          "h": 27
+        }
+      },
+      {
+        "filename": "smog",
+        "frame": {
+          "x": 194,
+          "y": 409,
+          "w": 21,
+          "h": 36
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 21,
+          "h": 36
+        },
+        "sourceSize": {
+          "w": 21,
+          "h": 36
+        }
+      },
+      {
+        "filename": "progress-green",
+        "frame": {
+          "x": 215,
+          "y": 409,
+          "w": 272,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 11
+        }
+      },
+      {
+        "filename": "progress-yellow",
+        "frame": {
+          "x": 215,
+          "y": 420,
+          "w": 272,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 11
+        }
+      },
+      {
+        "filename": "progress-red",
+        "frame": {
+          "x": 215,
+          "y": 431,
+          "w": 272,
+          "h": 11
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 11
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 11
+        }
+      },
+      {
+        "filename": "success",
+        "frame": {
+          "x": 614,
+          "y": 0,
+          "w": 272,
+          "h": 305
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 305
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 305
+        }
+      },
+      {
+        "filename": "fail",
+        "frame": {
+          "x": 886,
+          "y": 0,
+          "w": 272,
+          "h": 305
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 305
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 305
+        }
+      },
+      {
+        "filename": "rules",
+        "frame": {
+          "x": 614,
+          "y": 305,
+          "w": 272,
+          "h": 305
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 272,
+          "h": 305
+        },
+        "sourceSize": {
+          "w": 272,
+          "h": 305
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "watering-minigame-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 1308,
+        "h": 683
+      },
+      "scale": "1"
+    }
+  }
+}

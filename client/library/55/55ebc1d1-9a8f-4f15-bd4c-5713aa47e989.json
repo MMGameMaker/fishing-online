@@ -1,0 +1,504 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "ember-throne-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "emberThrone0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone0Anim0",
+        "frame": {
+          "x": 40,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone0Anim1",
+        "frame": {
+          "x": 40,
+          "y": 79,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone0Anim2",
+        "frame": {
+          "x": 40,
+          "y": 158,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone0Anim3",
+        "frame": {
+          "x": 40,
+          "y": 237,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone1",
+        "frame": {
+          "x": 0,
+          "y": 79,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone1Anim0",
+        "frame": {
+          "x": 0,
+          "y": 79,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone1Anim1",
+        "frame": {
+          "x": 0,
+          "y": 79,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone1Anim2",
+        "frame": {
+          "x": 0,
+          "y": 79,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone1Anim3",
+        "frame": {
+          "x": 0,
+          "y": 79,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone1Overlay",
+        "frame": {
+          "x": 80,
+          "y": 0,
+          "w": 30,
+          "h": 27
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 27
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 27
+        }
+      },
+      {
+        "filename": "emberThrone2",
+        "frame": {
+          "x": 0,
+          "y": 158,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone2Anim0",
+        "frame": {
+          "x": 0,
+          "y": 158,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone2Anim1",
+        "frame": {
+          "x": 0,
+          "y": 158,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone2Anim2",
+        "frame": {
+          "x": 0,
+          "y": 158,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone2Anim3",
+        "frame": {
+          "x": 0,
+          "y": 158,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone2Overlay",
+        "frame": {
+          "x": 80,
+          "y": 27,
+          "w": 40,
+          "h": 65
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 65
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 65
+        }
+      },
+      {
+        "filename": "emberThrone3",
+        "frame": {
+          "x": 0,
+          "y": 237,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone3Anim0",
+        "frame": {
+          "x": 0,
+          "y": 237,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone3Anim1",
+        "frame": {
+          "x": 0,
+          "y": 237,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone3Anim2",
+        "frame": {
+          "x": 0,
+          "y": 237,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone3Anim3",
+        "frame": {
+          "x": 0,
+          "y": 237,
+          "w": 40,
+          "h": 79
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 79
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 79
+        }
+      },
+      {
+        "filename": "emberThrone3Overlay",
+        "frame": {
+          "x": 80,
+          "y": 92,
+          "w": 30,
+          "h": 27
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 30,
+          "h": 27
+        },
+        "sourceSize": {
+          "w": 30,
+          "h": 27
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "ember-throne-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 120,
+        "h": 316
+      },
+      "scale": "1"
+    }
+  }
+}

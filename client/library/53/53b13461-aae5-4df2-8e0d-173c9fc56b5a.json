@@ -1,0 +1,294 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "marlins-gate-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "marlinsGate0Open0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate0OpenAnim1",
+        "frame": {
+          "x": 0,
+          "y": 58,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate0OpenAnim2",
+        "frame": {
+          "x": 0,
+          "y": 116,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate0Close0",
+        "frame": {
+          "x": 0,
+          "y": 116,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate0CloseAnim1",
+        "frame": {
+          "x": 0,
+          "y": 174,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate0CloseAnim2",
+        "frame": {
+          "x": 0,
+          "y": 232,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate1Open0",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate1OpenAnim1",
+        "frame": {
+          "x": 31,
+          "y": 58,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate1OpenAnim2",
+        "frame": {
+          "x": 31,
+          "y": 116,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate1Close0",
+        "frame": {
+          "x": 31,
+          "y": 116,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate1CloseAnim1",
+        "frame": {
+          "x": 31,
+          "y": 174,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate1CloseAnim2",
+        "frame": {
+          "x": 31,
+          "y": 232,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      },
+      {
+        "filename": "marlinsGate1Overlay",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 58
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 58
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "marlins-gate-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 93,
+        "h": 290
+      },
+      "scale": "1"
+    }
+  }
+}

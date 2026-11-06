@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "apartment-fountain-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "apartmentFountain0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 133
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 133
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 133
+        }
+      },
+      {
+        "filename": "apartmentFountain1",
+        "frame": {
+          "x": 0,
+          "y": 133,
+          "w": 90,
+          "h": 133
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 133
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 133
+        }
+      },
+      {
+        "filename": "apartmentFountain2",
+        "frame": {
+          "x": 0,
+          "y": 266,
+          "w": 90,
+          "h": 133
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 133
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 133
+        }
+      },
+      {
+        "filename": "apartmentFountain3",
+        "frame": {
+          "x": 0,
+          "y": 399,
+          "w": 90,
+          "h": 133
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 90,
+          "h": 133
+        },
+        "sourceSize": {
+          "w": 90,
+          "h": 133
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "apartment-fountain-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 90,
+        "h": 532
+      },
+      "scale": "1"
+    }
+  }
+}

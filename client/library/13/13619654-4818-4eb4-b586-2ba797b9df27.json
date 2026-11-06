@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "terrawood-coffee-table-long-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "terrawoodCoffeeTableLong0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 58,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 58,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 58,
+          "h": 57
+        }
+      },
+      {
+        "filename": "terrawoodCoffeeTableLong1",
+        "frame": {
+          "x": 0,
+          "y": 57,
+          "w": 58,
+          "h": 57
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 58,
+          "h": 57
+        },
+        "sourceSize": {
+          "w": 58,
+          "h": 57
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "terrawood-coffee-table-long-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 58,
+        "h": 114
+      },
+      "scale": "1"
+    }
+  }
+}

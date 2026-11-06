@@ -1,0 +1,566 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "soulwell-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "soulwellOrange0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 143,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 286,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 429,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 572,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 715,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 858,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 1001,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 1144,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 1287,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 1430,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 1573,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellOrange0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 1716,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0",
+        "frame": {
+          "x": 75,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim0",
+        "frame": {
+          "x": 75,
+          "y": 143,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim1",
+        "frame": {
+          "x": 75,
+          "y": 286,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim2",
+        "frame": {
+          "x": 75,
+          "y": 429,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim3",
+        "frame": {
+          "x": 75,
+          "y": 572,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim4",
+        "frame": {
+          "x": 75,
+          "y": 715,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim5",
+        "frame": {
+          "x": 75,
+          "y": 858,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim6",
+        "frame": {
+          "x": 75,
+          "y": 1001,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim7",
+        "frame": {
+          "x": 75,
+          "y": 1144,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim8",
+        "frame": {
+          "x": 75,
+          "y": 1287,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim9",
+        "frame": {
+          "x": 75,
+          "y": 1430,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim10",
+        "frame": {
+          "x": 75,
+          "y": 1573,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      },
+      {
+        "filename": "soulwellPurple0Anim11",
+        "frame": {
+          "x": 75,
+          "y": 1716,
+          "w": 75,
+          "h": 143
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 75,
+          "h": 143
+        },
+        "sourceSize": {
+          "w": 75,
+          "h": 143
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "format": "RGBA8888",
+      "size": {
+        "w": 150,
+        "h": 1859
+      },
+      "scale": "1"
+    }
+  }
+}

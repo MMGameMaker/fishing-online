@@ -1,3 +1,4 @@
+import { fishingZoneAt } from '../shared/config.js';
 import { isTyping, request, socket } from './net.js';
 import { ReelInterface } from './reelInterface.js';
 import { fishIcon, toast } from './ui.js';
@@ -83,7 +84,13 @@ export function initFishing(session) {
   });
 
   async function start() {
-    if (phase !== 'none' || !session.fishZone) return;
+    if (phase !== 'none') return;
+    if (!session.fishZone) {
+      // Standing on the fishing edge is not enough: point the player to the stools.
+      const me = session.world?.me;
+      if (me && !session.sitting && fishingZoneAt(session.room, me.x, me.y)) toast('Sit on a stool by the water to fish');
+      return;
+    }
     phase = 'starting';
     const res = await request('startFishing');
     if (!res.ok) {

@@ -1,0 +1,126 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "phoenix-feather-lamp-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "phoenixFeatherLamp0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 67
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 67
+        },
+        "sourceSize": {
+          "w": 45,
+          "h": 67
+        }
+      },
+      {
+        "filename": "phoenixFeatherLamp0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 67
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 67
+        },
+        "sourceSize": {
+          "w": 45,
+          "h": 67
+        }
+      },
+      {
+        "filename": "phoenixFeatherLamp0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 67,
+          "w": 45,
+          "h": 67
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 67
+        },
+        "sourceSize": {
+          "w": 45,
+          "h": 67
+        }
+      },
+      {
+        "filename": "phoenixFeatherLamp0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 134,
+          "w": 45,
+          "h": 67
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 67
+        },
+        "sourceSize": {
+          "w": 45,
+          "h": 67
+        }
+      },
+      {
+        "filename": "phoenixFeatherLamp0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 201,
+          "w": 45,
+          "h": 67
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 45,
+          "h": 67
+        },
+        "sourceSize": {
+          "w": 45,
+          "h": 67
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "phoenix-feather-lamp-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 45,
+        "h": 268
+      },
+      "scale": "1"
+    }
+  }
+}

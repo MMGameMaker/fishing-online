@@ -1,0 +1,2121 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "tinsel-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "tinselSilver0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselSilver0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0",
+        "frame": {
+          "x": 32,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim0",
+        "frame": {
+          "x": 32,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim1",
+        "frame": {
+          "x": 32,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim2",
+        "frame": {
+          "x": 32,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim3",
+        "frame": {
+          "x": 32,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim4",
+        "frame": {
+          "x": 32,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim5",
+        "frame": {
+          "x": 32,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim6",
+        "frame": {
+          "x": 32,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim7",
+        "frame": {
+          "x": 32,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGold0Anim8",
+        "frame": {
+          "x": 32,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0",
+        "frame": {
+          "x": 64,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim0",
+        "frame": {
+          "x": 64,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim1",
+        "frame": {
+          "x": 64,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim2",
+        "frame": {
+          "x": 64,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim3",
+        "frame": {
+          "x": 64,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim4",
+        "frame": {
+          "x": 64,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim5",
+        "frame": {
+          "x": 64,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim6",
+        "frame": {
+          "x": 64,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim7",
+        "frame": {
+          "x": 64,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselOrange0Anim8",
+        "frame": {
+          "x": 64,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0",
+        "frame": {
+          "x": 96,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim0",
+        "frame": {
+          "x": 96,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim1",
+        "frame": {
+          "x": 96,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim2",
+        "frame": {
+          "x": 96,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim3",
+        "frame": {
+          "x": 96,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim4",
+        "frame": {
+          "x": 96,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim5",
+        "frame": {
+          "x": 96,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim6",
+        "frame": {
+          "x": 96,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim7",
+        "frame": {
+          "x": 96,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselRed0Anim8",
+        "frame": {
+          "x": 96,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0",
+        "frame": {
+          "x": 128,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim0",
+        "frame": {
+          "x": 128,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim1",
+        "frame": {
+          "x": 128,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim2",
+        "frame": {
+          "x": 128,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim3",
+        "frame": {
+          "x": 128,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim4",
+        "frame": {
+          "x": 128,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim5",
+        "frame": {
+          "x": 128,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim6",
+        "frame": {
+          "x": 128,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim7",
+        "frame": {
+          "x": 128,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPink0Anim8",
+        "frame": {
+          "x": 128,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0",
+        "frame": {
+          "x": 160,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim0",
+        "frame": {
+          "x": 160,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim1",
+        "frame": {
+          "x": 160,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim2",
+        "frame": {
+          "x": 160,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim3",
+        "frame": {
+          "x": 160,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim4",
+        "frame": {
+          "x": 160,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim5",
+        "frame": {
+          "x": 160,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim6",
+        "frame": {
+          "x": 160,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim7",
+        "frame": {
+          "x": 160,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselPurple0Anim8",
+        "frame": {
+          "x": 160,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0",
+        "frame": {
+          "x": 192,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim0",
+        "frame": {
+          "x": 192,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim1",
+        "frame": {
+          "x": 192,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim2",
+        "frame": {
+          "x": 192,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim3",
+        "frame": {
+          "x": 192,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim4",
+        "frame": {
+          "x": 192,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim5",
+        "frame": {
+          "x": 192,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim6",
+        "frame": {
+          "x": 192,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim7",
+        "frame": {
+          "x": 192,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTurquoise0Anim8",
+        "frame": {
+          "x": 192,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0",
+        "frame": {
+          "x": 224,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim0",
+        "frame": {
+          "x": 224,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim1",
+        "frame": {
+          "x": 224,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim2",
+        "frame": {
+          "x": 224,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim3",
+        "frame": {
+          "x": 224,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim4",
+        "frame": {
+          "x": 224,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim5",
+        "frame": {
+          "x": 224,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim6",
+        "frame": {
+          "x": 224,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim7",
+        "frame": {
+          "x": 224,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselBlue0Anim8",
+        "frame": {
+          "x": 224,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0",
+        "frame": {
+          "x": 256,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim0",
+        "frame": {
+          "x": 256,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim1",
+        "frame": {
+          "x": 256,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim2",
+        "frame": {
+          "x": 256,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim3",
+        "frame": {
+          "x": 256,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim4",
+        "frame": {
+          "x": 256,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim5",
+        "frame": {
+          "x": 256,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim6",
+        "frame": {
+          "x": 256,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim7",
+        "frame": {
+          "x": 256,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselTeal0Anim8",
+        "frame": {
+          "x": 256,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0",
+        "frame": {
+          "x": 288,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim0",
+        "frame": {
+          "x": 288,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim1",
+        "frame": {
+          "x": 288,
+          "y": 18,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim2",
+        "frame": {
+          "x": 288,
+          "y": 36,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim3",
+        "frame": {
+          "x": 288,
+          "y": 54,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim4",
+        "frame": {
+          "x": 288,
+          "y": 72,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim5",
+        "frame": {
+          "x": 288,
+          "y": 90,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim6",
+        "frame": {
+          "x": 288,
+          "y": 108,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim7",
+        "frame": {
+          "x": 288,
+          "y": 126,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      },
+      {
+        "filename": "tinselGreen0Anim8",
+        "frame": {
+          "x": 288,
+          "y": 144,
+          "w": 32,
+          "h": 18
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 32,
+          "h": 18
+        },
+        "sourceSize": {
+          "w": 32,
+          "h": 18
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "holy-garland-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 320,
+        "h": 162
+      },
+      "scale": "1"
+    }
+  }
+}

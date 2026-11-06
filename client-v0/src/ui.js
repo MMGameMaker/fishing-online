@@ -1,9 +1,10 @@
 import {
-  BOTTOMS, CLOTH_COLORS, FISH_BY_ID, HAIR_COLORS, HAIR_STYLES, LOOK_LIMITS, RARITY_COLORS, SKIN_COLORS, TOPS,
+  BOTTOMS, BOTTOMS_TINTABLE, CLOTH_COLORS, DEFAULT_LOOK, FISH_BY_ID, HAIR_COLORS, HAIR_STYLES, HAIR_TINTABLE, LOOK_LIMITS,
+  RARITY_COLORS, SKIN_COLORS, TOPS, TOPS_TINTABLE,
 } from '../shared/config.js';
 import { drawFishIcon } from './art.js';
 import { isTyping, request, socket } from './net.js';
-import { drawCharacterPreview } from './referenceArt.js';
+import { drawCharacterPreview, drawStyleIcon } from './referenceArt.js';
 
 const $ = (id) => document.getElementById(id);
 
@@ -33,7 +34,11 @@ const PANELS = [
 ];
 const openHandlers = {};
 
+// While the character creator is up on entry, no other panel may open or close it.
+const creatingCharacter = () => document.body.classList.contains('creating-character');
+
 export function togglePanel(id) {
+  if (creatingCharacter()) return;
   const opening = $(id).hidden;
   PANELS.forEach((panel) => { $(panel).hidden = true; });
   $(id).hidden = !opening;
@@ -52,6 +57,7 @@ export function initPanels() {
   $('btn-menu').addEventListener('click', () => togglePanel('menu-panel'));
   $('btn-quests').addEventListener('click', () => togglePanel('quest-panel'));
   window.addEventListener('keydown', (e) => {
+    if (creatingCharacter()) return;
     if (e.code === 'Escape') {
       PANELS.forEach((panel) => { $(panel).hidden = true; });
       return;
@@ -100,61 +106,139 @@ export function initLook(session) {
   const DIRS = ['down', 'side', 'up'];
   // The real sprite sheets have no generic 'side' pose, only distinct 'left'/'right' art.
   const REAL_DIR = { down: 'down', side: 'right', up: 'up' };
-  const rows = [
-    { key: 'skin', label: 'Skin', colors: SKIN_COLORS },
-    { key: 'hairStyle', label: 'Hair', names: HAIR_STYLES },
-    { key: 'hairColor', label: 'Hair color', colors: HAIR_COLORS },
-    { key: 'top', label: 'Top', names: TOPS },
-    { key: 'topColor', label: 'Top color', colors: CLOTH_COLORS },
-    { key: 'bottom', label: 'Bottom', names: BOTTOMS },
-    { key: 'bottomColor', label: 'Bottom color', colors: CLOTH_COLORS },
+  // One tab per clothing layer: a grid of style tiles, then that layer's color swatches.
+  const TABS = [
+    { id: 'hair', label: 'Hair', key: 'hairStyle', names: HAIR_STYLES, tintable: HAIR_TINTABLE, colorKey: 'hairColor', colors: HAIR_COLORS },
+    { id: 'top', label: 'Tops', key: 'top', names: TOPS, tintable: TOPS_TINTABLE, colorKey: 'topColor', colors: CLOTH_COLORS },
+    { id: 'bottom', label: 'Pants', key: 'bottom', names: BOTTOMS, tintable: BOTTOMS_TINTABLE, colorKey: 'bottomColor', colors: CLOTH_COLORS },
   ];
   let draft = { ...session.me.look };
   let dirIndex = 0;
+  let tab = TABS[0];
 
-  function render() {
+  const renderPreview = () => {
     $('look-canvas').replaceChildren(drawCharacterPreview(session.world, draft, REAL_DIR[DIRS[dirIndex]]));
-    const options = $('look-options');
-    options.replaceChildren();
-    for (const row of rows) {
-      const wrap = el('div', 'look-row');
-      wrap.append(el('label', '', row.label));
-      const choices = el('div', 'look-choices');
-      (row.colors ?? row.names).forEach((value, index) => {
-        const button = el('button', row.colors ? 'swatch' : '', row.colors ? '' : value);
-        button.type = 'button';
-        if (row.colors) {
-          button.style.background = value;
-          button.setAttribute('aria-label', `${row.label} ${index + 1}`);
-        }
-        if (draft[row.key] === index) button.classList.add('selected');
-        button.addEventListener('click', () => { draft[row.key] = index; render(); });
-        choices.append(button);
+  };
+
+  function swatches(label, colors, key, onPick) {
+    const choices = el('div', 'look-choices');
+    colors.forEach((value, index) => {
+      const button = el('button', 'swatch');
+      button.type = 'button';
+      button.style.background = value;
+      button.setAttribute('aria-label', `${label} ${index + 1}`);
+      if (draft[key] === index) button.classList.add('selected');
+      button.addEventListener('click', () => { draft[key] = index; onPick(); });
+      choices.append(button);
+    });
+    return choices;
+  }
+
+  function renderSkin() {
+    $('look-skin').replaceChildren(swatches('Skin', SKIN_COLORS, 'skin', () => { renderPreview(); renderSkin(); }));
+  }
+
+  function renderTabs() {
+    $('look-tabs').replaceChildren(...TABS.map((t) => {
+      const button = el('button', t === tab ? 'selected' : '', t.label);
+      button.type = 'button';
+      button.setAttribute('role', 'tab');
+      button.setAttribute('aria-selected', String(t === tab));
+      button.addEventListener('click', () => { tab = t; renderTabs(); renderGrid(); renderColors(); });
+      return button;
+    }));
+  }
+
+  // Each tile shows the style itself, tinted with the current color when that style can be tinted.
+  function renderGrid() {
+    const grid = $('look-grid');
+    const tint = tab.colors[draft[tab.colorKey]];
+    grid.replaceChildren(...tab.names.map((name, index) => {
+      const tile = el('button', 'look-tile');
+      tile.type = 'button';
+      tile.title = `${tab.label} ${index + 1}`;
+      tile.setAttribute('aria-label', `${tab.label} ${index + 1}`);
+      tile.append(drawStyleIcon(session.world, tab.id, index, tab.tintable[index] ? tint : null));
+      if (draft[tab.key] === index) tile.classList.add('selected');
+      tile.addEventListener('click', () => {
+        draft[tab.key] = index;
+        grid.querySelector('.look-tile.selected')?.classList.remove('selected');
+        tile.classList.add('selected');
+        renderPreview();
+        renderColors();
       });
-      wrap.append(choices);
-      options.append(wrap);
-    }
+      return tile;
+    }));
+    grid.querySelector('.look-tile.selected')?.scrollIntoView({ block: 'nearest' });
+  }
+
+  function renderColors() {
+    const wrap = $('look-colors');
+    const choices = swatches(`${tab.label} color`, tab.colors, tab.colorKey, () => { renderPreview(); renderGrid(); renderColors(); });
+    // A style drawn with its own colors ignores the color pick (see HAIR_TINTABLE etc.), so say so.
+    const fixedColors = !tab.tintable[draft[tab.key]];
+    if (fixedColors) choices.classList.add('fixed-colors');
+    wrap.replaceChildren(el('label', '', `${tab.label} color`), choices);
+    if (fixedColors) wrap.append(el('div', 'look-note', 'This style has its own colors'));
+  }
+
+  function renderAll() {
+    renderPreview();
+    renderSkin();
+    renderTabs();
+    renderGrid();
+    renderColors();
   }
 
   openHandlers['look-panel'] = () => {
     draft = { ...session.me.look };
-    render();
+    renderAll();
   };
   $('look-rotate').addEventListener('click', () => {
     dirIndex = (dirIndex + 1) % DIRS.length;
-    render();
+    renderPreview();
   });
   $('look-random').addEventListener('click', () => {
     for (const [key, limit] of Object.entries(LOOK_LIMITS)) draft[key] = Math.floor(Math.random() * limit);
-    render();
+    renderAll();
   });
   $('look-save').addEventListener('click', async () => {
     const res = await request('changeLook', { look: draft });
     if (!res.ok) return toast(res.error);
     session.me.look = res.look;
     $('look-panel').hidden = true;
-    toast('Look saved');
+    if (creatingCharacter()) {
+      setEntryMode(false);
+      toast(`Welcome, ${session.me.display}!`);
+    } else {
+      toast('Look saved');
+    }
   });
+
+  // Entry mode: shown right after login, covering the game, with "Play" instead of "Save" and no
+  // way to close it except by saving. Keys are swallowed so the player can't walk around behind it.
+  function setEntryMode(on) {
+    document.body.classList.toggle('creating-character', on);
+    $('look-backdrop').hidden = !on;
+    $('look-title').textContent = on ? 'Create your character' : 'Change look';
+    $('look-save').textContent = on ? 'Play' : 'Save';
+  }
+  window.addEventListener('keydown', (e) => {
+    if (creatingCharacter() && !isTyping()) e.stopImmediatePropagation();
+  }, true);
+
+  return {
+    openForEntry() {
+      PANELS.forEach((panel) => { $(panel).hidden = true; });
+      setEntryMode(true);
+      $('look-panel').hidden = false;
+      openHandlers['look-panel']();
+      // Creation always starts from the starter outfit, not the look saved last time.
+      draft = { ...DEFAULT_LOOK };
+      tab = TABS[0];
+      renderAll();
+    },
+  };
 }
 
 // ---------- Bag ----------

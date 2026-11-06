@@ -54,17 +54,24 @@ export function castPoint(x, y, dir) {
 export const SKIN_COLORS = ['#f8d5b8', '#e8b48a', '#c68a5c'];
 export const HAIR_COLORS = ['#2b1d14', '#6b4226', '#c9a227', '#d94f4f', '#e87fb5', '#5aa9e6', '#7bd389', '#e8e8e8'];
 export const CLOTH_COLORS = ['#e74c3c', '#e67e22', '#f1c40f', '#2ecc71', '#1abc9c', '#3498db', '#9b59b6', '#e84393', '#ecf0f1', '#34495e'];
-export const HAIR_STYLES = ['Style 1', 'Style 2', 'Style 3', 'Style 4', 'Style 5', 'Style 6', 'Style 7', 'Style 8'];
-export const TOPS = ['Style 1', 'Style 2', 'Style 3', 'Style 4', 'Style 5', 'Style 6', 'Style 7', 'Style 8'];
-export const BOTTOMS = ['Style 1', 'Style 2'];
+// Every style in the real sheets (ASSETS.md §1): hair 1..84 live in hair-spritesheet, 85..148 in
+// hair-2-spritesheet (see hairTextureKey in src/referenceArt.js); 22 tops; 2 bottoms.
+const styleNames = (count) => Array.from({ length: count }, (_, i) => `Style ${i + 1}`);
+export const HAIR_STYLES = styleNames(148);
+export const TOPS = styleNames(22);
+export const BOTTOMS = styleNames(2);
 
 // Whether each style's art is a flat/near-grayscale shape (safe to tint with hairColor /
 // topColor / bottomColor) or already carries its own baked-in color (tinting it would just
-// muddy it). Measured from the actual files under public/assets/characters/ — average pixel
-// saturation per style was ~0 for these and ~0.3+ for the rest. Re-measure if you repaint a
-// style and its color changes.
-export const HAIR_TINTABLE = [true, true, true, true, true, true, true, false];
-export const TOPS_TINTABLE = [true, true, true, true, false, false, false, false];
+// muddy it). Measured from the real sheets: average HSV saturation of the opaque pixels
+// (alpha > 128) in each style's 'player-down-0-<layer>-N' frame; a style counts as tintable
+// below 0.06 (the flat styles measured 0-0.05, colored ones 0.07 and up). Listed by real style
+// number. Re-measure if you repaint a style and its color changes.
+const TINTABLE_HAIR = [1, 2, 3, 4, 5, 6, 7, 14, 26, 27, 34, 35, 36, 37, 38, 39, 46, 66, 73, 87, 88, 95, 117, 126, 136, 140, 143, 144, 145, 146, 147, 148];
+const TINTABLE_TOPS = [1, 2, 3, 4, 11];
+const tintable = (names, numbers) => names.map((_, i) => numbers.includes(i + 1));
+export const HAIR_TINTABLE = tintable(HAIR_STYLES, TINTABLE_HAIR);
+export const TOPS_TINTABLE = tintable(TOPS, TINTABLE_TOPS);
 export const BOTTOMS_TINTABLE = [true, true];
 
 export const LOOK_LIMITS = {
@@ -76,7 +83,9 @@ export const LOOK_LIMITS = {
   bottom: BOTTOMS.length,
   bottomColor: CLOTH_COLORS.length,
 };
-export const DEFAULT_LOOK = { skin: 1, hairStyle: 0, hairColor: 1, top: 0, topColor: 5, bottom: 0, bottomColor: 9 };
+// The starter outfit the character creator opens with on every login: skin 1, hair 1 (white),
+// top 1 (white), pants 2 (dark navy). Indexes are style/color number minus 1.
+export const DEFAULT_LOOK = { skin: 0, hairStyle: 0, hairColor: 7, top: 0, topColor: 8, bottom: 1, bottomColor: 9 };
 
 // Returns a normalized look, or null when any field is not an in-range integer.
 export function validateLook(look) {

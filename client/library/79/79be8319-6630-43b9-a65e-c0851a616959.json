@@ -1,0 +1,1659 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "ocean-cover-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "oceanCover0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 31,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 62,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 93,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 124,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 155,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 186,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 217,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 248,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 279,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 310,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 341,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim0",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim1",
+        "frame": {
+          "x": 31,
+          "y": 31,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim2",
+        "frame": {
+          "x": 31,
+          "y": 62,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim3",
+        "frame": {
+          "x": 31,
+          "y": 93,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim4",
+        "frame": {
+          "x": 31,
+          "y": 124,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim5",
+        "frame": {
+          "x": 31,
+          "y": 155,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim6",
+        "frame": {
+          "x": 31,
+          "y": 186,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim7",
+        "frame": {
+          "x": 31,
+          "y": 217,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim8",
+        "frame": {
+          "x": 31,
+          "y": 248,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim9",
+        "frame": {
+          "x": 31,
+          "y": 279,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim10",
+        "frame": {
+          "x": 31,
+          "y": 310,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover1Anim11",
+        "frame": {
+          "x": 31,
+          "y": 341,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim0",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim1",
+        "frame": {
+          "x": 62,
+          "y": 31,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim2",
+        "frame": {
+          "x": 62,
+          "y": 62,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim3",
+        "frame": {
+          "x": 62,
+          "y": 93,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim4",
+        "frame": {
+          "x": 62,
+          "y": 124,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim5",
+        "frame": {
+          "x": 62,
+          "y": 155,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim6",
+        "frame": {
+          "x": 62,
+          "y": 186,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim7",
+        "frame": {
+          "x": 62,
+          "y": 217,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim8",
+        "frame": {
+          "x": 62,
+          "y": 248,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim9",
+        "frame": {
+          "x": 62,
+          "y": 279,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim10",
+        "frame": {
+          "x": 62,
+          "y": 310,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover2Anim11",
+        "frame": {
+          "x": 62,
+          "y": 341,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3",
+        "frame": {
+          "x": 93,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim0",
+        "frame": {
+          "x": 93,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim1",
+        "frame": {
+          "x": 93,
+          "y": 31,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim2",
+        "frame": {
+          "x": 93,
+          "y": 62,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim3",
+        "frame": {
+          "x": 93,
+          "y": 93,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim4",
+        "frame": {
+          "x": 93,
+          "y": 124,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim5",
+        "frame": {
+          "x": 93,
+          "y": 155,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim6",
+        "frame": {
+          "x": 93,
+          "y": 186,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim7",
+        "frame": {
+          "x": 93,
+          "y": 217,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim8",
+        "frame": {
+          "x": 93,
+          "y": 248,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim9",
+        "frame": {
+          "x": 93,
+          "y": 279,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim10",
+        "frame": {
+          "x": 93,
+          "y": 310,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover3Anim11",
+        "frame": {
+          "x": 93,
+          "y": 341,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4",
+        "frame": {
+          "x": 124,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim0",
+        "frame": {
+          "x": 124,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim1",
+        "frame": {
+          "x": 124,
+          "y": 31,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim2",
+        "frame": {
+          "x": 124,
+          "y": 62,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim3",
+        "frame": {
+          "x": 124,
+          "y": 93,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim4",
+        "frame": {
+          "x": 124,
+          "y": 124,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim5",
+        "frame": {
+          "x": 124,
+          "y": 155,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim6",
+        "frame": {
+          "x": 124,
+          "y": 186,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim7",
+        "frame": {
+          "x": 124,
+          "y": 217,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim8",
+        "frame": {
+          "x": 124,
+          "y": 248,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim9",
+        "frame": {
+          "x": 124,
+          "y": 279,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim10",
+        "frame": {
+          "x": 124,
+          "y": 310,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover4Anim11",
+        "frame": {
+          "x": 124,
+          "y": 341,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5",
+        "frame": {
+          "x": 155,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim0",
+        "frame": {
+          "x": 155,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim1",
+        "frame": {
+          "x": 155,
+          "y": 31,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim2",
+        "frame": {
+          "x": 155,
+          "y": 62,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim3",
+        "frame": {
+          "x": 155,
+          "y": 93,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim4",
+        "frame": {
+          "x": 155,
+          "y": 124,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim5",
+        "frame": {
+          "x": 155,
+          "y": 155,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim6",
+        "frame": {
+          "x": 155,
+          "y": 186,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim7",
+        "frame": {
+          "x": 155,
+          "y": 217,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim8",
+        "frame": {
+          "x": 155,
+          "y": 248,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim9",
+        "frame": {
+          "x": 155,
+          "y": 279,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim10",
+        "frame": {
+          "x": 155,
+          "y": 310,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "filename": "oceanCover5Anim11",
+        "frame": {
+          "x": 155,
+          "y": 341,
+          "w": 31,
+          "h": 31
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 31
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 31
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "ocean-cover-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 186,
+        "h": 372
+      },
+      "scale": "1"
+    }
+  }
+}

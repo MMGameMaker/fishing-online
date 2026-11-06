@@ -1,0 +1,525 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "monster-eye-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "monsterEye0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 39,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 78,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 117,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 156,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 195,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 234,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 273,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 312,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 351,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 390,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 429,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 468,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 507,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 546,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 585,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim15",
+        "frame": {
+          "x": 0,
+          "y": 624,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim16",
+        "frame": {
+          "x": 0,
+          "y": 663,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim17",
+        "frame": {
+          "x": 0,
+          "y": 702,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim18",
+        "frame": {
+          "x": 0,
+          "y": 741,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim19",
+        "frame": {
+          "x": 0,
+          "y": 780,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim20",
+        "frame": {
+          "x": 0,
+          "y": 819,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim21",
+        "frame": {
+          "x": 0,
+          "y": 858,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      },
+      {
+        "filename": "monsterEye0Anim22",
+        "frame": {
+          "x": 0,
+          "y": 897,
+          "w": 26,
+          "h": 39
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 26,
+          "h": 39
+        },
+        "sourceSize": {
+          "w": 26,
+          "h": 39
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "monster-eye-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 26,
+        "h": 936
+      },
+      "scale": "1"
+    }
+  }
+}

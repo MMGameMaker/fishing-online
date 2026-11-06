@@ -1,0 +1,714 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "puffle-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "puffle-idle-down-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-idle-down-1",
+        "frame": {
+          "x": 0,
+          "y": 43,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 43,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-idle-left-0",
+        "frame": {
+          "x": 0,
+          "y": 86,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 86,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-idle-left-1",
+        "frame": {
+          "x": 0,
+          "y": 129,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 129,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-idle-right-0",
+        "frame": {
+          "x": 0,
+          "y": 172,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 172,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-idle-right-1",
+        "frame": {
+          "x": 0,
+          "y": 215,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 215,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-idle-up-0",
+        "frame": {
+          "x": 0,
+          "y": 258,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 258,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-idle-up-1",
+        "frame": {
+          "x": 0,
+          "y": 301,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 301,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-down-0",
+        "frame": {
+          "x": 0,
+          "y": 344,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 344,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-down-1",
+        "frame": {
+          "x": 0,
+          "y": 387,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 387,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-down-2",
+        "frame": {
+          "x": 0,
+          "y": 430,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 430,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-down-3",
+        "frame": {
+          "x": 0,
+          "y": 473,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 473,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-left-0",
+        "frame": {
+          "x": 0,
+          "y": 516,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 516,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-left-1",
+        "frame": {
+          "x": 0,
+          "y": 559,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 559,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-left-2",
+        "frame": {
+          "x": 0,
+          "y": 602,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 602,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-left-3",
+        "frame": {
+          "x": 0,
+          "y": 645,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 645,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-right-0",
+        "frame": {
+          "x": 0,
+          "y": 688,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 688,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-right-1",
+        "frame": {
+          "x": 0,
+          "y": 731,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 731,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-right-2",
+        "frame": {
+          "x": 0,
+          "y": 774,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 774,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-right-3",
+        "frame": {
+          "x": 0,
+          "y": 817,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 817,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-up-0",
+        "frame": {
+          "x": 0,
+          "y": 860,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 860,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-up-1",
+        "frame": {
+          "x": 0,
+          "y": 903,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 903,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-up-2",
+        "frame": {
+          "x": 0,
+          "y": 946,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 946,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-walk-up-3",
+        "frame": {
+          "x": 0,
+          "y": 989,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 989,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-0",
+        "frame": {
+          "x": 0,
+          "y": 1032,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1032,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-1",
+        "frame": {
+          "x": 0,
+          "y": 1075,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1075,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-2",
+        "frame": {
+          "x": 0,
+          "y": 1118,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1118,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-3",
+        "frame": {
+          "x": 0,
+          "y": 1161,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1161,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-4",
+        "frame": {
+          "x": 0,
+          "y": 1204,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1204,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-5",
+        "frame": {
+          "x": 0,
+          "y": 1247,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1247,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-6",
+        "frame": {
+          "x": 0,
+          "y": 1290,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1290,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-7",
+        "frame": {
+          "x": 0,
+          "y": 1333,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1333,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      },
+      {
+        "filename": "puffle-explode-down-8",
+        "frame": {
+          "x": 0,
+          "y": 1376,
+          "w": 43,
+          "h": 43
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 1376,
+          "w": 43,
+          "h": 43
+        },
+        "sourceSize": {
+          "w": 43,
+          "h": 43
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "puffle-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 43,
+        "h": 344
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "terrawood-cabinet-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "terrawoodCabinet0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      },
+      {
+        "filename": "terrawoodCabinet1",
+        "frame": {
+          "x": 0,
+          "y": 66,
+          "w": 52,
+          "h": 66
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 52,
+          "h": 66
+        },
+        "sourceSize": {
+          "w": 52,
+          "h": 66
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "terrawood-cabinet-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 52,
+        "h": 132
+      },
+      "scale": "1"
+    }
+  }
+}

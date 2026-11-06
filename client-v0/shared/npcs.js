@@ -9,7 +9,12 @@ export const NPCS = [
   { id: 'npc_mira', room: 'cafe', x: 2385, y: 1905, name: 'Mira', color: '#caa6e0', questId: 'lookGood' },
   { id: 'npc_reed', room: 'coralCove', x: 2113, y: 1547, name: 'Reed', color: '#5aa9e6', questId: 'firstCatch' },
   { id: 'npc_theo', room: 'hugglehenFarms', x: 2325, y: 1740, name: 'Theo', color: '#8fbf6a', questId: 'sayHi' },
+  // Shopkeeper behind the Tinkerbean counter: no quest, talking to him opens the shop panel.
+  { id: 'npc_barnaby', room: 'store', x: 2416, y: 1685, name: 'Barnaby', color: '#b5713f', shop: true,
+    greeting: 'Welcome to Tinkerbean! Have a look around, I keep the best rods in town behind this counter.' },
 ];
+// NPCs that give a quest (the shopkeeper does not).
+export const QUEST_NPCS = NPCS.filter((n) => n.questId);
 export const NPC_BY_ID = Object.fromEntries(NPCS.map((n) => [n.id, n]));
 
 // requirement.type: 'talk' (ready as soon as it is accepted), 'changeLook', 'catchFish', 'sendChat'.

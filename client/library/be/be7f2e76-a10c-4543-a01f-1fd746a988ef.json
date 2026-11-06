@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "candy-canes-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "candyCanes0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 53
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 53
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 53
+        }
+      },
+      {
+        "filename": "candyCanes1",
+        "frame": {
+          "x": 0,
+          "y": 53,
+          "w": 31,
+          "h": 53
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 53
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 53
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "candy-canes-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 31,
+        "h": 106
+      },
+      "scale": "1"
+    }
+  }
+}

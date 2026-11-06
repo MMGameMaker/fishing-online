@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "palm-tree-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "palmTree0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 71,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 71,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 71,
+          "h": 88
+        }
+      },
+      {
+        "filename": "palmTree1",
+        "frame": {
+          "x": 0,
+          "y": 88,
+          "w": 71,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 71,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 71,
+          "h": 88
+        }
+      },
+      {
+        "filename": "palmTree2",
+        "frame": {
+          "x": 0,
+          "y": 176,
+          "w": 71,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 71,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 71,
+          "h": 88
+        }
+      },
+      {
+        "filename": "palmTree3",
+        "frame": {
+          "x": 0,
+          "y": 264,
+          "w": 71,
+          "h": 88
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 71,
+          "h": 88
+        },
+        "sourceSize": {
+          "w": 71,
+          "h": 88
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "palm-tree-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 71,
+        "h": 352
+      },
+      "scale": "1"
+    }
+  }
+}

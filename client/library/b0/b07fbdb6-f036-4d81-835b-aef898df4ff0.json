@@ -1,0 +1,63 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "mobile-attack-button-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "mobile-attack-button-0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 102
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 102
+        },
+        "sourceSize": {
+          "w": 100,
+          "h": 102
+        }
+      },
+      {
+        "filename": "mobile-attack-button-1",
+        "frame": {
+          "x": 0,
+          "y": 102,
+          "w": 100,
+          "h": 102
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 100,
+          "h": 102
+        },
+        "sourceSize": {
+          "w": 100,
+          "h": 102
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "mobile-attack-button.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 100,
+        "h": 204
+      },
+      "scale": "1"
+    }
+  }
+}

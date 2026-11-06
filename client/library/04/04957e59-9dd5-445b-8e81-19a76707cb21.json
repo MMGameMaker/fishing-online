@@ -1,0 +1,147 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "gothic-window-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "gothicWindow0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 52
+        }
+      },
+      {
+        "filename": "gothicWindow1",
+        "frame": {
+          "x": 24,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 52
+        }
+      },
+      {
+        "filename": "gothicWindow2",
+        "frame": {
+          "x": 48,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 52
+        }
+      },
+      {
+        "filename": "gothicWindow3",
+        "frame": {
+          "x": 72,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 52
+        }
+      },
+      {
+        "filename": "gothicWindow4",
+        "frame": {
+          "x": 96,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 52
+        }
+      },
+      {
+        "filename": "gothicWindow5",
+        "frame": {
+          "x": 120,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 24,
+          "h": 52
+        },
+        "sourceSize": {
+          "w": 24,
+          "h": 52
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "gothic-window-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 144,
+        "h": 52
+      },
+      "scale": "1"
+    }
+  }
+}

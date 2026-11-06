@@ -1,0 +1,168 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "potted-mandrake-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "pottedMandrake0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 49
+        }
+      },
+      {
+        "filename": "pottedMandrake0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 49,
+          "w": 40,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 49
+        }
+      },
+      {
+        "filename": "pottedMandrake0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 98,
+          "w": 40,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 49
+        }
+      },
+      {
+        "filename": "pottedMandrake0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 147,
+          "w": 40,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 49
+        }
+      },
+      {
+        "filename": "pottedMandrake0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 196,
+          "w": 40,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 49
+        }
+      },
+      {
+        "filename": "pottedMandrake0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 245,
+          "w": 40,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 49
+        }
+      },
+      {
+        "filename": "pottedMandrake0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 294,
+          "w": 40,
+          "h": 49
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 49
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 49
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "potted-mandrake-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 80,
+        "h": 343
+      },
+      "scale": "1"
+    }
+  }
+}

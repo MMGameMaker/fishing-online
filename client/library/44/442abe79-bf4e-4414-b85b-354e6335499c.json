@@ -1,0 +1,111 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "npc-fergus-frames",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": {
+      "fergus0": [
+        0,
+        0,
+        25,
+        46
+      ],
+      "fergus1": [
+        0,
+        46,
+        25,
+        46
+      ],
+      "fergus2": [
+        0,
+        92,
+        25,
+        46
+      ],
+      "fergus3": [
+        0,
+        138,
+        25,
+        46
+      ],
+      "fergus4": [
+        0,
+        184,
+        25,
+        46
+      ],
+      "fergus5": [
+        0,
+        230,
+        25,
+        46
+      ],
+      "fergus6": [
+        0,
+        276,
+        25,
+        46
+      ],
+      "fergus7": [
+        0,
+        322,
+        25,
+        46
+      ],
+      "fergus8": [
+        0,
+        368,
+        25,
+        46
+      ],
+      "fergus9": [
+        0,
+        414,
+        25,
+        46
+      ],
+      "fergus10": [
+        0,
+        460,
+        25,
+        46
+      ],
+      "fergus11": [
+        0,
+        506,
+        25,
+        46
+      ],
+      "fergus12": [
+        0,
+        552,
+        25,
+        46
+      ],
+      "fergus13": [
+        0,
+        598,
+        25,
+        46
+      ]
+    },
+    "order": [
+      "fergus0",
+      "fergus1",
+      "fergus2",
+      "fergus3",
+      "fergus4",
+      "fergus5",
+      "fergus6",
+      "fergus7",
+      "fergus8",
+      "fergus9",
+      "fergus10",
+      "fergus11",
+      "fergus12",
+      "fergus13"
+    ]
+  }
+}

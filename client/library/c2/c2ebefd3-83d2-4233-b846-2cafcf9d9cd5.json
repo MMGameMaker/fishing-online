@@ -1,0 +1,525 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "daisy-cushion-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "daisyCushionWhite0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionWhite1",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionWhite2",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionWhite3",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionBlue0",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionBlue1",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionBlue2",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionBlue3",
+        "frame": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPink0",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPink1",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPink2",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPink3",
+        "frame": {
+          "x": 62,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPurple0",
+        "frame": {
+          "x": 93,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPurple1",
+        "frame": {
+          "x": 93,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPurple2",
+        "frame": {
+          "x": 93,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionPurple3",
+        "frame": {
+          "x": 93,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionTeal0",
+        "frame": {
+          "x": 124,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionTeal1",
+        "frame": {
+          "x": 124,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionTeal2",
+        "frame": {
+          "x": 124,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionTeal3",
+        "frame": {
+          "x": 124,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionOrange0",
+        "frame": {
+          "x": 155,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionOrange1",
+        "frame": {
+          "x": 155,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 31,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionOrange2",
+        "frame": {
+          "x": 155,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      },
+      {
+        "filename": "daisyCushionOrange3",
+        "frame": {
+          "x": 155,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 29
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "dining-chair-wooden-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 60,
+        "h": 240
+      },
+      "scale": "1"
+    }
+  }
+}

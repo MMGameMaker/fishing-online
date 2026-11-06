@@ -1,0 +1,399 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "entry-portal-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "entryPortal0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal1",
+        "frame": {
+          "x": 0,
+          "y": 106,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal2",
+        "frame": {
+          "x": 0,
+          "y": 212,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal3",
+        "frame": {
+          "x": 0,
+          "y": 318,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal4",
+        "frame": {
+          "x": 0,
+          "y": 424,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal5",
+        "frame": {
+          "x": 0,
+          "y": 530,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal6",
+        "frame": {
+          "x": 0,
+          "y": 636,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal7",
+        "frame": {
+          "x": 0,
+          "y": 742,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal8",
+        "frame": {
+          "x": 0,
+          "y": 848,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal9",
+        "frame": {
+          "x": 0,
+          "y": 954,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal10",
+        "frame": {
+          "x": 0,
+          "y": 1060,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal11",
+        "frame": {
+          "x": 0,
+          "y": 1166,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal12",
+        "frame": {
+          "x": 0,
+          "y": 1272,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal13",
+        "frame": {
+          "x": 0,
+          "y": 1378,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal14",
+        "frame": {
+          "x": 0,
+          "y": 1484,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal15",
+        "frame": {
+          "x": 0,
+          "y": 1590,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal16",
+        "frame": {
+          "x": 0,
+          "y": 1696,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      },
+      {
+        "filename": "entryPortal17",
+        "frame": {
+          "x": 0,
+          "y": 1802,
+          "w": 111,
+          "h": 106
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 111,
+          "h": 106
+        },
+        "sourceSize": {
+          "w": 111,
+          "h": 106
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "entry-portal-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 111,
+        "h": 1908
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "harvesting-icons-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "lettuce-yield",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "carrot-yield",
+        "frame": {
+          "x": 29,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "potato-yield",
+        "frame": {
+          "x": 58,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "radish-yield",
+        "frame": {
+          "x": 87,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "turnip-yield",
+        "frame": {
+          "x": 116,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      },
+      {
+        "filename": "jackolantern-yield",
+        "frame": {
+          "x": 145,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 29,
+          "h": 29
+        },
+        "sourceSize": {
+          "w": 29,
+          "h": 29
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "harvesting-icons-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 290,
+        "h": 116
+      },
+      "scale": "1"
+    }
+  }
+}

@@ -1,0 +1,504 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "quest-complete-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "questComplete0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete1",
+        "frame": {
+          "x": 0,
+          "y": 124,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete2",
+        "frame": {
+          "x": 0,
+          "y": 248,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete3",
+        "frame": {
+          "x": 0,
+          "y": 372,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete4",
+        "frame": {
+          "x": 0,
+          "y": 496,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete5",
+        "frame": {
+          "x": 0,
+          "y": 620,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete6",
+        "frame": {
+          "x": 0,
+          "y": 744,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete7",
+        "frame": {
+          "x": 0,
+          "y": 868,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete8",
+        "frame": {
+          "x": 0,
+          "y": 992,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete9",
+        "frame": {
+          "x": 0,
+          "y": 1116,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete10",
+        "frame": {
+          "x": 0,
+          "y": 1240,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete11",
+        "frame": {
+          "x": 0,
+          "y": 1364,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete12",
+        "frame": {
+          "x": 0,
+          "y": 1488,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete13",
+        "frame": {
+          "x": 0,
+          "y": 1612,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete14",
+        "frame": {
+          "x": 0,
+          "y": 1736,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete15",
+        "frame": {
+          "x": 0,
+          "y": 1860,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete16",
+        "frame": {
+          "x": 0,
+          "y": 1984,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete17",
+        "frame": {
+          "x": 0,
+          "y": 2108,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete18",
+        "frame": {
+          "x": 0,
+          "y": 2232,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete19",
+        "frame": {
+          "x": 0,
+          "y": 2356,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete20",
+        "frame": {
+          "x": 0,
+          "y": 2480,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete21",
+        "frame": {
+          "x": 0,
+          "y": 2604,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      },
+      {
+        "filename": "questComplete22",
+        "frame": {
+          "x": 0,
+          "y": 2728,
+          "w": 257,
+          "h": 124
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 257,
+          "h": 124
+        },
+        "sourceSize": {
+          "w": 257,
+          "h": 124
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "quest-complete-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 257,
+        "h": 2852
+      },
+      "scale": "1"
+    }
+  }
+}

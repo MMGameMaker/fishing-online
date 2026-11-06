@@ -1,0 +1,315 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "name-tag-sparkles-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "name-tag-sparkles0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles1",
+        "frame": {
+          "x": 0,
+          "y": 17,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles2",
+        "frame": {
+          "x": 0,
+          "y": 34,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles3",
+        "frame": {
+          "x": 0,
+          "y": 51,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles4",
+        "frame": {
+          "x": 0,
+          "y": 68,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles5",
+        "frame": {
+          "x": 0,
+          "y": 85,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles6",
+        "frame": {
+          "x": 0,
+          "y": 102,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles7",
+        "frame": {
+          "x": 0,
+          "y": 119,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles8",
+        "frame": {
+          "x": 0,
+          "y": 136,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles9",
+        "frame": {
+          "x": 0,
+          "y": 153,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles10",
+        "frame": {
+          "x": 0,
+          "y": 170,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles11",
+        "frame": {
+          "x": 0,
+          "y": 187,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles12",
+        "frame": {
+          "x": 0,
+          "y": 204,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      },
+      {
+        "filename": "name-tag-sparkles13",
+        "frame": {
+          "x": 0,
+          "y": 221,
+          "w": 31,
+          "h": 17
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 31,
+          "h": 17
+        },
+        "sourceSize": {
+          "w": 31,
+          "h": 17
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "name-tag-sparkles-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 31,
+        "h": 238
+      },
+      "scale": "1"
+    }
+  }
+}

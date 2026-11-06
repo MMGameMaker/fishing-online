@@ -1,0 +1,357 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "snow-globe-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "snowGlobe0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim0",
+        "frame": {
+          "x": 0,
+          "y": 64,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim1",
+        "frame": {
+          "x": 0,
+          "y": 128,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim2",
+        "frame": {
+          "x": 0,
+          "y": 192,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim3",
+        "frame": {
+          "x": 0,
+          "y": 256,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim4",
+        "frame": {
+          "x": 0,
+          "y": 320,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim5",
+        "frame": {
+          "x": 0,
+          "y": 384,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim6",
+        "frame": {
+          "x": 0,
+          "y": 448,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim7",
+        "frame": {
+          "x": 0,
+          "y": 512,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim8",
+        "frame": {
+          "x": 0,
+          "y": 576,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim9",
+        "frame": {
+          "x": 0,
+          "y": 640,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim10",
+        "frame": {
+          "x": 0,
+          "y": 704,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim11",
+        "frame": {
+          "x": 0,
+          "y": 768,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim12",
+        "frame": {
+          "x": 0,
+          "y": 832,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim13",
+        "frame": {
+          "x": 0,
+          "y": 896,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      },
+      {
+        "filename": "snowGlobe0Anim14",
+        "frame": {
+          "x": 0,
+          "y": 960,
+          "w": 62,
+          "h": 64
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 62,
+          "h": 64
+        },
+        "sourceSize": {
+          "w": 62,
+          "h": 64
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "snow-globe-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 62,
+        "h": 1024
+      },
+      "scale": "1"
+    }
+  }
+}

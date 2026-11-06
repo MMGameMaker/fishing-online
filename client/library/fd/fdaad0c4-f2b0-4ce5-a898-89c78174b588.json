@@ -1,0 +1,462 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "speech-bubble-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "speechBubble0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble1",
+        "frame": {
+          "x": 0,
+          "y": 35,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble2",
+        "frame": {
+          "x": 0,
+          "y": 70,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble3",
+        "frame": {
+          "x": 0,
+          "y": 105,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble4",
+        "frame": {
+          "x": 0,
+          "y": 140,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble5",
+        "frame": {
+          "x": 0,
+          "y": 175,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble6",
+        "frame": {
+          "x": 0,
+          "y": 210,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble7",
+        "frame": {
+          "x": 0,
+          "y": 245,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble8",
+        "frame": {
+          "x": 0,
+          "y": 280,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble9",
+        "frame": {
+          "x": 0,
+          "y": 280,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble10",
+        "frame": {
+          "x": 0,
+          "y": 280,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble11",
+        "frame": {
+          "x": 0,
+          "y": 280,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble12",
+        "frame": {
+          "x": 0,
+          "y": 315,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble13",
+        "frame": {
+          "x": 0,
+          "y": 350,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble14",
+        "frame": {
+          "x": 0,
+          "y": 385,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble15",
+        "frame": {
+          "x": 0,
+          "y": 420,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble16",
+        "frame": {
+          "x": 0,
+          "y": 455,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble17",
+        "frame": {
+          "x": 0,
+          "y": 490,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble18",
+        "frame": {
+          "x": 0,
+          "y": 525,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble19",
+        "frame": {
+          "x": 0,
+          "y": 560,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      },
+      {
+        "filename": "speechBubble20",
+        "frame": {
+          "x": 0,
+          "y": 595,
+          "w": 36,
+          "h": 35
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 36,
+          "h": 35
+        },
+        "sourceSize": {
+          "w": 36,
+          "h": 35
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "speech-bubble-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 36,
+        "h": 630
+      },
+      "scale": "1"
+    }
+  }
+}

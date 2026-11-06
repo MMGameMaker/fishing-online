@@ -1,0 +1,105 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "bobbing-plant-back-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "bobbingPlantBack0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 33
+        }
+      },
+      {
+        "filename": "bobbingPlantBack1",
+        "frame": {
+          "x": 0,
+          "y": 33,
+          "w": 40,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 33
+        }
+      },
+      {
+        "filename": "bobbingPlantBack2",
+        "frame": {
+          "x": 0,
+          "y": 66,
+          "w": 40,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 33
+        }
+      },
+      {
+        "filename": "bobbingPlantBack3",
+        "frame": {
+          "x": 0,
+          "y": 99,
+          "w": 40,
+          "h": 33
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 40,
+          "h": 33
+        },
+        "sourceSize": {
+          "w": 40,
+          "h": 33
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "bobbing-plant-back-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 40,
+        "h": 33
+      },
+      "scale": "1"
+    }
+  }
+}

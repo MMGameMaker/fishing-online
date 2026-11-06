@@ -1,0 +1,357 @@
+{
+  "__type__": "cc.JsonAsset",
+  "_name": "barnaby-spritesheet",
+  "_objFlags": 0,
+  "__editorExtras__": {},
+  "_native": "",
+  "json": {
+    "frames": [
+      {
+        "filename": "barnaby0",
+        "frame": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby1",
+        "frame": {
+          "x": 0,
+          "y": 45,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby2",
+        "frame": {
+          "x": 0,
+          "y": 90,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby3",
+        "frame": {
+          "x": 0,
+          "y": 135,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby4",
+        "frame": {
+          "x": 0,
+          "y": 180,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby5",
+        "frame": {
+          "x": 0,
+          "y": 225,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby6",
+        "frame": {
+          "x": 0,
+          "y": 270,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby7",
+        "frame": {
+          "x": 0,
+          "y": 315,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby8",
+        "frame": {
+          "x": 0,
+          "y": 360,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby9",
+        "frame": {
+          "x": 0,
+          "y": 405,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby10",
+        "frame": {
+          "x": 0,
+          "y": 450,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby11",
+        "frame": {
+          "x": 0,
+          "y": 495,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby12",
+        "frame": {
+          "x": 0,
+          "y": 540,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby13",
+        "frame": {
+          "x": 0,
+          "y": 585,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby14",
+        "frame": {
+          "x": 0,
+          "y": 630,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      },
+      {
+        "filename": "barnaby15",
+        "frame": {
+          "x": 0,
+          "y": 675,
+          "w": 47,
+          "h": 45
+        },
+        "rotated": false,
+        "trimmed": false,
+        "spriteSourceSize": {
+          "x": 0,
+          "y": 0,
+          "w": 47,
+          "h": 45
+        },
+        "sourceSize": {
+          "w": 47,
+          "h": 45
+        }
+      }
+    ],
+    "meta": {
+      "version": "1.0",
+      "image": "barnaby-spritesheet.png",
+      "format": "RGBA8888",
+      "size": {
+        "w": 47,
+        "h": 720
+      },
+      "scale": "1"
+    }
+  }
+}
