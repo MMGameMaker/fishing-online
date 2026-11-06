@@ -6,7 +6,7 @@
 
 - Tên và phiên bản, chủ sở hữu, trạng thái đề xuất/đã thống nhất, bên dùng.
 - HTTP method/path hoặc SignalR hub/method/event; auth và quyền, request/response/event mẫu, schema và nullability.
-- ID, enum, đơn vị cân nặng/tiền/thời gian, timezone, giới hạn và thứ tự dữ liệu. Không truyền Gold bằng số thực nếu cần chính xác nguyên đơn vị.
+- ID, enum, đơn vị chiều dài/tiền/thời gian, timezone, giới hạn và thứ tự dữ liệu. Không truyền Gold bằng số thực nếu cần chính xác nguyên đơn vị.
 - Điều kiện hợp lệ, lỗi nghiệp vụ, lỗi xác thực, timeout, retry, trạng thái sau lỗi và cách lấy snapshot.
 - Với mua/tiêu hao/nhận thưởng: quy tắc chống xử lý trùng, phạm vi và thời hạn request ID, phản hồi khi gửi lại. Không retry mù thao tác thay đổi tài nguyên.
 - Với realtime: thứ tự/phiên bản trạng thái, xử lý event trễ/trùng, reconnect, snapshot và đồng bộ lại. Không giả định mất kết nối nghĩa là thao tác chưa xảy ra.

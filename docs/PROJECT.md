@@ -10,14 +10,16 @@
 - Server giữ **ASP.NET Core + SignalR + PostgreSQL + Redis**.
 - **Player authentication:** Firebase Authentication; Google login trước, Facebook login để sau (người dùng chốt 2026-11-03). Account/player và dữ liệu game vẫn ở PostgreSQL; không tự thêm hệ mật khẩu Identity song song. Chi tiết phiên/Admin còn là đề xuất trong [S02](be/ACCOUNT_AUTH.md).
 - Admin Tool giữ **React + TypeScript**, là ứng dụng riêng với UI game Cocos; **BE thực hiện cả Server và Admin Tool**, không tính nhóm/nhân sự Admin riêng.
-- Một map hồ 2D, 20 ghế; login, vào phòng, chọn ghế, mua vé theo lượt; bốn loại trang bị: cần/dây/lưỡi/mồi.
-- Idle/Manual, 5 loài cá mẫu với rarity/cân nặng khác nhau; inventory, lịch sử câu, thành tích cá nhân.
-- Bổ sung **thính** là vật phẩm tiêu hao cùng nhóm với mồi, có trong inventory/shop. Mồi gắn lưỡi và thính dụ cá có tác dụng riêng; GD chốt cách dùng, tiêu hao, thời hạn và phạm vi ảnh hưởng. Giữ bốn slot cũ; cách hiển thị/dùng thính cần GD đặc tả.
-- GD xây bảng tương thích mỗi loài với mồi/thính, phương pháp/loại cần, cỡ/kiểu lưỡi và dây theo nguyên tắc câu thực tế. Tách tiếp cận/cắn → mắc lưỡi → kéo cá; không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Quy tắc, số balance và danh sách 5 loài vẫn cần chốt. Yêu cầu tổng quan và nguồn tham khảo ở mục 03 Notion; chi tiết triển khai cập nhật ở doc Phân rã công việc, giữ nguyên ID.
-- **Loot map/nhặt đồ tạm hoãn khỏi bản đầu**, thay quyết định đưa loot trở lại trước đây. Vẫn giữ di chuyển quanh hồ. GD cần chốt nguồn Gold/vé/mồi ban đầu và bổ sung khi không có loot.
-- Gold/Gem giữ trong định hướng; shop Gold và ledger trong playable. **Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1**. Giải đấu và payment thật kể cả sandbox để sau.
+- **Chi tiết gameplay đã chốt và số liệu tạm để test nằm ở [GAMEPLAY_SCOPE.md](../doc/GAMEPLAY_SCOPE.md)** (người dùng chốt 2026-11-05 và 2026-11-06).
+- Một map hồ 2D, 20 ghế; phòng và Lake là một. Login, vào phòng, chọn ghế, mua vé theo lượt; một vé là 10 phút dùng ghế, giá theo Tier ghế.
+- Chỉ cần có cần câu là câu được; bản đầu có 5 loại cần, mỗi người chơi mặc định có 1 cần cấp thấp. **Mồi, dây và lưỡi bỏ khỏi bản đầu**, bổ sung sau nếu quyết định triển khai.
+- Bản đầu chỉ làm **Manual**; Idle cập nhật sau. 9 loài cá mẫu thuộc 5 bậc rarity; kích thước tính bằng chiều dài (cm), chỉ để so sánh giữa các user. Có inventory, lịch sử câu, thành tích cá nhân.
+- **Thính** là vật phẩm tiêu hao trong inventory/shop. Bản đầu có 1 loại để test: giảm 1 giây Lure Time, có hiệu lực đến khi rời ghế, không cộng dồn.
+- Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Logic spawn cá và thành tích GD bổ sung sau. Yêu cầu tổng quan và nguồn tham khảo ở mục 03 Notion; chi tiết triển khai cập nhật ở doc Phân rã công việc, giữ nguyên ID.
+- **Loot map/nhặt đồ tạm hoãn khỏi bản đầu**, thay quyết định đưa loot trở lại trước đây. Vẫn giữ di chuyển quanh hồ. Người chơi mới được tặng 100 Gold; vé mua bằng Gold, kiếm Gold bằng cách bán cá tại Shop.
+- Shop dùng Gold và có ledger: bán cần câu và thính, nhận bán cá. Gem không dùng trong bản đầu. **Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1**, luật GD mô tả sau. Giải đấu và payment thật kể cả sandbox để sau.
 - **Khoảng 5–10 skin nhân vật**; chọn/hiển thị/đồng bộ skin. Quyền dùng/mở khóa, số hướng và animation chưa khóa; không tự thêm shop skin hoặc chỉ số.
-- Người dùng gọi bản đầu là v1; tài liệu hiện còn nhãn Playable v0.1. Tạm hiểu cùng bản đầu, chưa tự đổi version release. **Phase câu chi tiết còn thiếu**, GD bổ sung dần theo từng lát; khung trạng thái/prototype chưa phải luật đã duyệt.
+- Người dùng gọi bản đầu là v1; tài liệu hiện còn nhãn Playable v0.1. Tạm hiểu cùng bản đầu, chưa tự đổi version release. Quy trình câu Manual đã chốt ở GAMEPLAY_SCOPE; khung trạng thái/prototype khác với quy trình này chưa phải luật đã duyệt.
 - Hai luồng triển khai: **Client kiêm Art** và **BE kiêm Admin Tool**; GD cung cấp luật/data/acceptance. Admin vẫn tách ứng dụng và quyền, cùng nguồn lực BE.
 - Asset mua sẵn/import/AI tạo; Client chuẩn hóa sprites/tileset/atlas/animation 2D và tích hợp. Ghi nguồn/quyền sử dụng; mua asset cần duyệt bộ asset/ngân sách. Placeholder không phải asset final.
 
