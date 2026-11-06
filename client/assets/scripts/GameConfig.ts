@@ -80,7 +80,7 @@ export const ROOM_NPCS: Record<string, NpcDef[]> = {
             name: 'Marlin',
             sheet: 'npc-marlin',
             portrait: 'portrait-marlin',
-            x: 2115, y: 1533,
+            x: 2115, y: 1542,
             fps: 6,
             quest: 'offer',
             lines: [
