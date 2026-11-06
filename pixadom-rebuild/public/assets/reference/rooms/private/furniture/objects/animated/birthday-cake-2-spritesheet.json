@@ -1,0 +1,182 @@
+{
+	"frames": [
+		{
+			"filename": "birthdayCakeSecond0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 36,
+				"h": 70
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 36,
+				"h": 70
+			},
+			"sourceSize": {
+				"w": 36,
+				"h": 70
+			}
+		},
+        {
+            "filename": "birthdayCakeSecond0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 70,
+                "w": 36,
+                "h": 70
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 70
+            }
+        },
+        {
+            "filename": "birthdayCakeSecond0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 140,
+                "w": 36,
+                "h": 70
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 70
+            }
+        },
+        {
+            "filename": "birthdayCakeSecond0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 210,
+                "w": 36,
+                "h": 70
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 70
+            }
+        },
+        {
+            "filename": "birthdayCakeSecond0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 280,
+                "w": 36,
+                "h": 70
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 70
+            }
+        },
+        {
+            "filename": "birthdayCakeSecond0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 350,
+                "w": 36,
+                "h": 70
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 70
+            }
+        },
+        {
+            "filename": "birthdayCakeSecond0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 420,
+                "w": 36,
+                "h": 70
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 70
+            }
+        },
+        {
+            "filename": "birthdayCakeSecond0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 490,
+                "w": 36,
+                "h": 70
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 36,
+                "h": 70
+            },
+            "sourceSize": {
+                "w": 36,
+                "h": 70
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "birthday-cake-2-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 36,
+			"h": 560
+		},
+		"scale": "1"
+	}
+}

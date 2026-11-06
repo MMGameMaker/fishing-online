@@ -1,0 +1,77 @@
+{
+	"frames": [
+		{
+			"filename": "player-status-participant-game",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 12
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 12
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 12
+			}
+		},
+		{
+			"filename": "player-status-participant-other",
+			"frame": {
+				"x": 0,
+				"y": 12,
+				"w": 29,
+				"h": 12
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 12
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 12
+			}
+		},
+		{
+			"filename": "player-status-content-creator-live",
+			"frame": {
+				"x": 0,
+				"y": 24,
+				"w": 29,
+				"h": 12
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 12
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 12
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "player-status-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 29,
+			"h": 36
+		},
+		"scale": "1"
+	}
+}

@@ -1,0 +1,461 @@
+{
+	"frames": [
+        {
+            "filename": "santasElf0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48 
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48 
+            }
+        },
+
+
+
+        {
+            "filename": "santasElf0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 48,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 96,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 144,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 192,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 240,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 288,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 336,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 384,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 432,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 480,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim11",
+            "frame": {
+                "x": 0,
+                "y": 528,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim12",
+            "frame": {
+                "x": 0,
+                "y": 576,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim13",
+            "frame": {
+                "x": 0,
+                "y": 624,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim14",
+            "frame": {
+                "x": 0,
+                "y": 672,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim15",
+            "frame": {
+                "x": 0,
+                "y": 720,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Anim16",
+            "frame": {
+                "x": 0,
+                "y": 768,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+
+
+
+        {
+            "filename": "santasElf0Option1",
+            "frame": {
+                "x": 0,
+                "y": 864,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Option2",
+            "frame": {
+                "x": 0,
+                "y": 912,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        },
+        {
+            "filename": "santasElf0Option3",
+            "frame": {
+                "x": 0,
+                "y": 960,
+                "w": 33,
+                "h": 48
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 48
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 48
+            }
+        }     
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "santas-elf-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 33,
+			"h": 1008            
+		},
+		"scale": "1"
+	}
+}

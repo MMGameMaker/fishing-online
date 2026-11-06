@@ -1,0 +1,371 @@
+{
+	"frames": [
+		{
+			"filename": "goldGong0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 47
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 47
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 47
+			}
+		},
+        {
+            "filename": "goldGong0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 47,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 94,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 141,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 188,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 235,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 282,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 329,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 376,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 423,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 470,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim11",
+            "frame": {
+                "x": 0,
+                "y": 517,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim12",
+            "frame": {
+                "x": 0,
+                "y": 564,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim13",
+            "frame": {
+                "x": 0,
+                "y": 611,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim14",
+            "frame": {
+                "x": 0,
+                "y": 658,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        },
+        {
+            "filename": "goldGong0Anim15",
+            "frame": {
+                "x": 0,
+                "y": 705,
+                "w": 44,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 47
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "gold-gong-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 44,
+			"h": 799
+		},
+		"scale": "1"
+	}
+}

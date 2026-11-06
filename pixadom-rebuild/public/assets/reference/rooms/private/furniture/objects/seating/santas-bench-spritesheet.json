@@ -1,0 +1,131 @@
+{
+	"frames": [
+		{
+			"filename": "santasBench0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+			    "h": 70 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+			    "h": 70 
+			},
+			"sourceSize": {
+				"w": 96,
+			    "h": 70 
+			}
+		},
+		{
+			"filename": "santasBench0Anim0",
+			"frame": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim1",
+			"frame": { "x": 0, "y": 70, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim2",
+			"frame": { "x": 0, "y": 140, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim3",
+			"frame": { "x": 0, "y": 210, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim4",
+			"frame": { "x": 0, "y": 280, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim5",
+			"frame": { "x": 0, "y": 350, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim6",
+			"frame": { "x": 0, "y": 420, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim7",
+			"frame": { "x": 0, "y": 490, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim8",
+			"frame": { "x": 0, "y": 560, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim9",
+			"frame": { "x": 0, "y": 630, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim10",
+			"frame": { "x": 0, "y": 700, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		},
+		{
+			"filename": "santasBench0Anim11",
+			"frame": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 70 },
+			"sourceSize": { "w": 96, "h": 70 }
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "santas-bench-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 96,
+			"h": 770            
+		},
+		"scale": "1"
+	}
+}

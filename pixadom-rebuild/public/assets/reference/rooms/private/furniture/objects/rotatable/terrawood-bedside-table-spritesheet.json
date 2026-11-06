@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "terrawoodBedsideTable0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+			    "h": 31
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+			    "h": 31
+			},
+			"sourceSize": {
+				"w": 22,
+			    "h": 31
+			}
+		},
+		{
+			"filename": "terrawoodBedsideTable1",
+			"frame": {
+				"x": 0,
+				"y": 31,
+				"w": 22,
+			    "h": 31
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 22,
+			    "h": 31
+			},
+			"sourceSize": {
+				"w": 22,
+			    "h": 31
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "terrawood-bedside-table-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 22,
+			"h": 62
+		},
+		"scale": "1"
+	}
+}

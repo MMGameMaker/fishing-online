@@ -1,0 +1,98 @@
+{
+	"frames": [
+		{
+			"filename": "batGargoyle0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 58,
+				"h": 46
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 58,
+				"h": 46
+			},
+			"sourceSize": {
+				"w": 58,
+				"h": 46
+			}
+		},
+        {
+			"filename": "batGargoyle1",
+			"frame": {
+				"x": 0,
+				"y": 46,
+				"w": 58,
+				"h": 46
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 58,
+				"h": 46
+			},
+			"sourceSize": {
+				"w": 58,
+				"h": 46
+			}
+		},
+        {
+			"filename": "batGargoyle2",
+			"frame": {
+				"x": 0,
+				"y": 92,
+				"w": 58,
+				"h": 46
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 58,
+				"h": 46
+			},
+			"sourceSize": {
+				"w": 58,
+				"h": 46
+			}
+		},
+        {
+			"filename": "batGargoyle3",
+			"frame": {
+				"x": 0,
+				"y": 138,
+				"w": 58,
+				"h": 46
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 58,
+				"h": 46
+			},
+			"sourceSize": {
+				"w": 58,
+				"h": 46
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "bat-gargoyle-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 58,
+			"h": 184
+		},
+		"scale": "1"
+	}
+}

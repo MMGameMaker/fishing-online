@@ -1,0 +1,203 @@
+{
+	"frames": [
+		{
+			"filename": "pixawardTrophy0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 34,
+				"h": 64
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 34,
+				"h": 64
+			},
+			"sourceSize": {
+				"w": 34,
+				"h": 64
+			}
+		},
+        {
+            "filename": "pixawardTrophy0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        },
+        {
+            "filename": "pixawardTrophy0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        },
+        {
+            "filename": "pixawardTrophy0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 192,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        },
+        {
+            "filename": "pixawardTrophy0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 256,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        },
+        {
+            "filename": "pixawardTrophy0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 320,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        },
+        {
+            "filename": "pixawardTrophy0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 384,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        },
+        {
+            "filename": "pixawardTrophy0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 448,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        },
+        {
+            "filename": "pixawardTrophy0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 512,
+                "w": 34,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 34,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 34,
+                "h": 64
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "pixaward-trophy-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 34,
+			"h": 576
+		},
+		"scale": "1"
+	}
+}

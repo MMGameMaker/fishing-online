@@ -1,0 +1,356 @@
+{
+	"frames": [
+        {
+            "filename": "crystalBall0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60 
+            }
+        },
+
+
+
+        {
+            "filename": "crystalBall0Option1",
+            "frame": {
+                "x": 0,
+                "y": 780,
+                "w": 54,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "crystalBall0Option2",
+            "frame": {
+                "x": 0,
+                "y": 840,
+                "w": 54,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "crystalBall0Option3",
+            "frame": {
+                "x": 0,
+                "y": 900,
+                "w": 54,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60 
+            }
+        },
+
+
+
+        {
+            "filename": "crystalBall0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 60,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 120,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 180,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 240,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 300,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 360,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 420,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 480,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 540,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 600,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 660,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        },
+        {
+            "filename": "crystalBall0Anim11",
+            "frame": {
+                "x": 0,
+                "y": 720,
+                "w": 54,
+                "h": 60
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 54,
+                "h": 60
+            },
+            "sourceSize": {
+                "w": 54,
+                "h": 60
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "crystal-ball-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 54,
+			"h": 960            
+		},
+		"scale": "1"
+	}
+}

@@ -1,0 +1,182 @@
+{
+	"frames": [
+		{
+			"filename": "trampledSnow0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		},
+        {
+			"filename": "trampledSnow1",
+			"frame": {
+				"x": 0,
+				"y": 35,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		},
+        {
+			"filename": "trampledSnow2",
+			"frame": {
+				"x": 0,
+				"y": 70,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		},
+        {
+			"filename": "trampledSnow3",
+			"frame": {
+				"x": 0,
+				"y": 105,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		},
+        {
+			"filename": "trampledSnow4",
+			"frame": {
+				"x": 0,
+				"y": 140,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		},
+        {
+			"filename": "trampledSnow5",
+			"frame": {
+				"x": 0,
+				"y": 175,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		},
+        {
+			"filename": "trampledSnow6",
+			"frame": {
+				"x": 0,
+				"y": 210,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		},
+        {
+			"filename": "trampledSnow7",
+			"frame": {
+				"x": 0,
+				"y": 245,
+				"w": 31,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 31,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 35
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "trampled-snow-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 31,
+			"h": 280
+		},
+		"scale": "1"
+	}
+}

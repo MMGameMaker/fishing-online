@@ -1,0 +1,298 @@
+{
+	"frames": [
+        {
+            "filename": "christmasGate0Open0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "christmasGate0OpenAnim1",
+            "frame": {
+                "x": 0,
+                "y": 60,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "christmasGate0OpenAnim2",
+            "frame": {
+                "x": 0,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+
+
+        {
+            "filename": "christmasGate0Close0",
+            "frame": {
+                "x": 0,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },       
+        {
+            "filename": "christmasGate0CloseAnim1",
+            "frame": {
+                "x": 0,
+                "y": 180,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "christmasGate0CloseAnim2",
+            "frame": {
+                "x": 0,
+                "y": 240,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+
+
+
+        {
+            "filename": "christmasGate1Open0",
+            "frame": {
+                "x": 30,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "christmasGate1OpenAnim1",
+            "frame": {
+                "x": 30,
+                "y": 60,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "christmasGate1OpenAnim2",
+            "frame": {
+                "x": 30,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+
+
+
+        {
+            "filename": "christmasGate1Close0",
+            "frame": {
+                "x": 30,
+                "y": 120,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "christmasGate1CloseAnim1",
+            "frame": {
+                "x": 30,
+                "y": 180,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+        {
+            "filename": "christmasGate1CloseAnim2",
+            "frame": {
+                "x": 30,
+                "y": 240,
+                "w": 30,
+                "h": 60 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 60 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 60 
+            }
+        },
+
+
+
+        {
+            "filename": "christmasGate1Overlay",
+            "frame": {
+                "x": 60,
+                "y": 0,
+                "w": 15,
+                "h": 31 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 15,
+                "h": 31 
+            },
+            "sourceSize": {
+                "w": 15,
+                "h": 31 
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "christmas-gate-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 75,
+			"h": 300            
+		},
+		"scale": "1"
+	}
+}

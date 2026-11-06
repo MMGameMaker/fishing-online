@@ -25,7 +25,7 @@ Tất cả cần Player trừ login; GET không thay state. Mutation dùng key n
 
 | Method / path | Request → response | ID |
 | --- | --- | --- |
-| POST /auth/login | Provider credential theo phương án chưa chốt → accessToken, expiresAt, player; không nhận role | S02 |
+| POST /auth/login | Firebase ID token đã chọn (Google trước/Facebook sau); DTO/session còn dự thảo tại [S02](../be/ACCOUNT_AUTH.md) → accessToken, expiresAt, player; không nhận role | S02 |
 | POST /auth/refresh; POST /auth/logout | Refresh/session credential theo thiết kế S02 → token mới / 204 revoke | S02 |
 | GET /me | → PlayerProfile{id,displayName,selectedSkinId,inventoryVersion,walletVersion} | S02 |
 | GET /rooms | → page RoomSummary{id,mapId,playerCount,capacity:20} | S03 |

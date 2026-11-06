@@ -1,0 +1,140 @@
+{
+	"frames": [
+		{
+			"filename": "safeAreaChristmasTree0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 86,
+				"h": 126
+			}
+		},
+        {
+			"filename": "safeAreaChristmasTree1",
+			"frame": {
+				"x": 0,
+				"y": 126,
+				"w": 86,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 86,
+				"h": 126
+			}
+		},
+        {
+			"filename": "safeAreaChristmasTree2",
+			"frame": {
+				"x": 0,
+				"y": 252,
+				"w": 86,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 86,
+				"h": 126
+			}
+		},
+        {
+			"filename": "safeAreaChristmasTree3",
+			"frame": {
+				"x": 0,
+				"y": 378,
+				"w": 86,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 86,
+				"h": 126
+			}
+		},
+        {
+			"filename": "safeAreaChristmasTree4",
+			"frame": {
+				"x": 0,
+				"y": 504,
+				"w": 86,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 86,
+				"h": 126
+			}
+		},
+        {
+			"filename": "safeAreaChristmasTree5",
+			"frame": {
+				"x": 0,
+				"y": 630,
+				"w": 86,
+				"h": 126
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 86,
+				"h": 126
+			},
+			"sourceSize": {
+				"w": 86,
+				"h": 126
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "safearea-christmas-tree-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 86,
+			"h": 126
+		},
+		"scale": "1"
+	}
+}

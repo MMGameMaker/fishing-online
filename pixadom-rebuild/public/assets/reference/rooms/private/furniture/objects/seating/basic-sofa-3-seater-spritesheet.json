@@ -1,0 +1,2111 @@
+{
+	"frames": [
+		{
+			"filename": "basicSofa3Seater0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+			    "h": 120 
+			}
+		},
+        {
+			"filename": "basicSofa3Seater1",
+			"frame": {
+				"x": 0,
+				"y": 120,
+				"w": 150,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+			    "h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3Seater1Overlay",
+			"frame": {
+				"x": 150,
+				"y": 0,
+				"w": 33,
+			    "h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+			    "h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+			    "h": 24 
+			}
+		},
+        {
+			"filename": "basicSofa3Seater2",
+			"frame": {
+				"x": 0,
+				"y": 240,
+				"w": 150,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+			    "h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3Seater2Overlay",
+			"frame": {
+				"x": 150,
+				"y": 24,
+				"w": 96,
+			    "h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+			    "h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+			    "h": 31 
+			}
+		},
+        {
+			"filename": "basicSofa3Seater3",
+			"frame": {
+				"x": 0,
+				"y": 360,
+				"w": 150,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+			    "h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3Seater3Overlay",
+			"frame": {
+				"x": 150,
+				"y": 55,
+				"w": 33,
+			    "h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+			    "h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+			    "h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterRed0",
+			"frame": {
+				"x": 260,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterRed1",
+			"frame": {
+				"x": 260,
+				"y": 120,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterRed1Overlay",
+			"frame": {
+				"x": 410,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterRed2",
+			"frame": {
+				"x": 260,
+				"y": 240,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterRed2Overlay",
+			"frame": {
+				"x": 410,
+				"y": 24,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterRed3",
+			"frame": {
+				"x": 260,
+				"y": 360,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterRed3Overlay",
+			"frame": {
+				"x": 410,
+				"y": 55,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		
+		
+
+		{
+			"filename": "basicSofa3SeaterOrange0",
+			"frame": {
+				"x": 520,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterOrange1",
+			"frame": {
+				"x": 520,
+				"y": 120,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterOrange1Overlay",
+			"frame": {
+				"x": 670,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterOrange2",
+			"frame": {
+				"x": 520,
+				"y": 240,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterOrange2Overlay",
+			"frame": {
+				"x": 670,
+				"y": 24,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterOrange3",
+			"frame": {
+				"x": 520,
+				"y": 360,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterOrange3Overlay",
+			"frame": {
+				"x": 670,
+				"y": 55,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterYellow0",
+			"frame": {
+				"x": 780,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterYellow1",
+			"frame": {
+				"x": 780,
+				"y": 120,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterYellow1Overlay",
+			"frame": {
+				"x": 930,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterYellow2",
+			"frame": {
+				"x": 780,
+				"y": 240,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterYellow2Overlay",
+			"frame": {
+				"x": 930,
+				"y": 24,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterYellow3",
+			"frame": {
+				"x": 780,
+				"y": 360,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterYellow3Overlay",
+			"frame": {
+				"x": 930,
+				"y": 55,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterGreen0",
+			"frame": {
+				"x": 1040,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterGreen1",
+			"frame": {
+				"x": 1040,
+				"y": 120,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterGreen1Overlay",
+			"frame": {
+				"x": 1190,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterGreen2",
+			"frame": {
+				"x": 1040,
+				"y": 240,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterGreen2Overlay",
+			"frame": {
+				"x": 1190,
+				"y": 24,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterGreen3",
+			"frame": {
+				"x": 1040,
+				"y": 360,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterGreen3Overlay",
+			"frame": {
+				"x": 1190,
+				"y": 55,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterTeal0",
+			"frame": {
+				"x": 1300,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTeal1",
+			"frame": {
+				"x": 1300,
+				"y": 120,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTeal1Overlay",
+			"frame": {
+				"x": 1450,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTeal2",
+			"frame": {
+				"x": 1300,
+				"y": 240,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTeal2Overlay",
+			"frame": {
+				"x": 1450,
+				"y": 24,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTeal3",
+			"frame": {
+				"x": 1300,
+				"y": 360,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTeal3Overlay",
+			"frame": {
+				"x": 1450,
+				"y": 55,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterTurquoise0",
+			"frame": {
+				"x": 0,
+				"y": 480,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTurquoise1",
+			"frame": {
+				"x": 0,
+				"y": 600,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTurquoise1Overlay",
+			"frame": {
+				"x": 150,
+				"y": 480,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTurquoise2",
+			"frame": {
+				"x": 0,
+				"y": 720,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTurquoise2Overlay",
+			"frame": {
+				"x": 150,
+				"y": 504,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTurquoise3",
+			"frame": {
+				"x": 0,
+				"y": 840,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterTurquoise3Overlay",
+			"frame": {
+				"x": 150,
+				"y": 535,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterBlue0",
+			"frame": {
+				"x": 260,
+				"y": 480,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlue1",
+			"frame": {
+				"x": 260,
+				"y": 600,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlue1Overlay",
+			"frame": {
+				"x": 410,
+				"y": 480,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlue2",
+			"frame": {
+				"x": 260,
+				"y": 720,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlue2Overlay",
+			"frame": {
+				"x": 410,
+				"y": 504,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlue3",
+			"frame": {
+				"x": 260,
+				"y": 840,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlue3Overlay",
+			"frame": {
+				"x": 410,
+				"y": 535,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterPurple0",
+			"frame": {
+				"x": 520,
+				"y": 480,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPurple1",
+			"frame": {
+				"x": 520,
+				"y": 600,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPurple1Overlay",
+			"frame": {
+				"x": 670,
+				"y": 480,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPurple2",
+			"frame": {
+				"x": 520,
+				"y": 720,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPurple2Overlay",
+			"frame": {
+				"x": 670,
+				"y": 504,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPurple3",
+			"frame": {
+				"x": 520,
+				"y": 840,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPurple3Overlay",
+			"frame": {
+				"x": 670,
+				"y": 535,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterPink0",
+			"frame": {
+				"x": 780,
+				"y": 480,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPink1",
+			"frame": {
+				"x": 780,
+				"y": 600,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPink1Overlay",
+			"frame": {
+				"x": 930,
+				"y": 480,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPink2",
+			"frame": {
+				"x": 780,
+				"y": 720,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPink2Overlay",
+			"frame": {
+				"x": 930,
+				"y": 504,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPink3",
+			"frame": {
+				"x": 780,
+				"y": 840,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterPink3Overlay",
+			"frame": {
+				"x": 930,
+				"y": 535,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterFuchsia0",
+			"frame": {
+				"x": 1040,
+				"y": 480,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterFuchsia1",
+			"frame": {
+				"x": 1040,
+				"y": 600,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterFuchsia1Overlay",
+			"frame": {
+				"x": 1190,
+				"y": 480,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterFuchsia2",
+			"frame": {
+				"x": 1040,
+				"y": 720,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterFuchsia2Overlay",
+			"frame": {
+				"x": 1190,
+				"y": 504,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterFuchsia3",
+			"frame": {
+				"x": 1040,
+				"y": 840,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterFuchsia3Overlay",
+			"frame": {
+				"x": 1190,
+				"y": 535,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterBlack0",
+			"frame": {
+				"x": 1300,
+				"y": 480,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlack1",
+			"frame": {
+				"x": 1300,
+				"y": 600,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlack1Overlay",
+			"frame": {
+				"x": 1450,
+				"y": 480,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlack2",
+			"frame": {
+				"x": 1300,
+				"y": 720,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlack2Overlay",
+			"frame": {
+				"x": 1450,
+				"y": 504,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlack3",
+			"frame": {
+				"x": 1300,
+				"y": 840,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBlack3Overlay",
+			"frame": {
+				"x": 1450,
+				"y": 535,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterBeige0",
+			"frame": {
+				"x": 0,
+				"y": 960,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBeige1",
+			"frame": {
+				"x": 0,
+				"y": 1080,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBeige1Overlay",
+			"frame": {
+				"x": 150,
+				"y": 960,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBeige2",
+			"frame": {
+				"x": 0,
+				"y": 1200,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBeige2Overlay",
+			"frame": {
+				"x": 150,
+				"y": 984,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBeige3",
+			"frame": {
+				"x": 0,
+				"y": 1320,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBeige3Overlay",
+			"frame": {
+				"x": 150,
+				"y": 1015,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+
+
+
+		{
+			"filename": "basicSofa3SeaterBrown0",
+			"frame": {
+				"x": 260,
+				"y": 960,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBrown1",
+			"frame": {
+				"x": 260,
+				"y": 1080,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBrown1Overlay",
+			"frame": {
+				"x": 410,
+				"y": 960,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBrown2",
+			"frame": {
+				"x": 260,
+				"y": 1200,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBrown2Overlay",
+			"frame": {
+				"x": 410,
+				"y": 984,
+				"w": 96,
+				"h": 31 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 96,
+				"h": 31 
+			},
+			"sourceSize": {
+				"w": 96,
+				"h": 31 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBrown3",
+			"frame": {
+				"x": 260,
+				"y": 1320,
+				"w": 150,
+				"h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120 
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120 
+			}
+		},
+		{
+			"filename": "basicSofa3SeaterBrown3Overlay",
+			"frame": {
+				"x": 410,
+				"y": 1015,
+				"w": 33,
+				"h": 24 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 33,
+				"h": 24 
+			},
+			"sourceSize": {
+				"w": 33,
+				"h": 24 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "basic-sofa-3-seater-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 1560,
+			"h": 1440            
+		},
+		"scale": "1"
+	}
+}

@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "wallSegmentStraight0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 44
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 44
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 44
+			}
+		},
+        {
+			"filename": "wallSegmentStraight1",
+			"frame": {
+				"x": 30,
+				"y": 0,
+				"w": 30,
+				"h": 44
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 44
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 44
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "wall-segment-straight-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 60,
+			"h": 44
+		},
+		"scale": "1"
+	}
+}

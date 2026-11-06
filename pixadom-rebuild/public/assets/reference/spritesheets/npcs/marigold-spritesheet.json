@@ -1,0 +1,329 @@
+{
+	"frames": [
+		{
+            "filename": "marigold0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold1",
+            "frame": {
+                "x": 0,
+                "y": 61,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold2",
+            "frame": {
+                "x": 0,
+                "y": 122,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold3",
+            "frame": {
+                "x": 0,
+                "y": 183,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold4",
+            "frame": {
+                "x": 0,
+                "y": 244,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold5",
+            "frame": {
+                "x": 0,
+                "y": 305,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold6",
+            "frame": {
+                "x": 0,
+                "y": 366,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold7",
+            "frame": {
+                "x": 0,
+                "y": 427,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold8",
+            "frame": {
+                "x": 0,
+                "y": 488,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold9",
+            "frame": {
+                "x": 0,
+                "y": 549,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold10",
+            "frame": {
+                "x": 0,
+                "y": 610,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold11",
+            "frame": {
+                "x": 0,
+                "y": 671,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold12",
+            "frame": {
+                "x": 0,
+                "y": 732,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold13",
+            "frame": {
+                "x": 0,
+                "y": 793,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        },
+        {
+            "filename": "marigold14",
+            "frame": {
+                "x": 0,
+                "y": 854,
+                "w": 45,
+                "h": 61
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 45,
+                "h": 61
+            },
+            "sourceSize": {
+                "w": 45,
+                "h": 61
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "marigold-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 45,
+			"h": 915            
+		},
+		"scale": "1"
+	}
+}

@@ -1,0 +1,7 @@
+404 images/favicon/pixadom-apple-touch-logo.png
+404 images/favicon/pixadom-favicon-16.png
+404 images/favicon/pixadom-favicon-192.png
+404 images/favicon/pixadom-favicon-32.png
+404 images/favicon/pixadom-favicon-384.png
+404 images/share/pixadom-2d-pixel-art-mmorpg.png
+404 images/badges/content-creator-level-N.png

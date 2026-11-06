@@ -1,0 +1,6 @@
+node_modules/
+dist/
+# Runtime save only; keep any seed/fixture files in data/ trackable.
+/data/db.json
+/data/db.json.tmp
+*.log

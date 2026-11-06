@@ -1,0 +1,203 @@
+{
+	"frames": [
+        {
+			"filename": "sunriseAuraOrb0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 37,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 74,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim2",
+			"frame": {
+				"x": 0,
+				"y": 111,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim3",
+			"frame": {
+				"x": 0,
+				"y": 148,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim4",
+			"frame": {
+				"x": 0,
+				"y": 185,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim5",
+			"frame": {
+				"x": 0,
+				"y": 222,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim6",
+			"frame": {
+				"x": 0,
+				"y": 259,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "sunriseAuraOrb0Anim7",
+			"frame": {
+				"x": 0,
+				"y": 296,
+				"w": 29,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 37 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "sunrise-aura-orb-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 29,
+			"h": 333            
+		},
+		"scale": "1"
+	}
+}

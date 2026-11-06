@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "terrawoodRug0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 90 
+			}
+		},
+		{
+			"filename": "terrawoodRug1",
+			"frame": {
+				"x": 0,
+				"y": 90,
+				"w": 90,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 90 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "terrawood-rug-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 90,
+			"h": 180            
+		},
+		"scale": "1"
+	}
+}

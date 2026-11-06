@@ -1,0 +1,140 @@
+{
+	"frames": [
+		{
+			"filename": "lilyWithLotus0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 32
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 32
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 32
+			}
+		},
+        {
+			"filename": "lilyWithLotus1",
+			"frame": {
+				"x": 0,
+				"y": 32,
+				"w": 35,
+			    "h": 32
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 32
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 32
+			}
+		},
+        {
+			"filename": "lilyWithLotus2",
+			"frame": {
+				"x": 0,
+				"y": 64,
+				"w": 35,
+			    "h": 32
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 32
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 32
+			}
+		},
+        {
+			"filename": "lilyWithLotus3",
+			"frame": {
+				"x": 0,
+				"y": 96,
+				"w": 35,
+			    "h": 32
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 32
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 32
+			}
+		},
+        {
+			"filename": "lilyWithLotus4",
+			"frame": {
+				"x": 0,
+				"y": 128,
+				"w": 35,
+			    "h": 32
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 32
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 32
+			}
+		},
+        {
+			"filename": "lilyWithLotus5",
+			"frame": {
+				"x": 0,
+				"y": 160,
+				"w": 35,
+			    "h": 32
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+			    "h": 32
+			},
+			"sourceSize": {
+				"w": 35,
+			    "h": 32
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "lily-with-lotus-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 35,
+			"h": 32
+		},
+		"scale": "1"
+	}
+}

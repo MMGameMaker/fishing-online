@@ -1,0 +1,728 @@
+{
+	"frames": [
+		{
+			"filename": "christmasLights0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+			    "h": 57 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+			    "h": 57 
+			},
+			"sourceSize": {
+				"w": 40,
+			    "h": 57 
+			}
+		},
+        {
+            "filename": "christmasLights0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 57,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 114,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 171,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 228,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 285,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 342,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 399,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 456,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 513,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 570,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 627,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim11",
+            "frame": {
+                "x": 0,
+                "y": 684,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim12",
+            "frame": {
+                "x": 0,
+                "y": 741,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim13",
+            "frame": {
+                "x": 0,
+                "y": 798,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim14",
+            "frame": {
+                "x": 0,
+                "y": 855,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim15",
+            "frame": {
+                "x": 0,
+                "y": 912,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim16",
+            "frame": {
+                "x": 0,
+                "y": 969,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim17",
+            "frame": {
+                "x": 0,
+                "y": 1026,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim18",
+            "frame": {
+                "x": 0,
+                "y": 1083,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim19",
+            "frame": {
+                "x": 0,
+                "y": 1140,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim20",
+            "frame": {
+                "x": 0,
+                "y": 1197,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim21",
+            "frame": {
+                "x": 0,
+                "y": 1254,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim22",
+            "frame": {
+                "x": 0,
+                "y": 1311,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim23",
+            "frame": {
+                "x": 0,
+                "y": 1368,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim24",
+            "frame": {
+                "x": 0,
+                "y": 1425,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim25",
+            "frame": {
+                "x": 0,
+                "y": 1482,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim26",
+            "frame": {
+                "x": 0,
+                "y": 1539,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim27",
+            "frame": {
+                "x": 0,
+                "y": 1596,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim28",
+            "frame": {
+                "x": 0,
+                "y": 1653,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim29",
+            "frame": {
+                "x": 0,
+                "y": 1710,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim30",
+            "frame": {
+                "x": 0,
+                "y": 1767,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim31",
+            "frame": {
+                "x": 0,
+                "y": 1824,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        },
+        {
+            "filename": "christmasLights0Anim32",
+            "frame": {
+                "x": 0,
+                "y": 1881,
+                "w": 40,
+                "h": 57
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 57
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 57
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "christmas-lights-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 40,
+			"h": 1938            
+		},
+		"scale": "1"
+	}
+}

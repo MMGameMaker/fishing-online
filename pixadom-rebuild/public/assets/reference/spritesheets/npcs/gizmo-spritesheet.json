@@ -1,0 +1,434 @@
+{
+	"frames": [
+		{
+			"filename": "gizmo0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo1",
+			"frame": {
+				"x": 0,
+				"y": 51,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo2",
+			"frame": {
+				"x": 0,
+				"y": 102,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo3",
+			"frame": {
+				"x": 0,
+				"y": 153,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo4",
+			"frame": {
+				"x": 0,
+				"y": 204,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo5",
+			"frame": {
+				"x": 0,
+				"y": 255,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo6",
+			"frame": {
+				"x": 0,
+				"y": 306,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo7",
+			"frame": {
+				"x": 0,
+				"y": 357,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+			"filename": "gizmo8",
+			"frame": {
+				"x": 0,
+				"y": 408,
+				"w": 30,
+			    "h": 51 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 51 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 51 
+			}
+		},
+        {
+            "filename": "gizmo9",
+            "frame": {
+                "x": 0,
+                "y": 459,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo10",
+            "frame": {
+                "x": 0,
+                "y": 510,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo11",
+            "frame": {
+                "x": 0,
+                "y": 561,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo12",
+            "frame": {
+                "x": 0,
+                "y": 612,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo13",
+            "frame": {
+                "x": 0,
+                "y": 663,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo14",
+            "frame": {
+                "x": 0,
+                "y": 714,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo15",
+            "frame": {
+                "x": 0,
+                "y": 765,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo16",
+            "frame": {
+                "x": 0,
+                "y": 816,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo17",
+            "frame": {
+                "x": 0,
+                "y": 867,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo18",
+            "frame": {
+                "x": 0,
+                "y": 918,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        },
+        {
+            "filename": "gizmo19",
+            "frame": {
+                "x": 0,
+                "y": 969,
+                "w": 30,
+                "h": 51 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 51 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 51 
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "gizmo-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 30,
+			"h": 1020            
+		},
+		"scale": "1"
+	}
+}

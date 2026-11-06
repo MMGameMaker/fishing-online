@@ -8,6 +8,7 @@
 
 - Playable v0.1: **2D Pixel Art**, Web Client **Cocos Creator 3.8.x + TypeScript**. Khóa patch 3.8.x khi khởi tạo.
 - Server giữ **ASP.NET Core + SignalR + PostgreSQL + Redis**.
+- **Player authentication:** Firebase Authentication; Google login trước, Facebook login để sau (người dùng chốt 2026-11-03). Account/player và dữ liệu game vẫn ở PostgreSQL; không tự thêm hệ mật khẩu Identity song song. Chi tiết phiên/Admin còn là đề xuất trong [S02](be/ACCOUNT_AUTH.md).
 - Admin Tool giữ **React + TypeScript**, là ứng dụng riêng với UI game Cocos; **BE thực hiện cả Server và Admin Tool**, không tính nhóm/nhân sự Admin riêng.
 - Một map hồ 2D, 20 ghế; login, vào phòng, chọn ghế, mua vé theo lượt; bốn loại trang bị: cần/dây/lưỡi/mồi.
 - Idle/Manual, 5 loài cá mẫu với rarity/cân nặng khác nhau; inventory, lịch sử câu, thành tích cá nhân.

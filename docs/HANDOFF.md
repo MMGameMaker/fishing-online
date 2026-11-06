@@ -5,8 +5,10 @@ Mỗi việc phối hợp dùng một file trong work/, có phần GD, Web Clien
 | ID / Công việc | GD | Web Client | Server | Admin Tool | Link |
 | --- | --- | --- | --- | --- | --- |
 | S01 / Scope & kế hoạch v1 | Luật còn mở | Chờ review contract; chưa code/art | Persistence/migration/readiness + outage test đạt; contract draft | Có plan/API draft; chưa React | [Chi tiết](work/S01-cap-nhat-scope-ke-hoach-v1.md) |
+| S02 / Login & tài khoản | Chờ review phiên chơi | Chờ review auth contract | Đã chọn Firebase/Google; Facebook sau; session đề xuất, chưa code | Đề xuất quyền/MFA/lookup, chưa code | [Chi tiết](work/S02-login-quan-ly-tai-khoan.md) |
+| W02 / Art và map hồ | Chờ tiêu chí map thật | Prototype hồ có 10 chòi và 30 anchor; chờ kiểm tra scene Cocos và tích hợp | — | — | [Chi tiết](work/W02-art-map-ho.md) |
 
-S01 đã nhận phần BE nền tảng/contract/môi trường; không coi các ID backlog khác đã được giao hoặc bắt đầu.
+S01 đã nhận phần BE nền tảng/contract/môi trường; S02 chỉ nhận phần đề xuất login/tài khoản, chưa bắt đầu code. Các ID khác không mặc định đã được giao.
 
 ## Đã thiết lập
 

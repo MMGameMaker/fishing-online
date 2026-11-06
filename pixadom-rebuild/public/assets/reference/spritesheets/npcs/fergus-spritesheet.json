@@ -1,0 +1,308 @@
+{
+	"frames": [
+		{
+			"filename": "fergus0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus1",
+			"frame": {
+				"x": 0,
+				"y": 46,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus2",
+			"frame": {
+				"x": 0,
+				"y": 92,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus3",
+			"frame": {
+				"x": 0,
+				"y": 138,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus4",
+			"frame": {
+				"x": 0,
+				"y": 184,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus5",
+			"frame": {
+				"x": 0,
+				"y": 230,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus6",
+			"frame": {
+				"x": 0,
+				"y": 276,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus7",
+			"frame": {
+				"x": 0,
+				"y": 322,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus8",
+			"frame": {
+				"x": 0,
+				"y": 368,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus9",
+			"frame": {
+				"x": 0,
+				"y": 414,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus10",
+			"frame": {
+				"x": 0,
+				"y": 460,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus11",
+			"frame": {
+				"x": 0,
+				"y": 506,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus12",
+			"frame": {
+				"x": 0,
+				"y": 552,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		},
+        {
+			"filename": "fergus13",
+			"frame": {
+				"x": 0,
+				"y": 598,
+				"w": 25,
+			    "h": 46 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 25,
+			    "h": 46 
+			},
+			"sourceSize": {
+				"w": 25,
+			    "h": 46 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "fergus-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 25,
+			"h": 664            
+		},
+		"scale": "1"
+	}
+}

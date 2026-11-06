@@ -1,0 +1,497 @@
+{
+	"frames": [
+		{
+            "filename": "hugglehenFarmEntrance0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance1",
+            "frame": {
+                "x": 0,
+                "y": 174,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance2",
+            "frame": {
+                "x": 0,
+                "y": 348,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance3",
+            "frame": {
+                "x": 0,
+                "y": 522,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance4",
+            "frame": {
+                "x": 0,
+                "y": 696,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance5",
+            "frame": {
+                "x": 0,
+                "y": 870,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance6",
+            "frame": {
+                "x": 0,
+                "y": 1044,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance7",
+            "frame": {
+                "x": 0,
+                "y": 1218,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance8",
+            "frame": {
+                "x": 0,
+                "y": 1392,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance9",
+            "frame": {
+                "x": 0,
+                "y": 1566,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance10",
+            "frame": {
+                "x": 0,
+                "y": 1740,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance11",
+            "frame": {
+                "x": 0,
+                "y": 1914,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },   
+        {
+            "filename": "hugglehenFarmEntrance12",
+            "frame": {
+                "x": 200,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance13",
+            "frame": {
+                "x": 200,
+                "y": 174,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance14",
+            "frame": {
+                "x": 200,
+                "y": 348,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance15",
+            "frame": {
+                "x": 200,
+                "y": 522,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance16",
+            "frame": {
+                "x": 200,
+                "y": 696,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance17",
+            "frame": {
+                "x": 200,
+                "y": 870,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance18",
+            "frame": {
+                "x": 200,
+                "y": 1044,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance19",
+            "frame": {
+                "x": 200,
+                "y": 1218,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance20",
+            "frame": {
+                "x": 200,
+                "y": 1392,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance21",
+            "frame": {
+                "x": 200,
+                "y": 1566,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        },
+        {
+            "filename": "hugglehenFarmEntrance22",
+            "frame": {
+                "x": 200,
+                "y": 1740,
+                "w": 200,
+                "h": 174
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 200,
+                "h": 174
+            },
+            "sourceSize": {
+                "w": 200,
+                "h": 174
+            }
+        }            
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "bobbing-plant-back-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 400,
+			"h": 2088
+		},
+		"scale": "1"
+	}
+}

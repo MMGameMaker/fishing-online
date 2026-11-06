@@ -1,0 +1,98 @@
+{
+	"frames": [
+		{
+			"filename": "farmhouseBed0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 64,
+			    "h": 90 
+			}
+		},
+        {
+			"filename": "farmhouseBed1",
+			"frame": {
+				"x": 0,
+				"y": 90,
+				"w": 64,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 64,
+			    "h": 90 
+			}
+		},
+        {
+			"filename": "farmhouseBed2",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 64,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 64,
+			    "h": 90 
+			}
+		},
+        {
+			"filename": "farmhouseBed3",
+			"frame": {
+				"x": 0,
+				"y": 270,
+				"w": 64,
+			    "h": 90 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 64,
+			    "h": 90 
+			},
+			"sourceSize": {
+				"w": 64,
+			    "h": 90 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "farmhouse-bed-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 34,
+			"h": 360            
+		},
+		"scale": "1"
+	}
+}

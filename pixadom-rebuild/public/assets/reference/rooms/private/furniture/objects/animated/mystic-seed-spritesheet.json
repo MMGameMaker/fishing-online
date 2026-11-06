@@ -1,0 +1,203 @@
+{
+	"frames": [
+        {
+			"filename": "mysticSeed0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 32,
+			    "h": 49 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 32,
+			    "h": 49 
+			},
+			"sourceSize": {
+				"w": 32,
+			    "h": 49 
+			}
+		},
+        {
+            "filename": "mysticSeed0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        },
+        {
+            "filename": "mysticSeed0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 49,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        },
+        {
+            "filename": "mysticSeed0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 98,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        },
+        {
+            "filename": "mysticSeed0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 147,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        },
+        {
+            "filename": "mysticSeed0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 196,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        },
+        {
+            "filename": "mysticSeed0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 245,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        },
+        {
+            "filename": "mysticSeed0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 294,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        },
+        {
+            "filename": "mysticSeed0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 343,
+                "w": 32,
+                "h": 49 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 49 
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 49 
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "mystic-seed-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 32,
+			"h": 392            
+		},
+		"scale": "1"
+	}
+}

@@ -1,0 +1,694 @@
+{
+	"frames": [
+		{
+			"filename": "farmhouseFridge0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge1",
+			"frame": {
+				"x": 0,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge2",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge3",
+			"frame": {
+				"x": 0,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+
+
+        {
+			"filename": "farmhouseFridge0Anim0",
+			"frame": {
+				"x": 90,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge0Anim1",
+			"frame": {
+				"x": 180,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge0Anim2",
+			"frame": {
+				"x": 270,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge0Anim3",
+			"frame": {
+				"x": 360,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge0Anim4",
+			"frame": {
+				"x": 450,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge0Anim5",
+			"frame": {
+				"x": 540,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge0Anim6",
+			"frame": {
+				"x": 630,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+
+
+        {
+			"filename": "farmhouseFridge1Anim0",
+			"frame": {
+				"x": 90,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge1Anim1",
+			"frame": {
+				"x": 180,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge1Anim2",
+			"frame": {
+				"x": 270,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge1Anim3",
+			"frame": {
+				"x": 360,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge1Anim4",
+			"frame": {
+				"x": 450,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge1Anim5",
+			"frame": {
+				"x": 540,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge1Anim6",
+			"frame": {
+				"x": 630,
+				"y": 90,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+
+
+        {
+			"filename": "farmhouseFridge2Anim0",
+			"frame": {
+				"x": 90,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge2Anim1",
+			"frame": {
+				"x": 180,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge2Anim2",
+			"frame": {
+				"x": 270,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge2Anim3",
+			"frame": {
+				"x": 360,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge2Anim4",
+			"frame": {
+				"x": 450,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge2Anim5",
+			"frame": {
+				"x": 540,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge2Anim6",
+			"frame": {
+				"x": 630,
+				"y": 180,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+
+
+        {
+			"filename": "farmhouseFridge3Anim0",
+			"frame": {
+				"x": 90,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge3Anim1",
+			"frame": {
+				"x": 180,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge3Anim2",
+			"frame": {
+				"x": 270,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge3Anim3",
+			"frame": {
+				"x": 360,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge3Anim4",
+			"frame": {
+				"x": 450,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge3Anim5",
+			"frame": {
+				"x": 540,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		},
+        {
+			"filename": "farmhouseFridge3Anim6",
+			"frame": {
+				"x": 630,
+				"y": 270,
+				"w": 90,
+				"h": 90
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+				"h": 90
+			},
+			"sourceSize": {
+				"w": 90,
+				"h": 90
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "farmhouse-fridge-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 720,
+			"h": 360
+		},
+		"scale": "1"
+	}
+}

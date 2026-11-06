@@ -1,0 +1,77 @@
+{
+	"frames": [
+        {
+			"filename": "goldenHourLantern0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 18,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 18,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 18,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "goldenHourLantern0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 37,
+				"w": 18,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 18,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 18,
+			    "h": 37 
+			}
+		},
+		{
+			"filename": "goldenHourLantern0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 74,
+				"w": 18,
+			    "h": 37 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 18,
+			    "h": 37 
+			},
+			"sourceSize": {
+				"w": 18,
+			    "h": 37 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "golden-hour-lantern-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 18,
+			"h": 111            
+		},
+		"scale": "1"
+	}
+}

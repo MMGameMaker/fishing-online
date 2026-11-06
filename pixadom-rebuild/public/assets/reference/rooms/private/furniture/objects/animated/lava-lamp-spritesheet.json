@@ -1,0 +1,3611 @@
+{
+	"frames": [
+        {
+			"filename": "lavaLampTurquoise0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTurquoise0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 75,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim2",
+			"frame": {
+				"x": 0,
+				"y": 150,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim3",
+			"frame": {
+				"x": 0,
+				"y": 225,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim4",
+			"frame": {
+				"x": 0,
+				"y": 300,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim5",
+			"frame": {
+				"x": 0,
+				"y": 375,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim6",
+			"frame": {
+				"x": 0,
+				"y": 450,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim7",
+			"frame": {
+				"x": 0,
+				"y": 525,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim8",
+			"frame": {
+				"x": 0,
+				"y": 600,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim9",
+			"frame": {
+				"x": 0,
+				"y": 675,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim10",
+			"frame": {
+				"x": 0,
+				"y": 750,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim11",
+			"frame": {
+				"x": 0,
+				"y": 825,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim12",
+			"frame": {
+				"x": 0,
+				"y": 900,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim13",
+			"frame": {
+				"x": 0,
+				"y": 975,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim14",
+			"frame": {
+				"x": 0,
+				"y": 1050,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+        {
+			"filename": "lavaLampTurquoise0Anim15",
+			"frame": {
+				"x": 0,
+				"y": 1125,
+				"w": 88,
+			    "h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+			    "h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+			    "h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampYellow0",
+			"frame": {
+				"x": 88,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim0",
+			"frame": {
+				"x": 88,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim1",
+			"frame": {
+				"x": 88,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim2",
+			"frame": {
+				"x": 88,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim3",
+			"frame": {
+				"x": 88,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim4",
+			"frame": {
+				"x": 88,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim5",
+			"frame": {
+				"x": 88,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim6",
+			"frame": {
+				"x": 88,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim7",
+			"frame": {
+				"x": 88,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim8",
+			"frame": {
+				"x": 88,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim9",
+			"frame": {
+				"x": 88,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim10",
+			"frame": {
+				"x": 88,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim11",
+			"frame": {
+				"x": 88,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim12",
+			"frame": {
+				"x": 88,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim13",
+			"frame": {
+				"x": 88,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim14",
+			"frame": {
+				"x": 88,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampYellow0Anim15",
+			"frame": {
+				"x": 88,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampGreen0",
+			"frame": {
+				"x": 176,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim0",
+			"frame": {
+				"x": 176,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim1",
+			"frame": {
+				"x": 176,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim2",
+			"frame": {
+				"x": 176,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim3",
+			"frame": {
+				"x": 176,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim4",
+			"frame": {
+				"x": 176,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim5",
+			"frame": {
+				"x": 176,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim6",
+			"frame": {
+				"x": 176,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim7",
+			"frame": {
+				"x": 176,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim8",
+			"frame": {
+				"x": 176,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim9",
+			"frame": {
+				"x": 176,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim10",
+			"frame": {
+				"x": 176,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim11",
+			"frame": {
+				"x": 176,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim12",
+			"frame": {
+				"x": 176,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim13",
+			"frame": {
+				"x": 176,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim14",
+			"frame": {
+				"x": 176,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampGreen0Anim15",
+			"frame": {
+				"x": 176,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampTeal0",
+			"frame": {
+				"x": 264,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim0",
+			"frame": {
+				"x": 264,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim1",
+			"frame": {
+				"x": 264,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim2",
+			"frame": {
+				"x": 264,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim3",
+			"frame": {
+				"x": 264,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim4",
+			"frame": {
+				"x": 264,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim5",
+			"frame": {
+				"x": 264,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim6",
+			"frame": {
+				"x": 264,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim7",
+			"frame": {
+				"x": 264,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim8",
+			"frame": {
+				"x": 264,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim9",
+			"frame": {
+				"x": 264,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim10",
+			"frame": {
+				"x": 264,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim11",
+			"frame": {
+				"x": 264,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim12",
+			"frame": {
+				"x": 264,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim13",
+			"frame": {
+				"x": 264,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim14",
+			"frame": {
+				"x": 264,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampTeal0Anim15",
+			"frame": {
+				"x": 264,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampPurple0",
+			"frame": {
+				"x": 352,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim0",
+			"frame": {
+				"x": 352,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim1",
+			"frame": {
+				"x": 352,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim2",
+			"frame": {
+				"x": 352,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim3",
+			"frame": {
+				"x": 352,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim4",
+			"frame": {
+				"x": 352,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim5",
+			"frame": {
+				"x": 352,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim6",
+			"frame": {
+				"x": 352,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim7",
+			"frame": {
+				"x": 352,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim8",
+			"frame": {
+				"x": 352,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim9",
+			"frame": {
+				"x": 352,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim10",
+			"frame": {
+				"x": 352,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim11",
+			"frame": {
+				"x": 352,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim12",
+			"frame": {
+				"x": 352,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim13",
+			"frame": {
+				"x": 352,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim14",
+			"frame": {
+				"x": 352,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPurple0Anim15",
+			"frame": {
+				"x": 352,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampPink0",
+			"frame": {
+				"x": 440,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim0",
+			"frame": {
+				"x": 440,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim1",
+			"frame": {
+				"x": 440,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim2",
+			"frame": {
+				"x": 440,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim3",
+			"frame": {
+				"x": 440,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim4",
+			"frame": {
+				"x": 440,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim5",
+			"frame": {
+				"x": 440,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim6",
+			"frame": {
+				"x": 440,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim7",
+			"frame": {
+				"x": 440,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim8",
+			"frame": {
+				"x": 440,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim9",
+			"frame": {
+				"x": 440,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim10",
+			"frame": {
+				"x": 440,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim11",
+			"frame": {
+				"x": 440,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim12",
+			"frame": {
+				"x": 440,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim13",
+			"frame": {
+				"x": 440,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim14",
+			"frame": {
+				"x": 440,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampPink0Anim15",
+			"frame": {
+				"x": 440,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampFuchsia0",
+			"frame": {
+				"x": 528,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim0",
+			"frame": {
+				"x": 528,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim1",
+			"frame": {
+				"x": 528,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim2",
+			"frame": {
+				"x": 528,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim3",
+			"frame": {
+				"x": 528,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim4",
+			"frame": {
+				"x": 528,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim5",
+			"frame": {
+				"x": 528,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim6",
+			"frame": {
+				"x": 528,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim7",
+			"frame": {
+				"x": 528,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim8",
+			"frame": {
+				"x": 528,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim9",
+			"frame": {
+				"x": 528,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim10",
+			"frame": {
+				"x": 528,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim11",
+			"frame": {
+				"x": 528,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim12",
+			"frame": {
+				"x": 528,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim13",
+			"frame": {
+				"x": 528,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim14",
+			"frame": {
+				"x": 528,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampFuchsia0Anim15",
+			"frame": {
+				"x": 528,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampRed0",
+			"frame": {
+				"x": 616,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim0",
+			"frame": {
+				"x": 616,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim1",
+			"frame": {
+				"x": 616,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim2",
+			"frame": {
+				"x": 616,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim3",
+			"frame": {
+				"x": 616,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim4",
+			"frame": {
+				"x": 616,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim5",
+			"frame": {
+				"x": 616,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim6",
+			"frame": {
+				"x": 616,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim7",
+			"frame": {
+				"x": 616,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim8",
+			"frame": {
+				"x": 616,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim9",
+			"frame": {
+				"x": 616,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim10",
+			"frame": {
+				"x": 616,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim11",
+			"frame": {
+				"x": 616,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim12",
+			"frame": {
+				"x": 616,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim13",
+			"frame": {
+				"x": 616,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim14",
+			"frame": {
+				"x": 616,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampRed0Anim15",
+			"frame": {
+				"x": 616,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampBlue0",
+			"frame": {
+				"x": 704,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim0",
+			"frame": {
+				"x": 704,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim1",
+			"frame": {
+				"x": 704,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim2",
+			"frame": {
+				"x": 704,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim3",
+			"frame": {
+				"x": 704,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim4",
+			"frame": {
+				"x": 704,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim5",
+			"frame": {
+				"x": 704,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim6",
+			"frame": {
+				"x": 704,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim7",
+			"frame": {
+				"x": 704,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim8",
+			"frame": {
+				"x": 704,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim9",
+			"frame": {
+				"x": 704,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim10",
+			"frame": {
+				"x": 704,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim11",
+			"frame": {
+				"x": 704,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim12",
+			"frame": {
+				"x": 704,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim13",
+			"frame": {
+				"x": 704,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim14",
+			"frame": {
+				"x": 704,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampBlue0Anim15",
+			"frame": {
+				"x": 704,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+
+
+
+		{
+			"filename": "lavaLampOrange0",
+			"frame": {
+				"x": 792,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim0",
+			"frame": {
+				"x": 792,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim1",
+			"frame": {
+				"x": 792,
+				"y": 75,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim2",
+			"frame": {
+				"x": 792,
+				"y": 150,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim3",
+			"frame": {
+				"x": 792,
+				"y": 225,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim4",
+			"frame": {
+				"x": 792,
+				"y": 300,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim5",
+			"frame": {
+				"x": 792,
+				"y": 375,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim6",
+			"frame": {
+				"x": 792,
+				"y": 450,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim7",
+			"frame": {
+				"x": 792,
+				"y": 525,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim8",
+			"frame": {
+				"x": 792,
+				"y": 600,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim9",
+			"frame": {
+				"x": 792,
+				"y": 675,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim10",
+			"frame": {
+				"x": 792,
+				"y": 750,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim11",
+			"frame": {
+				"x": 792,
+				"y": 825,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim12",
+			"frame": {
+				"x": 792,
+				"y": 900,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim13",
+			"frame": {
+				"x": 792,
+				"y": 975,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim14",
+			"frame": {
+				"x": 792,
+				"y": 1050,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		},
+		{
+			"filename": "lavaLampOrange0Anim15",
+			"frame": {
+				"x": 792,
+				"y": 1125,
+				"w": 88,
+				"h": 75 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 88,
+				"h": 75 
+			},
+			"sourceSize": {
+				"w": 88,
+				"h": 75 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "lava-lamp-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 880,
+			"h": 1200            
+		},
+		"scale": "1"
+	}
+}

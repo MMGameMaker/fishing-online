@@ -1,0 +1,287 @@
+{
+	"frames": [
+		{
+			"filename": "christmasTree0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+			    "h": 99 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+			    "h": 99 
+			},
+			"sourceSize": {
+				"w": 48,
+			    "h": 99 
+			}
+		},
+        {
+            "filename": "christmasTree0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 99,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 198,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 297,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 396,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 495,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 594,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 693,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 792,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 891,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 990,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 1089,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        },
+        {
+            "filename": "christmasTree0Anim11",
+            "frame": {
+                "x": 0,
+                "y": 1188,
+                "w": 48,
+                "h": 99 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 48,
+                "h": 99 
+            },
+            "sourceSize": {
+                "w": 48,
+                "h": 99 
+            }
+        }              
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "christmas-tree-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 48,
+			"h": 1287            
+		},
+		"scale": "1"
+	}
+}

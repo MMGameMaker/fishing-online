@@ -1,0 +1,1904 @@
+{
+	"frames": [
+		{
+            "filename": "emoteBaseRegular",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },    
+        {
+            "filename": "emoteBaseT1",
+            "frame": {
+                "x": 33,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        }, 
+        {
+            "filename": "emoteBaseBlue",
+            "frame": {
+                "x": 33,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        }, 
+        {
+            "filename": "emoteBaseGreen",
+            "frame": {
+                "x": 66,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        }, 
+        {
+            "filename": "emoteBasePurple",
+            "frame": {
+                "x": 99,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+
+
+
+        {
+            "filename": "emoteBaseBlueAnimated0",
+            "frame": {
+                "x": 132,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated1",
+            "frame": {
+                "x": 132,
+                "y": 33,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated2",
+            "frame": {
+                "x": 132,
+                "y": 66,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated3",
+            "frame": {
+                "x": 132,
+                "y": 99,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated4",
+            "frame": {
+                "x": 132,
+                "y": 132,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated5",
+            "frame": {
+                "x": 132,
+                "y": 165,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated6",
+            "frame": {
+                "x": 132,
+                "y": 198,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated7",
+            "frame": {
+                "x": 132,
+                "y": 231,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated8",
+            "frame": {
+                "x": 132,
+                "y": 264,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated9",
+            "frame": {
+                "x": 132,
+                "y": 297,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated10",
+            "frame": {
+                "x": 132,
+                "y": 330,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseBlueAnimated11",
+            "frame": {
+                "x": 132,
+                "y": 363,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+
+
+
+        {
+            "filename": "emoteBaseGreenAnimated0",
+            "frame": {
+                "x": 165,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated1",
+            "frame": {
+                "x": 165,
+                "y": 33,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated2",
+            "frame": {
+                "x": 165,
+                "y": 66,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated3",
+            "frame": {
+                "x": 165,
+                "y": 99,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated4",
+            "frame": {
+                "x": 165,
+                "y": 132,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated5",
+            "frame": {
+                "x": 165,
+                "y": 165,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated6",
+            "frame": {
+                "x": 165,
+                "y": 198,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated7",
+            "frame": {
+                "x": 165,
+                "y": 231,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated8",
+            "frame": {
+                "x": 165,
+                "y": 264,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated9",
+            "frame": {
+                "x": 165,
+                "y": 297,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated10",
+            "frame": {
+                "x": 165,
+                "y": 330,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseGreenAnimated11",
+            "frame": {
+                "x": 165,
+                "y": 363,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+
+
+
+        {
+            "filename": "emoteBasePurpleAnimated0",
+            "frame": {
+                "x": 198,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated1",
+            "frame": {
+                "x": 198,
+                "y": 33,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated2",
+            "frame": {
+                "x": 198,
+                "y": 66,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated3",
+            "frame": {
+                "x": 198,
+                "y": 99,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated4",
+            "frame": {
+                "x": 198,
+                "y": 132,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated5",
+            "frame": {
+                "x": 198,
+                "y": 165,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated6",
+            "frame": {
+                "x": 198,
+                "y": 198,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated7",
+            "frame": {
+                "x": 198,
+                "y": 231,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated8",
+            "frame": {
+                "x": 198,
+                "y": 264,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated9",
+            "frame": {
+                "x": 198,
+                "y": 297,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated10",
+            "frame": {
+                "x": 198,
+                "y": 330,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePurpleAnimated11",
+            "frame": {
+                "x": 198,
+                "y": 363,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+
+
+
+        {
+            "filename": "emoteBaseRedAnimated0",
+            "frame": {
+                "x": 231,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated1",
+            "frame": {
+                "x": 231,
+                "y": 33,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated2",
+            "frame": {
+                "x": 231,
+                "y": 66,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated3",
+            "frame": {
+                "x": 231,
+                "y": 99,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated4",
+            "frame": {
+                "x": 231,
+                "y": 132,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated5",
+            "frame": {
+                "x": 231,
+                "y": 165,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated6",
+            "frame": {
+                "x": 231,
+                "y": 198,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated7",
+            "frame": {
+                "x": 231,
+                "y": 231,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated8",
+            "frame": {
+                "x": 231,
+                "y": 264,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated9",
+            "frame": {
+                "x": 231,
+                "y": 297,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated10",
+            "frame": {
+                "x": 231,
+                "y": 330,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseRedAnimated11",
+            "frame": {
+                "x": 231,
+                "y": 363,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+
+
+
+        {
+            "filename": "emoteBasePinkAnimated0",
+            "frame": {
+                "x": 264,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated1",
+            "frame": {
+                "x": 264,
+                "y": 33,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated2",
+            "frame": {
+                "x": 264,
+                "y": 66,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated3",
+            "frame": {
+                "x": 264,
+                "y": 99,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated4",
+            "frame": {
+                "x": 264,
+                "y": 132,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated5",
+            "frame": {
+                "x": 264,
+                "y": 165,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated6",
+            "frame": {
+                "x": 264,
+                "y": 198,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated7",
+            "frame": {
+                "x": 264,
+                "y": 231,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated8",
+            "frame": {
+                "x": 264,
+                "y": 264,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated9",
+            "frame": {
+                "x": 264,
+                "y": 297,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated10",
+            "frame": {
+                "x": 264,
+                "y": 330,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBasePinkAnimated11",
+            "frame": {
+                "x": 264,
+                "y": 363,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+
+
+
+        {
+            "filename": "emoteBaseOrangeAnimated0",
+            "frame": {
+                "x": 297,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated1",
+            "frame": {
+                "x": 297,
+                "y": 33,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated2",
+            "frame": {
+                "x": 297,
+                "y": 66,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated3",
+            "frame": {
+                "x": 297,
+                "y": 99,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated4",
+            "frame": {
+                "x": 297,
+                "y": 132,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated5",
+            "frame": {
+                "x": 297,
+                "y": 165,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated6",
+            "frame": {
+                "x": 297,
+                "y": 198,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated7",
+            "frame": {
+                "x": 297,
+                "y": 231,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated8",
+            "frame": {
+                "x": 297,
+                "y": 264,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated9",
+            "frame": {
+                "x": 297,
+                "y": 297,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated10",
+            "frame": {
+                "x": 297,
+                "y": 330,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseOrangeAnimated11",
+            "frame": {
+                "x": 297,
+                "y": 363,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+
+
+
+        {
+            "filename": "emoteBaseStaff0",
+            "frame": {
+                "x": 330,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff1",
+            "frame": {
+                "x": 330,
+                "y": 33,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff2",
+            "frame": {
+                "x": 330,
+                "y": 66,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff3",
+            "frame": {
+                "x": 330,
+                "y": 99,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff4",
+            "frame": {
+                "x": 330,
+                "y": 132,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff5",
+            "frame": {
+                "x": 330,
+                "y": 165,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff6",
+            "frame": {
+                "x": 330,
+                "y": 198,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff7",
+            "frame": {
+                "x": 330,
+                "y": 231,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff8",
+            "frame": {
+                "x": 330,
+                "y": 264,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff9",
+            "frame": {
+                "x": 330,
+                "y": 297,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff10",
+            "frame": {
+                "x": 330,
+                "y": 330,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        },
+        {
+            "filename": "emoteBaseStaff11",
+            "frame": {
+                "x": 330,
+                "y": 363,
+                "w": 33,
+                "h": 33
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 33
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 33
+            }
+        } 
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "emotes-base-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 363,
+			"h": 396
+		},
+		"scale": "1"
+	}
+}

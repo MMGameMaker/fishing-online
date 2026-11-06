@@ -1,0 +1,140 @@
+{
+	"frames": [
+		{
+			"filename": "nightclubFan0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+			    "h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+			    "h": 77
+			},
+			"sourceSize": {
+				"w": 60,
+			    "h": 77
+			}
+		},
+        {
+			"filename": "nightclubFan1",
+			"frame": {
+				"x": 0,
+				"y": 77,
+				"w": 60,
+			    "h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+			    "h": 77
+			},
+			"sourceSize": {
+				"w": 60,
+			    "h": 77
+			}
+		},
+        {
+			"filename": "nightclubFan2",
+			"frame": {
+				"x": 0,
+				"y": 154,
+				"w": 60,
+			    "h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+			    "h": 77
+			},
+			"sourceSize": {
+				"w": 60,
+			    "h": 77
+			}
+		},
+        {
+			"filename": "nightclubFan3",
+			"frame": {
+				"x": 0,
+				"y": 231,
+				"w": 60,
+			    "h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+			    "h": 77
+			},
+			"sourceSize": {
+				"w": 60,
+			    "h": 77
+			}
+		},
+        {
+			"filename": "nightclubFan4",
+			"frame": {
+				"x": 0,
+				"y": 308,
+				"w": 60,
+			    "h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+			    "h": 77
+			},
+			"sourceSize": {
+				"w": 60,
+			    "h": 77
+			}
+		},
+        {
+			"filename": "nightclubFan5",
+			"frame": {
+				"x": 0,
+				"y": 385,
+				"w": 60,
+			    "h": 77
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+			    "h": 77
+			},
+			"sourceSize": {
+				"w": 60,
+			    "h": 77
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "nightclub-fan-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 60,
+			"h": 77
+		},
+		"scale": "1"
+	}
+}

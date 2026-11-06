@@ -1,0 +1,56 @@
+{
+	"frames": [
+		{
+			"filename": "lighthouseLamp0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+			    "h": 59 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+			    "h": 59 
+			},
+			"sourceSize": {
+				"w": 28,
+			    "h": 59 
+			}
+		},
+        {
+			"filename": "lighthouseLamp1",
+			"frame": {
+				"x": 28,
+				"y": 0,
+				"w": 28,
+			    "h": 59 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 28,
+			    "h": 59 
+			},
+			"sourceSize": {
+				"w": 28,
+			    "h": 59 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "lighthouse-lamp-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 56,
+			"h": 59            
+		},
+		"scale": "1"
+	}
+}
