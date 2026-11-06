@@ -6,7 +6,7 @@ GD sở hữu luật và giá trị balance; BE sở hữu validation và thực
 
 | Nhóm | Trường/quan hệ cần làm rõ |
 | --- | --- |
-| Cá | ID, rarity, khoảng cân nặng, điều kiện xuất hiện và tương thích |
+| Cá | ID, rarity, khoảng chiều dài, điều kiện xuất hiện và tương thích |
 | Trang bị | Rod/Line/Hook/Bait, chỉ số, yêu cầu dùng, tiêu hao |
 | Thính | Tác dụng, thời hạn, phạm vi, tương tác với mồi |
 | Vé/shop | Đơn vị, giá Gold, điều kiện mua/dùng, giới hạn |
