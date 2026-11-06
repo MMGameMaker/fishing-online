@@ -1,0 +1,2132 @@
+{
+  "website": "https://play.pixadom.com/",
+  "created_at": "2026-11-05T09:08:41.608944+00:00",
+  "source_script_url": "https://play.pixadom.com/js/game-bundled.js?v=1793616558210",
+  "rea_evidence_id": "ev_af7158d963fe87b8a29b65d7466948c2de2d4b7fab92389e7f07ac2bb4c311b6",
+  "limitations": [
+    "Static bundle and observed browser resources; not a complete server catalog.",
+    "Jukebox filenames are supplied dynamically by server; unobserved tracks are unknown.",
+    "REA semantic graph retention was partial.",
+    "Validation checks full MP3 frame structure, not decoded PCM."
+  ],
+  "files": [
+    {
+      "name": "battlezone-door",
+      "file": "effects/battlezone-door.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/battlezone-door.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 13654,
+      "sha256": "18b40e3d9375648c1f95e866735ffe33389fbe17b39ddb99b6ad9b9caffc2de8",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 62,
+      "duration_seconds": 1.62,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        40,
+        48,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "bullet-hit",
+      "file": "effects/bullet-hit.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/bullet-hit.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 37920,
+      "sha256": "c094b0c0fb6d9bd329f6e71939c9c7637f9478508c3dac788e9fcc5e2a309166",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 79,
+      "duration_seconds": 1.896,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        160
+      ]
+    },
+    {
+      "name": "buzzer",
+      "file": "effects/buzzer.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/buzzer.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 4152,
+      "sha256": "93a00824f82628209159549f3f7d800ef8e5509e1e83b73bb22cf9c0507db32b",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 18,
+      "duration_seconds": 0.432,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        16,
+        40,
+        64,
+        80,
+        96,
+        112,
+        128
+      ]
+    },
+    {
+      "name": "cash-register",
+      "file": "effects/cash-register.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/cash-register.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 19540,
+      "sha256": "a2a77363f15e56fa7e20c869899f29871da38f5342b8a920092d3460ff7d0ac6",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 40,
+      "duration_seconds": 1.045,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        64,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "click-whoosh",
+      "file": "effects/click-whoosh.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/click-whoosh.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 13296,
+      "sha256": "2de44411f220dba52d9039c0f5b666e6cc3eac7479303cc52961ab6453183f5b",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 31,
+      "duration_seconds": 0.744,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        64,
+        96,
+        112,
+        128,
+        160,
+        192,
+        320
+      ]
+    },
+    {
+      "name": "coin-pickup",
+      "file": "effects/coin-pickup.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/coin-pickup.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 11105,
+      "sha256": "1ecb3029f1884bbd5b55ff234b3e184d3cee3a7dc6b32edd06ea14558fed0ff9",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 40,
+      "duration_seconds": 1.045,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        64,
+        80,
+        96,
+        112,
+        128,
+        192,
+        256
+      ]
+    },
+    {
+      "name": "bug-hit",
+      "file": "effects/community-farming/bug-hit.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/bug-hit.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 3367,
+      "sha256": "546012f77083e89bcdfc913d01f1ab446811f224ec2f70f634a07496ec17fa01",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 6,
+      "duration_seconds": 0.157,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        64,
+        128,
+        160,
+        192,
+        320
+      ]
+    },
+    {
+      "name": "bug-spawn",
+      "file": "effects/community-farming/bug-spawn.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/bug-spawn.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 1950,
+      "sha256": "79c93fa37a63b3982a45af4bf6e1d9ce3d67615bd6dd8a66e7c8c4062930aa49",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 4,
+      "duration_seconds": 0.104,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        40,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "bug-squash",
+      "file": "effects/community-farming/bug-squash.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/bug-squash.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 15475,
+      "sha256": "814a4c35c827a130729017d94595f78e69f3b76b3f7187d586dced5d4fbdcb05",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 22,
+      "duration_seconds": 0.575,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        64,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "fill-bucket",
+      "file": "effects/community-farming/fill-bucket.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/fill-bucket.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 115638,
+      "sha256": "cd52ac5bab943f67f08260f71dbcbca470c1bd36e91af62180241f99feb017ec",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 211,
+      "duration_seconds": 5.512,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        48,
+        80,
+        96,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "leaf-crunch",
+      "file": "effects/community-farming/leaf-crunch.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/leaf-crunch.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 13442,
+      "sha256": "6722eb97921e944a7141bc9dcbf57c5236744ccf21394f03f971b4eefd916269",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 35,
+      "duration_seconds": 0.914,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "nest-spawn",
+      "file": "effects/community-farming/nest-spawn.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/nest-spawn.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 9929,
+      "sha256": "af09ce073ee514e8aefd6dd30b5cd8f5e5b0d9ce726c69a2db389b30ab01e285",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 20,
+      "duration_seconds": 0.522,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        96,
+        128,
+        160,
+        192
+      ]
+    },
+    {
+      "name": "rain",
+      "file": "effects/community-farming/rain.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/rain.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 121013,
+      "sha256": "a085243568627d87793ca800aa3907adb1b25fc708b5ab5091a737a60a4799d3",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 208,
+      "duration_seconds": 5.433,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        48,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "water-burst",
+      "file": "effects/community-farming/water-burst.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/community-farming/water-burst.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 12929,
+      "sha256": "ca3494d85db231b49e2c6cc3833a5a6a7660fe2dd402873bbce9624ec1e98531",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 24,
+      "duration_seconds": 0.627,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "crunch",
+      "file": "effects/crunch.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/crunch.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 6264,
+      "sha256": "3e50a198099ed9defd17141353ca7f63557ca03af0c71ee0d7d8290996ff3e3b",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 23,
+      "duration_seconds": 0.552,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        8,
+        48,
+        64,
+        80,
+        96,
+        112,
+        128
+      ]
+    },
+    {
+      "name": "death",
+      "file": "effects/death.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/death.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 18617,
+      "sha256": "ea0afd4a07a9d8227ee3f7673f020b5927a114ef09691a4d6debcaa3a6418982",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 27,
+      "duration_seconds": 0.705,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        48,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "door",
+      "file": "effects/door.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/door.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 17856,
+      "sha256": "fd0821a969a8dc107d15513ce5ecc20105a9848703d2be32e4dfc47ebb36e5fd",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 37,
+      "duration_seconds": 0.888,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        64,
+        96,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "elevator",
+      "file": "effects/elevator.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/elevator.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 33451,
+      "sha256": "22b88eb3ec36c2312c5373acfd2d44c835dfd27e310eb2a24c2c515147e9db06",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 99,
+      "duration_seconds": 2.376,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        8,
+        16,
+        40,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        144,
+        160
+      ]
+    },
+    {
+      "name": "error",
+      "file": "effects/error.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/error.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 5512,
+      "sha256": "20242a261068e230bc38657eb3b8bb9c8593e34c8eb86d990981be68d8598341",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 14,
+      "duration_seconds": 0.366,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        56,
+        80,
+        96,
+        112,
+        128,
+        224
+      ]
+    },
+    {
+      "name": "fishing-cast",
+      "file": "effects/fishing-cast.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/fishing-cast.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 29404,
+      "sha256": "956be30a99ab41a8bdecdf9f190161aecd0556f1ed0077a694b73f97af5a3997",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 41,
+      "duration_seconds": 1.071,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "fishing-caught-success",
+      "file": "effects/fishing-caught-success.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/fishing-caught-success.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 50972,
+      "sha256": "ac5df23b9618b472b4e13a4acd64aad6f75b3b0a318cf2064754b57ba7ef18ac",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 94,
+      "duration_seconds": 2.456,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "fishing-hooked",
+      "file": "effects/fishing-hooked.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/fishing-hooked.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 38973,
+      "sha256": "375c3b7d6a3f272149b8e457ed858c03f78bdf5197745e65376730d236338a43",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 72,
+      "duration_seconds": 1.881,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        48,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "fishing-reel-success",
+      "file": "effects/fishing-reel-success.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/fishing-reel-success.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 39312,
+      "sha256": "d8c3fc3fc02c4df3a52feff32d09465ae3314bd7f10b282248040934760f582d",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 71,
+      "duration_seconds": 1.855,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        56,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "flower-pop",
+      "file": "effects/flower-pop.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/flower-pop.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 4074,
+      "sha256": "1d556874331c2f2bc724c1a8db63c3cdbdafe1de777f59d265921260fe882378",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 11,
+      "duration_seconds": 0.287,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        40,
+        64,
+        80,
+        96,
+        112,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "friend-request",
+      "file": "effects/friend-request.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/friend-request.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 24392,
+      "sha256": "a15485ecba189226303f15b5c1f4a8d4de17fe87a0b0e78f108088eaf68dd4e9",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 93,
+      "duration_seconds": 2.429,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "furni-slide",
+      "file": "effects/furni-slide.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/furni-slide.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 16330,
+      "sha256": "cc69ef2cb2cdf683c73c39a7a94e11d9b470b05df813440d3e8c7a6b87c99f58",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 30,
+      "duration_seconds": 0.784,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        112,
+        128,
+        160,
+        192,
+        256
+      ]
+    },
+    {
+      "name": "gem",
+      "file": "effects/gem.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/gem.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 36936,
+      "sha256": "02f905b54ce974ac565d4535a835540875c3214066fc6c7228d3089c75a6790b",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 78,
+      "duration_seconds": 2.038,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "heart-beat",
+      "file": "effects/heart-beat.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/heart-beat.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 7578,
+      "sha256": "5972b6f99b151a663136b0099601f9f8c88dd81c669093ea3e8b6ba8939858ef",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 40,
+      "duration_seconds": 1.045,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        256
+      ]
+    },
+    {
+      "name": "interface-open",
+      "file": "effects/interface-open.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/interface-open.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 27274,
+      "sha256": "5244547e0d56a8f84ad62c8e676c1a82525f126df3dc8399280cc585521a06e8",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 63,
+      "duration_seconds": 1.512,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "item-pickup",
+      "file": "effects/item-pickup.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/item-pickup.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 9180,
+      "sha256": "b56fdc8bcf5008a78149bfa2ad37d466a7297514f35243fe94e5bbdedd1666fa",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 10,
+      "duration_seconds": 0.261,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        128,
+        160,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "item-placed",
+      "file": "effects/item-placed.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/item-placed.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 3280,
+      "sha256": "2c012df24a3122dee14c4503f35a8ee868a8a4aa4f66229d884e4c46fb069458",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 6,
+      "duration_seconds": 0.157,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        48,
+        128,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "level-up",
+      "file": "effects/level-up.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/level-up.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 41659,
+      "sha256": "9e00113c0d2da3b5e2a3b64dfa89a676073b0ed8e498bd60c8ba70d4d6ddf671",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 141,
+      "duration_seconds": 3.384,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        8,
+        24,
+        40,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        144,
+        160
+      ]
+    },
+    {
+      "name": "like",
+      "file": "effects/like.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/like.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 9964,
+      "sha256": "9fd03f1113bea8921f77361285086eab3c3b194ef7b6b8e52c7b620e030efff7",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 20,
+      "duration_seconds": 0.522,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        80,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "new-message",
+      "file": "effects/new-message.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/new-message.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 11549,
+      "sha256": "57dc094c38fa699b07d36f4383a0f4d66663b5a5076ca86431aa414519ceae43",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 39,
+      "duration_seconds": 1.019,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "npc-speech",
+      "file": "effects/npc-speech.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/npc-speech.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 1579,
+      "sha256": "4663b665b7a0baf4810469a0cd93e96ff6eb0884a8139829dbd122a427f49245",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 3,
+      "duration_seconds": 0.072,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        40,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "opponent-died",
+      "file": "effects/opponent-died.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/opponent-died.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 20841,
+      "sha256": "9cb7617a978ba2334797b9bcee097be06444a2ebcb15825ba0bbf628406bfd22",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 47,
+      "duration_seconds": 1.228,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "pixel",
+      "file": "effects/pixel.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/pixel.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 5739,
+      "sha256": "c38f2c38fabeafd5f8c9ee9cdfe49ad68ae36ed73800dfb9e1e3ff2082194dc2",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 11,
+      "duration_seconds": 0.287,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        96,
+        128,
+        160,
+        224,
+        320
+      ]
+    },
+    {
+      "name": "plant-seed",
+      "file": "effects/plant-seed.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/plant-seed.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 50393,
+      "sha256": "3e6c11a4117bd5b42eb573f725f8cfcccb5ea3be57cf5e63137fb602690a1313",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 95,
+      "duration_seconds": 2.482,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        48,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "player-hit-enemy",
+      "file": "effects/player-hit-enemy.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/player-hit-enemy.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 11788,
+      "sha256": "cbafd8540ce4cee59fadb1ab45b865a7ba5969bf7bb619cff9eb87f5b9acc373",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 24,
+      "duration_seconds": 0.627,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        64,
+        96,
+        128,
+        160,
+        192,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "point",
+      "file": "effects/point.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/point.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 8789,
+      "sha256": "b1fadf68a61844ab45358b284b909919ec6d13d2b9d24e8ee207a9ee1a25d3e4",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 20,
+      "duration_seconds": 0.522,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        112,
+        128,
+        256
+      ]
+    },
+    {
+      "name": "poof",
+      "file": "effects/poof.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/poof.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 2712,
+      "sha256": "8a295e3294ea0c6c020a0cb23994caade1884f59e8b2df2c871fb3b97067de58",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 13,
+      "duration_seconds": 0.312,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        8,
+        64,
+        80,
+        112
+      ]
+    },
+    {
+      "name": "pop",
+      "file": "effects/pop.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/pop.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 1968,
+      "sha256": "c248191be52cff81fcde25ae1680af46b212d7194f3804ed05266b0fbe01fcdb",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 9,
+      "duration_seconds": 0.216,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        56,
+        80,
+        128,
+        224
+      ]
+    },
+    {
+      "name": "puffle-hit-player",
+      "file": "effects/puffle-hit-player.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/puffle-hit-player.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 11472,
+      "sha256": "f4b70ec99e1447978175bb2723b03d6212541e538221618cb9516effb0c63fd6",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 22,
+      "duration_seconds": 0.575,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        128,
+        160,
+        192,
+        224,
+        320
+      ]
+    },
+    {
+      "name": "puffle-shard-hit-player",
+      "file": "effects/puffle-shard-hit-player.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/puffle-shard-hit-player.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 10489,
+      "sha256": "19e0f4f66cfc546684e3f01f7154e2ad1368ac3987cd8cf92543132f180fcdfd",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 16,
+      "duration_seconds": 0.418,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        112,
+        128,
+        160,
+        192,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "pumpkin-collected",
+      "file": "effects/pumpkin-collected.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/pumpkin-collected.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 12720,
+      "sha256": "b610732a56f1968ace03f6015ff17d33bb37075a527f4d70443d94a59bd8fea4",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 25,
+      "duration_seconds": 0.6,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        64,
+        80,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "quest-accepted",
+      "file": "effects/quest-accepted.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/quest-accepted.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 26762,
+      "sha256": "d2ea0eaec35d8cf1ba2d1cad78e2cffc069e1e09fc42b93a1241248438a32a68",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 44,
+      "duration_seconds": 1.149,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "reload",
+      "file": "effects/reload.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/reload.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 9912,
+      "sha256": "1d3ea316a5eea477eaadd492b959bba2a40a92344bea66631e5db9146dc17bb6",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 24,
+      "duration_seconds": 0.576,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        8,
+        64,
+        96,
+        112,
+        128,
+        144,
+        160
+      ]
+    },
+    {
+      "name": "sci-fi-zap",
+      "file": "effects/sci-fi-zap.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/sci-fi-zap.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 10564,
+      "sha256": "4567cfb126551fc943619637ae78c1ab5b7895a53b019fb72ddf8801040180e7",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 22,
+      "duration_seconds": 0.575,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        56,
+        64,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "shards-released",
+      "file": "effects/shards-released.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/shards-released.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 12016,
+      "sha256": "dc2fe225637d541c0e615f1195dbbea132216f3efffccbffef5d20dab8f6de96",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 29,
+      "duration_seconds": 0.758,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        56,
+        64,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224
+      ]
+    },
+    {
+      "name": "shooting",
+      "file": "effects/shooting.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/shooting.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 7920,
+      "sha256": "6f83a8174f1a9f26737531095ec9c62f2605a206bde4d6f2c93e3f344ae31f7a",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 42,
+      "duration_seconds": 1.008,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        8,
+        24,
+        48,
+        64,
+        80,
+        96,
+        112,
+        128,
+        144,
+        160
+      ]
+    },
+    {
+      "name": "shovel-dirt-out",
+      "file": "effects/shovel-dirt-out.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/shovel-dirt-out.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 16659,
+      "sha256": "6e72a4ebe04d838b6f38201fc9d3da47c2a36becc5e962531cf2e9f57f70f289",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 27,
+      "duration_seconds": 0.705,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "slot-machine-win",
+      "file": "effects/slot-machine-win.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/slot-machine-win.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 135360,
+      "sha256": "2d0c7e1fd7b3a005b7f89b3b60316ee36a5de317ebda5147d754a5c309bb398e",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 391,
+      "duration_seconds": 9.384,
+      "sample_rates_hz": [
+        24000
+      ],
+      "bitrates_kbps": [
+        8,
+        16,
+        24,
+        32,
+        48,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        144,
+        160
+      ]
+    },
+    {
+      "name": "star-burst",
+      "file": "effects/star-burst.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/star-burst.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 68815,
+      "sha256": "550e4a6f2d9357068facd601c899daed62990cc95fb6bc6f3be6437f5ec1c378",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 156,
+      "duration_seconds": 4.075,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        320
+      ]
+    },
+    {
+      "name": "switch-off",
+      "file": "effects/switch-off.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/switch-off.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 2707,
+      "sha256": "c437d289595f530b33f9c4865588107bf4164c270d36a269a5e7b96afcf12989",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 4,
+      "duration_seconds": 0.104,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        96,
+        128,
+        192,
+        320
+      ]
+    },
+    {
+      "name": "switch-on",
+      "file": "effects/switch-on.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/switch-on.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 2812,
+      "sha256": "43ac60f63faa38b4b1ef10afe3709559e75a5039f30f576b726a361602467436",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 4,
+      "duration_seconds": 0.104,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        96,
+        128,
+        224,
+        320
+      ]
+    },
+    {
+      "name": "sword-swoosh",
+      "file": "effects/sword-swoosh.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/sword-swoosh.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 3131,
+      "sha256": "62fdd6a8fa39c4469c66b82f16b8211e0d7ee174ee94026d7b06c5174d8d9ffd",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 5,
+      "duration_seconds": 0.131,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        96,
+        128,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "teleport-in",
+      "file": "effects/teleport-in.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/teleport-in.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 13568,
+      "sha256": "208e680bdcf07547e8f951df05354940a323574200d660f817692cc0e7c7145d",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 23,
+      "duration_seconds": 0.601,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        96,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "teleport-out",
+      "file": "effects/teleport-out.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/teleport-out.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 13565,
+      "sha256": "eb98dae76f4463fdcc2b044872d4733dee4f772f941ad18867a2e25a5c2868dc",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 23,
+      "duration_seconds": 0.601,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "tilling",
+      "file": "effects/tilling.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/tilling.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 11214,
+      "sha256": "28414012d4e5c867cfc1abaa5a50f3264e7552d9f20e70ff679fab3bff12ecf7",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 17,
+      "duration_seconds": 0.444,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        64,
+        128,
+        160,
+        192,
+        320
+      ]
+    },
+    {
+      "name": "token-redeemed",
+      "file": "effects/token-redeemed.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/token-redeemed.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 9440,
+      "sha256": "ac3a662a70ac58c8ce253529bd6f22bc9f973a34c523e05ecae729d1d4869b18",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 22,
+      "duration_seconds": 0.575,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "water-fill",
+      "file": "effects/water-fill.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/water-fill.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 24967,
+      "sha256": "07eb3ac2964b65e8918646f898864c0795abcd8cf018b0d49503c2a3f6f218f6",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 61,
+      "duration_seconds": 1.593,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256
+      ]
+    },
+    {
+      "name": "watering-can",
+      "file": "effects/watering-can.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/watering-can.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 87930,
+      "sha256": "026dbbf72228e126df593b2bdb6a781cd4ab4f5a70b35628487b54ec5f20bdea",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 132,
+      "duration_seconds": 3.448,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "yay",
+      "file": "effects/yay.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/yay.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 22315,
+      "sha256": "e25852519321ef2cab0ae92c07ddee293890a18272cac63be59297e719ea323f",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 50,
+      "duration_seconds": 1.306,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        96,
+        112,
+        128,
+        160,
+        224
+      ]
+    },
+    {
+      "name": "zoom-away",
+      "file": "effects/zoom-away.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/effects/zoom-away.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 12153,
+      "sha256": "51c934a387164594d89285990ead28c1cc1585cf8ca7aba9dbc8ac8452e7b159",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 41,
+      "duration_seconds": 1.071,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        56,
+        64,
+        80,
+        96,
+        128,
+        160,
+        192,
+        224
+      ]
+    },
+    {
+      "name": "apartmentLobby",
+      "file": "tracks/apartmentLobby.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/apartmentLobby.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 328480,
+      "sha256": "991ec9fcef39cfdbb902d199cad058bd2e0fb62435e7acfa8f5f595240bb5cde",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 955,
+      "duration_seconds": 24.947,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224
+      ]
+    },
+    {
+      "name": "cafe",
+      "file": "tracks/cafe.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/cafe.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 1522944,
+      "sha256": "fd227f402e3602396d89fcf3e841fd2c5886e64c4af9922b8ecc46e9ad89259c",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 2562,
+      "duration_seconds": 61.488,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        96,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "bug-treating-minigame",
+      "file": "tracks/community-farming/bug-treating-minigame.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/community-farming/bug-treating-minigame.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 721616,
+      "sha256": "f96afcb29aae883bdbd99b70593ecce51320a1f090c27d4a5722a176b2447a17",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 1227,
+      "duration_seconds": 32.052,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "coralCove",
+      "file": "tracks/coralCove.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/coralCove.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 2140416,
+      "sha256": "12388e187a01323ff49b7f28659d5318fd1703b99598efddae02cc445f1b19b5",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 4002,
+      "duration_seconds": 96.048,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "halloween",
+      "file": "tracks/halloween.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/halloween.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 2890308,
+      "sha256": "4da7eee92eb45b864d3869c90094d1418ea40b3a6fbf40c29937c022360ba7f2",
+      "status": "downloaded",
+      "evidence": "browser request and static track interpolation",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 5095,
+      "duration_seconds": 122.28,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        40,
+        48,
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "hugglehenFarms",
+      "file": "tracks/hugglehenFarms.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/hugglehenFarms.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 3075898,
+      "sha256": "63214f12658bf5dc1bdc6a1bf352ba3fc1d5593bb789376e4c12dcf2e58eadaf",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 5557,
+      "duration_seconds": 133.368,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        64,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "nightclub",
+      "file": "tracks/nightclub.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/nightclub.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 1809264,
+      "sha256": "85ad7fde0e027ac259d96e6a10fd357f8141cc1da67a2f975b140d5cf0e6fa13",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 3494,
+      "duration_seconds": 83.856,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        64,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "pvp",
+      "file": "tracks/pvp.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/pvp.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 2149392,
+      "sha256": "b20491928941a297ebe37725c3265651f2b7901d3354d967edd9d386a76d855a",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 3854,
+      "duration_seconds": 92.496,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        80,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "safe",
+      "file": "tracks/safe.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/safe.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 3367800,
+      "sha256": "f304f3c3e94f85d209f7b3f2e6c53e6d1e1075937d098323e4fb7509ac69d1d4",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 6361,
+      "duration_seconds": 152.664,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        56,
+        64,
+        80,
+        96,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "store",
+      "file": "tracks/store.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/store.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 2031696,
+      "sha256": "90a3f57e1d5f7e84b92ec4bcfc2ec932b188148b544d2b2d87ef04776cf00ac8",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 3431,
+      "duration_seconds": 82.344,
+      "sample_rates_hz": [
+        48000
+      ],
+      "bitrates_kbps": [
+        32,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    },
+    {
+      "name": "watering-minigame",
+      "file": "tracks/watering-minigame.mp3",
+      "source_url": "https://play.pixadom.com/assets/audio/tracks/watering-minigame.mp3?v=1793616558210",
+      "format": "mp3",
+      "size_bytes": 706948,
+      "sha256": "a341890b916e64a9c02b753f10d4961b4f775b842f72f220f728ac0093c8d37a",
+      "status": "downloaded",
+      "evidence": "static literal",
+      "http_status": 200,
+      "content_type": "audio/mpeg",
+      "validation": "full MPEG Layer III frame walk; not a decoder listening test",
+      "frames": 1199,
+      "duration_seconds": 31.321,
+      "sample_rates_hz": [
+        44100
+      ],
+      "bitrates_kbps": [
+        32,
+        48,
+        64,
+        80,
+        112,
+        128,
+        160,
+        192,
+        224,
+        256,
+        320
+      ]
+    }
+  ],
+  "verification": {
+    "all_saved_files_match_size_and_sha256": true,
+    "duplicate_sha256_count": 0,
+    "audio_validation": "All MPEG Layer III frames walked to end; no HTML/error responses; no PCM decoding performed",
+    "authentication_tokens_saved": false
+  },
+  "source_type": "Direct HTTPS MP3 files on play.pixadom.com; no blob download URLs or streaming playlists used",
+  "browser_observation": {
+    "audio_source_elements": 0,
+    "observed_mp3_requests": 18,
+    "request_type": "xmlhttprequest",
+    "play_button_capture": "Not established: Settings showed COMING SOON; observed resources are load-time requests, not a proven play-click capture."
+  }
+}

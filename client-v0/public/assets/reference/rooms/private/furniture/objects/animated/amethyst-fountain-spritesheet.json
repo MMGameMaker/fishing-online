@@ -1,0 +1,224 @@
+{
+	"frames": [
+		{
+			"filename": "amethystFountain0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 73
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 44,
+				"h": 73
+			},
+			"sourceSize": {
+				"w": 44,
+				"h": 73
+			}
+		},
+        {
+            "filename": "amethystFountain0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 73,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 146,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 219,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 292,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 365,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 438,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 511,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 584,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        },
+        {
+            "filename": "amethystFountain0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 657,
+                "w": 44,
+                "h": 73
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 44,
+                "h": 73
+            },
+            "sourceSize": {
+                "w": 44,
+                "h": 73
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "amethyst-fountain-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 44,
+			"h": 730
+		},
+		"scale": "1"
+	}
+}

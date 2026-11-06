@@ -1,0 +1,158 @@
+{
+	"frames": [
+		{
+            "filename": "goldenHugglehenEgg0",
+            "frame": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim0",
+            "frame": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim1",
+            "frame": { "x": 0, "y": 38, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim2",
+            "frame": { "x": 0, "y": 76, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim3",
+            "frame": { "x": 0, "y": 114, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim4",
+            "frame": { "x": 0, "y": 152, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim5",
+            "frame": { "x": 0, "y": 190, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim6",
+            "frame": { "x": 0, "y": 228, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim7",
+            "frame": { "x": 0, "y": 266, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim8",
+            "frame": { "x": 0, "y": 304, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim9",
+            "frame": { "x": 0, "y": 342, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim10",
+            "frame": { "x": 0, "y": 380, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim11",
+            "frame": { "x": 0, "y": 418, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim12",
+            "frame": { "x": 0, "y": 456, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim13",
+            "frame": { "x": 0, "y": 494, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim14",
+            "frame": { "x": 0, "y": 532, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim15",
+            "frame": { "x": 0, "y": 570, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        },
+        {
+            "filename": "goldenHugglehenEgg0Anim16",
+            "frame": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 41, "h": 38 },
+            "sourceSize": { "w": 41, "h": 38 }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "golden-hugglehen-egg-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 41,
+			"h": 608
+		},
+		"scale": "1"
+	}
+}

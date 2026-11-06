@@ -1,0 +1,182 @@
+{
+	"frames": [
+		{
+			"filename": "firePit0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		},
+        {
+			"filename": "firePit1",
+			"frame": {
+				"x": 0,
+				"y": 125,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 125,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		},
+        {
+			"filename": "firePit2",
+			"frame": {
+				"x": 0,
+				"y": 250,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 250,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		},
+        {
+			"filename": "firePit3",
+			"frame": {
+				"x": 0,
+				"y": 375,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 375,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		},
+        {
+			"filename": "firePit4",
+			"frame": {
+				"x": 0,
+				"y": 500,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 500,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		},
+        {
+			"filename": "firePit5",
+			"frame": {
+				"x": 0,
+				"y": 625,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 625,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		},
+        {
+			"filename": "firePit6",
+			"frame": {
+				"x": 0,
+				"y": 750,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 750,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		},
+        {
+			"filename": "firePit7",
+			"frame": {
+				"x": 0,
+				"y": 875,
+				"w": 60,
+				"h": 125
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 875,
+				"w": 60,
+				"h": 125
+			},
+			"sourceSize": {
+				"w": 60,
+				"h": 125
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "fire-pit-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 60,
+			"h": 1000
+		},
+		"scale": "1"
+	}
+}

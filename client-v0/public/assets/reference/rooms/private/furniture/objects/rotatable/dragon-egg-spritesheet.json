@@ -1,0 +1,1615 @@
+{
+	"frames": [
+		{
+			"filename": "dragonEggPurple0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120
+			}
+		},
+        {
+            "filename": "dragonEggPurple0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 120,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 240,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 360,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 480,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 600,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 720,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 840,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 960,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 1080,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 1200,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 1320,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim11",
+            "frame": {
+                "x": 0,
+                "y": 1440,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim12",
+            "frame": {
+                "x": 0,
+                "y": 1560,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim13",
+            "frame": {
+                "x": 0,
+                "y": 1680,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim14",
+            "frame": {
+                "x": 0,
+                "y": 1800,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim15",
+            "frame": {
+                "x": 0,
+                "y": 1920,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim16",
+            "frame": {
+                "x": 0,
+                "y": 2040,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple0Anim17",
+            "frame": {
+                "x": 0,
+                "y": 2160,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        
+        
+        {
+			"filename": "dragonEggPurple1",
+			"frame": {
+				"x": 150,
+				"y": 0,
+				"w": 150,
+				"h": 120
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 150,
+				"h": 120
+			},
+			"sourceSize": {
+				"w": 150,
+				"h": 120
+			}
+		},
+        {
+            "filename": "dragonEggPurple1Anim0",
+            "frame": {
+                "x": 150,
+                "y": 120,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim1",
+            "frame": {
+                "x": 150,
+                "y": 240,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim2",
+            "frame": {
+                "x": 150,
+                "y": 360,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim3",
+            "frame": {
+                "x": 150,
+                "y": 480,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim4",
+            "frame": {
+                "x": 150,
+                "y": 600,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim5",
+            "frame": {
+                "x": 150,
+                "y": 720,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim6",
+            "frame": {
+                "x": 150,
+                "y": 840,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim7",
+            "frame": {
+                "x": 150,
+                "y": 960,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim8",
+            "frame": {
+                "x": 150,
+                "y": 1080,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim9",
+            "frame": {
+                "x": 150,
+                "y": 1200,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim10",
+            "frame": {
+                "x": 150,
+                "y": 1320,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim11",
+            "frame": {
+                "x": 150,
+                "y": 1440,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim12",
+            "frame": {
+                "x": 150,
+                "y": 1560,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim13",
+            "frame": {
+                "x": 150,
+                "y": 1680,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim14",
+            "frame": {
+                "x": 150,
+                "y": 1800,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim15",
+            "frame": {
+                "x": 150,
+                "y": 1920,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim16",
+            "frame": {
+                "x": 150,
+                "y": 2040,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggPurple1Anim17",
+            "frame": {
+                "x": 150,
+                "y": 2160,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        
+        
+
+        {
+            "filename": "dragonEggOrange0",
+            "frame": {
+                "x": 300,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim0",
+            "frame": {
+                "x": 300,
+                "y": 120,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim1",
+            "frame": {
+                "x": 300,
+                "y": 240,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim2",
+            "frame": {
+                "x": 300,
+                "y": 360,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim3",
+            "frame": {
+                "x": 300,
+                "y": 480,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim4",
+            "frame": {
+                "x": 300,
+                "y": 600,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim5",
+            "frame": {
+                "x": 300,
+                "y": 720,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim6",
+            "frame": {
+                "x": 300,
+                "y": 840,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim7",
+            "frame": {
+                "x": 300,
+                "y": 960,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim8",
+            "frame": {
+                "x": 300,
+                "y": 1080,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim9",
+            "frame": {
+                "x": 300,
+                "y": 1200,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim10",
+            "frame": {
+                "x": 300,
+                "y": 1320,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim11",
+            "frame": {
+                "x": 300,
+                "y": 1440,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim12",
+            "frame": {
+                "x": 300,
+                "y": 1560,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim13",
+            "frame": {
+                "x": 300,
+                "y": 1680,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim14",
+            "frame": {
+                "x": 300,
+                "y": 1800,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim15",
+            "frame": {
+                "x": 300,
+                "y": 1920,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim16",
+            "frame": {
+                "x": 300,
+                "y": 2040,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange0Anim17",
+            "frame": {
+                "x": 300,
+                "y": 2160,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1",
+            "frame": {
+                "x": 450,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim0",
+            "frame": {
+                "x": 450,
+                "y": 120,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim1",
+            "frame": {
+                "x": 450,
+                "y": 240,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim2",
+            "frame": {
+                "x": 450,
+                "y": 360,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim3",
+            "frame": {
+                "x": 450,
+                "y": 480,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim4",
+            "frame": {
+                "x": 450,
+                "y": 600,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim5",
+            "frame": {
+                "x": 450,
+                "y": 720,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim6",
+            "frame": {
+                "x": 450,
+                "y": 840,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim7",
+            "frame": {
+                "x": 450,
+                "y": 960,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim8",
+            "frame": {
+                "x": 450,
+                "y": 1080,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim9",
+            "frame": {
+                "x": 450,
+                "y": 1200,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim10",
+            "frame": {
+                "x": 450,
+                "y": 1320,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim11",
+            "frame": {
+                "x": 450,
+                "y": 1440,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim12",
+            "frame": {
+                "x": 450,
+                "y": 1560,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim13",
+            "frame": {
+                "x": 450,
+                "y": 1680,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim14",
+            "frame": {
+                "x": 450,
+                "y": 1800,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim15",
+            "frame": {
+                "x": 450,
+                "y": 1920,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim16",
+            "frame": {
+                "x": 450,
+                "y": 2040,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        },
+        {
+            "filename": "dragonEggOrange1Anim17",
+            "frame": {
+                "x": 450,
+                "y": 2160,
+                "w": 150,
+                "h": 120
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 120
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 120
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "dragon-egg-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 600,
+			"h": 2280
+		},
+		"scale": "1"
+	}
+}

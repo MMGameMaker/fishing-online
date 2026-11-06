@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pixadom Rebuild</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div id="game"></div>
+
+      <div id="hud">
+        <div id="hud-player">
+          <span id="hud-name"></span>
+          <span class="hud-chip hud-chip-level">
+            <svg class="chip-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11l-3.8 2 .7-4.3-3.1-3 4.3-.6z" fill="#8fe9ff"/></svg>
+            <span id="hud-level"></span>
+          </span>
+          <span class="hud-chip hud-chip-coins">
+            <svg class="chip-icon" viewBox="0 0 16 16" aria-hidden="true">
+              <circle cx="8" cy="8" r="6.5" fill="#ffd65a" stroke="#b8862a" stroke-width="1.4" />
+              <circle cx="8" cy="8" r="4.3" fill="none" stroke="#b8862a" stroke-width="0.8" />
+            </svg>
+            <span id="hud-coins"></span>
+          </span>
+          <span class="hud-chip hud-chip-room" id="hud-room"></span>
+        </div>
+        <div id="hud-buttons">
+          <button id="btn-menu" type="button">Menu</button>
+          <button id="btn-look" type="button">Look (C)</button>
+          <button id="btn-bag" type="button">Bag (B)</button>
+          <button id="btn-quests" type="button">Quests (Q)</button>
+          <button id="btn-dm" type="button">Messages (M)<span id="dm-badge" hidden></span></button>
+        </div>
+      </div>
+
+      <div id="toasts"></div>
+
+      <div id="fish-tip" hidden>
+        <strong id="fish-tip-title"></strong>
+        <p id="fish-tip-text"></p>
+        <button id="fish-tip-ok" class="primary" type="button">OK, got it</button>
+      </div>
+
+      <div id="chat">
+        <div id="chat-log"></div>
+        <form id="chat-form">
+          <input id="chat-input" maxlength="120" autocomplete="off" placeholder="Press Enter to chat" />
+          <button id="chat-send" class="icon-btn" type="submit" aria-label="Send">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5l17.5-8-7 17.5-2.3-7.2-7.2-2.3z" /></svg>
+          </button>
+        </form>
+      </div>
+
+      <section id="look-panel" class="panel" hidden>
+        <header><h2>Change look</h2><button class="close" type="button" data-close="look-panel">×</button></header>
+        <div class="look-body">
+          <div class="look-preview">
+            <div id="look-canvas"></div>
+            <button id="look-rotate" type="button">Rotate</button>
+          </div>
+          <div id="look-options"></div>
+        </div>
+        <footer>
+          <button id="look-random" type="button">Randomize</button>
+          <button id="look-save" class="primary" type="button">Save</button>
+        </footer>
+      </section>
+
+      <section id="bag-panel" class="panel" hidden>
+        <header><h2>Bag</h2><button class="close" type="button" data-close="bag-panel">×</button></header>
+        <div id="bag-list"></div>
+        <footer>
+          <span id="bag-total"></span>
+          <button id="bag-sell-all" class="primary" type="button">Sell all</button>
+        </footer>
+      </section>
+
+      <section id="menu-panel" class="panel" hidden>
+        <header><h2>Menu</h2><button class="close" type="button" data-close="menu-panel">×</button></header>
+        <div id="menu-body" class="menu-body">
+          <button id="menu-look" type="button">Change look</button>
+          <button id="menu-bag" type="button">Bag</button>
+          <button id="menu-quests" type="button">Quests</button>
+          <button id="menu-dm" type="button">Messages</button>
+          <button id="menu-friends" type="button">Friends</button>
+          <button id="menu-shop" type="button">Shop</button>
+          <button id="menu-fishlog" type="button">Fish logbook</button>
+          <button id="menu-dance" type="button">Dance (X)</button>
+        </div>
+        <footer>
+          <span id="menu-profile"></span>
+        </footer>
+      </section>
+
+      <section id="quest-panel" class="panel" hidden>
+        <header><h2>Quests</h2><button class="close" type="button" data-close="quest-panel">×</button></header>
+        <div id="quest-list"></div>
+      </section>
+
+      <section id="friends-panel" class="panel" hidden>
+        <header><h2>Friends</h2><button class="close" type="button" data-close="friends-panel">×</button></header>
+        <div id="friends-list"></div>
+        <footer>
+          <input id="friends-add-input" maxlength="20" autocomplete="off" placeholder="Username to add" />
+          <button id="friends-add-btn" class="primary" type="button">Add</button>
+        </footer>
+      </section>
+
+      <section id="shop-panel" class="panel" hidden>
+        <header><h2>Tinkerbean — Rod Shop</h2><button class="close" type="button" data-close="shop-panel">×</button></header>
+        <div id="shop-list"></div>
+        <footer><span id="shop-coins"></span></footer>
+      </section>
+
+      <section id="fishlog-panel" class="panel" hidden>
+        <header><h2>Fish Logbook</h2><button class="close" type="button" data-close="fishlog-panel">×</button></header>
+        <div id="fishlog-list"></div>
+      </section>
+
+      <div id="npc-panel" class="panel" hidden>
+        <header><h2 id="npc-name"></h2><button id="npc-close" class="close" type="button">×</button></header>
+        <div class="npc-body"><img id="npc-portrait" hidden><p id="npc-text"></p></div>
+        <footer><button id="npc-action" class="primary" type="button" hidden></button></footer>
+      </div>
+
+      <section id="dm-panel" class="panel" hidden>
+        <header><h2>Messages</h2><button class="close" type="button" data-close="dm-panel">×</button></header>
+        <div class="dm-body">
+          <div id="dm-contacts"></div>
+          <div class="dm-thread">
+            <div id="dm-title">Choose a contact</div>
+            <div id="dm-messages"></div>
+            <form id="dm-form"><input id="dm-input" maxlength="300" autocomplete="off" placeholder="Write a message" disabled /><button class="primary" type="submit">Send</button></form>
+          </div>
+        </div>
+      </section>
+
+      <div id="welcome" hidden>
+        <div class="welcome-card">
+          <h1>Pixadom Rebuild</h1>
+          <p>Choose a test account to enter Main Town.</p>
+          <div id="welcome-accounts"></div>
+        </div>
+      </div>
+
+      <div id="loading">
+        <div class="loading-card">
+          <ul>
+            <li>Early prototype, bugs are expected</li>
+            <li>Be kind to other players</li>
+            <li>Walk into doors to change rooms</li>
+            <li>Fish from the edge of the Coral Cove docks</li>
+            <li>Click an NPC with a ! above them for a quest</li>
+            <li>Click a cushion to sit, press X to dance</li>
+          </ul>
+          <div id="loading-bar"><div id="loading-fill"></div><span id="loading-percent">0%</span></div>
+        </div>
+      </div>
+
+      <div id="fatal" hidden></div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

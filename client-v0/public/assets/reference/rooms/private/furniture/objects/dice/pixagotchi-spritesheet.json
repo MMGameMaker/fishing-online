@@ -1,0 +1,1815 @@
+{
+	"frames": [
+		{
+            "filename": "pixagotchiPink0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 34 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 34 
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 34 
+            }
+        },
+		{
+			"filename": "pixagotchiPink0Anim0",
+			"frame": {
+				"x": 30,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim1",
+			"frame": {
+				"x": 60,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim2",
+			"frame": {
+				"x": 90,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim3",
+			"frame": {
+				"x": 120,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim4",
+			"frame": {
+				"x": 150,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim5",
+			"frame": {
+				"x": 180,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim6",
+			"frame": {
+				"x": 210,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim7",
+			"frame": {
+				"x": 240,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim8",
+			"frame": {
+				"x": 270,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim9",
+			"frame": {
+				"x": 300,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Anim10",
+			"frame": {
+				"x": 330,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Option1",
+			"frame": {
+				"x": 360,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Option2",
+			"frame": {
+				"x": 390,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Option3",
+			"frame": {
+				"x": 420,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Option4",
+			"frame": {
+				"x": 450,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPink0Option5",
+			"frame": {
+				"x": 480,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+
+
+
+
+		{
+			"filename": "pixagotchiBlue0",
+			"frame": {
+				"x": 0,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim0",
+			"frame": {
+				"x": 30,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim1",
+			"frame": {
+				"x": 60,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim2",
+			"frame": {
+				"x": 90,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim3",
+			"frame": {
+				"x": 120,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim4",
+			"frame": {
+				"x": 150,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim5",
+			"frame": {
+				"x": 180,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim6",
+			"frame": {
+				"x": 210,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim7",
+			"frame": {
+				"x": 240,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim8",
+			"frame": {
+				"x": 270,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim9",
+			"frame": {
+				"x": 300,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Anim10",
+			"frame": {
+				"x": 330,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Option1",
+			"frame": {
+				"x": 360,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Option2",
+			"frame": {
+				"x": 390,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Option3",
+			"frame": {
+				"x": 420,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Option4",
+			"frame": {
+				"x": 450,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiBlue0Option5",
+			"frame": {
+				"x": 480,
+				"y": 34,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+
+
+
+
+		{
+			"filename": "pixagotchiGreen0",
+			"frame": {
+				"x": 0,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim0",
+			"frame": {
+				"x": 30,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim1",
+			"frame": {
+				"x": 60,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim2",
+			"frame": {
+				"x": 90,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim3",
+			"frame": {
+				"x": 120,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim4",
+			"frame": {
+				"x": 150,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim5",
+			"frame": {
+				"x": 180,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim6",
+			"frame": {
+				"x": 210,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim7",
+			"frame": {
+				"x": 240,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim8",
+			"frame": {
+				"x": 270,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim9",
+			"frame": {
+				"x": 300,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Anim10",
+			"frame": {
+				"x": 330,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Option1",
+			"frame": {
+				"x": 360,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Option2",
+			"frame": {
+				"x": 390,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Option3",
+			"frame": {
+				"x": 420,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Option4",
+			"frame": {
+				"x": 450,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiGreen0Option5",
+			"frame": {
+				"x": 480,
+				"y": 68,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+
+
+
+
+		{
+			"filename": "pixagotchiPurple0",
+			"frame": {
+				"x": 0,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim0",
+			"frame": {
+				"x": 30,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim1",
+			"frame": {
+				"x": 60,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim2",
+			"frame": {
+				"x": 90,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim3",
+			"frame": {
+				"x": 120,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim4",
+			"frame": {
+				"x": 150,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim5",
+			"frame": {
+				"x": 180,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim6",
+			"frame": {
+				"x": 210,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim7",
+			"frame": {
+				"x": 240,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim8",
+			"frame": {
+				"x": 270,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim9",
+			"frame": {
+				"x": 300,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Anim10",
+			"frame": {
+				"x": 330,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Option1",
+			"frame": {
+				"x": 360,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Option2",
+			"frame": {
+				"x": 390,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Option3",
+			"frame": {
+				"x": 420,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Option4",
+			"frame": {
+				"x": 450,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiPurple0Option5",
+			"frame": {
+				"x": 480,
+				"y": 102,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+
+
+
+
+		{
+			"filename": "pixagotchiRed0",
+			"frame": {
+				"x": 0,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim0",
+			"frame": {
+				"x": 30,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim1",
+			"frame": {
+				"x": 60,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim2",
+			"frame": {
+				"x": 90,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim3",
+			"frame": {
+				"x": 120,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim4",
+			"frame": {
+				"x": 150,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim5",
+			"frame": {
+				"x": 180,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim6",
+			"frame": {
+				"x": 210,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim7",
+			"frame": {
+				"x": 240,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim8",
+			"frame": {
+				"x": 270,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim9",
+			"frame": {
+				"x": 300,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Anim10",
+			"frame": {
+				"x": 330,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Option1",
+			"frame": {
+				"x": 360,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Option2",
+			"frame": {
+				"x": 390,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Option3",
+			"frame": {
+				"x": 420,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Option4",
+			"frame": {
+				"x": 450,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		},
+		{
+			"filename": "pixagotchiRed0Option5",
+			"frame": {
+				"x": 480,
+				"y": 136,
+				"w": 30,
+				"h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 34
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 34
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "pixagotchi-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 510,
+			"h": 170            
+		},
+		"scale": "1"
+	}
+}

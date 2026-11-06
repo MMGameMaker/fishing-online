@@ -1,0 +1,308 @@
+{
+	"frames": [
+		{
+			"filename": "elevatorOpen0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen1",
+			"frame": {
+				"x": 0,
+				"y": 106,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen2",
+			"frame": {
+				"x": 0,
+				"y": 212,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen3",
+			"frame": {
+				"x": 0,
+				"y": 318,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen4",
+			"frame": {
+				"x": 0,
+				"y": 424,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen5",
+			"frame": {
+				"x": 0,
+				"y": 530,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen6",
+			"frame": {
+				"x": 0,
+				"y": 636,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen7",
+			"frame": {
+				"x": 0,
+				"y": 742,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen8",
+			"frame": {
+				"x": 0,
+				"y": 848,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen9",
+			"frame": {
+				"x": 0,
+				"y": 954,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen10",
+			"frame": {
+				"x": 0,
+				"y": 1060,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen11",
+			"frame": {
+				"x": 0,
+				"y": 1166,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen12",
+			"frame": {
+				"x": 0,
+				"y": 1272,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		},
+        {
+			"filename": "elevatorOpen13",
+			"frame": {
+				"x": 0,
+				"y": 1378,
+				"w": 105,
+				"h": 106
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 105,
+				"h": 106
+			},
+			"sourceSize": {
+				"w": 105,
+				"h": 106
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "elevator-opening-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 105,
+			"h": 1484
+		},
+		"scale": "1"
+	}
+}

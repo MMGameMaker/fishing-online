@@ -1,0 +1,164 @@
+{
+	"frames": [
+        {
+            "filename": "nestedEgg0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 47
+            }
+        },
+
+        {
+            "filename": "nestedEgg0Option1",
+            "frame": {
+                "x": 0,
+                "y": 188,
+                "w": 40,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 47
+            }
+        },
+        {
+            "filename": "nestedEgg0Option2",
+            "frame": {
+                "x": 0,
+                "y": 235,
+                "w": 40,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 47
+            }
+        },
+        {
+            "filename": "nestedEgg0Option3",
+            "frame": {
+                "x": 0,
+                "y": 282,
+                "w": 40,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 47
+            }
+        },
+
+
+        {
+            "filename": "nestedEgg0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 47,
+                "w": 40,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 47
+            }
+        },
+        {
+            "filename": "nestedEgg0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 94,
+                "w": 40,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 47
+            }
+        },
+        {
+            "filename": "nestedEgg0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 141,
+                "w": 40,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 47
+            }
+        }       
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "nested-egg-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 40,
+			"h": 329            
+		},
+		"scale": "1"
+	}
+}

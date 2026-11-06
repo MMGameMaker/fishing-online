@@ -1,0 +1,329 @@
+{
+	"frames": [
+        {
+            "filename": "vampireCoffin0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62 
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62 
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 62,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 124,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 186,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 248,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 310,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 372,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 434,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 496,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 558,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 620,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 682,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim11",
+            "frame": {
+                "x": 0,
+                "y": 744,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim12",
+            "frame": {
+                "x": 0,
+                "y": 806,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        },
+        {
+            "filename": "vampireCoffin0Anim13",
+            "frame": {
+                "x": 0,
+                "y": 868,
+                "w": 26,
+                "h": 62
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 26,
+                "h": 62
+            },
+            "sourceSize": {
+                "w": 26,
+                "h": 62
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "vampire-coffin-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 26,
+			"h": 930            
+		},
+		"scale": "1"
+	}
+}

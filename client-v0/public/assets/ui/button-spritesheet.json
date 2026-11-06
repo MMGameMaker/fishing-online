@@ -1,0 +1,425 @@
+{
+	"frames": [
+		{
+			"filename": "sitButton",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+        {
+			"filename": "sitButtonHover",
+			"frame": {
+				"x": 26,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+        {
+			"filename": "sitButtonPressed",
+			"frame": {
+				"x": 52,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+
+
+
+		{
+			"filename": "interactButton",
+			"frame": {
+				"x": 0,
+				"y": 34,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+        {
+			"filename": "interactButtonHover",
+			"frame": {
+				"x": 26,
+				"y": 34,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+        {
+			"filename": "interactButtonPressed",
+			"frame": {
+				"x": 52,
+				"y": 34,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+
+
+
+		{
+			"filename": "getUpButton",
+			"frame": {
+				"x": 0,
+				"y": 68,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "getUpButtonHover",
+			"frame": {
+				"x": 26,
+				"y": 68,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "getUpButtonPressed",
+			"frame": {
+				"x": 52,
+				"y": 68,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+
+
+
+		{
+			"filename": "speakButton",
+			"frame": {
+				"x": 0,
+				"y": 102,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "speakButtonHover",
+			"frame": {
+				"x": 26,
+				"y": 102,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "speakButtonPressed",
+			"frame": {
+				"x": 52,
+				"y": 102,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+
+
+
+		{
+			"filename": "fishButton",
+			"frame": {
+				"x": 0,
+				"y": 136,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "fishButtonHover",
+			"frame": {
+				"x": 26,
+				"y": 136,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "fishButtonPressed",
+			"frame": {
+				"x": 52,
+				"y": 136,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "waitIcon",
+			"frame": {
+				"x": 78,
+				"y": 136,
+				"w": 26,
+			    "h": 34 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 34 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 34 
+			}
+		},
+		{
+			"filename": "teleportButton",
+			"frame": {
+				"x": 0,
+				"y": 170,
+				"w": 26,
+			    "h": 29 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 29 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 29 
+			}
+		},
+		{
+			"filename": "teleportButtonHover",
+			"frame": {
+				"x": 26,
+				"y": 170,
+				"w": 26,
+			    "h": 29 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 29 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 29 
+			}
+		},
+		{
+			"filename": "teleportButtonPressed",
+			"frame": {
+				"x": 52,
+				"y": 170,
+				"w": 26,
+			    "h": 29 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 26,
+			    "h": 29 
+			},
+			"sourceSize": {
+				"w": 26,
+			    "h": 29 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "button-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 104,
+			"h": 199
+		},
+		"scale": "1"
+	}
+}

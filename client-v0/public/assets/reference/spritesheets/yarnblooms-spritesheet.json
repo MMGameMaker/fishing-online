@@ -1,0 +1,1379 @@
+{
+	"frames": [
+        {
+            "filename": "yarnbloom-white-0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "yarnbloom-white-1",
+            "frame": {
+                "x": 28,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "yarnbloom-white-2",
+            "frame": {
+                "x": 56,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "yarnbloom-white-3",
+            "frame": {
+                "x": 84,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "yarnbloom-white-4",
+            "frame": {
+                "x": 112,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47 
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47 
+            }
+        },
+        {
+            "filename": "yarnbloom-brown-0",
+            "frame": {
+            "x": 0,
+            "y": 47,
+            "w": 28,
+            "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 28,
+            "h": 47
+            },
+            "sourceSize": {
+            "w": 28,
+            "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-brown-1",
+            "frame": {
+            "x": 28,
+            "y": 47,
+            "w": 28,
+            "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 28,
+            "h": 47
+            },
+            "sourceSize": {
+            "w": 28,
+            "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-brown-2",
+            "frame": {
+            "x": 56,
+            "y": 47,
+            "w": 28,
+            "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 28,
+            "h": 47
+            },
+            "sourceSize": {
+            "w": 28,
+            "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-brown-3",
+            "frame": {
+            "x": 84,
+            "y": 47,
+            "w": 28,
+            "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 28,
+            "h": 47
+            },
+            "sourceSize": {
+            "w": 28,
+            "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-brown-4",
+            "frame": {
+            "x": 112,
+            "y": 47,
+            "w": 28,
+            "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+            "x": 0,
+            "y": 0,
+            "w": 28,
+            "h": 47
+            },
+            "sourceSize": {
+            "w": 28,
+            "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-black-0",
+            "frame": {
+                "x": 0,
+                "y": 94,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+            },
+            {
+            "filename": "yarnbloom-black-1",
+            "frame": {
+                "x": 28,
+                "y": 94,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+            },
+            {
+            "filename": "yarnbloom-black-2",
+            "frame": {
+                "x": 56,
+                "y": 94,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+            },
+            {
+            "filename": "yarnbloom-black-3",
+            "frame": {
+                "x": 84,
+                "y": 94,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+            },
+            {
+            "filename": "yarnbloom-black-4",
+            "frame": {
+                "x": 112,
+                "y": 94,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-turquoise-0",
+            "frame": {
+              "x": 0,
+              "y": 141,
+              "w": 28,
+              "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+              "x": 0,
+              "y": 0,
+              "w": 28,
+              "h": 47
+            },
+            "sourceSize": {
+              "w": 28,
+              "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-turquoise-1",
+            "frame": {
+                "x": 28,
+                "y": 141,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-turquoise-2",
+            "frame": {
+                "x": 56,
+                "y": 141,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-turquoise-3",
+            "frame": {
+                "x": 84,
+                "y": 141,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-turquoise-4",
+            "frame": {
+                "x": 112,
+                "y": 141,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-teal-0",
+            "frame": {
+                "x": 0,
+                "y": 188,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-teal-1",
+            "frame": {
+                "x": 28,
+                "y": 188,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-teal-2",
+            "frame": {
+                "x": 56,
+                "y": 188,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-teal-3",
+            "frame": {
+                "x": 84,
+                "y": 188,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-teal-4",
+            "frame": {
+                "x": 112,
+                "y": 188,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-blue-0",
+            "frame": {
+              "x": 0,
+              "y": 235,
+              "w": 28,
+              "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+              "x": 0,
+              "y": 0,
+              "w": 28,
+              "h": 47
+            },
+            "sourceSize": {
+              "w": 28,
+              "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-blue-1",
+            "frame": {
+                "x": 28,
+                "y": 235,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-blue-2",
+            "frame": {
+                "x": 56,
+                "y": 235,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-blue-3",
+            "frame": {
+                "x": 84,
+                "y": 235,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-blue-4",
+            "frame": {
+                "x": 112,
+                "y": 235,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-red-0",
+            "frame": {
+                "x": 0,
+                "y": 282,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-red-1",
+            "frame": {
+                "x": 28,
+                "y": 282,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-red-2",
+            "frame": {
+                "x": 56,
+                "y": 282,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-red-3",
+            "frame": {
+                "x": 84,
+                "y": 282,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-red-4",
+            "frame": {
+                "x": 112,
+                "y": 282,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-pink-0",
+            "frame": {
+                "x": 0,
+                "y": 329,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-pink-1",
+            "frame": {
+                "x": 28,
+                "y": 329,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-pink-2",
+            "frame": {
+                "x": 56,
+                "y": 329,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-pink-3",
+            "frame": {
+                "x": 84,
+                "y": 329,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-pink-4",
+            "frame": {
+                "x": 112,
+                "y": 329,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-fuchsia-0",
+            "frame": {
+                "x": 0,
+                "y": 376,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-fuchsia-1",
+            "frame": {
+                "x": 28,
+                "y": 376,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-fuchsia-2",
+            "frame": {
+                "x": 56,
+                "y": 376,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-fuchsia-3",
+            "frame": {
+                "x": 84,
+                "y": 376,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-fuchsia-4",
+            "frame": {
+                "x": 112,
+                "y": 376,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-purple-0",
+            "frame": {
+                "x": 0,
+                "y": 423,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-purple-1",
+            "frame": {
+                "x": 28,
+                "y": 423,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-purple-2",
+            "frame": {
+                "x": 56,
+                "y": 423,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-purple-3",
+            "frame": {
+                "x": 84,
+                "y": 423,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-purple-4",
+            "frame": {
+                "x": 112,
+                "y": 423,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-orange-0",
+            "frame": {
+                "x": 0,
+                "y": 470,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-orange-1",
+            "frame": {
+                "x": 28,
+                "y": 470,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-orange-2",
+            "frame": {
+                "x": 56,
+                "y": 470,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-orange-3",
+            "frame": {
+                "x": 84,
+                "y": 470,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-orange-4",
+            "frame": {
+                "x": 112,
+                "y": 470,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-green-0",
+            "frame": {
+                "x": 0,
+                "y": 517,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-green-1",
+            "frame": {
+                "x": 28,
+                "y": 517,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-green-2",
+            "frame": {
+                "x": 56,
+                "y": 517,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-green-3",
+            "frame": {
+                "x": 84,
+                "y": 517,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-green-4",
+            "frame": {
+                "x": 112,
+                "y": 517,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-gold-0",
+            "frame": {
+                "x": 0,
+                "y": 564,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-gold-1",
+            "frame": {
+                "x": 28,
+                "y": 564,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-gold-2",
+            "frame": {
+                "x": 56,
+                "y": 564,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-gold-3",
+            "frame": {
+                "x": 84,
+                "y": 564,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        },
+        {
+            "filename": "yarnbloom-gold-4",
+            "frame": {
+                "x": 112,
+                "y": 564,
+                "w": 28,
+                "h": 47
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 28,
+                "h": 47
+            },
+            "sourceSize": {
+                "w": 28,
+                "h": 47
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "yarnblooms-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 140,
+			"h": 611            
+		},
+		"scale": "1"
+	}
+}

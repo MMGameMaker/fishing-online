@@ -1,0 +1,350 @@
+{
+	"frames": [
+		{
+			"filename": "swipe-down-0-sword",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-down-1-sword",
+			"frame": {
+				"x": 0,
+				"y": 55,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-down-2-sword",
+			"frame": {
+				"x": 0,
+				"y": 110,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-down-3-sword",
+			"frame": {
+				"x": 0,
+				"y": 165,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-left-0-sword",
+			"frame": {
+				"x": 0,
+				"y": 220,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-left-1-sword",
+			"frame": {
+				"x": 0,
+				"y": 275,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-left-2-sword",
+			"frame": {
+				"x": 0,
+				"y": 330,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-left-3-sword",
+			"frame": {
+				"x": 0,
+				"y": 385,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-right-0-sword",
+			"frame": {
+				"x": 0,
+				"y": 440,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-right-1-sword",
+			"frame": {
+				"x": 0,
+				"y": 495,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-right-2-sword",
+			"frame": {
+				"x": 0,
+				"y": 550,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-right-3-sword",
+			"frame": {
+				"x": 0,
+				"y": 605,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-up-0-sword",
+			"frame": {
+				"x": 0,
+				"y": 660,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-up-1-sword",
+			"frame": {
+				"x": 0,
+				"y": 715,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-up-2-sword",
+			"frame": {
+				"x": 0,
+				"y": 770,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		},
+        {
+			"filename": "swipe-up-3-sword",
+			"frame": {
+				"x": 0,
+				"y": 825,
+				"w": 48,
+				"h": 55
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 48,
+				"h": 55
+			},
+			"sourceSize": {
+				"w": 48,
+				"h": 55
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "swipe-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 48,
+			"h": 880
+		},
+		"scale": "1"
+	}
+}

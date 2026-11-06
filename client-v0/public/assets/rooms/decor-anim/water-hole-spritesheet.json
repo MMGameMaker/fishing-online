@@ -1,0 +1,255 @@
+{
+	"frames": [
+		{
+            "filename": "wateringHole0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole1",
+            "frame": {
+                "x": 0,
+                "y": 153,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole2",
+            "frame": {
+                "x": 0,
+                "y": 306,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole3",
+            "frame": {
+                "x": 0,
+                "y": 459,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole4",
+            "frame": {
+                "x": 0,
+                "y": 612,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole5",
+            "frame": {
+                "x": 0,
+                "y": 765,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole6",
+            "frame": {
+                "x": 0,
+                "y": 918,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole7",
+            "frame": {
+                "x": 0,
+                "y": 1071,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole8",
+            "frame": {
+                "x": 0,
+                "y": 1224,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole9",
+            "frame": {
+                "x": 0,
+                "y": 1377,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole10",
+            "frame": {
+                "x": 0,
+                "y": 1530,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }, {
+            "filename": "wateringHole11",
+            "frame": {
+                "x": 0,
+                "y": 1683,
+                "w": 150,
+                "h": 153
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 150,
+                "h": 153
+            },
+            "sourceSize": {
+                "w": 150,
+                "h": 153
+            }
+        }
+	],
+    "meta": {
+		"version": "1.0",
+		"image": "water-hole-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 150,
+			"h": 1836
+		},
+		"scale": "1"
+	}
+}

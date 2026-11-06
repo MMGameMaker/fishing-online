@@ -1,0 +1,128 @@
+{
+  "source": "top-down.png",
+  "mode": "auto",
+  "grid": [
+    4,
+    4
+  ],
+  "count": 16,
+  "input_cell": [
+    24,
+    24
+  ],
+  "output_cell": [
+    48,
+    24
+  ],
+  "padding": 1,
+  "source_alpha_range": [
+    255,
+    255
+  ],
+  "first_gid": 1,
+  "seams": {
+    "checked": 220,
+    "unique_pairs": 48,
+    "failures": [],
+    "basis": "source TMX tile-layer adjacency"
+  },
+  "warnings": [],
+  "tiles": [
+    {
+      "source_id": 0,
+      "output_id": 0,
+      "class": "ground",
+      "status": "projected"
+    },
+    {
+      "source_id": 1,
+      "output_id": 1,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 2,
+      "output_id": 2,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 3,
+      "output_id": 3,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 4,
+      "output_id": 4,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 5,
+      "output_id": 5,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 6,
+      "output_id": 6,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 7,
+      "output_id": 7,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 8,
+      "output_id": 8,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 9,
+      "output_id": 9,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 10,
+      "output_id": 10,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 11,
+      "output_id": 11,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 12,
+      "output_id": 12,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 13,
+      "output_id": 13,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 14,
+      "output_id": 14,
+      "class": "transition",
+      "status": "projected"
+    },
+    {
+      "source_id": 15,
+      "output_id": 15,
+      "class": "ground",
+      "status": "projected"
+    }
+  ]
+}

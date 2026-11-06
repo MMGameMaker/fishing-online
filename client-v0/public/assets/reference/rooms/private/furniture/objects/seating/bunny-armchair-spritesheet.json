@@ -1,0 +1,161 @@
+{
+	"frames": [
+		{
+			"filename": "bunnyArmchair0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 120 
+			}
+		},
+        {
+			"filename": "bunnyArmchair1",
+			"frame": {
+				"x": 0,
+				"y": 120,
+				"w": 90,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 120 
+			}
+		},
+        {
+			"filename": "bunnyArmchair1Overlay",
+			"frame": {
+				"x": 90,
+				"y": 0,
+				"w": 27,
+			    "h": 26 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+			    "h": 26 
+			},
+			"sourceSize": {
+				"w": 27,
+			    "h": 26 
+			}
+		},
+        {
+			"filename": "bunnyArmchair2",
+			"frame": {
+				"x": 0,
+				"y": 240,
+				"w": 90,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 120 
+			}
+		},
+        {
+			"filename": "bunnyArmchair2Overlay",
+			"frame": {
+				"x": 90,
+				"y": 26,
+				"w": 29,
+			    "h": 45 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+			    "h": 45 
+			},
+			"sourceSize": {
+				"w": 29,
+			    "h": 45 
+			}
+		},
+        {
+			"filename": "bunnyArmchair3",
+			"frame": {
+				"x": 0,
+				"y": 360,
+				"w": 90,
+			    "h": 120 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 90,
+			    "h": 120 
+			},
+			"sourceSize": {
+				"w": 90,
+			    "h": 120 
+			}
+		},
+        {
+			"filename": "bunnyArmchair3Overlay",
+			"frame": {
+				"x": 90,
+				"y": 71,
+				"w": 27,
+			    "h": 26 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 27,
+			    "h": 26 
+			},
+			"sourceSize": {
+				"w": 27,
+			    "h": 26 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "bunny-armchair-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 119,
+			"h": 480            
+		},
+		"scale": "1"
+	}
+}

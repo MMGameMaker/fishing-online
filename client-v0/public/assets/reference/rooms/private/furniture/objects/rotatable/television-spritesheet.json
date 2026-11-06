@@ -1,0 +1,530 @@
+{
+	"frames": [
+		{
+			"filename": "television0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television1",
+			"frame": {
+				"x": 0,
+				"y": 67,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television2",
+			"frame": {
+				"x": 0,
+				"y": 134,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television3",
+			"frame": {
+				"x": 0,
+				"y": 201,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+
+
+
+        {
+			"filename": "television0Anim0",
+			"frame": {
+				"x": 56,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television0Anim1",
+			"frame": {
+				"x": 112,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television0Anim2",
+			"frame": {
+				"x": 168,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television0Anim3",
+			"frame": {
+				"x": 224,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television0Anim4",
+			"frame": {
+				"x": 280,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+
+
+
+        {
+			"filename": "television1Anim0",
+			"frame": {
+				"x": 56,
+				"y": 67,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television1Anim1",
+			"frame": {
+				"x": 112,
+				"y": 67,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television1Anim2",
+			"frame": {
+				"x": 168,
+				"y": 67,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television1Anim3",
+			"frame": {
+				"x": 224,
+				"y": 67,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television1Anim4",
+			"frame": {
+				"x": 280,
+				"y": 67,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+
+
+
+        {
+			"filename": "television2Anim0",
+			"frame": {
+				"x": 56,
+				"y": 134,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television2Anim1",
+			"frame": {
+				"x": 112,
+				"y": 134,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television2Anim2",
+			"frame": {
+				"x": 168,
+				"y": 134,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television2Anim3",
+			"frame": {
+				"x": 224,
+				"y": 134,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television2Anim4",
+			"frame": {
+				"x": 280,
+				"y": 134,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+
+
+
+        {
+			"filename": "television3Anim0",
+			"frame": {
+				"x": 56,
+				"y": 201,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television3Anim1",
+			"frame": {
+				"x": 112,
+				"y": 201,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television3Anim2",
+			"frame": {
+				"x": 168,
+				"y": 201,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television3Anim3",
+			"frame": {
+				"x": 224,
+				"y": 201,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		},
+        {
+			"filename": "television3Anim4",
+			"frame": {
+				"x": 280,
+				"y": 201,
+				"w": 56,
+				"h": 67
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 56,
+				"h": 67
+			},
+			"sourceSize": {
+				"w": 56,
+				"h": 67
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "television-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 336,
+			"h": 268
+		},
+		"scale": "1"
+	}
+}

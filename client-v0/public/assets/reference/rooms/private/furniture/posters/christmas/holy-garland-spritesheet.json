@@ -1,0 +1,182 @@
+{
+	"frames": [
+		{
+			"filename": "holyGarland0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		},
+        {
+			"filename": "holyGarland1",
+			"frame": {
+				"x": 0,
+				"y": 40,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		},
+        {
+			"filename": "holyGarland2",
+			"frame": {
+				"x": 0,
+				"y": 80,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		},
+        {
+			"filename": "holyGarland3",
+			"frame": {
+				"x": 38,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		},
+        {
+			"filename": "holyGarland4",
+			"frame": {
+				"x": 38,
+				"y": 40,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		},
+        {
+			"filename": "holyGarland5",
+			"frame": {
+				"x": 76,
+				"y": 40,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		},
+        {
+			"filename": "holyGarland6",
+			"frame": {
+				"x": 76,
+				"y": 80,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		},
+        {
+			"filename": "holyGarland7",
+			"frame": {
+				"x": 38,
+				"y": 80,
+				"w": 38,
+			    "h": 40 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 38,
+			    "h": 40 
+			},
+			"sourceSize": {
+				"w": 38,
+			    "h": 40 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "holy-garland-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 114,
+			"h": 120            
+		},
+		"scale": "1"
+	}
+}

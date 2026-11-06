@@ -1,0 +1,392 @@
+{
+	"frames": [
+		{
+			"filename": "upArrow",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+		{
+			"filename": "upArrowHover",
+			"frame": {
+				"x": 0,
+				"y": 17,
+				"w": 30,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "upArrowPress",
+			"frame": {
+				"x": 0,
+				"y": 34,
+				"w": 30,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+		{
+			"filename": "rightArrow",
+			"frame": {
+				"x": 30,
+				"y": 0,
+				"w": 17,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+		{
+			"filename": "rightArrowHover",
+			"frame": {
+				"x": 30,
+				"y": 30,
+				"w": 17,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "rightArrowPress",
+			"frame": {
+				"x": 30,
+				"y": 60,
+				"w": 17,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+		{
+			"filename": "downArrow",
+			"frame": {
+				"x": 47,
+				"y": 0,
+				"w": 30,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+		{
+			"filename": "downArrowHover",
+			"frame": {
+				"x": 47,
+				"y": 17,
+				"w": 30,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "downArrowPress",
+			"frame": {
+				"x": 47,
+				"y": 34,
+				"w": 30,
+				"h": 17
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "leftArrow",
+			"frame": {
+				"x": 77,
+				"y": 0,
+				"w": 17,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "leftArrowHover",
+			"frame": {
+				"x": 77,
+				"y": 30,
+				"w": 17,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "leftArrowPress",
+			"frame": {
+				"x": 77,
+				"y": 60,
+				"w": 17,
+				"h": 30
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "acceptButton",
+			"frame": {
+				"x": 94,
+				"y": 0,
+				"w": 30,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "acceptButtonHover",
+			"frame": {
+				"x": 94,
+				"y": 33,
+				"w": 30,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "acceptButtonPress",
+			"frame": {
+				"x": 94,
+				"y": 66,
+				"w": 30,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "cancelButton",
+			"frame": {
+				"x": 124,
+				"y": 0,
+				"w": 30,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "cancelButtonHover",
+			"frame": {
+				"x": 124,
+				"y": 33,
+				"w": 30,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		},
+        {
+			"filename": "cancelButtonPress",
+			"frame": {
+				"x": 124,
+				"y": 66,
+				"w": 30,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 154,
+				"h": 99
+			},
+			"sourceSize": {
+				"w": 154,
+				"h": 99
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "item-placement-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 154,
+			"h": 99
+		},
+		"scale": "1"
+	}
+}

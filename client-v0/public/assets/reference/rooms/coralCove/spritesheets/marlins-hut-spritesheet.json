@@ -1,0 +1,350 @@
+{
+	"frames": [
+        {
+            "filename": "marlinsHut0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut1",
+            "frame": {
+                "x": 0,
+                "y": 189,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut2",
+            "frame": {
+                "x": 0,
+                "y": 378,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut3",
+            "frame": {
+                "x": 0,
+                "y": 567,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut4",
+            "frame": {
+                "x": 0,
+                "y": 756,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut5",
+            "frame": {
+                "x": 0,
+                "y": 945,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut6",
+            "frame": {
+                "x": 0,
+                "y": 1134,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut7",
+            "frame": {
+                "x": 0,
+                "y": 1323,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut8",
+            "frame": {
+                "x": 0,
+                "y": 1512,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut9",
+            "frame": {
+                "x": 0,
+                "y": 1701,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut10",
+            "frame": {
+                "x": 0,
+                "y": 1890,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut11",
+            "frame": {
+                "x": 0,
+                "y": 2079,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut12",
+            "frame": {
+                "x": 0,
+                "y": 2268,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut13",
+            "frame": {
+                "x": 0,
+                "y": 2457,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut14",
+            "frame": {
+                "x": 0,
+                "y": 2646,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        },
+        {
+            "filename": "marlinsHut15",
+            "frame": {
+                "x": 0,
+                "y": 2835,
+                "w": 244,
+                "h": 189
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 244,
+                "h": 189
+            },
+            "sourceSize": {
+                "w": 244,
+                "h": 189
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "marlins-hut-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 244,
+			"h": 3024
+		},
+		"scale": "1"
+	}
+}

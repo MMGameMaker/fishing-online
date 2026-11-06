@@ -1,0 +1,98 @@
+{
+	"frames": [
+        {
+			"filename": "honeyBearPlushie0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+		{
+			"filename": "honeyBearPlushie1",
+			"frame": {
+				"x": 0,
+				"y": 60,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+		{
+			"filename": "honeyBearPlushie2",
+			"frame": {
+				"x": 0,
+				"y": 120,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		},
+		{
+			"filename": "honeyBearPlushie3",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 30,
+			    "h": 60 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 60 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 60 
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "honey-bear-plushie-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 30,
+			"h": 240            
+		},
+		"scale": "1"
+	}
+}

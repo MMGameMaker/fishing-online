@@ -1,0 +1,658 @@
+{
+	"frames": [
+		{
+			"filename": "cauldron0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 35
+			}
+		},
+        {
+			"filename": "cauldron0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 35,
+				"w": 30,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 35
+			}
+		},
+        {
+			"filename": "cauldron0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 70,
+				"w": 30,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 35
+			}
+		},
+        {
+			"filename": "cauldron0Anim2",
+			"frame": {
+				"x": 0,
+				"y": 105,
+				"w": 30,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 35
+			}
+		},
+        {
+			"filename": "cauldron0Anim3",
+			"frame": {
+				"x": 0,
+				"y": 140,
+				"w": 30,
+				"h": 35
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+				"h": 35
+			},
+			"sourceSize": {
+				"w": 30,
+				"h": 35
+			}
+		},
+
+
+
+        {
+            "filename": "cauldron1",
+            "frame": {
+                "x": 30,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron1Anim0",
+            "frame": {
+                "x": 30,
+                "y": 35,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron1Anim1",
+            "frame": {
+                "x": 30,
+                "y": 70,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron1Anim2",
+            "frame": {
+                "x": 30,
+                "y": 105,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron1Anim3",
+            "frame": {
+                "x": 30,
+                "y": 140,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        
+        
+
+        {
+            "filename": "cauldron2",
+            "frame": {
+                "x": 60,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron2Anim0",
+            "frame": {
+                "x": 60,
+                "y": 35,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron2Anim1",
+            "frame": {
+                "x": 60,
+                "y": 70,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron2Anim2",
+            "frame": {
+                "x": 60,
+                "y": 105,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron2Anim3",
+            "frame": {
+                "x": 60,
+                "y": 140,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        
+        
+
+        {
+            "filename": "cauldron3",
+            "frame": {
+                "x": 90,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron3Anim0",
+            "frame": {
+                "x": 90,
+                "y": 35,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron3Anim1",
+            "frame": {
+                "x": 90,
+                "y": 70,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron3Anim2",
+            "frame": {
+                "x": 90,
+                "y": 105,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron3Anim3",
+            "frame": {
+                "x": 90,
+                "y": 140,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        
+        
+
+        {
+            "filename": "cauldron4",
+            "frame": {
+                "x": 120,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron4Anim0",
+            "frame": {
+                "x": 120,
+                "y": 35,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron4Anim1",
+            "frame": {
+                "x": 120,
+                "y": 70,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron4Anim2",
+            "frame": {
+                "x": 120,
+                "y": 105,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron4Anim3",
+            "frame": {
+                "x": 120,
+                "y": 140,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        
+        
+        {
+            "filename": "cauldron5",
+            "frame": {
+                "x": 150,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron5Anim0",
+            "frame": {
+                "x": 150,
+                "y": 35,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron5Anim1",
+            "frame": {
+                "x": 150,
+                "y": 70,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron5Anim2",
+            "frame": {
+                "x": 150,
+                "y": 105,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        },
+        {
+            "filename": "cauldron5Anim3",
+            "frame": {
+                "x": 150,
+                "y": 140,
+                "w": 30,
+                "h": 35
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 35
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 35
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "cauldron-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 180,
+			"h": 175
+		},
+		"scale": "1"
+	}
+}

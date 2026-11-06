@@ -1,0 +1,434 @@
+{
+	"frames": [
+        {
+            "filename": "daisy0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy1",
+            "frame": {
+                "x": 0,
+                "y": 53,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy2",
+            "frame": {
+                "x": 0,
+                "y": 106,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy3",
+            "frame": {
+                "x": 0,
+                "y": 159,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy4",
+            "frame": {
+                "x": 0,
+                "y": 212,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy5",
+            "frame": {
+                "x": 0,
+                "y": 265,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy6",
+            "frame": {
+                "x": 0,
+                "y": 318,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy7",
+            "frame": {
+                "x": 0,
+                "y": 371,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy8",
+            "frame": {
+                "x": 0,
+                "y": 424,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy9",
+            "frame": {
+                "x": 0,
+                "y": 477,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy10",
+            "frame": {
+                "x": 0,
+                "y": 530,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy11",
+            "frame": {
+                "x": 0,
+                "y": 583,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy12",
+            "frame": {
+                "x": 0,
+                "y": 636,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy13",
+            "frame": {
+                "x": 0,
+                "y": 689,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy14",
+            "frame": {
+                "x": 0,
+                "y": 742,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy15",
+            "frame": {
+                "x": 0,
+                "y": 795,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy16",
+            "frame": {
+                "x": 0,
+                "y": 848,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy17",
+            "frame": {
+                "x": 0,
+                "y": 901,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy18",
+            "frame": {
+                "x": 0,
+                "y": 954,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        },
+        {
+            "filename": "daisy19",
+            "frame": {
+                "x": 0,
+                "y": 1007,
+                "w": 38,
+                "h": 53
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 38,
+                "h": 53
+            },
+            "sourceSize": {
+                "w": 38,
+                "h": 53
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "daisy-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 38,
+			"h": 920
+		},
+		"scale": "1"
+	}
+}

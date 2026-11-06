@@ -1,0 +1,98 @@
+{
+	"frames": [
+		{
+			"filename": "bobbingPlantFront0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 33
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 33
+			}
+		},
+        {
+			"filename": "bobbingPlantFront1",
+			"frame": {
+				"x": 0,
+				"y": 33,
+				"w": 40,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 33
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 33
+			}
+		},
+        {
+			"filename": "bobbingPlantFront2",
+			"frame": {
+				"x": 0,
+				"y": 66,
+				"w": 40,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 33
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 33
+			}
+		},
+        {
+			"filename": "bobbingPlantFront3",
+			"frame": {
+				"x": 0,
+				"y": 99,
+				"w": 40,
+				"h": 33
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 33
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 33
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "bobbing-plant-front-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 40,
+			"h": 33
+		},
+		"scale": "1"
+	}
+}

@@ -3,15 +3,17 @@
 ## Đã chốt
 
 - 2D Pixel Art; web client Cocos Creator 3.8.x + TypeScript.
-- ASP.NET Core + SignalR; PostgreSQL + Redis. Admin React + TypeScript riêng.
+- ASP.NET Core + SignalR; PostgreSQL + Redis. Admin React + TypeScript riêng, do BE thực hiện cùng Server; hai luồng Client kiêm Art và BE kiêm Admin.
 - Một map hồ đi lại, 20 ghế/phòng; phòng và Lake là một. Login, vào phòng, chọn ghế, mua vé theo lượt.
 - Bản đầu tập trung làm câu Manual; Idle GD cập nhật sau.
 - Chỉ cần có cần câu là câu được; mỗi người chơi mặc định có 1 cần cấp thấp. Bản đầu làm 5 loại cần (bảng Fishing Rod).
 - 9 loài cá mẫu thuộc 5 bậc rarity (bảng Fish Codex); inventory, lịch sử câu, thành tích cá nhân.
 - Thính là vật phẩm tiêu hao, thuộc inventory/shop. Bản đầu có 1 loại để test.
 - Shop dùng Gold, có ledger: bán cần câu và thính; user bán cá đã câu tại Shop. Gem không dùng trong bản đầu; chưa tự suy ra có shop Gem hoặc payment.
+- Khoảng 5–10 skin nhân vật, chọn và đồng bộ; quyền dùng/mở khóa chưa khóa.
+- Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1.
 
-Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ dùng tiền để mua vé), hệ thống mồi câu, dây và lưỡi (GD bỏ khỏi bản đầu 2026-11-06; bổ sung sau nếu quyết định triển khai), kỹ năng riêng của từng loài cá, chat/emoji, leaderboard, giải đấu và payment thật kể cả sandbox để sau. Không thêm stamina, nông trại hoặc hệ ngày/đêm từ ảnh tham khảo vào v0.1.
+Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ dùng tiền để mua vé), hệ thống mồi câu, dây và lưỡi (GD bỏ khỏi bản đầu 2026-11-06; bổ sung sau nếu quyết định triển khai), kỹ năng riêng của từng loài cá, giải đấu và payment thật kể cả sandbox để sau. V1 được hiểu là bản đầu đang mang nhãn v0.1, chưa tự đổi version release. Không thêm stamina, nông trại hoặc hệ ngày/đêm từ ảnh tham khảo vào v0.1.
 
 ## Cơ chế ghế
 
@@ -158,10 +160,10 @@ Số tạm để test (đề xuất 2026-11-06, chỉnh bằng mô phỏng, chư
 
 ## GD cần đặc tả trước triển khai phần phụ thuộc
 
-Luồng dự kiến để viết acceptance: login → vào phòng → di chuyển/chọn ghế → mua vé → câu theo mục Quy trình câu cá → inventory/lịch sử. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
+Luồng dự kiến để viết acceptance: login → vào phòng → di chuyển/chọn ghế → mua vé → câu theo mục Quy trình câu cá → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
 
-GD cần khóa (lượt/vé, rời ghế và mất kết nối đã chốt ở mục Cơ chế ghế; các bước câu và thời hạn thính đã chốt ở mục Quy trình câu cá): túi đầy và thành tích.
+GD cần khóa (lượt/vé, rời ghế và mất kết nối đã chốt ở mục Cơ chế ghế; các bước câu và thời hạn thính đã chốt ở mục Quy trình câu cá): quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
 
-Bảng tương thích cá với thính và phương pháp/cần phải tách các bước tiếp cận/cắn → mắc lưỡi → kéo cá. Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
+Bảng tương thích cá với thính và phương pháp/cần phải tách các bước tiếp cận/cắn → mắc lưỡi → kéo cá. Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
 
 Server quyết định kết quả cá, tiền, vật phẩm và tài nguyên. Client hiển thị phản hồi/input; mock không phải kết quả server thật.

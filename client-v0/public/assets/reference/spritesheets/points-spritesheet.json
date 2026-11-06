@@ -1,0 +1,321 @@
+{
+	"frames": [
+        {
+            "filename": "points-1",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-2",
+            "frame": {
+                "x": 0,
+                "y": 16,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 16,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-3",
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 32,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-4",
+            "frame": {
+                "x": 0,
+                "y": 48,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 48,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-5",
+            "frame": {
+                "x": 0,
+                "y": 64,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 64,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-6",
+            "frame": {
+                "x": 0,
+                "y": 80,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 80,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-7",
+            "frame": {
+                "x": 0,
+                "y": 96,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 96,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-8",
+            "frame": {
+                "x": 0,
+                "y": 112,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 112,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, {
+            "filename": "points-9",
+            "frame": {
+                "x": 0,
+                "y": 128,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 128,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }, 
+        {
+            "filename": "points-10",
+            "frame": {
+                "x": 0,
+                "y": 144,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 144,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        },
+        {
+            "filename": "points-11",
+            "frame": {
+                "x": 0,
+                "y": 160,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 144,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        },
+        {
+            "filename": "points-12",
+            "frame": {
+                "x": 0,
+                "y": 176,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 144,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        },
+        {
+            "filename": "points-13",
+            "frame": {
+                "x": 0,
+                "y": 192,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 144,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        },
+        {
+            "filename": "points-14",
+            "frame": {
+                "x": 0,
+                "y": 208,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 144,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        },
+        {
+            "filename": "points-15",
+            "frame": {
+                "x": 0,
+                "y": 224,
+                "w": 32,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 144,
+                "w": 32,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 32,
+                "h": 16
+            }
+        }
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "points-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 32,
+			"h": 160
+		},
+		"scale": "1"
+	}
+}

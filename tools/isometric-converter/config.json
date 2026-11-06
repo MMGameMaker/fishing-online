@@ -1,0 +1,5 @@
+{
+  "jobs": [
+    {"name": "island", "tmx": "example/source/island.tmx", "mode": "auto", "iso_height": 24, "padding": 1}
+  ]
+}

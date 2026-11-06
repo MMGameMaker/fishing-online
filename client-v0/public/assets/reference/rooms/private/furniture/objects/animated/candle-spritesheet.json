@@ -1,0 +1,161 @@
+{
+	"frames": [
+		{
+			"filename": "candle0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 36
+			}
+		},
+        {
+			"filename": "candle0Anim0",
+			"frame": {
+				"x": 0,
+				"y": 36,
+				"w": 29,
+				"h": 36
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 36
+			}
+		},
+        {
+			"filename": "candle0Anim1",
+			"frame": {
+				"x": 0,
+				"y": 72,
+				"w": 29,
+				"h": 36
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 36
+			}
+		},
+        {
+			"filename": "candle0Anim2",
+			"frame": {
+				"x": 0,
+				"y": 108,
+				"w": 29,
+				"h": 36
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 36
+			}
+		},
+        {
+			"filename": "candle0Anim3",
+			"frame": {
+				"x": 0,
+				"y": 144,
+				"w": 29,
+				"h": 36
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 36
+			}
+		},
+        {
+			"filename": "candle0Anim4",
+			"frame": {
+				"x": 0,
+				"y": 180,
+				"w": 29,
+				"h": 36
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 36
+			}
+		},
+        {
+			"filename": "candle0Anim5",
+			"frame": {
+				"x": 0,
+				"y": 216,
+				"w": 29,
+				"h": 36
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 29,
+				"h": 36
+			},
+			"sourceSize": {
+				"w": 29,
+				"h": 36
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "candle-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 29,
+			"h": 252
+		},
+		"scale": "1"
+	}
+}

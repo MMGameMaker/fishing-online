@@ -1,0 +1,1097 @@
+{
+	"frames": [
+        {
+            "filename": "iceThrone0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76 
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76 
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76 
+            }
+        },
+        {
+            "filename": "iceThrone0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 76,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 152,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 228,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 304,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 380,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim5",
+            "frame": {
+                "x": 0,
+                "y": 456,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim6",
+            "frame": {
+                "x": 0,
+                "y": 532,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim7",
+            "frame": {
+                "x": 0,
+                "y": 608,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim8",
+            "frame": {
+                "x": 0,
+                "y": 684,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim9",
+            "frame": {
+                "x": 0,
+                "y": 760,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone0Anim10",
+            "frame": {
+                "x": 0,
+                "y": 836,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+
+
+
+        {
+            "filename": "iceThrone1",
+            "frame": {
+                "x": 52,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim0",
+            "frame": {
+                "x": 52,
+                "y": 76,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim1",
+            "frame": {
+                "x": 52,
+                "y": 152,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim2",
+            "frame": {
+                "x": 52,
+                "y": 228,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim3",
+            "frame": {
+                "x": 52,
+                "y": 304,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim4",
+            "frame": {
+                "x": 52,
+                "y": 380,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim5",
+            "frame": {
+                "x": 52,
+                "y": 456,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim6",
+            "frame": {
+                "x": 52,
+                "y": 532,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim7",
+            "frame": {
+                "x": 52,
+                "y": 608,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim8",
+            "frame": {
+                "x": 52,
+                "y": 684,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim9",
+            "frame": {
+                "x": 52,
+                "y": 760,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone1Anim10",
+            "frame": {
+                "x": 52,
+                "y": 836,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        
+        
+
+        {
+            "filename": "iceThrone2",
+            "frame": {
+                "x": 104,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim0",
+            "frame": {
+                "x": 104,
+                "y": 76,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim1",
+            "frame": {
+                "x": 104,
+                "y": 152,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim2",
+            "frame": {
+                "x": 104,
+                "y": 228,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim3",
+            "frame": {
+                "x": 104,
+                "y": 304,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim4",
+            "frame": {
+                "x": 104,
+                "y": 380,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim5",
+            "frame": {
+                "x": 104,
+                "y": 456,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim6",
+            "frame": {
+                "x": 104,
+                "y": 532,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim7",
+            "frame": {
+                "x": 104,
+                "y": 608,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim8",
+            "frame": {
+                "x": 104,
+                "y": 684,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim9",
+            "frame": {
+                "x": 104,
+                "y": 760,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone2Anim10",
+            "frame": {
+                "x": 104,
+                "y": 836,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        
+        
+
+        {
+            "filename": "iceThrone3",
+            "frame": {
+                "x": 156,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim0",
+            "frame": {
+                "x": 156,
+                "y": 76,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim1",
+            "frame": {
+                "x": 156,
+                "y": 152,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim2",
+            "frame": {
+                "x": 156,
+                "y": 228,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim3",
+            "frame": {
+                "x": 156,
+                "y": 304,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim4",
+            "frame": {
+                "x": 156,
+                "y": 380,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim5",
+            "frame": {
+                "x": 156,
+                "y": 456,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim6",
+            "frame": {
+                "x": 156,
+                "y": 532,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim7",
+            "frame": {
+                "x": 156,
+                "y": 608,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim8",
+            "frame": {
+                "x": 156,
+                "y": 684,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim9",
+            "frame": {
+                "x": 156,
+                "y": 760,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        {
+            "filename": "iceThrone3Anim10",
+            "frame": {
+                "x": 156,
+                "y": 836,
+                "w": 52,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 76
+            }
+        },
+        
+        
+
+        {
+            "filename": "iceThrone1Overlay",
+            "frame": {
+                "x": 208,
+                "y": 0,
+                "w": 33,
+                "h": 22
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 22
+            }
+        },
+        {
+            "filename": "iceThrone2Overlay",
+            "frame": {
+                "x": 208,
+                "y": 22,
+                "w": 52,
+                "h": 50
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 52,
+                "h": 50
+            },
+            "sourceSize": {
+                "w": 52,
+                "h": 50
+            }
+        },
+        {
+            "filename": "iceThrone3Overlay",
+            "frame": {
+                "x": 208,
+                "y": 72,
+                "w": 33,
+                "h": 22
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 33,
+                "h": 22
+            },
+            "sourceSize": {
+                "w": 33,
+                "h": 22
+            }
+        } 
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "ice-throne-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 260,
+			"h": 912
+		},
+		"scale": "1"
+	}
+}

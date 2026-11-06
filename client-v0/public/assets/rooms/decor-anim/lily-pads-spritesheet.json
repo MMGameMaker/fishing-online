@@ -1,0 +1,140 @@
+{
+	"frames": [
+		{
+			"filename": "lilyPads0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+			    "h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+			    "h": 34
+			},
+			"sourceSize": {
+				"w": 37,
+			    "h": 34
+			}
+		},
+        {
+			"filename": "lilyPads1",
+			"frame": {
+				"x": 0,
+				"y": 34,
+				"w": 37,
+			    "h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+			    "h": 34
+			},
+			"sourceSize": {
+				"w": 37,
+			    "h": 34
+			}
+		},
+        {
+			"filename": "lilyPads2",
+			"frame": {
+				"x": 0,
+				"y": 68,
+				"w": 37,
+			    "h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+			    "h": 34
+			},
+			"sourceSize": {
+				"w": 37,
+			    "h": 34
+			}
+		},
+        {
+			"filename": "lilyPads3",
+			"frame": {
+				"x": 0,
+				"y": 102,
+				"w": 37,
+			    "h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+			    "h": 34
+			},
+			"sourceSize": {
+				"w": 37,
+			    "h": 34
+			}
+		},
+        {
+			"filename": "lilyPads4",
+			"frame": {
+				"x": 0,
+				"y": 136,
+				"w": 37,
+			    "h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+			    "h": 34
+			},
+			"sourceSize": {
+				"w": 37,
+			    "h": 34
+			}
+		},
+        {
+			"filename": "lilyPads5",
+			"frame": {
+				"x": 0,
+				"y": 170,
+				"w": 37,
+			    "h": 34
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 37,
+			    "h": 34
+			},
+			"sourceSize": {
+				"w": 37,
+			    "h": 34
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "lily-pads-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 37,
+			"h": 34
+		},
+		"scale": "1"
+	}
+}

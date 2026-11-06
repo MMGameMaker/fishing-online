@@ -1,0 +1,98 @@
+{
+	"frames": [
+		{
+			"filename": "pineTree0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+				"h": 102
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+				"h": 102
+			},
+			"sourceSize": {
+				"w": 35,
+				"h": 102
+			}
+		},
+        {
+			"filename": "pineTree1",
+			"frame": {
+				"x": 0,
+				"y": 102,
+				"w": 35,
+				"h": 102
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+				"h": 102
+			},
+			"sourceSize": {
+				"w": 35,
+				"h": 102
+			}
+		},
+        {
+			"filename": "pineTree2",
+			"frame": {
+				"x": 0,
+				"y": 204,
+				"w": 35,
+				"h": 102
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+				"h": 102
+			},
+			"sourceSize": {
+				"w": 35,
+				"h": 102
+			}
+		},
+        {
+			"filename": "pineTree3",
+			"frame": {
+				"x": 0,
+				"y": 306,
+				"w": 35,
+				"h": 102
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 35,
+				"h": 102
+			},
+			"sourceSize": {
+				"w": 35,
+				"h": 102
+			}
+		}
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "pine-tree-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 35,
+			"h": 102
+		},
+		"scale": "1"
+	}
+}

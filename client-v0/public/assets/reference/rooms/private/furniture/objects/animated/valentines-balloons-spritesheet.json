@@ -1,0 +1,140 @@
+{
+	"frames": [
+        {
+			"filename": "valentinesBalloons0",
+			"frame": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 76 
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 30,
+			    "h": 76 
+			},
+			"sourceSize": {
+				"w": 30,
+			    "h": 76 
+			}
+		},
+        {
+            "filename": "valentinesBalloons0Anim0",
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 76
+            }
+        },
+        {
+            "filename": "valentinesBalloons0Anim1",
+            "frame": {
+                "x": 0,
+                "y": 76,
+                "w": 30,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 76
+            }
+        },
+        {
+            "filename": "valentinesBalloons0Anim2",
+            "frame": {
+                "x": 0,
+                "y": 152,
+                "w": 30,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 76
+            }
+        },
+        {
+            "filename": "valentinesBalloons0Anim3",
+            "frame": {
+                "x": 0,
+                "y": 228,
+                "w": 30,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 76
+            }
+        },
+        {
+            "filename": "valentinesBalloons0Anim4",
+            "frame": {
+                "x": 0,
+                "y": 304,
+                "w": 30,
+                "h": 76
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 76
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 76
+            }
+        }        
+	],
+	"meta": {
+		"version": "1.0",
+		"image": "valentines-balloons-spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 30,
+			"h": 380            
+		},
+		"scale": "1"
+	}
+}
