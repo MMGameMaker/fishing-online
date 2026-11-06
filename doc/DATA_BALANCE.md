@@ -6,17 +6,19 @@ GD sở hữu luật và giá trị balance; BE sở hữu validation và thực
 
 | Nhóm | Trường/quan hệ cần làm rõ |
 | --- | --- |
-| Cá | ID, rarity, khoảng chiều dài, điều kiện xuất hiện và tương thích |
-| Trang bị | Rod/Line/Hook/Bait, chỉ số, yêu cầu dùng, tiêu hao |
-| Thính | Tác dụng, thời hạn, phạm vi, tương tác với mồi |
-| Vé/shop | Đơn vị, giá Gold, điều kiện mua/dùng, giới hạn |
+| Nhân vật | Level, EXP Req, Strength, Hit Zone Increase, Rare/Large Fish Luck |
+| Cá | ID, rarity, khoảng chiều dài, HP, EXP, giá bán, tỷ lệ spawn |
+| Cần câu | 5 loại, chỉ số, giá Gold, cần mặc định. Mồi/dây/lưỡi để sau |
+| Thính | Tác dụng, giá Gold, thời hạn, không cộng dồn |
+| Ghế/vé/shop | Tier ghế, buff, Lure Time, giá vé, hàng bán trong Shop, điều kiện mua/dùng, giới hạn |
+| Minigame | Theo rarity: thời gian, tốc độ kim, vùng xanh/vàng gốc, mức trừ giờ, độ xê dịch |
 | Skin | 5–10 ID và asset, quyền dùng/chọn; không tự thêm chỉ số/shop skin |
 | Social/ranking | Emoji ID, trigger/phạm vi khoe cá, giới hạn; chỉ số/chu kỳ/đồng hạng/update time |
-| Nguồn ban đầu | Gold/vé/mồi khi bỏ loot, theo luật GD; không tự thêm quà ngày/nhiệm vụ |
+| Nguồn ban đầu | 100 Gold cho người chơi mới; không tự thêm quà ngày/nhiệm vụ |
 | Loot — để sau | Chưa cấu hình spawn/nhặt trong v1 |
-| Công thức | Các bước cắn/mắc/kéo, input Manual/Idle, thất bại và thưởng |
+| Công thức | ATK và HP, random chiều dài, input Manual, thất bại và thưởng. Idle cập nhật sau |
 
-Đây là danh mục thiết kế, chưa phải schema hoặc số balance đã duyệt. Mỗi trường cần kiểu, đơn vị, khoảng hợp lệ, mặc định và nguồn quyết định. ID ổn định; tên hiển thị có thể đổi mà không đổi ID.
+Đây là danh mục thiết kế, chưa phải schema hoặc số balance đã duyệt. Số liệu tạm để test nằm ở [GAMEPLAY_SCOPE.md](GAMEPLAY_SCOPE.md). Mỗi trường cần kiểu, đơn vị, khoảng hợp lệ, mặc định và nguồn quyết định. ID ổn định; tên hiển thị có thể đổi mà không đổi ID.
 
 ## Quy trình thay đổi đề xuất
 

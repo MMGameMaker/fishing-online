@@ -11,7 +11,7 @@
 - Thính là vật phẩm tiêu hao, thuộc inventory/shop. Bản đầu có 1 loại để test.
 - Shop dùng Gold, có ledger: bán cần câu và thính; user bán cá đã câu tại Shop. Gem không dùng trong bản đầu; chưa tự suy ra có shop Gem hoặc payment.
 - Khoảng 5–10 skin nhân vật, chọn và đồng bộ; quyền dùng/mở khóa chưa khóa.
-- Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1.
+- Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1; GD mô tả sau.
 
 Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ dùng tiền để mua vé), hệ thống mồi câu, dây và lưỡi (GD bỏ khỏi bản đầu 2026-11-06; bổ sung sau nếu quyết định triển khai), kỹ năng riêng của từng loài cá, giải đấu và payment thật kể cả sandbox để sau. V1 được hiểu là bản đầu đang mang nhãn v0.1, chưa tự đổi version release. Không thêm stamina, nông trại hoặc hệ ngày/đêm từ ảnh tham khảo vào v0.1.
 
@@ -164,6 +164,6 @@ Luồng dự kiến để viết acceptance: login → vào phòng → di chuy�
 
 GD cần khóa (lượt/vé, rời ghế và mất kết nối đã chốt ở mục Cơ chế ghế; các bước câu và thời hạn thính đã chốt ở mục Quy trình câu cá): quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
 
-Bảng tương thích cá với thính và phương pháp/cần phải tách các bước tiếp cận/cắn → mắc lưỡi → kéo cá. Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
+Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
 
 Server quyết định kết quả cá, tiền, vật phẩm và tài nguyên. Client hiển thị phản hồi/input; mock không phải kết quả server thật.

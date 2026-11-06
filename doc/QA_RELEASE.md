@@ -9,7 +9,7 @@ Chưa có build hay CI được kiểm chứng tại thời điểm tạo hướ
 | Login/phòng/ghế | Auth hết hạn, phòng đủ 20 ghế, hai người tranh một ghế, rời/vào lại |
 | Di chuyển/skin | Biên map, chọn/lưu/đồng bộ 5–10 skin, animation/hướng/pivot; reconnect và 20 avatar |
 | Social/ranking | Chat/emoji đúng phạm vi và giới hạn; khoe catch thật không giả/lặp; bảng điểm đúng luật/phân trang/update time |
-| Câu Idle/Manual | Điều kiện trang bị/vé, input hợp lệ/sai, thành công/thất bại/hủy theo luật GD |
+| Câu Manual | Điều kiện ghế/vé/cần câu, input hợp lệ/sai, thành công/thất bại/hủy theo luật GD |
 | Inventory/shop | Thiếu Gold/vật phẩm, gửi lặp, request đồng thời, không âm hoặc cộng thưởng trùng |
 | Mạng/persistence | Timeout, mất mạng/reconnect, event trễ/trùng, reload, restart và đồng bộ lại |
 | Admin/data | Phân quyền, dữ liệu sai, publish/audit, phiên bản cấu hình và rollback |
