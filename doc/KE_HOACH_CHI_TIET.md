@@ -1,6 +1,6 @@
 # Kế hoạch chi tiết theo từng phần — Playable v0.1
 
-**Trạng thái: Đề xuất (2026-11-09), chưa duyệt.** Lập từ [GAMEPLAY_SCOPE.md](GAMEPLAY_SCOPE.md) (bản đã đổi client sang Phaser + TypeScript) và mã nguồn hiện có trong repo. Không thay backlog Notion; cột "Backlog" giữ ID S/W/A để đối chiếu. Không ghi ngày hay ngày công.
+**Trạng thái: M0 cơ chế/mặc định đã được user đồng ý 2026-11-09; tham chiếu SPEC0.4, chưa phải các task đã triển khai.** Lập từ [GAMEPLAY_SCOPE.md](GAMEPLAY_SCOPE.md) (bản đã đổi client sang Phaser + TypeScript) và mã nguồn hiện có trong repo. Không thay backlog Notion; cột "Backlog" giữ ID S/W/A để đối chiếu. Không ghi ngày hay ngày công.
 
 **Quy ước:**
 - **Bên làm:** C = Web Client (kiêm Art), B = Server, A = Admin (BE làm), GD = Game Design.
@@ -87,13 +87,13 @@
 | ID | Việc | Bên làm | Ưu tiên | Phụ thuộc | Nghiệm thu | Backlog |
 | --- | --- | --- | --- | --- | --- | --- |
 | 6.1 | Thông số theo độ hiếm từ config: thời gian, tốc độ kim, vùng xanh/vàng gốc, trừ giờ khi trượt, độ xê dịch | B | P0 | 1.2 | Đổi config không cần sửa mã | S06 |
-| 6.2 | Server xử lý tap: trúng xanh trừ HP = ATK, trúng vàng trừ 2 × ATK, trượt trừ giờ; HP về 0 thắng, hết giờ thua | B | P0 | 5.2, 7.4 | Kết quả do Server quyết định | S06 |
-| 6.3 | Sau mỗi tap vùng xanh dịch ngẫu nhiên, không ra ngoài thanh; vùng vàng đặt lại trong vùng xanh | B, C | P0 | 6.2 | Cá bậc thấp dịch ít hơn | S06 |
-| 6.4 | Cách xác thực khi có trễ mạng (đề xuất): Server gửi seed, kim chạy theo hàm thời gian; client gửi thời điểm tap; Server tính lại, cho dung sai 300 ms, tap cách nhau ≥ 80 ms | B, C, GD duyệt | P0 | 6.2 | Tap giả (thời gian vượt, trùng, quá dày) bị từ chối | S06 |
-| 6.5 | Client: thanh đo, kim, vùng xanh/vàng, đồng hồ, khoảng cách tới cá; hiện kết quả tap ngay rồi sửa theo Server | C | P0 | 6.4 | Chơi mượt khi ping 150 ms | W tương ứng |
+| 6.2 | Client xử lý tap/HP/ATK/thắng-thua cục bộ; chỉ gửi SubmitFishingResult | C | P0 | 5.2, 7.4 | Server không xác minh tap, chỉ settle1 lần/attempt | S06 |
+| 6.3 | Sau mỗi tap vùng xanh dịch ngẫu nhiên, không ra ngoài thanh; vùng vàng đặt lại trong vùng xanh | C | P0 | 6.2 | Cá bậc thấp dịch ít hơn | S06 |
+| 6.4 | Server nhận success/failed; kiểm tra owner/phase/deadline/seat; unique catch attemptId, transaction thưởng và giảm pool | B | P0 | 6.2 | Gửi lặp/kể cả đổi key chỉ1 cá; fake attempt không thưởng | S06 |
+| 6.5 | Client: thanh đo, kim, vùng xanh/vàng, đồng hồ, khoảng cách tới cá; xử lý cục bộ, chỉ hiển thị phần thưởng sau settlement Server | C | P0 | 6.4 | Chơi mượt khi ping 150 ms | W tương ứng |
 | 6.6 | Script mô phỏng tỷ lệ thắng theo level/cần/độ hiếm | B | P1 | 6.2 | Có bảng số liệu cho GD cân | — |
 
-**GD cần chốt:** cách xác thực tap (mục 6.4 đang là đề xuất).
+**Đã chốt 2026-11-09:** Client tự xử lý minigame, Server không xác minh tap; vẫn chặn thưởng/pool lặp.
 
 ## 7. Chỉ số nhân vật và cần câu
 
@@ -112,7 +112,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | 8.1 | 9 loài trong config: rarity, Min/Max cm, HP, EXP, giá bán | B | P0 | 1.2 | Đúng bảng Fish Codex | S06 |
 | 8.2 | Bảng `catches` (từng con, chiều dài, đã bán chưa) và `species_records` (lần đầu, kỷ lục, tổng số) | B | P0 | 5.1 | Bán cá không mất kỷ lục | S06/S08 |
-| 8.3 | Spawn loài (đề xuất tạm: chọn độ hiếm theo 60/25/10/4/1%, rồi chọn đều 1 loài); Rare Luck để cấu hình, chờ GD | B | P0 | 8.1 | Đổi tỷ lệ bằng config | S06 |
+| 8.3 | Spawn rarity theo công thức đã chốt GAMEPLAY_SCOPE ngày09/11, RareLuck0..7; phối hợp pool hữu hạn | B | P0 | 8.1 | Tổng tỷ lệ100%, không fallback vô hạn khi cạn | S06 |
 | 8.4 | Random chiều dài theo 4 bậc; mỗi điểm Large Luck: Thường −2%, Lớn +1,5%, Rất lớn +0,5%; làm tròn 0,1 cm, lưu số nguyên | B | P0 | 7.4, 8.1 | Thống kê 100.000 lần đúng tỷ lệ | S06 |
 | 8.5 | Giao diện Codex: 9 loài, loài chưa bắt hiện khóa, kỷ lục từng loài | C | P1 | 8.2 | Khớp dữ liệu Server | W tương ứng |
 | 8.6 | Art 9 icon cá + khung độ hiếm | C | P0 | — | Dùng được ở popup, túi, Codex | W tương ứng |
@@ -195,7 +195,7 @@ Trong lúc chưa có Admin, config đọc từ file JSON có version để khôn
 
 | ID | Việc | Bên làm | Ưu tiên | Phụ thuộc | Nghiệm thu | Backlog |
 | --- | --- | --- | --- | --- | --- | --- |
-| 16.1 | Test tự động Server: tranh ghế, cooldown, reconnect, trả thưởng 1 lần, ledger, tap giả | B | P0 | 4–10 | Chạy trong CI | S10 |
+| 16.1 | Test tự động Server: tranh ghế, cooldown, reconnect, trả thưởng 1 lần, ledger, result trùng/attempt giả | B | P0 | 4–10 | Chạy trong CI | S10 |
 | 16.2 | Test tải 20 người một phòng, khởi động lại Server giữa lần câu | B | P0 | 4–6 | Có số đo độ trễ, lỗi | S10 |
 | 16.3 | Chạy ma trận trong `QA_RELEASE.md` với Server thật | B, C | P0 | Tất cả | Ghi rõ phần đã và chưa kiểm | S10 |
 | 16.4 | Kiểm tra quyền dùng asset (Farming Game World, Fan-tasy) | C | P0 | — | Có nguồn và giấy phép cho từng bộ | — |

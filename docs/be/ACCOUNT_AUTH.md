@@ -26,7 +26,7 @@ Ngày 2026-11-03, Codex BE phụ trách nguồn. **Đã được người dùng 
 - Với lỗi account-exists-with-different-credential, yêu cầu đăng nhập lại bằng provider hiện hữu rồi link có proof; không merge chỉ vì trùng email. Không nhận UID tùy ý từ Client để chuyển tài sản.
 - Nếu đã có hai UID gắn hai account game có tiến độ, không auto-merge; cần quy trình xử lý riêng được duyệt. Unlink không được loại bỏ phương thức truy cập cuối cùng khi chưa có cách đăng nhập khác.
 
-## Phiên ứng dụng — đề xuất, chưa chốt
+## Phiên ứng dụng — mặc định được user đồng ý M0 ngày 2026-11-09
 
 - Tách Firebase session khỏi game session. Firebase token dùng làm proof để mở phiên BE; token game không giả là Firebase token. Firebase SDK lo refresh Firebase, `/auth/refresh` nếu chọn dưới đây chỉ refresh **phiên BE**.
 - Access token game 10 phút Player, 5 phút Admin, chỉ trong memory; refresh game cookie HttpOnly/Secure/host-only, Player 7 ngày hoặc 30 ngày Remember me, Admin 8h tuyệt đối. Cookie/CSRF/Origin/CORS và topology cùng site phải Client/BE thống nhất trước triển khai.
@@ -34,7 +34,7 @@ Ngày 2026-11-03, Codex BE phụ trách nguồn. **Đã được người dùng 
 - Logout game revoke phiên + đóng hub và Client signOut Firebase nếu người dùng chọn đăng xuất app; chỉ signOut Firebase ở browser không tự thu hồi phiên BE. Logout-all/password-security event/suspension phải có kiểm tra trạng thái hiện hành.
 - Phiên BE không được tách khỏi revocation Firebase vô thời hạn: lưu firebaseAuthTime, revalidate bằng Firebase ID token mới tối đa mỗi 10 phút (đề xuất), từ chối refresh nếu không có proof hợp lệ sau hạn đó. Sự kiện Admin disable/revoke phải revoke cả phiên game khi do hệ thống quản lý thực hiện. Thay đổi ngoài Firebase Console có độ trễ phát hiện theo chu kỳ, không tuyên bố cắt ngay. Khi Firebase không truy cập được tại lúc cần kiểm chứng thì không phát/refresh phiên mới.
 - Mỗi request bảo vệ/hub command kiểm tra session/account/authVersion từ nguồn bền vững, không chỉ JWT còn hạn. Hub hết token phải đóng và reconnect sau refresh. Redis mất không được cho qua trạng thái khóa.
-- Đề xuất tối đa 3 thiết bị đăng nhập, chỉ 1 phiên điều khiển gameplay. Tiếp quản cần xác nhận, tăng controlGeneration atomic, chuyển snapshot/attempt giữ nguyên; lease/deadline/logout không tự hủy/hoàn vé khi GD chưa duyệt.
+- Đã đồng ý tối đa 3 thiết bị đăng nhập, chỉ 1 phiên điều khiển gameplay. Tiếp quản cần xác nhận, tăng controlGeneration atomic, chuyển snapshot/attempt giữ nguyên; lease/deadline/logout không tự hủy/hoàn vé khi GD chưa duyệt.
 
 ## Quản lý user/data
 
@@ -48,7 +48,7 @@ Ngày 2026-11-03, Codex BE phụ trách nguồn. **Đã được người dùng 
 | Roles/Permissions | policy do Server/vận hành cấp, không tự cấp Admin từ Google email hoặc UI |
 | AuthAudit | actor/target/event/result/time/correlationId, metadata lọc; không token/provider secrets/mail body |
 
-User được xem hồ sơ, đổi displayName, xem/revoke phiên; đổi Google email/password làm tại provider, BE cập nhật metadata từ nguồn xác minh, không chuyển ownership theo email mới. Admin lookup/khóa/mở khóa/revoke có policy/audit. Chính sách xóa account và retention/anonymization ledger/history cần duyệt riêng; không xóa cascade dữ liệu kinh tế. Đề xuất Admin account riêng, MFA và phiên/audience riêng; phương thức identity Admin chưa được chốt bởi quyết định Google cho Player.
+User được xem hồ sơ, đổi displayName, xem/revoke phiên; đổi Google email/password làm tại provider, BE cập nhật metadata từ nguồn xác minh, không chuyển ownership theo email mới. Admin lookup/khóa/mở khóa/revoke có policy/audit. Chính sách xóa account và retention/anonymization ledger/history cần duyệt riêng; không xóa cascade dữ liệu kinh tế. Đề xuất Admin account riêng, MFA và phiên/audience riêng; M0 user đồng ý Admin Google qua Firebase với account/quyền riêng và MFA theo proposal; không tự cấp Admin từ email/provider.
 
 ## API và contract review
 
@@ -69,7 +69,34 @@ Provider login/link/unlink chạy qua Firebase SDK; không tạo endpoint BE nh�
 
 1. Firebase project dev riêng, đăng ký Web App, bật Authentication Google và support email, cấu hình authorized domains/localhost/redirect URI theo môi trường. Chỉ bật Facebook sau.
 2. Cung cấp projectId và Web App config cho Client. Firebase web config không phải service-account credential; vẫn cấu hình domain/quota phù hợp. Admin SDK credentials chỉ trong secret/env ngoài repo, không gửi private key vào chat và không đặt trong Client. Ưu tiên ADC/secret store; chưa cần Firestore.
-3. Client kiểm tra Firebase SDK trên Cocos 3.8.x Web PC/mobile; BE dùng Firebase Admin .NET + migration mapping, fake verifier trong test riêng không được bật bypass production. Emulator tests không thay Google end-to-end.
+3. Client kiểm tra Firebase SDK trên Phaser + TypeScript Web PC/mobile; BE dùng Firebase Admin .NET + migration mapping, fake verifier trong test riêng không được bật bypass production. Emulator tests không thay Google end-to-end.
 4. Gate: Google thật → BE verify → profile persist; concurrent login chỉ 1 account/profile; token sai/hết hạn/project khác/custom token bị chặn; suspension/role/hub/refresh/revoke/Redis outage; popup cancel/blocked/reconnect. Facebook linking sau phải giữ nguyên UID/player/tài sản, chặn auto-merge email. Chưa chạy test auth nào.
 
 Nguồn: [Verify ID tokens](https://firebase.google.com/docs/auth/admin/verify-id-tokens), [Google Web](https://firebase.google.com/docs/auth/web/google-signin), [Account linking](https://firebase.google.com/docs/auth/web/account-linking), [Facebook Web](https://firebase.google.com/docs/auth/web/facebook-login), [Session revocation](https://firebase.google.com/docs/auth/admin/manage-sessions).
+
+## Firebase Web App config đã cung cấp — 2026-11-09
+
+Nguồn: người dùng sao chép từ Firebase Console trong chat. Project dùng cho thiết lập dev hiện tại: `fishing-online-c111f`. Đây là cấu hình Web Client, không phải Firebase Admin service-account credential; được lưu theo yêu cầu người dùng. Người dùng xác nhận ngày 2026-11-09: Google provider đã Enabled và localhost đã thêm vào Authorized domains. Agent chưa kiểm chứng trực tiếp Console hoặc Google login end-to-end.
+
+```javascript
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCROH7-RSB7Xgl0cFA1Dwj3T5aE2Dl_JA8",
+  authDomain: "fishing-online-c111f.firebaseapp.com",
+  projectId: "fishing-online-c111f",
+  storageBucket: "fishing-online-c111f.firebasestorage.app",
+  messagingSenderId: "477185422341",
+  appId: "1:477185422341:web:ef2a6c0ddb575ac07e986c",
+  measurementId: "G-KDS7P0SZKF"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+```
+
+Đoạn trên lưu cấu hình và ví dụ khởi tạo do người dùng cung cấp, chưa phải code đã tích hợp. Google login sẽ dùng `firebase/auth`; Analytics là chức năng riêng, không bắt buộc cho login. BE cấu hình projectId tương ứng; credential Admin SDK qua secret/env ngoài repo, không đặt trong tài liệu này.
+
+
+**M0 2026-11-09:** Các đề xuất cụ thể về phiên/reauth/quyền điều khiển/MFA được user đồng ý; contract auth/session phải đồng bộ theo nguồn này (Player10 phút, Admin5 phút). Khi tiếp quản gây ngắt kết nối cũ, luật gameplay disconnect vẫn hủy attempt, không cấp cá cho attempt hủy; giữ dữ liệu nhân vật/ghế theo rule hiện hành. Không phải bằng chứng auth runtime đã chạy.

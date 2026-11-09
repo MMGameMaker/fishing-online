@@ -10,7 +10,7 @@ Scope hiện hành: [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md); kế hoạch/con
 
 - Playable v0.1: **2D Pixel Art**, Web Client **Phaser Engine + TypeScript**. Khóa phiên bản Phaser/package khi khởi tạo.
 - Server giữ **ASP.NET Core + SignalR + PostgreSQL + Redis**.
-- **Player authentication:** Firebase Authentication; Google login trước, Facebook login để sau (người dùng chốt 2026-11-03). Account/player và dữ liệu game vẫn ở PostgreSQL; không tự thêm hệ mật khẩu Identity song song. Chi tiết phiên/Admin còn là đề xuất trong [S02](be/ACCOUNT_AUTH.md).
+- **Player authentication:** Firebase Authentication; Google login trước, Facebook login để sau (người dùng chốt 2026-11-03). Account/player và dữ liệu game vẫn ở PostgreSQL; không tự thêm hệ mật khẩu Identity song song. Chi tiết phiên/Admin theo các mặc định M0 được user đồng ý 2026-11-09 trong [S02](be/ACCOUNT_AUTH.md).
 - Admin Tool giữ **React + TypeScript**, là ứng dụng riêng với UI game Phaser; **BE thực hiện cả Server và Admin Tool**, không tính nhóm/nhân sự Admin riêng.
 - **Chi tiết gameplay đã chốt và số liệu tạm để test nằm ở [GAMEPLAY_SCOPE.md](../doc/GAMEPLAY_SCOPE.md)** (người dùng chốt 2026-11-05 và 2026-11-06).
 - **Bổ sung 2026-11-09:** dựng map hồ câu mới; Admin quản lý các đợt thả cá (loài, số lượng, thời gian). Người dùng chốt quần thể cá hữu hạn, bắt thành công giảm số cá. Luật cạn cá/reservation/tồn khởi đầu và contract còn cần thống nhất; task tại docs/v01/README.md.
@@ -42,3 +42,13 @@ Scope hiện hành: [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md); kế hoạch/con
 [Quy tắc phối hợp qua Markdown trên Notion](https://app.notion.com/p/40d5f439904b81058e1bde77a20b7278) là doc riêng; phần quy trình đã được gỡ khỏi nội dung Overview để giữ tài liệu tập trung vào tổng quan game và đầu vào cho GD.
 
 Đọc [README.md](README.md), dùng [mẫu công việc](work/_TEMPLATE.md). GD, Web Client, Server, Admin Tool cập nhật phần tham gia; Art/asset nằm trong Web Client. Chỉ tách đặc tả chuyên môn khi cần, liên kết nguồn và trạng thái Đề xuất/Đã duyệt.
+
+
+## Quyết định M0 — 2026-11-09
+
+- Client tự tính minigame, chỉ gửi success/failed; chấp nhận gian lận kết quả thao tác. Server giữ ownership/phase/deadline/ghế, chọn cá/chiều dài/EXP và cấp tối đa1 cá mỗi attempt bằng transaction/constraint chống replay.
+- Admin được thả tiếp cộng dồn theo hồ/loài/số lượng vào pool còn tồn, không reset cá/reservation.
+- User đồng ý các đề xuất cụ thể còn lại đã trình bày; M0 cần test parse/contract trước báo Đạt, các field chưa có số tiếp tục bổ sung khi đến task.
+- BE không bắt buộc chia worker song song; thực hiện tuần tự theo dependency, thiếu đầu vào thì làm phần đủ dữ kiện và bổ sung dần. Nguồn hiện hành SPEC_CHUNG0.4.
+
+- **User xác nhận rủi ro 2026-11-09:** chấp nhận Client fake win/farm; bổ sung cảnh báo nghi vấn phía BE để theo dõi/tra cứu, không tự chặn kết quả hợp lệ hoặc khóa user. Threshold và record theo SPEC0.5 mục2.7.1, task BE-E-09.

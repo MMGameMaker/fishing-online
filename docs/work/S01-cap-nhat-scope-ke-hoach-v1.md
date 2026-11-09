@@ -56,3 +56,9 @@
 
 
 **Bàn giao tài liệu 2026-11-09:** đã đồng bộ PROJECT/GAMEPLAY_SCOPE/SPEC0.3, task/fixture/API/QA: bỏ vật phẩm đã loại, ghế chọn thời lượng/đơn giá và gia hạn atomic, thêm BE-C-09; giữ BE-D-05 đã loại. Đồng bộ Phaser và spawn theo luật đã chốt. Chưa triển khai runtime. Notion chỉ đã đọc/chuẩn bị, không ghi do user yêu cầu ưu tiên repo. Kiểm tra JSON/task/schema/link/diff trước stage; còn mở giá cuối/min-max/block và luật cạn cá/reservation.
+
+
+**Bàn giao M0 2026-11-09:** user chốt minigame do Client, SubmitFishingResult thay tap; pool thả cộng dồn; BE làm tuần tự được, đồng ý mặc định cụ thể còn lại. Đã đồng bộ SPEC0.4/task/fixture, ghi rủi ro thắng100%/farm nhanh/pool cạn; Server phải chặn reward replay/catch>1. Chưa có code/test runtime cho scope mới, chưa nghiệm thu cổng M0 parse. Field chưa có số (giá cuối/min-max/pool đầu/cạn cá) tiếp tục bổ sung theo task.
+
+
+**Bàn giao 2026-11-09 — cảnh báo BE:** user chấp nhận rủi ro fake outcome và yêu cầu thêm cảnh báo nghi vấn. Đã thêm SPEC0.5/BE-E-09/config threshold, AD tra cứu/QA, observe-only; không auto-ban/thu hồi/chặn result hợp lệ. Task chưa code/test runtime. Kiểm tra JSON/task/progress/diff và stage tài liệu.

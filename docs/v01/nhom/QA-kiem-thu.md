@@ -9,7 +9,7 @@ Phạm vi file: `qa/`.
 
 ### QA-01 Bộ ca kiểm thử theo luật
 - **Độ lớn:** M. **Phụ thuộc:** không.
-- **Spec:** `qa/cases/*.md`, mỗi ca: ID, luật nguồn (mục SPEC), điều kiện đầu, bước, kết quả mong đợi. Tối thiểu: ghế (tranh chấp, cooldown, rời ghế, hết lượt, reconnect 1 phút/2 phút 10 giây, restart), câu (mỗi nhánh của 2.6), minigame (mỗi rarity thắng/thua, tap giả), chiều dài (hiển thị, Mới/Kỷ lục), kinh tế (mua/bán/gửi lặp), level, social.
+- **Spec:** `qa/cases/*.md`, mỗi ca: ID, luật nguồn (mục SPEC), điều kiện đầu, bước, kết quả mong đợi. Tối thiểu: ghế (tranh chấp, cooldown, rời ghế, hết lượt, reconnect 1 phút/2 phút 10 giây, restart), câu (mỗi nhánh của 2.6), minigame (mỗi rarity thắng/thua, báo success giả được chấp nhận nhưng result trùng/attempt giả/sai owner bị chặn), chiều dài (hiển thị, Mới/Kỷ lục), kinh tế (mua/bán/gửi lặp), level, social.
 - **Nghiệm thu:** mỗi dòng "[Chốt]" trong SPEC mục 2 có ít nhất 1 ca.
 
 ### QA-02 E2E tự động với Playwright
@@ -29,3 +29,9 @@ Phạm vi file: `qa/`.
 
 
 **Ca ghế cập nhật:** mua 2 block, gia hạn 1 block, kiểm tra 3 block tổng; bấm lặp/cạnh tranh, thiếu Gold, priceVersion cũ, expired/leave race, reconnect/restart dùng expiresAt mới; gia hạn khi đang câu không reset attempt. Fixture không chứa chum hoặc UseChum.
+
+
+**Minigame Client (M0 duyệt):** không yêu cầu Server đối chiếu thao tác. Kiểm tra mỗi attempt tối đa1 catch/EXP/giảm tồn dù callback/gửi lại/100request đổi key; timeout/cancel/failed không hồi sinh. Pool thả tiếp cộng dồn:30+100=130, cùng batch retry không cộng thêm, restart/publish không reset. Test concurrency/catch-stock và restore reservation.
+
+
+**Anomaly monitoring BE:** kiểm tra rule/window/min sample, dedupe signal/attempt/event, retry hợp lệ không tăng risk, review audit; fake win accepted vẫn1 reward/attempt. Khi detector lỗi/dừng/restart, settlement không fail/rollback/thưởng lại. Cảnh báo không tự ban/reject hợp lệ hoặc gọi dịch vụ gửi thông báo ngoài.

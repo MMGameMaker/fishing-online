@@ -14,7 +14,7 @@ GD, Web Client và BE (bao gồm Admin Tool) trao đổi qua Markdown trong thư
 
 ## Nguồn triển khai hiện tại
 
-Đọc [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md), [kế hoạch v01](v01/README.md), [SPEC_CHUNG 0.3](v01/SPEC_CHUNG.md) và fixture cùng phiên bản. Các tài liệu chuyên môn cũ dẫn về nguồn này; không dùng Notion cũ thay luật repo.
+Đọc [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md), [kế hoạch v01](v01/README.md), [SPEC_CHUNG 0.5](v01/SPEC_CHUNG.md) và fixture cùng phiên bản. Các tài liệu chuyên môn cũ dẫn về nguồn này; không dùng Notion cũ thay luật repo.
 
 ## Vai trò
 

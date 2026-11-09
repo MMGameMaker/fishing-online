@@ -1,5 +1,5 @@
 {
-  "configVersion": "v0-test-2026-11-09-rental-03",
+  "configVersion": "v0-test-2026-11-09-monitoring-05",
   "status": "Fixture test: không thính; block 10 phút/đơn giá 120-70-40 là đề xuất/test, chưa khóa balance/thời lượng.",
   "newPlayer": {
     "gold": 100,
@@ -346,13 +346,8 @@
         "shiftMax": 0.7
       }
     ],
-    "tapValidation": {
-      "proposal": true,
-      "minTapIntervalMs": 80,
-      "futureToleranceMs": 300,
-      "lateToleranceMs": 1500,
-      "endGraceMs": 1500
-    }
+    "authority": "client_outcome",
+    "resultGraceMs": 1500
   },
   "lengthTiers": {
     "maxLargeLuck": 7,
@@ -437,10 +432,43 @@
     }
   ],
   "seatPricing": {
-    "proposal": true,
+    "proposal": false,
     "billingUnitMinutes": 10,
     "priceVersion": "seat-price-test-03",
     "perSeatOverrides": [],
-    "durationPolicy": "positive_integer_units; min/max final pending GD"
+    "durationPolicy": "positive_integer_units; min/max final pending GD",
+    "status": "M0 defaults approved for test; final prices/min-max not yet specified"
+  },
+  "fishPopulation": {
+    "replenishmentMode": "additive",
+    "reservationAt": "bite",
+    "settlementPerAttempt": 1,
+    "initialStock": "not specified",
+    "depletionPolicy": "not specified"
+  },
+  "suspicionMonitoring": {
+    "mode": "observe_only",
+    "thresholdStatus": "initial_test_values_tunable",
+    "retentionDays": 30,
+    "maxEvidenceAttempts": 10,
+    "rules": {
+      "winRateHigh": {
+        "windowMinutes": 30,
+        "minAttempts": 50,
+        "thresholdPct": 95
+      },
+      "fastSuccess": {
+        "windowMinutes": 10,
+        "maxElapsedMs": 1000,
+        "minAttempts": 5
+      },
+      "invalidResultBurst": {
+        "windowMinutes": 5,
+        "minInvalidRequests": 10
+      }
+    },
+    "dedupeBy": "player_rule_window_bucket",
+    "autoBan": false,
+    "rejectOtherwiseValidResults": false
   }
 }

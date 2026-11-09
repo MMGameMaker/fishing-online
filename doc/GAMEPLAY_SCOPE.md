@@ -71,7 +71,7 @@ Buff ghế có hiệu lực khi user đang giữ ghế và cộng với Luck t�
 
 **Chưa chốt:**
 
-- Cách Server xác thực lần bấm trong minigame khi có độ trễ mạng.
+- Đã chốt 2026-11-09: Client tự xử lý minigame và gửi success/failed; Server chỉ quản attempt/ownership/deadline và trao tối đa 1 cá/attempt, không kiểm chứng tap. Chấp nhận gian lận thắng minigame nhưng không cấp cá/thưởng lặp.
 - Icon cá trên đầu nhân vật có khác nhau theo loài/độ hiếm không.
 
 **Tham khảo:** clip `ref minigame.mp4` chỉ minh họa cơ chế minigame; art/UI tự làm. Số đo được trong clip (khoảng 12 giây; trúng thường trừ 10 cm, điểm yếu trừ 20 cm) không phải yêu cầu.
@@ -181,8 +181,13 @@ GD cần khóa (lượt/vé, rời ghế và mất kết nối đã chốt ở m
 
 Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
 
-Server quyết định kết quả cá, tiền, vật phẩm và tài nguyên. Client hiển thị phản hồi/input; mock không phải kết quả server thật.
+Client quyết định thắng/thua minigame; Server quyết định loài/chiều dài/EXP/catch, tiền và tài nguyên, tối đa 1 cá mỗi attempt hợp lệ; mock không phải kết quả server thật.
 
 ## Quần thể hữu hạn và vận hành hồ (2026-11-09)
 
-Cá trong mỗi hồ hữu hạn theo loài: đợt Admin thả cộng tồn, bắt thành công giảm đúng 1. Admin chọn hồ, loài, số lượng và thời gian thả. Reservation, tồn ban đầu và xử lý loài/hồ cạn cá còn chờ chốt; không tự dùng RNG vô hạn làm fallback. Task map mới/thả cá nằm ở docs/v01.
+Cá trong mỗi hồ hữu hạn theo loài: đợt Admin thả cộng dồn vào số còn tồn, được thả tiếp nhiều lần, không reset/ghi đè pool; bắt thành công giảm đúng 1. Admin chọn hồ, loài, số lượng và thời gian thả. Reservation tại bite được duyệt 2026-11-09; tồn ban đầu và xử lý loài/hồ cạn cá chưa có lựa chọn cụ thể; không tự dùng RNG vô hạn làm fallback. Task map mới/thả cá nằm ở docs/v01.
+
+
+## Quyết định M0 ngày 2026-11-09
+
+User đồng ý các đề xuất cụ thể còn lại của M0; minigame xử lý cục bộ, pool thả cộng dồn và BE không bắt buộc song song. Xem SPEC0.4: Server không tin số cá/loài/phần thưởng do Client gửi; báo thắng giả được chấp nhận nhưng attempt terminal chỉ settle một lần. Các field chưa có giá trị (giá cuối/min-max/initial pool/cạn cá) tiếp tục bổ sung từng task; không tự điền hoặc tuyên bố cổng M0 đã test đạt.
