@@ -1,0 +1,193 @@
+/* UI kit dạng DOM overlay. Phông pixel có dấu tiếng Việt chưa được ART chọn, tạm dùng monospace. */
+:root {
+  --ui-font: 'Courier New', monospace;
+  --ui-bg: #1d2333;
+  --ui-bg-2: #2a3247;
+  --ui-border: #e8e4d0;
+  --ui-text: #f4f0e0;
+  --ui-muted: #a9a693;
+  --ui-primary: #4f9bea;
+  --ui-danger: #d9534f;
+  --ui-gold: #f2c14e;
+  --ui-touch: 44px;
+}
+
+.ui-root {
+  position: fixed;
+  z-index: 10;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: var(--ui-font);
+  font-size: max(13px, calc(var(--ui-scale, 1) * 7px));
+  color: var(--ui-text);
+}
+
+.ui-root * {
+  box-sizing: border-box;
+}
+
+.ui-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  background: var(--ui-bg);
+  border: 2px solid var(--ui-border);
+  box-shadow: 0 0 0 2px #000;
+  pointer-events: auto;
+}
+
+.ui-panel__title {
+  padding: 6px 10px;
+  font-weight: bold;
+  background: var(--ui-bg-2);
+  border-bottom: 2px solid var(--ui-border);
+}
+
+.ui-panel__body {
+  padding: 10px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.ui-button {
+  min-width: var(--ui-touch);
+  min-height: var(--ui-touch);
+  padding: 4px 12px;
+  font: inherit;
+  color: var(--ui-text);
+  background: var(--ui-bg-2);
+  border: 2px solid var(--ui-border);
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.ui-button:hover:not(:disabled) {
+  filter: brightness(1.2);
+}
+
+.ui-button:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 1px;
+}
+
+.ui-button--primary {
+  background: var(--ui-primary);
+}
+
+.ui-button--danger {
+  background: var(--ui-danger);
+}
+
+.ui-button:disabled {
+  color: var(--ui-muted);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ui-tabs__bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.ui-tabs__tab[aria-selected='true'] {
+  background: var(--ui-primary);
+}
+
+.ui-gold {
+  color: var(--ui-gold);
+  font-weight: bold;
+}
+
+.ui-toasts {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: min(90%, 420px);
+  transform: translateX(-50%);
+}
+
+.ui-toast {
+  padding: 8px 12px;
+  background: var(--ui-bg-2);
+  border: 2px solid var(--ui-border);
+}
+
+.ui-toast--error {
+  background: #5a2626;
+  border-color: var(--ui-danger);
+}
+
+.ui-dialog {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgb(0 0 0 / 55%);
+  pointer-events: auto;
+}
+
+.ui-dialog .ui-panel {
+  width: min(100%, 360px);
+}
+
+.ui-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ui-demo {
+  position: absolute;
+  inset: 6px;
+}
+
+.ui-demo__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.ui-demo h3 {
+  margin: 8px 0 6px;
+  font-size: inherit;
+  color: var(--ui-muted);
+}
+
+.ui-demo__errors {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mock-overlay {
+  position: fixed;
+  right: 6px;
+  bottom: 6px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  font: bold 12px monospace;
+  color: #1a1a1a;
+  background: #f2c14e;
+}
+
+.mock-overlay button {
+  min-height: 28px;
+  font: inherit;
+  cursor: pointer;
+}

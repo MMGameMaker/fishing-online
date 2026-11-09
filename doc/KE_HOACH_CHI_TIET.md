@@ -21,8 +21,8 @@
 
 | ID | Việc | Bên làm | Ưu tiên | Phụ thuộc | Nghiệm thu | Backlog |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1.1 | Sửa contract lên 0.3-draft theo luật mới: bỏ dây/lưỡi/mồi, Idle, `CancelFishing`; đổi cân nặng sang chiều dài (số nguyên đơn vị 0,1 cm); vé thành `BuySeatTicket {seatId,durationUnits,expectedPriceVersion}` | B | P0 | — | Client đọc và xác nhận; không còn field trái luật | S01 |
-| 1.2 | Định nghĩa file config gameplay JSON: level, cần, cá, Tier ghế, minigame, bậc chiều dài, đơn giá thời gian từng ghế, Gold tặng | B, GD duyệt | P0 | — | Server và Client cùng đọc một file có `configVersion` | S01 |
+| 1.1 | Sửa contract lên 0.2-draft theo luật mới: bỏ dây/lưỡi/mồi, Idle, `CancelFishing`; đổi cân nặng sang chiều dài (số nguyên đơn vị 0,1 cm); vé thành `BuySeatTicket {seatId}` | B | P0 | — | Client đọc và xác nhận; không còn field trái luật | S01 |
+| 1.2 | Định nghĩa file config gameplay JSON: level, cần, cá, Tier ghế, minigame, bậc chiều dài, thính, giá vé, Gold tặng | B, GD duyệt | P0 | — | Server và Client cùng đọc một file có `configVersion` | S01 |
 | 1.3 | Cập nhật `docs/be/PLAN.md`, `ARCHITECTURE.md`, `doc/README.md`, `docs/PROJECT.md` theo luật mới và Phaser | B, C | P0 | 1.1 | Không còn nhắc Cocos, 4 slot, cân nặng | S01 |
 | 1.4 | Tạo project client Phaser 3 + TS + Vite: cấu trúc `net/`, `state/`, `scenes/`, `ui/`, `entities/`; lint, build | C | P0 | — | `npm run build` chạy; mở scene trống trên trình duyệt | W01 |
 | 1.5 | Lớp mạng client: HTTP + SignalR (`@microsoft/signalr`), adapter mock/real, xử lý lỗi theo contract | C | P0 | 1.1, 1.4 | Chạy được với mock và với hub Ping thật | W01 |
@@ -55,13 +55,13 @@
 | ID | Việc | Bên làm | Ưu tiên | Phụ thuộc | Nghiệm thu | Backlog |
 | --- | --- | --- | --- | --- | --- | --- |
 | 4.1 | Bảng `seats` (20 ghế, Tier) và `seat_sessions` (người giữ, bắt đầu, hết hạn, lý do kết thúc) | B | P0 | 3.2 | Migration chạy trên DB trống | S03 |
-| 4.2 | `BuySeatTicket`: ghế Available, không cooldown, user chưa giữ ghế khác, đủ Gold = đơn giá hiện hành của ghế × durationUnits; giá 120/70/40 mỗi block chỉ để test. Trừ Gold + ledger + mở phiên trong một transaction | B | P0 | 4.1, 10.1 | 2 người bấm cùng lúc: đúng 1 người được và bị trừ tiền; người kia nhận "ghế đang được sử dụng", không mất tiền | S03/S04 |
-| 4.3 | Hết expiresAt mới nhất: tự rời ghế; đang câu dở thì hủy lần câu | B | P0 | 4.2, 5.2 | Đúng hạn đã mua/gia hạn theo giờ Server | S03 |
+| 4.2 | `BuySeatTicket`: ghế Available, không cooldown, user chưa giữ ghế khác, đủ Gold theo Tier (120/70/40). Trừ Gold + ledger + mở phiên trong một transaction | B | P0 | 4.1, 10.1 | 2 người bấm cùng lúc: đúng 1 người được và bị trừ tiền; người kia nhận "ghế đang được sử dụng", không mất tiền | S03/S04 |
+| 4.3 | Hết 10 phút: tự rời ghế; đang câu dở thì hủy lần câu | B | P0 | 4.2, 5.2 | Đúng 10 phút theo giờ Server | S03 |
 | 4.4 | Cooldown 10 giây mỗi lần ghế về trống, mọi lý do; ai cũng mua lại như nhau | B | P0 | 4.2 | Mua trong cooldown bị từ chối, kể cả người vừa dùng | S03 |
 | 4.5 | Giữ ghế được đi lại trong phạm vi nhỏ; ra khỏi vùng Lake là bỏ ghế | B, C | P0 | 3.5, 4.2 | Đi quá phạm vi bị chặn hoặc mất ghế theo luật | S03 |
-| 4.6 | Mất kết nối: hủy lần câu ngay; có 2 phút để vào lại và giữ ghế; đồng hồ theo expiresAt mới nhất vẫn chạy | B | P0 | 4.2 | Vào lại sau 1 phút còn ghế; sau 2 phút 10 giây mất ghế | S03 |
+| 4.6 | Mất kết nối: hủy lần câu ngay; có 2 phút để vào lại và giữ ghế; đồng hồ 10 phút vẫn chạy | B | P0 | 4.2 | Vào lại sau 1 phút còn ghế; sau 2 phút 10 giây mất ghế | S03 |
 | 4.7 | Lưu hạn giờ trong DB để Server khởi động lại vẫn xử lý đúng phiên quá hạn | B | P0 | 4.3–4.6 | Restart Server không làm ghế kẹt | S03 |
-| 4.8 | UI: ghế trên map theo màu trạng thái, popup mua vé (Tier, buff, giá), đồng hồ theo expiresAt mới nhất, nút rời ghế | C | P0 | 4.2 | Trạng thái ghế đổi cho mọi người ngay khi có người mua | W tương ứng |
+| 4.8 | UI: ghế trên map theo màu trạng thái, popup mua vé (Tier, buff, giá), đồng hồ 10 phút, nút rời ghế | C | P0 | 4.2 | Trạng thái ghế đổi cho mọi người ngay khi có người mua | W tương ứng |
 | 4.9 | Buff ghế: Rare Luck, Large Luck, Lure Time theo Tier, chỉ khi đang giữ ghế | B | P0 | 4.2, 1.2 | Giá trị lấy từ config | S06 |
 
 **GD cần chốt:** đã bị giới hạn phạm vi đi quanh ghế thì "ra khỏi Lake" xảy ra thế nào (đề xuất: có nút Rời ghế, ra khỏi Lake chỉ khi đổi map). Có cho quăng câu khi lượt sắp hết không.
@@ -73,7 +73,7 @@
 | 5.1 | Bảng `fishing_attempts` (lần câu, trạng thái, loài, configVersion, seed, kết quả) | B | P0 | 4.1 | Mỗi lần câu có 1 dòng | S06 |
 | 5.2 | Trạng thái lần câu: Chờ cắn → Cá cắn (3 giây) → Minigame → Thành công / Thất bại / Bị hủy | B | P0 | 5.1 | Không có đường cho user tự hủy | S06 |
 | 5.3 | Quăng câu: chỉ khi giữ ghế, không có lần câu khác, có cần đang dùng | B | P0 | 4.2, 7.3 | Không giữ ghế thì bị từ chối | S06 |
-| 5.4 | Thời gian chờ: random 3-6 giây trừ Lure Time của ghế (Tier 1: 2-5 giây) | B | P0 | 4.9 | Thống kê 1.000 lần đúng khoảng | S06 |
+| 5.4 | Thời gian chờ: random 3-6 giây trừ Lure Time của ghế và thính (ngắn nhất 1-4 giây) | B | P0 | 4.9, 9.2 | Thống kê 1.000 lần đúng khoảng | S06 |
 | 5.5 | Lúc cá cắn: Server chốt loài; user có 3 giây để bấm, không bấm là thất bại | B | P0 | 5.2, 8.3 | Bấm sau 3 giây bị tính thua | S06 |
 | 5.6 | Thành công: random chiều dài, cộng EXP, thêm cá vào túi, cập nhật Codex/kỷ lục; báo cho phòng hiện icon cá 5 giây | B | P0 | 6.2, 8.4 | Một lần câu chỉ được trả thưởng 1 lần, kể cả gửi lặp hay restart | S06/S08 |
 | 5.7 | Thất bại: không EXP; chỉ owner nhận kết quả | B | P0 | 5.2 | Người khác không thấy | S06 |
@@ -119,18 +119,22 @@
 
 **GD cần chốt:** logic spawn và Rare Fish Luck; kiểm lại giá vé, giá cần, giá cá sau khi có logic spawn.
 
-## 9. Vật phẩm đã bỏ
+## 9. Thính
 
-Các ID 9.1–9.3 đã loại khỏi v0.1 theo user 2026-11-09; không code/shop/icon/nút dùng/effect cho thính. Giữ ID lịch sử, không tính Xong.
+| ID | Việc | Bên làm | Ưu tiên | Phụ thuộc | Nghiệm thu | Backlog |
+| --- | --- | --- | --- | --- | --- | --- |
+| 9.1 | Thính là vật phẩm xếp chồng trong túi, mua ở Shop giá 30 Gold | B | P0 | 10.2 | Mua thì túi +1 | S04 |
+| 9.2 | Dùng thính khi đang giữ ghế: −1 Lure Time tới khi rời ghế, không cộng dồn (đang có hiệu lực thì từ chối, không trừ) | B | P0 | 4.2, 9.1 | Rời ghế thì mất hiệu lực | S04 |
+| 9.3 | Client: nút quăng thính cạnh nút câu, biểu tượng thính đang có hiệu lực | C | P0 | 9.2 | Hiện đúng trạng thái | W tương ứng |
 
 ## 10. Ví, Shop, túi đồ, bán cá
 
 | ID | Việc | Bên làm | Ưu tiên | Phụ thuộc | Nghiệm thu | Backlog |
 | --- | --- | --- | --- | --- | --- | --- |
 | 10.1 | Ví Gold + ledger chỉ ghi thêm + chống xử lý trùng (Idempotency-Key) | B | P0 | 2.2 | Gửi lặp không trừ 2 lần; tổng ledger khớp số dư | S04 |
-| 10.2 | Shop bán 4 cần (300/300/800/2.000); không mua lại cần đã có | B | P0 | 10.1, 7.2 | Thiếu Gold bị từ chối, không âm tiền | S04 |
+| 10.2 | Shop bán 4 cần (300/300/800/2.000) và thính; không mua lại cần đã có | B | P0 | 10.1, 7.2 | Thiếu Gold bị từ chối, không âm tiền | S04 |
 | 10.3 | Bán cá tại Shop: từng con hoặc tất cả, giá theo loài | B | P0 | 8.2, 10.1 | Bán lại con đã bán bị từ chối | S04 |
-| 10.4 | API túi đồ: cá (từng con), cần | B | P0 | 8.2 | Chỉ owner xem được | S04 |
+| 10.4 | API túi đồ: cá (từng con), cần, thính | B | P0 | 8.2, 9.1 | Chỉ owner xem được | S04 |
 | 10.5 | Client: HUD Gold, Shop, túi đồ, bán cá | C | P0 | 10.2–10.4 | Số Gold luôn lấy từ Server | W tương ứng |
 
 **GD cần chốt:** túi có giới hạn không, đầy thì sao; bán theo con hay theo loài.
@@ -202,9 +206,9 @@ Trong lúc chưa có Admin, config đọc từ file JSON có version để khôn
 | Bước | Server | Client | Kết quả cần thấy |
 | --- | --- | --- | --- |
 | 1 | 1.1, 1.2, 2.1–2.4, 10.1 | 1.4, 1.5, 3.1, 3.2, 3.4 | Login Google thật, có 100 Gold |
-| 2 | 3.5, 4.1–4.9 | 2.5, 3.3, 3.6, 4.8 | 20 người vào hồ, mua vé, chọn thời lượng và gia hạn ghế |
-| 3 | 5.1–5.7, 6.1–6.4, 7.1–7.4, 8.1–8.4 | 5.8, 5.9, 6.5, 8.6 | Câu trọn vòng trên Server thật (mốc demo đầu tiên) |
-| 4 | 10.2–10.4 | 10.5, 7.5, 7.6 | Mua cần, bán cá |
+| 2 | 3.5, 4.1–4.9 | 2.5, 3.3, 3.6, 4.8 | 20 người vào hồ, mua vé, giữ ghế 10 phút |
+| 3 | 5.1–5.7, 6.1–6.4, 7.1–7.4, 8.1–8.4, 9.1–9.2 | 5.8, 5.9, 6.5, 8.6, 9.3 | Câu trọn vòng trên Server thật (mốc demo đầu tiên) |
+| 4 | 10.2–10.4 | 10.5, 7.5, 7.6 | Mua cần, thính, bán cá |
 | 5 | 11, 12.2, 13, 14, 15 | 8.5, 11.3, 12.1, 12.3, 13.4, 14.3 | Đủ tính năng bắt buộc v1 |
 | 6 | 16.1–16.3 | 16.3–16.5 | Sẵn sàng phát hành |
 
@@ -218,9 +222,4 @@ Art skin (12.1) là việc dài nhất phía Client, nên bắt đầu ngay khi 
 | Contract lệch luật | Client làm mock sai phải làm lại | Làm 1.1 trước tiên |
 | Client Phaser chưa có mã nguồn | Toàn bộ phần Client bắt đầu từ đầu | Viết lại từ `client-v0` sang TS, chỉ lấy logic, không lấy art |
 | Bot tự bấm minigame | Gian lận | Chấp nhận ở v1, ghi log tỷ lệ trúng |
-| Hẹn giờ Server (expiresAt đã mua/gia hạn, cooldown, 2 phút reconnect) mất khi restart | Ghế kẹt, mất vé | Lưu hạn giờ vào DB (4.7), test ở 16.2 |
-
-
-## Cập nhật ghế 2026-11-09
-
-Bổ sung 4.10 / BE-C-09: gia hạn khi phiên còn hiệu lực, cộng thời gian vào expiresAt cũ, xác nhận đơn giá hiện hành; atomic ví/ledger/session/receipt và xử lý race hết hạn. Client 4.8 có chọn thời lượng trước mua và UI Gia hạn; Admin chỉnh đơn giá mỗi ghế/block. 10 phút/100 hoặc 200 Gold là ví dụ, không bảng giá cuối. Cổng ghế kiểm tra 20 phút + gia hạn 10 phút test, retry/thiếu Gold/price change/race. Không tự gia hạn.
+| Hẹn giờ Server (10 phút, cooldown, 2 phút reconnect) mất khi restart | Ghế kẹt, mất vé | Lưu hạn giờ vào DB (4.7), test ở 16.2 |
