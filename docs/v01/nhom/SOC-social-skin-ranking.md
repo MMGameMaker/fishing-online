@@ -2,7 +2,7 @@
 
 Mục tiêu: các tính năng xã hội bắt buộc trong v1. Nhóm làm trọn cả Server và Client cho từng tính năng.
 Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 1, 4, 6.
-Phạm vi file: `server/FishingOnline.Api/Modules/{Social,Skin,Ranking}/`, `GameHub.Social.cs`, migration `SOC_*`, `client-web/src/ui/{social,skin,ranking}/`.
+Phạm vi file: `server/FishingOnline.Api/Modules/{Social,Skin,Ranking}/`, `GameHub.Social.cs`, migration `SOC_*`, `client-v0/src/online/ui/{social,skin,ranking}/`.
 Độc lập: Server dùng interface của BE-A/BE-C; Client dùng mock của CL-A (nhóm tự bổ sung handler mock cho tính năng của mình trong `src/mock/social.ts`).
 
 **Phần lớn luật chưa chốt.** Mỗi task ghi giả định [Đề xuất]; làm theo giả định, mọi giới hạn để trong config. Task có nhãn **CHỜ GD** chỉ làm phần khung tới khi GD trả lời.

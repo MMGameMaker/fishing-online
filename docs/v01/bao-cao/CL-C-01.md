@@ -3,44 +3,47 @@
 - **Worker:** Claude (Opus 5.5)
 - **Branch / PR:** chưa có; code nằm trong working tree, chưa commit
 - **Ngày gửi review:** 2026-11-09 (chưa có PR)
-- **Spec áp dụng:** SPEC_CHUNG v0.3 (đang chờ duyệt, M0 chưa Đạt), config v0-test-2026-11-09-rental-03
+- **Spec áp dụng:** SPEC_CHUNG v0.7, config v0-test-2026-11-09-monitoring-05
 
 ## Đã làm
 
-- `mulberry32`, `needlePos`, `createState`, `applyTap`, `remainingMs`, `isLost` theo SPEC 2.7; hàm thuần, state bất biến để hoàn tác được tap bị từ chối.
+- `mulberry32`, `needlePos`, `createState`, `applyTap`, `remainingMs`, `isLost` theo luật GAMEPLAY_SCOPE; hàm thuần.
+- Bộ test vector do CL-C sở hữu theo SPEC 0.5: 15 ca, 5 rarity, gồm tap trúng, trượt và bị từ chối.
 
 ## File thay đổi
 
-- client-web/src/fishing/minigameCore.ts, minigameCore.test.ts
+- client-v0/src/online/fishing/minigameCore.ts, minigameCore.test.ts, minigameVectors.test.ts, minigame-vectors.v0.json
 
 ## Lệnh kiểm tra đã chạy
 
 ```
-cd client-web && npm ci && npm run lint && npm test && npm run build
-npm ci: added 173 packages
+cd client-v0 && npm run typecheck && npm run lint:online && npm run test:online && npm run build
+typecheck: không lỗi
 lint: All matched files use Prettier code style!
-test: Test Files 8 passed (8), Tests 123 passed (123)
-build: built in 4.08s
+test: Test Files 15 passed (15), Tests 182 passed (182)
+build: built in 7.25s
+npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file trong node_modules
 ```
 
 ## Nghiệm thu
 
 | Tiêu chí (chép từ task) | Kết quả | Bằng chứng |
 | --- | --- | --- |
-| Trước khi có vector: seed 123456789 khớp 5 số tham chiếu | Đạt | Test "khớp 5 số tham chiếu SPEC 2.7" |
-| Vitest chạy toàn bộ `minigame-vectors.v0.json` | Chưa chạy | File vector do BE-B-07 tạo, chưa có |
+| Seed 123456789 khớp 5 số tham chiếu | Đạt | Test mulberry32 |
+| Vitest chạy toàn bộ `minigame-vectors.v0.json`, sai số ≤ 1e-9 | Đạt | `minigameVectors.test.ts`. Vector sinh từ chính lõi TS nên là test hồi quy, không phải đối chiếu độc lập |
 
 ## Lệch spec / giả định
 
-- HP không chặn ở 0 trong core theo đúng SPEC (`hp ≤ 0` là thắng); UI tự chặn khi hiển thị.
+- Giữ khoảng cách tối thiểu 80 ms giữa hai tap ở Client dù config mới đã bỏ khối `tapValidation`.
+- Vector đặt cạnh code trong `src/online/fishing/` vì chưa bên nào khác dùng.
 
 ## Cần lead quyết
 
-- không có
+- Xác nhận vị trí file vector và có giữ giới hạn 80 ms không.
 
 ## Việc còn lại
 
-- Thêm test vector khi BE-B-07 xong.
+- không có
 
 ---
 

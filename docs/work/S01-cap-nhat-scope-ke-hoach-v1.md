@@ -18,7 +18,7 @@
 - **Trạng thái:** chưa nhận triển khai; đầu vào kế hoạch đã có.
 - **Đầu ra dự kiến:** Cocos/Web bootstrap, một skin mẫu/map 20 ghế, mock/real adapter, fixture; mở rộng 5–10 skin sau art gate.
 - **Kiểm tra / tiếp theo:** chưa có build/gameplay/asset thực tế; đo skin mẫu để tính lại tải Art, không cộng Art như nhân sự riêng.
-- **Cập nhật 2026-11-09 (Claude):** tạo `client-web/` Phaser 3.90.0 + TS + Vite, làm CL-A-01..06, CL-B-02, CL-C-01, CL-D-01 trên SPEC 0.3 (chưa duyệt). Lint/123 test/build đạt; scene hồ và UI kit đã mở trên trình duyệt với mock. Chưa commit, chưa tích hợp Server thật. Chi tiết ở `docs/v01/bao-cao/`; tiếp theo là review.
+- **Cập nhật 2026-11-09 (Claude):** client Phaser 3.90.0 + TS đặt tại `client-v0/src/online/`, mở bằng `client-v0/fishing.html`; xong phần code CL-A-01..06, CL-B-02..05, CL-C-01..05, CL-D-01 theo SPEC 0.6, dùng art tạm. Typecheck, lint, 177 test, build đạt; đã chơi trọn vòng bằng giao diện với mock. Chưa commit, chưa review, chưa tích hợp Server thật. Chi tiết ở `docs/v01/bao-cao/`.
 
 ## Server (BE)
 

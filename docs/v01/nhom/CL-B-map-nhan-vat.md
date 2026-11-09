@@ -2,7 +2,7 @@
 
 Mục tiêu: scene hồ có 20 ghế, nhân vật đi lại mượt, thấy người khác, mua vé và giữ ghế qua UI.
 Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 2.2, 2.3, 4; `fixtures/lake-map.placeholder.json`; [W02](../../work/W02-art-map-ho.md).
-Phạm vi file: `client-web/src/scenes/lake/`, `client-web/src/entities/`, `docs/v01/fixtures/lake-map.json` (map thật, khi xong).
+Phạm vi file: `client-v0/src/online/scenes/lake/`, `client-v0/src/online/entities/`, `docs/v01/fixtures/lake-map.json` (map thật, khi xong).
 Độc lập: chạy với mock của CL-A; dùng asset placeholder (hình khối màu) cho tới khi ART giao.
 
 ---

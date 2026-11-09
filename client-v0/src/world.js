@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
-import { TILE, canStand, fishingZoneAt, teleportAt } from '../shared/config.js';
+import { FISH_BY_ID, TILE, canStand, fishingZoneAt, teleportAt } from '../shared/config.js';
 import { FarmController } from './farming.js';
+import { CoralCoveOnline } from './online/bridge/CoralCoveOnline.ts';
 import { isTyping, request, socket } from './net.js';
 import { NpcController } from './npc.js';
 import { PlayerEntity } from './player.js';
@@ -84,6 +85,14 @@ export class WorldScene extends Phaser.Scene {
     this.seats = new SeatController(this, this.session);
     this.npcController = new NpcController(this, this.session);
     this.farm = new FarmController(this, this.session);
+    // Coral Cove dùng ghế thuê và câu cá của Fishing Online; các phòng khác giữ nguyên.
+    this.online = room.key === 'coralCove'
+      ? new CoralCoveOnline(this, this.session, { request, fishById: FISH_BY_ID })
+      : null;
+    this.events.once('shutdown', () => {
+      this.online?.destroy();
+      this.online = null;
+    });
 
     const { tx, ty, w, h } = room.bounds;
     this.cameras.main.setBackgroundColor(room.background);
@@ -97,6 +106,7 @@ export class WorldScene extends Phaser.Scene {
 
     this.input.on('pointerdown', (pointer) => {
       document.activeElement?.blur();
+      if (this.online?.blocksWorldClick()) return;
       if (this.session.fishing.onWorldPointer()) return;
       this.clickTarget = { x: pointer.worldX, y: pointer.worldY };
     });
@@ -175,7 +185,8 @@ export class WorldScene extends Phaser.Scene {
       if (isTyping()) return;
       if (e.code === 'KeyX' && !this.session.fishing.isFishing()) {
         e.preventDefault();
-        if (this.session.sitting) request('standUp');
+        if (this.session.sitting && this.online) this.online.leave();
+        else if (this.session.sitting) request('standUp');
         else request('toggleDancing');
         return;
       }
@@ -189,7 +200,7 @@ export class WorldScene extends Phaser.Scene {
   }
 
   movementVector() {
-    if (this.session.fishing.isFishing() || this.session.sitting || isTyping()) {
+    if (this.session.fishing.isFishing() || this.session.sitting || this.online?.isLocked() || isTyping()) {
       this.clickTarget = null;
       return null;
     }
@@ -231,7 +242,7 @@ export class WorldScene extends Phaser.Scene {
     }
     // Fishing needs a stool by the water: the zone is the fishing edge under the seat.
     const seat = this.session.sitting ? room.seats[this.session.seatIndex] : null;
-    this.session.fishZone = seat?.stool ? fishingZoneAt(room, seat.x, seat.y) : null;
+    this.session.fishZone = seat?.stool && !this.online ? fishingZoneAt(room, seat.x, seat.y) : null;
     if (exit >= 0) this.changeRoom(exit);
   }
 
@@ -260,5 +271,6 @@ export class WorldScene extends Phaser.Scene {
     this.seats.update(this.me, busy);
     this.npcController.update(this.me);
     this.farm.update(this.me, busy);
+    this.online?.update();
   }
 }

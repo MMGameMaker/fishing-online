@@ -3,41 +3,40 @@
 - **Worker:** Claude (Opus 5.5)
 - **Branch / PR:** chưa có; code nằm trong working tree, chưa commit
 - **Ngày gửi review:** 2026-11-09 (chưa có PR)
-- **Spec áp dụng:** SPEC_CHUNG v0.3 (đang chờ duyệt, M0 chưa Đạt), config v0-test-2026-11-09-rental-03
+- **Spec áp dụng:** SPEC_CHUNG v0.7, config v0-test-2026-11-09-monitoring-05
 
 ## Đã làm
 
-- `MockBackend` thay fetch và kết nối hub: login, snapshot, mua/gia hạn/rời ghế, cooldown, câu cá, minigame dùng chung `minigameCore`, shop, bán cá, Codex, lịch sử.
-- 3 bot, chữ MOCK ở góc màn hình, nút tua thời gian ghế x10, lỗi giả `?mockError=SEAT_TAKEN`.
+- `MockBackend` thay fetch và hub: login, snapshot, mua/gia hạn/rời ghế, cooldown, câu cá, `SubmitFishingResult` settle một lần mỗi attempt, shop, bán cá, Codex, lịch sử.
+- 3 bot, chữ MOCK ở góc, nút tua ghế x10, `?mockError=SEAT_TAKEN`, `?mockPing=150`.
 
 ## File thay đổi
 
-- client-web/src/mock/MockBackend.ts, MockBackend.test.ts, rules.ts, createMock.ts, devOverlay.ts
+- client-v0/src/online/mock/MockBackend.ts, MockBackend.test.ts, rules.ts, createMock.ts, devOverlay.ts
 
 ## Lệnh kiểm tra đã chạy
 
 ```
-cd client-web && npm ci && npm run lint && npm test && npm run build
-npm ci: added 173 packages
+cd client-v0 && npm run typecheck && npm run lint:online && npm run test:online && npm run build
+typecheck: không lỗi
 lint: All matched files use Prettier code style!
-test: Test Files 8 passed (8), Tests 123 passed (123)
-build: built in 4.08s
+test: Test Files 15 passed (15), Tests 182 passed (182)
+build: built in 7.25s
+npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file trong node_modules
 ```
 
 ## Nghiệm thu
 
 | Tiêu chí (chép từ task) | Kết quả | Bằng chứng |
 | --- | --- | --- |
-| Chơi được trọn vòng với mock | Đạt một phần | Test "chơi trọn vòng" gọi đúng API/hub: mua ghế → câu thắng → túi, EXP, Codex → bán cá. Chưa có UI mua ghế/câu cá (CL-B-05, CL-C-02..04) |
-| Mọi event mock khớp type `contract.ts` | Đạt | Mỗi test kiểm event qua `EVENT_GUARDS`, `badEvents` rỗng |
+| Chơi được trọn vòng với mock | Đạt | Mua ghế → câu → thắng → popup → túi có cá, EXP tăng, bằng giao diện trên `fishing.html`; bán cá mới qua test vì chưa có UI Shop (CL-D-03) |
+| Mọi event mock khớp type | Đạt | Mỗi test kiểm qua `EVENT_GUARDS`, `badEvents` rỗng |
 
 ## Lệch spec / giả định
 
-- Sau khi mua ghế, mock đưa nhân vật về vị trí ghế và gửi `PositionCorrected`; SPEC chưa quy định.
-- Snapshot có cả người chơi hiện tại trong `players`.
-- Nút x10 chỉ tăng tốc phiên ghế và cooldown, minigame giữ tốc độ thật.
-- Mock không có mất kết nối/grace 2 phút và không đồng bộ giữa 2 tab.
-- Mock không phải tích hợp thật.
+- Client báo `failed` được mock ghi lý do `timeout`; SPEC chưa quy định reason cho trường hợp này.
+- Sau khi mua ghế, mock đưa nhân vật về ghế và gửi `PositionCorrected`; SPEC chưa quy định.
+- Mock không có mất kết nối và không đồng bộ giữa 2 tab. Mock không phải tích hợp thật.
 
 ## Cần lead quyết
 
@@ -45,7 +44,7 @@ build: built in 4.08s
 
 ## Việc còn lại
 
-- Chơi trọn vòng bằng UI khi có CL-B-05 và CL-C-02..05.
+- không có
 
 ---
 

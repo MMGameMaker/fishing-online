@@ -3,43 +3,47 @@
 - **Worker:** Claude (Opus 5.5)
 - **Branch / PR:** chưa có; code nằm trong working tree, chưa commit
 - **Ngày gửi review:** 2026-11-09 (chưa có PR)
-- **Spec áp dụng:** SPEC_CHUNG v0.3 (đang chờ duyệt, M0 chưa Đạt), config v0-test-2026-11-09-rental-03
+- **Spec áp dụng:** SPEC_CHUNG v0.7, config v0-test-2026-11-09-monitoring-05
 
 ## Đã làm
 
-- Tạo `client-web/`: Vite 7.3.7, TypeScript 5.9.3 strict, Phaser 3.90.0, Vitest, ESLint, Prettier; mọi phiên bản khóa chính xác, có lockfile.
+- Client đặt trong `client-v0/src/online/`, mở bằng `client-v0/fishing.html`, theo quyết định của user. Trang prototype cũ giữ nguyên.
+- Thêm TypeScript strict, Vitest, ESLint, Prettier vào `client-v0`; khóa Phaser 3.90.0.
 - Game logic 480×270, `pixelArt`, `roundPixels`, `Scale.FIT`; biến `VITE_API_BASE`, `VITE_USE_MOCK`.
 
 ## File thay đổi
 
-- client-web/package.json, package-lock.json, tsconfig.json, vite.config.ts, eslint.config.js, .prettierrc.json, .env.example, index.html, README.md — project
-- client-web/src/main.ts, src/core/env.ts, services.ts, BootScene.ts — khởi động
+- client-v0/package.json, package-lock.json, tsconfig.json, vite.config.js, eslint.config.js, .prettierrc.json, .env.example, fishing.html — project
+- client-v0/src/online/main.ts, core/ — khởi động
 
 ## Lệnh kiểm tra đã chạy
 
 ```
-cd client-web && npm ci && npm run lint && npm test && npm run build
-npm ci: added 173 packages
+cd client-v0 && npm run typecheck && npm run lint:online && npm run test:online && npm run build
+typecheck: không lỗi
 lint: All matched files use Prettier code style!
-test: Test Files 8 passed (8), Tests 123 passed (123)
-build: built in 4.08s
+test: Test Files 15 passed (15), Tests 182 passed (182)
+build: built in 7.25s
+npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file trong node_modules
 ```
 
 ## Nghiệm thu
 
 | Tiêu chí (chép từ task) | Kết quả | Bằng chứng |
 | --- | --- | --- |
-| `npm ci && npm run build && npm run lint && npm test` chạy sạch | Đạt | Output phía trên |
-| Mở `npm run dev` thấy scene Boot | Đạt | Mở `/?scene=boot` trên pane trình duyệt, thấy chữ khởi động, console không lỗi |
+| Chuỗi lệnh kiểm tra chạy sạch | Đạt một phần | typecheck, lint, test, build đạt; `npm ci` mới chạy --dry-run |
+| Mở dev thấy scene Boot | Đạt | Mở `fishing.html?scene=boot` lúc còn ở client-web; sau khi chuyển đã mở `fishing.html` vào hồ, console không lỗi |
 
 ## Lệch spec / giả định
 
-- Không có `.env` thì dev mặc định mock, build mặc định Server thật (đặt trong vite.config.ts). Mock không nằm trong bundle build (grep `dist/assets` không thấy `MockBackend`).
-- Phaser 3.90.0 do agent chọn; PROJECT.md chỉ yêu cầu khóa khi khởi tạo. npm `latest` hiện là Phaser 4.
+- Tên script là `typecheck`, `lint:online`, `test:online` để không đụng script cũ của prototype.
+- Không có `.env` thì dev mặc định mock, build mặc định Server thật; bundle build không chứa mock.
 
 ## Cần lead quyết
 
-- ESLint 9.39.5 đã bị npm đánh dấu hết hỗ trợ; có nâng lên ESLint mới hay không.
+- ESLint 9.39.5 đã bị npm đánh dấu hết hỗ trợ; có nâng lên không.
+- Thư mục `client-web/` còn lại, một phần đã commit ở 004bf3d: chờ user quyết có xóa không.
+- Server Express/Socket.IO cũ trong `client-v0/server` không dùng cho Fishing Online: chờ user quyết giữ hay bỏ.
 
 ## Việc còn lại
 

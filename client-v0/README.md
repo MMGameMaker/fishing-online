@@ -1,10 +1,24 @@
-# Pixadom Rebuild
+# Fishing Online
 
-A cozy 2D social pixel-art prototype inspired by the structure of Pixadom. Gameplay code is original. Character, NPC, button and room art under `public/assets/` and `public/rooms/*.png` is adapted from the reference project's downloaded sprite sheets and tile/decor art, edited before being added here — see [ASSETS.md](ASSETS.md) for exactly which files and where each came from.
+Gameplay code is original. Character, NPC, button and room art under `public/assets/` and `public/rooms/*.png` is adapted from the reference project's downloaded sprite sheets and tile/decor art, edited before being added here — see [ASSETS.md](ASSETS.md) for exactly which files and where each came from.
 
 Stack: Phaser 3 + Vite (client), Node.js + Express + Socket.IO (server), JSON file storage in `data/db.json`.
 
 `data/db.json` is a local runtime save (account progress, messages and farm state), not a required seed file. When it is absent, the mock server initializes test accounts from `shared/config.js` and creates the save directory/file when saving or shutting down. Git ignores only this save and its temporary write file; keep shared configuration, room data and any seed/fixture files in version control. Existing local saves are preserved.
+
+## Fishing Online
+
+Client Fishing Online nằm trong `src/online/`. Vào phòng **Coral Cove**: đứng cạnh ghế đẩu, bấm Sit để thuê ghế, thuê xong nút tròn góc phải dưới để câu. Ghế, Gold và cá ở đây đang chạy bằng **mock** trong trình duyệt (có chữ MOCK), chưa nối Server thật, nên tách khỏi coins và Bag của prototype. `fishing.html` là trang thử riêng bằng art tạm.
+
+| Địa chỉ | Nội dung |
+| --- | --- |
+| `/fishing.html` | Vào hồ: WASD/mũi tên/bấm chuột để đi, bấm ghế xanh để mua, nút tròn để câu |
+| `/fishing.html?scene=ui-demo` | Trang demo UI kit |
+| `/fishing.html?scene=char-debug` | 4 hướng × mọi animation của một skin |
+| `/fishing.html?mockError=SEAT_TAKEN` | Mock trả lỗi giả |
+| `/fishing.html?mockPing=150` | Mock giả độ trễ mạng |
+
+Kiểm tra: `npm run typecheck`, `npm run lint:online`, `npm run test:online`, `npm run build`.
 
 ## Run
 

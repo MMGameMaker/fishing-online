@@ -2,7 +2,7 @@
 
 Mục tiêu: các màn quản lý ngoài vòng câu.
 Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 2.4, 2.5, 2.9-2.11, 3.
-Phạm vi file: `client-web/src/ui/` trừ `ui/social`, `ui/skin`, `ui/ranking`.
+Phạm vi file: `client-v0/src/online/ui/` trừ `ui/social`, `ui/skin`, `ui/ranking`.
 Độc lập: chạy với mock của CL-A; icon placeholder tới khi ART giao.
 
 Quy ước UI chung (nhóm này sở hữu, nhóm khác dùng lại): `src/ui/kit/` gồm Panel, Button, Tabs, Toast, ConfirmDialog, GoldLabel, phông pixel, bảng màu rarity (common xám, uncommon xanh lá, rare xanh dương, epic tím, legendary vàng cam).

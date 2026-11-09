@@ -28,6 +28,8 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Ngày | Nội dung | Nhóm cần làm gì |
 | --- | --- | --- |
+| 2026-11-09 | SPEC_CHUNG 0.7: gameplay chạy trong scene Coral Cove của `client-v0`, user xác nhận có bản quyền art | CL-B/C, ART, QA: test trong scene này |
+| 2026-11-09 | SPEC_CHUNG 0.6: client đặt trong `client-v0/src/online/`, không còn `client-web/`; chỉ đổi đường dẫn | CL/SOC/ART/QA: dùng đường dẫn mới |
 | 2026-11-09 | SPEC_CHUNG 0.4: M0 duyệt; Client outcome, pool cộng dồn, BE tuần tự | Tất cả: đọc trước khi nhận task |
 | 2026-11-09 | Bổ sung map mới và Admin thả cá; user chốt quần thể hữu hạn | CL-B/AD/BE-E/QA: đọc task mới; contract tồn và luật cạn cá còn chờ thống nhất |
 
@@ -37,7 +39,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE-A-01 | Khung module, envelope, lỗi, project test | M | không | | Chưa nhận | |  |
+| BE-A-01 | Khung module, envelope, lỗi, project test | M | không | Claude | Đang làm | 2026-11-09 | Code xong, 32 test đạt; test PostgreSQL chờ Docker, chưa commit/PR. [Báo cáo](bao-cao/BE-A-01.md) |
 | BE-A-02 | Đăng nhập Firebase và phiên | L | BE-A-01; Firebase project dev (người dùng tạo, secret ngoài repo) | | Chưa nhận | |  |
 | BE-A-03 | Ví Gold và ledger | M | BE-A-01 | | Chưa nhận | |  |
 | BE-A-04 | Idempotency | S | BE-A-01 | | Chưa nhận | |  |
@@ -106,12 +108,12 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| CL-A-01 | Khởi tạo project | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR |
-| CL-A-02 | Kiểu dữ liệu contract | S | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR |
-| CL-A-03 | HTTP client và phiên | M | CL-A-02 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR |
-| CL-A-04 | Hub client | M | CL-A-02 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. Chưa thử tắt/bật Server thật |
-| CL-A-05 | Kho state | M | CL-A-02 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR |
-| CL-A-06 | Mock server trong trình duyệt | L | CL-A-03, CL-A-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. Trọn vòng mới qua test, chưa có UI |
+| CL-A-01 | Khởi tạo project | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
+| CL-A-02 | Kiểu dữ liệu contract | S | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
+| CL-A-03 | HTTP client và phiên | M | CL-A-02 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
+| CL-A-04 | Hub client | M | CL-A-02 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa thử tắt/bật Server thật |
+| CL-A-05 | Kho state | M | CL-A-02 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
+| CL-A-06 | Mock server trong trình duyệt | L | CL-A-03, CL-A-04 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Trọn vòng qua UI với mock |
 | CL-A-07 | Màn đăng nhập | M | CL-A-03; Firebase Web config (người dùng cung cấp) | | Chưa nhận | |  |
 
 ### CL-B — Map hồ, nhân vật, di chuyển, ghế
@@ -119,10 +121,10 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | CL-B-01 | Dựng map hồ mới và export schema | M | CL-B-07, ART-01 | | Chưa nhận | |  |
-| CL-B-02 | Scene hồ | M | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. Map placeholder |
-| CL-B-03 | Nhân vật và animation | M | CL-B-02; sprite từ ART-02 (placeholder trước) | | Chưa nhận | |  |
-| CL-B-04 | Điều khiển và đồng bộ di chuyển | M | CL-B-02, CL-A-04 | | Chưa nhận | |  |
-| CL-B-05 | Ghế và mua vé | M | CL-B-02, CL-A-05 | | Chưa nhận | |  |
+| CL-B-02 | Scene hồ | M | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Map placeholder |
+| CL-B-03 | Nhân vật và animation | M | CL-B-02; sprite từ ART-02 (placeholder trước) | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Art tạm |
+| CL-B-04 | Điều khiển và đồng bộ di chuyển | M | CL-B-02, CL-A-04 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa thử 2 tab |
+| CL-B-05 | Ghế và mua vé | M | CL-B-02, CL-A-05 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa thử 2 tab, đồng hồ với Server |
 | CL-B-06 | Mất kết nối | S | CL-A-04, CL-B-05 | | Chưa nhận | |  |
 
 | CL-B-07 | Thiết kế và duyệt bố cục hồ câu mới | M | ART-01 | | Chưa nhận | | Không dùng nguyên map 30 anchor cũ |
@@ -131,17 +133,17 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| CL-C-01 | Lõi minigame TS | S | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. Chờ vector BE-B-07 |
-| CL-C-02 | Nút câu | S | CL-A-05 | | Chưa nhận | |  |
-| CL-C-03 | Quăng, chờ, cá cắn | M | CL-C-02, CL-B-03 | | Chưa nhận | |  |
-| CL-C-04 | Màn minigame | L | CL-C-01 | | Chưa nhận | |  |
-| CL-C-05 | Kết quả | M | CL-C-04; icon cá (ART-04) | | Chưa nhận | |  |
+| CL-C-01 | Lõi minigame TS | S | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
+| CL-C-02 | Nút câu | S | CL-A-05 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
+| CL-C-03 | Quăng, chờ, cá cắn | M | CL-C-02, CL-B-03 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Âm báo tạm |
+| CL-C-04 | Màn minigame | L | CL-C-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa đo FPS |
+| CL-C-05 | Kết quả | M | CL-C-04; icon cá (ART-04) | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Ảnh cá tạm |
 
 ### CL-D — HUD, Shop, túi đồ, tiến trình, Codex
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| CL-D-01 | UI kit | M | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. Chưa có phông pixel |
+| CL-D-01 | UI kit | M | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa có phông pixel |
 | CL-D-02 | HUD chính | S | CL-D-01, CL-A-05 | | Chưa nhận | |  |
 | CL-D-03 | Shop | M | CL-D-01 | | Chưa nhận | |  |
 | CL-D-04 | Túi đồ và chọn cần | M | CL-D-01 | | Chưa nhận | |  |

@@ -37,6 +37,11 @@ export class SeatController {
     if (this.session.sitting || this.session.fishing.isFishing()) return;
     const index = this.nearestSeat(this.session.world.me);
     if (index < 0) return;
+    // Coral Cove phải thuê ghế trước, thuê xong mới ngồi xuống.
+    if (this.scene.online) {
+      this.scene.online.pressSeatIndex(index);
+      return;
+    }
     await request('sitDown', { index });
   }
 
@@ -51,7 +56,8 @@ export class SeatController {
       // While fishing from a stool the Fish button takes this spot; stand up once done.
       // On a stool by the water the Fish button sits at y - 84, so Stand up goes above it.
       const above = this.session.fishZone ? 112 : 84;
-      this.standButton.setVisible(!this.session.fishing.isFishing()).setPosition(me.x, me.y - above);
+      // Coral Cove rời ghế bằng nút Rời ghế có xác nhận không hoàn vé.
+      this.standButton.setVisible(!this.session.fishing.isFishing() && !this.scene.online).setPosition(me.x, me.y - above);
       return;
     }
     this.standButton.setVisible(false);

@@ -2,7 +2,7 @@
 
 Mục tiêu: project client chạy được, có lớp mạng theo contract, kho state chung và **mock server** chạy trong trình duyệt để các nhóm Client khác làm việc không cần Server thật.
 Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 1, 3, 4, 5; `fixtures/api-samples.v0.json`, `fixtures/gameplay-config.v0.json`, `fixtures/lake-map.placeholder.json`.
-Phạm vi file: `client-web/` (gốc project), `client-web/src/{core,net,state,mock}`.
+Phạm vi file: `client-v0/` (gốc project), `client-v0/src/online/{core,net,state,mock}`.
 Độc lập: không phụ thuộc Server.
 
 Tham khảo được: `client-v0/src/net.js`, `world.js` (cách gửi movement), nhưng viết lại bằng TS.
@@ -11,7 +11,7 @@ Tham khảo được: `client-v0/src/net.js`, `world.js` (cách gửi movement),
 
 ### CL-A-01 Khởi tạo project
 - **Độ lớn:** S. **Phụ thuộc:** không.
-- **Spec:** `client-web/` dùng Vite + TypeScript strict + Phaser 3 (khóa phiên bản chính xác trong `package.json`, có lockfile). ESLint + Prettier. Script: `dev`, `build`, `test` (Vitest), `lint`. Pixel art: `pixelArt: true`, `roundPixels: true`, kích thước logic 480×270 scale theo cửa sổ (`Scale.FIT`). Thư mục: `src/core` (boot, config môi trường), `src/net`, `src/state`, `src/mock`, `src/scenes`, `src/entities`, `src/fishing`, `src/ui`. Biến môi trường: `VITE_API_BASE`, `VITE_USE_MOCK`.
+- **Spec:** `client-v0/` dùng Vite + TypeScript strict + Phaser 3 (khóa phiên bản chính xác trong `package.json`, có lockfile). ESLint + Prettier. Script: `dev`, `build`, `test` (Vitest), `lint`. Pixel art: `pixelArt: true`, `roundPixels: true`, kích thước logic 480×270 scale theo cửa sổ (`Scale.FIT`). Thư mục: `src/core` (boot, config môi trường), `src/net`, `src/state`, `src/mock`, `src/scenes`, `src/entities`, `src/fishing`, `src/ui`. Biến môi trường: `VITE_API_BASE`, `VITE_USE_MOCK`.
 - **Nghiệm thu:** `npm ci && npm run build && npm run lint && npm test` chạy sạch; mở `npm run dev` thấy scene Boot.
 
 ### CL-A-02 Kiểu dữ liệu contract

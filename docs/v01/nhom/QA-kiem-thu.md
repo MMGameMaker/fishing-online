@@ -14,7 +14,7 @@ Phạm vi file: `qa/`.
 
 ### QA-02 E2E tự động với Playwright
 - **Độ lớn:** L. **Phụ thuộc:** CL-A-06; sau đó Server thật.
-- **Spec:** `qa/e2e/` Playwright chạy client-web; chế độ mock (chạy mọi lúc) và chế độ Server thật (dev bypass login). Kịch bản: vào hồ → mua vé → câu → thắng (bấm theo vị trí vùng đọc từ state test hook `window.__test`) → bán cá. 2 trình duyệt tranh ghế.
+- **Spec:** `qa/e2e/` Playwright chạy client-v0/fishing.html; chế độ mock (chạy mọi lúc) và chế độ Server thật (dev bypass login). Kịch bản: vào hồ → mua vé → câu → thắng (bấm theo vị trí vùng đọc từ state test hook `window.__test`) → bán cá. 2 trình duyệt tranh ghế.
 - **Nghiệm thu:** `npx playwright test --trace off` chạy xanh ở chế độ mock.
 
 ### QA-03 Chạy cổng tích hợp

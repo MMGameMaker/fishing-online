@@ -1,4 +1,4 @@
-# Spec chung v0.5 — nguồn duy nhất cho mọi worker
+# Spec chung v0.7 — nguồn duy nhất cho mọi worker
 
 **Trạng thái: Người dùng duyệt cơ chế và các mặc định đã nêu ngày 2026-11-09; cập nhật v0.5: Client xử lý minigame, pool thả cộng dồn, BE có thể làm tuần tự.** Tổng hợp từ [GAMEPLAY_SCOPE.md](../../doc/GAMEPLAY_SCOPE.md) (bản client Phaser + TS). Thay thế [contracts/v1-draft.md](../contracts/v1-draft.md) cho bản đầu. Worker **không tự sửa file này**; cần đổi thì ghi vào báo cáo, lead quyết và tăng phiên bản (xem [QUY_TRINH.md](QUY_TRINH.md)).
 
@@ -21,15 +21,15 @@ BE-A..E là module/nhóm task, không yêu cầu worker riêng hoặc chạy son
 | `server/FishingOnline.Api/Modules/Admin`, `admin/` | AD | |
 | `server/FishingOnline.Api/Persistence/Migrations` | Mọi nhóm BE | Quy tắc riêng ở mục 1.1 |
 | `server/FishingOnline.Api/Program.cs` | BE-A | Nhóm khác đăng ký module qua `services.Add<Module>()` và `app.Map<Module>()` trong file của mình; chỉ thêm 1 dòng gọi vào Program.cs |
-| `client-web/src/core`, `net`, `state`, `mock` | CL-A | Project Phaser 3 + TS + Vite mới |
-| `client-web/src/scenes/lake`, `entities` | CL-B | |
-| `client-web/src/fishing` | CL-C | |
-| `client-web/src/ui` | CL-D | Trừ `ui/social` |
-| `client-web/src/ui/social`, `ui/skin`, `ui/ranking` | CL-E | |
-| `client-web/public/assets`, `art-src/` | ART | Mỗi bộ asset có `LICENSE.md` ghi nguồn |
+| `client-v0/src/online/core`, `net`, `state`, `mock` | CL-A | Phaser 3 + TS + Vite trong `client-v0`, mở bằng `fishing.html` |
+| `client-v0/src/online/scenes/lake`, `entities` | CL-B | |
+| `client-v0/src/online/fishing` | CL-C | |
+| `client-v0/src/online/ui` | CL-D | Trừ `ui/social` |
+| `client-v0/src/online/ui/social`, `ui/skin`, `ui/ranking` | CL-E | |
+| `client-v0/public/online/assets`, `art-src/` | ART | Mỗi bộ asset có `LICENSE.md` ghi nguồn |
 | `qa/` | QA | Kịch bản e2e, test tải |
 
-`client-v0/` chỉ để tham khảo logic, không sửa, không chép art.
+Client Fishing Online nằm trong `client-v0/src/online/`. Gameplay chính chạy trong scene Coral Cove của `client-v0` qua `src/online/bridge/`, 20 ghế đẩu là 20 ghế thuê; `fishing.html` là trang thử riêng. User xác nhận 2026-11-09 đã mua bản quyền art trong `client-v0` nên được dùng art và phòng của scene.
 
 ### 1.1 Migration EF Core
 
@@ -275,3 +275,7 @@ public interface ICatchRecorder { Task<CatchRecordResult> RecordAsync(Guid playe
 Nguồn phân tích replay/business rules: [OWASP Business Logic Security](https://cheatsheetseries.owasp.org/cheatsheets/Business_Logic_Security_Cheat_Sheet.html). Các giá trị ownership/price/reward và state tài nguyên giữ phía Server; user chấp nhận riêng rủi ro Client báo kết quả minigame.
 
 | 0.5 | 2026-11-09 | 2.7.1 | User chấp nhận rủi ro Client outcome, thêm cảnh báo BE chỉ quan sát; threshold test cấu hình được, không auto-ban | BE-E, AD, QA |
+
+| 0.6 | 2026-11-09 | 1 | User chốt đặt client trong `client-v0` thay cho `client-web`; chỉ đổi đường dẫn, không đổi luật/contract | CL-A/B/C/D, SOC, ART, QA |
+
+| 0.7 | 2026-11-09 | 1 | User chốt gameplay chạy trong scene Coral Cove và xác nhận có bản quyền art; không đổi luật/contract | CL-B/C, ART, QA |

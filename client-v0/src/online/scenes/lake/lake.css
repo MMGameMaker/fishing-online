@@ -1,0 +1,67 @@
+.seat-hud {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 4px 8px;
+  background: rgb(16 20 31 / 75%);
+}
+
+.seat-hud__session {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: bold;
+}
+
+.seat-hud__session[hidden] {
+  display: none;
+}
+
+.seat-dialog__stepper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.seat-dialog__total {
+  font-weight: bold;
+  color: var(--ui-gold);
+}
+
+.joystick {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  width: 110px;
+  height: 110px;
+  border: 2px solid rgb(255 255 255 / 50%);
+  border-radius: 50%;
+  background: rgb(0 0 0 / 20%);
+  pointer-events: auto;
+  touch-action: none;
+}
+
+.joystick__knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px 0 0 -23px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 60%);
+}
+
+/* Khi chạy trong scene hồ của game chính: nhường góc trên cho thanh nút sẵn có. */
+.ui-root--world .seat-hud {
+  top: 64px;
+}
+
+body.online-cove .hud-chip-coins {
+  display: none;
+}

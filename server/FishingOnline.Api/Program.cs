@@ -1,7 +1,7 @@
 using FishingOnline.Api.Infrastructure;
+using FishingOnline.Api.Modules.Common;
 using FishingOnline.Api.Persistence;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
 
@@ -26,12 +26,13 @@ if (!string.IsNullOrWhiteSpace(redisConnection))
 builder.Services.AddHealthChecks()
     .AddCheck<PostgresHealthCheck>("postgres", timeout: TimeSpan.FromSeconds(3))
     .AddCheck<RedisHealthCheck>("redis", timeout: TimeSpan.FromSeconds(3));
-builder.Services.AddSignalR(options => options.MaximumReceiveMessageSize = 16 * 1024);
+builder.Services.AddCommon();
 builder.Services.AddCors(options => options.AddPolicy("Client", policy =>
     policy.WithOrigins(builder.Configuration.GetSection("ClientOrigins").Get<string[]>() ?? [])
         .AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 var app = builder.Build();
 app.UseCors("Client");
+app.UseMiddleware<GameExceptionMiddleware>();
 app.MapGet("/health/live", () => Results.Ok(new { status = "alive" }));
 app.MapHealthChecks("/health/ready", new HealthCheckOptions
 {
@@ -51,11 +52,5 @@ app.MapGet("/api/v1/bootstrap", () => Results.Ok(new
     contractVersion = "0.1-draft", mode = "transport-only",
     gameplayAvailable = false, hubPath = "/hubs/game"
 }));
-// Transport diagnostics only; no player identity or gameplay is accepted here.
-if (app.Environment.IsDevelopment()) app.MapHub<DiagnosticHub>("/hubs/game");
+app.MapCommon();
 app.Run();
-
-public sealed class DiagnosticHub : Hub
-{
-    public object Ping() => new { contractVersion = "0.1-draft", serverTime = DateTimeOffset.UtcNow };
-}

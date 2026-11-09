@@ -70,7 +70,7 @@ Kết luận: **Đạt** (merge, TIEN_DO → `Xong`) hoặc **Làm lại** (li�
 | --- | --- |
 | Server | `dotnet restore server --locked-mode` · `dotnet build server -warnaserror` · `dotnet test server` |
 | Domain | `dotnet test server/FishingOnline.Domain.Tests` |
-| Client | `cd client-web && npm ci && npm run lint && npm test && npm run build` |
+| Client | `cd client-v0 && npm ci && npm run typecheck && npm run lint:online && npm run test:online && npm run build` |
 | Admin | `cd admin && npm ci && npm run lint && npm test && npm run build` |
 | E2E | `cd qa && npx playwright test --trace off` |
 

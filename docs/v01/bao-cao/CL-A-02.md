@@ -3,41 +3,43 @@
 - **Worker:** Claude (Opus 5.5)
 - **Branch / PR:** chưa có; code nằm trong working tree, chưa commit
 - **Ngày gửi review:** 2026-11-09 (chưa có PR)
-- **Spec áp dụng:** SPEC_CHUNG v0.3 (đang chờ duyệt, M0 chưa Đạt), config v0-test-2026-11-09-rental-03
+- **Spec áp dụng:** SPEC_CHUNG v0.7, config v0-test-2026-11-09-monitoring-05
 
 ## Đã làm
 
-- Type cho request/response/event/mã lỗi SPEC mục 3-5 và type config.
+- Type cho request/response/event/mã lỗi SPEC mục 3-5 và config, theo SPEC 0.5: `SubmitFishingResult`, `RESULT_EXPIRED`, `deadlineAt`, `state: null`; bỏ `MinigameTap`, `TAP_REJECTED`.
 - Type guard cho toàn bộ fixture và event.
 
 ## File thay đổi
 
-- client-web/src/net/contract.ts, contractGuards.ts, contract.test.ts
-- client-web/src/core/gameplayConfig.ts
+- client-v0/src/online/net/contract.ts, contractGuards.ts, contract.test.ts
+- client-v0/src/online/core/gameplayConfig.ts
 
 ## Lệnh kiểm tra đã chạy
 
 ```
-cd client-web && npm ci && npm run lint && npm test && npm run build
-npm ci: added 173 packages
+cd client-v0 && npm run typecheck && npm run lint:online && npm run test:online && npm run build
+typecheck: không lỗi
 lint: All matched files use Prettier code style!
-test: Test Files 8 passed (8), Tests 123 passed (123)
-build: built in 4.08s
+test: Test Files 15 passed (15), Tests 182 passed (182)
+build: built in 7.25s
+npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file trong node_modules
 ```
 
 ## Nghiệm thu
 
 | Tiêu chí (chép từ task) | Kết quả | Bằng chứng |
 | --- | --- | --- |
-| Test parse toàn bộ `api-samples.v0.json` và `gameplay-config.v0.json` qua type guard không lỗi | Đạt | `src/net/contract.test.ts`, 24 test; có test đếm đủ 6 mẫu HTTP và 14 mẫu hub |
+| Parse toàn bộ fixture qua type guard không lỗi | Đạt | `contract.test.ts`, kiểm đủ 6 mẫu HTTP và 14 mẫu hub |
 
 ## Lệch spec / giả định
 
-- `NETWORK_ERROR` và `TIMEOUT` là mã chỉ có ở Client, không thuộc SPEC mục 5.
+- `NETWORK_ERROR`, `TIMEOUT` là mã chỉ có ở Client.
+- `/catalog` theo BE-A-05 là toàn bộ config trừ `spawn`, rộng hơn danh sách ở SPEC mục 3.
 
 ## Cần lead quyết
 
-- `api-samples` còn `configVersion: v0-test-2026-11-06`, khác config hiện tại `v0-test-2026-11-09-rental-03`.
+- `api-samples` còn `configVersion` cũ so với config.
 - `items` trong inventory và `quantity` trong `/shop/buy` còn sót sau khi bỏ thính.
 - Fixture chưa có mẫu `/catalog`, `/me/codex`, `/me/history`.
 

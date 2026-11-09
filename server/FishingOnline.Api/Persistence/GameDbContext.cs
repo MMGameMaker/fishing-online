@@ -25,5 +25,6 @@ public sealed class GameDbContext(DbContextOptions<GameDbContext> options) : DbC
             entity.Property(player => player.DisplayName).HasMaxLength(80).IsRequired();
             entity.Property(player => player.CreatedAt).IsRequired();
         });
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(GameDbContext).Assembly);
     }
 }

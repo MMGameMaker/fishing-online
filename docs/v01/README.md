@@ -80,7 +80,7 @@
 - `docs/contracts/v1-draft.md` (0.1-draft) còn 4 slot cần/dây/lưỡi/mồi, cân nặng gram, vé là số dư, Idle, user tự hủy câu. SPEC_CHUNG 0.5 thay thế khi được duyệt.
 - `docs/PROJECT.md`, `doc/README.md`, `docs/work/_TEMPLATE.md` là các điểm vào scope. Đã đồng bộ phần scope hiện hành sang Phaser + TS ngày 2026-11-09; W02 cũ giữ lịch sử công cụ Cocos, không là runtime hiện tại.
 - Map W02 có 30 chỗ ngồi (10 chòi × 3); luật là 20 ghế. CL-B-01 làm lại.
-- `phaser engine/` chỉ có bản build và node_modules, không có mã nguồn; client mới đặt ở `client-web/`.
+- `phaser engine/` chỉ có bản build và node_modules, không có mã nguồn; client Fishing Online đặt ở `client-v0/src/online/`, mở bằng `client-v0/fishing.html` (user chốt 2026-11-09).
 
 ## Bổ sung kế hoạch 2026-11-09 theo yêu cầu người dùng
 

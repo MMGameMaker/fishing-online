@@ -2,7 +2,7 @@
 
 Mục tiêu: người chơi quăng câu, thấy cá cắn, chơi minigame, xem kết quả, đúng thời gian Server gửi.
 Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 2.6, 2.7, 4; `fixtures/minigame-vectors.v0.json` (CL-C tạo khi triển khai); clip tham khảo `ref minigame.mp4` (chỉ cơ chế).
-Phạm vi file: `client-web/src/fishing/`; test vectors minigame TS trong fixtures do CL-C sở hữu, thống nhất lead khi thêm file dùng chung.
+Phạm vi file: `client-v0/src/online/fishing/`; test vectors minigame TS trong fixtures do CL-C sở hữu, thống nhất lead khi thêm file dùng chung.
 Độc lập: chạy với mock của CL-A. Bản TS của thuật toán minigame do nhóm này viết và là nguồn cho mock.
 
 ---

@@ -3,7 +3,7 @@
 - **Worker:** Claude (Opus 5.5)
 - **Branch / PR:** chưa có; code nằm trong working tree, chưa commit
 - **Ngày gửi review:** 2026-11-09 (chưa có PR)
-- **Spec áp dụng:** SPEC_CHUNG v0.3 (đang chờ duyệt, M0 chưa Đạt), config v0-test-2026-11-09-rental-03
+- **Spec áp dụng:** SPEC_CHUNG v0.7, config v0-test-2026-11-09-monitoring-05
 
 ## Đã làm
 
@@ -12,16 +12,17 @@
 
 ## File thay đổi
 
-- client-web/src/state/store.ts, bindHub.ts, store.test.ts
+- client-v0/src/online/state/store.ts, bindHub.ts, store.test.ts
 
 ## Lệnh kiểm tra đã chạy
 
 ```
-cd client-web && npm ci && npm run lint && npm test && npm run build
-npm ci: added 173 packages
+cd client-v0 && npm run typecheck && npm run lint:online && npm run test:online && npm run build
+typecheck: không lỗi
 lint: All matched files use Prettier code style!
-test: Test Files 8 passed (8), Tests 123 passed (123)
-build: built in 4.08s
+test: Test Files 15 passed (15), Tests 182 passed (182)
+build: built in 7.25s
+npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file trong node_modules
 ```
 
 ## Nghiệm thu

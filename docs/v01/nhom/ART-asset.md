@@ -2,14 +2,14 @@
 
 Mục tiêu: asset có quyền sử dụng, đúng kích thước, giao theo tên file cố định để Client thay placeholder không phải sửa mã.
 Đọc trước: [ASSET_PIPELINE_2D](../../../doc/ASSET_PIPELINE_2D.md), [W02](../../work/W02-art-map-ho.md).
-Phạm vi file: `client-web/public/assets/`, `art-src/` (file nguồn .aseprite/.psd), `LICENSE.md` trong từng thư mục asset.
+Phạm vi file: `client-v0/public/online/assets/`, `art-src/` (file nguồn .aseprite/.psd), `LICENSE.md` trong từng thư mục asset.
 Độc lập: không phụ thuộc mã. Quy ước chung: 1 ô tile = 32 px [Đề xuất, chốt ở ART-01], nhân vật khung 32×48, xuất PNG + atlas JSON (định dạng Phaser JSON Hash). Không dùng art trong `client-v0/public/assets`.
 
 ---
 
 ### ART-01 Chốt bộ tile và quyền sử dụng
 - **Độ lớn:** S. **Phụ thuộc:** không.
-- **Spec:** chọn giữa Fan-tasy Tileset, Farming Game World (ElvGames) hoặc bộ khác; ghi điều khoản (dùng thương mại? sửa đổi? ghi công?) vào `client-web/public/assets/tiles/LICENSE.md` kèm link và ngày tải. Chốt kích thước ô.
+- **Spec:** chọn giữa Fan-tasy Tileset, Farming Game World (ElvGames) hoặc bộ khác; ghi điều khoản (dùng thương mại? sửa đổi? ghi công?) vào `client-v0/public/online/assets/tiles/LICENSE.md` kèm link và ngày tải. Chốt kích thước ô.
 - **Nghiệm thu:** lead/người dùng duyệt điều khoản trước khi CL-B-01 dựng map.
 
 ### ART-02 Nhân vật mẫu (1 skin)
