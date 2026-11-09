@@ -420,24 +420,11 @@
     "shiftMax": 0.15,
     "missPenaltyMs": 2000,
     "fishHp": 55,
-    "atk": 11
+    "atk": 11,
+    "deadlineAt": "2026-11-09T10:01:23.500000Z"
    },
-   "state": {
-    "hp": 55,
-    "remainingMs": 12000,
-    "tapSeq": 0
-   },
+   "state": null,
    "result": null
-  },
-  "MinigameTap ack": {
-   "requestId": "r9",
-   "ok": true,
-   "error": null,
-   "data": {
-    "result": "weak",
-    "hp": 33,
-    "remainingMs": 10400
-   }
   },
   "AttemptUpdate success": {
    "attemptId": "a-1",
@@ -445,11 +432,7 @@
    "reason": null,
    "biteDeadlineAt": null,
    "minigame": null,
-   "state": {
-    "hp": 0,
-    "remainingMs": 6100,
-    "tapSeq": 4
-   },
+   "state": null,
    "result": {
     "speciesId": "perch",
     "rarity": "common",
@@ -508,6 +491,31 @@
     "gold": "60",
     "chargedGold": "40"
    }
+  },
+  "SubmitFishingResult ack": {
+   "requestId": "44444444-4444-4444-8444-444444444444",
+   "ok": true,
+   "error": null,
+   "data": {
+    "attempt": {
+     "attemptId": "a-0001",
+     "phase": "success",
+     "reason": null,
+     "result": {
+      "speciesId": "perch",
+      "rarity": "common",
+      "lengthTenthCm": 143,
+      "isNew": true,
+      "isRecord": false,
+      "expGained": 5,
+      "level": 1,
+      "levelUp": false
+     },
+     "biteDeadlineAt": null,
+     "minigame": null,
+     "state": null
+    }
+   }
   }
  },
  "_rentalExamples": {
@@ -522,5 +530,6 @@
    "durationUnits": 1,
    "expectedPriceVersion": "seat-price-test-03"
   }
- }
+ },
+ "_resultAuthority": "Client reports only outcome; Server-owned species/length/reward; max1 catch/attempt, atomic pool/EXP, replay-safe."
 }

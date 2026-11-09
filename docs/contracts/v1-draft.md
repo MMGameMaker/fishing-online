@@ -1,6 +1,6 @@
 # Contract nền tảng và nguồn gameplay hiện hành
 
-Cập nhật 2026-11-09: phần gameplay 0.1-draft cũ đã được rút để tránh hai nguồn mâu thuẫn. Đọc [SPEC_CHUNG 0.3](../v01/SPEC_CHUNG.md) và [GAMEPLAY_SCOPE](../../doc/GAMEPLAY_SCOPE.md); kỹ thuật v01 đang đề xuất, quyết định user ghi nhãn Chốt. Auth chi tiết tại [ACCOUNT_AUTH](../be/ACCOUNT_AUTH.md), Client/BE vẫn cần xác nhận trước tích hợp.
+Cập nhật 2026-11-09: phần gameplay 0.1-draft cũ đã được rút để tránh hai nguồn mâu thuẫn. Đọc [SPEC_CHUNG 0.5](../v01/SPEC_CHUNG.md) và [GAMEPLAY_SCOPE](../../doc/GAMEPLAY_SCOPE.md); các mặc định M0 đã được user đồng ý, còn field thiếu số bổ sung dần, quyết định user ghi nhãn Chốt. Auth chi tiết tại [ACCOUNT_AUTH](../be/ACCOUNT_AUTH.md), Client/BE vẫn cần xác nhận trước tích hợp.
 
 ## Đang chạy trong scaffold
 

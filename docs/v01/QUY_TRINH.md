@@ -1,5 +1,7 @@
 # Quy trình giao việc, kiểm tra kết quả và xác nhận tiến độ
 
+Nhóm BE là module/task, không bắt buộc worker song song; một BE có thể làm tuần tự, thiếu dữ kiện thì ghi task chờ và chuyển phần độc lập.
+
 Áp dụng cho mọi worker (người hoặc AI agent) làm task trong `docs/v01/nhom/`. Bổ sung cho [AGENTS.md](../../AGENTS.md) và [REPOSITORY.md](../../doc/REPOSITORY.md), không thay chúng.
 
 ## 1. Vai trò
@@ -87,11 +89,11 @@ Tiến độ được xác nhận bằng **cổng**, không bằng số task. M�
 
 | Cổng | Cần Xong | Kịch bản demo |
 | --- | --- | --- |
-| **M0 Spec** | SPEC_CHUNG được duyệt; BE-B-01, CL-A-01, CL-A-02 | Client parse được mọi fixture; Domain parse được config |
+| **M0 Spec** | SPEC_CHUNG0.4 đã duyệt cơ chế, còn test; BE-B-01, CL-A-01, CL-A-02 | Client parse được mọi fixture; Domain parse được config |
 | **M1 Nền tảng** | BE-A-01..06, CL-A-01..07 | Login Google thật → đặt tên → `/me` có 100 Gold; client chạy mock trọn vòng |
 | **M2 Hồ và ghế** | BE-C-01..07, BE-C-09, CL-B-02..06 | 2 trình duyệt vào hồ thấy nhau; tranh ghế đúng 1 người thắng; chọn thời lượng/gia hạn và chống trừ/cộng lặp; hết lượt/cooldown/reconnect đúng luật trên Server thật |
-| **M3 Vòng câu** (mốc demo chính) | BE-B-01..08, BE-D-01..04, BE-D-06..07, BE-E-01..07, CL-C-01..05 | Login → mua vé → câu thắng/thua → thấy cá trong túi, EXP tăng → bán cá; người khác thấy icon cá |
-| **M4 Đủ v1** | CL-D-*, SOC-*, AD-01..04, ART-02..05 | Mọi màn có art thật; chat/emoji/skin/ranking chạy; Admin đổi giá vé có hiệu lực |
+| **M3 Vòng câu** (mốc demo chính) | BE-B-01..08, BE-D-01..04, BE-D-06..07, BE-E-01..08, CL-C-01..05 | Login → mua vé → câu thắng/thua → Client gửi outcome; một attempt tối đa1 cá và1 EXP settlement, thấy cá trong túi, EXP tăng → bán cá; người khác thấy icon cá |
+| **M4 Đủ v1** | CL-D-*, SOC-*, AD-01..04, AD-06..07, QA-04, ART-02..05 | Mọi màn có art thật; chat/emoji/skin/ranking chạy; Admin đổi giá vé có hiệu lực |
 | **M5 Phát hành** | QA-01..03, BE-C-08, test tải, kiểm tra giấy phép asset | Ma trận QA_RELEASE đạt, không còn bug Chặn |
 
 **Báo cáo tiến độ** (lead cập nhật đầu TIEN_DO sau mỗi lần merge hoặc mỗi ngày làm việc): số task theo trạng thái của từng nhóm, cổng gần nhất đã Đạt, việc đang bị chặn và đang chờ ai.

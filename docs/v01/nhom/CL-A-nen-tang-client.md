@@ -36,7 +36,7 @@ Tham khảo được: `client-v0/src/net.js`, `world.js` (cách gửi movement),
 
 ### CL-A-06 Mock server trong trình duyệt
 - **Độ lớn:** L. **Phụ thuộc:** CL-A-03, CL-A-04.
-- **Spec:** khi `VITE_USE_MOCK=true`, `ApiClient` và `GameHub` dùng `MockBackend` thay mạng thật. MockBackend chạy luật đơn giản theo SPEC: login trả profile 100 Gold; snapshot từ `lake-map.placeholder.json`; mua thời lượng/gia hạn trừ Gold đúng đơn giá ghế, phiên theo thời lượng đã mua/gia hạn (có nút debug tua nhanh x10); cooldown; CastLine → bite sau 3-6 giây → minigame dùng **cùng thuật toán SPEC 2.7** (import từ `src/fishing/minigameCore.ts` của CL-C khi có; tạm thời bản đơn giản) → kết quả; shop, bán cá. Có 3 bot di chuyển ngẫu nhiên và thỉnh thoảng câu được cá để thử `CatchShown`. Lỗi giả bật bằng query `?mockError=SEAT_TAKEN`.
+- **Spec:** khi `VITE_USE_MOCK=true`, `ApiClient` và `GameHub` dùng `MockBackend` thay mạng thật. MockBackend chạy luật đơn giản theo SPEC: login trả profile 100 Gold; snapshot từ `lake-map.placeholder.json`; mua thời lượng/gia hạn trừ Gold đúng đơn giá ghế, phiên theo thời lượng đã mua/gia hạn (có nút debug tua nhanh x10); cooldown; CastLine → bite sau 3-6 giây → minigame xử lý ở Client CL-C → SubmitFishingResult → mock Server settle1 lần (không mô phỏng kiểm chứng tap); shop, bán cá. Có 3 bot di chuyển ngẫu nhiên và thỉnh thoảng câu được cá để thử `CatchShown`. Lỗi giả bật bằng query `?mockError=SEAT_TAKEN`.
 - **Ghi rõ trong UI dev:** góc màn hình hiện chữ "MOCK".
 - **Nghiệm thu:** chơi được trọn vòng với mock; mọi event mock khớp type `contract.ts`.
 

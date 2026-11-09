@@ -1,6 +1,6 @@
 # BE-B — Luật câu cá (thư viện thuần)
 
-Mục tiêu: toàn bộ công thức và máy trạng thái câu cá nằm trong một thư viện C# không có I/O, test được 100% bằng unit test. BE-E chỉ việc gọi.
+Mục tiêu: công thức RNG/stats/params và máy trạng thái attempt Server nằm trong một thư viện C# không có I/O, test được 100% bằng unit test. BE-E chỉ việc gọi.
 Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 2; `fixtures/gameplay-config.v0.json`.
 Phạm vi file: `server/FishingOnline.Domain/`, `server/FishingOnline.Domain.Tests/`, `docs/v01/fixtures/minigame-vectors.v0.json`.
 Độc lập với: mọi nhóm. Không tham chiếu ASP.NET, EF, Redis.
@@ -34,27 +34,23 @@ Quy tắc chung: mọi random đi qua interface `IRandomSource { double NextDoub
 - **Spec:** `LengthRoller.Roll(IRandomSource, Fish fish, int largeLuck) → (int lengthTenthCm, string tierId)` theo SPEC 2.9. Dùng số nguyên bp để chọn bậc: `r = NextInt(0, 9999)`, so tích lũy.
 - **Nghiệm thu:** L=0: 100.000 mẫu tỷ lệ 70/25/4,9/0,1 (lệch ≤ 0,5 điểm); L=7: 56/35,5/8,4/0,1. Bậc max cho đúng `maxTenthCm`. Mọi kết quả nằm trong [min, max]. Ví dụ cố định: Minnow, pos 0.5 → 150.
 
-### BE-B-06 Minigame engine
-- **Độ lớn:** M. **Phụ thuộc:** BE-B-01, BE-B-02.
-- **Spec:**
-  - `Mulberry32` đúng SPEC 2.7. Test: seed 123456789, 5 giá trị đầu khớp giá trị tham chiếu ở SPEC 2.7.
-  - `MinigameParams.Create(config, rarity, Stats, uint seed)` tính greenWidth, yellowWidth.
-  - `MinigameState` có `Hp`, `PenaltyMs`, `TapSeq`, `LastTapMs`, `GreenStart`, `YellowStart`, `Outcome`. `ApplyTap(int seq, int tMs, int serverElapsedMs) → TapResult { Accepted, RejectReason, Kind, Hp, RemainingMs }` theo thuật toán và luật xác thực SPEC 2.7. Tap bị từ chối không tiêu RNG.
-  - `CheckTimeout(int serverElapsedMs)`.
-- **Nghiệm thu:** tap đúng vùng vàng trừ 2×atk; ranh giới vùng (p đúng bằng mép) tính là trúng; trượt cộng penalty; tMs lùi → từ chối; tMs vượt serverElapsed + 300 → từ chối; HP về 0 → `Won`; quá hạn → `Lost`. Vùng xanh không bao giờ ra ngoài [0,1].
+### BE-B-06 Chuẩn bị params minigame cho Client
+- **Độ lớn:** S. **Phụ thuộc:** BE-B-01/02.
+- **Spec:** MinigameParams.Create theo rarity và stats snapshot; duration/HP/ATK/zoneWidth/needle/shift từ config, gửi ở HookFish. Không C# ApplyTap/replay/check hit/anti-cheat thắng-thua.
+- **Nghiệm thu:** params từng rarity khớp config/stats, duration dương, zone nằm [0,1]; không nhận quantity/species/EXP từ Client. Client CL-C tự chạy minigame.
 
-### BE-B-07 Bộ test vector minigame
+### BE-B-07 Fixture params/kết quả minigame
 - **Độ lớn:** S. **Phụ thuộc:** BE-B-06.
-- **Spec:** công cụ console hoặc test sinh `docs/v01/fixtures/minigame-vectors.v0.json`: 20 kịch bản (4 mỗi rarity, có cả atk/zone khác nhau), mỗi kịch bản: params, danh sách tap `{seq, tMs, serverElapsedMs}`, kết quả mong đợi từng tap `{accepted, kind, hp, remainingMs, greenStart, yellowStart}` và outcome cuối. Có kịch bản thắng, thua do hết giờ, có tap bị từ chối.
-- **Nghiệm thu:** test C# đọc lại file và khớp 100%; CL-C dùng cùng file cho bản TS.
+- **Spec:** mẫu params + outcome success/failed cho harness Server; không sinh bộ tap C# buộc Client khớp. Test vector thao tác cục bộ nếu cần do CL-C sở hữu và tự kiểm tra TS.
+- **Nghiệm thu:** harness gửi được kết quả theo attempt đã Hook; params parse được; không có per-tap Server endpoint.
 
 ### BE-B-08 Máy trạng thái lần câu
 - **Độ lớn:** M. **Phụ thuộc:** BE-B-03 đến BE-B-06.
 - **Spec:** `FishingAttempt` thuần (không timer thật; nhận `now` từ ngoài):
   - `Start(now, waitMs)` → `waiting`, `BiteAt = now + waitMs`.
-  - `Tick(now)`: waiting quá BiteAt → `bite`, chốt loài, `BiteDeadline = BiteAt + 3000`; bite quá `BiteDeadline + 300` → `failed/missed_bite`; minigame quá hạn → `failed/timeout`.
+  - `Tick(now)`: waiting quá BiteAt → `bite`, chốt loài, `BiteDeadline = BiteAt + 3000`; bite quá `BiteDeadline + 300` → `failed/missed_bite`; minigame quá deadline Server (duration + grace) → `failed/timeout`.
   - `Hook(now)`: chỉ trong bite và `now ≤ BiteDeadline + 300` → `minigame` với seed mới.
-  - `Tap(...)` ủy quyền cho MinigameState; thắng → `success` và gọi `LengthRoller`.
+  - `ReportOutcome(success/failed, now)` nhận kết quả theo state/deadline; không kiểm chứng tap. Success gọi LengthRoller và chỉ terminal một lần.
   - `Cancel(reason)` ở mọi trạng thái chưa kết thúc.
   - Trả danh sách sự kiện domain (`PhaseChanged`, `Succeeded{speciesId, length, exp}`) để BE-E phát event và ghi DB.
   - Có `Snapshot()`/`Restore()` để BE-E lưu và khôi phục khi restart.
@@ -62,5 +58,5 @@ Quy tắc chung: mọi random đi qua interface `IRandomSource { double NextDoub
 
 ### BE-B-09 Script mô phỏng balance
 - **Độ lớn:** S. **Phụ thuộc:** BE-B-08.
-- **Spec:** console `FishingOnline.Sim`: mô phỏng N phiên có thời lượng chọn từ config (ví dụ 10/20/30 phút test) với mô hình người chơi (thời gian phản ứng bite 400-1200 ms, xác suất tap trúng vùng theo độ rộng ± sai số). Xuất bảng: tỷ lệ thắng theo rarity × level × cần; số lần câu/phiên; Gold kiếm được/phiên theo Tier; thời gian lên Lv10.
+- **Spec:** console `FishingOnline.Sim`: mô phỏng N phiên có thời lượng chọn từ config (ví dụ 10/20/30 phút test) với mô hình người chơi (thời gian phản ứng bite 400-1200 ms, xác suất tap trúng vùng theo độ rộng ± sai số). Xuất bảng: tỷ lệ thắng mô phỏng giả định theo rarity × level × cần (không bảo đảm Client thật không gian lận); số lần câu/phiên; Gold kiếm được/phiên theo Tier; thời gian lên Lv10.
 - **Nghiệm thu:** chạy được bằng một lệnh, xuất Markdown vào `docs/v01/bao-cao/BE-B-09-ket-qua.md` cho GD.

@@ -6,7 +6,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 - **Cập nhật lần cuối:** 2026-11-09
 - **Cổng đã Đạt:** chưa có
-- **Đang bị chặn:** Chi tiết kỹ thuật SPEC_CHUNG 0.3 chờ duyệt (M0); cơ chế user mua/gia hạn và bỏ thính đã chốt
+- **Trạng thái M0:** user đã duyệt cơ chế/mặc định cụ thể tại SPEC0.4; còn kiểm tra parse/contract để nghiệm thu. Field chưa có số/lựa chọn cụ thể bổ sung theo task, không chặn toàn bộ BE.
 
 | Nhóm | Tổng task | Xong | Đang làm / Chờ review | Bị chặn |
 | --- | --- | --- | --- | --- |
@@ -14,7 +14,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | [BE-B — Luật câu cá (thư viện thuần)](nhom/BE-B-luat-cau-ca.md) | 9 | 0 | 0 | 0 |
 | [BE-C — Phòng hồ, di chuyển, ghế và vé](nhom/BE-C-phong-va-ghe.md) | 9 | 0 | 0 | 0 |
 | [BE-D — Kinh tế và tiến trình](nhom/BE-D-kinh-te-tien-trinh.md) | 8 | 0 | 0 | 0 |
-| [BE-E — Tích hợp lần câu trên Server](nhom/BE-E-tich-hop-cau-ca.md) | 8 | 0 | 0 | 1 |
+| [BE-E — Tích hợp lần câu trên Server](nhom/BE-E-tich-hop-cau-ca.md) | 9 | 0 | 0 | 1 |
 | [CL-A — Nền tảng Client (Phaser 3 + TypeScript)](nhom/CL-A-nen-tang-client.md) | 7 | 0 | 0 | 0 |
 | [CL-B — Map hồ, nhân vật, di chuyển, ghế](nhom/CL-B-map-nhan-vat.md) | 7 | 0 | 0 | 0 |
 | [CL-C — Giao diện câu cá và minigame](nhom/CL-C-cau-ca-minigame.md) | 5 | 0 | 0 | 0 |
@@ -28,7 +28,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Ngày | Nội dung | Nhóm cần làm gì |
 | --- | --- | --- |
-| 2026-11-09 | SPEC_CHUNG 0.3 cập nhật cơ chế user; kỹ thuật còn đề xuất | Tất cả: đọc trước khi nhận task |
+| 2026-11-09 | SPEC_CHUNG 0.4: M0 duyệt; Client outcome, pool cộng dồn, BE tuần tự | Tất cả: đọc trước khi nhận task |
 | 2026-11-09 | Bổ sung map mới và Admin thả cá; user chốt quần thể hữu hạn | CL-B/AD/BE-E/QA: đọc task mới; contract tồn và luật cạn cá còn chờ thống nhất |
 
 ## Chi tiết task
@@ -53,8 +53,8 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | BE-B-03 | Thời gian chờ cá cắn | S | BE-B-01 | | Chưa nhận | |  |
 | BE-B-04 | Chọn loài | S | BE-B-01 | | Chưa nhận | |  |
 | BE-B-05 | Random chiều dài | S | BE-B-01 | | Chưa nhận | |  |
-| BE-B-06 | Minigame engine | M | BE-B-01, BE-B-02 | | Chưa nhận | |  |
-| BE-B-07 | Bộ test vector minigame | S | BE-B-06 | | Chưa nhận | |  |
+| BE-B-06 | Params minigame cho Client | S | BE-B-01, BE-B-02 | | Chưa nhận | |  |
+| BE-B-07 | Fixture params/kết quả minigame | S | BE-B-06 | | Chưa nhận | |  |
 | BE-B-08 | Máy trạng thái lần câu | M | BE-B-03 đến BE-B-06 | | Chưa nhận | |  |
 | BE-B-09 | Script mô phỏng balance | S | BE-B-08 | | Chưa nhận | |  |
 
@@ -98,7 +98,9 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | BE-E-06 | Khôi phục sau restart | S | BE-E-04 | | Chưa nhận | |  |
 | BE-E-07 | Test end-to-end Server | M | BE-E-01 đến BE-E-06, BE-C, BE-D xong | | Chưa nhận | |  |
 
-| BE-E-08 | Quần thể cá hữu hạn và tích hợp lượt câu | L | BE-E-04/05/06, BE-B-04, BE-D-06, AD-06 | | Bị chặn | | Chờ luật cạn cá/reservation/initial stock |
+| BE-E-08 | Quần thể cá hữu hạn và tích hợp lượt câu | L | BE-E-04/05/06, BE-B-04, BE-D-06, AD-06 | | Bị chặn | | Thiếu dữ kiện cạn cá/initial stock; reservation bite đã duyệt |
+
+| BE-E-09 | Cảnh báo nghi vấn gian lận BE (chỉ quan sát) | M | BE-E-03/04, BE-A-05 | | Chưa nhận | | Rule config, không auto-ban/reject outcome hợp lệ |
 
 ### CL-A — Nền tảng Client (Phaser 3 + TypeScript)
 
@@ -192,4 +194,8 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | QA-04 | E2E thả cá và đối soát quần thể | M | AD-06/07, BE-E-08; M3 | | Chưa nhận | | |
 
-**Đếm task 2026-11-09:** 89 ID, gồm 88 task còn trong scope và 1 ID BE-D-05 đã loại; không ghi task loại là Xong. Nhóm BE-D giữ 8 ID để tra cứu, chỉ còn 7 task thực hiện.
+**Đếm task 2026-11-09:** 90 ID, gồm 89 task còn trong scope và 1 ID BE-D-05 đã loại; không ghi task loại là Xong. Nhóm BE-D giữ 8 ID để tra cứu, chỉ còn 7 task thực hiện.
+
+**Thông báo M0 2026-11-09:** không cần xác thực tap phía Server. SubmitFishingResult thay MinigameTap; code chống replay phải dựa unique attemptId, không chỉ requestId. Pool thả tiếp cộng dồn; làm BE tuần tự được. Chưa task nào tự động chuyển Xong do chỉ duyệt tài liệu.
+
+**Cập nhật 2026-11-09:** user xác nhận chấp nhận rủi ro minigame Client; thêm BE-E-09 cảnh báo nghi vấn chỉ quan sát, task chưa nhận/code. SPEC0.5, ngưỡng ban đầu là config test.

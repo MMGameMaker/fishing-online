@@ -1,6 +1,6 @@
 # Kế hoạch BE — cập nhật 2026-11-09
 
-Nguồn scope: [PROJECT](../PROJECT.md), [GAMEPLAY_SCOPE](../../doc/GAMEPLAY_SCOPE.md). Nguồn kế hoạch thực hiện: [v01/README](../v01/README.md), [SPEC_CHUNG 0.3](../v01/SPEC_CHUNG.md), [TIEN_DO](../v01/TIEN_DO.md). Bộ v01 còn là đề xuất kỹ thuật; các quyết định user được đánh dấu riêng, không tự coi kế hoạch đã triển khai.
+Nguồn scope: [PROJECT](../PROJECT.md), [GAMEPLAY_SCOPE](../../doc/GAMEPLAY_SCOPE.md). Nguồn kế hoạch thực hiện: [v01/README](../v01/README.md), [SPEC_CHUNG 0.4](../v01/SPEC_CHUNG.md), [TIEN_DO](../v01/TIEN_DO.md). M0 đã duyệt cơ chế/mặc định cụ thể; cổng/test và task vẫn chưa tự hoàn tất.
 
 ## Scope hiện hành
 
@@ -13,7 +13,7 @@ Thính đã bỏ. Dây/lưỡi/mồi, Idle, loot, Gem gameplay, payment và gi�
 | Luồng | Đầu ra |
 | --- | --- |
 | BE-A | Module/envelope, Firebase/session, ví/ledger, idempotency, config và player |
-| BE-B | Luật C# thuần, wait chỉ trừ buff ghế, spawn/length/minigame/test vectors |
+| BE-B | Luật C# RNG/stats/spawn/length/params, wait chỉ trừ buff ghế; minigame TS Client tự xử lý |
 | BE-C | Map/presence/movement, mua thời lượng ghế, expiry/cooldown/reconnect, BE-C-09 gia hạn |
 | BE-D | Cần/inventory/shop/bán cá/EXP/Codex; BE-D-05 đã loại, không triển khai |
 | BE-E | Hub vòng câu và settlement; BE-E-08 quần thể hữu hạn/không giảm thưởng trùng |
@@ -26,4 +26,10 @@ Client làm mock theo fixture cùng version, các module dùng interface để k
 
 User chọn thời gian và trả trước; trong phiên có thể gia hạn, expiresAt tăng từ hạn cũ. Server tính tổng phí theo đơn giá ghế và block cấu hình; 10 phút/100 hoặc 200 Gold là ví dụ. Fixture giá/block là số test, bước/min/max và giá cuối chờ duyệt. Chống mua/gia hạn lặp bằng requestId/receipt, ví + hạn phiên transaction; expired không hồi sinh bằng gia hạn. Kiểm tra cạnh tranh ghế, renew/expiry race, giá đổi, thiếu Gold, reconnect giữ hạn mới nhất.
 
-Hiện có persistence/readiness scaffold đã kiểm chứng ở S01; chưa có gameplay/auth/Admin runtime. Luật cạn cá, reservation, quyền skin/social/ranking và policy session Admin còn cần thống nhất theo lát.
+Hiện có persistence/readiness scaffold đã kiểm chứng ở S01; chưa có gameplay/auth/Admin runtime. Luật cạn cá, các field chưa có lựa chọn cụ thể như tồn ban đầu/cạn cá và social/skin/ranking bổ sung theo lát.
+
+
+BE thực hiện tuần tự toàn bộ được; BE-A..E chỉ nhãn module. Ưu tiên khung/config → auth/ví → ghế/gia hạn → RNG/kinh tế → pool/thả cộng dồn → vòng câu outcome → E2E/Admin/social. Thiếu credential hoặc dữ kiện một task thì ghi rõ và tiếp tục task độc lập. Client fake win được chấp nhận, Server vẫn kiểm soát attempt và tối đa1 catch/EXP/pool decrement.
+
+
+Sau khi vòng câu/settlement chạy đúng, làm BE-E-09 anomaly chỉ quan sát theo SPEC0.5; Admin tra cứu signal, QA kiểm tra false positive/retry/dedupe. Không trì hoãn vòng câu để làm anti-cheat tap đã loại.

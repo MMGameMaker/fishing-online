@@ -9,7 +9,7 @@ Phạm vi file: `server/FishingOnline.Api/Modules/Admin/`, migration `AD_*`, `ad
 
 ### AD-01 Đăng nhập Admin và quyền
 - **Độ lớn:** M. **Phụ thuộc:** BE-A-01.
-- **Spec:** [Đề xuất] Admin đăng nhập Google qua Firebase, email phải nằm trong bảng `admin_users(email, roles[], disabled)`; token `aud=admin` riêng, sống 30 phút. Quyền: `config.read`, `config.write`, `config.publish`, `player.read`, `audit.read`. Mọi request ghi `admin_audit(actor, action, target, before, after, at)` cho thao tác thay đổi.
+- **Spec:** [Đề xuất] Admin đăng nhập Google qua Firebase, email phải nằm trong bảng `admin_users(email, roles[], disabled)`; token `aud=admin` riêng, sống 5 phút access (refresh8h tuyệt đối), MFA trước cấp quyền đầy đủ theo ACCOUNT_AUTH. Quyền: `config.read`, `config.write`, `config.publish`, `player.read`, `audit.read`. Mọi request ghi `admin_audit(actor, action, target, before, after, at)` cho thao tác thay đổi.
 - **Nghiệm thu:** token player gọi `/admin/*` → 403; email không có trong bảng → 401.
 
 ### AD-02 Config draft, validate, publish
@@ -47,3 +47,9 @@ Phạm vi file: `server/FishingOnline.Api/Modules/Admin/`, migration `AD_*`, `ad
 
 
 **Giá thời gian ghế (2026-11-09):** AD-02/04 cho sửa unitPriceGold từng ghế (fallback Tier), billingUnitMinutes và priceVersion, kiểm tra giá nguyên không âm/đơn vị dương; preview phí theo thời lượng. Giá mới chỉ áp giao dịch mới được user xác nhận, không thay expiresAt đã thanh toán hoặc config gameplay đã pin. Không biểu mẫu vật phẩm đã bỏ.
+
+
+**Quần thể đã chốt 2026-11-09:** thả tiếp cộng quantity vào remaining của hồ/loài, không replace/reset tồn hoặc reservation. Hai batch mới cùng loài/số lượng vẫn cộng cả hai; retry cùng batchId không cộng lần2. Nghiệm thu còn30 + thả100 =130, khi đang reserved5 available125; catch/thả song song không mất cập nhật.
+
+
+**AD-03/04 tra cứu cảnh báo BE:** trong chi tiết player hiển thị signal nghi vấn theo rule/thời gian, sampleCount/observed/threshold và evidence attempt; nhãn “Nghi vấn”, không khẳng định gian lận. Cho ghi reviewed/dismissed kèm note/actor/audit theo quyền. Không nút tự ban/thu hồi thưởng dựa signal và không dashboard/webhook riêng. Dùng API/query BE-E-09, có thể bổ sung sau vòng câu.

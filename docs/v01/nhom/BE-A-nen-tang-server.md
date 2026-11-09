@@ -21,9 +21,9 @@ Phạm vi file: `server/FishingOnline.Api/Modules/{Identity,Wallet,Config,Common
 ### BE-A-02 Đăng nhập Firebase và phiên
 - **Độ lớn:** L. **Phụ thuộc:** BE-A-01; Firebase project dev (người dùng tạo, secret ngoài repo).
 - **Spec:**
-  - `POST /auth/login {firebaseIdToken}`: xác minh bằng Firebase Admin SDK (hoặc JWKS của Google: issuer `https://securetoken.google.com/<projectId>`, audience `<projectId>`). Bảng `accounts(firebaseUid unique, playerId, provider, createdAt)`.
+  - `POST /auth/login {firebaseIdToken}`: xác minh bằng Firebase Admin SDK (hoặc JWKS của Google: issuer `https://securetoken.google.com/<projectId>`, audience `<projectId>`). Bảng `accounts(accountId, firebaseProjectId, firebaseUid, playerId, provider, status, authVersion, createdAt)` unique(projectId,uid).
   - Lần đầu: tạo `players` + `accounts` + ví (BE-A-03) + gọi `INewPlayerGrant` (BE-D triển khai cấp cần mặc định; BE-A cấp 100 Gold qua ledger `grant_new_player`) trong **một transaction**. `isNew=true`.
-  - Phát access token JWT ký HS256/RS256 của server, sống 60 phút (config), claim `sub=playerId`, `aud=player`. Refresh token: chuỗi ngẫu nhiên 32 byte, lưu hash trong `sessions`, gửi cookie `HttpOnly; Secure; SameSite=Lax`, sống 30 ngày, xoay vòng mỗi lần refresh.
+  - Phát access token JWT ký HS256/RS256 của server, sống 10 phút Player (config, mặc định M0 đã duyệt theo ACCOUNT_AUTH), claim `sub=accountId`, `playerId`, `sid`, `authVersion`, `aud=player`. Refresh token: chuỗi ngẫu nhiên 32 byte, lưu hash trong `sessions`, gửi cookie `HttpOnly; Secure; SameSite=Lax`, sống 7 ngày hoặc30 ngày Remember me, xoay vòng mỗi lần refresh; kiểm tra session/revocation theo ACCOUNT_AUTH.
   - `POST /auth/refresh`, `POST /auth/logout` (revoke session).
   - Hub: đọc token từ query `access_token`. `ICurrentPlayer` lấy từ claim.
   - Môi trường Development có cờ `Auth:DevBypass` cho test tự động: header `X-Dev-Player: <uuid>`; **tắt mặc định**, không bao giờ bật ngoài Development.

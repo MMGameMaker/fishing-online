@@ -35,14 +35,17 @@ Postgres là nguồn chân lý wallet/item/attempt/catch/session/config/audit; R
 2. Chọn skin có quyền; di chuyển trong walkable map; chọn ghế atomic. Server trả trạng thái và phát event cùng room revision.
 3. Chọn thời lượng ghế, trả trước theo đơn giá ghế; gia hạn còn hiệu lực cộng vào expiresAt cũ. Ví/ledger/session/receipt atomic. Trang bị cần đã sở hữu; không thính/mồi/dây/lưỡi trong bản đầu.
 4. Start attempt Manual: kiểm tra seat/quyền/tài nguyên/loadout, pin config. Thời điểm trừ tài nguyên phụ thuộc GD; không coi scaffold phase là thiết kế hoàn chỉnh.
-5. Khung phase **đề xuất**: Created → Waiting → Bite → Hooked → Reeling → Settled; nhánh Failed/Cancelled. Manual gửi input theo seq và deadline server; Idle để sau. GD có thể thay khung trước triển khai.
+5. Khung phase **đề xuất**: Created → Waiting → Bite → Hooked → Reeling → Settled; nhánh Failed/Cancelled. Client xử lý minigame, chỉ gửi outcome success/failed với attemptId; Server giữ ownership/state/deadline/settlement; Idle để sau. GD có thể thay khung trước triển khai.
 6. Settlement transaction trả catch/kết quả, balance/inventory version; cập nhật history/thành tích, outbox ranking/showcase nếu luật cho phép. Client chỉ diễn hoạt kết quả.
 7. Chat/emoji theo phòng; khoe catch đã xác minh; ranking chỉ đọc projection có updatedAt. Không tự thêm thưởng hay chat global.
 8. Reconnect: giữ pending requestId, kết nối lại rồi join/resume lấy snapshot/attempt/receipt; không tự tạo lượt hoặc retry mutation bằng ID mới. Hủy/thoát/timeout giải quyết theo luật GD còn mở.
 
 ## Kiểm tra bắt buộc khi triển khai
 
-Auth/role/expiry/revoke; 20 ghế/20 phiên và tranh ghế; concurrent mua/equip/start; request trùng khác payload; mất mạng ngay trước/sau commit; restart giữa phase/settlement/outbox; config publish khi đang câu; gia hạn/expiry race/giá đổi; Manual input giả/trễ; social payload/rate/membership; ranking dedupe/tie; tra cứu Admin/audit và migration trên DB trống. Chưa thực hiện các kiểm tra gameplay này ở bootstrap.
+Auth/role/expiry/revoke; 20 ghế/20 phiên và tranh ghế; concurrent mua/equip/start; request trùng khác payload; mất mạng ngay trước/sau commit; restart giữa phase/settlement/outbox; config publish khi đang câu; gia hạn/expiry race/giá đổi; result replay/attempt giả/sai owner/terminal race; social payload/rate/membership; ranking dedupe/tie; tra cứu Admin/audit và migration trên DB trống. Chưa thực hiện các kiểm tra gameplay này ở bootstrap.
 
 
 **Nguồn contract hiện tại:** docs/v01/SPEC_CHUNG.md 0.3; không dùng state khung trong tài liệu này thay luật Manual đã chốt. Quần thể hữu hạn và reservation xem BE-E-08 (reservation còn là đề xuất); Admin AD-06/07 thả cá. Gia hạn không reset attempt/config gameplay đang pin; chỉ cập nhật hạn phiên và giao dịch giá mới.
+
+
+**M0 duyệt 2026-11-09:** không xây per-tap validation/replay phía Server. Một active attempt/player và unique catch/attempt + settlement transaction (EXP/Codex/pool/receipt). Chấp nhận báo thắng giả nhưng không nhiều cá/attempt; pool thả cộng vào remaining, không reset reservation. Nhóm module BE có thể triển khai tuần tự.
