@@ -1,16 +1,16 @@
 # ART — Asset 2D pixel art
 
-Mục tiêu: asset có quyền sử dụng, đúng kích thước, giao theo tên file cố định để Client thay placeholder không phải sửa mã.
+Mục tiêu: dùng resource dự án, đúng kích thước, giao theo tên file cố định để Client thay placeholder không phải sửa mã.
 Đọc trước: [ASSET_PIPELINE_2D](../../../doc/ASSET_PIPELINE_2D.md), [W02](../../work/W02-art-map-ho.md).
 Phạm vi file: `client-v0/public/online/assets/`, `art-src/` (file nguồn .aseprite/.psd), `LICENSE.md` trong từng thư mục asset.
-Độc lập: không phụ thuộc mã. Quy ước chung: 1 ô tile = 32 px [Đề xuất, chốt ở ART-01], nhân vật khung 32×48, xuất PNG + atlas JSON (định dạng Phaser JSON Hash). Không dùng art trong `client-v0/public/assets`.
+Độc lập: không phụ thuộc mã. Quy ước chung: 1 ô tile = 32 px [Đề xuất, chốt ở ART-01], nhân vật khung 32×48, xuất PNG + atlas JSON (định dạng Phaser JSON Hash). Được dùng art trong `client-v0/public/assets` và scene Coral Cove ; giữ source/frame mapping khi tái sử dụng.
 
 ---
 
-### ART-01 Chốt bộ tile và quyền sử dụng
+### ART-01 Chốt bộ tile và danh mục nguồn
 - **Độ lớn:** S. **Phụ thuộc:** không.
-- **Spec:** chọn giữa Fan-tasy Tileset, Farming Game World (ElvGames) hoặc bộ khác; ghi điều khoản (dùng thương mại? sửa đổi? ghi công?) vào `client-v0/public/online/assets/tiles/LICENSE.md` kèm link và ngày tải. Chốt kích thước ô.
-- **Nghiệm thu:** lead/người dùng duyệt điều khoản trước khi CL-B-01 dựng map.
+- **Spec:** chọn bộ tile phù hợp từ resource hợp lệ của dự án (Fan-tasy, Farming Game World hoặc bộ hiện có); lưu nguồn/tác giả/thông tin giấy phép đi kèm vào `client-v0/public/online/assets/tiles/LICENSE.md` kèm link và ngày tải. Chốt kích thước ô.
+- **Nghiệm thu:** chốt bộ tile/kích thước ô và manifest mapping trước khi CL-B-01 tích hợp; quyền dùng resource không là blocker.
 
 ### ART-02 Nhân vật mẫu (1 skin)
 - **Độ lớn:** L. **Phụ thuộc:** ART-01.

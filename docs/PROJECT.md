@@ -8,6 +8,7 @@ Scope hiện hành: [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md); kế hoạch/con
 
 ## Quyết định hiện hành
 
+
 - Playable v0.1: **2D Pixel Art**, Web Client **Phaser Engine + TypeScript**. Khóa phiên bản Phaser/package khi khởi tạo.
 - Server giữ **ASP.NET Core + SignalR + PostgreSQL + Redis**.
 - **Player authentication:** Firebase Authentication; Google login trước, Facebook login để sau (người dùng chốt 2026-11-03). Account/player và dữ liệu game vẫn ở PostgreSQL; không tự thêm hệ mật khẩu Identity song song. Chi tiết phiên/Admin theo các mặc định M0 được user đồng ý 2026-11-09 trong [S02](be/ACCOUNT_AUTH.md).
@@ -34,7 +35,7 @@ Scope hiện hành: [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md); kế hoạch/con
 
 ## Ảnh tham khảo gameplay 2D
 
-[Cảnh câu cá Pixel Art](assets/pixel-art-fishing-reference.jpg) — ảnh người dùng cung cấp, đã chèn tại mục 07 Overview. Tên file gốc: How to Catch Fish in Everholm - Pixel Questing.jpg; nhận diện nguồn theo tên file, chưa có URL bài gốc. Tham khảo góc nhìn, map hồ/cầu/bờ, sprite và hotbar/HUD; không phải screenshot Fishing Online hoặc bộ asset đã được cấp quyền. Không đưa hệ ngày/giờ, stamina/mana/nông trại trong ảnh vào scope v0.1.
+[Cảnh câu cá Pixel Art](assets/pixel-art-fishing-reference.jpg) — ảnh người dùng cung cấp, đã chèn tại mục 07 Overview. Tên file gốc: How to Catch Fish in Everholm - Pixel Questing.jpg; nhận diện nguồn theo tên file, chưa có URL bài gốc. Tham khảo góc nhìn, map hồ/cầu/bờ, sprite và hotbar/HUD; là ảnh tham khảo bố cục, không phải screenshot Fishing Online. Không đưa hệ ngày/giờ, stamina/mana/nông trại trong ảnh vào scope v0.1.
 
 
 ## Quy trình

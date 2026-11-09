@@ -32,7 +32,7 @@ npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file
 | Trang demo hiển thị mọi thành phần | Đạt | Xem ở 1024 px và 375 px; overlay khớp canvas, dialog và toast hoạt động, console không lỗi |
 | Mỗi mã lỗi có câu tiếng Việt | Đạt | Kiểu `Record<ErrorCode,…>` và test cho đủ 22 mã |
 | Vùng chạm ≥ 44 px CSS | Đạt | Đo trên 1024 px và 375 px: cao nhỏ nhất 44 px |
-| Phông pixel | Không đạt | Chưa có phông pixel có dấu tiếng Việt và quyền dùng; tạm dùng monospace qua biến `--ui-font` |
+| Phông pixel | Không đạt | Chưa tích hợp phông pixel có dấu tiếng Việt; tạm dùng monospace qua biến `--ui-font` |
 
 ## Lệch spec / giả định
 
@@ -40,7 +40,7 @@ npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file
 
 ## Cần lead quyết
 
-- Chọn phông pixel có dấu tiếng Việt và xác nhận quyền dùng (ART).
+- Chọn và tích hợp phông pixel có dấu tiếng Việt (ART) từ resource của dự án.
 
 ## Việc còn lại
 

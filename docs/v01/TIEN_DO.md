@@ -28,7 +28,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Ngày | Nội dung | Nhóm cần làm gì |
 | --- | --- | --- |
-| 2026-11-09 | SPEC_CHUNG 0.7: gameplay chạy trong scene Coral Cove của `client-v0`, user xác nhận có bản quyền art | CL-B/C, ART, QA: test trong scene này |
+| 2026-11-09 | SPEC_CHUNG 0.7: gameplay chạy trong scene Coral Cove của `client-v0`, resource do dự án tự làm | CL-B/C, ART, QA: test trong scene này |
 | 2026-11-09 | SPEC_CHUNG 0.6: client đặt trong `client-v0/src/online/`, không còn `client-web/`; chỉ đổi đường dẫn | CL/SOC/ART/QA: dùng đường dẫn mới |
 | 2026-11-09 | SPEC_CHUNG 0.4: M0 duyệt; Client outcome, pool cộng dồn, BE tuần tự | Tất cả: đọc trước khi nhận task |
 | 2026-11-09 | Bổ sung map mới và Admin thả cá; user chốt quần thể hữu hạn | CL-B/AD/BE-E/QA: đọc task mới; contract tồn và luật cạn cá còn chờ thống nhất |
@@ -179,7 +179,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ART-01 | Chốt bộ tile và quyền sử dụng | S | không | | Chưa nhận | |  |
+| ART-01 | Chốt bộ tile và danh mục nguồn | S | không | | Chưa nhận | |  |
 | ART-02 | Nhân vật mẫu (1 skin) | L | ART-01 | | Chưa nhận | |  |
 | ART-03 | Thêm 4-9 skin | L (lớn nhất) | ART-02 duyệt; GD chốt số skin | | Chưa nhận | |  |
 | ART-04 | Icon cá và UI câu cá | M | ART-01 | | Chưa nhận | |  |

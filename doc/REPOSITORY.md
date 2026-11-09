@@ -15,4 +15,4 @@ Khóa patch Cocos 3.8.x, phiên bản .NET/Node/package manager và lockfile tro
 - Chủ phần bị ảnh hưởng review; thay đổi contract cần Client/BE và Admin nếu áp dụng cùng xác nhận. GD review luật, QA review bằng chứng nghiệm thu.
 - Merge khi kiểm tra bắt buộc của repo đạt, review đã xử lý và dependency rõ. Cách merge/protection cụ thể do team cấu hình, chưa được bộ tài liệu này thiết lập.
 
-Binary lớn nên dùng cơ chế lưu trữ phù hợp đã thống nhất; kiểm tra giới hạn hosting trước khi chọn Git LFS. Không đưa asset thiếu quyền sử dụng vào bản phát hành.
+Binary lớn nên dùng cơ chế lưu trữ phù hợp đã thống nhất; kiểm tra giới hạn hosting trước khi chọn Git LFS. Giữ nguyên thông tin nguồn, tác giả và giấy phép đi kèm khi đóng gói.

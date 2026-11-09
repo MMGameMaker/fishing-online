@@ -71,7 +71,7 @@
 | --- | --- | --- |
 | 1 | Cơ chế/mặc định cụ thể SPEC0.4 đã duyệt; kiểm tra contract/fixture parse | Cổng M0 chưa Đạt cho tới khi có bằng chứng |
 | 2 | Tạo Firebase project dev, bật Google, đưa Web config cho Client và service account cho Server (ngoài repo) | BE-A-02, CL-A-07 |
-| 3 | Duyệt điều khoản bộ tileset (ART-01) | CL-B-01 |
+| 3 | Chọn bộ tileset/kích thước/mapping (ART-01) | CL-B-01 |
 | 4 | Client tự xử lý minigame đã chốt; roamRadius theo mặc định đã duyệt; bổ sung field/giới hạn chưa có số khi đến task | BE-B-04, BE-B-06, BE-C-03 (đã có mặc định, không chặn code) |
 | 5 | GD trả lời: số skin và quyền, chat, khoe cá, ranking, thành tích, túi đầy | SOC-06, SOC-07, AD-05 |
 

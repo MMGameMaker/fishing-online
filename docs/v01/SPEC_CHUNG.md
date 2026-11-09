@@ -29,7 +29,7 @@ BE-A..E là module/nhóm task, không yêu cầu worker riêng hoặc chạy son
 | `client-v0/public/online/assets`, `art-src/` | ART | Mỗi bộ asset có `LICENSE.md` ghi nguồn |
 | `qa/` | QA | Kịch bản e2e, test tải |
 
-Client Fishing Online nằm trong `client-v0/src/online/`. Gameplay chính chạy trong scene Coral Cove của `client-v0` qua `src/online/bridge/`, 20 ghế đẩu là 20 ghế thuê; `fishing.html` là trang thử riêng. User xác nhận 2026-11-09 đã mua bản quyền art trong `client-v0` nên được dùng art và phòng của scene.
+Client Fishing Online nằm trong `client-v0/src/online/`. Gameplay chính chạy trong scene Coral Cove của `client-v0` qua `src/online/bridge/`, 20 ghế đẩu là 20 ghế thuê; `fishing.html` là trang thử riêng. Toàn bộ resource Fishing Online do dự án tự làm.
 
 ### 1.1 Migration EF Core
 
@@ -278,4 +278,4 @@ Nguồn phân tích replay/business rules: [OWASP Business Logic Security](https
 
 | 0.6 | 2026-11-09 | 1 | User chốt đặt client trong `client-v0` thay cho `client-web`; chỉ đổi đường dẫn, không đổi luật/contract | CL-A/B/C/D, SOC, ART, QA |
 
-| 0.7 | 2026-11-09 | 1 | User chốt gameplay chạy trong scene Coral Cove và xác nhận có bản quyền art; không đổi luật/contract | CL-B/C, ART, QA |
+| 0.7 | 2026-11-09 | 1 | User chốt gameplay chạy trong scene Coral Cove và resource do dự án tự làm; không đổi luật/contract | CL-B/C, ART, QA |

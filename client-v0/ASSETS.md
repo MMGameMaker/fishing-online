@@ -1,6 +1,6 @@
 # Asset reference
 
-> **Quyền sử dụng (2026-11-09):** user xác nhận đã mua bản quyền phần art trong `client-v0`. Giấy phép chưa được lưu hay kiểm chứng trong repo; nên giữ bằng chứng mua và điều khoản ở nơi an toàn trước khi phát hành.
+Toàn bộ resource Fishing Online do dự án tự làm.
 
 This is the map from "what the game draws" to "where the file lives and what it looks like."
 

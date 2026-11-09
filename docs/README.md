@@ -16,6 +16,7 @@ GD, Web Client và BE (bao gồm Admin Tool) trao đổi qua Markdown trong thư
 
 Đọc [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md), [kế hoạch v01](v01/README.md), [SPEC_CHUNG 0.5](v01/SPEC_CHUNG.md) và fixture cùng phiên bản. Các tài liệu chuyên môn cũ dẫn về nguồn này; không dùng Notion cũ thay luật repo.
 
+
 ## Vai trò
 
 Đầu ra BE S01: [kế hoạch](be/PLAN.md), [service/luồng chơi](be/ARCHITECTURE.md), [contract dự thảo](contracts/v1-draft.md), [kết nối Client](be/CLIENT_CONNECTION.md), [chạy server](../server/README.md).

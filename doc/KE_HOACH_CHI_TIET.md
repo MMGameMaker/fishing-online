@@ -12,7 +12,7 @@
 | Phần | Hiện trạng trong repo | Ghi chú |
 | --- | --- | --- |
 | Client Phaser + TS | `phaser engine/` chỉ có `dist/` (bản build) và `node_modules`, **không có mã nguồn** | Cần tạo project nguồn mới |
-| Prototype `client-v0/` | Phaser 3 + JS, server Node/Socket.IO, lưu JSON. Có di chuyển, va chạm, ghế, câu cá, bag, shop cần, skin, chat, 27 test | Dùng lại được logic va chạm, nội suy, UI panel khi viết lại sang TS. **Không dùng art** trong `public/assets` (lấy từ game tham khảo) |
+| Prototype `client-v0/` | Phaser 3 + JS, server Node/Socket.IO, lưu JSON. Có di chuyển, va chạm, ghế, câu cá, bag, shop cần, skin, chat, 27 test | Dùng lại được logic va chạm, nội suy, UI panel khi viết lại sang TS. Dùng art trong `public/assets`; giữ mapping nguồn khi tích hợp |
 | Server | ASP.NET Core: health, bootstrap, hub Ping; DB chỉ có bảng `players` | Chưa có auth, gameplay |
 | Contract | `docs/contracts/v1-draft.md` 0.1-draft | Lệch luật mới: 4 slot cần/dây/lưỡi/mồi, cân nặng gram, vé là số dư, user tự hủy câu, Idle |
 | Map | W02: hồ 10 chòi × 3 = 30 chỗ; bản Fan-tasy 64×64 chưa có ghế | Cần làm lại thành 20 ghế 3 Tier |
@@ -198,7 +198,7 @@ Trong lúc chưa có Admin, config đọc từ file JSON có version để khôn
 | 16.1 | Test tự động Server: tranh ghế, cooldown, reconnect, trả thưởng 1 lần, ledger, result trùng/attempt giả | B | P0 | 4–10 | Chạy trong CI | S10 |
 | 16.2 | Test tải 20 người một phòng, khởi động lại Server giữa lần câu | B | P0 | 4–6 | Có số đo độ trễ, lỗi | S10 |
 | 16.3 | Chạy ma trận trong `QA_RELEASE.md` với Server thật | B, C | P0 | Tất cả | Ghi rõ phần đã và chưa kiểm | S10 |
-| 16.4 | Kiểm tra quyền dùng asset (Farming Game World, Fan-tasy) | C | P0 | — | Có nguồn và giấy phép cho từng bộ | — |
+| 16.4 | Đối chiếu danh mục nguồn asset và mapping runtime (Farming Game World, Fan-tasy) | C | P0 | — | Manifest nguồn/asset khớp file runtime | — |
 | 16.5 | Âm thanh, hiệu ứng, tối ưu atlas | C | P1 | 5, 6 | Tải trang dưới ngưỡng team chọn | W tương ứng |
 
 ## Thứ tự làm đề xuất

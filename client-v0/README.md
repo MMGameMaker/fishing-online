@@ -1,6 +1,7 @@
 # Fishing Online
 
-Gameplay code is original. Character, NPC, button and room art under `public/assets/` and `public/rooms/*.png` is adapted from the reference project's downloaded sprite sheets and tile/decor art, edited before being added here — see [ASSETS.md](ASSETS.md) for exactly which files and where each came from.
+
+See [ASSETS.md](ASSETS.md) for file locations, sprite dimensions, frame layouts and runtime mappings.
 
 Stack: Phaser 3 + Vite (client), Node.js + Express + Socket.IO (server), JSON file storage in `data/db.json`.
 
@@ -74,7 +75,7 @@ Production-style run: `npm run build`, then `npm start`, and open <http://localh
 - The server validates walkable tiles but not movement speed.
 - The reel marker runs on the client; the server checks the reported position against the zone.
 - Bite delay, reel time and marker speeds are estimates, because the original keeps them on its server.
-- `public/rooms/` follows the original room layouts and tile art. Replace them with original maps/art before any public release.
+- `public/rooms/` contains the room layouts and tile art used by the project. Source and frame mappings are documented in ASSETS.md.
 - Some decor (the images that weren't captured in the download — see ASSETS.md §5) still renders as a flat colored box instead of real art.
 - Seats don't track occupancy, so more than one player can appear to sit in the same spot.
 - Four NPCs with one quest each (look, fish, chat, talk), not the full quest-chain system. Quest rewards are coins only.

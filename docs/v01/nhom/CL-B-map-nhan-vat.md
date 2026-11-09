@@ -8,7 +8,7 @@ Phạm vi file: `client-v0/src/online/scenes/lake/`, `client-v0/src/online/entit
 ---
 
 ### CL-B-01 Map hồ thật theo schema
-- **Độ lớn:** M. **Phụ thuộc:** CL-B-07 (bố cục hồ mới được duyệt), tileset có quyền dùng (ART-01).
+- **Độ lớn:** M. **Phụ thuộc:** CL-B-07 (bố cục hồ mới được duyệt), tileset/kích thước ô đã thống nhất (ART-01).
 - **Spec:** dựng map Tiled 20 ghế: ghế 1-5 Tier 1 ở vị trí đẹp nhất, 6-10 Tier 2, 11-20 Tier 3 (bỏ bố cục 10 chòi × 3). Layer: ground, water, decor, collision; object layer `seats` (thuộc tính `seatId`, `tier`, `facing`, `roamRadius`), `spawn`, `lakeArea` (polygon). Script `tools/export-lake-map` xuất `lake-map.json` đúng schema placeholder (walkableRows, seats, spawn, lakeArea, moveRules).
 - **Nghiệm thu:** giao map nguồn Tiled, atlas/tileset và map JSON có version; BE-C-01 nạp file mới không lỗi; đúng 20 ghế 3 Tier, mọi ghế có đường từ spawn (BFS); collision/walkable/lakeArea khớp Client–BE; kiểm tra trong scene Phaser PC/mobile, camera/depth/đường tới Shop và preview được duyệt. Map placeholder hoặc map 30 anchor cũ không đạt task này.
 

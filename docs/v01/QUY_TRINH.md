@@ -94,7 +94,7 @@ Tiến độ được xác nhận bằng **cổng**, không bằng số task. M�
 | **M2 Hồ và ghế** | BE-C-01..07, BE-C-09, CL-B-02..06 | 2 trình duyệt vào hồ thấy nhau; tranh ghế đúng 1 người thắng; chọn thời lượng/gia hạn và chống trừ/cộng lặp; hết lượt/cooldown/reconnect đúng luật trên Server thật |
 | **M3 Vòng câu** (mốc demo chính) | BE-B-01..08, BE-D-01..04, BE-D-06..07, BE-E-01..08, CL-C-01..05 | Login → mua vé → câu thắng/thua → Client gửi outcome; một attempt tối đa1 cá và1 EXP settlement, thấy cá trong túi, EXP tăng → bán cá; người khác thấy icon cá |
 | **M4 Đủ v1** | CL-D-*, SOC-*, AD-01..04, AD-06..07, QA-04, ART-02..05 | Mọi màn có art thật; chat/emoji/skin/ranking chạy; Admin đổi giá vé có hiệu lực |
-| **M5 Phát hành** | QA-01..03, BE-C-08, test tải, kiểm tra giấy phép asset | Ma trận QA_RELEASE đạt, không còn bug Chặn |
+| **M5 Phát hành** | QA-01..03, BE-C-08, test tải, đối chiếu manifest resource/asset runtime | Ma trận QA_RELEASE đạt, không còn bug Chặn |
 
 **Báo cáo tiến độ** (lead cập nhật đầu TIEN_DO sau mỗi lần merge hoặc mỗi ngày làm việc): số task theo trạng thái của từng nhóm, cổng gần nhất đã Đạt, việc đang bị chặn và đang chờ ai.
 
