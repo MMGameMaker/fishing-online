@@ -2,7 +2,7 @@
 
 ## Đã chốt
 
-- 2D Pixel Art; web client Cocos Creator 3.8.x + TypeScript.
+- 2D Pixel Art; web client Phaser Engine + TypeScript.
 - ASP.NET Core + SignalR; PostgreSQL + Redis. Admin React + TypeScript riêng, do BE thực hiện cùng Server; hai luồng Client kiêm Art và BE kiêm Admin.
 - Một map hồ đi lại, 20 ghế/phòng; phòng và Lake là một. Login, vào phòng, chọn ghế, mua vé theo lượt.
 - Bản đầu tập trung làm câu Manual; Idle GD cập nhật sau.

@@ -1,0 +1,432 @@
+{
+ "_note": "Mẫu để Client làm mock. Giá trị minh họa, không phải kết quả Server thật.",
+ "http": {
+  "POST /api/v1/auth/login 200": {
+   "data": {
+    "accessToken": "<jwt>",
+    "expiresAt": "2026-11-09T11:00:00Z",
+    "isNew": true,
+    "player": {
+     "playerId": "11111111-1111-4111-8111-111111111111",
+     "displayName": "Zen",
+     "level": 1,
+     "exp": 0,
+     "gold": "100",
+     "selectedSkinId": "skin_01",
+     "equippedRodId": "rod_old"
+    }
+   },
+   "traceId": "fx-login"
+  },
+  "GET /api/v1/me 200": {
+   "data": {
+    "playerId": "11111111-1111-4111-8111-111111111111",
+    "displayName": "Zen",
+    "level": 1,
+    "exp": 0,
+    "gold": "100",
+    "selectedSkinId": "skin_01",
+    "equippedRodId": "rod_old"
+   },
+   "traceId": "fx-me"
+  },
+  "GET /api/v1/me/inventory 200": {
+   "data": {
+    "inventoryVersion": 3,
+    "gold": "55",
+    "equippedRodId": "rod_old",
+    "rods": [
+     "rod_old"
+    ],
+    "items": [
+     {
+      "itemId": "chum_basic",
+      "quantity": 1
+     }
+    ],
+    "fish": [
+     {
+      "catchId": "c-0001",
+      "speciesId": "perch",
+      "lengthTenthCm": 143,
+      "caughtAt": "2026-11-09T10:02:00Z"
+     }
+    ]
+   },
+   "traceId": "fx-inv"
+  },
+  "POST /api/v1/shop/buy 422": {
+   "error": {
+    "code": "INSUFFICIENT_GOLD",
+    "message": "Not enough gold",
+    "retryable": false
+   },
+   "traceId": "fx-buy-fail"
+  },
+  "POST /api/v1/shop/sell-fish 200": {
+   "data": {
+    "soldCount": 1,
+    "goldEarned": "5",
+    "gold": "60"
+   },
+   "traceId": "fx-sell"
+  },
+  "GET /api/v1/me/progress 200": {
+   "data": {
+    "level": 1,
+    "exp": 5,
+    "expToNext": 35,
+    "stats": {
+     "strength": 11,
+     "normalHitZonePct": 0,
+     "weaknessHitZonePct": 0,
+     "rareLuck": 0,
+     "largeLuck": 0
+    },
+    "breakdown": {
+     "level": {
+      "strength": 10,
+      "normalHitZonePct": 0,
+      "weaknessHitZonePct": 0,
+      "rareLuck": 0,
+      "largeLuck": 0
+     },
+     "rod": {
+      "strength": 1,
+      "normalHitZonePct": 0,
+      "weaknessHitZonePct": 0,
+      "rareLuck": 0,
+      "largeLuck": 0
+     }
+    }
+   },
+   "traceId": "fx-prog"
+  }
+ },
+ "hub": {
+  "JoinLake ack": {
+   "requestId": "r1",
+   "ok": true,
+   "error": null,
+   "data": {
+    "mapId": "lake-01",
+    "mapVersion": "placeholder-1",
+    "configVersion": "v0-test-2026-11-06",
+    "serverTime": "2026-11-09T10:00:00Z",
+    "players": [
+     {
+      "playerId": "22222222-2222-4222-8222-222222222222",
+      "displayName": "Bob",
+      "skinId": "skin_02",
+      "rodId": "rod_bliss",
+      "x": 464,
+      "y": 240,
+      "dir": "down",
+      "seatId": "seat-01",
+      "fishing": true
+     }
+    ],
+    "seats": [
+     {
+      "seatId": "seat-01",
+      "tier": 1,
+      "state": "occupied",
+      "occupantPlayerId": "22222222-2222-4222-8222-222222222222",
+      "expiresAt": "2026-11-09T10:10:00Z",
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-02",
+      "tier": 1,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-03",
+      "tier": 1,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-04",
+      "tier": 1,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-05",
+      "tier": 1,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-06",
+      "tier": 2,
+      "state": "cooldown",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": "2026-11-09T10:00:08Z"
+     },
+     {
+      "seatId": "seat-07",
+      "tier": 2,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-08",
+      "tier": 2,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-09",
+      "tier": 2,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-10",
+      "tier": 2,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-11",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-12",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-13",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-14",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-15",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-16",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-17",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-18",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-19",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     },
+     {
+      "seatId": "seat-20",
+      "tier": 3,
+      "state": "available",
+      "occupantPlayerId": null,
+      "expiresAt": null,
+      "cooldownUntil": null
+     }
+    ],
+    "mySession": null,
+    "myAttempt": null
+   }
+  },
+  "BuySeatTicket ack ok": {
+   "requestId": "r2",
+   "ok": true,
+   "error": null,
+   "data": {
+    "session": {
+     "seatId": "seat-11",
+     "tier": 3,
+     "startedAt": "2026-11-09T10:01:00Z",
+     "expiresAt": "2026-11-09T10:11:00Z",
+     "chumActive": false
+    },
+    "gold": "60"
+   }
+  },
+  "BuySeatTicket ack taken": {
+   "requestId": "r3",
+   "ok": false,
+   "error": {
+    "code": "SEAT_TAKEN",
+    "message": "Seat is in use"
+   },
+   "data": null
+  },
+  "SeatChanged": {
+   "seatId": "seat-11",
+   "tier": 3,
+   "state": "occupied",
+   "occupantPlayerId": "11111111-1111-4111-8111-111111111111",
+   "expiresAt": "2026-11-09T10:11:00Z",
+   "cooldownUntil": null
+  },
+  "AttemptUpdate waiting": {
+   "attemptId": "a-1",
+   "phase": "waiting",
+   "reason": null,
+   "biteDeadlineAt": null,
+   "minigame": null,
+   "state": null,
+   "result": null
+  },
+  "AttemptUpdate bite": {
+   "attemptId": "a-1",
+   "phase": "bite",
+   "reason": null,
+   "biteDeadlineAt": "2026-11-09T10:01:09.500Z",
+   "minigame": null,
+   "state": null,
+   "result": null
+  },
+  "AttemptUpdate minigame": {
+   "attemptId": "a-1",
+   "phase": "minigame",
+   "reason": null,
+   "biteDeadlineAt": null,
+   "minigame": {
+    "seed": 123456789,
+    "startedAt": "2026-11-09T10:01:10.000Z",
+    "durationMs": 12000,
+    "needlePassMs": 900,
+    "greenWidth": 0.2,
+    "yellowWidth": 0.06,
+    "shiftMin": 0.05,
+    "shiftMax": 0.15,
+    "missPenaltyMs": 2000,
+    "fishHp": 55,
+    "atk": 11
+   },
+   "state": {
+    "hp": 55,
+    "remainingMs": 12000,
+    "tapSeq": 0
+   },
+   "result": null
+  },
+  "MinigameTap ack": {
+   "requestId": "r9",
+   "ok": true,
+   "error": null,
+   "data": {
+    "result": "weak",
+    "hp": 33,
+    "remainingMs": 10400
+   }
+  },
+  "AttemptUpdate success": {
+   "attemptId": "a-1",
+   "phase": "success",
+   "reason": null,
+   "biteDeadlineAt": null,
+   "minigame": null,
+   "state": {
+    "hp": 0,
+    "remainingMs": 6100,
+    "tapSeq": 4
+   },
+   "result": {
+    "speciesId": "perch",
+    "rarity": "common",
+    "lengthTenthCm": 143,
+    "isNew": true,
+    "isRecord": false,
+    "expGained": 5,
+    "level": 1,
+    "levelUp": false
+   }
+  },
+  "AttemptUpdate failed": {
+   "attemptId": "a-2",
+   "phase": "failed",
+   "reason": "missed_bite",
+   "biteDeadlineAt": null,
+   "minigame": null,
+   "state": null,
+   "result": null
+  },
+  "AttemptUpdate cancelled": {
+   "attemptId": "a-3",
+   "phase": "cancelled",
+   "reason": "session_expired",
+   "biteDeadlineAt": null,
+   "minigame": null,
+   "state": null,
+   "result": null
+  },
+  "CatchShown": {
+   "playerId": "11111111-1111-4111-8111-111111111111",
+   "speciesId": "perch",
+   "rarity": "common",
+   "shownUntil": "2026-11-09T10:01:21Z"
+  },
+  "MySeatSession ended": {
+   "seatId": "seat-11",
+   "ended": true,
+   "reason": "expired"
+  }
+ }
+}

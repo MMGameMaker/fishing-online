@@ -1,0 +1,437 @@
+{
+  "configVersion": "v0-test-2026-11-06",
+  "status": "Số tạm để test theo GAMEPLAY_SCOPE.md; mục đánh dấu proposal chờ GD",
+  "newPlayer": {
+    "gold": 100,
+    "rodId": "rod_old"
+  },
+  "levels": [
+    {
+      "level": 1,
+      "expReq": 0,
+      "strength": 10,
+      "normalHitZonePct": 0,
+      "weaknessHitZonePct": 0,
+      "rareLuck": 0,
+      "largeLuck": 0
+    },
+    {
+      "level": 2,
+      "expReq": 40,
+      "strength": 12,
+      "normalHitZonePct": 2,
+      "weaknessHitZonePct": 2,
+      "rareLuck": 0,
+      "largeLuck": 0
+    },
+    {
+      "level": 3,
+      "expReq": 70,
+      "strength": 14,
+      "normalHitZonePct": 2,
+      "weaknessHitZonePct": 2,
+      "rareLuck": 1,
+      "largeLuck": 1
+    },
+    {
+      "level": 4,
+      "expReq": 100,
+      "strength": 16,
+      "normalHitZonePct": 4,
+      "weaknessHitZonePct": 4,
+      "rareLuck": 1,
+      "largeLuck": 1
+    },
+    {
+      "level": 5,
+      "expReq": 140,
+      "strength": 18,
+      "normalHitZonePct": 6,
+      "weaknessHitZonePct": 4,
+      "rareLuck": 2,
+      "largeLuck": 2
+    },
+    {
+      "level": 6,
+      "expReq": 180,
+      "strength": 20,
+      "normalHitZonePct": 8,
+      "weaknessHitZonePct": 6,
+      "rareLuck": 2,
+      "largeLuck": 2
+    },
+    {
+      "level": 7,
+      "expReq": 230,
+      "strength": 22,
+      "normalHitZonePct": 10,
+      "weaknessHitZonePct": 6,
+      "rareLuck": 3,
+      "largeLuck": 3
+    },
+    {
+      "level": 8,
+      "expReq": 290,
+      "strength": 24,
+      "normalHitZonePct": 12,
+      "weaknessHitZonePct": 8,
+      "rareLuck": 3,
+      "largeLuck": 3
+    },
+    {
+      "level": 9,
+      "expReq": 360,
+      "strength": 26,
+      "normalHitZonePct": 14,
+      "weaknessHitZonePct": 8,
+      "rareLuck": 3,
+      "largeLuck": 3
+    },
+    {
+      "level": 10,
+      "expReq": 440,
+      "strength": 28,
+      "normalHitZonePct": 15,
+      "weaknessHitZonePct": 10,
+      "rareLuck": 4,
+      "largeLuck": 4
+    }
+  ],
+  "rods": [
+    {
+      "rodId": "rod_old",
+      "name": "Old Fishing Rod",
+      "priceGold": null,
+      "isDefault": true,
+      "strength": 1,
+      "normalHitZonePct": 0,
+      "weaknessHitZonePct": 0,
+      "rareLuck": 0,
+      "largeLuck": 0
+    },
+    {
+      "rodId": "rod_steel_awl",
+      "name": "Steel Awl",
+      "priceGold": 300,
+      "isDefault": false,
+      "strength": 3,
+      "normalHitZonePct": 10,
+      "weaknessHitZonePct": 0,
+      "rareLuck": 1,
+      "largeLuck": 0
+    },
+    {
+      "rodId": "rod_high_performer",
+      "name": "High Performer",
+      "priceGold": 300,
+      "isDefault": false,
+      "strength": 3,
+      "normalHitZonePct": 0,
+      "weaknessHitZonePct": 10,
+      "rareLuck": 0,
+      "largeLuck": 1
+    },
+    {
+      "rodId": "rod_bliss",
+      "name": "Bliss",
+      "priceGold": 800,
+      "isDefault": false,
+      "strength": 4,
+      "normalHitZonePct": 15,
+      "weaknessHitZonePct": 15,
+      "rareLuck": 1,
+      "largeLuck": 1
+    },
+    {
+      "rodId": "rod_giant_caster",
+      "name": "Giant Caster",
+      "priceGold": 2000,
+      "isDefault": false,
+      "strength": 5,
+      "normalHitZonePct": 20,
+      "weaknessHitZonePct": 20,
+      "rareLuck": 2,
+      "largeLuck": 2
+    }
+  ],
+  "fish": [
+    {
+      "speciesId": "minnow",
+      "name": "Minnow",
+      "rarity": "common",
+      "minTenthCm": 75,
+      "maxTenthCm": 225,
+      "hp": 55,
+      "exp": 5,
+      "sellGold": 5
+    },
+    {
+      "speciesId": "perch",
+      "name": "Perch",
+      "rarity": "common",
+      "minTenthCm": 75,
+      "maxTenthCm": 225,
+      "hp": 55,
+      "exp": 5,
+      "sellGold": 5
+    },
+    {
+      "speciesId": "carp",
+      "name": "Carp",
+      "rarity": "common",
+      "minTenthCm": 75,
+      "maxTenthCm": 225,
+      "hp": 55,
+      "exp": 5,
+      "sellGold": 5
+    },
+    {
+      "speciesId": "trout",
+      "name": "Trout",
+      "rarity": "uncommon",
+      "minTenthCm": 100,
+      "maxTenthCm": 300,
+      "hp": 70,
+      "exp": 8,
+      "sellGold": 10
+    },
+    {
+      "speciesId": "bass",
+      "name": "Bass",
+      "rarity": "uncommon",
+      "minTenthCm": 100,
+      "maxTenthCm": 300,
+      "hp": 70,
+      "exp": 8,
+      "sellGold": 10
+    },
+    {
+      "speciesId": "goldcarp",
+      "name": "Golden Carp",
+      "rarity": "rare",
+      "minTenthCm": 250,
+      "maxTenthCm": 750,
+      "hp": 85,
+      "exp": 12,
+      "sellGold": 20
+    },
+    {
+      "speciesId": "puffer",
+      "name": "Pufferfish",
+      "rarity": "rare",
+      "minTenthCm": 250,
+      "maxTenthCm": 750,
+      "hp": 85,
+      "exp": 12,
+      "sellGold": 20
+    },
+    {
+      "speciesId": "koi",
+      "name": "Koi",
+      "rarity": "epic",
+      "minTenthCm": 300,
+      "maxTenthCm": 1200,
+      "hp": 100,
+      "exp": 20,
+      "sellGold": 50
+    },
+    {
+      "speciesId": "moonfin",
+      "name": "Moonfin",
+      "rarity": "legendary",
+      "minTenthCm": 500,
+      "maxTenthCm": 1500,
+      "hp": 160,
+      "exp": 40,
+      "sellGold": 150
+    }
+  ],
+  "seatTiers": [
+    {
+      "tier": 1,
+      "seatNumbers": [
+        1,
+        5
+      ],
+      "ticketGold": 120,
+      "rareLuck": 1,
+      "largeLuck": 1,
+      "lureTimeMs": 1000
+    },
+    {
+      "tier": 2,
+      "seatNumbers": [
+        6,
+        10
+      ],
+      "ticketGold": 70,
+      "rareLuck": 0,
+      "largeLuck": 1,
+      "lureTimeMs": 500
+    },
+    {
+      "tier": 3,
+      "seatNumbers": [
+        11,
+        20
+      ],
+      "ticketGold": 40,
+      "rareLuck": 0,
+      "largeLuck": 0,
+      "lureTimeMs": 0
+    }
+  ],
+  "seatSession": {
+    "durationMs": 600000,
+    "cooldownMs": 10000,
+    "disconnectGraceMs": 120000
+  },
+  "fishing": {
+    "waitMinMs": 3000,
+    "waitMaxMs": 6000,
+    "biteWindowMs": 3000,
+    "biteGraceMs": 300,
+    "catchShownMs": 5000,
+    "resultPopupMs": 3000
+  },
+  "chum": {
+    "itemId": "chum_basic",
+    "name": "Thính",
+    "priceGold": 30,
+    "lureTimeMs": 1000,
+    "stack": false,
+    "scope": "seat_session"
+  },
+  "minigame": {
+    "rarity": [
+      {
+        "rarity": "common",
+        "durationMs": 12000,
+        "needlePassMs": 900,
+        "greenBasePct": 20,
+        "yellowBasePct": 6,
+        "missPenaltyMs": 2000,
+        "shiftMin": 0.05,
+        "shiftMax": 0.15
+      },
+      {
+        "rarity": "uncommon",
+        "durationMs": 13000,
+        "needlePassMs": 800,
+        "greenBasePct": 16,
+        "yellowBasePct": 5,
+        "missPenaltyMs": 2000,
+        "shiftMin": 0.1,
+        "shiftMax": 0.25
+      },
+      {
+        "rarity": "rare",
+        "durationMs": 15000,
+        "needlePassMs": 700,
+        "greenBasePct": 13,
+        "yellowBasePct": 4.5,
+        "missPenaltyMs": 2500,
+        "shiftMin": 0.15,
+        "shiftMax": 0.35
+      },
+      {
+        "rarity": "epic",
+        "durationMs": 17000,
+        "needlePassMs": 600,
+        "greenBasePct": 11,
+        "yellowBasePct": 4,
+        "missPenaltyMs": 3000,
+        "shiftMin": 0.2,
+        "shiftMax": 0.5
+      },
+      {
+        "rarity": "legendary",
+        "durationMs": 20000,
+        "needlePassMs": 550,
+        "greenBasePct": 9,
+        "yellowBasePct": 4,
+        "missPenaltyMs": 3500,
+        "shiftMin": 0.3,
+        "shiftMax": 0.7
+      }
+    ],
+    "tapValidation": {
+      "proposal": true,
+      "minTapIntervalMs": 80,
+      "futureToleranceMs": 300,
+      "lateToleranceMs": 1500,
+      "endGraceMs": 1500
+    }
+  },
+  "lengthTiers": {
+    "maxLargeLuck": 7,
+    "tiers": [
+      {
+        "id": "normal",
+        "baseBp": 7000,
+        "perLuckBp": -200,
+        "posMin": 0.0,
+        "posMax": 0.6
+      },
+      {
+        "id": "large",
+        "baseBp": 2500,
+        "perLuckBp": 150,
+        "posMin": 0.6,
+        "posMax": 0.9
+      },
+      {
+        "id": "huge",
+        "baseBp": 490,
+        "perLuckBp": 50,
+        "posMin": 0.9,
+        "posMax": 0.999
+      },
+      {
+        "id": "max",
+        "baseBp": 10,
+        "perLuckBp": 0,
+        "posMin": 1.0,
+        "posMax": 1.0
+      }
+    ]
+  },
+  "spawn": {
+    "proposal": true,
+    "rarityWeights": {
+      "common": 60,
+      "uncommon": 25,
+      "rare": 10,
+      "epic": 4,
+      "legendary": 1
+    },
+    "rareLuckMode": "none"
+  },
+  "shopOffers": [
+    {
+      "offerId": "offer_rod_steel_awl",
+      "itemId": "rod_steel_awl",
+      "priceGold": 300
+    },
+    {
+      "offerId": "offer_rod_high_performer",
+      "itemId": "rod_high_performer",
+      "priceGold": 300
+    },
+    {
+      "offerId": "offer_rod_bliss",
+      "itemId": "rod_bliss",
+      "priceGold": 800
+    },
+    {
+      "offerId": "offer_rod_giant_caster",
+      "itemId": "rod_giant_caster",
+      "priceGold": 2000
+    },
+    {
+      "offerId": "offer_chum_basic",
+      "itemId": "chum_basic",
+      "priceGold": 30
+    }
+  ]
+}
