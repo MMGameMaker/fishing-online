@@ -50,15 +50,15 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE-B-01 | Project, model config, nạp fixture | S | không | | Chưa nhận | |  |
-| BE-B-02 | Bảng level và chỉ số | S | BE-B-01 | | Chưa nhận | |  |
-| BE-B-03 | Thời gian chờ cá cắn | S | BE-B-01 | | Chưa nhận | |  |
-| BE-B-04 | Chọn loài | S | BE-B-01 | | Chưa nhận | |  |
-| BE-B-05 | Random chiều dài | S | BE-B-01 | | Chưa nhận | |  |
-| BE-B-06 | Params minigame cho Client | S | BE-B-01, BE-B-02 | | Chưa nhận | |  |
-| BE-B-07 | Fixture params/kết quả minigame | S | BE-B-06 | | Chưa nhận | |  |
-| BE-B-08 | Máy trạng thái lần câu | M | BE-B-03 đến BE-B-06 | | Chưa nhận | |  |
-| BE-B-09 | Script mô phỏng balance | S | BE-B-08 | | Chưa nhận | |  |
+| BE-B-01 | Project, model config, nạp fixture | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-01.md) |
+| BE-B-02 | Bảng level và chỉ số | S | BE-B-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-02.md) |
+| BE-B-03 | Thời gian chờ cá cắn | S | BE-B-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-03.md) |
+| BE-B-04 | Chọn loài | S | BE-B-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-04.md) |
+| BE-B-05 | Random chiều dài | S | BE-B-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-05.md) |
+| BE-B-06 | Params minigame cho Client | S | BE-B-01, BE-B-02 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-06.md) |
+| BE-B-07 | Fixture params/kết quả minigame | S | BE-B-06 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-07.md) |
+| BE-B-08 | Máy trạng thái lần câu | M | BE-B-03 đến BE-B-06 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-08.md) |
+| BE-B-09 | Script mô phỏng balance | S | BE-B-08 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-B-09.md), [kết quả](bao-cao/BE-B-09-ket-qua.md) |
 
 ### BE-C — Phòng hồ, di chuyển, ghế và vé
 
