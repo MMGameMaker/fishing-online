@@ -69,7 +69,31 @@ Provider login/link/unlink chạy qua Firebase SDK; không tạo endpoint BE nh�
 
 1. Firebase project dev riêng, đăng ký Web App, bật Authentication Google và support email, cấu hình authorized domains/localhost/redirect URI theo môi trường. Chỉ bật Facebook sau.
 2. Cung cấp projectId và Web App config cho Client. Firebase web config không phải service-account credential; vẫn cấu hình domain/quota phù hợp. Admin SDK credentials chỉ trong secret/env ngoài repo, không gửi private key vào chat và không đặt trong Client. Ưu tiên ADC/secret store; chưa cần Firestore.
-3. Client kiểm tra Firebase SDK trên Cocos 3.8.x Web PC/mobile; BE dùng Firebase Admin .NET + migration mapping, fake verifier trong test riêng không được bật bypass production. Emulator tests không thay Google end-to-end.
+3. Client kiểm tra Firebase SDK trên Phaser + TypeScript Web PC/mobile; BE dùng Firebase Admin .NET + migration mapping, fake verifier trong test riêng không được bật bypass production. Emulator tests không thay Google end-to-end.
 4. Gate: Google thật → BE verify → profile persist; concurrent login chỉ 1 account/profile; token sai/hết hạn/project khác/custom token bị chặn; suspension/role/hub/refresh/revoke/Redis outage; popup cancel/blocked/reconnect. Facebook linking sau phải giữ nguyên UID/player/tài sản, chặn auto-merge email. Chưa chạy test auth nào.
 
 Nguồn: [Verify ID tokens](https://firebase.google.com/docs/auth/admin/verify-id-tokens), [Google Web](https://firebase.google.com/docs/auth/web/google-signin), [Account linking](https://firebase.google.com/docs/auth/web/account-linking), [Facebook Web](https://firebase.google.com/docs/auth/web/facebook-login), [Session revocation](https://firebase.google.com/docs/auth/admin/manage-sessions).
+
+## Firebase Web App config đã cung cấp — 2026-11-09
+
+Nguồn: người dùng sao chép từ Firebase Console trong chat. Project dùng cho thiết lập dev hiện tại: `fishing-online-c111f`. Đây là cấu hình Web Client, không phải Firebase Admin service-account credential; được lưu theo yêu cầu người dùng. Người dùng xác nhận ngày 2026-11-09: Google provider đã Enabled và localhost đã thêm vào Authorized domains. Agent chưa kiểm chứng trực tiếp Console hoặc Google login end-to-end.
+
+```javascript
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCROH7-RSB7Xgl0cFA1Dwj3T5aE2Dl_JA8",
+  authDomain: "fishing-online-c111f.firebaseapp.com",
+  projectId: "fishing-online-c111f",
+  storageBucket: "fishing-online-c111f.firebasestorage.app",
+  messagingSenderId: "477185422341",
+  appId: "1:477185422341:web:ef2a6c0ddb575ac07e986c",
+  measurementId: "G-KDS7P0SZKF"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+```
+
+Đoạn trên lưu cấu hình và ví dụ khởi tạo do người dùng cung cấp, chưa phải code đã tích hợp. Google login sẽ dùng `firebase/auth`; Analytics là chức năng riêng, không bắt buộc cho login. BE cấu hình projectId tương ứng; credential Admin SDK qua secret/env ngoài repo, không đặt trong tài liệu này.

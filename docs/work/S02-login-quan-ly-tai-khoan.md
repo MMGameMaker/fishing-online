@@ -27,10 +27,12 @@
 ## Trao đổi cần xử lý
 - BE → người dùng: Firebase/Google trước và Facebook sau đã chọn; còn session TTL, quyền điều khiển một phiên, phương thức cấp tài khoản Admin/MFA.
 - BE → Client: xác nhận topology cùng site/cookie, DTO và xử lý multi-tab/reconnect.
-- BE → vận hành: Firebase project dev/Web config/authorized domains và Admin SDK credential qua secret store; chưa cần lưu secret trong docs.
+- BE → vận hành: project dev fishing-online-c111f/Web config đã cung cấp; người dùng xác nhận Google Enabled và localhost authorized ngày 2026-11-09. Credential Admin SDK/ADC cho BE còn cần thiết lập ngoài repo; không gửi private key vào chat.
 
 ## Kiểm tra tích hợp
 - Chưa thực hiện auth integration; chỉ có nền persistence/readiness S01 được kiểm chứng trước đó.
 
 
 **Cập nhật scope 2026-11-09:** các đầu vào lịch sử về vé/mồi/vật tư không là luật hiện hành. Thính đã bỏ; ghế mua theo thời lượng và gia hạn theo đơn giá từng ghế. Nguồn thực thi hiện tại: doc/GAMEPLAY_SCOPE.md và docs/v01/SPEC_CHUNG.md v0.3; chưa có runtime cho thay đổi này.
+
+**Đầu vào Firebase 2026-11-09:** đã nhận Project ID, Web config và xác nhận Console từ user; chưa có runtime auth test. Tiếp theo tích hợp verifier BE, UID mapping/session và Client Google login; chưa coi hoàn tất S02.
