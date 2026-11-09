@@ -1,0 +1,138 @@
+{
+  "purpose": "BE-B-07: mẫu MinigameParams và outcome cho harness Server. Không có bộ tap; vector tap của lõi TS do CL-C giữ ở client-v0/src/online/fishing/.",
+  "configVersion": "v0-test-2026-11-09-monitoring-05",
+  "samples": [
+    {
+      "name": "common-lv1-success",
+      "speciesId": "perch",
+      "player": { "level": 1, "rodId": "rod_old", "seatTier": 3 },
+      "params": {
+        "seed": 123456789,
+        "startedAt": "2026-11-09T10:01:10.000Z",
+        "durationMs": 12000,
+        "needlePassMs": 900,
+        "greenWidth": 0.2,
+        "yellowWidth": 0.06,
+        "shiftMin": 0.05,
+        "shiftMax": 0.15,
+        "missPenaltyMs": 2000,
+        "fishHp": 55,
+        "atk": 11,
+        "deadlineAt": "2026-11-09T10:01:23.500Z"
+      },
+      "outcome": "success",
+      "submitAfterMs": 3000,
+      "expected": { "phase": "success", "reason": null, "error": null }
+    },
+    {
+      "name": "uncommon-lv5-steel-failed",
+      "speciesId": "trout",
+      "player": { "level": 5, "rodId": "rod_steel_awl", "seatTier": 2 },
+      "params": {
+        "seed": 1,
+        "startedAt": "2026-11-09T10:01:10.000Z",
+        "durationMs": 13000,
+        "needlePassMs": 800,
+        "greenWidth": 0.1856,
+        "yellowWidth": 0.052,
+        "shiftMin": 0.1,
+        "shiftMax": 0.25,
+        "missPenaltyMs": 2000,
+        "fishHp": 70,
+        "atk": 21,
+        "deadlineAt": "2026-11-09T10:01:24.500Z"
+      },
+      "outcome": "failed",
+      "submitAfterMs": 9000,
+      "expected": { "phase": "failed", "reason": "timeout", "error": null }
+    },
+    {
+      "name": "rare-lv10-giant-success",
+      "speciesId": "goldcarp",
+      "player": { "level": 10, "rodId": "rod_giant_caster", "seatTier": 1 },
+      "params": {
+        "seed": 4294967295,
+        "startedAt": "2026-11-09T10:01:10.000Z",
+        "durationMs": 15000,
+        "needlePassMs": 700,
+        "greenWidth": 0.1755,
+        "yellowWidth": 0.0585,
+        "shiftMin": 0.15,
+        "shiftMax": 0.35,
+        "missPenaltyMs": 2500,
+        "fishHp": 85,
+        "atk": 33,
+        "deadlineAt": "2026-11-09T10:01:26.500Z"
+      },
+      "outcome": "success",
+      "submitAfterMs": 8000,
+      "expected": { "phase": "success", "reason": null, "error": null }
+    },
+    {
+      "name": "epic-lv10-bliss-instant-success",
+      "speciesId": "koi",
+      "player": { "level": 10, "rodId": "rod_bliss", "seatTier": 3 },
+      "params": {
+        "seed": 0,
+        "startedAt": "2026-11-09T10:01:10.000Z",
+        "durationMs": 17000,
+        "needlePassMs": 600,
+        "greenWidth": 0.143,
+        "yellowWidth": 0.05,
+        "shiftMin": 0.2,
+        "shiftMax": 0.5,
+        "missPenaltyMs": 3000,
+        "fishHp": 100,
+        "atk": 32,
+        "deadlineAt": "2026-11-09T10:01:28.500Z"
+      },
+      "outcome": "success",
+      "submitAfterMs": 0,
+      "expected": { "phase": "success", "reason": null, "error": null }
+    },
+    {
+      "name": "legendary-lv10-giant-at-deadline",
+      "speciesId": "moonfin",
+      "player": { "level": 10, "rodId": "rod_giant_caster", "seatTier": 1 },
+      "params": {
+        "seed": 2024,
+        "startedAt": "2026-11-09T10:01:10.000Z",
+        "durationMs": 20000,
+        "needlePassMs": 550,
+        "greenWidth": 0.1215,
+        "yellowWidth": 0.052,
+        "shiftMin": 0.3,
+        "shiftMax": 0.7,
+        "missPenaltyMs": 3500,
+        "fishHp": 160,
+        "atk": 33,
+        "deadlineAt": "2026-11-09T10:01:31.500Z"
+      },
+      "outcome": "success",
+      "submitAfterMs": 21500,
+      "expected": { "phase": "success", "reason": null, "error": null }
+    },
+    {
+      "name": "common-lv1-success-after-deadline",
+      "speciesId": "minnow",
+      "player": { "level": 1, "rodId": "rod_old", "seatTier": 3 },
+      "params": {
+        "seed": 987654321,
+        "startedAt": "2026-11-09T10:01:10.000Z",
+        "durationMs": 12000,
+        "needlePassMs": 900,
+        "greenWidth": 0.2,
+        "yellowWidth": 0.06,
+        "shiftMin": 0.05,
+        "shiftMax": 0.15,
+        "missPenaltyMs": 2000,
+        "fishHp": 55,
+        "atk": 11,
+        "deadlineAt": "2026-11-09T10:01:23.500Z"
+      },
+      "outcome": "success",
+      "submitAfterMs": 13501,
+      "expected": { "phase": "failed", "reason": "timeout", "error": "resultExpired" }
+    }
+  ]
+}
