@@ -123,6 +123,20 @@ Chốt 9 loài cá, 5 bậc rarity. Kích thước cá tính bằng chiều dài
 | 8 | koi | Koi | epic | 30 | 120 | 100 | 20 | 50 |
 | 9 | moonfin | Moonfin | legendary | 50 | 150 | 160 | 40 | 150 |
 
+**Spawn cá** (GD duyệt 2026-11-09; số tạm để test): tại thời điểm cá cắn, Server random độ hiếm theo bảng dưới, rồi chọn đều một loài trong độ hiếm đó.
+
+| Rarity | Tỷ lệ gốc | Mỗi điểm Rare Fish Luck | Ở mức +7 |
+| --- | --- | --- | --- |
+| common | 60,5% | -1,9% | 47,2% |
+| uncommon | 25% | +0,5% | 28,5% |
+| rare | 10% | +0,8% | 15,6% |
+| epic | 4% | +0,5% | 7,5% |
+| legendary | 0,5% | +0,1% | 1,2% |
+
+- Rare Fish Luck cộng từ level, cần và ghế, tối đa +7. Thính không ảnh hưởng tỷ lệ spawn.
+- Tổng tỷ lệ luôn bằng 100% ở mọi mức Luck.
+- Dự kiến làm sau: bảo hiểm khi lâu không gặp cá hiếm (pity) và sự kiện cá hiếm theo hồ. Luật chi tiết chưa chốt.
+
 **Random chiều dài** (GD duyệt 2026-11-06): sau khi user thắng minigame, Server random bậc kích thước, rồi random đều trong khoảng của bậc đó. Vị trí tính theo khoảng Min-Max của từng loài.
 
 | Bậc | Tỷ lệ gốc | Vị trí trong khoảng Min-Max | Mỗi điểm Large Fish Luck |
@@ -136,10 +150,7 @@ Chốt 9 loài cá, 5 bậc rarity. Kích thước cá tính bằng chiều dài
 - Lưu kỷ lục chiều dài theo từng loài cho mỗi user.
 - Large Fish Luck cộng từ level, cần và ghế, tối đa +7.
 
-**Chưa chốt về 3 bảng dữ liệu (GD bổ sung sau):**
-
-- Logic spawn cá hiếm, cách Rare Fish Luck tác động.
-- Giá vé, giá cần và giá cá đang tính theo tỷ lệ spawn giả định (60/25/10/4/1%); cần kiểm tra lại khi có logic spawn.
+**Cần kiểm tra lại:** giá vé, giá cần và giá cá được cân bằng mô phỏng với tỷ lệ spawn cũ (60/25/10/4/1%); kiểm tra lại với tỷ lệ mới khi test thật.
 
 ## Bảng độ khó minigame
 

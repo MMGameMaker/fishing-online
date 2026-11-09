@@ -15,7 +15,7 @@
 - Chỉ cần có cần câu là câu được; bản đầu có 5 loại cần, mỗi người chơi mặc định có 1 cần cấp thấp. **Mồi, dây và lưỡi bỏ khỏi bản đầu**, bổ sung sau nếu quyết định triển khai.
 - Bản đầu chỉ làm **Manual**; Idle cập nhật sau. 9 loài cá mẫu thuộc 5 bậc rarity; kích thước tính bằng chiều dài (cm), chỉ để so sánh giữa các user. Có inventory, lịch sử câu, thành tích cá nhân.
 - **Thính** là vật phẩm tiêu hao trong inventory/shop. Bản đầu có 1 loại để test: giảm 1 giây Lure Time, có hiệu lực đến khi rời ghế, không cộng dồn.
-- Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Logic spawn cá và thành tích GD bổ sung sau. Yêu cầu tổng quan và nguồn tham khảo ở mục 03 Notion; chi tiết triển khai cập nhật ở doc Phân rã công việc, giữ nguyên ID.
+- Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Logic spawn cá đã chốt ở GAMEPLAY_SCOPE (người dùng chốt 2026-11-09); thành tích GD bổ sung sau. Yêu cầu tổng quan và nguồn tham khảo ở mục 03 Notion; chi tiết triển khai cập nhật ở doc Phân rã công việc, giữ nguyên ID.
 - **Loot map/nhặt đồ tạm hoãn khỏi bản đầu**, thay quyết định đưa loot trở lại trước đây. Vẫn giữ di chuyển quanh hồ. Người chơi mới được tặng 100 Gold; vé mua bằng Gold, kiếm Gold bằng cách bán cá tại Shop.
 - Shop dùng Gold và có ledger: bán cần câu và thính, nhận bán cá. Gem không dùng trong bản đầu. **Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1**, luật GD mô tả sau. Giải đấu và payment thật kể cả sandbox để sau.
 - **Khoảng 5–10 skin nhân vật**; chọn/hiển thị/đồng bộ skin. Quyền dùng/mở khóa, số hướng và animation chưa khóa; không tự thêm shop skin hoặc chỉ số.
