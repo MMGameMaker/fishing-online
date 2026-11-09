@@ -9,8 +9,7 @@ GD sở hữu luật và giá trị balance; BE sở hữu validation và thực
 | Nhân vật | Level, EXP Req, Strength, Hit Zone Increase, Rare/Large Fish Luck |
 | Cá | ID, rarity, khoảng chiều dài, HP, EXP, giá bán, tỷ lệ spawn |
 | Cần câu | 5 loại, chỉ số, giá Gold, cần mặc định. Mồi/dây/lưỡi để sau |
-| Thính | Tác dụng, giá Gold, thời hạn, không cộng dồn |
-| Ghế/vé/shop | Tier ghế, buff, Lure Time, giá vé, hàng bán trong Shop, điều kiện mua/dùng, giới hạn |
+| Ghế/vé/shop | Tier ghế, buff, Lure Time, đơn giá mỗi block/ghế, bước thời gian mua và gia hạn, hàng bán trong Shop, điều kiện mua/dùng, giới hạn |
 | Minigame | Theo rarity: thời gian, tốc độ kim, vùng xanh/vàng gốc, mức trừ giờ, độ xê dịch |
 | Skin | 5–10 ID và asset, quyền dùng/chọn; không tự thêm chỉ số/shop skin |
 | Social/ranking | Emoji ID, trigger/phạm vi khoe cá, giới hạn; chỉ số/chu kỳ/đồng hạng/update time |
@@ -30,3 +29,5 @@ GD sở hữu luật và giá trị balance; BE sở hữu validation và thực
 6. QA kiểm tra cấu hình được tải đúng, Client/Server cùng phiên bản theo contract và rollback hoạt động. Giữ phiên bản cũ để truy vết lịch sử/ledger.
 
 Thay đổi schema cần kế hoạch tương thích và migration riêng. Không sửa lịch sử phần thưởng chỉ để khớp balance mới.
+
+Cập nhật user 2026-11-09: bỏ thính; đơn giá ghế theo block thời gian và gia hạn, không khóa 10 phút/phiên. 100/200 Gold là ví dụ. Giá 120/70/40 trong fixture chỉ là test kế thừa; min/max thời lượng và bảng giá cuối chờ duyệt.

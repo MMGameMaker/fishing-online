@@ -49,3 +49,9 @@
 ## Kiểm tra tích hợp
 
 - BE persistence/readiness và transport smoke thực tế đạt theo phần Server; cách tái chạy tại server/README.md. Chưa kiểm tra Cocos/Admin end-to-end, auth/gameplay hoặc tải 20 phiên. Không đóng S01/toàn playable.
+
+
+**Cập nhật scope 2026-11-09:** các đầu vào lịch sử về vé/mồi/vật tư không là luật hiện hành. Thính đã bỏ; ghế mua theo thời lượng và gia hạn theo đơn giá từng ghế. Nguồn thực thi hiện tại: doc/GAMEPLAY_SCOPE.md và docs/v01/SPEC_CHUNG.md v0.3; chưa có runtime cho thay đổi này.
+
+
+**Bàn giao tài liệu 2026-11-09:** đã đồng bộ PROJECT/GAMEPLAY_SCOPE/SPEC0.3, task/fixture/API/QA: bỏ vật phẩm đã loại, ghế chọn thời lượng/đơn giá và gia hạn atomic, thêm BE-C-09; giữ BE-D-05 đã loại. Đồng bộ Phaser và spawn theo luật đã chốt. Chưa triển khai runtime. Notion chỉ đã đọc/chuẩn bị, không ghi do user yêu cầu ưu tiên repo. Kiểm tra JSON/task/schema/link/diff trước stage; còn mở giá cuối/min-max/block và luật cạn cá/reservation.

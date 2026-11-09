@@ -12,12 +12,16 @@ GD, Web Client và BE (bao gồm Admin Tool) trao đổi qua Markdown trong thư
 | gd/, client/, be/, admin/ | Đặc tả chuyên môn; asset thuộc client/assets/; chỉ tạo khi cần |
 | contracts/ | Chỉ tách contract khi nhiều công việc dùng chung; còn lại ghi trong file công việc |
 
+## Nguồn triển khai hiện tại
+
+Đọc [GAMEPLAY_SCOPE](../doc/GAMEPLAY_SCOPE.md), [kế hoạch v01](v01/README.md), [SPEC_CHUNG 0.3](v01/SPEC_CHUNG.md) và fixture cùng phiên bản. Các tài liệu chuyên môn cũ dẫn về nguồn này; không dùng Notion cũ thay luật repo.
+
 ## Vai trò
 
 Đầu ra BE S01: [kế hoạch](be/PLAN.md), [service/luồng chơi](be/ARCHITECTURE.md), [contract dự thảo](contracts/v1-draft.md), [kết nối Client](be/CLIENT_CONNECTION.md), [chạy server](../server/README.md).
 
 - **GD:** luật gameplay, dữ liệu cân bằng, luồng chơi và tiêu chí nghiệm thu.
-- **Web Client (kiêm Art/asset):** Cocos Creator 3.8.x + TypeScript; scene 2D Pixel Art, input, sprite/atlas/animation, UI game, API/realtime và toàn bộ chuẩn bị/tích hợp asset 2D.
+- **Web Client (kiêm Art/asset):** Phaser Engine + TypeScript; scene 2D Pixel Art, input, sprite/atlas/animation, UI game, API/realtime và toàn bộ chuẩn bị/tích hợp asset 2D.
 - **BE:** luật server, phòng/ghế, kết quả câu, dữ liệu, kinh tế, xác thực và API/realtime.
 - **Admin Tool (BE thực hiện):** React + TypeScript riêng; cấu hình, validate/publish, tra cứu và audit qua Admin API của Server. Không tự định nghĩa luật khác Server.
 - **Nguồn asset do Web Client quản lý:** mua sẵn/import/AI tạo; dùng placeholder khi thiếu. Ghi nguồn/quyền sử dụng; concept chưa phải sprite sheet/tileset runtime đã kiểm tra. Bàn giao trong phần Client, không tạo vai trò Art riêng. Mua khi asset/ngân sách đã được duyệt.
@@ -47,5 +51,3 @@ Thay đổi contract phải ghi tác động và bên cần cập nhật. Mock h
 Overview trên Notion là nguồn tổng thể; PROJECT.md dẫn link thay vì sao chép. Mỗi đặc tả chi tiết có một nguồn chính và trạng thái Đề xuất/Đã duyệt. Bàn giao chỉ báo tiến độ, không tự thay thế đặc tả.
 
 Thư mục chỉ dùng chung với agent có quyền truy cập repository. Agent ở môi trường khác cần được cung cấp repo/file liên quan; không có đồng bộ chat tự động. Không lưu secret trong tài liệu.
-
-

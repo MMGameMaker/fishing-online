@@ -31,3 +31,6 @@
 
 ## Kiểm tra tích hợp
 - Chưa thực hiện auth integration; chỉ có nền persistence/readiness S01 được kiểm chứng trước đó.
+
+
+**Cập nhật scope 2026-11-09:** các đầu vào lịch sử về vé/mồi/vật tư không là luật hiện hành. Thính đã bỏ; ghế mua theo thời lượng và gia hạn theo đơn giá từng ghế. Nguồn thực thi hiện tại: doc/GAMEPLAY_SCOPE.md và docs/v01/SPEC_CHUNG.md v0.3; chưa có runtime cho thay đổi này.

@@ -6,29 +6,30 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 - **Cập nhật lần cuối:** 2026-11-09
 - **Cổng đã Đạt:** chưa có
-- **Đang bị chặn:** SPEC_CHUNG chờ duyệt (M0)
+- **Đang bị chặn:** Chi tiết kỹ thuật SPEC_CHUNG 0.3 chờ duyệt (M0); cơ chế user mua/gia hạn và bỏ thính đã chốt
 
 | Nhóm | Tổng task | Xong | Đang làm / Chờ review | Bị chặn |
 | --- | --- | --- | --- | --- |
 | [BE-A — Nền tảng Server](nhom/BE-A-nen-tang-server.md) | 6 | 0 | 0 | 0 |
 | [BE-B — Luật câu cá (thư viện thuần)](nhom/BE-B-luat-cau-ca.md) | 9 | 0 | 0 | 0 |
-| [BE-C — Phòng hồ, di chuyển, ghế và vé](nhom/BE-C-phong-va-ghe.md) | 8 | 0 | 0 | 0 |
+| [BE-C — Phòng hồ, di chuyển, ghế và vé](nhom/BE-C-phong-va-ghe.md) | 9 | 0 | 0 | 0 |
 | [BE-D — Kinh tế và tiến trình](nhom/BE-D-kinh-te-tien-trinh.md) | 8 | 0 | 0 | 0 |
-| [BE-E — Tích hợp lần câu trên Server](nhom/BE-E-tich-hop-cau-ca.md) | 7 | 0 | 0 | 0 |
+| [BE-E — Tích hợp lần câu trên Server](nhom/BE-E-tich-hop-cau-ca.md) | 8 | 0 | 0 | 1 |
 | [CL-A — Nền tảng Client (Phaser 3 + TypeScript)](nhom/CL-A-nen-tang-client.md) | 7 | 0 | 0 | 0 |
-| [CL-B — Map hồ, nhân vật, di chuyển, ghế](nhom/CL-B-map-nhan-vat.md) | 6 | 0 | 0 | 0 |
+| [CL-B — Map hồ, nhân vật, di chuyển, ghế](nhom/CL-B-map-nhan-vat.md) | 7 | 0 | 0 | 0 |
 | [CL-C — Giao diện câu cá và minigame](nhom/CL-C-cau-ca-minigame.md) | 5 | 0 | 0 | 0 |
 | [CL-D — HUD, Shop, túi đồ, tiến trình, Codex](nhom/CL-D-hud-shop-tui.md) | 6 | 0 | 0 | 0 |
 | [SOC — Skin, chat/emoji, khoe cá, bảng xếp hạng (Server + Client)](nhom/SOC-social-skin-ranking.md) | 7 | 0 | 0 | 2 |
-| [AD — Admin Tool (React + TypeScript) và Admin API](nhom/AD-admin.md) | 5 | 0 | 0 | 1 |
+| [AD — Admin Tool (React + TypeScript) và Admin API](nhom/AD-admin.md) | 7 | 0 | 0 | 1 |
 | [ART — Asset 2D pixel art](nhom/ART-asset.md) | 6 | 0 | 0 | 0 |
-| [QA — Kiểm thử xuyên nhóm](nhom/QA-kiem-thu.md) | 3 | 0 | 0 | 0 |
+| [QA — Kiểm thử xuyên nhóm](nhom/QA-kiem-thu.md) | 4 | 0 | 0 | 0 |
 
 ## Thông báo thay đổi spec
 
 | Ngày | Nội dung | Nhóm cần làm gì |
 | --- | --- | --- |
-| 2026-11-09 | SPEC_CHUNG 0.2 phát hành (chờ duyệt) | Tất cả: đọc trước khi nhận task |
+| 2026-11-09 | SPEC_CHUNG 0.3 cập nhật cơ chế user; kỹ thuật còn đề xuất | Tất cả: đọc trước khi nhận task |
+| 2026-11-09 | Bổ sung map mới và Admin thả cá; user chốt quần thể hữu hạn | CL-B/AD/BE-E/QA: đọc task mới; contract tồn và luật cạn cá còn chờ thống nhất |
 
 ## Chi tiết task
 
@@ -70,6 +71,8 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | BE-C-07 | Khôi phục sau restart | S | BE-C-05, BE-C-06 | | Chưa nhận | |  |
 | BE-C-08 | Test tải phòng | S | BE-C-04 | | Chưa nhận | |  |
 
+| BE-C-09 | Gia hạn thời lượng giữ ghế | M | BE-C-04/05, BE-A-04 | | Chưa nhận | | Atomic ví/hạn phiên/receipt |
+
 ### BE-D — Kinh tế và tiến trình
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
@@ -78,7 +81,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | BE-D-02 | Túi đồ | S | BE-D-01 | | Chưa nhận | |  |
 | BE-D-03 | Shop mua hàng | M | BE-D-02; IWallet | | Chưa nhận | |  |
 | BE-D-04 | Bán cá | M | BE-D-02; IWallet | | Chưa nhận | |  |
-| BE-D-05 | Thính | S | BE-D-02; ISeatSessions | | Chưa nhận | |  |
+| BE-D-05 | Loại khỏi v0.1 — giữ ID | — | — | | Loại khỏi v0.1 | 2026-11-09 | User bỏ thính; không tính Xong |
 | BE-D-06 | Ghi cá bắt được, EXP, level, Codex | M | BE-D-02; LevelTable (BE-B-02) | | Chưa nhận | |  |
 | BE-D-07 | Chỉ số và tiến trình | S | BE-D-01; StatCalculator (BE-B-02) | | Chưa nhận | |  |
 | BE-D-08 | Codex và lịch sử | S | BE-D-06; bảng `fishing_attempts` của BE-E (đọc) | | Chưa nhận | |  |
@@ -94,6 +97,8 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | BE-E-05 | Hủy theo luật | S | BE-E-02 | | Chưa nhận | |  |
 | BE-E-06 | Khôi phục sau restart | S | BE-E-04 | | Chưa nhận | |  |
 | BE-E-07 | Test end-to-end Server | M | BE-E-01 đến BE-E-06, BE-C, BE-D xong | | Chưa nhận | |  |
+
+| BE-E-08 | Quần thể cá hữu hạn và tích hợp lượt câu | L | BE-E-04/05/06, BE-B-04, BE-D-06, AD-06 | | Bị chặn | | Chờ luật cạn cá/reservation/initial stock |
 
 ### CL-A — Nền tảng Client (Phaser 3 + TypeScript)
 
@@ -111,19 +116,21 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| CL-B-01 | Map hồ thật theo schema | M | tileset có quyền dùng (ART-01) | | Chưa nhận | |  |
+| CL-B-01 | Dựng map hồ mới và export schema | M | CL-B-07, ART-01 | | Chưa nhận | |  |
 | CL-B-02 | Scene hồ | M | CL-A-01 | | Chưa nhận | |  |
 | CL-B-03 | Nhân vật và animation | M | CL-B-02; sprite từ ART-02 (placeholder trước) | | Chưa nhận | |  |
 | CL-B-04 | Điều khiển và đồng bộ di chuyển | M | CL-B-02, CL-A-04 | | Chưa nhận | |  |
 | CL-B-05 | Ghế và mua vé | M | CL-B-02, CL-A-05 | | Chưa nhận | |  |
 | CL-B-06 | Mất kết nối | S | CL-A-04, CL-B-05 | | Chưa nhận | |  |
 
+| CL-B-07 | Thiết kế và duyệt bố cục hồ câu mới | M | ART-01 | | Chưa nhận | | Không dùng nguyên map 30 anchor cũ |
+
 ### CL-C — Giao diện câu cá và minigame
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | CL-C-01 | Lõi minigame TS | S | CL-A-01 | | Chưa nhận | |  |
-| CL-C-02 | Nút câu và quăng thính | S | CL-A-05 | | Chưa nhận | |  |
+| CL-C-02 | Nút câu | S | CL-A-05 | | Chưa nhận | |  |
 | CL-C-03 | Quăng, chờ, cá cắn | M | CL-C-02, CL-B-03 | | Chưa nhận | |  |
 | CL-C-04 | Màn minigame | L | CL-C-01 | | Chưa nhận | |  |
 | CL-C-05 | Kết quả | M | CL-C-04; icon cá (ART-04) | | Chưa nhận | |  |
@@ -161,6 +168,9 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | AD-04 | Giao diện Admin | L | AD-01 đến AD-03 | | Chưa nhận | |  |
 | AD-05 | Hỗ trợ social tối thiểu (A06) | S | SOC-03 | | Bị chặn | | Chờ GD |
 
+| AD-06 | Dữ liệu, API và lịch thả cá | L | AD-01, BE-A-04/05; phối hợp BE-E-08 | | Chưa nhận | | Contract cần lead thống nhất |
+| AD-07 | Trang quản lý thả cá và tồn hồ | L | AD-04, AD-06, BE-E-08 (mock được) | | Chưa nhận | | |
+
 ### ART — Asset 2D pixel art
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
@@ -169,7 +179,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | ART-02 | Nhân vật mẫu (1 skin) | L | ART-01 | | Chưa nhận | |  |
 | ART-03 | Thêm 4-9 skin | L (lớn nhất) | ART-02 duyệt; GD chốt số skin | | Chưa nhận | |  |
 | ART-04 | Icon cá và UI câu cá | M | ART-01 | | Chưa nhận | |  |
-| ART-05 | Icon cần, thính, UI chung | M | ART-01 | | Chưa nhận | |  |
+| ART-05 | Icon cần và UI chung | M | ART-01 | | Chưa nhận | |  |
 | ART-06 | Âm thanh | S | không | | Chưa nhận | |  |
 
 ### QA — Kiểm thử xuyên nhóm
@@ -179,3 +189,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | QA-01 | Bộ ca kiểm thử theo luật | M | không | | Chưa nhận | |  |
 | QA-02 | E2E tự động với Playwright | L | CL-A-06; sau đó Server thật | | Chưa nhận | |  |
 | QA-03 | Chạy cổng tích hợp | S mỗi cổng | theo cổng ở QUY_TRINH | | Chưa nhận | |  |
+
+| QA-04 | E2E thả cá và đối soát quần thể | M | AD-06/07, BE-E-08; M3 | | Chưa nhận | | |
+
+**Đếm task 2026-11-09:** 89 ID, gồm 88 task còn trong scope và 1 ID BE-D-05 đã loại; không ghi task loại là Xong. Nhóm BE-D giữ 8 ID để tra cứu, chỉ còn 7 task thực hiện.

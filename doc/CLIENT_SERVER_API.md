@@ -24,3 +24,8 @@ PostgreSQL lưu trạng thái bền vững và giao dịch theo thiết kế BE;
 Admin gọi Admin API của Server, kiểm tra quyền ở Server; không kết nối database trực tiếp từ trình duyệt. Publish cấu hình phải validate và lưu audit phù hợp.
 
 Mock dùng cùng schema/version và có tình huống thành công/lỗi. Khi đổi contract, ghi tác động tới Client/BE/Admin, tương thích bản cũ, migration nếu có và cập nhật mock. Nghiệm thu cần chạy với Server thật, gồm reconnect, tranh chấp và request lặp.
+
+
+## Ghế theo thời lượng — cập nhật 2026-11-09
+
+BuySeatTicket nhận seatId/durationUnits/expectedPriceVersion; ExtendSeatSession nhận sessionId/durationUnits/expectedPriceVersion, cả hai có requestId. Server tính đơn giá/Gold, ghi ledger + hạn phiên + receipt atomic; retries không trừ hoặc cộng giờ lặp. Gia hạn cộng vào expiresAt cũ khi phiên còn hiệu lực; snapshot/event cập nhật hạn mới. Thính và UseChum đã loại khỏi bản đầu. Nguồn schema hiện hành: docs/v01/SPEC_CHUNG.md v0.3 (các chi tiết kỹ thuật còn là đề xuất).

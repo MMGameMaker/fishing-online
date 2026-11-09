@@ -1,6 +1,6 @@
 # Quy tắc làm việc — Fishing Online
 
-Áp dụng cho GD và ba nhóm triển khai: Server (BE), Web Client, Admin Tool cùng mọi AI agent làm việc trong repository này. Playable dùng 2D Pixel Art, Cocos Creator 3.8.x + TypeScript; Server ASP.NET Core + SignalR + PostgreSQL + Redis; Admin React + TypeScript. Web Client kiêm Art/asset 2D, không tách vai trò Art riêng. Quyết định hiện hành trong docs/PROJECT.md thay thế các chỉ dẫn cũ không còn phù hợp.
+Áp dụng cho GD và ba nhóm triển khai: Server (BE), Web Client, Admin Tool cùng mọi AI agent làm việc trong repository này. Playable dùng 2D Pixel Art, Phaser Engine + TypeScript; Server ASP.NET Core + SignalR + PostgreSQL + Redis; Admin React + TypeScript. Web Client kiêm Art/asset 2D, không tách vai trò Art riêng. Quyết định hiện hành trong docs/PROJECT.md thay thế các chỉ dẫn cũ không còn phù hợp.
 
 - Đọc `docs/README.md` trước khi bắt đầu; dùng `docs/` làm nơi trao đổi công việc chung giữa các agent.
 - Đọc nguồn thiết kế liên quan trong `docs/PROJECT.md` và bàn giao còn mở trong `docs/HANDOFF.md`. Không mặc định agent biết lịch sử chat khác.
@@ -13,6 +13,3 @@
 - Nếu thay đổi yêu cầu đã chốt, ghi đề xuất và tác động; chỉ cập nhật quyết định sau khi người dùng duyệt. Các lựa chọn triển khai thông thường trong phạm vi đã giao không cần xin duyệt lại.
 - Không tạo thêm tầng tài liệu, task tracker, biên bản hoặc báo cáo định kỳ nếu các file hiện tại đã đủ dùng.
 - Không lưu mật khẩu, token hoặc thông tin thanh toán trong tài liệu.
-
-
-

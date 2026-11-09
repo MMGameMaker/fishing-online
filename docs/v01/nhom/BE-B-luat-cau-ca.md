@@ -12,7 +12,7 @@ Quy tắc chung: mọi random đi qua interface `IRandomSource { double NextDoub
 ### BE-B-01 Project, model config, nạp fixture
 - **Độ lớn:** S. **Phụ thuộc:** không.
 - **Spec:** tạo 2 project net10.0, thêm vào solution. Record `GameplayConfig` và các record con khớp từng field của `gameplay-config.v0.json`. Hàm `GameplayConfigJson.Parse(string)`.
-- **Nghiệm thu:** test parse fixture, kiểm tra vài giá trị (Moonfin hp 160, Tier 1 vé 120, Lv10 expReq 440).
+- **Nghiệm thu:** test parse fixture, kiểm tra vài giá trị (Moonfin hp 160, Tier 1 unitPriceGold test 120, Lv10 expReq 440).
 
 ### BE-B-02 Bảng level và chỉ số
 - **Độ lớn:** S. **Phụ thuộc:** BE-B-01.
@@ -21,13 +21,13 @@ Quy tắc chung: mọi random đi qua interface `IRandomSource { double NextDoub
 
 ### BE-B-03 Thời gian chờ cá cắn
 - **Độ lớn:** S. **Phụ thuộc:** BE-B-01.
-- **Spec:** `FishingRules.WaitMs(IRandomSource, int seatLureMs, bool chumActive) = NextInt(3000, 6000) − seatLureMs − (chum ? 1000 : 0)`.
-- **Nghiệm thu:** 10.000 mẫu Tier 1 + thính nằm trong [1000, 4000]; Tier 3 không thính trong [3000, 6000].
+- **Spec:** `FishingRules.WaitMs(IRandomSource, int seatLureMs) = NextInt(3000, 6000) − seatLureMs`.
+- **Nghiệm thu:** 10.000 mẫu Tier 1 nằm trong [2000, 5000]; Tier 3 trong [3000, 6000].
 
 ### BE-B-04 Chọn loài
 - **Độ lớn:** S. **Phụ thuộc:** BE-B-01.
-- **Spec:** `SpawnPicker.Pick(IRandomSource, config, int rareLuck) → speciesId` theo SPEC 2.8. Nếu `rareLuckMode = "none"` bỏ qua rareLuck. Để sẵn điểm mở rộng `IRareLuckModel`.
-- **Nghiệm thu:** 100.000 mẫu, tỷ lệ mỗi rarity lệch ≤ 0,5 điểm % so với 60/25/10/4/1; trong common mỗi loài khoảng 1/3.
+- **Spec:** `SpawnPicker.Pick(IRandomSource, config, int rareLuck) → speciesId` theo SPEC 2.8. Dùng linear_basis_points theo SPEC 2.8, rareLuck clamp0..7; không dùng mode none cũ. Population selector riêng phối hợp BE-E-08, không tự thêm fallback khi cạn cá.
+- **Nghiệm thu:** 100.000 mẫu, tỷ lệ mỗi rarity lệch ≤ 0,5 điểm % so với 60,5/25/10/4/0,5 ở L=0 và 47,2/28,5/15,6/7,5/1,2 ở L=7; trong common mỗi loài khoảng 1/3.
 
 ### BE-B-05 Random chiều dài
 - **Độ lớn:** S. **Phụ thuộc:** BE-B-01.
@@ -62,5 +62,5 @@ Quy tắc chung: mọi random đi qua interface `IRandomSource { double NextDoub
 
 ### BE-B-09 Script mô phỏng balance
 - **Độ lớn:** S. **Phụ thuộc:** BE-B-08.
-- **Spec:** console `FishingOnline.Sim`: mô phỏng N phiên 10 phút với mô hình người chơi (thời gian phản ứng bite 400-1200 ms, xác suất tap trúng vùng theo độ rộng ± sai số). Xuất bảng: tỷ lệ thắng theo rarity × level × cần; số lần câu/phiên; Gold kiếm được/phiên theo Tier; thời gian lên Lv10.
+- **Spec:** console `FishingOnline.Sim`: mô phỏng N phiên có thời lượng chọn từ config (ví dụ 10/20/30 phút test) với mô hình người chơi (thời gian phản ứng bite 400-1200 ms, xác suất tap trúng vùng theo độ rộng ± sai số). Xuất bảng: tỷ lệ thắng theo rarity × level × cần; số lần câu/phiên; Gold kiếm được/phiên theo Tier; thời gian lên Lv10.
 - **Nghiệm thu:** chạy được bằng một lệnh, xuất Markdown vào `docs/v01/bao-cao/BE-B-09-ket-qua.md` cho GD.

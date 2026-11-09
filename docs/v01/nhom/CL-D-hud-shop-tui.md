@@ -21,12 +21,12 @@ Quy ước UI chung (nhóm này sở hữu, nhóm khác dùng lại): `src/ui/ki
 
 ### CL-D-03 Shop
 - **Độ lớn:** M. **Phụ thuộc:** CL-D-01.
-- **Spec:** tab Mua: 4 cần (tên, giá, chỉ số Strength/Hit Zone/Luck, nhãn "Đã có"), thính (chọn số lượng 1-99). Tab Bán cá: danh sách cá trong túi (icon, tên, chiều dài, giá), chọn nhiều, "Bán đã chọn", "Bán tất cả" (có xác nhận). Gọi API theo SPEC, Gold cập nhật theo response.
+- **Spec:** tab Mua: 4 cần (tên, giá, chỉ số Strength/Hit Zone/Luck, nhãn "Đã có") (chọn số lượng 1-99). Tab Bán cá: danh sách cá trong túi (icon, tên, chiều dài, giá), chọn nhiều, "Bán đã chọn", "Bán tất cả" (có xác nhận). Gọi API theo SPEC, Gold cập nhật theo response.
 - **Nghiệm thu:** thiếu Gold → toast đúng; bán xong cá biến khỏi danh sách, Gold tăng đúng tổng.
 
 ### CL-D-04 Túi đồ và chọn cần
 - **Độ lớn:** M. **Phụ thuộc:** CL-D-01.
-- **Spec:** tab Cá (lưới, sắp mới nhất, lọc theo rarity), tab Cần (cần đã có, nút "Dùng", cần đang dùng có dấu), tab Vật phẩm (thính và số lượng). Đổi cần khi đang câu → toast `ATTEMPT_ACTIVE`.
+- **Spec:** tab Cá (lưới, sắp mới nhất, lọc theo rarity), tab Cần (cần đã có, nút "Dùng", cần đang dùng có dấu). Đổi cần khi đang câu → toast `ATTEMPT_ACTIVE`.
 - **Nghiệm thu:** đổi cần → nhân vật cầm cần mới (CL-B-03) và bảng chỉ số đổi.
 
 ### CL-D-05 Tiến trình và chỉ số

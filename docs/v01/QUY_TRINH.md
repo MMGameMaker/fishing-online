@@ -89,8 +89,8 @@ Tiến độ được xác nhận bằng **cổng**, không bằng số task. M�
 | --- | --- | --- |
 | **M0 Spec** | SPEC_CHUNG được duyệt; BE-B-01, CL-A-01, CL-A-02 | Client parse được mọi fixture; Domain parse được config |
 | **M1 Nền tảng** | BE-A-01..06, CL-A-01..07 | Login Google thật → đặt tên → `/me` có 100 Gold; client chạy mock trọn vòng |
-| **M2 Hồ và ghế** | BE-C-01..07, CL-B-02..06 | 2 trình duyệt vào hồ thấy nhau; tranh ghế đúng 1 người thắng; hết lượt/cooldown/reconnect đúng luật trên Server thật |
-| **M3 Vòng câu** (mốc demo chính) | BE-B-01..08, BE-D-01..07, BE-E-01..07, CL-C-01..05 | Login → mua vé → dùng thính → câu thắng/thua → thấy cá trong túi, EXP tăng → bán cá; người khác thấy icon cá |
+| **M2 Hồ và ghế** | BE-C-01..07, BE-C-09, CL-B-02..06 | 2 trình duyệt vào hồ thấy nhau; tranh ghế đúng 1 người thắng; chọn thời lượng/gia hạn và chống trừ/cộng lặp; hết lượt/cooldown/reconnect đúng luật trên Server thật |
+| **M3 Vòng câu** (mốc demo chính) | BE-B-01..08, BE-D-01..04, BE-D-06..07, BE-E-01..07, CL-C-01..05 | Login → mua vé → câu thắng/thua → thấy cá trong túi, EXP tăng → bán cá; người khác thấy icon cá |
 | **M4 Đủ v1** | CL-D-*, SOC-*, AD-01..04, ART-02..05 | Mọi màn có art thật; chat/emoji/skin/ranking chạy; Admin đổi giá vé có hiệu lực |
 | **M5 Phát hành** | QA-01..03, BE-C-08, test tải, kiểm tra giấy phép asset | Ma trận QA_RELEASE đạt, không còn bug Chặn |
 

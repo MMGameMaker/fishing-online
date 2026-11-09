@@ -1,6 +1,6 @@
 {
-  "configVersion": "v0-test-2026-11-06",
-  "status": "Số tạm để test theo GAMEPLAY_SCOPE.md; mục đánh dấu proposal chờ GD",
+  "configVersion": "v0-test-2026-11-09-rental-03",
+  "status": "Fixture test: không thính; block 10 phút/đơn giá 120-70-40 là đề xuất/test, chưa khóa balance/thời lượng.",
   "newPlayer": {
     "gold": 100,
     "rodId": "rod_old"
@@ -253,10 +253,10 @@
         1,
         5
       ],
-      "ticketGold": 120,
       "rareLuck": 1,
       "largeLuck": 1,
-      "lureTimeMs": 1000
+      "lureTimeMs": 1000,
+      "unitPriceGold": "120"
     },
     {
       "tier": 2,
@@ -264,10 +264,10 @@
         6,
         10
       ],
-      "ticketGold": 70,
       "rareLuck": 0,
       "largeLuck": 1,
-      "lureTimeMs": 500
+      "lureTimeMs": 500,
+      "unitPriceGold": "70"
     },
     {
       "tier": 3,
@@ -275,14 +275,13 @@
         11,
         20
       ],
-      "ticketGold": 40,
       "rareLuck": 0,
       "largeLuck": 0,
-      "lureTimeMs": 0
+      "lureTimeMs": 0,
+      "unitPriceGold": "40"
     }
   ],
   "seatSession": {
-    "durationMs": 600000,
     "cooldownMs": 10000,
     "disconnectGraceMs": 120000
   },
@@ -293,14 +292,6 @@
     "biteGraceMs": 300,
     "catchShownMs": 5000,
     "resultPopupMs": 3000
-  },
-  "chum": {
-    "itemId": "chum_basic",
-    "name": "Thính",
-    "priceGold": 30,
-    "lureTimeMs": 1000,
-    "stack": false,
-    "scope": "seat_session"
   },
   "minigame": {
     "rarity": [
@@ -397,15 +388,31 @@
     ]
   },
   "spawn": {
-    "proposal": true,
+    "proposal": false,
+    "status": "GD approved rule 2026-11-09; test balance; finite stock fallback pending",
+    "rareLuckMode": "linear_basis_points",
+    "maxRareLuck": 7,
     "rarityWeights": {
-      "common": 60,
+      "common": 60.5,
       "uncommon": 25,
       "rare": 10,
       "epic": 4,
-      "legendary": 1
+      "legendary": 0.5
     },
-    "rareLuckMode": "none"
+    "rarityBaseBp": {
+      "common": 6050,
+      "uncommon": 2500,
+      "rare": 1000,
+      "epic": 400,
+      "legendary": 50
+    },
+    "rarityDeltaBpPerLuck": {
+      "common": -190,
+      "uncommon": 50,
+      "rare": 80,
+      "epic": 50,
+      "legendary": 10
+    }
   },
   "shopOffers": [
     {
@@ -427,11 +434,13 @@
       "offerId": "offer_rod_giant_caster",
       "itemId": "rod_giant_caster",
       "priceGold": 2000
-    },
-    {
-      "offerId": "offer_chum_basic",
-      "itemId": "chum_basic",
-      "priceGold": 30
     }
-  ]
+  ],
+  "seatPricing": {
+    "proposal": true,
+    "billingUnitMinutes": 10,
+    "priceVersion": "seat-price-test-03",
+    "perSeatOverrides": [],
+    "durationPolicy": "positive_integer_units; min/max final pending GD"
+  }
 }

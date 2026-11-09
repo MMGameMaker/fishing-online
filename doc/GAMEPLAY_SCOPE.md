@@ -4,12 +4,12 @@
 
 - 2D Pixel Art; web client Phaser Engine + TypeScript.
 - ASP.NET Core + SignalR; PostgreSQL + Redis. Admin React + TypeScript riêng, do BE thực hiện cùng Server; hai luồng Client kiêm Art và BE kiêm Admin.
-- Một map hồ đi lại, 20 ghế/phòng; phòng và Lake là một. Login, vào phòng, chọn ghế, mua vé theo lượt.
+- Một map hồ đi lại, 20 ghế/phòng; phòng và Lake là một. Login, vào phòng, chọn ghế, mua thời lượng giữ ghế và gia hạn.
 - Bản đầu tập trung làm câu Manual; Idle GD cập nhật sau.
 - Chỉ cần có cần câu là câu được; mỗi người chơi mặc định có 1 cần cấp thấp. Bản đầu làm 5 loại cần (bảng Fishing Rod).
 - 9 loài cá mẫu thuộc 5 bậc rarity (bảng Fish Codex); inventory, lịch sử câu, thành tích cá nhân.
-- Thính là vật phẩm tiêu hao, thuộc inventory/shop. Bản đầu có 1 loại để test.
-- Shop dùng Gold, có ledger: bán cần câu và thính; user bán cá đã câu tại Shop. Gem không dùng trong bản đầu; chưa tự suy ra có shop Gem hoặc payment.
+- **Thính đã bỏ khỏi bản đầu theo quyết định 2026-11-09**: không item/shop/nút dùng/effect hoặc tác động thời gian chờ.
+- Shop dùng Gold, có ledger: bán cần câu; user bán cá đã câu tại Shop. Gem không dùng trong bản đầu; chưa tự suy ra có shop Gem hoặc payment.
 - Khoảng 5–10 skin nhân vật, chọn và đồng bộ; quyền dùng/mở khóa chưa khóa.
 - Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1; GD mô tả sau.
 
@@ -25,19 +25,24 @@ Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ 
 - Giá vé khác nhau theo Tier của ghế (Tier 1/2/3). Tier cao tương ứng vị trí câu đẹp, cá dễ cắn câu hơn.
 - Thứ hạng Tier: Tier 1 tốt nhất, Tier 2 bình thường, Tier 3 thấp nhất.
 - Phân bổ 20 ghế, buff và giá vé theo bảng Tier ghế bên dưới.
-- **Một lượt = một vé = 10 phút dùng ghế.** Trong 10 phút, user câu hay không là tùy user. Không bắt buộc câu, không giới hạn số cá bắt được.
-- Hết 10 phút khi đang câu dở: lần câu đó tự động bị hủy, không cho câu tiếp.
+- Người dùng chọn thời lượng giữ ghế và trả Gold trước theo đơn giá của chính ghế. Có thể mua thêm thời gian khi phiên vẫn còn hiệu lực; không tự gia hạn.
+- Contract triển khai đề xuất: `durationUnits` nguyên dương, `billingUnitMinutes` lấy từ config; `durationMinutes = durationUnits × billingUnitMinutes`, `totalGold = durationUnits × unitPriceGold`. Ví dụ 10 phút/100 hoặc 200 Gold là minh họa của user, không phải bảng giá đã duyệt. Fixture dùng block 10 phút, mức 120/70/40 Gold theo Tier chỉ là giá test kế thừa, mỗi ghế có thể override đơn giá.
+- Mua mới: `expiresAt = serverNow + durationMinutes`. Gia hạn: `expiresAtNew = expiresAtOld + addedMinutes`, không tính lại từ now, không đổi ghế/startedAt, không hủy attempt đang chạy.
+- Cả mua và gia hạn phải atomic trừ Gold + ledger + ghi phiên/receipt; retry cùng key không cộng thời gian/trừ tiền lần hai. Client gửi expectedPriceVersion, Server tính giá; giá thay đổi trả PRICE_CHANGED trước khi thu tiền. Gia hạn dùng giá hiện hành được user xác nhận, không sửa phần thời gian đã thanh toán.
+- Khóa hàng session để xử lý race gia hạn/hết hạn/rời ghế; chỉ gia hạn nếu owner, endedAt null và serverNow < expiresAt. Phiên đã hết hạn không hồi sinh bằng gia hạn. Cùng key trả receipt cũ ngay cả khi phiên đã kết thúc.
+- Hết expiresAt mới nhất: rời ghế/hủy lần câu dở; cooldown 10 giây, reconnect grace 2 phút, đồng hồ vẫn chạy và không hoàn tiền khi bỏ sớm giữ nguyên. Giới hạn min/max thời lượng/tổng giữ ghế, bước thời gian và bảng giá cuối còn cần duyệt; không tự coi phiên luôn 10 phút.
+- Hết thời gian đã mua/gia hạn khi đang câu dở: lần câu đó tự động bị hủy, không cho câu tiếp.
 - Khi đang giữ ghế và không trong lần câu, nhân vật được đi lại trong phạm vi nhỏ, quy định khi xây map.
-- Trong 10 phút, nếu user ra khỏi khu vực câu cá thì coi như bỏ ghế, ghế tự động chuyển về Available. Khu vực câu cá là phạm vi của Lake. Hiện tại khoanh vùng Lake thành khu vực câu cá; cách định nghĩa này để sau mở rộng map có nhiều khu vực liền nhau.
+- Trong thời gian giữ ghế, nếu user ra khỏi khu vực câu cá thì coi như bỏ ghế, ghế tự động chuyển về Available. Khu vực câu cá là phạm vi của Lake. Hiện tại khoanh vùng Lake thành khu vực câu cá; cách định nghĩa này để sau mở rộng map có nhiều khu vực liền nhau.
 - Không hoàn vé, kể cả khi bỏ ghế sớm.
-- Hết lượt 10 phút: user tự động rời ghế.
+- Hết thời gian đã mua/gia hạn: user tự động rời ghế.
 - Cooldown 10 giây luôn áp dụng mỗi khi ghế chuyển từ đang dùng về trống, bất kể lý do (hết lượt, rời Lake, quá thời gian reconnect). Hết cooldown mới cho mua vé; mọi user mua như ghế trống, kể cả user vừa dùng.
-- Mất kết nối hoặc đóng tab: user có 2 phút để reconnect và giữ ghế. Quá 2 phút tính là bỏ ghế. Đồng hồ 10 phút của lượt vẫn chạy độc lập trong lúc mất kết nối. Nếu đang câu dở thì lần câu đó bị hủy ngay khi mất kết nối.
+- Mất kết nối hoặc đóng tab: user có 2 phút để reconnect và giữ ghế. Quá 2 phút tính là bỏ ghế. Đồng hồ phiên theo expiresAt mới nhất vẫn chạy độc lập trong lúc mất kết nối. Nếu đang câu dở thì lần câu đó bị hủy ngay khi mất kết nối.
 - Vé mua bằng Gold; bản đầu không có nguồn vé miễn phí. Người chơi mới được tặng 100 Gold.
 
-**Bảng Tier ghế** (GD cung cấp 2026-11-06; giá vé là số tạm để test, đã cân lại):
+**Bảng Tier ghế** (GD cung cấp 2026-11-06; đơn giá test theo block 10 phút; không cố định phiên 10 phút):
 
-| Tier | Ghế số | Số ghế | Rare Fish Luck | Large Fish Luck | Lure Time (giây) | Giá vé (Gold) |
+| Tier | Ghế số | Số ghế | Rare Fish Luck | Large Fish Luck | Lure Time (giây) | Giá test / block 10 phút (Gold; ghế override được) |
 | --- | --- | --- | --- | --- | --- | --- |
 | Tier 1 | 1-5 | 5 | +1 | +1 | 1 | 120 |
 | Tier 2 | 6-10 | 5 | 0 | +1 | 0,5 | 70 |
@@ -49,12 +54,11 @@ Buff ghế có hiệu lực khi user đang giữ ghế và cộng với Luck t�
 
 **Đã chốt** (GD bổ sung 2026-11-06):
 
-1. **Mua vé:** user mua vé để có slot ghế câu cá.
+1. **Mua thời lượng ghế:** user chọn thời gian, xác nhận đơn giá/tổng Gold rồi thanh toán; trong phiên có thể gia hạn.
 2. **Quăng câu:** nút câu cá hiện ở góc phải màn hình, user chủ động bấm để bắt đầu.
    - Trong lúc câu, nhân vật không di chuyển được (tắt joystick).
-   - User không thể tự hủy lần câu. Thời gian minigame tối đa theo Bảng độ khó (12-20 giây). Hệ thống vẫn tự hủy khi hết lượt 10 phút hoặc mất kết nối (mục Cơ chế ghế).
-   - Trước khi bấm nút, user có thể chọn quăng thính. Bản đầu có 1 loại thính, giá 30 Gold: giảm 1 giây Lure Time, có hiệu lực đến khi user rời ghế, không cộng dồn. Cộng với Lure Time của ghế, thời gian chờ ngắn nhất là 1-4 giây (Tier 1 + thính).
-3. **Cá cắn câu:** sau 3-6 giây kể từ khi bắt đầu câu (trừ Lure Time của ghế và thính), có tín hiệu cá cắn: chấm than trên đầu nhân vật, cần động đậy, nút câu cá hiện thanh đếm ngược. Server chốt loài cá tại thời điểm này; chiều dài chỉ random khi bắt được cá. User có 3 giây để bấm nút và chuyển sang bước bắt cá. Không bấm thì tính là thất bại và quay lại bước 2.
+   - User không thể tự hủy lần câu. Thời gian minigame tối đa theo Bảng độ khó (12-20 giây). Hệ thống vẫn tự hủy khi hết thời gian đã mua/gia hạn hoặc mất kết nối (mục Cơ chế ghế).
+3. **Cá cắn câu:** sau 3-6 giây kể từ khi bắt đầu câu (trừ Lure Time của ghế), có tín hiệu cá cắn: chấm than trên đầu nhân vật, cần động đậy, nút câu cá hiện thanh đếm ngược. Server chốt loài cá tại thời điểm này; chiều dài chỉ random khi bắt được cá. User có 3 giây để bấm nút và chuyển sang bước bắt cá. Không bấm thì tính là thất bại và quay lại bước 2.
 4. **Bắt cá (minigame):** một cây kim chạy qua lại trên thanh đo.
    - Bấm khi kim ở vùng xanh dương: kéo cá lại gần.
    - Bấm khi kim ở vùng vàng ("điểm yếu"): kéo được gấp đôi.
@@ -133,7 +137,7 @@ Chốt 9 loài cá, 5 bậc rarity. Kích thước cá tính bằng chiều dài
 | epic | 4% | +0,5% | 7,5% |
 | legendary | 0,5% | +0,1% | 1,2% |
 
-- Rare Fish Luck cộng từ level, cần và ghế, tối đa +7. Thính không ảnh hưởng tỷ lệ spawn.
+- Rare Fish Luck cộng từ level, cần và ghế, tối đa +7.
 - Tổng tỷ lệ luôn bằng 100% ở mọi mức Luck.
 - Dự kiến làm sau: bảo hiểm khi lâu không gặp cá hiếm (pity) và sự kiện cá hiếm theo hồ. Luật chi tiết chưa chốt.
 
@@ -173,8 +177,12 @@ Số tạm để test (đề xuất 2026-11-06, chỉnh bằng mô phỏng, chư
 
 Luồng dự kiến để viết acceptance: login → vào phòng → di chuyển/chọn ghế → mua vé → câu theo mục Quy trình câu cá → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
 
-GD cần khóa (lượt/vé, rời ghế và mất kết nối đã chốt ở mục Cơ chế ghế; các bước câu và thời hạn thính đã chốt ở mục Quy trình câu cá): quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
+GD cần khóa (lượt/vé, rời ghế và mất kết nối đã chốt ở mục Cơ chế ghế; các bước câu đã chốt ở mục Quy trình câu cá): quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
 
 Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
 
 Server quyết định kết quả cá, tiền, vật phẩm và tài nguyên. Client hiển thị phản hồi/input; mock không phải kết quả server thật.
+
+## Quần thể hữu hạn và vận hành hồ (2026-11-09)
+
+Cá trong mỗi hồ hữu hạn theo loài: đợt Admin thả cộng tồn, bắt thành công giảm đúng 1. Admin chọn hồ, loài, số lượng và thời gian thả. Reservation, tồn ban đầu và xử lý loài/hồ cạn cá còn chờ chốt; không tự dùng RNG vô hạn làm fallback. Task map mới/thả cá nằm ở docs/v01.

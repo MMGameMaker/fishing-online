@@ -11,7 +11,7 @@ Phạm vi file: `server/FishingOnline.Api/Modules/{Identity,Wallet,Config,Common
 - **Độ lớn:** M. **Phụ thuộc:** không.
 - **Spec:**
   - Tạo `Modules/Common`: `ApiResult` trả `{data, traceId}`; middleware bắt `GameException(code, httpStatus, retryable)` → `{error:{code,message,retryable}, traceId}`. `traceId` = `Activity.Current.TraceId`.
-  - Bảng ánh xạ mã lỗi → HTTP: 400 VALIDATION_FAILED; 401 UNAUTHENTICATED/SESSION_EXPIRED; 404 FISH_NOT_FOUND; 409 SEAT_TAKEN, SEAT_COOLDOWN, ALREADY_HAS_SEAT, ATTEMPT_ACTIVE, IDEMPOTENCY_CONFLICT, CHUM_ACTIVE, ROD_ALREADY_OWNED; 422 INSUFFICIENT_GOLD, NO_CHUM, ROD_NOT_OWNED, NOT_IN_SEAT; 429 RATE_LIMITED.
+  - Bảng ánh xạ mã lỗi → HTTP: 400 VALIDATION_FAILED; 401 UNAUTHENTICATED/SESSION_EXPIRED; 404 FISH_NOT_FOUND; 409 SEAT_TAKEN, SEAT_COOLDOWN, ALREADY_HAS_SEAT, ATTEMPT_ACTIVE, IDEMPOTENCY_CONFLICT, ROD_ALREADY_OWNED; 422 INSUFFICIENT_GOLD, ROD_NOT_OWNED, NOT_IN_SEAT; 429 RATE_LIMITED.
   - Hub: `CommandAck` helper; ngoại lệ `GameException` trong hub method → ack `ok=false`.
   - Quy ước module: mỗi module có `XModule.cs` với `AddX(IServiceCollection)` và `MapX(WebApplication)`. `GameDbContext` gọi `ApplyConfigurationsFromAssembly`.
   - Hub chính `GameHub` ở `/hubs/game` dạng partial class; mỗi module thêm file `GameHub.<Module>.cs`. Thay DiagnosticHub (giữ Ping cho Development).
@@ -35,7 +35,7 @@ Phạm vi file: `server/FishingOnline.Api/Modules/{Identity,Wallet,Config,Common
 - **Spec:**
   - Bảng `wallets(playerId PK, gold bigint check ≥ 0, version int)`, `ledger_entries(id, playerId, delta bigint, balanceAfter, reason, refId, createdAt)` chỉ thêm.
   - Triển khai `IWallet` (SPEC mục 6). Debit khóa hàng (`SELECT ... FOR UPDATE`), thiếu → `InsufficientGoldException` → mã `INSUFFICIENT_GOLD`.
-  - `reason` thuộc tập: `grant_new_player`, `seat_ticket`, `buy_rod`, `buy_chum`, `sell_fish`, `admin_adjust` (để dành).
+  - `reason` thuộc tập: `grant_new_player`, `seat_purchase`, `seat_extension`, `buy_rod`, `sell_fish`, `admin_adjust` (để dành).
   - Caller tự mở transaction; IWallet dùng chung DbContext.
 - **Nghiệm thu:** 50 debit song song 10 Gold trên ví 100 → đúng 10 thành công, số dư 0, không âm; tổng `delta` của ledger = số dư; rollback của caller thì ledger cũng không còn.
 

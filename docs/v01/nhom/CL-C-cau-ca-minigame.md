@@ -12,9 +12,9 @@ Phạm vi file: `client-web/src/fishing/`.
 - **Spec:** `src/fishing/minigameCore.ts`: `mulberry32`, `needlePos(t, passMs)`, `createState(params)`, `applyTap(state, seq, tMs)` đúng từng bước SPEC 2.7 (phía client không có `serverElapsed`, chỉ kiểm tra seq, khoảng cách 80 ms, remaining > 0). Hàm thuần, không phụ thuộc Phaser.
 - **Nghiệm thu:** Vitest chạy toàn bộ `minigame-vectors.v0.json`: mọi tap được chấp nhận khớp `kind`, `hp`, `remainingMs`, `greenStart`, `yellowStart` (sai số ≤ 1e-9). Trước khi có vector: test với seed 123456789 khớp 5 số tham chiếu ở SPEC 2.7.
 
-### CL-C-02 Nút câu và quăng thính
+### CL-C-02 Nút câu
 - **Độ lớn:** S. **Phụ thuộc:** CL-A-05.
-- **Spec:** nút tròn lớn góc phải dưới, chỉ hiện khi đang giữ ghế. Trạng thái nút: "Câu" (sẵn sàng) → khóa khi waiting → "Kéo!" kèm vòng đếm ngược 3 giây khi bite → ẩn khi minigame (minigame có vùng bấm riêng) → khóa trong 3 giây popup. Nút nhỏ "Thính (n)" cạnh nút câu: gọi `UseChum`; khi `chumActive` hiện biểu tượng sáng, nút khóa.
+- **Spec:** nút tròn lớn góc phải dưới, chỉ hiện khi đang giữ ghế. Trạng thái nút: "Câu" (sẵn sàng) → khóa khi waiting → "Kéo!" kèm vòng đếm ngược 3 giây khi bite → ẩn khi minigame (minigame có vùng bấm riêng) → khóa trong 3 giây popup.
 - **Nghiệm thu:** mọi trạng thái hiển thị đúng theo chuỗi event mẫu; bấm khi khóa không gửi lệnh.
 
 ### CL-C-03 Quăng, chờ, cá cắn

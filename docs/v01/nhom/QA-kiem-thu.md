@@ -9,7 +9,7 @@ Phạm vi file: `qa/`.
 
 ### QA-01 Bộ ca kiểm thử theo luật
 - **Độ lớn:** M. **Phụ thuộc:** không.
-- **Spec:** `qa/cases/*.md`, mỗi ca: ID, luật nguồn (mục SPEC), điều kiện đầu, bước, kết quả mong đợi. Tối thiểu: ghế (tranh chấp, cooldown, rời ghế, hết lượt, reconnect 1 phút/2 phút 10 giây, restart), câu (mỗi nhánh của 2.6), minigame (mỗi rarity thắng/thua, tap giả), chiều dài (hiển thị, Mới/Kỷ lục), kinh tế (mua/bán/thính, gửi lặp), level, social.
+- **Spec:** `qa/cases/*.md`, mỗi ca: ID, luật nguồn (mục SPEC), điều kiện đầu, bước, kết quả mong đợi. Tối thiểu: ghế (tranh chấp, cooldown, rời ghế, hết lượt, reconnect 1 phút/2 phút 10 giây, restart), câu (mỗi nhánh của 2.6), minigame (mỗi rarity thắng/thua, tap giả), chiều dài (hiển thị, Mới/Kỷ lục), kinh tế (mua/bán/gửi lặp), level, social.
 - **Nghiệm thu:** mỗi dòng "[Chốt]" trong SPEC mục 2 có ít nhất 1 ca.
 
 ### QA-02 E2E tự động với Playwright
@@ -21,3 +21,11 @@ Phạm vi file: `qa/`.
 - **Độ lớn:** S mỗi cổng. **Phụ thuộc:** theo cổng ở QUY_TRINH.
 - **Spec:** chạy kịch bản demo của cổng, ghi `docs/v01/bao-cao/CONG-<Mx>.md`: môi trường, commit, ca đạt/không đạt, bug.
 - **Nghiệm thu:** cổng chỉ được đánh dấu Đạt khi báo cáo này có và không còn bug mức Chặn.
+
+### QA-04 E2E thả cá và đối soát quần thể
+- **Độ lớn:** M. **Phụ thuộc:** AD-06/07, BE-E-08; Client vòng câu M3 và luật quần thể đã duyệt.
+- **Spec:** Admin đặt lịch thả nhiều loài → đến giờ tăng tồn đúng → Player câu thành công → tồn giảm đúng 1, catch/EXP/history và bảng Admin cùng khớp. Kiểm tra hồ/loài cạn cá theo luật chốt; cạnh tranh cá cuối; failed/cancel/disconnect; batch retry, lịch hủy, server restart trước/sau commit; Admin trái quyền không thả được.
+- **Nghiệm thu:** báo cáo E2E có đối soát số đầu + thả - bắt = số cuối, không số âm/đúp, không reservation sót; API/UI dùng cùng hồ và updatedAt. Bổ sung vào M4, kiểm tra recovery ở M5; chưa có runtime evidence thì không đánh dấu đạt.
+
+
+**Ca ghế cập nhật:** mua 2 block, gia hạn 1 block, kiểm tra 3 block tổng; bấm lặp/cạnh tranh, thiếu Gold, priceVersion cũ, expired/leave race, reconnect/restart dùng expiresAt mới; gia hạn khi đang câu không reset attempt. Fixture không chứa chum hoặc UseChum.

@@ -1,34 +1,29 @@
-# Kế hoạch BE v1
+# Kế hoạch BE — cập nhật 2026-11-09
 
-Ngày 2026-11-03, Codex phụ trách BE trong lượt này. Nguồn scope đã duyệt: [PROJECT](../PROJECT.md); ID/acceptance: [backlog Notion](https://app.notion.com/p/40d5f439904b8116956dca7b922a1067). Đây là kế hoạch thực hiện BE kiêm Admin, không thay backlog nguồn và không cam kết lịch hoàn thành. Chỉ S01 nền tảng/contract được khởi động; các lát còn lại là kế hoạch.
+Nguồn scope: [PROJECT](../PROJECT.md), [GAMEPLAY_SCOPE](../../doc/GAMEPLAY_SCOPE.md). Nguồn kế hoạch thực hiện: [v01/README](../v01/README.md), [SPEC_CHUNG 0.3](../v01/SPEC_CHUNG.md), [TIEN_DO](../v01/TIEN_DO.md). Bộ v01 còn là đề xuất kỹ thuật; các quyết định user được đánh dấu riêng, không tự coi kế hoạch đã triển khai.
 
-## Phạm vi
+## Scope hiện hành
 
-Server authoritative ASP.NET Core + SignalR + PostgreSQL + Redis; một map/20 ghế, movement, phiên Player/Admin, vé theo lượt, Gold/ledger/shop, bốn slot cần/dây/lưỡi/mồi và thính riêng, Idle/Manual, 5 cá, history/thành tích, 5–10 skin, chat/emoji/khoe cá/ranking. Admin React/TS riêng do BE làm, không có nguồn lực thứ ba. S07 loot, A05 nâng cao, payment kể cả sandbox và giải đấu để sau. Không tự thêm bán cá, shop skin, thưởng ranking hoặc gameplay Gem.
+BE ASP.NET Core/SignalR + PostgreSQL/Redis, Firebase Google trước/Facebook sau; Client Phaser/TypeScript, Admin React/TypeScript do BE thực hiện. Một hồ/map mới 20 ghế, thuê theo thời lượng chọn và gia hạn theo đơn giá từng ghế; Manual, 5 cần, 9 loài/5 rarity, chiều dài lưu đơn vị 0,1 cm; 100 Gold và cần mặc định cấp đúng một lần; shop cần/bán cá, EXP/level/Codex/history; 5–10 skin/social/ranking. Quần thể cá hữu hạn, Admin quản lý đợt thả cá theo loài/số lượng/thời gian.
 
-## Thứ tự triển khai và đầu ra
+Thính đã bỏ. Dây/lưỡi/mồi, Idle, loot, Gem gameplay, payment và giải đấu để sau. Không tự xây luật compatibility hay kho vé dạng số lượt cho v0.1.
 
-| Lát / ID | Việc BE và dependency | Cổng kiểm tra trước chuyển lát |
-| --- | --- | --- |
-| Nền / S01 | Scaffold, môi trường, contract phiên bản và fixture; đồng bộ map/seat với Client | Build/run health và SignalR thật; Client review schema nền, GD xác nhận điểm còn mở |
-| Phiên / S02 | Provider login được thống nhất, session/revoke, Player/Admin, DB migration người chơi | Token sai/hết hạn/logout bị chặn; Player nhận 403 ở Admin; restart không mất player |
-| Phòng / S03 | Join/leave/snapshot, 20 ghế atomic, movement validation, reconnect | 2 người tranh ghế có đúng 1 thắng; reconnect/restart không avatar/ghế trùng |
-| Kinh tế / S04 | Inventory/loadout/shop/vé/thính, ledger và idempotency; cần luật nguồn cấp/tiêu hao S01 | Retry/concurrent purchase không âm/trùng; ledger khớp balance và item; lỗi rollback toàn bộ |
-| Idle / S05 | Attempt state, RNG, tương thích 5 loài, config pin, reward transaction; cần S03/S04 và phase GD | Cùng attempt chỉ 1 settlement; hết vật tư dừng; kiểm tra bảng tương thích và thính |
-| Manual / S06 | Input seq/deadline và validation, dùng chung settlement S05 | Input giả/trễ/trùng/timeout/hủy/reconnect có kết quả đúng luật |
-| Dữ liệu / S08 | History/thành tích từ settlement, truy vấn phân trang | Chỉ đọc dữ liệu được phép; đăng nhập lại giữ đúng kỷ lục |
-| Admin / S09 + A01–A04 | API quyền/audit, draft/validate/publish config; React login/form/lookup; làm xen kẽ khi API sẵn | Publish lỗi bị chặn, concurrent edit được phát hiện, version pin theo lượt; UI gọi Server thật |
-| Hoàn chỉnh / S13, S11, S12 + A06 | Skin sau S02/S03; social sau S03, khoe cá/ranking sau S05/S08 và luật GD; Admin hỗ trợ tối thiểu | Quyền skin, chống giả catch, rate limit; ranking đối chiếu fixture; phạm vi moderation được chốt |
-| Phát hành / S10 | Migration/seed/package, observability, load 20 phiên, restart/recovery; phụ thuộc các lát trên | End-to-end Client/Admin thật, latency/error/resource số đo, không lặp thưởng; ghi lỗi còn lại |
+## Thứ tự thực hiện
 
-Mỗi lát giao schema + fixture thành công/lỗi trước; Client làm mock cùng version trong lúc BE viết harness. Tiếp theo demo API độc lập rồi tích hợp thật. Admin tính vào cùng tải BE, triển khai sau API từng phần. Ước lượng ngày công sau lát S02/S03 và đo vận tốc; chưa có dữ liệu để chốt hạn toàn v1.
+| Luồng | Đầu ra |
+| --- | --- |
+| BE-A | Module/envelope, Firebase/session, ví/ledger, idempotency, config và player |
+| BE-B | Luật C# thuần, wait chỉ trừ buff ghế, spawn/length/minigame/test vectors |
+| BE-C | Map/presence/movement, mua thời lượng ghế, expiry/cooldown/reconnect, BE-C-09 gia hạn |
+| BE-D | Cần/inventory/shop/bán cá/EXP/Codex; BE-D-05 đã loại, không triển khai |
+| BE-E | Hub vòng câu và settlement; BE-E-08 quần thể hữu hạn/không giảm thưởng trùng |
+| AD | Config/lookup/audit và AD-06/07 lịch thả cá/tồn cá; giá thời gian từng ghế |
+| QA | Các cổng M0–M5; contention/retry/restart và đối soát cá/ví/thời lượng |
 
-## Đầu vào cần chốt theo lát
+Client làm mock theo fixture cùng version, các module dùng interface để không chờ UI. Không đồng nhất nhóm việc với thêm nhân sự. Task map/thả cá và trạng thái xem bảng v01; không tạo backlog khác ở đây.
 
-- GD → S04: nguồn Gold/vé/mồi ban đầu khi không loot, giá, giới hạn túi, quy tắc tiêu hao/hoàn vé; không seed số balance tự nghĩ.
-- GD → S05/S06: 5 loài/cân nặng/rarity, ma trận mồi/thính/cần/dây/lưỡi, từng phase/input/deadline, hủy/disconnect và phạm vi/thời hạn thính.
-- GD → S11/S12/S13/A06: trigger/phạm vi/lưu social, ranking metric/chu kỳ/tie/refresh, quyền mở skin và mức hỗ trợ Admin.
-- Client ↔ BE: map origin/đơn vị/walkable/seat ID, giới hạn movement, DTO và version/error; nguồn contract do BE chỉnh, chờ Client xác nhận trước tích hợp.
-- S02: phương thức đăng nhập/nguồn identity chưa chốt. Scaffold không mở dev-login tự nhận player/admin.
+## Quyết định thời lượng và kiểm tra
 
-Đầu ra và bằng chứng lượt này ở [S01](../work/S01-cap-nhat-scope-ke-hoach-v1.md); không mở hàng loạt task chưa bắt đầu.
+User chọn thời gian và trả trước; trong phiên có thể gia hạn, expiresAt tăng từ hạn cũ. Server tính tổng phí theo đơn giá ghế và block cấu hình; 10 phút/100 hoặc 200 Gold là ví dụ. Fixture giá/block là số test, bước/min/max và giá cuối chờ duyệt. Chống mua/gia hạn lặp bằng requestId/receipt, ví + hạn phiên transaction; expired không hồi sinh bằng gia hạn. Kiểm tra cạnh tranh ghế, renew/expiry race, giá đổi, thiếu Gold, reconnect giữ hạn mới nhất.
+
+Hiện có persistence/readiness scaffold đã kiểm chứng ở S01; chưa có gameplay/auth/Admin runtime. Luật cạn cá, reservation, quyền skin/social/ranking và policy session Admin còn cần thống nhất theo lát.

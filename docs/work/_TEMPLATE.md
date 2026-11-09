@@ -17,7 +17,7 @@
 ## Web Client (kiêm Art/asset 2D)
 
 - **Agent / trạng thái:** Chưa nhận.
-- **Phạm vi:** Cocos Creator 3.8.x + TypeScript, scene/sprite/atlas/animation 2D, input/UI/API; chuẩn bị/tích hợp Art; file đang sửa.
+- **Phạm vi:** Phaser Engine + TypeScript, scene/sprite/atlas/animation 2D, input/UI/API; chuẩn bị/tích hợp Art; file đang sửa.
 - **Đầu ra:** link mã/tài liệu; nguồn và quyền sử dụng asset, trạng thái placeholder/import/đã kiểm tra gameplay; mock hay BE thật; phiên bản contract đang dùng.
 - **Kiểm tra / tiếp theo:** kết quả thực tế, phụ thuộc và bên cần nhận.
 

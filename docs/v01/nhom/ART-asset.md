@@ -24,12 +24,12 @@ Phạm vi file: `client-web/public/assets/`, `art-src/` (file nguồn .aseprite/
 
 ### ART-04 Icon cá và UI câu cá
 - **Độ lớn:** M. **Phụ thuộc:** ART-01.
-- **Spec:** `fish/<speciesId>.png` 32×32 cho 9 loài + bản 64×64 cho popup; khung rarity 5 màu; UI minigame (thanh, kim, vùng xanh, vùng vàng, icon cá trên thanh), nút câu, nút thính, chấm than, emoji buồn, phao.
+- **Spec:** `fish/<speciesId>.png` 32×32 cho 9 loài + bản 64×64 cho popup; khung rarity 5 màu; UI minigame (thanh, kim, vùng xanh, vùng vàng, icon cá trên thanh), nút câu, nút chấm than, emoji buồn, phao.
 - **Nghiệm thu:** đủ file theo danh sách, đúng kích thước.
 
-### ART-05 Icon cần, thính, UI chung
+### ART-05 Icon cần, UI chung
 - **Độ lớn:** M. **Phụ thuộc:** ART-01.
-- **Spec:** `rods/icons/<rodId>.png`, `items/chum_basic.png`, panel 9-slice, nút, icon Gold, phông pixel có tiếng Việt (ghi giấy phép).
+- **Spec:** `rods/icons/<rodId>.png`, panel 9-slice, nút, icon Gold, phông pixel có tiếng Việt (ghi giấy phép).
 - **Nghiệm thu:** phông hiển thị đủ dấu tiếng Việt.
 
 ### ART-06 Âm thanh
