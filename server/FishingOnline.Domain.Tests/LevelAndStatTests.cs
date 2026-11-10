@@ -47,39 +47,30 @@ public sealed class StatCalculatorTests
     private readonly StatCalculator calculator = new(TestData.Config);
 
     [Fact]
-    public void Level10_GiantCaster_Tier1()
+    public void Level10_GiantCaster_ReachesTheLuckCapOfSix()
     {
-        var stats = calculator.Compute(TestData.Level(10), TestData.Rod("rod_giant_caster"), TestData.Seat(1));
+        var stats = calculator.Compute(TestData.Level(10), TestData.Rod("rod_giant_caster"));
 
-        Assert.Equal(new Stats(33, 35, 30, 7, 7), stats);
+        Assert.Equal(new Stats(33, 35, 30, 6, 6), stats);
     }
 
     [Fact]
-    public void NewPlayer_WithoutSeat_HasOnlyLevelAndRodStats()
+    public void NewPlayer_HasOnlyLevelAndRodStats()
     {
-        var stats = calculator.Compute(TestData.Level(1), TestData.Rod("rod_old"), null);
+        var stats = calculator.Compute(TestData.Level(1), TestData.Rod("rod_old"));
 
         Assert.Equal(new Stats(11, 0, 0, 0, 0), stats);
     }
 
     [Fact]
-    public void SeatTier_AddsLuckOnly()
-    {
-        var level = TestData.Level(1);
-        var rod = TestData.Rod("rod_old");
-
-        Assert.Equal(new Stats(11, 0, 0, 0, 1), calculator.Compute(level, rod, TestData.Seat(2)));
-    }
-
-    [Fact]
     public void Luck_IsCappedByConfig()
     {
-        var seat = TestData.Seat(1) with { RareLuck = 9, LargeLuck = 9 };
+        var rod = TestData.Rod("rod_giant_caster") with { RareLuck = 9, LargeLuck = 9 };
 
-        var stats = calculator.Compute(TestData.Level(10), TestData.Rod("rod_giant_caster"), seat);
+        var stats = calculator.Compute(TestData.Level(10), rod);
 
-        Assert.Equal(7, stats.RareLuck);
-        Assert.Equal(7, stats.LargeLuck);
+        Assert.Equal(6, stats.RareLuck);
+        Assert.Equal(6, stats.LargeLuck);
     }
 }
 
@@ -87,27 +78,23 @@ public sealed class FishingRulesTests
 {
     private const int Samples = 10_000;
 
-    [Theory]
-    [InlineData(1, 2000, 5000)]
-    [InlineData(2, 2500, 5500)]
-    [InlineData(3, 3000, 6000)]
-    public void WaitMs_StaysInRangeForTier(int tier, int min, int max)
+    [Fact]
+    public void WaitMs_StaysInTheConfiguredRange()
     {
-        var random = new SeededRandomSource(tier);
-        var lure = TestData.Seat(tier).LureTimeMs;
+        var random = new SeededRandomSource(3);
 
         for (var sample = 0; sample < Samples; sample++)
-            Assert.InRange(FishingRules.WaitMs(random, TestData.Config.Fishing, lure), min, max);
+            Assert.InRange(FishingRules.WaitMs(random, TestData.Config.Fishing), 3000, 6000);
     }
 
     [Fact]
-    public void WaitMs_RequestsConfiguredRange_AndSubtractsLure()
+    public void WaitMs_RequestsConfiguredRange_WithoutSeatBuff()
     {
         var random = new ScriptedRandomSource([4000]);
 
-        var wait = FishingRules.WaitMs(random, TestData.Config.Fishing, 1000);
+        var wait = FishingRules.WaitMs(random, TestData.Config.Fishing);
 
-        Assert.Equal(3000, wait);
+        Assert.Equal(4000, wait);
         Assert.Equal((3000, 6000), Assert.Single(random.IntRequests));
     }
 }

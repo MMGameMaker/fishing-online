@@ -2,8 +2,8 @@
 
 - **Worker:** Claude
 - **Branch / PR:** chưa tạo nhánh/PR; thay đổi chưa commit trên working tree `main` (có thay đổi `client-web/` của luồng khác đang mở)
-- **Ngày gửi review:** chưa gửi; còn thiếu một dòng nghiệm thu cần Docker
-- **Spec áp dụng:** SPEC_CHUNG v0.5, config chưa dùng trong task này
+- **Ngày gửi review:** 2026-11-09 (chờ commit/PR theo yêu cầu người dùng)
+- **Spec áp dụng:** SPEC_CHUNG v0.8, config chưa dùng trong task này
 
 ## Đã làm
 
@@ -40,7 +40,7 @@ GET /api/v1/dev/probe?code=SEAT_TAKEN    → 409 {"error":{"code":"SEAT_TAKEN","
 | --- | --- | --- |
 | Endpoint thử ném `GameException("SEAT_TAKEN")` trả 409 đúng JSON | Đạt | `GameException_SeatTaken_Returns409WithErrorEnvelope`; gọi thật trên Kestrel |
 | Hub method thử trả ack lỗi | Đạt | `GameHubTests.GameException_ReturnsFailedAck` |
-| `dotnet test` chạy được trên máy sạch có Docker | **Chưa chạy** | Máy chưa cài Docker; 32 test không cần Docker đạt, test PostgreSQL mới đi qua nhánh Skipped, chưa từng chạy với container thật |
+| `dotnet test` chạy được trên máy sạch có Docker | Đạt một phần | Test PostgreSQL đã chạy thật trên PostgreSQL 17.6 portable (`Migrations_ApplyOnEmptyDatabase_AndPersistPlayer`, không Skipped). Máy vẫn chưa có Docker nên nhánh Testcontainers chưa chạy; fixture tự chọn PostgreSQL local trước, thiếu mới dùng Docker |
 
 ## Lệch spec / giả định
 
@@ -59,7 +59,8 @@ GET /api/v1/dev/probe?code=SEAT_TAKEN    → 409 {"error":{"code":"SEAT_TAKEN","
 
 ## Việc còn lại
 
-- Chạy lại `dotnet test server` sau khi cài Docker để xác nhận test PostgreSQL, rồi tạo nhánh `v01/BE-A-01-khung-module` + PR khi người dùng yêu cầu commit, chuyển sang Chờ review.
+- Nhánh Testcontainers chỉ chạy được trên máy có Docker. Máy này dùng `server/start-postgres-portable.ps1`.
+- Tạo nhánh và PR khi người dùng yêu cầu commit.
 
 ---
 

@@ -12,7 +12,6 @@ internal static class TestData
     public static Fish Species(string speciesId) => Config.Fish.Single(fish => fish.SpeciesId == speciesId);
     public static LevelConfig Level(int level) => Config.Levels.Single(entry => entry.Level == level);
     public static Rod Rod(string rodId) => Config.Rods.Single(rod => rod.RodId == rodId);
-    public static SeatTier Seat(int tier) => Config.SeatTiers.Single(entry => entry.Tier == tier);
 }
 
 /// <summary>Random có seed cố định, để test phân phối luôn cho cùng kết quả.</summary>

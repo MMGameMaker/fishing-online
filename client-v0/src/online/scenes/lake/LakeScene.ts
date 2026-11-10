@@ -171,7 +171,7 @@ export class LakeScene extends Phaser.Scene {
     this.seatMarkers = new SeatMarkers(this, this.map.seats, this.services.store, (seat) =>
       this.onSeatPressed(seat),
     );
-    this.seatUi = new SeatUi(this.root, this.services, () => this.flow.isFishing());
+    this.seatUi = new SeatUi(this.root, this.services, () => this.flow.canLeaveSeat());
   }
 
   private createInput(): void {
@@ -356,7 +356,7 @@ export class LakeScene extends Phaser.Scene {
   }
 
   private moveMe(deltaMs: number, nowMs: number): void {
-    const locked = this.flow.isLocked(nowMs);
+    const locked = this.flow.isLocked();
     if (locked) {
       this.moveTarget = null;
       this.pendingSeat = null;

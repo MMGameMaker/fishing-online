@@ -413,7 +413,7 @@ public class FishingAttemptTests
     }
 
     [Theory]
-    [InlineData(FishingPhase.Waiting, AttemptReasons.SessionExpired)]
+    [InlineData(FishingPhase.Waiting, AttemptReasons.TicketExpired)]
     [InlineData(FishingPhase.Bite, AttemptReasons.Disconnected)]
     [InlineData(FishingPhase.Minigame, AttemptReasons.LeftSeat)]
     public void Cancel_FromOpenPhase_EndsWithoutReward(FishingPhase phase, string reason)

@@ -1,11 +1,11 @@
 {
   "purpose": "BE-B-07: mẫu MinigameParams và outcome cho harness Server. Không có bộ tap; vector tap của lõi TS do CL-C giữ ở client-v0/src/online/fishing/.",
-  "configVersion": "v0-test-2026-11-09-monitoring-05",
+  "configVersion": "v0-test-2026-11-10-ticket-01",
   "samples": [
     {
       "name": "common-lv1-success",
       "speciesId": "perch",
-      "player": { "level": 1, "rodId": "rod_old", "seatTier": 3 },
+      "player": { "level": 1, "rodId": "rod_old" },
       "params": {
         "seed": 123456789,
         "startedAt": "2026-11-09T10:01:10.000Z",
@@ -27,7 +27,7 @@
     {
       "name": "uncommon-lv5-steel-failed",
       "speciesId": "trout",
-      "player": { "level": 5, "rodId": "rod_steel_awl", "seatTier": 2 },
+      "player": { "level": 5, "rodId": "rod_steel_awl" },
       "params": {
         "seed": 1,
         "startedAt": "2026-11-09T10:01:10.000Z",
@@ -49,7 +49,7 @@
     {
       "name": "rare-lv10-giant-success",
       "speciesId": "goldcarp",
-      "player": { "level": 10, "rodId": "rod_giant_caster", "seatTier": 1 },
+      "player": { "level": 10, "rodId": "rod_giant_caster" },
       "params": {
         "seed": 4294967295,
         "startedAt": "2026-11-09T10:01:10.000Z",
@@ -71,7 +71,7 @@
     {
       "name": "epic-lv10-bliss-instant-success",
       "speciesId": "koi",
-      "player": { "level": 10, "rodId": "rod_bliss", "seatTier": 3 },
+      "player": { "level": 10, "rodId": "rod_bliss" },
       "params": {
         "seed": 0,
         "startedAt": "2026-11-09T10:01:10.000Z",
@@ -93,7 +93,7 @@
     {
       "name": "legendary-lv10-giant-at-deadline",
       "speciesId": "moonfin",
-      "player": { "level": 10, "rodId": "rod_giant_caster", "seatTier": 1 },
+      "player": { "level": 10, "rodId": "rod_giant_caster" },
       "params": {
         "seed": 2024,
         "startedAt": "2026-11-09T10:01:10.000Z",
@@ -115,7 +115,7 @@
     {
       "name": "common-lv1-success-after-deadline",
       "speciesId": "minnow",
-      "player": { "level": 1, "rodId": "rod_old", "seatTier": 3 },
+      "player": { "level": 1, "rodId": "rod_old" },
       "params": {
         "seed": 987654321,
         "startedAt": "2026-11-09T10:01:10.000Z",

@@ -13,18 +13,19 @@ public static class ErrorCatalog
     private static readonly Dictionary<string, ErrorDefinition> Definitions = new()
     {
         [ValidationFailed] = new(400, false, "Invalid request"),
-        ["INVALID_DURATION"] = new(400, false, "Invalid duration"),
+        ["INVALID_QUANTITY"] = new(400, false, "Invalid ticket quantity"),
         ["UNAUTHENTICATED"] = new(401, false, "Authentication required"),
         ["SESSION_EXPIRED"] = new(401, false, "Session expired"),
+        // Chưa có trong SPEC mục 5: đã đăng nhập nhưng thiếu quyền Admin (AD-01).
+        ["FORBIDDEN"] = new(403, false, "Permission denied"),
         ["FISH_NOT_FOUND"] = new(404, false, "Fish not found"),
         ["SEAT_TAKEN"] = new(409, false, "Seat is in use"),
-        ["SEAT_COOLDOWN"] = new(409, false, "Seat is cooling down"),
-        ["ALREADY_HAS_SEAT"] = new(409, false, "Player already holds a seat"),
+        ["ALREADY_HAS_SEAT"] = new(409, false, "Player is already seated"),
+        ["NO_TICKET"] = new(409, false, "No valid fishing ticket"),
         ["ATTEMPT_ACTIVE"] = new(409, false, "A fishing attempt is already active"),
         ["IDEMPOTENCY_CONFLICT"] = new(409, false, "Idempotency key reused with a different payload"),
         ["ROD_ALREADY_OWNED"] = new(409, false, "Rod already owned"),
         ["PRICE_CHANGED"] = new(409, false, "Price has changed"),
-        ["SEAT_SESSION_EXPIRED"] = new(409, false, "Seat session can no longer be extended"),
         ["STATE_CONFLICT"] = new(409, false, "State conflict"),
         ["NO_ACTIVE_ATTEMPT"] = new(409, false, "Attempt is not active"),
         ["BITE_EXPIRED"] = new(409, false, "Bite window has passed"),

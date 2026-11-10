@@ -35,8 +35,7 @@ public class MinigameFixtureTests
         var context = new AttemptContext(TestData.Config, random, _ => sample.SpeciesId);
         var stats = new StatCalculator(TestData.Config).Compute(
             TestData.Level(sample.Player.Level),
-            TestData.Rod(sample.Player.RodId),
-            TestData.Seat(sample.Player.SeatTier));
+            TestData.Rod(sample.Player.RodId));
 
         var attempt = FishingAttempt.Start(context, stats, sample.Params.StartedAt.AddMilliseconds(-WaitMs), WaitMs);
         attempt.Tick(sample.Params.StartedAt);
@@ -99,7 +98,7 @@ public class MinigameFixtureTests
         int SubmitAfterMs,
         SampleExpected Expected);
 
-    private sealed record SamplePlayer(int Level, string RodId, int SeatTier);
+    private sealed record SamplePlayer(int Level, string RodId);
 
     private sealed record SampleExpected(string Phase, string? Reason, string? Error);
 }

@@ -6,16 +6,25 @@ import type { CharacterAnim } from '../entities/placeholderArt';
 import type { AttemptView, FishingOutcome } from '../net/contract';
 import { createPanel, showError, showToast } from '../ui/kit/components';
 import { FishButton } from './FishButton';
-import { biteProgress, fishButtonView, isAttemptActive, isControlLocked } from './fishButtonState';
+import {
+  biteProgress,
+  isAttemptActive,
+  isControlLocked,
+  isPullVisible,
+  shouldAutoCast,
+} from './fishButtonState';
 import { MINIGAME_SCENE, type MinigameData } from './MinigameScene';
 import { buildResultCard, cancelText } from './resultText';
 import { playBiteBeep } from './sound';
 import { submitFishingResult } from './submitResult';
 
-const DEFAULT_RESULT_POPUP_MS = 3000;
 const DEFAULT_BITE_WINDOW_MS = 3000;
 const CAST_ANIM_MS = 500;
-const FAIL_HOLD_MS = 1500;
+/** Thời gian hiện icon buồn trước khi tự câu lại. */
+const FAIL_HOLD_MS = 2000;
+const CAST_RETRY_MS = 5000;
+/** Bỏ qua cú chạm dư của minigame để popup không bị đóng nhầm. */
+const RESULT_TAP_GUARD_MS = 400;
 const BOBBER_RADIUS = 3;
 
 /** Nhân vật của người chơi trong lần câu, dùng được cho mọi scene. */
@@ -28,7 +37,8 @@ export class FishingFlow {
   private readonly button: FishButton;
   private readonly bobber: Phaser.GameObjects.Arc;
   private readonly unsubscribe: () => void;
-  private resultLockUntilMs = 0;
+  private resultOpen = false;
+  private nextCastAtMs = 0;
   private characterBusyUntilMs = 0;
   private commandPending = false;
   private hookSentAtMs: number | null = null;
@@ -42,6 +52,7 @@ export class FishingFlow {
     private readonly me: FishingActor,
     private readonly bobberPoint: () => { x: number; y: number } | null,
     private readonly serverNow: () => number,
+    private readonly isSeatReady: () => boolean = () => true,
   ) {
     this.button = new FishButton(root, () => this.press());
     this.bobber = scene.add.circle(0, 0, BOBBER_RADIUS, 0xf25c54).setVisible(false);
@@ -52,8 +63,13 @@ export class FishingFlow {
   }
 
   /** Khóa di chuyển và các thao tác khác trong lúc câu. */
-  isLocked(nowMs = performance.now()): boolean {
-    return isControlLocked(this.services.store.getState().attempt, this.resultLockUntilMs, nowMs);
+  isLocked(): boolean {
+    return isControlLocked(this.services.store.getState().attempt, this.resultOpen);
+  }
+
+  /** Chưa câu được cá thì luôn rời ghế được; LeaveSeat sẽ hủy lần câu dở. */
+  canLeaveSeat(): boolean {
+    return !this.resultOpen;
   }
 
   isFishing(): boolean {
@@ -62,19 +78,14 @@ export class FishingFlow {
 
   /** Còn đang diễn animation kết quả, chưa được chuyển về idle. */
   isCharacterBusy(nowMs = performance.now()): boolean {
-    return this.isLocked(nowMs) || nowMs < this.characterBusyUntilMs;
+    return this.isLocked() || nowMs < this.characterBusyUntilMs;
   }
 
   update(): void {
     const { attempt, lake, catalog } = this.services.store.getState();
     const nowMs = performance.now();
     this.button.render(
-      fishButtonView({
-        hasSession: lake.mySession !== null,
-        attempt,
-        resultLockUntilMs: this.resultLockUntilMs,
-        nowMs,
-      }),
+      isPullVisible(attempt),
       biteProgress(
         attempt,
         this.serverNow(),
@@ -85,6 +96,16 @@ export class FishingFlow {
       this.characterBusyUntilMs = 0;
       this.me.setHeadIcon(null);
     }
+    const autoCast = shouldAutoCast({
+      hasSession: lake.mySession !== null,
+      seatReady: this.isSeatReady(),
+      attempt,
+      resultOpen: this.resultOpen,
+      commandPending: this.commandPending,
+      nextCastAtMs: this.nextCastAtMs,
+      nowMs,
+    });
+    if (autoCast) void this.cast();
   }
 
   destroy(): void {
@@ -96,29 +117,31 @@ export class FishingFlow {
     if (this.commandPending) return;
     const attempt = this.services.store.getState().attempt;
     if (attempt?.phase === 'bite') void this.hook(attempt.attemptId);
-    else void this.cast();
   }
 
-  private async run(command: () => Promise<{ ok: boolean; error: unknown }>): Promise<void> {
+  private async run(command: () => Promise<{ ok: boolean; error: unknown }>): Promise<boolean> {
     this.commandPending = true;
     try {
       const ack = await command();
       if (!ack.ok) showError(this.root, ack.error);
+      return ack.ok;
     } catch (error) {
       console.warn(error);
       showError(this.root, { code: 'NETWORK_ERROR' });
+      return false;
     } finally {
       this.commandPending = false;
     }
   }
 
-  private cast(): Promise<void> {
-    return this.run(() => this.services.hub.invoke('CastLine', {}));
+  private async cast(): Promise<void> {
+    const ok = await this.run(() => this.services.hub.invoke('CastLine', {}));
+    if (!ok) this.nextCastAtMs = performance.now() + CAST_RETRY_MS;
   }
 
-  private hook(attemptId: string): Promise<void> {
+  private async hook(attemptId: string): Promise<void> {
     this.hookSentAtMs = performance.now();
-    return this.run(() => this.services.hub.invoke('HookFish', { attemptId }));
+    await this.run(() => this.services.hub.invoke('HookFish', { attemptId }));
   }
 
   private onAttempt(attempt: AttemptView | null): void {
@@ -150,12 +173,15 @@ export class FishingFlow {
         this.me.play('fail');
         this.me.setHeadIcon({ type: 'sad' });
         this.characterBusyUntilMs = performance.now() + FAIL_HOLD_MS;
+        this.nextCastAtMs = this.characterBusyUntilMs;
         break;
       case 'cancelled':
         this.finishRound();
         this.me.play('idle');
         this.me.setHeadIcon(null);
-        showToast(this.root, cancelText(attempt.reason));
+        this.nextCastAtMs = performance.now() + FAIL_HOLD_MS;
+        // Rời ghế đã có thông báo của phiên ghế, không báo trùng.
+        if (attempt.reason !== 'left_seat') showToast(this.root, cancelText(attempt.reason));
         break;
     }
   }
@@ -220,12 +246,10 @@ export class FishingFlow {
     this.finishRound();
     this.me.play('success');
     const { catalog } = this.services.store.getState();
-    const popupMs = catalog?.fishing.resultPopupMs ?? DEFAULT_RESULT_POPUP_MS;
-    this.resultLockUntilMs = performance.now() + popupMs;
-    if (attempt.result) this.openPopup(buildResultCard(attempt.result, catalog), popupMs);
+    if (attempt.result) this.openPopup(buildResultCard(attempt.result, catalog));
   }
 
-  private openPopup(card: ReturnType<typeof buildResultCard>, popupMs: number): void {
+  private openPopup(card: ReturnType<typeof buildResultCard>): void {
     const body = document.createElement('div');
     body.className = 'result-card';
 
@@ -247,13 +271,22 @@ export class FishingFlow {
     if (card.badge) add(card.badge, 'result-card__badge');
     add(card.exp, 'result-card__exp');
     if (card.levelUp) add(card.levelUp, 'result-card__badge');
+    add('Chạm để câu tiếp', 'result-card__hint');
 
     const panel = createPanel('Câu được cá!', body);
     panel.classList.add('result-popup');
-    this.root.append(panel);
-    window.setTimeout(() => {
-      panel.remove();
+    const overlay = document.createElement('div');
+    overlay.className = 'result-overlay';
+    overlay.append(panel);
+    this.root.append(overlay);
+    this.resultOpen = true;
+
+    const openedAtMs = performance.now();
+    overlay.addEventListener('pointerdown', () => {
+      if (performance.now() - openedAtMs < RESULT_TAP_GUARD_MS) return;
+      overlay.remove();
+      this.resultOpen = false;
       this.me.play('idle');
-    }, popupMs);
+    });
   }
 }

@@ -13,7 +13,7 @@ public sealed record PlayerModel(
     int ReactionMinMs,
     int ReactionMaxMs,
     int ReaimMs,
-    int RecastMs,
+    int ResultDismissMs,
     int FailHoldMs,
     SkillProfile Skill)
 {
@@ -21,13 +21,16 @@ public sealed record PlayerModel(
     public static readonly SkillProfile Average = new("Trung bình", 60);
     public static readonly SkillProfile Expert = new("Giỏi", 30);
 
-    /// <summary><c>FailHoldMs</c> lấy theo <c>FAIL_HOLD_MS</c> trong FishingFlow.ts của Client.</summary>
+    /// <summary>
+    /// Theo SPEC 0.8: popup thắng chờ người chơi chạm (giả định 1 giây), thua chờ 2 giây
+    /// (<c>FAIL_HOLD_MS</c> của Client), sau đó Client tự CastLine.
+    /// </summary>
     public static PlayerModel Default(SkillProfile skill) => new(
         ReactionMinMs: 400,
         ReactionMaxMs: 1200,
         ReaimMs: 250,
-        RecastMs: 500,
-        FailHoldMs: 1500,
+        ResultDismissMs: 1000,
+        FailHoldMs: 2000,
         skill);
 
     /// <summary>

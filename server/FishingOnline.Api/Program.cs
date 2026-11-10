@@ -1,5 +1,13 @@
 using FishingOnline.Api.Infrastructure;
+using FishingOnline.Api.Modules.Admin;
 using FishingOnline.Api.Modules.Common;
+using FishingOnline.Api.Modules.Config;
+using FishingOnline.Api.Modules.Economy;
+using FishingOnline.Api.Modules.Fishing;
+using FishingOnline.Api.Modules.Identity;
+using FishingOnline.Api.Modules.Lake;
+using FishingOnline.Api.Modules.Social;
+using FishingOnline.Api.Modules.Wallet;
 using FishingOnline.Api.Persistence;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
@@ -7,9 +15,10 @@ using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 var postgresConnection = builder.Configuration.GetConnectionString("Postgres");
-if (!string.IsNullOrWhiteSpace(postgresConnection))
+var hasDatabase = !string.IsNullOrWhiteSpace(postgresConnection);
+if (hasDatabase)
     builder.Services.AddDbContext<GameDbContext>(options => options.UseNpgsql(postgresConnection,
-        postgres => postgres.CommandTimeout(2)));
+        postgres => postgres.CommandTimeout(10)));
 var redisConnection = builder.Configuration.GetConnectionString("Redis");
 if (!string.IsNullOrWhiteSpace(redisConnection))
 {
@@ -26,13 +35,30 @@ if (!string.IsNullOrWhiteSpace(redisConnection))
 builder.Services.AddHealthChecks()
     .AddCheck<PostgresHealthCheck>("postgres", timeout: TimeSpan.FromSeconds(3))
     .AddCheck<RedisHealthCheck>("redis", timeout: TimeSpan.FromSeconds(3));
+builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddCommon();
+builder.Services.AddIdentityModule(builder.Configuration, hasDatabase);
+if (hasDatabase)
+{
+    builder.Services.AddScoped<IdempotencyService>();
+    builder.Services.AddScoped<IIdempotency>(provider => provider.GetRequiredService<IdempotencyService>());
+    builder.Services.AddHostedService<IdempotencyCleanup>();
+    builder.Services.AddConfigModule();
+    builder.Services.AddWallet();
+    builder.Services.AddLake();
+    builder.Services.AddEconomy();
+    builder.Services.AddFishing();
+    builder.Services.AddSocial(builder.Configuration);
+    builder.Services.AddAdmin(builder.Configuration);
+}
 builder.Services.AddCors(options => options.AddPolicy("Client", policy =>
     policy.WithOrigins(builder.Configuration.GetSection("ClientOrigins").Get<string[]>() ?? [])
         .AllowAnyHeader().AllowAnyMethod().AllowCredentials()));
 var app = builder.Build();
 app.UseCors("Client");
 app.UseMiddleware<GameExceptionMiddleware>();
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapGet("/health/live", () => Results.Ok(new { status = "alive" }));
 app.MapHealthChecks("/health/ready", new HealthCheckOptions
 {
@@ -53,4 +79,12 @@ app.MapGet("/api/v1/bootstrap", () => Results.Ok(new
     gameplayAvailable = false, hubPath = "/hubs/game"
 }));
 app.MapCommon();
+if (hasDatabase)
+{
+    app.MapIdentityModule();
+    app.MapConfigModule();
+    app.MapEconomy();
+    app.MapSocial();
+    app.MapAdmin();
+}
 app.Run();

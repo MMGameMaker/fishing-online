@@ -24,12 +24,12 @@ Phạm vi file: `client-v0/src/online/scenes/lake/`, `client-v0/src/online/entit
 
 ### CL-B-04 Điều khiển và đồng bộ di chuyển
 - **Độ lớn:** M. **Phụ thuộc:** CL-B-02, CL-A-04.
-- **Spec:** joystick ảo (mobile) + WASD/mũi tên + click để đi tới. Tự di chuyển cục bộ, gửi `Move` tối đa 10 lần/giây và khi dừng. `PositionCorrected` → đặt lại vị trí. Người khác: nội suy tới vị trí mới (100 ms trễ). Khóa điều khiển khi `attempt.phase` thuộc waiting/bite/minigame và trong 3 giây popup kết quả. Khi giữ ghế: vẽ vòng tròn phạm vi `roamRadius` mờ.
+- **Spec:** joystick ảo (mobile) + WASD/mũi tên + click để đi tới. Tự di chuyển cục bộ, gửi `Move` tối đa 10 lần/giây và khi dừng. `PositionCorrected` → đặt lại vị trí. Người khác: nội suy tới vị trí mới (100 ms trễ). Khóa điều khiển khi `attempt.phase` thuộc waiting/bite/minigame và trong lúc popup kết quả còn mở. Khi giữ ghế: vẽ vòng tròn phạm vi `roamRadius` mờ.
 - **Nghiệm thu:** 2 tab mock/Server thật thấy nhau đi mượt; đi ra ngoài phạm vi ghế bị kéo về.
 
 ### CL-B-05 Ghế và mua vé
 - **Độ lớn:** M. **Phụ thuộc:** CL-B-02, CL-A-05.
-- **Spec:** mỗi ghế có số và màu theo trạng thái: available (xanh), occupied (đỏ, tên người ngồi), cooldown (xám, đếm ngược giây). Bấm ghế available khi ở gần (≤ 64 px) → popup: Tier, buff (Rare/Large Luck, Lure Time), đơn giá/block của ghế, chọn durationUnits tương ứng số phút, tổng Gold và nút thanh toán; Server xác nhận giá/version. Lỗi: `SEAT_TAKEN` → "Ghế đang được sử dụng"; `SEAT_COOLDOWN`; `INSUFFICIENT_GOLD`; `ALREADY_HAS_SEAT`. Khi có phiên: HUD đồng hồ theo expiresAt mới nhất đếm ngược theo `expiresAt` (đồng bộ `serverTime`), nút "Rời ghế" có hộp xác nhận ("Không hoàn vé"). Hết phiên → thông báo theo `reason`.
+- **Spec:** mỗi ghế có số và màu theo trạng thái: available (xanh), occupied (đỏ, tên người ngồi), cooldown (xám, đếm ngược giây). Bấm ghế available khi ở gần (≤ 64 px) → popup: Tier, buff (Rare/Large Luck, Lure Time), đơn giá/block của ghế, chọn durationUnits tương ứng số phút, tổng Gold và nút thanh toán; Server xác nhận giá/version. Lỗi: `SEAT_TAKEN` → "Ghế đang được sử dụng"; `SEAT_COOLDOWN`; `INSUFFICIENT_GOLD`; `ALREADY_HAS_SEAT`. Khi có phiên: HUD đồng hồ theo expiresAt mới nhất đếm ngược theo `expiresAt` (đồng bộ `serverTime`), nút "Rời ghế" có hộp xác nhận ("Không hoàn vé"), dùng được cả khi đang câu cho tới khi câu được cá (rời ghế là hủy lần câu dở); mua ghế và ngồi xong tự câu theo CL-C-03. Hết phiên → thông báo theo `reason`.
 - **Gia hạn:** trong phiên có nút Gia hạn, chọn thêm thời lượng, hiển thị đơn giá/tổng tiền/xác nhận; gọi ExtendSeatSession, chỉ cập nhật Gold/expiresAt từ Server. Xử lý PRICE_CHANGED/INVALID_DURATION/SEAT_SESSION_EXPIRED; gia hạn không đổi ghế hoặc reset minigame.
 - **Nghiệm thu:** mua 20 phút, gia hạn 10 phút test → đúng 30 phút; thiếu Gold không tăng thời gian; 2 tab bấm mua cùng ghế: 1 tab vào ghế, tab kia thấy thông báo; đồng hồ lệch Server ≤ 1 giây.
 

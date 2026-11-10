@@ -24,4 +24,9 @@
   <ItemGroup>
     <ProjectReference Include="../FishingOnline.Api/FishingOnline.Api.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="../../docs/v01/fixtures/gameplay-config.v0.json" Link="fixtures/gameplay-config.v0.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../docs/v01/fixtures/lake-map.placeholder.json" Link="fixtures/lake-map.placeholder.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="../../docs/v01/fixtures/api-samples.v0.json" Link="fixtures/api-samples.v0.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>

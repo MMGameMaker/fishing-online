@@ -16,7 +16,8 @@ public sealed class GameplayConfigJsonTests
         var config = GameplayConfigJson.Parse(FixtureJson);
 
         Assert.Equal(160, config.Fish.Single(fish => fish.SpeciesId == "moonfin").Hp);
-        Assert.Equal(120, config.SeatTiers.Single(tier => tier.Tier == 1).UnitPriceGold);
+        Assert.Equal(50, config.TicketPricing.UnitPriceGold);
+        Assert.Equal(6, config.TicketPricing.MaxUnitsPerPurchase);
         Assert.Equal(440, config.Levels.Single(level => level.Level == 10).ExpReq);
     }
 

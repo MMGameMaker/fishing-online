@@ -1,15 +1,13 @@
-// Trạng thái nút câu và khóa điều khiển theo CL-C-02, CL-B-04. Hàm thuần.
+// Trạng thái nút Kéo, tự câu và khóa điều khiển theo CL-C-02, CL-C-03, CL-B-04. Hàm thuần.
 import type { AttemptView } from '../net/contract';
 
-export type FishButtonMode = 'ready' | 'waiting' | 'bite' | 'locked';
-
-export type FishButtonViewState =
-  { visible: false } | { visible: true; mode: FishButtonMode; label: string; canPress: boolean };
-
-export interface FishButtonInput {
+export interface AutoCastInput {
   hasSession: boolean;
+  seatReady: boolean;
   attempt: AttemptView | null;
-  resultLockUntilMs: number;
+  resultOpen: boolean;
+  commandPending: boolean;
+  nextCastAtMs: number;
   nowMs: number;
 }
 
@@ -19,31 +17,27 @@ export function isAttemptActive(attempt: AttemptView | null): boolean {
   return attempt !== null && ACTIVE_PHASES.includes(attempt.phase);
 }
 
-/** Khóa di chuyển khi đang câu và trong thời gian popup kết quả. */
-export function isControlLocked(
-  attempt: AttemptView | null,
-  resultLockUntilMs: number,
-  nowMs: number,
-): boolean {
-  return isAttemptActive(attempt) || nowMs < resultLockUntilMs;
+/** Khóa di chuyển khi đang câu và khi popup kết quả còn mở. */
+export function isControlLocked(attempt: AttemptView | null, resultOpen: boolean): boolean {
+  return isAttemptActive(attempt) || resultOpen;
 }
 
-export function fishButtonView(input: FishButtonInput): FishButtonViewState {
-  const { hasSession, attempt, resultLockUntilMs, nowMs } = input;
-  if (!hasSession) return { visible: false };
-  switch (attempt?.phase) {
-    case 'minigame':
-      return { visible: false };
-    case 'waiting':
-      return { visible: true, mode: 'waiting', label: 'Câu', canPress: false };
-    case 'bite':
-      return { visible: true, mode: 'bite', label: 'Kéo!', canPress: true };
-    default:
-      if (nowMs < resultLockUntilMs) {
-        return { visible: true, mode: 'locked', label: 'Câu', canPress: false };
-      }
-      return { visible: true, mode: 'ready', label: 'Câu', canPress: true };
-  }
+/** Nút Kéo và lớp chạm toàn màn hình chỉ có khi cá đang cắn câu. */
+export function isPullVisible(attempt: AttemptView | null): boolean {
+  return attempt?.phase === 'bite';
+}
+
+/** Giữ ghế là tự câu; chỉ chờ popup được đóng hoặc hết thời gian trễ sau khi trượt. */
+export function shouldAutoCast(input: AutoCastInput): boolean {
+  const { hasSession, seatReady, attempt, resultOpen, commandPending, nextCastAtMs, nowMs } = input;
+  return (
+    hasSession &&
+    seatReady &&
+    !isAttemptActive(attempt) &&
+    !resultOpen &&
+    !commandPending &&
+    nowMs >= nextCastAtMs
+  );
 }
 
 /** Phần thời gian còn lại của vòng đếm 3 giây, 0..1. */

@@ -127,10 +127,13 @@ export class PlayerEntity {
       fontFamily: FONT, fontSize: '12px', color: '#2b2438', backgroundColor: '#ffffff',
       padding: { x: 6, y: 3 }, wordWrap: { width: 170 }, align: 'center',
     }).setOrigin(0.5, 1).setResolution(2).setDepth(3200));
-    this.bubbleTimer = setTimeout(() => {
-      this.bubble?.destroy();
-      this.bubble = null;
-    }, 5000);
+    this.bubbleTimer = setTimeout(() => this.hideBubble(), 5000);
+  }
+
+  hideBubble() {
+    clearTimeout(this.bubbleTimer);
+    this.bubble?.destroy();
+    this.bubble = null;
   }
 
   // Water bursts up, then the fish pops out above the head with a splash.

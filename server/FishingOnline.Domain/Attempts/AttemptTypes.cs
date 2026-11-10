@@ -24,7 +24,7 @@ public static class AttemptReasons
 {
     public const string MissedBite = "missed_bite";
     public const string Timeout = "timeout";
-    public const string SessionExpired = "session_expired";
+    public const string TicketExpired = "ticket_expired";
     public const string Disconnected = "disconnected";
     public const string LeftSeat = "left_seat";
 }
@@ -57,13 +57,14 @@ public sealed record AttemptSnapshot(
     string? SpeciesId,
     MinigameParams? Minigame,
     int? LengthTenthCm,
-    int? Exp);
+    int? Exp,
+    bool BiteDeferred = false);
 
 /// <summary>
-/// Phần phụ thuộc của attempt. <c>PickSpecies</c> nhận rareLuck và trả speciesId;
-/// BE-E-08 thay bản mặc định bằng bản có xét tồn cá.
+/// Phần phụ thuộc của attempt. <c>PickSpecies</c> nhận rareLuck và trả speciesId; trả null khi hồ hết cá,
+/// attempt vẫn ở waiting. BE-E-08 thay bản mặc định bằng bản có xét tồn cá.
 /// </summary>
-public sealed record AttemptContext(GameplayConfig Config, IRandomSource Random, Func<int, string> PickSpecies)
+public sealed record AttemptContext(GameplayConfig Config, IRandomSource Random, Func<int, string?> PickSpecies)
 {
     public static AttemptContext Create(GameplayConfig config, IRandomSource random) =>
         new(config, random, rareLuck => SpawnPicker.Pick(random, config, rareLuck));

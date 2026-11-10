@@ -1,4 +1,3 @@
-using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace FishingOnline.Domain.Config;
@@ -11,14 +10,13 @@ public sealed record GameplayConfig(
     IReadOnlyList<LevelConfig> Levels,
     IReadOnlyList<Rod> Rods,
     IReadOnlyList<Fish> Fish,
-    IReadOnlyList<SeatTier> SeatTiers,
     SeatSessionConfig SeatSession,
     FishingTiming Fishing,
     MinigameConfig Minigame,
     LengthTierConfig LengthTiers,
     SpawnConfig Spawn,
     IReadOnlyList<ShopOffer> ShopOffers,
-    SeatPricing SeatPricing,
+    TicketPricing TicketPricing,
     FishPopulationConfig FishPopulation,
     SuspicionMonitoringConfig SuspicionMonitoring);
 
@@ -77,17 +75,8 @@ public sealed record Fish(
     int Exp,
     long SellGold);
 
-/// <summary><c>SeatNumbers</c> là khoảng [đầu, cuối] gồm cả hai đầu, ví dụ [1, 5]. Gold giữ dạng chuỗi trong JSON như contract.</summary>
-public sealed record SeatTier(
-    int Tier,
-    IReadOnlyList<int> SeatNumbers,
-    int RareLuck,
-    int LargeLuck,
-    int LureTimeMs,
-    [property: JsonNumberHandling(JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString)]
-    long UnitPriceGold);
-
-public sealed record SeatSessionConfig(int CooldownMs, int DisconnectGraceMs);
+/// <summary>Ghế chỉ còn thời gian giữ chỗ khi mất kết nối; vé tính theo <see cref="TicketPricing"/>.</summary>
+public sealed record SeatSessionConfig(int DisconnectGraceMs);
 
 public sealed record FishingTiming(
     int WaitMinMs,
@@ -95,7 +84,7 @@ public sealed record FishingTiming(
     int BiteWindowMs,
     int BiteGraceMs,
     int CatchShownMs,
-    int ResultPopupMs);
+    int FailShownMs);
 
 public sealed record MinigameConfig(
     IReadOnlyList<MinigameRarityConfig> Rarity,
@@ -127,13 +116,13 @@ public sealed record SpawnConfig(
 
 public sealed record ShopOffer(string OfferId, string ItemId, long PriceGold);
 
-/// <summary><c>PerSeatOverrides</c> chưa có định dạng phần tử trong SPEC/fixture nên giữ JSON thô.</summary>
-public sealed record SeatPricing(
-    bool Proposal,
+/// <summary>Giá vé chung (SPEC 2.2). Mỗi vé là một block <c>BillingUnitMinutes</c> phút; Gold giữ dạng chuỗi trong JSON như contract.</summary>
+public sealed record TicketPricing(
     int BillingUnitMinutes,
+    [property: JsonNumberHandling(JsonNumberHandling.AllowReadingFromString | JsonNumberHandling.WriteAsString)]
+    long UnitPriceGold,
+    int MaxUnitsPerPurchase,
     string PriceVersion,
-    IReadOnlyList<JsonElement> PerSeatOverrides,
-    string DurationPolicy,
     string Status);
 
 /// <summary><c>InitialStock</c>, <c>DepletionPolicy</c> hiện là chữ "not specified"; khi lead chốt giá trị thì đổi kiểu tại đây.</summary>

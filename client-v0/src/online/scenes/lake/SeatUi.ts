@@ -38,7 +38,7 @@ export class SeatUi {
   constructor(
     private readonly root: HTMLElement,
     private readonly services: Services,
-    private readonly isFishing: () => boolean,
+    private readonly canLeave: () => boolean,
   ) {
     const { store } = services;
     this.hud.className = 'seat-hud';
@@ -76,8 +76,7 @@ export class SeatUi {
     this.sessionRow.hidden = session === null;
     if (!session) return;
     this.clock.textContent = formatClock(Date.parse(session.expiresAt) - serverNowMs);
-    // Người chơi không có lệnh hủy lần câu nên không cho rời ghế khi đang câu.
-    this.leaveButton.disabled = this.isFishing();
+    this.leaveButton.disabled = !this.canLeave();
   }
 
   destroy(): void {

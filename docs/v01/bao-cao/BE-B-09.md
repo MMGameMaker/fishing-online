@@ -3,7 +3,7 @@
 - **Worker:** Claude
 - **Branch / PR:** chưa tạo nhánh/PR; thay đổi chưa commit trên working tree `main`
 - **Ngày gửi review:** 2026-11-09 (chờ commit/PR theo yêu cầu người dùng)
-- **Spec áp dụng:** SPEC_CHUNG v0.5, config `v0-test-2026-11-09-monitoring-05`
+- **Spec áp dụng:** SPEC_CHUNG v0.8 (chạy lại sau khi SPEC đổi luồng tự câu), config `v0-test-2026-11-09-monitoring-05`
 
 ## Đã làm
 
@@ -53,15 +53,15 @@ Kiểm tra thêm: `ClientMinigameModel` khớp 85/85 tap được chấp nhận 
 Số dưới đây dùng mức kỹ năng giả định Trung bình.
 
 - **Người mới không mua nổi Tier 1:** vé 120 Gold, khởi đầu 100 Gold. Bảng Lv10 ở Tier 1 vì vậy là 0%.
-- **Tier đắt không có lợi về Gold cho người mới:** Lv1 lãi 163 Gold/10 phút ở Tier 1, 220 ở Tier 3. Lv10 + Giant Caster thì gần ngang nhau (676 và 646).
-- **Lên Lv10 mất khoảng 49-55 phút giữ ghế,** khoảng 270 lần câu và 5-6 vé.
+- **Tier đắt không có lợi về Gold cho người mới:** Lv1 lãi 218 Gold/10 phút ở Tier 1, 269 ở Tier 3. Lv10 + Giant Caster thì Tier 1 có lời hơn (938 và 867).
+- **Lên Lv10 mất khoảng 39-44 phút giữ ghế,** khoảng 270 lần câu và 4-5 vé.
 - **Legendary gần như không thắng được ở đầu game:** Lv1 + cần mặc định 1,2%; Lv10 + Giant Caster 73%.
 - **Tỷ lệ thắng rất nhạy với sai số giả định:** Rare ở Lv1 là 13% với Mới chơi, 94% với Giỏi. Cần playtest để hiệu chỉnh trước khi dùng các số này chốt balance.
 
 ## Lệch spec / giả định
 
 - **Mô hình "trúng theo độ rộng ± sai số":** làm bằng sai số thời điểm bấm theo phân phối chuẩn (100/60/30 ms). Xác suất trúng do đó phụ thuộc cả độ rộng vùng lẫn tốc độ kim.
-- **Số giả định không có trong config:** thời gian nhắm lại 250 ms, quăng lại 500 ms, người chơi luôn nhắm giữa vùng vàng. `FailHoldMs` 1500 chép từ hằng `FAIL_HOLD_MS` của Client vì config chưa có.
+- **Số giả định không có trong config:** thời gian nhắm lại 250 ms, người chơi chạm đóng popup sau 1 giây, luôn nhắm giữa vùng vàng. Thua chờ 2 giây theo SPEC 0.8 (`FAIL_HOLD_MS` của Client). Client tự quăng cần lại nên không còn thời gian bấm.
 - **Bảng Gold giữ chỉ số cố định** trong phiên; bảng Lv10 mới cộng EXP và đổi level theo từng lần câu.
 - **Chưa mô phỏng** tồn cá (SPEC chưa chốt), độ trễ mạng, cooldown ghế và thời gian giữa hai phiên.
 - **Ngoài phạm vi file nhóm BE-B:** tạo `server/FishingOnline.Sim` (task yêu cầu) và thêm một dòng vào `FishingOnline.slnx`.

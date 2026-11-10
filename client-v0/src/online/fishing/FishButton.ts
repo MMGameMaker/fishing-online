@@ -1,34 +1,24 @@
-import type { FishButtonViewState } from './fishButtonState';
-
-/** Nút câu tròn góc phải dưới; vòng đếm ngược vẽ bằng biến CSS. */
+/** Nút Kéo giữa màn hình; lớp chạm phủ kín nên chạm điểm nào cũng tính là Kéo. */
 export class FishButton {
-  private readonly el = document.createElement('button');
-  private canPress = false;
+  private readonly layer = document.createElement('div');
+  private readonly button = document.createElement('div');
 
   constructor(root: HTMLElement, onPress: () => void) {
-    this.el.type = 'button';
-    this.el.className = 'fish-button';
-    this.el.hidden = true;
-    this.el.addEventListener('click', () => {
-      if (this.canPress) onPress();
-    });
-    root.append(this.el);
+    this.layer.className = 'fish-tap-layer';
+    this.layer.hidden = true;
+    this.layer.addEventListener('pointerdown', onPress);
+    this.button.className = 'fish-button';
+    this.button.textContent = 'Kéo!';
+    this.layer.append(this.button);
+    root.append(this.layer);
   }
 
-  render(view: FishButtonViewState, progress: number): void {
-    this.el.hidden = !view.visible;
-    if (!view.visible) {
-      this.canPress = false;
-      return;
-    }
-    this.canPress = view.canPress;
-    this.el.textContent = view.label;
-    this.el.dataset.mode = view.mode;
-    this.el.setAttribute('aria-disabled', String(!view.canPress));
-    this.el.style.setProperty('--bite-progress', String(progress));
+  render(visible: boolean, progress: number): void {
+    this.layer.hidden = !visible;
+    if (visible) this.button.style.setProperty('--bite-progress', String(progress));
   }
 
   destroy(): void {
-    this.el.remove();
+    this.layer.remove();
   }
 }

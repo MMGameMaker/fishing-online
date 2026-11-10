@@ -81,7 +81,7 @@ public sealed class BalanceSimTests
                  {
                      "## Tỷ lệ thắng theo rarity × level × cần",
                      "## So sánh theo kỹ năng",
-                     "## Số lần câu và Gold mỗi phiên theo Tier",
+                     "## Số lần câu và Gold mỗi lượt vé",
                      "## Thời gian lên level cao nhất",
                  })
             Assert.Contains(heading, first);
@@ -116,9 +116,9 @@ public sealed class BalanceSimTests
     public void Attempt_StillRunningWhenTheSessionEnds_IsCancelledWithoutReward()
     {
         var simulator = new SessionSimulator(TestData.Config, PlayerModel.Default(PlayerModel.Expert), new SimRandom(3));
-        var stats = new StatCalculator(TestData.Config).Compute(TestData.Level(1), TestData.Rod("rod_old"), TestData.Seat(3));
+        var stats = new StatCalculator(TestData.Config).Compute(TestData.Level(1), TestData.Rod("rod_old"));
 
-        var run = simulator.RunAttempt(stats, TestData.Seat(3), startMs: 0, sessionEndMs: 1000);
+        var run = simulator.RunAttempt(stats, startMs: 0, sessionEndMs: 1000);
 
         Assert.Equal(FishingPhase.Cancelled, run.Phase);
         Assert.Null(run.Caught);
@@ -129,7 +129,7 @@ public sealed class BalanceSimTests
     {
         var simulator = new SessionSimulator(TestData.Config, PlayerModel.Default(PlayerModel.Average), new SimRandom(11));
 
-        var run = simulator.RunSession(TestData.Level(5), TestData.Rod("rod_steel_awl"), TestData.Seat(2), durationUnits: 1);
+        var run = simulator.RunSession(TestData.Level(5), TestData.Rod("rod_steel_awl"), durationUnits: 1);
 
         var cheapest = TestData.Config.Fish.Min(fish => fish.SellGold);
         var dearest = TestData.Config.Fish.Max(fish => fish.SellGold);
@@ -141,7 +141,7 @@ public sealed class BalanceSimTests
     [Fact]
     public void Progression_StopsWhenTheFirstTicketIsNotAffordable()
     {
-        var unaffordable = TestData.Seat(1) with { UnitPriceGold = TestData.Config.NewPlayer.Gold + 1 };
+        var unaffordable = TestData.Config.NewPlayer.Gold + 1;
         var simulator = new SessionSimulator(TestData.Config, PlayerModel.Default(PlayerModel.Average), new SimRandom(2));
 
         var run = simulator.RunToMaxLevel(unaffordable, buyRods: false);
@@ -152,11 +152,11 @@ public sealed class BalanceSimTests
     }
 
     [Fact]
-    public void Progression_ReachesTheMaxLevelOnTheCheapestSeat()
+    public void Progression_ReachesTheMaxLevelWithTheTestTicketPrice()
     {
         var simulator = new SessionSimulator(TestData.Config, PlayerModel.Default(PlayerModel.Expert), new SimRandom(4));
 
-        var run = simulator.RunToMaxLevel(TestData.Seat(3), buyRods: true);
+        var run = simulator.RunToMaxLevel(TestData.Config.TicketPricing.UnitPriceGold, buyRods: true);
 
         Assert.True(run.ReachedMax);
         Assert.True(run.PlayedMinutes > 0);

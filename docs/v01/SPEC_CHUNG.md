@@ -1,4 +1,4 @@
-# Spec chung v0.7 — nguồn duy nhất cho mọi worker
+# Spec chung v0.9 — nguồn duy nhất cho mọi worker
 
 **Trạng thái: Người dùng duyệt cơ chế và các mặc định đã nêu ngày 2026-11-09; cập nhật v0.5: Client xử lý minigame, pool thả cộng dồn, BE có thể làm tuần tự.** Tổng hợp từ [GAMEPLAY_SCOPE.md](../../doc/GAMEPLAY_SCOPE.md) (bản client Phaser + TS). Thay thế [contracts/v1-draft.md](../contracts/v1-draft.md) cho bản đầu. Worker **không tự sửa file này**; cần đổi thì ghi vào báo cáo, lead quyết và tăng phiên bản (xem [QUY_TRINH.md](QUY_TRINH.md)).
 
@@ -29,7 +29,7 @@ BE-A..E là module/nhóm task, không yêu cầu worker riêng hoặc chạy son
 | `client-v0/public/online/assets`, `art-src/` | ART | Mỗi bộ asset có `LICENSE.md` ghi nguồn |
 | `qa/` | QA | Kịch bản e2e, test tải |
 
-Client Fishing Online nằm trong `client-v0/src/online/`. Gameplay chính chạy trong scene Coral Cove của `client-v0` qua `src/online/bridge/`, 20 ghế đẩu là 20 ghế thuê; `fishing.html` là trang thử riêng. Toàn bộ resource Fishing Online do dự án tự làm.
+Client Fishing Online nằm trong `client-v0/src/online/`. Gameplay chính chạy trong scene Coral Cove của `client-v0` qua `src/online/bridge/`, 20 ghế đẩu là 20 vị trí ngồi câu; `fishing.html` là trang thử riêng. Toàn bộ resource Fishing Online do dự án tự làm.
 
 ### 1.1 Migration EF Core
 
@@ -42,28 +42,32 @@ Client Fishing Online nằm trong `client-v0/src/online/`. Gameplay chính chạ
 ### 2.1 Người chơi mới [Chốt]
 - Tặng 100 Gold, sở hữu sẵn `rod_old` và đang dùng nó, level 1, EXP 0.
 
-### 2.2 Ghế — thời lượng và gia hạn [Chốt cơ chế 2026-11-09; DTO đã duyệt; giới hạn chưa có số cần bổ sung]
-- 20 ghế seat-01..seat-20, Tier và buff giữ nguyên. Trạng thái available → occupied → cooldown → available.
-- Người dùng chọn thời lượng giữ ghế và trả Gold trước theo đơn giá của chính ghế. Có thể mua thêm thời gian khi phiên vẫn còn hiệu lực; không tự gia hạn.
-- Contract triển khai: `durationUnits` nguyên dương, `billingUnitMinutes` lấy từ config; `durationMinutes = durationUnits × billingUnitMinutes`, `totalGold = durationUnits × unitPriceGold`. Ví dụ 10 phút/100 hoặc 200 Gold là minh họa của user, không phải bảng giá đã duyệt. Fixture dùng block 10 phút, mức 120/70/40 Gold theo Tier chỉ là giá test kế thừa, mỗi ghế có thể override đơn giá.
-- Mua mới: `expiresAt = serverNow + durationMinutes`. Gia hạn: `expiresAtNew = expiresAtOld + addedMinutes`, không tính lại từ now, không đổi ghế/startedAt, không hủy attempt đang chạy.
-- Cả mua và gia hạn phải atomic trừ Gold + ledger + ghi phiên/receipt; retry cùng key không cộng thời gian/trừ tiền lần hai. Client gửi expectedPriceVersion, Server tính giá; giá thay đổi trả PRICE_CHANGED trước khi thu tiền. Gia hạn dùng giá hiện hành được user xác nhận, không sửa phần thời gian đã thanh toán.
-- Khóa hàng session để xử lý race gia hạn/hết hạn/rời ghế; chỉ gia hạn nếu owner, endedAt null và serverNow < expiresAt. Phiên đã hết hạn không hồi sinh bằng gia hạn. Cùng key trả receipt cũ ngay cả khi phiên đã kết thúc.
-- Hết expiresAt mới nhất: rời ghế/hủy lần câu dở; cooldown 10 giây, reconnect grace 2 phút, đồng hồ vẫn chạy và không hoàn tiền khi bỏ sớm giữ nguyên. Giới hạn min/max thời lượng/tổng giữ ghế, bước thời gian và bảng giá cuối còn cần duyệt; không tự coi phiên luôn 10 phút.
-- Mua ghế available, không giữ ghế khác; thứ tự do transaction Server quyết định. Mọi deadline lưu DB, không tính lại từ thời điểm restart.
-- [Mặc định đã duyệt] roamRadius và movement giữ quy tắc mục map; muốn rời ghế dùng LeaveSeat. Mất mạng hủy lần câu ngay, giữ ghế tới min(expiresAt, disconnectedAt + grace).
+### 2.2 Vé câu cá và ghế [Chốt GD 2026-11-10; thay luật thuê ghế của 0.3–0.8]
+Vé là quyền câu theo thời gian, không gắn với ghế. Bỏ Tier ghế, buff ghế (mục 2.3 cũ), giá theo ghế, cooldown ghế và lệnh gia hạn riêng.
 
-### 2.3 Buff ghế [Chốt]
-| Tier | rareLuck | largeLuck | lureTimeMs |
-| --- | --- | --- | --- |
-| 1 | 1 | 1 | 1000 |
-| 2 | 0 | 1 | 500 |
-| 3 | 0 | 0 | 0 |
+**Vé**
+- Mỗi player có tối đa một hạn vé `ticket.expiresAt`. Vé còn hiệu lực khi `serverNow < expiresAt`. Đồng hồ vé chạy theo giờ Server từ lúc mua, kể cả khi không ngồi hoặc mất kết nối. Không hoàn vé, không tự gia hạn.
+- `BuyTicket {quantity, expectedPriceVersion}`: `1 ≤ quantity ≤ ticketPricing.maxUnitsPerPurchase`, ngoài khoảng → `INVALID_QUANTITY`. `addedMinutes = quantity × billingUnitMinutes`, `totalGold = quantity × unitPriceGold`. Còn vé: `expiresAt += addedMinutes` (được vượt 60 phút); hết vé hoặc chưa có: `expiresAt = serverNow + addedMinutes`.
+- Atomic: khóa hàng vé, trừ Gold + ledger `ticket_purchase` + cập nhật hạn vé + receipt trong một transaction. Gửi lại cùng requestId không trừ tiền hay cộng thời gian lần hai. Client gửi `expectedPriceVersion`; giá đổi → `PRICE_CHANGED` trước khi thu tiền.
+- Số test (GD 2026-11-10): 50 Gold/vé 10 phút, tối đa 6 vé mỗi lần mua. Chưa có giới hạn tổng thời gian vé còn lại (GD chưa chốt).
+
+**Ghế**
+- 20 ghế `seat-01..seat-20`, trạng thái `available` | `occupied`. Mỗi ghế một người, mỗi player ngồi tối đa 1 ghế.
+- `SitDown {seatId}` (Client gửi khi user nhấn E hoặc nút Sit cạnh ghế): cần vé còn hiệu lực (`NO_TICKET`, Client mở popup mua vé), ghế trống (`SEAT_TAKEN`; ai tới trước được ngồi theo transaction/unique index), player chưa ngồi ghế khác (`ALREADY_HAS_SEAT`), player đứng cách ghế ≤ 64 px (`OUT_OF_RANGE`). Thành công: đặt player vào vị trí ghế, phát `SeatChanged`, `MySeat`.
+- Đang ngồi thì không đi lại (`Move` bị kéo về). Rời ghế là `LeaveSeat`; Client gửi lệnh này khi user bấm phím di chuyển hoặc nút Rời ghế. Rời ghế không mất vé, ghế trống ngay, không cooldown.
+- `LeaveSeat` bị từ chối (`STATE_CONFLICT`) khi lần câu đang ở `minigame`, tức từ lúc thu cần tới khi có kết quả. Ở `waiting`/`bite`, rời ghế hủy lần câu với lý do `left_seat`.
+- Ghế kết thúc (`MySeat {seatId, ended: true, reason}`) với các lý do:
+  - `left_seat`: user rời ghế.
+  - `missed_bite`: cá cắn mà không thu cần kịp; nhân vật tự đứng dậy.
+  - `ticket_expired`: vé hết khi đang ngồi. Đang `waiting`/`bite` thì hủy lần câu (`ticket_expired`) và đứng dậy ngay; đang `minigame` thì cho câu nốt, có kết quả rồi mới đứng dậy, không câu tiếp.
+  - `disconnect_timeout`: mất kết nối quá `seatSession.disconnectGraceMs` (2 phút). Lần câu dở, kể cả minigame, bị hủy ngay khi mất kết nối (`disconnected`); kết nối lại trong hạn thì vẫn còn ghế.
+  - `left_lake`: rời phòng.
+- Mọi hạn và trạng thái lưu DB, không tính lại từ thời điểm restart.
 
 ### 2.4 Chỉ số tổng
 - `strength = level.strength + rod.strength`; `atk = strength`.
 - `normalHitZonePct = level + rod`; `weaknessHitZonePct = level + rod`.
-- `rareLuck = min(7, level + rod + seat)`; `largeLuck = min(7, level + rod + seat)`.
+- `rareLuck = min(6, level + rod)`; `largeLuck = min(6, level + rod)`. Ghế không cộng Luck từ 2026-11-10.
 - Bảng level và cần: xem `fixtures/gameplay-config.v0.json`.
 
 ### 2.5 Level [Chốt]
@@ -75,25 +79,35 @@ Trạng thái: `waiting` → `bite` → `minigame` → `success` | `failed`; m�
 
 | Bước | Quy tắc |
 | --- | --- |
-| CastLine | Đang giữ ghế, không có lần câu đang chạy, phiên còn hạn. [Mặc định đã duyệt] Không kiểm tra thời gian còn lại |
-| waiting | `waitMs = uniformInt(3000, 6000) − seat.lureTimeMs`. Server không gửi `waitMs` cho client |
+| CastLine | Đang ngồi ghế (`NOT_IN_SEAT`), vé còn hiệu lực (`NO_TICKET`), không có lần câu đang chạy. Không kiểm tra thời gian vé còn lại |
+| waiting | `waitMs = uniformInt(waitMinMs, waitMaxMs)` (3000–6000). Server không gửi `waitMs` cho client |
 | bite | Server chốt `speciesId`. Gửi `biteDeadlineAt = now + 3000`. Không gửi loài |
 | HookFish | Đến trước `biteDeadlineAt` (dung sai 300 ms tính theo giờ nhận của Server) → `minigame`. Quá hạn → `failed/missed_bite` |
 | minigame | Theo mục 2.7 |
 | success | Random chiều dài (2.9), cộng EXP, tạo catch, cập nhật Codex, phát `CatchShown` cho phòng |
-| failed | Không EXP. Chỉ owner nhận |
-| cancelled | Lý do `session_expired`, `disconnected`, `left_seat`. Không EXP, không cá |
+| failed | Không EXP. Owner nhận `AttemptUpdate`. `missed_bite`: Server kết thúc ghế `missed_bite`. Thua minigame (`timeout`): phát `FailShown` cho cả phòng để người khác thấy icon buồn |
+| cancelled | Lý do `ticket_expired`, `disconnected`, `left_seat`. Không EXP, không cá |
 
-User không có lệnh hủy.
+User không có lệnh hủy riêng. `LeaveSeat` ở `waiting`/`bite` hủy lần câu với lý do `left_seat`; ở `minigame` bị từ chối.
+
+**Luồng Client [Chốt GD 2026-11-10]:**
+- Ngồi xong là tự gửi `CastLine`, không có nút bắt đầu.
+- Khi `bite`: chấm than trên đầu, nút có biểu tượng móc câu hiện ở góc phải màn hình kèm thanh đếm ngược 3 giây; bấm đúng nút này để gửi `HookFish`.
+- `success`: popup chỉ user thấy, ở lại tới khi user tự tắt; tắt xong tự `CastLine`.
+- `failed/timeout` (thua minigame): icon buồn trên đầu, người khác cũng thấy qua `FailShown`; khoảng 2 giây sau tự `CastLine`.
+- `failed/missed_bite`: Server kết thúc ghế, nhân vật đứng dậy, không câu tiếp.
+- Rời ghế bằng phím di chuyển hoặc nút Rời ghế, được phép mọi lúc trừ khi đang `minigame`.
+- Vé hết giữa minigame: vẫn hiện kết quả, sau đó Server kết thúc ghế `ticket_expired` và Client không câu tiếp.
+- Chế độ Idle có trong GAMEPLAY_SCOPE nhưng GD chưa mô tả chi tiết, chưa đưa vào spec này.
 
 ### 2.7 Minigame do Client xử lý [Chốt 2026-11-09]
 - Client chạy toàn bộ kim/vùng xanh-vàng/HP/thời gian/đánh trúng và quyết định thắng/thua; chỉ gửi `SubmitFishingResult {requestId, attemptId, outcome:"success"|"failed"}` một lần kết thúc. Không gửi từng tap; Server không replay hay kiểm chứng độ chính xác minigame.
 - HookFish hợp lệ được Server chuyển attempt sang minigame; lưu minigameStartedAt/deadlineAt theo duration của rarity + resultGraceMs cấu hình (mặc định test 1500 ms). Client nhận `MinigameParams {seed:uint32,durationMs,needlePassMs,greenWidth,yellowWidth,shiftMin,shiftMax,missPenaltyMs,fishHp,atk,startedAt,deadlineAt}` và stats snapshot; không được tự tạo attempt, chọn loài, chiều dài, số lượng, EXP hoặc Gold.
-- Kết quả chỉ được nhận cho owner/session có quyền điều khiển, attempt ở minigame, còn hạn ghế và chưa quá deadline. Không bắt buộc thời gian minigame tối thiểu; khai thắng ngay sau Hook có thể được chấp nhận, đây là rủi ro đã chấp nhận, không phải lỗi anti-cheat cần bổ sung.
-- Tối đa 1 attempt chưa kết thúc/player bằng constraint DB; Server vẫn quản waiting 3–6 giây trừ buff ghế và bite/hook. Không cho spam Cast tạo nhiều attempt hoặc gửi result trước Hook.
+- Kết quả chỉ được nhận cho owner, attempt ở minigame và chưa quá deadline. Vé hết giữa minigame không làm mất kết quả. Không bắt buộc thời gian minigame tối thiểu; khai thắng ngay sau Hook có thể được chấp nhận, đây là rủi ro đã chấp nhận, không phải lỗi anti-cheat cần bổ sung.
+- Tối đa 1 attempt chưa kết thúc/player bằng constraint DB; Server vẫn quản waiting 3–6 giây và bite/hook. Không cho spam Cast tạo nhiều attempt hoặc gửi result trước Hook.
 - Khóa hàng attempt; unique catches.attemptId và movement catch theo attemptId. Một transaction: catch duy nhất + random chiều dài Server + EXP/Codex + giảm remaining/reserved + attempt terminal + receipt. Callback/broadcast sau commit. Không chỉ dedupe bằng requestId vì attacker có thể đổi ID.
 - Gửi lặp outcome giống nhau sau commit trả kết quả đã ghi, không thưởng lại; outcome khác sau terminal trả STATE_CONFLICT. Terminal failed/cancelled/timeout không chuyển lại success. Query receipt có thể trả state đã ghi dù session ghế về sau hết hạn; chỉ cấp thưởng lần đầu mới kiểm tra điều kiện đang hiệu lực.
-- Hết deadline hoặc mất mạng/hết hạn ghế → kết thúc/hủy theo luật, giải phóng reservation, không có catch. Race result/timeout/expiry/stocking phải resolve dưới transaction/lock; restart không thưởng lại.
+- Hết deadline, mất mạng, hoặc vé hết khi chưa thu cần → kết thúc/hủy theo luật, giải phóng reservation, không có catch. Race result/timeout/expiry/stocking phải resolve dưới transaction/lock; restart không thưởng lại.
 - Chấp nhận 100% win rate, bot và farm nhanh qua nhiều lượt hợp lệ; hồ hữu hạn có thể cạn nhanh, EXP/kinh tế/ranking chịu tác động. Không chấp nhận nhiều cá/1 attempt, giả attempt/loài/chiều dài/EXP/Gold, tài nguyên âm hoặc replay reward.
 - Công thức HP/ATK, vùng xanh/vàng, RNG/kim và miss penalty ở GAMEPLAY_SCOPE vẫn là luật của Client. CL-C sở hữu lõi TypeScript và unit test, không còn yêu cầu engine C# tính từng tap hay C#/TS cho cùng kết quả mạng.
 
@@ -108,7 +122,7 @@ User không có lệnh hủy.
 - Kiểm tra: 50/50 success tạo cảnh báo nhưng mỗi attempt vẫn chỉ1 cá; 4 fast success chưa cảnh báo, lần5 có; retry100 lần cùng attempt không tăng sample; fake attempt burst có signal và vẫn bị từ chối theo validation; đổi config không mất ruleVersion; worker restart không nhân signal, worker lỗi không cấp thưởng lại.
 
 ### 2.8 Spawn loài [Chốt 2026-11-09; số test]
-- L = min(7, tổng rareLuck level + cần + ghế). Tỷ lệ theo basis point: common 6050 - 190L; uncommon 2500 + 50L; rare 1000 + 80L; epic 400 + 50L; legendary 50 + 10L. Tổng luôn 10000.
+- L = min(6, tổng rareLuck level + cần). Tỷ lệ theo basis point: common 6050 - 190L; uncommon 2500 + 50L; rare 1000 + 80L; epic 400 + 50L; legendary 50 + 10L. Tổng luôn 10000.
 - Tại bite random rarity, rồi chọn đều loài trong rarity theo GAMEPLAY_SCOPE. Không bỏ qua Rare Luck; không dùng công thức 60/25/10/4/1 cũ.
 - Khi quần thể loài/rarity cạn: không tự spawn vô hạn hoặc tự renormalize; reservation bite đã duyệt; luật fallback cạn cá chưa có lựa chọn cụ thể ở BE-E-08.
 
@@ -146,7 +160,7 @@ Quy ước giữ từ 0.1-draft: JSON camelCase; Gold là chuỗi số nguyên (
 | POST /auth/logout | — | 204 | BE-A |
 | GET /me | — | `PlayerProfile` | BE-A |
 | PUT /me/display-name | `{ displayName }` (3-16 ký tự) | `PlayerProfile` | BE-A |
-| GET /catalog | — | `{ configVersion, levels, rods, fish (không có spawn), seatTiers, seatPricing, minigame, shopOffers }` | BE-A |
+| GET /catalog | — | Toàn bộ config trừ `spawn`, gồm `levels, rods, fish, seatSession, fishing, minigame, lengthTiers, shopOffers, ticketPricing` | BE-A |
 | GET /me/progress | — | `{ level, exp, expToNext, stats: Stats, breakdown: { level: Stats, rod: Stats } }` | BE-D |
 | GET /me/inventory | — | `{ inventoryVersion, gold, equippedRodId, rods: [rodId], items: [{ itemId, quantity }], fish: [{ catchId, speciesId, lengthTenthCm, caughtAt }] }` | BE-D |
 | PUT /me/equipped-rod | `{ rodId }` | `{ equippedRodId }` | BE-D |
@@ -168,8 +182,8 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 | --- | --- | --- | --- |
 | JoinLake | `{ requestId }` | `LakeSnapshot` | BE-C |
 | Move | `{ requestId, seq, x, y, dir }` | null | BE-C |
-| BuySeatTicket | `{ requestId, seatId, durationUnits, expectedPriceVersion }` | `{ session: MySeatSession, gold, chargedGold }` | BE-C |
-| ExtendSeatSession | `{ requestId, sessionId, durationUnits, expectedPriceVersion }` | `{ session: MySeatSession, gold, chargedGold }` | BE-C |
+| BuyTicket | `{ requestId, quantity, expectedPriceVersion }` | `{ ticket: MyTicket, gold, chargedGold }` | BE-C |
+| SitDown | `{ requestId, seatId }` | `{ seat: MySeat }` | BE-C |
 | LeaveSeat | `{ requestId }` | null | BE-C |
 | CastLine | `{ requestId }` | `{ attemptId }` | BE-E |
 | HookFish | `{ requestId, attemptId }` | null | BE-E |
@@ -179,20 +193,24 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 
 | Event | Gửi cho | Payload |
 | --- | --- | --- |
-| LakeSnapshot | caller | `{ mapId, mapVersion, configVersion, serverTime, players: [PlayerView], seats: [SeatView], mySession: MySeatSession \| null, myAttempt: AttemptView \| null }` |
+| LakeSnapshot | caller | `{ mapId, mapVersion, configVersion, serverTime, players: [PlayerView], seats: [SeatView], myTicket: MyTicket \| null, mySeat: MySeat \| null, myAttempt: AttemptView \| null }` |
 | PlayerJoined / PlayerLeft | phòng | `PlayerView` / `{ playerId }` |
 | PlayerMoved | phòng trừ người gửi | `{ playerId, x, y, dir, seq }` |
 | PositionCorrected | người gửi | `{ x, y, seq }` |
 | SeatChanged | phòng | `SeatView` |
-| MySeatSession | owner | `MySeatSession` hoặc `{ seatId, ended: true, reason }` |
+| MyTicket | owner | `MyTicket` sau mỗi lần mua |
+| MySeat | owner | `MySeat` hoặc `{ seatId, ended: true, reason }` |
 | AttemptUpdate | owner | `AttemptView` |
 | CatchShown | phòng | `{ playerId, speciesId, rarity, shownUntil }` |
+| FailShown | phòng | `{ playerId, shownUntil }`, `shownUntil = now + fishing.failShownMs` |
 | SkinChanged | phòng | `{ playerId, skinId }` |
 | ChatReceived / EmojiReceived | phòng | `{ messageId, playerId, text }` / `{ playerId, emojiId }` |
 
 - `PlayerView = { playerId, displayName, skinId, rodId, x, y, dir, seatId | null, fishing: bool }`
-- `SeatView = { seatId, tier, state: "available"|"occupied"|"cooldown", occupantPlayerId | null, expiresAt | null, cooldownUntil | null, billingUnitMinutes, unitPriceGold, priceVersion }`
-- `MySeatSession = { seatId, tier, sessionId, startedAt, expiresAt, purchasedMinutes, sessionVersion, priceVersion }`
+- `SeatView = { seatId, state: "available"|"occupied", occupantPlayerId | null }`
+- `MyTicket = { expiresAt, purchasedMinutes, ticketVersion, priceVersion }`; `purchasedMinutes` là tổng phút đã mua từ trước tới nay
+- `MySeat = { seatId, sessionId, sitAt }`
+- `ticketPricing` trong catalog: `{ billingUnitMinutes, unitPriceGold, maxUnitsPerPurchase, priceVersion, status }`
 - `AttemptView = { attemptId, phase, reason | null, biteDeadlineAt | null, minigame: MinigameParams & { startedAt, deadlineAt } | null, state: null, result: { speciesId, rarity, lengthTenthCm, isNew, isRecord, expGained, level, levelUp } | null }`
 
 ## 5. Mã lỗi
@@ -204,10 +222,10 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 | IDEMPOTENCY_CONFLICT | Cùng key khác payload |
 | RATE_LIMITED | Gửi quá nhanh |
 | SEAT_TAKEN | Ghế đang có người (UI: "ghế đang được sử dụng") |
-| SEAT_COOLDOWN | Ghế đang cooldown |
 | ALREADY_HAS_SEAT | Player đã giữ ghế khác |
-| NOT_IN_SEAT | Lệnh cần giữ ghế |
-| OUT_OF_RANGE | Di chuyển ra ngoài phạm vi cho phép |
+| NOT_IN_SEAT | Lệnh cần đang ngồi ghế |
+| NO_TICKET | Không có vé hoặc vé đã hết (409) |
+| OUT_OF_RANGE | Đứng quá xa ghế khi `SitDown` |
 | INSUFFICIENT_GOLD | Thiếu Gold |
 | ATTEMPT_ACTIVE | Đã có lần câu đang chạy |
 | NO_ACTIVE_ATTEMPT | attemptId không phải lần câu đang chạy |
@@ -215,8 +233,8 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 | RESULT_EXPIRED | Kết quả gửi sau deadline attempt; không thưởng |
 | ROD_NOT_OWNED, ROD_ALREADY_OWNED | Cần chưa có / đã có |
 | FISH_NOT_FOUND | catchId không thuộc user hoặc đã bán |
-| INVALID_DURATION, PRICE_CHANGED, SEAT_SESSION_EXPIRED | Thời lượng không hợp lệ (400), đơn giá đổi (409), phiên không còn được gia hạn (409) |
-| STATE_CONFLICT | Trạng thái không cho phép (tên trùng, phòng đầy, sửa đồng thời) |
+| INVALID_QUANTITY, PRICE_CHANGED | Số vé ngoài khoảng cho phép (400), đơn giá đổi (409) |
+| STATE_CONFLICT | Trạng thái không cho phép (tên trùng, phòng đầy, sửa đồng thời, rời ghế khi đang minigame) |
 
 ## 6. Interface giữa các module Server
 
@@ -237,14 +255,18 @@ public interface IIdempotency { Task<T> RunAsync<T>(Guid playerId, string op, Gu
 
 // BE-C
 public interface ISeatSessions {
-  Task<SeatSessionInfo?> GetActiveAsync(Guid playerId, CancellationToken ct); // sessionId, seatId, tier, expiresAt, sessionVersion
-  Task<SeatSessionInfo> ExtendAsync(Guid playerId, Guid sessionId, int durationUnits, string expectedPriceVersion, CancellationToken ct); // phải dùng cùng transaction ví/receipt
+  Task<SeatSessionInfo?> GetActiveAsync(Guid playerId, CancellationToken ct); // chỉ trả khi đang ngồi: sessionId, seatId, ticketExpiresAt
+  Task<bool> EndAsync(Guid playerId, string reason, CancellationToken ct);
   event Func<SeatSessionEnded, Task> SessionEnded; // BE-E hủy lần câu khi nhận
   event Func<Guid, Task> PlayerDisconnected;
 }
 
+// BE-E hủy lần câu khi nhận
+  event Func<Guid, Task> PlayerDisconnected;
+}
+
 // BE-E
-public interface IFishingState { bool IsBusy(Guid playerId); } // đang có lần câu chưa kết thúc
+public interface IFishingState { bool IsBusy(Guid playerId); bool IsInMinigame(Guid playerId); } // đang câu / đang minigame
 
 // BE-D
 public interface IProgress { Task<PlayerStats> GetStatsAsync(Guid playerId, CancellationToken ct); }
@@ -279,3 +301,7 @@ Nguồn phân tích replay/business rules: [OWASP Business Logic Security](https
 | 0.6 | 2026-11-09 | 1 | User chốt đặt client trong `client-v0` thay cho `client-web`; chỉ đổi đường dẫn, không đổi luật/contract | CL-A/B/C/D, SOC, ART, QA |
 
 | 0.7 | 2026-11-09 | 1 | User chốt gameplay chạy trong scene Coral Cove và resource do dự án tự làm; không đổi luật/contract | CL-B/C, ART, QA |
+
+| 0.8 | 2026-11-09 | 2.6 | User chốt tự câu sau khi ngồi, nút Kéo giữa màn hình và chạm bất kỳ, popup chạm mới đóng, thua chờ 2 giây, chưa câu được cá vẫn rời ghế được; không đổi contract | CL-B/C, QA |
+
+| 0.9 | 2026-11-10 | 2.2, 2.4, 2.6, 2.8, 3, 4, 5, 6 | Theo GAMEPLAY_SCOPE GD 2026-11-10: vé theo thời gian tách khỏi ghế (`BuyTicket`, `SitDown`), bỏ Tier/buff/cooldown/gia hạn ghế, Luck tối đa 6; nút móc câu góc phải, trượt cá thì tự đứng dậy, không rời ghế khi đang minigame; thêm event `FailShown`. Đổi contract | BE-A/B/C/E, CL-A/B/C, AD, QA |

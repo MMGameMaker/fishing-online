@@ -9,11 +9,11 @@ Stack: Phaser 3 + Vite (client), Node.js + Express + Socket.IO (server), JSON fi
 
 ## Fishing Online
 
-Client Fishing Online nằm trong `src/online/`. Vào phòng **Coral Cove**: đứng cạnh ghế đẩu, bấm Sit để thuê ghế, thuê xong nút tròn góc phải dưới để câu. Ghế, Gold và cá ở đây đang chạy bằng **mock** trong trình duyệt (có chữ MOCK), chưa nối Server thật, nên tách khỏi coins và Bag của prototype. `fishing.html` là trang thử riêng bằng art tạm.
+Client Fishing Online nằm trong `src/online/`. Vào phòng **Coral Cove**: đứng cạnh ghế đẩu, bấm Sit để thuê ghế, thuê xong nhân vật tự câu; cá cắn thì nút Kéo hiện giữa màn hình, chạm điểm bất kỳ để vào minigame. Ghế, Gold và cá ở đây đang chạy bằng **mock** trong trình duyệt (có chữ MOCK), chưa nối Server thật, nên tách khỏi coins và Bag của prototype. `fishing.html` là trang thử riêng bằng art tạm.
 
 | Địa chỉ | Nội dung |
 | --- | --- |
-| `/fishing.html` | Vào hồ: WASD/mũi tên/bấm chuột để đi, bấm ghế xanh để mua, nút tròn để câu |
+| `/fishing.html` | Vào hồ: WASD/mũi tên/bấm chuột để đi, bấm ghế xanh để mua, mua xong tự câu |
 | `/fishing.html?scene=ui-demo` | Trang demo UI kit |
 | `/fishing.html?scene=char-debug` | 4 hướng × mọi animation của một skin |
 | `/fishing.html?mockError=SEAT_TAKEN` | Mock trả lỗi giả |

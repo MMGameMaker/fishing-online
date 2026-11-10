@@ -27,12 +27,12 @@ public sealed class BalanceReport(GameplayConfig config, SimOptions options)
         return output.ToString();
     }
 
-    /// <summary>Tỷ lệ thắng của một tổ hợp, không tính ghế vì ghế chỉ cộng may mắn và thời gian chờ.</summary>
+    /// <summary>Tỷ lệ thắng của một tổ hợp level và cần.</summary>
     public double WinRate(Rarity rarity, LevelConfig level, Rod rod, SkillProfile skill, SimRandom random)
     {
         var player = PlayerModel.Default(skill);
         var species = config.Fish.Where(fish => fish.Rarity == rarity).ToArray();
-        var stats = new StatCalculator(config).Compute(level, rod, seatTier: null);
+        var stats = new StatCalculator(config).Compute(level, rod);
         var wins = 0;
         for (var trial = 0; trial < options.Trials; trial++)
         {
@@ -60,7 +60,7 @@ public sealed class BalanceReport(GameplayConfig config, SimOptions options)
         Line("- Minigame: luôn nhắm giữa vùng vàng; thời điểm bấm lệch theo phân phối chuẩn với độ lệch chuẩn của từng mức kỹ năng: "
             + string.Join(", ", Profiles.Select(profile => $"{profile.Name} {Number(profile.TimingErrorMs)} ms")) + ".");
         Line($"- Sau mỗi lần bấm cần ít nhất {player.ReaimMs} ms để nhắm lại vùng mới.");
-        Line($"- Quăng cần lại sau {player.RecastMs} ms, cộng thêm thời gian khóa sau kết quả: thắng {config.Fishing.ResultPopupMs} ms (popup), thua {player.FailHoldMs} ms.");
+        Line($"- Client tự quăng cần lại sau kết quả (SPEC 0.8): thắng sau {player.ResultDismissMs} ms (người chơi chạm đóng popup), thua sau {player.FailHoldMs} ms.");
         Line($"- Các bảng dưới dùng mức **{PlayerModel.Average.Name}**, trừ bảng so sánh kỹ năng.");
         Line();
         Line("**Chưa mô phỏng:** tồn cá trong hồ (SPEC chưa chốt tồn đầu/khi cạn), độ trễ mạng, cooldown ghế và thời gian chờ giữa hai phiên.");
@@ -109,23 +109,23 @@ public sealed class BalanceReport(GameplayConfig config, SimOptions options)
     private void WriteSessions(SimRandom random)
     {
         var simulator = new SessionSimulator(config, PlayerModel.Default(PlayerModel.Average), random);
-        Line("## Số lần câu và Gold mỗi phiên theo Tier");
+        var price = config.TicketPricing.UnitPriceGold;
+        Line("## Số lần câu và Gold mỗi lượt vé");
         Line();
-        Line("Chỉ số giữ nguyên trong phiên, bán hết cá theo giá loài. Lãi = Gold bán cá − tiền vé.");
+        Line($"Vé {price} Gold / {config.TicketPricing.BillingUnitMinutes} phút, không buff ghế. Chỉ số giữ nguyên trong lượt, bán hết cá theo giá loài. Lãi = Gold bán cá − tiền vé.");
         Line();
-        Row(["Tier", "Phút", "Người chơi", "Lần câu TB", "Bắt được TB", "Gold bán cá TB", "Tiền vé", "Lãi TB", "Lãi P10"]);
+        Row(["Số vé", "Phút", "Người chơi", "Lần câu TB", "Bắt được TB", "Gold bán cá TB", "Tiền vé", "Lãi TB", "Lãi P10"]);
         Divider(9);
-        foreach (var seat in config.SeatTiers.OrderBy(entry => entry.Tier))
         foreach (var units in options.DurationUnits)
         foreach (var archetype in Archetypes())
         {
             var runs = Enumerable.Range(0, options.Sessions)
-                .Select(_ => simulator.RunSession(archetype.Level, archetype.Rod, seat, units))
+                .Select(_ => simulator.RunSession(archetype.Level, archetype.Rod, units))
                 .ToArray();
-            var ticket = units * seat.UnitPriceGold;
+            var ticket = units * price;
             Row([
-                seat.Tier.ToString(CultureInfo.InvariantCulture),
-                (units * config.SeatPricing.BillingUnitMinutes).ToString(CultureInfo.InvariantCulture),
+                units.ToString(CultureInfo.InvariantCulture),
+                (units * config.TicketPricing.BillingUnitMinutes).ToString(CultureInfo.InvariantCulture),
                 archetype.Label,
                 Number(runs.Average(run => run.Attempts)),
                 Number(runs.Average(run => run.Catches)),
@@ -143,22 +143,20 @@ public sealed class BalanceReport(GameplayConfig config, SimOptions options)
         var simulator = new SessionSimulator(config, PlayerModel.Default(PlayerModel.Average), random);
         Line("## Thời gian lên level cao nhất");
         Line();
-        Line($"Người chơi mới ({config.NewPlayer.Gold} Gold), luôn ngồi một Tier, mua từng block {config.SeatPricing.BillingUnitMinutes} phút, bán cá ngay khi bắt được. Hết Gold mua vé thì dừng. Thời gian chỉ tính lúc giữ ghế.");
-        var unaffordable = config.SeatTiers.Where(seat => seat.UnitPriceGold > config.NewPlayer.Gold).Select(seat => seat.Tier).ToArray();
-        if (unaffordable.Length > 0)
-            Line($"Tỷ lệ đạt 0% ở Tier {string.Join(", ", unaffordable)} vì Gold khởi đầu không đủ mua vé đầu tiên ở Tier đó.");
+        var price = config.TicketPricing.UnitPriceGold;
+        Line($"Người chơi mới ({config.NewPlayer.Gold} Gold), mua từng vé {price} Gold / {config.TicketPricing.BillingUnitMinutes} phút, bán cá ngay khi bắt được. Hết Gold mua vé thì dừng. Thời gian chỉ tính lúc còn vé.");
+        if (price > config.NewPlayer.Gold)
+            Line("Tỷ lệ đạt 0% vì Gold khởi đầu không đủ mua vé đầu tiên.");
         Line();
-        Row(["Tier", "Chiến lược cần", "Tỷ lệ đạt", "Phút TB", "Phút P90", "Lần câu TB", "Số vé TB"]);
-        Divider(7);
-        foreach (var seat in config.SeatTiers.OrderBy(entry => entry.Tier))
+        Row(["Chiến lược cần", "Tỷ lệ đạt", "Phút TB", "Phút P90", "Lần câu TB", "Số vé TB"]);
+        Divider(6);
         foreach (var buyRods in new[] { false, true })
         {
             var runs = Enumerable.Range(0, options.Sessions)
-                .Select(_ => simulator.RunToMaxLevel(seat, buyRods))
+                .Select(_ => simulator.RunToMaxLevel(price, buyRods))
                 .ToArray();
             var reached = runs.Where(run => run.ReachedMax).ToArray();
             Row([
-                seat.Tier.ToString(CultureInfo.InvariantCulture),
                 buyRods ? "Mua cần tốt hơn khi đủ Gold" : "Giữ cần mặc định",
                 Percent((double)reached.Length / runs.Length),
                 reached.Length == 0 ? "-" : Number(reached.Average(run => run.PlayedMinutes)),

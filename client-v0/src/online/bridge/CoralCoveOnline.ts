@@ -31,6 +31,7 @@ const SCENE_PHASES: Partial<Record<CharacterAnim, string>> = {
 interface PlayerEntity {
   setFishing(phase: string | null): void;
   showBubble(text: string): void;
+  hideBubble(): void;
   showCatch(fish: unknown, rare: boolean): void;
 }
 
@@ -52,6 +53,8 @@ export interface CoralCoveDeps {
 
 /** Dùng hoạt ảnh ngồi và cần câu sẵn có của nhân vật trong scene. */
 class SceneActor implements FishingActor {
+  private showingSad = false;
+
   constructor(private readonly entity: PlayerEntity) {}
 
   play(anim: CharacterAnim): void {
@@ -59,7 +62,14 @@ class SceneActor implements FishingActor {
   }
 
   setHeadIcon(icon: HeadIcon): void {
-    if (icon?.type === 'sad') this.entity.showBubble(':(');
+    if (icon?.type === 'sad') {
+      this.entity.showBubble(':(');
+      this.showingSad = true;
+    } else if (this.showingSad) {
+      // Bong bóng chat tự tắt sau 5 giây, icon buồn phải tắt trước phiên câu mới.
+      this.entity.hideBubble();
+      this.showingSad = false;
+    }
   }
 }
 
@@ -87,6 +97,7 @@ export class CoralCoveOnline {
   private markers: SeatMarkers | null = null;
   private root: HTMLElement | null = null;
   private destroyed = false;
+  private seatReady = false;
   private readonly cleanups: (() => void)[] = [];
 
   constructor(
@@ -124,8 +135,9 @@ export class CoralCoveOnline {
       new SceneActor(this.scene.me),
       () => null,
       () => this.serverNow(),
+      () => this.seatReady,
     );
-    this.seatUi = new SeatUi(overlay.root, services, () => this.flow?.isFishing() ?? false);
+    this.seatUi = new SeatUi(overlay.root, services, () => this.flow?.canLeaveSeat() ?? false);
     this.markers = new SeatMarkers(
       this.scene,
       services.map.seats,
@@ -156,6 +168,7 @@ export class CoralCoveOnline {
   }
 
   private async syncSitting(seatId: string | null): Promise<void> {
+    this.seatReady = false;
     if (seatId === null) {
       if (this.session.sitting) await this.deps.request('standUp');
       return;
@@ -164,6 +177,7 @@ export class CoralCoveOnline {
     if (!seat) return;
     const result = await this.deps.request('sitDown', { index: seat.number - 1 });
     if (!result.ok && this.root) showToast(this.root, result.error ?? 'Không ngồi được ghế này.');
+    this.seatReady = this.services?.store.getState().lake.mySession?.seatId === seatId;
   }
 
   /** Nút Sit của scene và số trên ghế cùng đi qua đây. */
@@ -186,7 +200,7 @@ export class CoralCoveOnline {
   }
 
   leave(): void {
-    if (!this.flow?.isFishing()) void this.seatUi?.leave();
+    if (this.flow?.canLeaveSeat()) void this.seatUi?.leave();
   }
 
   isLocked(): boolean {

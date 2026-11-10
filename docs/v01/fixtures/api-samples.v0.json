@@ -106,7 +106,7 @@
    "data": {
     "mapId": "lake-01",
     "mapVersion": "placeholder-1",
-    "configVersion": "v0-test-2026-11-06",
+    "configVersion": "v0-test-2026-11-10-ticket-01",
     "serverTime": "2026-11-09T10:00:00Z",
     "players": [
      {
@@ -124,249 +124,138 @@
     "seats": [
      {
       "seatId": "seat-01",
-      "tier": 1,
       "state": "occupied",
-      "occupantPlayerId": "22222222-2222-4222-8222-222222222222",
-      "expiresAt": "2026-11-09T10:10:00Z",
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "120",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": "22222222-2222-4222-8222-222222222222"
      },
      {
       "seatId": "seat-02",
-      "tier": 1,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "120",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-03",
-      "tier": 1,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "120",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-04",
-      "tier": 1,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "120",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-05",
-      "tier": 1,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "120",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-06",
-      "tier": 2,
-      "state": "cooldown",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": "2026-11-09T10:00:08Z",
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "70",
-      "priceVersion": "seat-price-test-03"
+      "state": "available",
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-07",
-      "tier": 2,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "70",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-08",
-      "tier": 2,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "70",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-09",
-      "tier": 2,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "70",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-10",
-      "tier": 2,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "70",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-11",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-12",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-13",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-14",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-15",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-16",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-17",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-18",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-19",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      },
      {
       "seatId": "seat-20",
-      "tier": 3,
       "state": "available",
-      "occupantPlayerId": null,
-      "expiresAt": null,
-      "cooldownUntil": null,
-      "billingUnitMinutes": 10,
-      "unitPriceGold": "40",
-      "priceVersion": "seat-price-test-03"
+      "occupantPlayerId": null
      }
     ],
-    "mySession": null,
+    "myTicket": null,
+    "mySeat": null,
     "myAttempt": null
    }
   },
-  "BuySeatTicket ack ok": {
+  "BuyTicket ack ok": {
    "requestId": "r2",
    "ok": true,
    "error": null,
    "data": {
-    "session": {
-     "seatId": "seat-11",
-     "tier": 3,
-     "startedAt": "2026-11-09T10:00:00Z",
+    "ticket": {
      "expiresAt": "2026-11-09T10:20:00Z",
-     "sessionId": "22222222-2222-4222-8222-222222222222",
      "purchasedMinutes": 20,
-     "sessionVersion": 1,
-     "priceVersion": "seat-price-test-03"
+     "ticketVersion": 1,
+     "priceVersion": "ticket-price-test-01"
     },
-    "gold": "20",
-    "chargedGold": "80"
+    "gold": "0",
+    "chargedGold": "100"
    }
   },
-  "BuySeatTicket ack taken": {
+  "SitDown ack ok": {
+   "requestId": "r4",
+   "ok": true,
+   "error": null,
+   "data": {
+    "seat": {
+     "seatId": "seat-11",
+     "sessionId": "22222222-2222-4222-8222-222222222222",
+     "sitAt": "2026-11-09T10:00:05Z"
+    }
+   }
+  },
+  "SitDown ack taken": {
    "requestId": "r3",
    "ok": false,
    "error": {
@@ -375,16 +264,30 @@
    },
    "data": null
   },
+  "SitDown ack no ticket": {
+   "requestId": "r5",
+   "ok": false,
+   "error": {
+    "code": "NO_TICKET",
+    "message": "No valid ticket"
+   },
+   "data": null
+  },
   "SeatChanged": {
    "seatId": "seat-11",
-   "tier": 3,
    "state": "occupied",
-   "occupantPlayerId": "11111111-1111-4111-8111-111111111111",
-   "expiresAt": "2026-11-09T10:11:00Z",
-   "cooldownUntil": null,
-   "billingUnitMinutes": 10,
-   "unitPriceGold": "40",
-   "priceVersion": "seat-price-test-03"
+   "occupantPlayerId": "11111111-1111-4111-8111-111111111111"
+  },
+  "MyTicket": {
+   "expiresAt": "2026-11-09T10:20:00Z",
+   "purchasedMinutes": 20,
+   "ticketVersion": 1,
+   "priceVersion": "ticket-price-test-01"
+  },
+  "MySeat": {
+   "seatId": "seat-11",
+   "sessionId": "22222222-2222-4222-8222-222222222222",
+   "sitAt": "2026-11-09T10:00:05Z"
   },
   "AttemptUpdate waiting": {
    "attemptId": "a-1",
@@ -456,7 +359,7 @@
   "AttemptUpdate cancelled": {
    "attemptId": "a-3",
    "phase": "cancelled",
-   "reason": "session_expired",
+   "reason": "ticket_expired",
    "biteDeadlineAt": null,
    "minigame": null,
    "state": null,
@@ -468,29 +371,14 @@
    "rarity": "common",
    "shownUntil": "2026-11-09T10:01:21Z"
   },
-  "MySeatSession ended": {
+  "FailShown": {
+   "playerId": "11111111-1111-4111-8111-111111111111",
+   "shownUntil": "2026-11-09T10:01:25Z"
+  },
+  "MySeat ended": {
    "seatId": "seat-11",
    "ended": true,
-   "reason": "expired"
-  },
-  "ExtendSeatSession ack ok": {
-   "requestId": "33333333-3333-4333-8333-333333333333",
-   "ok": true,
-   "error": null,
-   "data": {
-    "session": {
-     "seatId": "seat-11",
-     "tier": 3,
-     "startedAt": "2026-11-09T10:00:00Z",
-     "expiresAt": "2026-11-09T10:30:00Z",
-     "sessionId": "22222222-2222-4222-8222-222222222222",
-     "purchasedMinutes": 30,
-     "sessionVersion": 2,
-     "priceVersion": "seat-price-test-03"
-    },
-    "gold": "60",
-    "chargedGold": "40"
-   }
+   "reason": "missed_bite"
   },
   "SubmitFishingResult ack": {
    "requestId": "44444444-4444-4444-8444-444444444444",
@@ -518,17 +406,14 @@
    }
   }
  },
- "_rentalExamples": {
-  "note": "Independent fixture cases, not a sequential wallet trace. 10 min block, Tier 3 40 Gold test; no final prices approved.",
+ "_ticketExamples": {
+  "note": "Ca độc lập, không phải chuỗi ví liên tục. Vé test 50 Gold/10 phút, tối đa 6 vé mỗi lần; chưa phải giá chốt.",
   "buy": {
-   "seatId": "seat-11",
-   "durationUnits": 2,
-   "expectedPriceVersion": "seat-price-test-03"
+   "quantity": 2,
+   "expectedPriceVersion": "ticket-price-test-01"
   },
-  "extend": {
-   "sessionId": "22222222-2222-4222-8222-222222222222",
-   "durationUnits": 1,
-   "expectedPriceVersion": "seat-price-test-03"
+  "sit": {
+   "seatId": "seat-11"
   }
  },
  "_resultAuthority": "Client reports only outcome; Server-owned species/length/reward; max1 catch/attempt, atomic pool/EXP, replay-safe."

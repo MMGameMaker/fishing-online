@@ -1,6 +1,19 @@
 # Server development
 
-S01 foundation, .NET SDK 10.0.401, ASP.NET Core/SignalR + EF Core/Npgsql + StackExchange.Redis. Đã có persistence nền tảng và migration; chưa có login/gameplay/Admin UI. Không triển khai production từ scaffold này.
+.NET SDK 10.0.401, ASP.NET Core/SignalR + EF Core/Npgsql + StackExchange.Redis. Đã có đăng nhập Firebase, ví, config, phòng hồ, ghế, kinh tế, vòng câu, cá hữu hạn, chat/emoji/skin và Admin API (`/api/v1/admin`); chưa có giao diện Admin. Tài khoản Admin tạo bằng biến môi trường `Admin__BootstrapUsers__0__Email` và `Admin__BootstrapUsers__0__Roles__0`... Chưa kiểm chứng để triển khai production.
+
+## Test trên máy không có Docker
+
+`dotnet test server` tự dùng PostgreSQL local nếu có, không thì dùng Testcontainers:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\server\start-postgres-portable.ps1
+dotnet test server
+```
+
+Bản portable ở `D:\Tools\postgres`, dữ liệu ở `D:\Tools\postgres-data`, cổng 55432, chỉ nghe localhost và không có mật khẩu, nên chỉ dùng cho máy dev. Biến `FISHING_TEST_POSTGRES` trỏ sang server khác. Test tải: `.\server\run-load-test.ps1` (BE-C-08).
+
+Ngoài Development bắt buộc đặt biến `Auth__JwtSigningKey` (tối thiểu 32 byte), không commit giá trị này.
 
 ## Chạy local
 

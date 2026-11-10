@@ -22,7 +22,7 @@ public sealed record SessionRun(int Attempts, int Catches, long GoldEarned);
 
 public sealed record ProgressionRun(bool ReachedMax, double PlayedMinutes, int Attempts, int TicketsBought);
 
-/// <summary>Chạy lần câu qua <see cref="FishingAttempt"/> thật; mốc 0 là lúc phiên ghế bắt đầu.</summary>
+/// <summary>Chạy lần câu qua <see cref="FishingAttempt"/> thật; mốc 0 là lúc mua vé và ngồi xuống.</summary>
 public sealed class SessionSimulator(GameplayConfig config, PlayerModel player, IRandomSource random)
 {
     private static readonly DateTimeOffset Epoch = new(2026, 1, 1, 0, 0, 0, TimeSpan.Zero);
@@ -32,9 +32,9 @@ public sealed class SessionSimulator(GameplayConfig config, PlayerModel player, 
     private readonly LevelTable levelTable = new(config.Levels);
     private readonly AttemptContext context = AttemptContext.Create(config, random);
 
-    public AttemptRun RunAttempt(Stats stats, SeatTier seat, long startMs, long sessionEndMs)
+    public AttemptRun RunAttempt(Stats stats, long startMs, long sessionEndMs)
     {
-        var waitMs = FishingRules.WaitMs(random, config.Fishing, seat.LureTimeMs);
+        var waitMs = FishingRules.WaitMs(random, config.Fishing);
         var attempt = FishingAttempt.Start(context, stats, At(startMs), waitMs);
 
         var biteMs = startMs + waitMs;
@@ -57,16 +57,19 @@ public sealed class SessionSimulator(GameplayConfig config, PlayerModel player, 
             caught is null ? null : config.Fish.Single(fish => fish.SpeciesId == caught.SpeciesId));
     }
 
-    /// <summary>Một phiên ghế với chỉ số cố định, bán hết cá theo giá loài. Lần câu chưa xong khi hết phiên thì bị hủy.</summary>
-    public SessionRun RunSession(LevelConfig level, Rod rod, SeatTier seat, int durationUnits)
+    /// <summary>
+    /// Một lượt vé với chỉ số cố định, bán hết cá theo giá loài. Lần câu chưa xong khi hết vé thì bị hủy.
+    /// Trượt cá thì nhân vật đứng dậy; mô hình coi như ngồi lại ngay nên không tính thời gian đi lại.
+    /// </summary>
+    public SessionRun RunSession(LevelConfig level, Rod rod, int durationUnits)
     {
-        var stats = calculator.Compute(level, rod, seat);
+        var stats = calculator.Compute(level, rod);
         var sessionEndMs = SessionMs(durationUnits);
         int attempts = 0, catches = 0;
         long gold = 0;
         for (var now = 0L; now < sessionEndMs;)
         {
-            var run = RunAttempt(stats, seat, now, sessionEndMs);
+            var run = RunAttempt(stats, now, sessionEndMs);
             if (run.Phase == FishingPhase.Cancelled) break;
             attempts++;
             if (run.Caught is not null)
@@ -79,8 +82,8 @@ public sealed class SessionSimulator(GameplayConfig config, PlayerModel player, 
         return new SessionRun(attempts, catches, gold);
     }
 
-    /// <summary>Từ người chơi mới tới level cao nhất, mua vé một block mỗi phiên và bán cá ngay khi bắt được.</summary>
-    public ProgressionRun RunToMaxLevel(SeatTier seat, bool buyRods)
+    /// <summary>Từ người chơi mới tới level cao nhất, mua từng vé một và bán cá ngay khi bắt được.</summary>
+    public ProgressionRun RunToMaxLevel(long ticketPrice, bool buyRods)
     {
         var maxLevel = config.Levels.Max(level => level.Level);
         var upgrades = new Queue<Rod>(config.Rods
@@ -96,13 +99,13 @@ public sealed class SessionSimulator(GameplayConfig config, PlayerModel player, 
 
         for (var tickets = 0; tickets < MaxTicketsPerProgression; tickets++)
         {
-            if (gold < seat.UnitPriceGold)
+            if (gold < ticketPrice)
                 return new ProgressionRun(false, playedMs / 60000d, attempts, tickets);
-            gold -= seat.UnitPriceGold;
+            gold -= ticketPrice;
 
             for (var now = 0L; now < sessionMs;)
             {
-                var run = RunAttempt(Stats(exp, rod, seat), seat, now, sessionMs);
+                var run = RunAttempt(Stats(exp, rod), now, sessionMs);
                 if (run.Phase == FishingPhase.Cancelled) break;
                 attempts++;
                 if (run.Caught is not null)
@@ -116,7 +119,7 @@ public sealed class SessionSimulator(GameplayConfig config, PlayerModel player, 
             }
             playedMs += sessionMs;
 
-            while (buyRods && upgrades.TryPeek(out var next) && gold >= next.PriceGold!.Value + seat.UnitPriceGold)
+            while (buyRods && upgrades.TryPeek(out var next) && gold >= next.PriceGold!.Value + ticketPrice)
             {
                 gold -= next.PriceGold.Value;
                 rod = upgrades.Dequeue();
@@ -125,20 +128,20 @@ public sealed class SessionSimulator(GameplayConfig config, PlayerModel player, 
         return new ProgressionRun(false, playedMs / 60000d, attempts, MaxTicketsPerProgression);
     }
 
-    private Stats Stats(int exp, Rod rod, SeatTier seat)
+    private Stats Stats(int exp, Rod rod)
     {
         var level = levelTable.LevelForExp(exp);
-        return calculator.Compute(config.Levels.Single(entry => entry.Level == level), rod, seat);
+        return calculator.Compute(config.Levels.Single(entry => entry.Level == level), rod);
     }
 
-    private long SessionMs(int durationUnits) => durationUnits * config.SeatPricing.BillingUnitMinutes * 60000L;
+    private long SessionMs(int durationUnits) => durationUnits * config.TicketPricing.BillingUnitMinutes * 60000L;
 
     private long NextCastAt(AttemptRun run) =>
-        run.EndMs + (run.Caught is null ? player.FailHoldMs : config.Fishing.ResultPopupMs) + player.RecastMs;
+        run.EndMs + (run.Caught is null ? player.FailHoldMs : player.ResultDismissMs);
 
     private static AttemptRun Expire(FishingAttempt attempt, long sessionEndMs)
     {
-        attempt.Cancel(AttemptReasons.SessionExpired);
+        attempt.Cancel(AttemptReasons.TicketExpired);
         return new AttemptRun(FishingPhase.Cancelled, sessionEndMs, Caught: null);
     }
 

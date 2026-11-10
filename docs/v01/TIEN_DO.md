@@ -28,6 +28,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Ngày | Nội dung | Nhóm cần làm gì |
 | --- | --- | --- |
+| 2026-11-09 | SPEC_CHUNG 0.8: tự câu sau khi ngồi, nút Kéo giữa màn hình chạm bất kỳ, popup chạm mới đóng, thua chờ 2 giây, chưa câu được cá vẫn rời ghế được; không đổi contract | CL-B/C, QA: test theo luồng mới |
 | 2026-11-09 | SPEC_CHUNG 0.7: gameplay chạy trong scene Coral Cove của `client-v0`, resource do dự án tự làm | CL-B/C, ART, QA: test trong scene này |
 | 2026-11-09 | SPEC_CHUNG 0.6: client đặt trong `client-v0/src/online/`, không còn `client-web/`; chỉ đổi đường dẫn | CL/SOC/ART/QA: dùng đường dẫn mới |
 | 2026-11-09 | SPEC_CHUNG 0.4: M0 duyệt; Client outcome, pool cộng dồn, BE tuần tự | Tất cả: đọc trước khi nhận task |
@@ -39,12 +40,12 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE-A-01 | Khung module, envelope, lỗi, project test | M | không | Claude | Đang làm | 2026-11-09 | Code xong, 32 test đạt; test PostgreSQL chờ Docker, chưa commit/PR. [Báo cáo](bao-cao/BE-A-01.md) |
-| BE-A-02 | Đăng nhập Firebase và phiên | L | BE-A-01; Firebase project dev (người dùng tạo, secret ngoài repo) | | Chưa nhận | |  |
-| BE-A-03 | Ví Gold và ledger | M | BE-A-01 | | Chưa nhận | |  |
-| BE-A-04 | Idempotency | S | BE-A-01 | | Chưa nhận | |  |
-| BE-A-05 | Config gameplay | M | BE-A-01, BE-B-01 (record `GameplayConfig`; việc S, làm sớm) | | Chưa nhận | |  |
-| BE-A-06 | Hồ sơ người chơi | S | BE-A-02, BE-A-03 | | Chưa nhận | |  |
+| BE-A-01 | Khung module, envelope, lỗi, project test | M | không | Claude | Chờ review | 2026-11-09 | Test PostgreSQL đã chạy trên bản portable; nhánh Docker chưa chạy. [Báo cáo](bao-cao/BE-A-01.md) |
+| BE-A-02 | Đăng nhập Firebase và phiên | L | BE-A-01; Firebase project dev (người dùng tạo, secret ngoài repo) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-A-02.md) |
+| BE-A-03 | Ví Gold và ledger | M | BE-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-A-03.md) |
+| BE-A-04 | Idempotency | S | BE-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-A-04.md) |
+| BE-A-05 | Config gameplay | M | BE-A-01, BE-B-01 (record `GameplayConfig`; việc S, làm sớm) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-A-05.md) |
+| BE-A-06 | Hồ sơ người chơi | S | BE-A-02, BE-A-03 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-A-06.md) |
 
 ### BE-B — Luật câu cá (thư viện thuần)
 
@@ -64,45 +65,45 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE-C-01 | Nạp map và kiểm tra vị trí | S | không | | Chưa nhận | |  |
-| BE-C-02 | Vào phòng, presence, snapshot | M | BE-C-01 | | Chưa nhận | |  |
-| BE-C-03 | Di chuyển | M | BE-C-02 | | Chưa nhận | |  |
-| BE-C-04 | Bảng ghế, mua vé | L | BE-C-01; IWallet (giả được) | | Chưa nhận | |  |
-| BE-C-05 | Kết thúc phiên và cooldown | M | BE-C-04 | | Chưa nhận | |  |
-| BE-C-06 | Mất kết nối và vào lại | M | BE-C-05 | | Chưa nhận | |  |
-| BE-C-07 | Khôi phục sau restart | S | BE-C-05, BE-C-06 | | Chưa nhận | |  |
-| BE-C-08 | Test tải phòng | S | BE-C-04 | | Chưa nhận | |  |
+| BE-C-01 | Nạp map và kiểm tra vị trí | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-01.md) |
+| BE-C-02 | Vào phòng, presence, snapshot | M | BE-C-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-02.md) |
+| BE-C-03 | Di chuyển | M | BE-C-02 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-03.md) |
+| BE-C-04 | Bảng ghế, mua vé | L | BE-C-01; IWallet (giả được) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-04.md) |
+| BE-C-05 | Kết thúc phiên và cooldown | M | BE-C-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-05.md) |
+| BE-C-06 | Mất kết nối và vào lại | M | BE-C-05 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-06.md) |
+| BE-C-07 | Khôi phục sau restart | S | BE-C-05, BE-C-06 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-07.md) |
+| BE-C-08 | Test tải phòng | S | BE-C-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. p95 1.7 ms. [Báo cáo](bao-cao/BE-C-08.md) |
 
-| BE-C-09 | Gia hạn thời lượng giữ ghế | M | BE-C-04/05, BE-A-04 | | Chưa nhận | | Atomic ví/hạn phiên/receipt |
+| BE-C-09 | Gia hạn thời lượng giữ ghế | M | BE-C-04/05, BE-A-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-09.md) |
 
 ### BE-D — Kinh tế và tiến trình
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE-D-01 | Cần câu sở hữu và cần đang dùng | S | không | | Chưa nhận | |  |
-| BE-D-02 | Túi đồ | S | BE-D-01 | | Chưa nhận | |  |
-| BE-D-03 | Shop mua hàng | M | BE-D-02; IWallet | | Chưa nhận | |  |
-| BE-D-04 | Bán cá | M | BE-D-02; IWallet | | Chưa nhận | |  |
+| BE-D-01 | Cần câu sở hữu và cần đang dùng | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-D-01.md) |
+| BE-D-02 | Túi đồ | S | BE-D-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-D-02.md) |
+| BE-D-03 | Shop mua hàng | M | BE-D-02; IWallet | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-D-03.md) |
+| BE-D-04 | Bán cá | M | BE-D-02; IWallet | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-D-04.md) |
 | BE-D-05 | Loại khỏi v0.1 — giữ ID | — | — | | Loại khỏi v0.1 | 2026-11-09 | User bỏ thính; không tính Xong |
-| BE-D-06 | Ghi cá bắt được, EXP, level, Codex | M | BE-D-02; LevelTable (BE-B-02) | | Chưa nhận | |  |
-| BE-D-07 | Chỉ số và tiến trình | S | BE-D-01; StatCalculator (BE-B-02) | | Chưa nhận | |  |
-| BE-D-08 | Codex và lịch sử | S | BE-D-06; bảng `fishing_attempts` của BE-E (đọc) | | Chưa nhận | |  |
+| BE-D-06 | Ghi cá bắt được, EXP, level, Codex | M | BE-D-02; LevelTable (BE-B-02) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-D-06.md) |
+| BE-D-07 | Chỉ số và tiến trình | S | BE-D-01; StatCalculator (BE-B-02) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-D-07.md) |
+| BE-D-08 | Codex và lịch sử | S | BE-D-06; bảng `fishing_attempts` của BE-E (đọc) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-D-08.md) |
 
 ### BE-E — Tích hợp lần câu trên Server
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| BE-E-01 | Bảng lần câu và IFishingState | S | không | | Chưa nhận | |  |
-| BE-E-02 | CastLine và vòng thời gian | M | BE-E-01; BE-B-08 (hoặc bản giả) | | Chưa nhận | |  |
-| BE-E-03 | HookFish và minigame | M | BE-E-02; BE-B-06 | | Chưa nhận | |  |
-| BE-E-04 | Kết thúc lần câu và trả thưởng | M | BE-E-03; BE-D-06 (hoặc giả) | | Chưa nhận | |  |
-| BE-E-05 | Hủy theo luật | S | BE-E-02 | | Chưa nhận | |  |
-| BE-E-06 | Khôi phục sau restart | S | BE-E-04 | | Chưa nhận | |  |
-| BE-E-07 | Test end-to-end Server | M | BE-E-01 đến BE-E-06, BE-C, BE-D xong | | Chưa nhận | |  |
+| BE-E-01 | Bảng lần câu và IFishingState | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-01.md) |
+| BE-E-02 | CastLine và vòng thời gian | M | BE-E-01; BE-B-08 (hoặc bản giả) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-02.md) |
+| BE-E-03 | HookFish và minigame | M | BE-E-02; BE-B-06 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-03.md) |
+| BE-E-04 | Kết thúc lần câu và trả thưởng | M | BE-E-03; BE-D-06 (hoặc giả) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-04.md) |
+| BE-E-05 | Hủy theo luật | S | BE-E-02 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-05.md) |
+| BE-E-06 | Khôi phục sau restart | S | BE-E-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-06.md) |
+| BE-E-07 | Test end-to-end Server | M | BE-E-01 đến BE-E-06, BE-C, BE-D xong | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-07.md) |
 
-| BE-E-08 | Quần thể cá hữu hạn và tích hợp lượt câu | L | BE-E-04/05/06, BE-B-04, BE-D-06, AD-06 | | Bị chặn | | Thiếu dữ kiện cạn cá/initial stock; reservation bite đã duyệt |
+| BE-E-08 | Quần thể cá hữu hạn và tích hợp lượt câu | L | BE-E-04/05/06, BE-B-04, BE-D-06, AD-06 | Claude | Chờ review | 2026-11-10 | Luật cạn cá theo đề xuất user duyệt 2026-11-10; API thả cá thuộc AD-06. Chưa commit/PR. [Báo cáo](bao-cao/BE-E-08.md) |
 
-| BE-E-09 | Cảnh báo nghi vấn gian lận BE (chỉ quan sát) | M | BE-E-03/04, BE-A-05 | | Chưa nhận | | Rule config, không auto-ban/reject outcome hợp lệ |
+| BE-E-09 | Cảnh báo nghi vấn gian lận BE (chỉ quan sát) | M | BE-E-03/04, BE-A-05 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-E-09.md) |
 
 ### CL-A — Nền tảng Client (Phaser 3 + TypeScript)
 
@@ -124,7 +125,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | CL-B-02 | Scene hồ | M | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Map placeholder |
 | CL-B-03 | Nhân vật và animation | M | CL-B-02; sprite từ ART-02 (placeholder trước) | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Art tạm |
 | CL-B-04 | Điều khiển và đồng bộ di chuyển | M | CL-B-02, CL-A-04 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa thử 2 tab |
-| CL-B-05 | Ghế và mua vé | M | CL-B-02, CL-A-05 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa thử 2 tab, đồng hồ với Server |
+| CL-B-05 | Ghế và mua vé | M | CL-B-02, CL-A-05 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Chưa thử 2 tab, đồng hồ với Server |
 | CL-B-06 | Mất kết nối | S | CL-A-04, CL-B-05 | | Chưa nhận | |  |
 
 | CL-B-07 | Thiết kế và duyệt bố cục hồ câu mới | M | ART-01 | | Chưa nhận | | Không dùng nguyên map 30 anchor cũ |
@@ -134,10 +135,10 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | CL-C-01 | Lõi minigame TS | S | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
-| CL-C-02 | Nút câu | S | CL-A-05 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
-| CL-C-03 | Quăng, chờ, cá cắn | M | CL-C-02, CL-B-03 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Âm báo tạm |
-| CL-C-04 | Màn minigame | L | CL-C-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa đo FPS |
-| CL-C-05 | Kết quả | M | CL-C-04; icon cá (ART-04) | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Ảnh cá tạm |
+| CL-C-02 | Nút Kéo | S | CL-A-05 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock |
+| CL-C-03 | Quăng, chờ, cá cắn | M | CL-C-02, CL-B-03 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Âm báo tạm |
+| CL-C-04 | Màn minigame | L | CL-C-01 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Chưa đo FPS |
+| CL-C-05 | Kết quả | M | CL-C-04; icon cá (ART-04) | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Ảnh cá tạm |
 
 ### CL-D — HUD, Shop, túi đồ, tiến trình, Codex
 
@@ -154,10 +155,10 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| SOC-01 | Skin: Server | S | không | | Chưa nhận | |  |
+| SOC-01 | Skin: Server | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/SOC-01.md) |
 | SOC-02 | Skin: Client | S | SOC-01 (hoặc mock), CL-B-03 | | Chưa nhận | |  |
-| SOC-03 | Chat phòng: Server | M | không | | Chưa nhận | |  |
-| SOC-04 | Emoji: Server | S | không | | Chưa nhận | |  |
+| SOC-03 | Chat phòng: Server | M | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/SOC-03.md) |
+| SOC-04 | Emoji: Server | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/SOC-04.md) |
 | SOC-05 | Chat và emoji: Client | M | SOC-03, SOC-04 (hoặc mock) | | Chưa nhận | |  |
 | SOC-06 | Khoe cá | M | BE-D-02 | | Bị chặn | | Chờ GD |
 | SOC-07 | Bảng xếp hạng | M | BE-E-04 | | Bị chặn | | Chờ GD |
@@ -166,14 +167,14 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| AD-01 | Đăng nhập Admin và quyền | M | BE-A-01 | | Chưa nhận | |  |
-| AD-02 | Config draft, validate, publish | L | AD-01, BE-A-05 | | Chưa nhận | |  |
-| AD-03 | Tra cứu | M | AD-01 | | Chưa nhận | |  |
-| AD-04 | Giao diện Admin | L | AD-01 đến AD-03 | | Chưa nhận | |  |
+| AD-01 | Đăng nhập Admin và quyền | M | BE-A-01 | Claude | Chờ review | 2026-11-10 | Chưa commit/PR. [Báo cáo](bao-cao/AD-01.md) |
+| AD-02 | Config draft, validate, publish | L | AD-01, BE-A-05 | Claude | Chờ review | 2026-11-10 | Chưa commit/PR. [Báo cáo](bao-cao/AD-02.md) |
+| AD-03 | Tra cứu | M | AD-01 | Claude | Chờ review | 2026-11-10 | Chưa commit/PR. [Báo cáo](bao-cao/AD-03.md) |
+| AD-04 | Giao diện Admin | L | AD-01 đến AD-03 | Claude | Chờ review | 2026-11-10 | Chưa commit/PR; chưa thử Google + MFA thật. [Báo cáo](bao-cao/AD-04.md) |
 | AD-05 | Hỗ trợ social tối thiểu (A06) | S | SOC-03 | | Bị chặn | | Chờ GD |
 
-| AD-06 | Dữ liệu, API và lịch thả cá | L | AD-01, BE-A-04/05; phối hợp BE-E-08 | | Chưa nhận | | Contract cần lead thống nhất |
-| AD-07 | Trang quản lý thả cá và tồn hồ | L | AD-04, AD-06, BE-E-08 (mock được) | | Chưa nhận | | |
+| AD-06 | Dữ liệu, API và lịch thả cá | L | AD-01, BE-A-04/05; phối hợp BE-E-08 | Claude | Chờ review | 2026-11-10 | Chưa commit/PR. [Báo cáo](bao-cao/AD-06.md) |
+| AD-07 | Trang quản lý thả cá và tồn hồ | L | AD-04, AD-06, BE-E-08 (mock được) | Claude | Chờ review | 2026-11-10 | Chưa commit/PR. [Báo cáo](bao-cao/AD-07.md) |
 
 ### ART — Asset 2D pixel art
 

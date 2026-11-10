@@ -354,6 +354,22 @@ describe('MockBackend', () => {
     expect(attemptOf(rig)).toMatchObject({ phase: 'cancelled', reason: 'left_seat' });
   });
 
+  it('rời ghế khi cá cắn câu: hủy, không có cá', async () => {
+    await buy(rig);
+    await waitForBite(rig);
+    const ack = await rig.hub.invoke('LeaveSeat', {});
+    expect(ack.ok).toBe(true);
+    expect(attemptOf(rig)).toMatchObject({ phase: 'cancelled', reason: 'left_seat', result: null });
+  });
+
+  it('rời ghế trong minigame: hủy, kết quả nộp sau không được thưởng', async () => {
+    const attemptId = await reachMinigame(rig);
+    await rig.hub.invoke('LeaveSeat', {});
+    expect(attemptOf(rig)).toMatchObject({ phase: 'cancelled', reason: 'left_seat', result: null });
+    await rig.hub.invoke('SubmitFishingResult', { attemptId, outcome: 'success' });
+    expect(attemptOf(rig)?.phase).toBe('cancelled');
+  });
+
   it('di chuyển xuống nước hoặc quá phạm vi ghế bị kéo về', async () => {
     await rig.hub.invoke('Move', { seq: 1, x: 768, y: 576, dir: 'down' });
     expect(rig.store.getState().lake.correction?.seq).toBe(1);

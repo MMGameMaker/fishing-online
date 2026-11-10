@@ -11,7 +11,7 @@ public class MinigameParamsTests
     private static readonly DateTimeOffset StartedAt = new(2026, 11, 9, 10, 1, 10, TimeSpan.Zero);
 
     private static Stats StatsFor(int level, string rodId) =>
-        new StatCalculator(TestData.Config).Compute(TestData.Level(level), TestData.Rod(rodId), seatTier: null);
+        new StatCalculator(TestData.Config).Compute(TestData.Level(level), TestData.Rod(rodId));
 
     [Theory]
     [InlineData("perch", 0.2, 0.06)]
@@ -67,7 +67,7 @@ public class MinigameParamsTests
         foreach (var level in TestData.Config.Levels)
         foreach (var rod in TestData.Config.Rods)
         {
-            var stats = new StatCalculator(TestData.Config).Compute(level, rod, seatTier: null);
+            var stats = new StatCalculator(TestData.Config).Compute(level, rod);
             var minigame = MinigameParams.Create(TestData.Config.Minigame, fish, stats, 1, StartedAt);
 
             Assert.True(minigame.DurationMs > 0);

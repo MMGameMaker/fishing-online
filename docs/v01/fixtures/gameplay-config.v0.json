@@ -1,6 +1,6 @@
 {
-  "configVersion": "v0-test-2026-11-09-monitoring-05",
-  "status": "Fixture test: không thính; block 10 phút/đơn giá 120-70-40 là đề xuất/test, chưa khóa balance/thời lượng.",
+  "configVersion": "v0-test-2026-11-10-ticket-01",
+  "status": "Fixture test: không thính; vé 50 Gold/10 phút, tối đa 6 vé mỗi lần mua là số test GD 2026-11-10, chưa khóa balance.",
   "newPlayer": {
     "gold": 100,
     "rodId": "rod_old"
@@ -246,43 +246,7 @@
       "sellGold": 150
     }
   ],
-  "seatTiers": [
-    {
-      "tier": 1,
-      "seatNumbers": [
-        1,
-        5
-      ],
-      "rareLuck": 1,
-      "largeLuck": 1,
-      "lureTimeMs": 1000,
-      "unitPriceGold": "120"
-    },
-    {
-      "tier": 2,
-      "seatNumbers": [
-        6,
-        10
-      ],
-      "rareLuck": 0,
-      "largeLuck": 1,
-      "lureTimeMs": 500,
-      "unitPriceGold": "70"
-    },
-    {
-      "tier": 3,
-      "seatNumbers": [
-        11,
-        20
-      ],
-      "rareLuck": 0,
-      "largeLuck": 0,
-      "lureTimeMs": 0,
-      "unitPriceGold": "40"
-    }
-  ],
   "seatSession": {
-    "cooldownMs": 10000,
     "disconnectGraceMs": 120000
   },
   "fishing": {
@@ -291,7 +255,7 @@
     "biteWindowMs": 3000,
     "biteGraceMs": 300,
     "catchShownMs": 5000,
-    "resultPopupMs": 3000
+    "failShownMs": 2000
   },
   "minigame": {
     "rarity": [
@@ -350,7 +314,7 @@
     "resultGraceMs": 1500
   },
   "lengthTiers": {
-    "maxLargeLuck": 7,
+    "maxLargeLuck": 6,
     "tiers": [
       {
         "id": "normal",
@@ -386,7 +350,7 @@
     "proposal": false,
     "status": "GD approved rule 2026-11-09; test balance; finite stock fallback pending",
     "rareLuckMode": "linear_basis_points",
-    "maxRareLuck": 7,
+    "maxRareLuck": 6,
     "rarityWeights": {
       "common": 60.5,
       "uncommon": 25,
@@ -431,13 +395,12 @@
       "priceGold": 2000
     }
   ],
-  "seatPricing": {
-    "proposal": false,
+  "ticketPricing": {
     "billingUnitMinutes": 10,
-    "priceVersion": "seat-price-test-03",
-    "perSeatOverrides": [],
-    "durationPolicy": "positive_integer_units; min/max final pending GD",
-    "status": "M0 defaults approved for test; final prices/min-max not yet specified"
+    "unitPriceGold": "50",
+    "maxUnitsPerPurchase": 6,
+    "priceVersion": "ticket-price-test-01",
+    "status": "Số test GD 2026-11-10; chưa có giới hạn tổng thời gian vé còn lại"
   },
   "fishPopulation": {
     "replenishmentMode": "additive",

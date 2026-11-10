@@ -22,7 +22,7 @@ public sealed class SpawnPickerTests
 
     [Theory]
     [InlineData(0, 60.5, 25, 10, 4, 0.5)]
-    [InlineData(7, 47.2, 28.5, 15.6, 7.5, 1.2)]
+    [InlineData(6, 49.1, 28, 14.8, 7, 1.1)]
     public void RarityRates_MatchSpec(int luck, double common, double uncommon, double rare, double epic, double legendary)
     {
         var counts = Sample(luck, seed: 11);
@@ -65,7 +65,7 @@ public sealed class SpawnPickerTests
     }
 
     [Theory]
-    [InlineData(9, 7)]
+    [InlineData(9, 6)]
     [InlineData(-3, 0)]
     public void RareLuck_IsClamped(int given, int effective)
     {
@@ -111,7 +111,7 @@ public sealed class LengthRollerTests
 
     [Theory]
     [InlineData(0, 70, 25, 4.9, 0.1)]
-    [InlineData(7, 56, 35.5, 8.4, 0.1)]
+    [InlineData(6, 58, 34, 7.9, 0.1)]
     public void TierRates_MatchSpec(int luck, double normal, double large, double huge, double max)
     {
         var random = new SeededRandomSource(21 + luck);
@@ -143,7 +143,7 @@ public sealed class LengthRollerTests
 
         for (var sample = 0; sample < Samples; sample++)
         {
-            var (length, rolledTier) = LengthRoller.Roll(random, Tiers, fish, 7);
+            var (length, rolledTier) = LengthRoller.Roll(random, Tiers, fish, 6);
             if (rolledTier == tierId) Assert.InRange(length, min, max);
         }
     }
@@ -191,7 +191,7 @@ public sealed class LengthRollerTests
     }
 
     [Theory]
-    [InlineData(9, 7)]
+    [InlineData(9, 6)]
     [InlineData(-3, 0)]
     public void LargeLuck_IsClamped(int given, int effective)
     {

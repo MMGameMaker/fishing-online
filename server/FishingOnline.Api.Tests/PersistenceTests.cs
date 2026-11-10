@@ -1,7 +1,7 @@
-using DotNet.Testcontainers.Builders;
 using FishingOnline.Api.Persistence;
 using Microsoft.EntityFrameworkCore;
-using Testcontainers.PostgreSql;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FishingOnline.Api.Tests;
 
@@ -19,56 +19,68 @@ public sealed class ModelTests
     }
 }
 
-/// <summary>PostgreSQL thật qua Testcontainers, cùng image với server/compose.yaml. Thiếu Docker thì test báo Skipped.</summary>
-public sealed class PostgresFixture : IAsyncLifetime
+[Collection(PostgresCollection.Name)]
+public sealed class PostgresTests(PostgresServer postgres)
 {
-    private PostgreSqlContainer? container;
-
-    public string? ConnectionString { get; private set; }
-    public string? UnavailableReason { get; private set; }
-
-    public async ValueTask InitializeAsync()
+    [Fact]
+    public async Task Migrations_UpgradeDatabaseWithExistingPlayers()
     {
+        var connectionString = await postgres.CreateDatabaseAsync();
         try
         {
-            container = new PostgreSqlBuilder("postgres:17.6-alpine").Build();
-            await container.StartAsync();
-            ConnectionString = container.GetConnectionString();
+            await using var connection = new Npgsql.NpgsqlConnection(connectionString);
+            await connection.OpenAsync();
+            await using (var reset = new Npgsql.NpgsqlCommand("""DROP SCHEMA game CASCADE; DROP TABLE IF EXISTS public."__EFMigrationsHistory";""", connection))
+                await reset.ExecuteNonQueryAsync();
+
+            var options = new DbContextOptionsBuilder<GameDbContext>().UseNpgsql(connectionString).Options;
+            await using var db = new GameDbContext(options);
+            var migrator = db.GetService<IMigrator>();
+            await migrator.MigrateAsync("20261103110934_InitialPlayerProfiles");
+            await using (var seed = new Npgsql.NpgsqlCommand("""
+                insert into game.players ("Id", "DisplayName", "CreatedAt") values
+                (gen_random_uuid(), 'Zen', now()), (gen_random_uuid(), 'zen', now()), (gen_random_uuid(), 'Bob', now())
+                """, connection))
+                await seed.ExecuteNonQueryAsync();
+
+            await db.Database.MigrateAsync();
+
+            var keys = await db.Players.AsNoTracking().Select(player => player.DisplayNameKey).ToListAsync();
+            Assert.Equal(3, keys.Distinct().Count());
+            Assert.Contains("zen", keys);
+            Assert.Contains("bob", keys);
         }
-        catch (DockerUnavailableException exception)
+        finally
         {
-            UnavailableReason = exception.Message;
+            await postgres.DropDatabaseAsync(connectionString);
         }
     }
 
-    public async ValueTask DisposeAsync()
-    {
-        if (container is not null) await container.DisposeAsync();
-    }
-}
-
-public sealed class PostgresTests(PostgresFixture postgres) : IClassFixture<PostgresFixture>
-{
     [Fact]
     public async Task Migrations_ApplyOnEmptyDatabase_AndPersistPlayer()
     {
-        if (postgres.UnavailableReason is { } reason) Assert.Skip($"Cần Docker: {reason}");
-        var options = new DbContextOptionsBuilder<GameDbContext>().UseNpgsql(postgres.ConnectionString).Options;
-        var player = new PlayerProfile { Id = Guid.NewGuid(), DisplayName = "tester", CreatedAt = DateTimeOffset.UtcNow };
-
-        await using (var db = new GameDbContext(options))
+        var connectionString = await postgres.CreateDatabaseAsync();
+        var options = new DbContextOptionsBuilder<GameDbContext>().UseNpgsql(connectionString).Options;
+        var player = new PlayerProfile { Id = Guid.NewGuid(), DisplayName = "tester", DisplayNameKey = "tester", CreatedAt = DateTimeOffset.UtcNow };
+        try
         {
-            await db.Database.MigrateAsync();
-            await db.Database.MigrateAsync();
-            Assert.Empty(await db.Database.GetPendingMigrationsAsync());
-            db.Players.Add(player);
-            await db.SaveChangesAsync();
+            await using (var db = new GameDbContext(options))
+            {
+                await db.Database.MigrateAsync();
+                Assert.Empty(await db.Database.GetPendingMigrationsAsync());
+                db.Players.Add(player);
+                await db.SaveChangesAsync();
+            }
+
+            await using (var db = new GameDbContext(options))
+            {
+                var stored = await db.Players.SingleAsync(p => p.Id == player.Id);
+                Assert.Equal("tester", stored.DisplayName);
+            }
         }
-
-        await using (var db = new GameDbContext(options))
+        finally
         {
-            var stored = await db.Players.SingleAsync(p => p.Id == player.Id);
-            Assert.Equal("tester", stored.DisplayName);
+            await postgres.DropDatabaseAsync(connectionString);
         }
     }
 }

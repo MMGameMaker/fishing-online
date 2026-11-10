@@ -11,7 +11,7 @@ public sealed class FishingAttempt
 {
     private static readonly string[] CancelReasons =
     [
-        AttemptReasons.SessionExpired,
+        AttemptReasons.TicketExpired,
         AttemptReasons.Disconnected,
         AttemptReasons.LeftSeat,
     ];
@@ -107,7 +107,7 @@ public sealed class FishingAttempt
     private void Advance(DateTimeOffset now, List<AttemptEvent> events)
     {
         if (state.Phase == FishingPhase.Waiting && now >= state.BiteAt)
-            EnterBite(events);
+            EnterBite(now, events);
         if (state.Phase == FishingPhase.Bite
             && now > state.BiteDeadlineAt!.Value.AddMilliseconds(Config.Fishing.BiteGraceMs))
             Fail(AttemptReasons.MissedBite, events);
@@ -115,13 +115,24 @@ public sealed class FishingAttempt
             Fail(AttemptReasons.Timeout, events);
     }
 
-    private void EnterBite(List<AttemptEvent> events)
+    private void EnterBite(DateTimeOffset now, List<AttemptEvent> events)
     {
+        // Hồ hết cá: cá không cắn, attempt chờ tiếp tới khi có cá hoặc bị hủy.
+        if (context.PickSpecies(state.Stats.RareLuck) is not { } speciesId)
+        {
+            state = state with { BiteDeferred = true };
+            return;
+        }
+
+        // Cá về muộn thì tính lúc cắn là lúc thấy cá, để người chơi vẫn có đủ thời gian Kéo.
+        var biteAt = state.BiteDeferred ? now : state.BiteAt;
         state = state with
         {
             Phase = FishingPhase.Bite,
-            BiteDeadlineAt = state.BiteAt.AddMilliseconds(Config.Fishing.BiteWindowMs),
-            SpeciesId = context.PickSpecies(state.Stats.RareLuck),
+            BiteAt = biteAt,
+            BiteDeadlineAt = biteAt.AddMilliseconds(Config.Fishing.BiteWindowMs),
+            SpeciesId = speciesId,
+            BiteDeferred = false,
         };
         events.Add(new PhaseChanged(FishingPhase.Bite, Reason: null));
     }

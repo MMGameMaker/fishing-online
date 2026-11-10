@@ -1,36 +1,41 @@
-.fish-button {
-  --bite-progress: 0;
+.fish-tap-layer {
   position: absolute;
-  right: 12px;
-  bottom: 12px;
-  width: 84px;
-  height: 84px;
-  font: inherit;
-  font-weight: bold;
-  color: var(--ui-text);
-  background: var(--ui-primary);
-  border: 3px solid var(--ui-border);
-  border-radius: 50%;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   pointer-events: auto;
   touch-action: manipulation;
 }
 
-.fish-button[hidden] {
+.fish-tap-layer[hidden] {
   display: none;
 }
 
-.fish-button[data-mode='waiting'],
-.fish-button[data-mode='locked'] {
-  color: var(--ui-muted);
-  background: var(--ui-bg-2);
-  cursor: not-allowed;
-}
-
-.fish-button[data-mode='bite'] {
+.fish-button {
+  --bite-progress: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 128px;
+  height: 128px;
+  font-size: 1.6em;
+  font-weight: bold;
+  color: var(--ui-text);
   background:
     radial-gradient(circle closest-side, var(--ui-danger) 80%, transparent 81%),
     conic-gradient(var(--ui-gold) calc(var(--bite-progress) * 360deg), var(--ui-bg-2) 0);
+  border: 3px solid var(--ui-border);
+  border-radius: 50%;
+}
+
+.result-overlay {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
 }
 
 .result-popup {
@@ -39,6 +44,11 @@
   left: 50%;
   width: min(92%, 300px);
   transform: translate(-50%, -50%);
+}
+
+.result-card__hint {
+  margin-top: 6px;
+  color: var(--ui-muted);
 }
 
 .result-card {

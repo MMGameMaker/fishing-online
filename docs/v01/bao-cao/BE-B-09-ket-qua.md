@@ -11,7 +11,7 @@
 - Hook sau khi cá cắn: ngẫu nhiên đều 400-1200 ms.
 - Minigame: luôn nhắm giữa vùng vàng; thời điểm bấm lệch theo phân phối chuẩn với độ lệch chuẩn của từng mức kỹ năng: Mới chơi 100 ms, Trung bình 60 ms, Giỏi 30 ms.
 - Sau mỗi lần bấm cần ít nhất 250 ms để nhắm lại vùng mới.
-- Quăng cần lại sau 500 ms, cộng thêm thời gian khóa sau kết quả: thắng 3000 ms (popup), thua 1500 ms.
+- Client tự quăng cần lại sau kết quả (SPEC 0.8): thắng sau 1000 ms (người chơi chạm đóng popup), thua sau 2000 ms.
 - Các bảng dưới dùng mức **Trung bình**, trừ bảng so sánh kỹ năng.
 
 **Chưa mô phỏng:** tồn cá trong hồ (SPEC chưa chốt tồn đầu/khi cạn), độ trễ mạng, cooldown ghế và thời gian chờ giữa hai phiên.
@@ -123,33 +123,33 @@ Chỉ số giữ nguyên trong phiên, bán hết cá theo giá loài. Lãi = Go
 
 | Tier | Phút | Người chơi | Lần câu TB | Bắt được TB | Gold bán cá TB | Tiền vé | Lãi TB | Lãi P10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 10 | Lv1 + Old Fishing Rod | 48.3 | 38 | 283 | 120 | 163 | 115 |
-| 1 | 10 | Lv5 + Steel Awl | 55.8 | 52.4 | 548.5 | 120 | 428.5 | 325 |
-| 1 | 10 | Lv10 + Giant Caster | 61.6 | 60.6 | 795.7 | 120 | 675.7 | 525 |
-| 1 | 20 | Lv1 + Old Fishing Rod | 96.9 | 77.1 | 573.2 | 240 | 333.2 | 270 |
-| 1 | 20 | Lv5 + Steel Awl | 111.8 | 105.3 | 1110.9 | 240 | 870.9 | 720 |
-| 1 | 20 | Lv10 + Giant Caster | 123.4 | 121.3 | 1591.4 | 240 | 1351.4 | 1125 |
-| 1 | 30 | Lv1 + Old Fishing Rod | 145.4 | 116.2 | 865.1 | 360 | 505.1 | 415 |
-| 1 | 30 | Lv5 + Steel Awl | 167.4 | 157.6 | 1664 | 360 | 1304 | 1110 |
-| 1 | 30 | Lv10 + Giant Caster | 185.2 | 181.9 | 2388.6 | 360 | 2028.6 | 1765 |
-| 2 | 10 | Lv1 + Old Fishing Rod | 46.5 | 37.5 | 271.9 | 70 | 201.9 | 160 |
-| 2 | 10 | Lv5 + Steel Awl | 53.3 | 50.4 | 512.9 | 70 | 442.9 | 350 |
-| 2 | 10 | Lv10 + Giant Caster | 58.8 | 57.8 | 730.8 | 70 | 660.8 | 515 |
-| 2 | 20 | Lv1 + Old Fishing Rod | 93.1 | 74.8 | 549.9 | 140 | 409.9 | 340 |
-| 2 | 20 | Lv5 + Steel Awl | 107 | 101.1 | 1030.8 | 140 | 890.8 | 755 |
-| 2 | 20 | Lv10 + Giant Caster | 117.5 | 115.6 | 1466.4 | 140 | 1326.4 | 1105 |
-| 2 | 30 | Lv1 + Old Fishing Rod | 139.9 | 112.5 | 825 | 210 | 615 | 530 |
-| 2 | 30 | Lv5 + Steel Awl | 160.6 | 151.7 | 1534.8 | 210 | 1324.8 | 1155 |
-| 2 | 30 | Lv10 + Giant Caster | 176.4 | 173.5 | 2191.5 | 210 | 1981.5 | 1730 |
-| 3 | 10 | Lv1 + Old Fishing Rod | 44.7 | 36.1 | 260.5 | 40 | 220.5 | 175 |
-| 3 | 10 | Lv5 + Steel Awl | 51.1 | 48.2 | 492.1 | 40 | 452.1 | 360 |
-| 3 | 10 | Lv10 + Giant Caster | 56 | 55.1 | 686.2 | 40 | 646.2 | 505 |
-| 3 | 20 | Lv1 + Old Fishing Rod | 89.6 | 72.1 | 525 | 80 | 445 | 385 |
-| 3 | 20 | Lv5 + Steel Awl | 102.3 | 96.8 | 980.4 | 80 | 900.4 | 765 |
-| 3 | 20 | Lv10 + Giant Caster | 112.1 | 110.2 | 1393.8 | 80 | 1313.8 | 1110 |
-| 3 | 30 | Lv1 + Old Fishing Rod | 134.7 | 108.7 | 790.5 | 120 | 670.5 | 595 |
-| 3 | 30 | Lv5 + Steel Awl | 153.7 | 145.2 | 1473.7 | 120 | 1353.7 | 1180 |
-| 3 | 30 | Lv10 + Giant Caster | 168.1 | 165.4 | 2078.7 | 120 | 1958.7 | 1680 |
+| 1 | 10 | Lv1 + Old Fishing Rod | 57.4 | 45.5 | 338.1 | 120 | 218.1 | 160 |
+| 1 | 10 | Lv5 + Steel Awl | 71.4 | 67.1 | 700.1 | 120 | 580.1 | 465 |
+| 1 | 10 | Lv10 + Giant Caster | 82.1 | 80.8 | 1058.4 | 120 | 938.4 | 760 |
+| 1 | 20 | Lv1 + Old Fishing Rod | 115.3 | 91.9 | 684.3 | 240 | 444.3 | 365 |
+| 1 | 20 | Lv5 + Steel Awl | 143.1 | 134.7 | 1410.7 | 240 | 1170.7 | 995 |
+| 1 | 20 | Lv10 + Giant Caster | 164.8 | 161.8 | 2117.5 | 240 | 1877.5 | 1605 |
+| 1 | 30 | Lv1 + Old Fishing Rod | 173.1 | 137.6 | 1028.5 | 360 | 668.5 | 575 |
+| 1 | 30 | Lv5 + Steel Awl | 214.6 | 202.3 | 2130.7 | 360 | 1770.7 | 1530 |
+| 1 | 30 | Lv10 + Giant Caster | 247.5 | 243.2 | 3196 | 360 | 2836 | 2515 |
+| 2 | 10 | Lv1 + Old Fishing Rod | 55 | 44.3 | 322.5 | 70 | 252.5 | 200 |
+| 2 | 10 | Lv5 + Steel Awl | 67.6 | 64 | 655.2 | 70 | 585.2 | 475 |
+| 2 | 10 | Lv10 + Giant Caster | 77.2 | 75.9 | 959.3 | 70 | 889.3 | 715 |
+| 2 | 20 | Lv1 + Old Fishing Rod | 110.5 | 89 | 649.2 | 140 | 509.2 | 430 |
+| 2 | 20 | Lv5 + Steel Awl | 135.6 | 128.1 | 1294.7 | 140 | 1154.7 | 1000 |
+| 2 | 20 | Lv10 + Giant Caster | 154.7 | 152.2 | 1916.4 | 140 | 1776.4 | 1545 |
+| 2 | 30 | Lv1 + Old Fishing Rod | 166 | 133.5 | 966.1 | 210 | 756.1 | 660 |
+| 2 | 30 | Lv5 + Steel Awl | 203.4 | 192.2 | 1953.4 | 210 | 1743.4 | 1555 |
+| 2 | 30 | Lv10 + Giant Caster | 232.7 | 229 | 2890.8 | 210 | 2680.8 | 2385 |
+| 3 | 10 | Lv1 + Old Fishing Rod | 52.6 | 42.4 | 309.1 | 40 | 269.1 | 220 |
+| 3 | 10 | Lv5 + Steel Awl | 64 | 60.6 | 611.9 | 40 | 571.9 | 460 |
+| 3 | 10 | Lv10 + Giant Caster | 72.5 | 71.3 | 907.2 | 40 | 867.2 | 705 |
+| 3 | 20 | Lv1 + Old Fishing Rod | 105.6 | 85 | 620.5 | 80 | 540.5 | 465 |
+| 3 | 20 | Lv5 + Steel Awl | 128.1 | 121 | 1248.9 | 80 | 1168.9 | 1010 |
+| 3 | 20 | Lv10 + Giant Caster | 145.2 | 142.7 | 1795.2 | 80 | 1715.2 | 1490 |
+| 3 | 30 | Lv1 + Old Fishing Rod | 158.5 | 127.4 | 927 | 120 | 807 | 715 |
+| 3 | 30 | Lv5 + Steel Awl | 192.4 | 181.9 | 1854.1 | 120 | 1734.1 | 1560 |
+| 3 | 30 | Lv10 + Giant Caster | 218.2 | 214.6 | 2719.1 | 120 | 2599.1 | 2305 |
 
 ## Thời gian lên level cao nhất
 
@@ -160,8 +160,8 @@ Tỷ lệ đạt 0% ở Tier 1 vì Gold khởi đầu không đủ mua vé đầ
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | Giữ cần mặc định | 0.0% | - | - | - | - |
 | 1 | Mua cần tốt hơn khi đủ Gold | 0.0% | - | - | - | - |
-| 2 | Giữ cần mặc định | 100.0% | 52.3 | 54.7 | 277.5 | 5.9 |
-| 2 | Mua cần tốt hơn khi đủ Gold | 100.0% | 48.9 | 51.4 | 266.6 | 5.3 |
-| 3 | Giữ cần mặc định | 100.0% | 54.5 | 57 | 277 | 6 |
-| 3 | Mua cần tốt hơn khi đủ Gold | 100.0% | 50.7 | 53.2 | 265.3 | 5.6 |
+| 2 | Giữ cần mặc định | 100.0% | 41.6 | 43.4 | 277.8 | 4.9 |
+| 2 | Mua cần tốt hơn khi đủ Gold | 100.0% | 38.5 | 40.5 | 265.8 | 4.2 |
+| 3 | Giữ cần mặc định | 100.0% | 43.9 | 46.1 | 277.4 | 5 |
+| 3 | Mua cần tốt hơn khi đủ Gold | 100.0% | 40.6 | 42.6 | 265.3 | 4.7 |
 

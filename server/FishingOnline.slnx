@@ -4,5 +4,6 @@
   <Project Path="FishingOnline.Domain.Tests/FishingOnline.Domain.Tests.csproj" />
   <Project Path="FishingOnline.Domain/FishingOnline.Domain.csproj" />
   <Project Path="FishingOnline.IntegrationChecks/FishingOnline.IntegrationChecks.csproj" />
+  <Project Path="FishingOnline.LoadTest/FishingOnline.LoadTest.csproj" />
   <Project Path="FishingOnline.Sim/FishingOnline.Sim.csproj" />
 </Solution>
