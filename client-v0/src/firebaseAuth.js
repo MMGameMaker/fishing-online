@@ -23,3 +23,10 @@ export async function googleIdToken() {
   const credential = await signInWithPopup(auth(), new GoogleAuthProvider());
   return credential.user.getIdToken();
 }
+
+// Returns a fresh ID token for the already signed-in user, or null when nobody is signed in.
+export async function currentIdToken() {
+  const instance = auth();
+  await instance.authStateReady();
+  return instance.currentUser ? instance.currentUser.getIdToken() : null;
+}

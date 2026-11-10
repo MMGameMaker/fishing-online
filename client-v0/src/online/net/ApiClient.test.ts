@@ -36,6 +36,23 @@ describe('ApiClient', () => {
     expect(headerOf(f.mock.calls[0]?.[1], 'Idempotency-Key')).toBeUndefined();
   });
 
+  it('login gửi Firebase ID token và lưu access token cho request sau', async () => {
+    const f = vi
+      .fn<FetchLike>()
+      .mockResolvedValueOnce(ok({ accessToken: 'acc', expiresAt: 'x', isNew: false, player: {} }))
+      .mockResolvedValueOnce(ok({}));
+    const api = client(f);
+    await api.login('firebase-token');
+    expect(f.mock.calls[0]?.[0]).toBe('http://x/api/v1/auth/login');
+    expect(JSON.parse(String(f.mock.calls[0]?.[1]?.body))).toEqual({
+      firebaseIdToken: 'firebase-token',
+      rememberMe: true,
+    });
+    expect(api.getAccessToken()).toBe('acc');
+    await api.get('/me');
+    expect(headerOf(f.mock.calls[1]?.[1], 'Authorization')).toBe('Bearer acc');
+  });
+
   it('retry giữ nguyên Idempotency-Key', async () => {
     const f = vi
       .fn<FetchLike>()

@@ -84,6 +84,7 @@ const BOT_CATCH_CHANCE = 0.02;
 const BOT_FAIL_CHANCE = 0.02;
 const SCALE_BROADCAST_EVERY_MS = 1000;
 const NO_FORCED_ERROR: ReadonlySet<HubCommandName> = new Set(['JoinLake', 'Move']);
+const DIRECTIONS: readonly Direction[] = ['up', 'down', 'left', 'right'];
 const NAME_PATTERN = /^[\p{L}\p{N} _]{3,16}$/u;
 
 class CommandError extends Error {
@@ -549,6 +550,15 @@ export class MockBackend {
   private runCommand(name: HubCommandName, args: Record<string, unknown>): unknown {
     switch (name) {
       case 'JoinLake':
+        if (Number.isFinite(args.x) && Number.isFinite(args.y)) {
+          this.position = {
+            x: Number(args.x),
+            y: Number(args.y),
+            dir: DIRECTIONS.includes(args.dir as Direction)
+              ? (args.dir as Direction)
+              : this.position.dir,
+          };
+        }
         return this.snapshot();
       case 'Move':
         return this.commandMove(args);
@@ -584,20 +594,17 @@ export class MockBackend {
     const y = Number(args.y);
     const seq = Number(args.seq);
     const dir = args.dir as Direction;
-    if (!this.isMoveAllowed(x, y)) {
-      this.emit('PositionCorrected', { x: this.position.x, y: this.position.y, seq });
-      return null;
+    if (
+      !Number.isFinite(x) ||
+      !Number.isFinite(y) ||
+      !Number.isFinite(seq) ||
+      !DIRECTIONS.includes(dir)
+    ) {
+      throw new CommandError('VALIDATION_FAILED');
     }
+    // Giống Server: vị trí do Client báo, không kiểm tra map hay tốc độ.
     this.position = { x, y, dir };
     return null;
-  }
-
-  private isMoveAllowed(x: number, y: number): boolean {
-    if (this.attempt) return false;
-    if (!canStand(this.map, x, y) || !inLakeArea(this.map, x, y)) return false;
-    if (!this.session) return true;
-    const { info } = this.seatOf(this.session.seatId);
-    return Math.hypot(x - info.x, y - info.y) <= info.roamRadius;
   }
 
   private seatOf(seatId: string): SeatRuntime {
@@ -649,9 +656,6 @@ export class MockBackend {
     seat.state = 'occupied';
     seat.occupantPlayerId = MY_ID;
 
-    // Đưa nhân vật về ghế để phạm vi roamRadius tính từ đúng vị trí.
-    this.position = { x: seat.info.x, y: seat.info.y, dir: this.position.dir };
-    this.emit('PositionCorrected', { x: seat.info.x, y: seat.info.y, seq: 0 });
     this.emit('SeatChanged', this.seatView(seat));
     this.emit('MySeat', this.mySeatView(this.session));
     return { seat: this.mySeatView(this.session) };

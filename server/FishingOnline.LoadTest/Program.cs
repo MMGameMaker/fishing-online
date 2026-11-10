@@ -53,10 +53,6 @@ foreach (var playerId in players)
         latenciesMs.Add(Stopwatch.GetElapsedTime(startedAt).TotalMilliseconds);
         Interlocked.Increment(ref moved);
     });
-    hub.On<JsonElement>("PositionCorrected", payload =>
-    {
-        if (payload.GetProperty("seq").GetInt64() > 0) errors.Add("PositionCorrected");
-    });
     hub.Closed += exception =>
     {
         errors.Add("closed: " + exception?.GetType().Name);

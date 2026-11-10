@@ -1,4 +1,4 @@
-# Spec chung v0.9 — nguồn duy nhất cho mọi worker
+# Spec chung v0.10 — nguồn duy nhất cho mọi worker
 
 **Trạng thái: Người dùng duyệt cơ chế và các mặc định đã nêu ngày 2026-11-09; cập nhật v0.5: Client xử lý minigame, pool thả cộng dồn, BE có thể làm tuần tự.** Tổng hợp từ [GAMEPLAY_SCOPE.md](../../doc/GAMEPLAY_SCOPE.md) (bản client Phaser + TS). Thay thế [contracts/v1-draft.md](../contracts/v1-draft.md) cho bản đầu. Worker **không tự sửa file này**; cần đổi thì ghi vào báo cáo, lead quyết và tăng phiên bản (xem [QUY_TRINH.md](QUY_TRINH.md)).
 
@@ -53,8 +53,8 @@ Vé là quyền câu theo thời gian, không gắn với ghế. Bỏ Tier ghế
 
 **Ghế**
 - 20 ghế `seat-01..seat-20`, trạng thái `available` | `occupied`. Mỗi ghế một người, mỗi player ngồi tối đa 1 ghế.
-- `SitDown {seatId}` (Client gửi khi user nhấn E hoặc nút Sit cạnh ghế): cần vé còn hiệu lực (`NO_TICKET`, Client mở popup mua vé), ghế trống (`SEAT_TAKEN`; ai tới trước được ngồi theo transaction/unique index), player chưa ngồi ghế khác (`ALREADY_HAS_SEAT`), player đứng cách ghế ≤ 64 px (`OUT_OF_RANGE`). Thành công: đặt player vào vị trí ghế, phát `SeatChanged`, `MySeat`.
-- Đang ngồi thì không đi lại (`Move` bị kéo về). Rời ghế là `LeaveSeat`; Client gửi lệnh này khi user bấm phím di chuyển hoặc nút Rời ghế. Rời ghế không mất vé, ghế trống ngay, không cooldown.
+- `SitDown {seatId}` (Client gửi khi user nhấn E hoặc nút Sit cạnh ghế): cần vé còn hiệu lực (`NO_TICKET`, Client mở popup mua vé), ghế trống (`SEAT_TAKEN`; ai tới trước được ngồi theo transaction/unique index), player chưa ngồi ghế khác (`ALREADY_HAS_SEAT`), Server không kiểm tra khoảng cách tới ghế. Thành công: phát `SeatChanged`, `MySeat`; Client tự đặt nhân vật vào ghế rồi báo vị trí bằng `Move`.
+- Server không giữ map: `Move` và `JoinLake` chỉ để Client báo vị trí (`x`, `y`, `dir`), Server ghi lại và chuyển cho người khác bằng `PlayerMoved`/`PlayerJoined`, không kiểm tra vùng đi được, tốc độ hay đang ngồi. Client gửi `Move` mọi lúc kể cả khi ngồi hoặc đang câu. Rời ghế là `LeaveSeat`; Client gửi lệnh này khi user bấm phím di chuyển hoặc nút Rời ghế. Rời ghế không mất vé, ghế trống ngay, không cooldown.
 - `LeaveSeat` bị từ chối (`STATE_CONFLICT`) khi lần câu đang ở `minigame`, tức từ lúc thu cần tới khi có kết quả. Ở `waiting`/`bite`, rời ghế hủy lần câu với lý do `left_seat`.
 - Ghế kết thúc (`MySeat {seatId, ended: true, reason}`) với các lý do:
   - `left_seat`: user rời ghế.
@@ -180,7 +180,7 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 
 | Method | Tham số | Ack data | Nhóm |
 | --- | --- | --- | --- |
-| JoinLake | `{ requestId }` | `LakeSnapshot` | BE-C |
+| JoinLake | `{ requestId, x?, y?, dir? }` (vị trí ban đầu, cần đủ cả `x` và `y`) | `LakeSnapshot` | BE-C |
 | Move | `{ requestId, seq, x, y, dir }` | null | BE-C |
 | BuyTicket | `{ requestId, quantity, expectedPriceVersion }` | `{ ticket: MyTicket, gold, chargedGold }` | BE-C |
 | SitDown | `{ requestId, seatId }` | `{ seat: MySeat }` | BE-C |
@@ -196,7 +196,7 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 | LakeSnapshot | caller | `{ mapId, mapVersion, configVersion, serverTime, players: [PlayerView], seats: [SeatView], myTicket: MyTicket \| null, mySeat: MySeat \| null, myAttempt: AttemptView \| null }` |
 | PlayerJoined / PlayerLeft | phòng | `PlayerView` / `{ playerId }` |
 | PlayerMoved | phòng trừ người gửi | `{ playerId, x, y, dir, seq }` |
-| PositionCorrected | người gửi | `{ x, y, seq }` |
+| PositionCorrected | — | Không còn được Server phát từ v0.10 |
 | SeatChanged | phòng | `SeatView` |
 | MyTicket | owner | `MyTicket` sau mỗi lần mua |
 | MySeat | owner | `MySeat` hoặc `{ seatId, ended: true, reason }` |
@@ -225,7 +225,7 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 | ALREADY_HAS_SEAT | Player đã giữ ghế khác |
 | NOT_IN_SEAT | Lệnh cần đang ngồi ghế |
 | NO_TICKET | Không có vé hoặc vé đã hết (409) |
-| OUT_OF_RANGE | Đứng quá xa ghế khi `SitDown` |
+| OUT_OF_RANGE | Không còn dùng từ v0.10 |
 | INSUFFICIENT_GOLD | Thiếu Gold |
 | ATTEMPT_ACTIVE | Đã có lần câu đang chạy |
 | NO_ACTIVE_ATTEMPT | attemptId không phải lần câu đang chạy |
@@ -305,3 +305,4 @@ Nguồn phân tích replay/business rules: [OWASP Business Logic Security](https
 | 0.8 | 2026-11-09 | 2.6 | User chốt tự câu sau khi ngồi, nút Kéo giữa màn hình và chạm bất kỳ, popup chạm mới đóng, thua chờ 2 giây, chưa câu được cá vẫn rời ghế được; không đổi contract | CL-B/C, QA |
 
 | 0.9 | 2026-11-10 | 2.2, 2.4, 2.6, 2.8, 3, 4, 5, 6 | Theo GAMEPLAY_SCOPE GD 2026-11-10: vé theo thời gian tách khỏi ghế (`BuyTicket`, `SitDown`), bỏ Tier/buff/cooldown/gia hạn ghế, Luck tối đa 6; nút móc câu góc phải, trượt cá thì tự đứng dậy, không rời ghế khi đang minigame; thêm event `FailShown`. Đổi contract | BE-A/B/C/E, CL-A/B/C, AD, QA |
+| 0.10 | 2026-11-10 | 2.2, 3, 4, 5 | Người dùng quyết: Server không giữ map và không kiểm tra khoảng cách tới ghế; `Move` chỉ báo vị trí để chuyển cho người chơi khác, Client gửi mọi lúc; `JoinLake` nhận vị trí ban đầu; bỏ `PositionCorrected` và `OUT_OF_RANGE`. Đổi contract | BE-C, CL-B/C, QA |

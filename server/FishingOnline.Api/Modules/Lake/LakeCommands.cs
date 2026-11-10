@@ -14,25 +14,24 @@ public sealed record LakeSnapshot(
 /// <summary>Vào phòng, di chuyển, mất kết nối. Mọi thay đổi presence đi qua hàng đợi của phòng.</summary>
 public sealed class LakeCommands(
     IServiceScopeFactory scopes,
-    LakeMap map,
+    LakeLayout layout,
     LakeRoom room,
     SeatSessions seats,
     IConfigProvider configs,
-    IFishingState fishing,
     FishingService attempts,
     IConfiguration configuration,
     TimeProvider time)
 {
     private const int MaxMovesPerSecond = 20;
-    private const double SpeedTolerance = 1.25;
-    private const double DistanceAllowancePx = 8;
-    private const double MaxMoveWindowSeconds = 1;
     private static readonly HashSet<string> Directions = ["up", "down", "left", "right"];
 
     private int MaxPlayers => configuration.GetValue("Lake:MaxPlayers", 50);
 
-    public async Task<LakeSnapshot> JoinAsync(Guid playerId, string connectionId, Action abort, CancellationToken ct)
+    public async Task<LakeSnapshot> JoinAsync(
+        Guid playerId, string connectionId, JoinLakeCommand command, Action abort, CancellationToken ct)
     {
+        if (!IsValidPosition(command.X, command.Y, command.Dir)) throw new GameException(ErrorCatalog.ValidationFailed);
+
         PlayerProfile profile;
         await using (var scope = scopes.CreateAsyncScope())
         {
@@ -58,11 +57,16 @@ public sealed class LakeCommands(
                 existing.SeatId = session?.SeatId;
                 existing.LastMoveAt = now;
                 existing.LastSeq = 0;
+                if (command.X is { } x && command.Y is { } y)
+                {
+                    existing.X = x;
+                    existing.Y = y;
+                    existing.Dir = command.Dir ?? existing.Dir;
+                }
             }
             else
             {
                 if (room.Count >= MaxPlayers) throw new GameException("STATE_CONFLICT");
-                var position = session is not null ? map.Seat(session.SeatId)! : null;
                 var player = new RoomPlayer
                 {
                     PlayerId = playerId,
@@ -71,9 +75,9 @@ public sealed class LakeCommands(
                     RodId = profile.EquippedRodId,
                     ConnectionId = connectionId,
                     Abort = abort,
-                    X = position?.X ?? map.Data.Spawn.X,
-                    Y = position?.Y ?? map.Data.Spawn.Y,
-                    Dir = position?.Facing ?? "down",
+                    X = command.X ?? 0,
+                    Y = command.Y ?? 0,
+                    Dir = command.Dir ?? "down",
                     SeatId = session?.SeatId,
                     LastMoveAt = now,
                 };
@@ -88,12 +92,12 @@ public sealed class LakeCommands(
         var myAttempt = await attempts.GetActiveViewAsync(playerId, ct);
         var players = await room.Queue.RunAsync(() => Task.FromResult(room.Views()));
         return new LakeSnapshot(
-            map.Data.MapId, map.Data.MapVersion, configs.Current.ConfigVersion, time.GetUtcNow(), players, seatViews, ticket, session, myAttempt);
+            layout.MapId, layout.MapVersion, configs.Current.ConfigVersion, time.GetUtcNow(), players, seatViews, ticket, session, myAttempt);
     }
 
     public Task MoveAsync(Guid playerId, MoveCommand command)
     {
-        if (!double.IsFinite(command.X) || !double.IsFinite(command.Y) || !Directions.Contains(command.Dir))
+        if (command.Dir is null || !IsValidPosition(command.X, command.Y, command.Dir))
             throw new GameException(ErrorCatalog.ValidationFailed);
 
         return room.Queue.RunAsync(async () =>
@@ -104,12 +108,7 @@ public sealed class LakeCommands(
             if (command.Seq <= player.LastSeq) return true;
             player.LastSeq = command.Seq;
 
-            if (!IsAllowed(player, command, now))
-            {
-                await room.Client(player.ConnectionId).SendAsync("PositionCorrected", new PositionCorrectedView(player.X, player.Y, command.Seq));
-                return true;
-            }
-
+            // Vị trí do Client báo; Server chỉ ghi lại và chuyển cho người khác.
             player.X = command.X;
             player.Y = command.Y;
             player.Dir = command.Dir;
@@ -141,16 +140,11 @@ public sealed class LakeCommands(
         });
     }
 
-    private bool IsAllowed(RoomPlayer player, MoveCommand command, DateTimeOffset now)
-    {
-        // Đang ngồi thì không đi lại; muốn đi phải LeaveSeat trước (SPEC 2.2).
-        if (player.SeatId is not null || fishing.IsBusy(player.PlayerId)) return false;
-
-        var seconds = Math.Min(MaxMoveWindowSeconds, Math.Max(0, (now - player.LastMoveAt).TotalSeconds));
-        var limit = map.Data.MoveRules.MaxSpeedPxPerSec * seconds * SpeedTolerance + DistanceAllowancePx;
-        if (Distance(player.X, player.Y, command.X, command.Y) > limit) return false;
-        return map.CanStand(command.X, command.Y);
-    }
+    /// <summary>Toạ độ phải là số hữu hạn và đi cặp với nhau; hướng nếu có phải hợp lệ.</summary>
+    private static bool IsValidPosition(double? x, double? y, string? dir) =>
+        (x is null) == (y is null)
+        && (x is null || (double.IsFinite(x.Value) && double.IsFinite(y!.Value)))
+        && (dir is null || Directions.Contains(dir));
 
     private static bool TryCountMove(RoomPlayer player, DateTimeOffset now)
     {
@@ -160,9 +154,6 @@ public sealed class LakeCommands(
         player.RecentMoves.Enqueue(now);
         return true;
     }
-
-    private static double Distance(double x1, double y1, double x2, double y2) =>
-        Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 }
 
 /// <summary>Dùng filter vì không được thêm constructor vào GameHub.</summary>
@@ -227,11 +218,8 @@ public static class LakeModule
     {
         services.AddSingleton(provider =>
         {
-            var configuration = provider.GetRequiredService<IConfiguration>();
-            var environment = provider.GetRequiredService<IHostEnvironment>();
-            var path = Path.GetFullPath(configuration["Lake:MapPath"]
-                ?? throw new InvalidOperationException("Lake:MapPath is not configured."), environment.ContentRootPath);
-            return LakeMap.Parse(File.ReadAllText(path));
+            var lake = provider.GetRequiredService<IConfiguration>().GetSection("Lake");
+            return new LakeLayout(lake["MapId"] ?? "lake-01", lake["MapVersion"] ?? "1", lake.GetValue("SeatCount", 20));
         });
         services.AddSingleton<LakeRoom>();
         services.AddSingleton<SeatSessions>();

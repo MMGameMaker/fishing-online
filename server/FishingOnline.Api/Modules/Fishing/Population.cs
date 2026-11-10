@@ -80,9 +80,9 @@ public sealed record StockResult(bool Applied, IReadOnlyDictionary<string, int> 
 /// Quần thể hữu hạn theo hồ/loài (SPEC 2.12, BE-E-08). Mọi thao tác khóa hàng quần thể theo thứ tự speciesId
 /// trong transaction của caller, nên thả cá và bắt cá cùng lúc không mất cập nhật.
 /// </summary>
-public sealed class FishPopulation(IServiceScopeFactory scopes, LakeMap map, IConfigProvider configs, IConfiguration configuration, TimeProvider time)
+public sealed class FishPopulation(IServiceScopeFactory scopes, LakeLayout layout, IConfigProvider configs, IConfiguration configuration, TimeProvider time)
 {
-    public string LakeId => map.Data.MapId;
+    public string LakeId => layout.MapId;
 
     /// <summary>Tạo tồn đầu cho loài chưa có. Không bao giờ ghi đè hồ đã có cá (login, restart, publish config).</summary>
     public async Task EnsureSeededAsync(CancellationToken ct)

@@ -161,9 +161,7 @@ public sealed record PlayerLeftView(Guid PlayerId);
 
 public sealed record PlayerMovedView(Guid PlayerId, double X, double Y, string Dir, long Seq);
 
-public sealed record PositionCorrectedView(double X, double Y, long Seq);
-
-public sealed record JoinLakeCommand(string RequestId) : IHubCommand;
+public sealed record JoinLakeCommand(string RequestId, double? X = null, double? Y = null, string? Dir = null) : IHubCommand;
 
 public sealed record MoveCommand(string RequestId, long Seq, double X, double Y, string Dir) : IHubCommand;
 

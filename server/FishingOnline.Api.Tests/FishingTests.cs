@@ -123,20 +123,6 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
-    public async Task Move_WhileFishing_IsCorrected()
-    {
-        await using var player = await SeatedAsync();
-        await CastAsync(player);
-        App.Clock.Advance(TimeSpan.FromSeconds(1));
-        player.Received.Clear();
-        var seat = App.Service<LakeMap>().Seat("seat-11")!;
-
-        await player.OkAsync("Move", new { seq = 100, x = seat.X + 5, y = seat.Y, dir = "right" });
-
-        await player.WaitForAsync("PositionCorrected");
-    }
-
-    [Fact]
     public async Task Hook_GivesMinigameParams_ToOwnerOnly()
     {
         await using var watcher = await App.ConnectAsync();

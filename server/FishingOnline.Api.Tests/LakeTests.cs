@@ -6,47 +6,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FishingOnline.Api.Tests;
 
-public sealed class LakeMapTests
+public sealed class LakeLayoutTests
 {
-    private static readonly LakeMap Map = LakeMap.Parse(File.ReadAllText(
-        Path.Combine(AppContext.BaseDirectory, "fixtures", "lake-map.placeholder.json")));
+    private static readonly LakeLayout Layout = new("lake-01", "1", 20);
 
     [Fact]
-    public void Water_CannotStand() => Assert.False(Map.CanStand(768, 500));
-
-    [Fact]
-    public void Spawn_CanStand() => Assert.True(Map.CanStand(Map.Data.Spawn.X, Map.Data.Spawn.Y));
-
-    [Fact]
-    public void EverySeat_CanStand()
+    public void Seats_AreNumberedFromOne()
     {
-        Assert.Equal(20, Map.Data.Seats.Count);
-        Assert.All(Map.Data.Seats, seat => Assert.True(Map.CanStand(seat.X, seat.Y), seat.SeatId));
-    }
-
-    [Fact]
-    public void FeetBox_TouchingWater_CannotStand()
-    {
-        // Ô nước đầu tiên bắt đầu ở x = 384; chân rộng 7 px mỗi bên.
-        Assert.True(Map.CanStand(377, 500));
-        Assert.False(Map.CanStand(378, 500));
-    }
-
-    [Fact]
-    public void OutsideMap_CannotStand() => Assert.False(Map.CanStand(-20, 100));
-
-    [Fact]
-    public void InLakeArea_FollowsPolygon()
-    {
-        Assert.True(Map.InLakeArea(100, 100));
-        Assert.False(Map.InLakeArea(10, 10));
+        Assert.Equal(20, Layout.Seats.Count);
+        Assert.Equal("seat-01", Layout.Seats[0].SeatId);
+        Assert.Equal("seat-20", Layout.Seats[^1].SeatId);
     }
 
     [Fact]
     public void Seat_LookupByIdAndUnknown()
     {
-        Assert.Equal(1, Map.Seat("seat-01")!.Number);
-        Assert.Null(Map.Seat("seat-99"));
+        Assert.Equal(1, Layout.Seat("seat-01")!.Number);
+        Assert.Null(Layout.Seat("seat-99"));
+        Assert.Null(Layout.Seat("seat-00"));
     }
 }
 
@@ -95,36 +72,6 @@ public sealed class LakeRoomTests(PostgresServer postgres) : GameTestBase(postgr
     }
 
     [Fact]
-    public async Task JumpFar_IsCorrected()
-    {
-        await using var player = await App.ConnectAsync();
-        await player.OkAsync("JoinLake");
-
-        await player.OkAsync("Move", new { seq = 1, x = 644, y = 976, dir = "right" });
-
-        var corrected = await player.WaitForAsync("PositionCorrected");
-        Assert.Equal(144, corrected.GetProperty("x").GetDouble());
-    }
-
-    [Fact]
-    public async Task WalkIntoWater_IsCorrected()
-    {
-        await using var player = await App.ConnectAsync();
-        await player.OkAsync("JoinLake");
-        App.Clock.Advance(TimeSpan.FromSeconds(1));
-        await player.OkAsync("Move", new { seq = 1, x = 250, y = 850, dir = "right" });
-        App.Clock.Advance(TimeSpan.FromSeconds(1));
-        await player.OkAsync("Move", new { seq = 2, x = 370, y = 800, dir = "right" });
-        Assert.DoesNotContain(player.Received, item => item.Name == "PositionCorrected");
-        App.Clock.Advance(TimeSpan.FromSeconds(1));
-
-        await player.OkAsync("Move", new { seq = 3, x = 400, y = 800, dir = "right" });
-
-        var corrected = await player.WaitForAsync("PositionCorrected");
-        Assert.Equal(370, corrected.GetProperty("x").GetDouble());
-    }
-
-    [Fact]
     public async Task ValidMove_ReachesOthers_StaleSeqIgnored()
     {
         await using var mover = await App.ConnectAsync();
@@ -142,18 +89,70 @@ public sealed class LakeRoomTests(PostgresServer postgres) : GameTestBase(postgr
     }
 
     [Fact]
-    public async Task SeatedPlayer_CannotWalk_EvenOneStep()
+    public async Task Move_IsTrusted_AnyPositionReachesOthers()
+    {
+        await using var mover = await App.ConnectAsync();
+        await mover.OkAsync("JoinLake");
+        await using var watcher = await App.ConnectAsync();
+        await watcher.OkAsync("JoinLake");
+
+        await mover.OkAsync("Move", new { seq = 1, x = 5000, y = -300, dir = "left" });
+
+        var moved = await watcher.WaitForAsync("PlayerMoved");
+        Assert.Equal(5000, moved.GetProperty("x").GetDouble());
+        Assert.Equal(-300, moved.GetProperty("y").GetDouble());
+        Assert.Equal("left", moved.GetProperty("dir").GetString());
+        Assert.DoesNotContain(mover.Received, item => item.Name == "PositionCorrected");
+    }
+
+    [Fact]
+    public async Task SeatedPlayer_CanReportPosition()
     {
         await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
         await player.OkAsync("JoinLake");
+        await using var watcher = await App.ConnectAsync();
+        await watcher.OkAsync("JoinLake");
         await SitAsync(player, "seat-01");
-        App.Clock.Advance(TimeSpan.FromSeconds(1));
-        player.Received.Clear();
 
         await player.OkAsync("Move", new { seq = 10, x = 470, y = 240, dir = "right" });
 
-        var corrected = await player.WaitForAsync("PositionCorrected");
-        Assert.Equal(464, corrected.GetProperty("x").GetDouble());
+        var moved = await watcher.WaitForAsync("PlayerMoved");
+        Assert.Equal(470, moved.GetProperty("x").GetDouble());
+    }
+
+    [Fact]
+    public async Task JoinLake_WithPosition_IsSeenByOthers()
+    {
+        await using var first = await App.ConnectAsync();
+        await first.OkAsync("JoinLake", new { x = 300, y = 400, dir = "up" });
+        await using var second = await App.ConnectAsync();
+
+        var snapshot = await second.OkAsync("JoinLake");
+
+        var other = Players(snapshot).Single(player => player.GetProperty("playerId").GetGuid() == first.PlayerId);
+        Assert.Equal(300, other.GetProperty("x").GetDouble());
+        Assert.Equal(400, other.GetProperty("y").GetDouble());
+        Assert.Equal("up", other.GetProperty("dir").GetString());
+        var joined = await first.WaitForAsync("PlayerJoined");
+        Assert.Equal(second.PlayerId, joined.GetProperty("playerId").GetGuid());
+    }
+
+    [Fact]
+    public async Task JoinLake_PositionMustBeComplete()
+    {
+        await using var player = await App.ConnectAsync();
+
+        Assert.Equal("VALIDATION_FAILED", await player.ErrorAsync("JoinLake", new { x = 300 }));
+        Assert.Equal("VALIDATION_FAILED", await player.ErrorAsync("JoinLake", new { x = 1, y = 2, dir = "sideways" }));
+    }
+
+    [Fact]
+    public async Task Move_WithBadDirection_IsRejected()
+    {
+        await using var player = await App.ConnectAsync();
+        await player.OkAsync("JoinLake");
+
+        Assert.Equal("VALIDATION_FAILED", await player.ErrorAsync("Move", new { seq = 1, x = 1, y = 1, dir = "sideways" }));
     }
 
     [Fact]
@@ -298,7 +297,6 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
         {
             var player = await InLakeAsync();
             await player.OkAsync("BuyTicket", TicketArgs());
-            await App.PlaceNearSeatAsync(player.PlayerId, "seat-11");
             players.Add(player);
         }
 
@@ -311,7 +309,7 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
     }
 
     [Fact]
-    public async Task Sit_Publishes_AndMovesPlayerOntoSeat()
+    public async Task Sit_Publishes_SeatAndMySeat()
     {
         await using var sitter = await InLakeAsync();
         await using var watcher = await InLakeAsync();
@@ -323,16 +321,12 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
         Assert.Equal("occupied", seat.GetProperty("state").GetString());
         Assert.Equal(sitter.PlayerId, seat.GetProperty("occupantPlayerId").GetGuid());
         await sitter.WaitForAsync("MySeat");
-        await sitter.WaitForAsync("PositionCorrected");
-        var moved = await watcher.WaitForAsync("PlayerMoved");
-        Assert.Equal(App.Service<LakeMap>().Seat("seat-11")!.X, moved.GetProperty("x").GetDouble());
     }
 
     [Fact]
     public async Task Sit_WithoutTicket_NoTicket_ThenAfterBuyingWorks()
     {
         await using var player = await InLakeAsync();
-        await App.PlaceNearSeatAsync(player.PlayerId, "seat-11");
 
         Assert.Equal("NO_TICKET", await player.ErrorAsync("SitDown", new { seatId = "seat-11" }));
 
@@ -342,12 +336,14 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
     }
 
     [Fact]
-    public async Task Sit_FromFarAway_OutOfRange()
+    public async Task Sit_DoesNotCheckDistance()
     {
         await using var player = await InLakeAsync();
         await player.OkAsync("BuyTicket", TicketArgs());
 
-        Assert.Equal("OUT_OF_RANGE", await player.ErrorAsync("SitDown", new { seatId = "seat-11" }));
+        await player.OkAsync("SitDown", new { seatId = "seat-11" });
+
+        Assert.Equal("occupied", await SeatStateAsync("seat-11"));
     }
 
     [Fact]
@@ -356,7 +352,6 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
         await using var player = await InLakeAsync();
         await player.OkAsync("BuyTicket", TicketArgs());
         App.Clock.Advance(TimeSpan.FromMinutes(10));
-        await App.PlaceNearSeatAsync(player.PlayerId, "seat-11");
 
         Assert.Equal("NO_TICKET", await player.ErrorAsync("SitDown", new { seatId = "seat-11" }));
     }
@@ -366,10 +361,8 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
     {
         await using var player = await InLakeAsync();
         var first = await SitAsync(player, "seat-01");
-        await App.PlaceNearSeatAsync(player.PlayerId, "seat-02");
 
         Assert.Equal("ALREADY_HAS_SEAT", await player.ErrorAsync("SitDown", new { seatId = "seat-02" }));
-        await App.PlaceNearSeatAsync(player.PlayerId, "seat-01");
         var again = await player.OkAsync("SitDown", new { seatId = "seat-01" });
         Assert.Equal(first.GetRawText(), again.GetRawText());
     }

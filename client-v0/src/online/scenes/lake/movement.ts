@@ -22,6 +22,13 @@ export class MoveSender {
 
   constructor(private readonly send: (message: MoveMessage) => void) {}
 
+  /** Gửi ngay vị trí hiện tại, dùng khi bị đặt vào ghế mà không đi bộ tới. */
+  flush(nowMs: number, x: number, y: number, dir: Direction): void {
+    this.lastSentMs = nowMs;
+    this.seq += 1;
+    this.send({ seq: this.seq, x, y, dir });
+  }
+
   update(nowMs: number, x: number, y: number, dir: Direction, moving: boolean): void {
     const dueByTime = moving && nowMs - this.lastSentMs >= MOVE_SEND_INTERVAL_MS;
     const justStopped = !moving && this.wasMoving;

@@ -12,15 +12,12 @@ namespace FishingOnline.Api.Modules.Lake;
 /// <summary>Vé câu theo thời gian và chỗ ngồi (SPEC 2.2). DB là nguồn chân lý; event chỉ phát sau commit.</summary>
 public sealed class SeatSessions(
     IServiceScopeFactory scopes,
-    LakeMap map,
+    LakeLayout layout,
     IConfigProvider configs,
     LakeRoom room,
     TimeProvider time,
     ILogger<SeatSessions> logger) : ISeatSessions
 {
-    /// <summary>Khoảng cách tối đa từ chân nhân vật tới ghế khi nhấn E (SPEC 2.2).</summary>
-    public const double SitRangePx = 64;
-
     // Chỉ chặn tràn số; GD chưa chốt giới hạn tổng thời gian vé còn lại.
     private const long MaxTotalMinutes = 525600;
 
@@ -61,7 +58,7 @@ public sealed class SeatSessions(
         await using var scope = scopes.CreateAsyncScope();
         var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
         var open = await db.Set<SeatSessionRow>().AsNoTracking().Where(row => row.EndedAt == null).ToDictionaryAsync(row => row.SeatId, ct);
-        return map.Data.Seats.OrderBy(seat => seat.Number)
+        return layout.Seats.OrderBy(seat => seat.Number)
             .Select(seat => SeatViewOf(seat.SeatId, open.GetValueOrDefault(seat.SeatId)?.PlayerId))
             .ToArray();
     }
@@ -128,10 +125,8 @@ public sealed class SeatSessions(
 
     public async Task<SitDownResult> SitDownAsync(Guid playerId, string seatId, CancellationToken ct)
     {
-        var seat = map.Seat(seatId) ?? throw new GameException(ErrorCatalog.ValidationFailed);
-        var position = await room.Queue.RunAsync(() =>
-            Task.FromResult(room.Find(playerId) is { } player ? (player.X, player.Y) : ((double X, double Y)?)null));
-        if (position is not { } at) throw new GameException("STATE_CONFLICT");
+        var seat = layout.Seat(seatId) ?? throw new GameException(ErrorCatalog.ValidationFailed);
+        if (await room.Queue.RunAsync(() => Task.FromResult(room.Find(playerId) is null))) throw new GameException("STATE_CONFLICT");
 
         MySeatView view;
         await using (var scope = scopes.CreateAsyncScope())
@@ -142,7 +137,6 @@ public sealed class SeatSessions(
             // Gửi lại lệnh ngồi đúng ghế đang ngồi thì trả ghế đó, không báo lỗi.
             if (mine is not null)
                 return mine.SeatId == seatId ? new SitDownResult(SeatOf(mine)) : throw new GameException("ALREADY_HAS_SEAT");
-            if (Distance(at.X, at.Y, seat.X, seat.Y) > SitRangePx) throw new GameException("OUT_OF_RANGE");
 
             var now = TruncateToMicroseconds(time.GetUtcNow());
             var ticket = await db.Set<TicketRow>().AsNoTracking().SingleOrDefaultAsync(row => row.PlayerId == playerId, ct);
@@ -269,7 +263,7 @@ public sealed class SeatSessions(
         {
             var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
             var existing = await db.Set<SeatRow>().Select(row => row.SeatId).ToListAsync(ct);
-            db.AddRange(map.Data.Seats.Where(seat => !existing.Contains(seat.SeatId))
+            db.AddRange(layout.Seats.Where(seat => !existing.Contains(seat.SeatId))
                 .Select(seat => new SeatRow { SeatId = seat.SeatId, Number = seat.Number }));
             await db.SaveChangesAsync(ct);
 
@@ -328,20 +322,15 @@ public sealed class SeatSessions(
         return null;
     }
 
-    private async Task PublishTakenAsync(Guid playerId, MapSeat seat, MySeatView view)
+    private async Task PublishTakenAsync(Guid playerId, LakeSeatInfo seat, MySeatView view)
     {
         await room.BroadcastAsync("SeatChanged", SeatViewOf(seat.SeatId, playerId));
         await room.SendToPlayerAsync(playerId, "MySeat", view);
         await room.Queue.RunAsync(async () =>
         {
             if (room.Find(playerId) is not { } player) return true;
-            player.X = seat.X;
-            player.Y = seat.Y;
-            player.Dir = seat.Facing;
             player.SeatId = seat.SeatId;
             player.LastMoveAt = time.GetUtcNow();
-            await room.Client(player.ConnectionId).SendAsync("PositionCorrected", new PositionCorrectedView(seat.X, seat.Y, player.LastSeq));
-            await room.Others(player.ConnectionId).SendAsync("PlayerMoved", new PlayerMovedView(playerId, seat.X, seat.Y, seat.Facing, player.LastSeq));
             return true;
         });
     }
@@ -359,9 +348,6 @@ public sealed class SeatSessions(
 
     private static SeatView SeatViewOf(string seatId, Guid? occupant) =>
         new(seatId, occupant is null ? "available" : "occupied", occupant);
-
-    private static double Distance(double x1, double y1, double x2, double y2) =>
-        Math.Sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
 
     private static string Text(long gold) => gold.ToString(CultureInfo.InvariantCulture);
 

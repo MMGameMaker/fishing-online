@@ -55,13 +55,13 @@ public sealed class RoomPlayer
 }
 
 /// <summary>Presence trong RAM và các event gửi cho phòng; ghế/phiên có nguồn chân lý ở DB.</summary>
-public sealed class LakeRoom(LakeMap map, IHubContext<GameHub> hub, IFishingState fishing) : IDisposable
+public sealed class LakeRoom(LakeLayout layout, IHubContext<GameHub> hub, IFishingState fishing) : IDisposable
 {
     private readonly Dictionary<Guid, RoomPlayer> players = [];
 
     public SerialQueue Queue { get; } = new();
 
-    public string Group => map.Data.MapId;
+    public string Group => layout.MapId;
 
     public IClientProxy Everyone => hub.Clients.Group(Group);
 

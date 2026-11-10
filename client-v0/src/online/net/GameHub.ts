@@ -5,6 +5,7 @@ import type {
   HubCommands,
   HubEventName,
   HubEvents,
+  JoinLakeArgs,
   LakeSnapshot,
 } from './contract';
 
@@ -34,6 +35,7 @@ export class GameHub {
   private readonly listeners = new Map<HubEventName, Set<Listener<never>>>();
   private readonly stateListeners = new Set<(state: ConnectionState) => void>();
   private readonly uuid: () => string;
+  private positionProvider: (() => JoinLakeArgs | null) | null = null;
 
   constructor(
     private readonly connection: HubConnectionLike,
@@ -91,9 +93,14 @@ export class GameHub {
     return this.connection.invoke(method, { requestId, ...args });
   }
 
+  /** Nơi lấy vị trí hiện tại để báo cho Server khi vào hồ hoặc nối lại. */
+  setPositionProvider(provider: (() => JoinLakeArgs | null) | null): void {
+    this.positionProvider = provider;
+  }
+
   /** Vào hồ và đưa snapshot trong ack tới listener LakeSnapshot. */
   async joinLake(): Promise<CommandAck<LakeSnapshot>> {
-    const ack = await this.invoke('JoinLake', {});
+    const ack = await this.invoke('JoinLake', this.positionProvider?.() ?? {});
     if (ack.ok && ack.data) this.emit('LakeSnapshot', ack.data);
     return ack;
   }

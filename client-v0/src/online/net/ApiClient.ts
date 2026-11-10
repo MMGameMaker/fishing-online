@@ -4,6 +4,7 @@ import type {
   ApiSuccess,
   ClientErrorCode,
   ErrorCode,
+  LoginResponse,
   RefreshResponse,
 } from './contract';
 
@@ -75,6 +76,13 @@ export class ApiClient {
 
   put<T>(path: string, body?: unknown): Promise<T> {
     return this.request<T>('PUT', path, body);
+  }
+
+  /** Đổi Firebase ID token lấy access token và lưu để các request sau tự gửi. */
+  async login(firebaseIdToken: string, rememberMe = true): Promise<LoginResponse> {
+    const result = await this.post<LoginResponse>('/auth/login', { firebaseIdToken, rememberMe });
+    this.accessToken = result.accessToken;
+    return result;
   }
 
   /** Gọi refresh bằng cookie; trả true nếu đã có access token mới. */

@@ -7,7 +7,7 @@ public sealed partial class GameHub
 {
     public async Task<CommandAck> JoinLake(JoinLakeCommand command, [FromServices] LakeCommands lake)
     {
-        var snapshot = await lake.JoinAsync(PlayerId, Context.ConnectionId, Context.Abort, Context.ConnectionAborted);
+        var snapshot = await lake.JoinAsync(PlayerId, Context.ConnectionId, command, Context.Abort, Context.ConnectionAborted);
         return CommandAck.Success(command.RequestId, snapshot);
     }
 

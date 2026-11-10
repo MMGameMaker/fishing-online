@@ -381,18 +381,28 @@ describe('MockBackend', () => {
     expect(rig.store.getState().lake.mySeat).not.toBeNull();
   });
 
-  it('di chuyển xuống nước hoặc quá phạm vi ghế bị kéo về', async () => {
-    await rig.hub.invoke('Move', { seq: 1, x: 768, y: 576, dir: 'down' });
-    expect(rig.store.getState().lake.correction?.seq).toBe(1);
+  it('Move chỉ ghi vị trí Client báo, không bị kéo về, JoinLake báo vị trí đầu', async () => {
+    const at = (x: number, y: number) =>
+      Object.values(rig.store.getState().lake.players).some((p) => p.x === x && p.y === y);
+
+    await rig.hub.invoke('Move', { seq: 1, x: 5000, y: -300, dir: 'left' });
+    await rig.hub.joinLake();
+    expect(at(5000, -300)).toBe(true);
+    expect(rig.store.getState().lake.correction).toBeNull();
+
+    rig.hub.setPositionProvider(() => ({ x: 12, y: 34, dir: 'up' }));
+    await rig.hub.joinLake();
+    expect(at(12, 34)).toBe(true);
+
+    const bad = await rig.hub.invoke('Move', { seq: 2, x: 1, y: 1, dir: 'sideways' as never });
+    expect(bad).toMatchObject({ ok: false, error: { code: 'VALIDATION_FAILED' } });
+  });
+
+  it('ngồi ghế không cần đứng gần và không bị đặt lại vị trí', async () => {
+    await rig.hub.invoke('Move', { seq: 1, x: 5000, y: 5000, dir: 'down' });
     await buy(rig, 'seat-11');
-    const seat = map.seats.find((s) => s.seatId === 'seat-11')!;
-    await rig.hub.invoke('Move', {
-      seq: 2,
-      x: seat.x + seat.roamRadius + 40,
-      y: seat.y,
-      dir: 'right',
-    });
-    expect(rig.store.getState().lake.correction).toMatchObject({ x: seat.x, y: seat.y, seq: 2 });
+    expect(rig.store.getState().lake.mySeat?.seatId).toBe('seat-11');
+    expect(rig.store.getState().lake.correction).toBeNull();
   });
 
   it('shop: thiếu Gold, đã có cần, đổi cần', async () => {

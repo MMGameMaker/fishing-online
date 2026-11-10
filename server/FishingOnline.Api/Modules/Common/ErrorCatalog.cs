@@ -33,7 +33,6 @@ public static class ErrorCatalog
         ["INSUFFICIENT_GOLD"] = new(422, false, "Not enough gold"),
         ["ROD_NOT_OWNED"] = new(422, false, "Rod not owned"),
         ["NOT_IN_SEAT"] = new(422, false, "Player is not in a seat"),
-        ["OUT_OF_RANGE"] = new(422, false, "Position out of range"),
         ["RATE_LIMITED"] = new(429, true, "Too many requests"),
         [InternalError] = new(500, false, "Internal server error"),
     };

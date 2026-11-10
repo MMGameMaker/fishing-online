@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
-import type { Catalog, LoginResponse } from '../net/contract';
+import type { Catalog } from '../net/contract';
 import { GAME_HEIGHT, GAME_WIDTH } from './env';
+import { getFirebaseIdToken } from './idToken';
 import { getServices } from './services';
 
 export const BOOT_SCENE = 'Boot';
@@ -29,16 +30,28 @@ export class BootScene extends Phaser.Scene {
     void this.enterLake(status);
   }
 
-  /** Tạm thời đăng nhập nhanh trong mock; CL-A-07 sẽ thay bằng màn đăng nhập. */
+  /** Mock đăng nhập ngay; Server thật cần Google, popup phải mở từ thao tác bấm. */
   private async enterLake(status: Phaser.GameObjects.Text): Promise<void> {
-    const { api, hub, store, isMock } = getServices(this);
-    if (!isMock) {
-      status.setText('Fishing Online\nChưa có màn đăng nhập');
+    const { isMock } = getServices(this);
+    if (!isMock && !(await getFirebaseIdToken(false, false))) {
+      status.setText('Fishing Online\nBấm để đăng nhập Google');
+      status.setInteractive({ useHandCursor: true });
+      status.once('pointerdown', () => {
+        status.disableInteractive();
+        status.setText('Fishing Online\nĐang đăng nhập...');
+        void this.login(status, true);
+      });
       return;
     }
+    await this.login(status, false);
+  }
+
+  private async login(status: Phaser.GameObjects.Text, interactive: boolean): Promise<void> {
+    const { api, hub, store, isMock } = getServices(this);
     try {
-      const login = await api.post<LoginResponse>('/auth/login', { firebaseIdToken: 'mock' });
-      api.setAccessToken(login.accessToken);
+      const idToken = await getFirebaseIdToken(isMock, interactive);
+      if (!idToken) throw new Error('Chưa đăng nhập');
+      const login = await api.login(idToken);
       store.dispatch({ type: 'session/profile', payload: login.player });
       store.dispatch({ type: 'catalog/set', payload: await api.get<Catalog>('/catalog') });
       await hub.start();

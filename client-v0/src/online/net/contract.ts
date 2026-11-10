@@ -68,6 +68,7 @@ export interface Stats {
 
 export interface LoginRequest {
   firebaseIdToken: string;
+  rememberMe?: boolean;
 }
 
 export interface LoginResponse {
@@ -263,8 +264,15 @@ export interface SitDownResult {
 }
 
 /** Lệnh hub: tham số (chưa gồm requestId) và kiểu data của ack. */
+/** Vị trí ban đầu do Client báo; Server không có map nên không kiểm tra. */
+export interface JoinLakeArgs {
+  x?: number;
+  y?: number;
+  dir?: Direction;
+}
+
 export interface HubCommands {
-  JoinLake: { args: Record<string, never>; ack: LakeSnapshot };
+  JoinLake: { args: JoinLakeArgs; ack: LakeSnapshot };
   Move: { args: { seq: number; x: number; y: number; dir: Direction }; ack: null };
   BuyTicket: {
     args: { quantity: number; expectedPriceVersion: string };

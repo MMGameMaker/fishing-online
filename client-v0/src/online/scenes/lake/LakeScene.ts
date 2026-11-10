@@ -236,7 +236,12 @@ export class LakeScene extends Phaser.Scene {
     // SPEC 0.9: đang ngồi thì không đi lại, nên không còn vẽ vòng phạm vi roamRadius.
     this.roamCircle.setVisible(false);
     if (!seat) return;
+    // Server không giữ map nên Client tự đặt nhân vật vào ghế rồi báo vị trí.
+    this.moveTarget = null;
+    this.pendingSeat = null;
+    this.me.setPosition(seat.x, seat.y);
     this.me.setDirection(seat.facing as Direction);
+    this.moveSender.flush(performance.now(), seat.x, seat.y, seat.facing as Direction);
   }
 
   private bobberPoint(): { x: number; y: number } | null {

@@ -4,12 +4,13 @@ import '../ui/kit/kit.css';
 import '../scenes/lake/lake.css';
 import '../fishing/fishing.css';
 import type { Catalog, Rarity } from '../core/gameplayConfig';
+import { getFirebaseIdToken } from '../core/idToken';
 import { createServices, type Services } from '../core/services';
 import type { HeadIcon } from '../entities/CharacterView';
 import type { CharacterAnim } from '../entities/placeholderArt';
 import { FishingFlow, type FishingActor } from '../fishing/FishingFlow';
 import { MINIGAME_SCENE, MinigameScene } from '../fishing/MinigameScene';
-import type { LoginResponse, PlayerProfile } from '../net/contract';
+import type { Direction, JoinLakeArgs, PlayerProfile } from '../net/contract';
 import { SeatMarkers } from '../scenes/lake/SeatMarkers';
 import { SeatUi } from '../scenes/lake/SeatUi';
 import type { LakeMap, LakeSeat } from '../scenes/lake/walkable';
@@ -28,6 +29,9 @@ const SCENE_PHASES: Partial<Record<CharacterAnim, string>> = {
 };
 
 interface PlayerEntity {
+  x: number;
+  y: number;
+  dir: string;
   setFishing(phase: string | null): void;
   showBubble(text: string): void;
   hideBubble(): void;
@@ -72,18 +76,38 @@ class SceneActor implements FishingActor {
   }
 }
 
-let connection: Promise<Services> | null = null;
+const MOVE_SEND_INTERVAL_MS = 100;
+const DIRECTIONS: readonly string[] = ['up', 'down', 'left', 'right'];
 
-async function connect(map: LakeMap, displayName: string): Promise<Services> {
+let connection: Promise<Services> | null = null;
+/** Giữ tăng dần qua các lần vào lại scene vì Server bỏ Move có seq cũ. */
+let moveSeq = 0;
+
+function positionOf(entity: PlayerEntity): JoinLakeArgs & { x: number; y: number; dir: Direction } {
+  return {
+    x: Math.round(entity.x * 10) / 10,
+    y: Math.round(entity.y * 10) / 10,
+    dir: (DIRECTIONS.includes(entity.dir) ? entity.dir : 'down') as Direction,
+  };
+}
+
+async function connect(
+  map: LakeMap,
+  displayName: string,
+  position: () => JoinLakeArgs,
+): Promise<Services> {
   const services = await createServices(map, { botCount: 0 });
-  const { api, hub, store } = services;
-  const login = await api.post<LoginResponse>('/auth/login', { firebaseIdToken: 'mock' });
-  api.setAccessToken(login.accessToken);
+  const { api, hub, store, isMock } = services;
+  // Người chơi đã đăng nhập Google ở màn đầu game nên dùng lại phiên Firebase, không mở popup.
+  const idToken = await getFirebaseIdToken(isMock, false);
+  if (!idToken) throw new Error('Cần đăng nhập Google để vào hồ câu với Server thật.');
+  const login = await api.login(idToken);
   const named = await api
     .put<PlayerProfile>('/me/display-name', { displayName })
     .catch(() => login.player);
   store.dispatch({ type: 'session/profile', payload: named });
   store.dispatch({ type: 'catalog/set', payload: await api.get<Catalog>('/catalog') });
+  hub.setPositionProvider(position);
   await hub.start();
   await hub.joinLake();
   return services;
@@ -98,13 +122,17 @@ export class CoralCoveOnline {
   private destroyed = false;
   private seatReady = false;
   private readonly cleanups: (() => void)[] = [];
+  private lastMoveAtMs = Number.NEGATIVE_INFINITY;
+  private lastSent: { x: number; y: number; dir: string } | null = null;
 
   constructor(
     private readonly scene: WorldScene,
     private readonly session: WorldSession,
     private readonly deps: CoralCoveDeps,
   ) {
-    connection ??= connect(buildCoralMap(session.room), session.me.display);
+    connection ??= connect(buildCoralMap(session.room), session.me.display, () =>
+      positionOf(this.scene.me),
+    );
     connection
       .then((services) => {
         if (!this.destroyed) this.attach(services);
@@ -117,6 +145,8 @@ export class CoralCoveOnline {
 
   private attach(services: Services): void {
     this.services = services;
+    // Nối lại hoặc vào lại scene thì báo vị trí của nhân vật đang dùng.
+    services.hub.setPositionProvider(() => positionOf(this.scene.me));
     const { game } = this.scene;
     if (!game.scene.getScene(MINIGAME_SCENE)) game.scene.add(MINIGAME_SCENE, MinigameScene);
 
@@ -210,7 +240,26 @@ export class CoralCoveOnline {
     return this.isLocked() || this.root?.querySelector('.ui-dialog') != null;
   }
 
+  /** Báo vị trí cho Server mọi lúc, kể cả đang ngồi hay câu, để người khác thấy mình. */
+  private sendPosition(): void {
+    const hub = this.services?.hub;
+    if (!hub || hub.state !== 'connected') return;
+    const now = performance.now();
+    if (now - this.lastMoveAtMs < MOVE_SEND_INTERVAL_MS) return;
+    const position = positionOf(this.scene.me);
+    const last = this.lastSent;
+    if (last && last.x === position.x && last.y === position.y && last.dir === position.dir) return;
+    this.lastMoveAtMs = now;
+    this.lastSent = position;
+    moveSeq += 1;
+    hub.invoke('Move', { seq: moveSeq, ...position }).catch((error: unknown) => {
+      this.lastSent = null;
+      console.warn('Gửi Move thất bại', error);
+    });
+  }
+
   update(): void {
+    this.sendPosition();
     if (!this.flow) return;
     const serverNowMs = this.serverNow();
     this.flow.update();
