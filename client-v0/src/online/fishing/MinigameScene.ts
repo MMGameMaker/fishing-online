@@ -64,8 +64,8 @@ export class MinigameScene extends Phaser.Scene {
   }
 
   create(): void {
-    // Canvas của scene lớn hơn 480×270 thì phóng camera để giữ đúng bố cục.
-    const zoom = this.scale.width / GAME_WIDTH;
+    // Canvas lấp kín cửa sổ với tỉ lệ bất kỳ: phóng camera theo chiều hẹp hơn để khung 480×270 luôn vừa màn hình.
+    const zoom = Math.min(this.scale.width / GAME_WIDTH, this.scale.height / GAME_HEIGHT);
     if (zoom !== 1) this.cameras.main.setZoom(zoom).centerOn(GAME_WIDTH / 2, 145);
     const style = {
       fontFamily: 'monospace',

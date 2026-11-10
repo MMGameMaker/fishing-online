@@ -8,7 +8,7 @@ import {
   initBag, initChat, initFishLog, initFriends, initLook, initMenu, initMessages, initPanels,
   initProgress, initQuestLog, initShop,
 } from './ui.js';
-import { VIEW_H, VIEW_W, WorldScene } from './world.js';
+import { WorldScene } from './world.js';
 
 const $ = (id) => document.getElementById(id);
 const roomCache = new Map();
@@ -118,13 +118,12 @@ function startGame(res) {
   });
 }
 
-// The canvas keeps the 1024x716 view's shape and fills the window like Scale.FIT, but its pixel
-// size matches the screen's real pixels (devicePixelRatio included).
+// Canvas lấp kín cửa sổ (không giữ tỉ lệ 1024x716 nên không còn viền đen hai bên); kích thước
+// pixel bằng pixel thật của màn hình (tính cả devicePixelRatio). Camera zoom lo phần co giãn.
 function nativeGameSize() {
   const parent = document.getElementById('game');
   const dpr = window.devicePixelRatio || 1;
-  const fit = Math.min(parent.clientWidth / VIEW_W, parent.clientHeight / VIEW_H);
-  return { width: Math.round(VIEW_W * fit * dpr), height: Math.round(VIEW_H * fit * dpr) };
+  return { width: Math.round(parent.clientWidth * dpr), height: Math.round(parent.clientHeight * dpr) };
 }
 
 // Wait a frame so the window's new size has been laid out, then refit the canvas to it.

@@ -243,7 +243,11 @@ export function initLook(session) {
 
 // ---------- Bag ----------
 export function initBag(session) {
+  // Khi đang ở hồ Fishing Online, túi đọc kho cá của hệ thống câu mới thay vì kho cũ.
+  let source = null;
+
   function render() {
+    if (source) return renderOnline();
     $('hud-coins').textContent = `${session.me.coins} coins`;
     const list = $('bag-list');
     list.replaceChildren();
@@ -266,7 +270,49 @@ export function initBag(session) {
     $('bag-sell-all').disabled = total === 0;
   }
 
+  async function renderOnline() {
+    const current = source;
+    let bag;
+    try {
+      bag = await current.load();
+    } catch {
+      toast('Không tải được túi cá.');
+      return;
+    }
+    if (current !== source) return;
+    $('hud-coins').textContent = `${bag.gold} Gold`;
+    const list = $('bag-list');
+    list.replaceChildren();
+    let total = 0;
+    for (const row of bag.rows) {
+      total += row.unitGold * row.count;
+      const line = el('div', 'bag-row');
+      const name = el('span', 'name', `${row.name} ×${row.count}`);
+      name.style.color = row.rarity === 'common' ? '' : RARITY_COLORS[row.rarity] ?? '';
+      const sell = el('button', '', `Sell ${row.unitGold * row.count}`);
+      sell.type = 'button';
+      sell.addEventListener('click', () => sellOnline(row.speciesId));
+      const fish = FISH_BY_ID[row.speciesId];
+      line.append(...(fish ? [fishIcon(fish)] : []), name, sell);
+      list.append(line);
+    }
+    if (!list.children.length) list.append(el('div', 'bag-empty', 'Chưa có cá. Ngồi ghế và câu để có cá.'));
+    $('bag-total').textContent = `Total value: ${total}`;
+    $('bag-sell-all').disabled = total === 0;
+  }
+
+  async function sellOnline(id) {
+    try {
+      const res = await source.sell(id);
+      if (Number(res.goldEarned) > 0) toast(`Sold for ${res.goldEarned} Gold`);
+    } catch {
+      toast('Bán cá không thành công.');
+    }
+    await render();
+  }
+
   async function sellFish(id) {
+    if (source) return sellOnline(id);
     const res = await request('sellFish', { id });
     if (!res.ok) return toast(res.error);
     session.me.coins = res.coins;
@@ -275,10 +321,16 @@ export function initBag(session) {
     if (res.earned) toast(`Sold for ${res.earned} coins`);
   }
 
+  /** Bridge Fishing Online gọi khi vào hồ (truyền nguồn) và khi rời hồ (truyền null). */
+  function useSource(next) {
+    source = next;
+    render();
+  }
+
   openHandlers['bag-panel'] = render;
   $('bag-sell-all').addEventListener('click', () => sellFish('all'));
   render();
-  return { render };
+  return { render, useSource };
 }
 
 // ---------- Main menu ----------

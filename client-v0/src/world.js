@@ -19,10 +19,15 @@ const ROOM_ZOOM = { store: 1.5 };
 
 // The canvas is sized in real screen pixels (see main.js), so the camera zoom carries both the
 // fit-to-window scale and the room zoom.
+// Canvas lấp kín cửa sổ nên tỉ lệ khung có thể khác 1024x716: ưu tiên luôn thấy đủ vùng 1024x716,
+// phần dư thì thấy thêm thế giới; nhưng không nhỏ hơn mức phủ kín phòng, để ngoài mép phòng không lộ nền.
 function cameraZoom(scene, roomKey) {
-  const fit = scene.scale.width / VIEW_W;
+  const { width, height } = scene.scale;
+  const bounds = scene.cameras.main.getBounds();
+  const fillRoom = bounds.width > 0 && bounds.height > 0 ? Math.max(width / bounds.width, height / bounds.height) : 0;
+  const fit = Math.max(Math.min(width / VIEW_W, height / VIEW_H), fillRoom);
   const roomZoom = ROOM_ZOOM[roomKey];
-  return roomZoom ? Math.max(1, Math.round(fit * roomZoom)) : fit;
+  return roomZoom ? Math.max(1, Math.round(fit * roomZoom), fillRoom) : fit;
 }
 
 const KEYS = {

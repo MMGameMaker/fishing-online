@@ -16,6 +16,7 @@ import { SeatUi } from '../scenes/lake/SeatUi';
 import type { LakeMap, LakeSeat } from '../scenes/lake/walkable';
 import { mountUiOverlay, showError, showToast } from '../ui/kit/components';
 import { buildCoralMap, type RoomInfo } from './coralSeats';
+import { createOnlineBagSource, type OnlineBagSource } from './onlineBag';
 
 const MARKER_DEPTH = 2950;
 const MARKER_OFFSET_Y = -34;
@@ -47,6 +48,8 @@ interface WorldSession {
   room: RoomInfo;
   me: { display: string };
   sitting: boolean;
+  /** Túi B của scene; khi ở hồ thì đọc kho cá Fishing Online. */
+  bag?: { render(): void; useSource(source: OnlineBagSource | null): void };
 }
 
 export interface CoralCoveDeps {
@@ -175,6 +178,9 @@ export class CoralCoveOnline {
     );
 
     const { store } = services;
+    const bag = this.session.bag;
+    bag?.useSource(createOnlineBagSource(services));
+    if (bag) this.cleanups.push(() => bag.useSource(null));
     this.cleanups.push(
       store.select(
         (s) => s.lake.mySeat?.seatId ?? null,
@@ -184,6 +190,8 @@ export class CoralCoveOnline {
         (s) => s.attempt,
         (attempt) => {
           if (attempt?.phase !== 'success' || !attempt.result) return;
+          // Server đã ghi cá vào kho lúc trả success, nên tải lại túi để thấy cá vừa câu.
+          this.session.bag?.render();
           const fish = this.deps.fishById[attempt.result.speciesId];
           if (fish) this.scene.me.showCatch(fish, RARE_RARITIES.includes(attempt.result.rarity));
         },
