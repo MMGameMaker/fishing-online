@@ -179,6 +179,11 @@ export class LakeScene extends Phaser.Scene {
     if (!keyboard) throw new Error('Trình duyệt không có bàn phím');
     this.cursors = keyboard.createCursorKeys();
     this.wasd = keyboard.addKeys('W,A,S,D') as typeof this.wasd;
+    // Nhấn E cạnh ghế trống để ngồi (SPEC 0.9 mục 2.2).
+    keyboard.addKey('E').on('down', () => {
+      const seat = this.map.seats.find((item) => isNearSeat(this.me.x, this.me.y, item));
+      if (seat) this.onSeatPressed(seat);
+    });
     if (this.sys.game.device.input.touch) this.joystick = new Joystick(this.root);
 
     this.input.on(
@@ -215,6 +220,10 @@ export class LakeScene extends Phaser.Scene {
         (s) => s.lake.catches,
         () => this.syncCatches(),
       ),
+      store.select(
+        (s) => s.lake.fails,
+        () => this.syncFails(),
+      ),
     );
   }
 
@@ -224,9 +233,9 @@ export class LakeScene extends Phaser.Scene {
 
   private onSessionChanged(seatId: string | null): void {
     const seat = seatId ? this.seatById(seatId) : undefined;
-    this.roamCircle.setVisible(seat !== undefined);
+    // SPEC 0.9: đang ngồi thì không đi lại, nên không còn vẽ vòng phạm vi roamRadius.
+    this.roamCircle.setVisible(false);
     if (!seat) return;
-    this.roamCircle.setPosition(seat.x, seat.y).setRadius(seat.roamRadius);
     this.me.setDirection(seat.facing as Direction);
   }
 
@@ -307,6 +316,18 @@ export class LakeScene extends Phaser.Scene {
     }
   }
 
+  /** Người khác thua minigame: icon buồn trên đầu tới shownUntil (SPEC 2.6). */
+  private syncFails(): void {
+    const { fails } = this.services.store.getState().lake;
+    for (const [playerId, shownUntil] of Object.entries(fails)) {
+      const remote = this.remotes.get(playerId);
+      const untilMs = Date.parse(shownUntil);
+      if (!remote || remote.iconUntilMs === untilMs) continue;
+      remote.iconUntilMs = untilMs;
+      remote.view.setHeadIcon({ type: 'sad' });
+    }
+  }
+
   private updateRemotes(nowMs: number, serverNowMs: number): void {
     const { players } = this.services.store.getState().lake;
     for (const [id, remote] of this.remotes) {
@@ -354,7 +375,13 @@ export class LakeScene extends Phaser.Scene {
   }
 
   private moveMe(deltaMs: number, nowMs: number): void {
-    const locked = this.flow.isLocked();
+    // Đang ngồi: bấm phím di chuyển là rời ghế (bị chặn khi đang minigame), không đi luôn.
+    const seated = this.services.store.getState().lake.mySeat !== null;
+    if (seated) {
+      const keys = this.readAxis();
+      if ((keys.x !== 0 || keys.y !== 0) && this.flow.canLeaveSeat()) void this.seatUi.leave();
+    }
+    const locked = this.flow.isLocked() || seated;
     if (locked) {
       this.moveTarget = null;
       this.pendingSeat = null;

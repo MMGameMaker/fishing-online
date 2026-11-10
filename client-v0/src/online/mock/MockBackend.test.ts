@@ -261,12 +261,19 @@ describe('MockBackend', () => {
     expect(fake.error?.code).toBe('NO_ACTIVE_ATTEMPT');
   });
 
-  it('kết quả sau khi ghế hết hạn không được thưởng', async () => {
+  it('vé hết giữa minigame: vẫn câu nốt được cá, sau đó tự đứng dậy', async () => {
     const attemptId = await reachMinigame(rig);
-    await rig.hub.invoke('LeaveSeat', {});
+    // Đẩy hạn vé về hiện tại thay vì tua 10 phút, vì tua lâu sẽ quá deadline minigame.
+    const internal = rig.mock as unknown as { ticket: { expiresAtMs: number } };
+    internal.ticket.expiresAtMs = rig.mock.now();
+    rig.mock.advance(100);
+    expect(rig.store.getState().lake.mySeat).not.toBeNull();
     const ack = await rig.hub.invoke('SubmitFishingResult', { attemptId, outcome: 'success' });
-    expect(ack.ok).toBe(false);
-    expect((await rig.api.get<InventoryResponse>('/me/inventory')).fish).toHaveLength(0);
+    expect(ack.ok).toBe(true);
+    rig.mock.advance(100);
+    expect((await rig.api.get<InventoryResponse>('/me/inventory')).fish).toHaveLength(1);
+    expect(rig.store.getState().lake.mySeat).toBeNull();
+    expect(rig.store.getState().lake.lastSeatEnd?.reason).toBe('ticket_expired');
   });
 
   it('catalog không chứa khối spawn', async () => {
@@ -347,12 +354,31 @@ describe('MockBackend', () => {
     expect(attemptOf(rig)).toMatchObject({ phase: 'cancelled', reason: 'left_seat', result: null });
   });
 
-  it('rời ghế trong minigame: hủy, kết quả nộp sau không được thưởng', async () => {
-    const attemptId = await reachMinigame(rig);
-    await rig.hub.invoke('LeaveSeat', {});
-    expect(attemptOf(rig)).toMatchObject({ phase: 'cancelled', reason: 'left_seat', result: null });
-    await rig.hub.invoke('SubmitFishingResult', { attemptId, outcome: 'success' });
-    expect(attemptOf(rig)?.phase).toBe('cancelled');
+  it('rời ghế trong minigame bị từ chối, lần câu vẫn chạy', async () => {
+    await reachMinigame(rig);
+    const ack = await rig.hub.invoke('LeaveSeat', {});
+    expect(ack.error?.code).toBe('STATE_CONFLICT');
+    expect(attemptOf(rig)?.phase).toBe('minigame');
+    expect(rig.store.getState().lake.mySeat).not.toBeNull();
+  });
+
+  it('trượt cá thì tự đứng dậy, không phát icon buồn; thua minigame thì có', async () => {
+    const fails: string[] = [];
+    rig.hub.on('FailShown', (event) => fails.push(event.playerId));
+    await buy(rig, 'seat-11', 2);
+    await waitForBite(rig);
+    rig.mock.advance(config.fishing.biteWindowMs + config.fishing.biteGraceMs + 200);
+    expect(attemptOf(rig)).toMatchObject({ phase: 'failed', reason: 'missed_bite' });
+    expect(rig.store.getState().lake.mySeat).toBeNull();
+    expect(rig.store.getState().lake.lastSeatEnd?.reason).toBe('missed_bite');
+    expect(fails.filter((id) => !id.startsWith('bot-'))).toHaveLength(0);
+
+    await sitDown(rig);
+    await waitForBite(rig);
+    const attemptId = await hook(rig);
+    await rig.hub.invoke('SubmitFishingResult', { attemptId, outcome: 'failed' });
+    expect(fails.filter((id) => !id.startsWith('bot-'))).toHaveLength(1);
+    expect(rig.store.getState().lake.mySeat).not.toBeNull();
   });
 
   it('di chuyển xuống nước hoặc quá phạm vi ghế bị kéo về', async () => {
@@ -418,6 +444,8 @@ describe('MockBackend', () => {
   it('lịch sử phân trang không trùng dòng', async () => {
     await buy(rig, 'seat-11', 2);
     for (let i = 0; i < 5; i += 1) {
+      // Trượt cá thì tự đứng dậy nên phải ngồi lại mỗi lượt.
+      if (i > 0) await sitDown(rig);
       await waitForBite(rig);
       rig.mock.advance(config.fishing.biteWindowMs + config.fishing.biteGraceMs + 200);
     }

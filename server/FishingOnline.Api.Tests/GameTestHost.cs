@@ -5,6 +5,7 @@ using System.Text.Json;
 using DotNet.Testcontainers.Builders;
 using FishingOnline.Api.Modules.Common;
 using FishingOnline.Api.Modules.Identity;
+using FishingOnline.Api.Modules.Lake;
 using FishingOnline.Api.Modules.Wallet;
 using FishingOnline.Api.Persistence;
 using FishingOnline.Domain;
@@ -158,7 +159,8 @@ public sealed class GameApp : WebApplicationFactory<Program>
 {
     private static readonly string[] Events =
     [
-        "PlayerJoined", "PlayerLeft", "PlayerMoved", "PositionCorrected", "SeatChanged", "MySeatSession", "AttemptUpdate", "CatchShown",
+        "PlayerJoined", "PlayerLeft", "PlayerMoved", "PositionCorrected", "SeatChanged", "MyTicket", "MySeat", "AttemptUpdate", "CatchShown",
+        "FailShown",
         "SkinChanged", "ChatReceived", "EmojiReceived",
     ];
 
@@ -199,6 +201,20 @@ public sealed class GameApp : WebApplicationFactory<Program>
     {
         await using var scope = Services.CreateAsyncScope();
         await scope.ServiceProvider.GetRequiredService<IWallet>().CreditAsync(playerId, gold, LedgerReasons.AdminAdjust, "test", default);
+    }
+
+    /// <summary>Đặt nhân vật đang ở trong phòng ngay cạnh ghế, để SitDown không bị OUT_OF_RANGE.</summary>
+    public Task PlaceNearSeatAsync(Guid playerId, string seatId)
+    {
+        var seat = Service<LakeMap>().Seat(seatId)!;
+        var room = Service<LakeRoom>();
+        return room.Queue.RunAsync(() =>
+        {
+            var player = room.Find(playerId) ?? throw new InvalidOperationException("Player chưa JoinLake.");
+            player.X = seat.X;
+            player.Y = seat.Y + 32;
+            return Task.FromResult(true);
+        });
     }
 
     public HttpClient Http(Guid? playerId)
@@ -314,7 +330,18 @@ public abstract class GameTestBase(PostgresServer postgres) : IAsyncLifetime
         return app;
     }
 
-    protected const string PriceVersion = "seat-price-test-03";
+    protected const string PriceVersion = "ticket-price-test-01";
+
+    protected static object TicketArgs(int quantity = 1) => new { quantity, expectedPriceVersion = PriceVersion };
+
+    /// <summary>Mua vé (nếu <paramref name="tickets"/> &gt; 0), đứng cạnh ghế rồi ngồi. Player phải đã JoinLake.</summary>
+    protected async Task<JsonElement> SitAsync(TestPlayer player, string seatId, int tickets = 1, GameApp? app = null)
+    {
+        app ??= App;
+        if (tickets > 0) await player.OkAsync("BuyTicket", TicketArgs(tickets));
+        await app.PlaceNearSeatAsync(player.PlayerId, seatId);
+        return await player.OkAsync("SitDown", new { seatId });
+    }
 
     protected static async Task<JsonElement> ReadDataAsync(HttpResponseMessage response)
     {

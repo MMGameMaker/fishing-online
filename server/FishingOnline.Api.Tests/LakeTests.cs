@@ -45,7 +45,7 @@ public sealed class LakeMapTests
     [Fact]
     public void Seat_LookupByIdAndUnknown()
     {
-        Assert.Equal(1, Map.Seat("seat-01")!.Tier);
+        Assert.Equal(1, Map.Seat("seat-01")!.Number);
         Assert.Null(Map.Seat("seat-99"));
     }
 }
@@ -142,15 +142,15 @@ public sealed class LakeRoomTests(PostgresServer postgres) : GameTestBase(postgr
     }
 
     [Fact]
-    public async Task SeatedPlayer_LeavingRoamRadius_IsCorrected()
+    public async Task SeatedPlayer_CannotWalk_EvenOneStep()
     {
         await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
         await player.OkAsync("JoinLake");
-        await player.OkAsync("BuySeatTicket", new { seatId = "seat-01", durationUnits = 1, expectedPriceVersion = PriceVersion });
+        await SitAsync(player, "seat-01");
         App.Clock.Advance(TimeSpan.FromSeconds(1));
         player.Received.Clear();
 
-        await player.OkAsync("Move", new { seq = 10, x = 564, y = 240, dir = "right" });
+        await player.OkAsync("Move", new { seq = 10, x = 470, y = 240, dir = "right" });
 
         var corrected = await player.WaitForAsync("PositionCorrected");
         Assert.Equal(464, corrected.GetProperty("x").GetDouble());
@@ -169,91 +169,73 @@ public sealed class LakeRoomTests(PostgresServer postgres) : GameTestBase(postgr
     }
 }
 
-public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
+public sealed class TicketTests(PostgresServer postgres) : GameTestBase(postgres)
 {
-    private static object BuyArgs(string seatId, int units = 1) => new { seatId, durationUnits = units, expectedPriceVersion = PriceVersion };
-
-    private Task<SeatSessionRow> SessionOfAsync(Guid playerId) => App.WithDbAsync(db =>
-        db.Set<SeatSessionRow>().AsNoTracking().OrderByDescending(row => row.StartedAt).FirstAsync(row => row.PlayerId == playerId));
+    private Task<TicketRow?> TicketOfAsync(Guid playerId) => App.WithDbAsync(db =>
+        db.Set<TicketRow>().AsNoTracking().SingleOrDefaultAsync(row => row.PlayerId == playerId));
 
     private Task<long> GoldOfAsync(Guid playerId) => App.WithDbAsync(db =>
         db.Set<WalletRow>().Where(row => row.PlayerId == playerId).Select(row => row.Gold).SingleAsync());
 
-    private Task<int> LedgerCountAsync(Guid playerId, string reason) => App.WithDbAsync(db =>
-        db.Set<LedgerEntry>().CountAsync(row => row.PlayerId == playerId && row.Reason == reason));
-
-    private Task SweepAsync() => App.Service<SeatSessions>().SweepOnceAsync(default);
-
     [Fact]
-    public async Task TenClientsBuySameSeat_OneWins()
-    {
-        var players = new List<TestPlayer>();
-        for (var i = 0; i < 10; i++)
-        {
-            var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
-            await player.OkAsync("JoinLake");
-            players.Add(player);
-        }
-
-        var acks = await Task.WhenAll(players.Select(player => player.InvokeAsync("BuySeatTicket", BuyArgs("seat-11"))));
-
-        Assert.Equal(1, acks.Count(ack => ack.GetProperty("ok").GetBoolean()));
-        Assert.All(acks.Where(ack => !ack.GetProperty("ok").GetBoolean()),
-            ack => Assert.Equal("SEAT_TAKEN", ack.GetProperty("error").GetProperty("code").GetString()));
-        Assert.Equal(1, await App.WithDbAsync(db => db.Set<LedgerEntry>().CountAsync(row => row.Reason == LedgerReasons.SeatPurchase)));
-        foreach (var player in players) await player.DisposeAsync();
-    }
-
-    [Fact]
-    public async Task Buy_ChargesByDuration_AndPublishes()
+    public async Task Buy_ChargesByQuantity_AndSendsMyTicket()
     {
         await using var buyer = await App.ConnectAsync();
         await buyer.OkAsync("JoinLake");
-        await using var watcher = await App.ConnectAsync();
-        await watcher.OkAsync("JoinLake");
+        var now = App.Clock.GetUtcNow();
 
-        var data = await buyer.OkAsync("BuySeatTicket", BuyArgs("seat-11", 2));
+        var data = await buyer.OkAsync("BuyTicket", TicketArgs(2));
 
-        Assert.Equal("80", data.GetProperty("chargedGold").GetString());
-        Assert.Equal("20", data.GetProperty("gold").GetString());
-        Assert.Equal(20, data.GetProperty("session").GetProperty("purchasedMinutes").GetInt32());
-        var seat = await watcher.WaitForAsync("SeatChanged");
-        Assert.Equal("occupied", seat.GetProperty("state").GetString());
-        await buyer.WaitForAsync("MySeatSession");
-        await buyer.WaitForAsync("PositionCorrected");
-        var moved = await watcher.WaitForAsync("PlayerMoved");
-        Assert.Equal(App.Service<LakeMap>().Seat("seat-11")!.X, moved.GetProperty("x").GetDouble());
+        Assert.Equal("100", data.GetProperty("chargedGold").GetString());
+        Assert.Equal("0", data.GetProperty("gold").GetString());
+        var ticket = data.GetProperty("ticket");
+        Assert.Equal(20, ticket.GetProperty("purchasedMinutes").GetInt32());
+        Assert.Equal(now + TimeSpan.FromMinutes(20), ticket.GetProperty("expiresAt").GetDateTimeOffset(), TimeSpan.FromMilliseconds(1));
+        await buyer.WaitForAsync("MyTicket");
+        Assert.Equal(1, await App.WithDbAsync(db => db.Set<LedgerEntry>().CountAsync(row => row.PlayerId == buyer.PlayerId && row.Reason == LedgerReasons.TicketPurchase)));
+        Assert.Equal(1, await App.WithDbAsync(db => db.Set<TicketPurchaseRow>().CountAsync(row => row.PlayerId == buyer.PlayerId)));
     }
 
     [Fact]
-    public async Task SecondSeat_AlreadyHasSeat()
+    public async Task BuyWhileValid_AddsOnTop_EvenPastSixtyMinutes()
     {
         await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
-        await player.OkAsync("BuySeatTicket", BuyArgs("seat-01"));
+        var first = await player.OkAsync("BuyTicket", TicketArgs(6));
+        var expiresAt = first.GetProperty("ticket").GetProperty("expiresAt").GetDateTimeOffset();
+        App.Clock.Advance(TimeSpan.FromMinutes(5));
 
-        Assert.Equal("ALREADY_HAS_SEAT", await player.ErrorAsync("BuySeatTicket", BuyArgs("seat-02")));
+        var second = await player.OkAsync("BuyTicket", TicketArgs(1));
+
+        var ticket = second.GetProperty("ticket");
+        Assert.Equal(expiresAt + TimeSpan.FromMinutes(10), ticket.GetProperty("expiresAt").GetDateTimeOffset());
+        Assert.Equal(70, ticket.GetProperty("purchasedMinutes").GetInt32());
+        Assert.Equal(2, ticket.GetProperty("ticketVersion").GetInt32());
+        Assert.Equal(65 * 60_000, Math.Round((ticket.GetProperty("expiresAt").GetDateTimeOffset() - App.Clock.GetUtcNow()).TotalMilliseconds));
     }
 
     [Fact]
-    public async Task NotEnoughGold_SeatStaysFree()
+    public async Task BuyAfterExpiry_StartsFromNow()
     {
-        await using var player = await App.ConnectAsync();
+        await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
+        await player.OkAsync("BuyTicket", TicketArgs(1));
+        App.Clock.Advance(TimeSpan.FromMinutes(30));
+        var now = App.Clock.GetUtcNow();
 
-        Assert.Equal("INSUFFICIENT_GOLD", await player.ErrorAsync("BuySeatTicket", BuyArgs("seat-01")));
+        var data = await player.OkAsync("BuyTicket", TicketArgs(1));
 
-        var seats = await App.Service<SeatSessions>().SeatViewsAsync(default);
-        Assert.Equal("available", seats.Single(seat => seat.SeatId == "seat-01").State);
+        Assert.Equal(now + TimeSpan.FromMinutes(10), data.GetProperty("ticket").GetProperty("expiresAt").GetDateTimeOffset(), TimeSpan.FromMilliseconds(1));
     }
 
     [Theory]
     [InlineData(0)]
     [InlineData(-1)]
-    [InlineData(int.MaxValue)]
-    public async Task BadDuration_IsRejected(int units)
+    [InlineData(7)]
+    public async Task QuantityOutsideOneToSix_IsRejected(int quantity)
     {
         await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
 
-        Assert.Equal("INVALID_DURATION", await player.ErrorAsync("BuySeatTicket", BuyArgs("seat-01", units)));
+        Assert.Equal("INVALID_QUANTITY", await player.ErrorAsync("BuyTicket", TicketArgs(quantity)));
+        Assert.Null(await TicketOfAsync(player.PlayerId));
     }
 
     [Fact]
@@ -261,29 +243,158 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
     {
         await using var player = await App.ConnectAsync();
 
-        Assert.Equal("PRICE_CHANGED", await player.ErrorAsync("BuySeatTicket", new { seatId = "seat-11", durationUnits = 1, expectedPriceVersion = "old" }));
+        Assert.Equal("PRICE_CHANGED", await player.ErrorAsync("BuyTicket", new { quantity = 1, expectedPriceVersion = "old" }));
         Assert.Equal(100, await GoldOfAsync(player.PlayerId));
     }
 
     [Fact]
-    public async Task BuyRetrySameRequest_ChargesOnce()
+    public async Task NotEnoughGold_NoTicket()
+    {
+        await using var player = await App.ConnectAsync();
+
+        Assert.Equal("INSUFFICIENT_GOLD", await player.ErrorAsync("BuyTicket", TicketArgs(3)));
+
+        Assert.Null(await TicketOfAsync(player.PlayerId));
+        Assert.Equal(100, await GoldOfAsync(player.PlayerId));
+    }
+
+    [Fact]
+    public async Task RetrySameRequest_ChargesOnce()
     {
         await using var player = await App.ConnectAsync();
         var requestId = Guid.NewGuid();
 
-        var first = await player.OkAsync("BuySeatTicket", BuyArgs("seat-11"), requestId);
-        var second = await player.OkAsync("BuySeatTicket", BuyArgs("seat-11"), requestId);
+        var first = await player.OkAsync("BuyTicket", TicketArgs(1), requestId);
+        var second = await player.OkAsync("BuyTicket", TicketArgs(1), requestId);
 
         Assert.Equal(first.GetRawText(), second.GetRawText());
-        Assert.Equal(60, await GoldOfAsync(player.PlayerId));
+        Assert.Equal(50, await GoldOfAsync(player.PlayerId));
+        Assert.Equal(10, (await TicketOfAsync(player.PlayerId))!.PurchasedMinutes);
+    }
+}
+
+public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
+{
+    private Task<SeatSessionRow> SessionOfAsync(Guid playerId) => App.WithDbAsync(db =>
+        db.Set<SeatSessionRow>().AsNoTracking().OrderByDescending(row => row.StartedAt).FirstAsync(row => row.PlayerId == playerId));
+
+    private Task SweepAsync() => App.Service<SeatSessions>().SweepOnceAsync(default);
+
+    private async Task<string> SeatStateAsync(string seatId) =>
+        (await App.Service<SeatSessions>().SeatViewsAsync(default)).Single(seat => seat.SeatId == seatId).State;
+
+    private async Task<TestPlayer> InLakeAsync(Guid? playerId = null)
+    {
+        var player = await App.ConnectAsync(playerId ?? await App.NewPlayerAsync(1000));
+        await player.OkAsync("JoinLake");
+        return player;
     }
 
     [Fact]
-    public async Task Session_EndsAtExpiry_ThenCooldownTenSeconds()
+    public async Task TenClientsSitOnSameSeat_OneWins()
     {
-        await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
-        await player.OkAsync("JoinLake");
-        await player.OkAsync("BuySeatTicket", BuyArgs("seat-11"));
+        var players = new List<TestPlayer>();
+        for (var i = 0; i < 10; i++)
+        {
+            var player = await InLakeAsync();
+            await player.OkAsync("BuyTicket", TicketArgs());
+            await App.PlaceNearSeatAsync(player.PlayerId, "seat-11");
+            players.Add(player);
+        }
+
+        var acks = await Task.WhenAll(players.Select(player => player.InvokeAsync("SitDown", new { seatId = "seat-11" })));
+
+        Assert.Equal(1, acks.Count(ack => ack.GetProperty("ok").GetBoolean()));
+        Assert.All(acks.Where(ack => !ack.GetProperty("ok").GetBoolean()),
+            ack => Assert.Equal("SEAT_TAKEN", ack.GetProperty("error").GetProperty("code").GetString()));
+        foreach (var player in players) await player.DisposeAsync();
+    }
+
+    [Fact]
+    public async Task Sit_Publishes_AndMovesPlayerOntoSeat()
+    {
+        await using var sitter = await InLakeAsync();
+        await using var watcher = await InLakeAsync();
+
+        var data = await SitAsync(sitter, "seat-11");
+
+        Assert.Equal("seat-11", data.GetProperty("seat").GetProperty("seatId").GetString());
+        var seat = await watcher.WaitForAsync("SeatChanged");
+        Assert.Equal("occupied", seat.GetProperty("state").GetString());
+        Assert.Equal(sitter.PlayerId, seat.GetProperty("occupantPlayerId").GetGuid());
+        await sitter.WaitForAsync("MySeat");
+        await sitter.WaitForAsync("PositionCorrected");
+        var moved = await watcher.WaitForAsync("PlayerMoved");
+        Assert.Equal(App.Service<LakeMap>().Seat("seat-11")!.X, moved.GetProperty("x").GetDouble());
+    }
+
+    [Fact]
+    public async Task Sit_WithoutTicket_NoTicket_ThenAfterBuyingWorks()
+    {
+        await using var player = await InLakeAsync();
+        await App.PlaceNearSeatAsync(player.PlayerId, "seat-11");
+
+        Assert.Equal("NO_TICKET", await player.ErrorAsync("SitDown", new { seatId = "seat-11" }));
+
+        await player.OkAsync("BuyTicket", TicketArgs());
+        await player.OkAsync("SitDown", new { seatId = "seat-11" });
+        Assert.Equal("occupied", await SeatStateAsync("seat-11"));
+    }
+
+    [Fact]
+    public async Task Sit_FromFarAway_OutOfRange()
+    {
+        await using var player = await InLakeAsync();
+        await player.OkAsync("BuyTicket", TicketArgs());
+
+        Assert.Equal("OUT_OF_RANGE", await player.ErrorAsync("SitDown", new { seatId = "seat-11" }));
+    }
+
+    [Fact]
+    public async Task Sit_WithExpiredTicket_NoTicket()
+    {
+        await using var player = await InLakeAsync();
+        await player.OkAsync("BuyTicket", TicketArgs());
+        App.Clock.Advance(TimeSpan.FromMinutes(10));
+        await App.PlaceNearSeatAsync(player.PlayerId, "seat-11");
+
+        Assert.Equal("NO_TICKET", await player.ErrorAsync("SitDown", new { seatId = "seat-11" }));
+    }
+
+    [Fact]
+    public async Task SecondSeat_AlreadyHasSeat_SameSeatReturnsIt()
+    {
+        await using var player = await InLakeAsync();
+        var first = await SitAsync(player, "seat-01");
+        await App.PlaceNearSeatAsync(player.PlayerId, "seat-02");
+
+        Assert.Equal("ALREADY_HAS_SEAT", await player.ErrorAsync("SitDown", new { seatId = "seat-02" }));
+        await App.PlaceNearSeatAsync(player.PlayerId, "seat-01");
+        var again = await player.OkAsync("SitDown", new { seatId = "seat-01" });
+        Assert.Equal(first.GetRawText(), again.GetRawText());
+    }
+
+    [Fact]
+    public async Task LeaveSeat_FreesSeatAtOnce_TicketStays()
+    {
+        await using var player = await InLakeAsync();
+        await SitAsync(player, "seat-11");
+
+        await player.OkAsync("LeaveSeat");
+
+        Assert.Equal(SeatEndReasons.LeftSeat, (await SessionOfAsync(player.PlayerId)).EndReason);
+        Assert.Equal("available", await SeatStateAsync("seat-11"));
+        await player.WaitForAsync("MySeat", payload => payload.TryGetProperty("ended", out _));
+        Assert.Equal("NOT_IN_SEAT", await player.ErrorAsync("LeaveSeat"));
+        await SitAsync(player, "seat-11", tickets: 0);
+        Assert.Equal("occupied", await SeatStateAsync("seat-11"));
+    }
+
+    [Fact]
+    public async Task TicketExpiry_StandsUpSeatedPlayer()
+    {
+        await using var player = await InLakeAsync();
+        await SitAsync(player, "seat-11");
 
         App.Clock.Advance(TimeSpan.FromMinutes(10) - TimeSpan.FromMilliseconds(1));
         await SweepAsync();
@@ -291,44 +402,20 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
 
         App.Clock.AdvanceMs(1);
         await SweepAsync();
-        var ended = await SessionOfAsync(player.PlayerId);
-        Assert.Equal(SeatEndReasons.Expired, ended.EndReason);
-        await player.WaitForAsync("MySeatSession", payload => payload.TryGetProperty("ended", out _));
-        await player.WaitForAsync("SeatChanged", payload => payload.GetProperty("state").GetString() == "cooldown");
 
-        Assert.Equal("SEAT_COOLDOWN", await player.ErrorAsync("BuySeatTicket", BuyArgs("seat-11")));
-
-        App.Clock.AdvanceMs(9999);
-        await SweepAsync();
-        Assert.Equal("cooldown", (await App.Service<SeatSessions>().SeatViewsAsync(default)).Single(s => s.SeatId == "seat-11").State);
-
-        App.Clock.AdvanceMs(1);
-        await SweepAsync();
-        Assert.Equal("available", (await App.Service<SeatSessions>().SeatViewsAsync(default)).Single(s => s.SeatId == "seat-11").State);
-        await player.WaitForAsync("SeatChanged", payload => payload.GetProperty("state").GetString() == "available");
+        Assert.Equal(SeatEndReasons.TicketExpired, (await SessionOfAsync(player.PlayerId)).EndReason);
+        var ended = await player.WaitForAsync("MySeat", payload => payload.TryGetProperty("ended", out _));
+        Assert.Equal("ticket_expired", ended.GetProperty("reason").GetString());
+        Assert.Equal("available", await SeatStateAsync("seat-11"));
     }
 
     [Fact]
-    public async Task LeaveSeat_EndsSession_AndWithoutSeatFails()
-    {
-        await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
-        await player.OkAsync("JoinLake");
-        await player.OkAsync("BuySeatTicket", BuyArgs("seat-11"));
-
-        await player.OkAsync("LeaveSeat");
-
-        Assert.Equal(SeatEndReasons.LeftSeat, (await SessionOfAsync(player.PlayerId)).EndReason);
-        Assert.Equal("SEAT_COOLDOWN", await player.ErrorAsync("BuySeatTicket", BuyArgs("seat-11")));
-        Assert.Equal("NOT_IN_SEAT", await player.ErrorAsync("LeaveSeat"));
-    }
-
-    [Fact]
-    public async Task Disconnect60s_KeepsSeat_ExpiryUnchanged()
+    public async Task Disconnect60s_KeepsSeat_TicketUnchanged()
     {
         var playerId = await App.NewPlayerAsync(1000);
-        var first = await App.ConnectAsync(playerId);
-        await first.OkAsync("JoinLake");
-        var bought = await first.OkAsync("BuySeatTicket", BuyArgs("seat-11", 3));
+        var first = await InLakeAsync(playerId);
+        var bought = await first.OkAsync("BuyTicket", TicketArgs(3));
+        await SitAsync(first, "seat-11", tickets: 0);
         await first.DisposeAsync();
         await WaitDisconnectedAsync(playerId);
 
@@ -337,20 +424,19 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
         await using var second = await App.ConnectAsync(playerId);
         var snapshot = await second.OkAsync("JoinLake");
 
-        Assert.Equal(bought.GetProperty("session").GetProperty("expiresAt").GetDateTimeOffset(), snapshot.GetProperty("mySession").GetProperty("expiresAt").GetDateTimeOffset());
+        Assert.Equal(bought.GetProperty("ticket").GetProperty("expiresAt").GetDateTimeOffset(), snapshot.GetProperty("myTicket").GetProperty("expiresAt").GetDateTimeOffset());
+        Assert.Equal("seat-11", snapshot.GetProperty("mySeat").GetProperty("seatId").GetString());
         Assert.Null((await SessionOfAsync(playerId)).DisconnectedAt);
         Assert.Equal("seat-11", Assert.Single(snapshot.GetProperty("players").EnumerateArray()).GetProperty("seatId").GetString());
     }
 
     [Fact]
-    public async Task Disconnect125s_LosesSeat_IntoCooldown()
+    public async Task Disconnect125s_LosesSeat_SeatFreeAtOnce()
     {
         var playerId = await App.NewPlayerAsync(1000);
-        var first = await App.ConnectAsync(playerId);
-        await first.OkAsync("JoinLake");
-        await using var watcher = await App.ConnectAsync();
-        await watcher.OkAsync("JoinLake");
-        await first.OkAsync("BuySeatTicket", BuyArgs("seat-11", 3));
+        var first = await InLakeAsync(playerId);
+        await using var watcher = await InLakeAsync();
+        await SitAsync(first, "seat-11", tickets: 3);
         await first.DisposeAsync();
         await WaitDisconnectedAsync(playerId);
 
@@ -358,7 +444,7 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
         await SweepAsync();
 
         Assert.Equal(SeatEndReasons.DisconnectTimeout, (await SessionOfAsync(playerId)).EndReason);
-        Assert.Equal("cooldown", (await App.Service<SeatSessions>().SeatViewsAsync(default)).Single(s => s.SeatId == "seat-11").State);
+        Assert.Equal("available", await SeatStateAsync("seat-11"));
         await watcher.WaitForAsync("PlayerLeft");
     }
 
@@ -381,7 +467,8 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
     public async Task Restart_KeepsOrLosesSeatByDowntime(int downtimeSeconds, bool lost)
     {
         var playerId = await App.NewPlayerAsync(1000);
-        await App.Service<SeatSessions>().BuyAsync(playerId, Guid.NewGuid(), "seat-11", 1, PriceVersion, default);
+        await using (var player = await InLakeAsync(playerId))
+            await SitAsync(player, "seat-11", tickets: 3);
         await App.Service<SeatSessions>().WriteHeartbeatAsync(default);
         await App.DisposeAsync();
 
@@ -392,94 +479,6 @@ public sealed class SeatTests(PostgresServer postgres) : GameTestBase(postgres)
         Assert.Equal(lost, session.EndedAt is not null);
         if (lost) Assert.Equal(SeatEndReasons.DisconnectTimeout, session.EndReason);
         else Assert.NotNull(session.DisconnectedAt);
-    }
-
-    [Fact]
-    public async Task Extend_AddsToExpiry_RetryChargesOnce()
-    {
-        await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
-        var bought = await player.OkAsync("BuySeatTicket", BuyArgs("seat-11", 2));
-        var session = bought.GetProperty("session");
-        var startedAt = session.GetProperty("startedAt").GetDateTimeOffset();
-        var extendArgs = new { sessionId = session.GetProperty("sessionId").GetGuid(), durationUnits = 1, expectedPriceVersion = PriceVersion };
-        var requestId = Guid.NewGuid();
-        App.Clock.Advance(TimeSpan.FromMinutes(5));
-
-        var first = await player.OkAsync("ExtendSeatSession", extendArgs, requestId);
-        var second = await player.OkAsync("ExtendSeatSession", extendArgs, requestId);
-
-        Assert.Equal(first.GetRawText(), second.GetRawText());
-        var extended = first.GetProperty("session");
-        Assert.Equal(startedAt + TimeSpan.FromMinutes(30), extended.GetProperty("expiresAt").GetDateTimeOffset());
-        Assert.Equal(startedAt, extended.GetProperty("startedAt").GetDateTimeOffset());
-        Assert.Equal(30, extended.GetProperty("purchasedMinutes").GetInt32());
-        Assert.Equal(2, extended.GetProperty("sessionVersion").GetInt32());
-        Assert.Equal(1, await LedgerCountAsync(player.PlayerId, LedgerReasons.SeatExtension));
-        Assert.Equal(1100 - 80 - 40, await GoldOfAsync(player.PlayerId));
-    }
-
-    [Fact]
-    public async Task Extend_NotEnoughGold_KeepsExpiry()
-    {
-        await using var player = await App.ConnectAsync();
-        var bought = await player.OkAsync("BuySeatTicket", BuyArgs("seat-11", 2));
-        var sessionId = bought.GetProperty("session").GetProperty("sessionId").GetGuid();
-        var expiresAt = (await SessionOfAsync(player.PlayerId)).ExpiresAt;
-
-        Assert.Equal("INSUFFICIENT_GOLD", await player.ErrorAsync("ExtendSeatSession", new { sessionId, durationUnits = 1, expectedPriceVersion = PriceVersion }));
-
-        Assert.Equal(expiresAt, (await SessionOfAsync(player.PlayerId)).ExpiresAt);
-    }
-
-    [Fact]
-    public async Task Extend_AfterExpiryOrLeaving_IsRejected()
-    {
-        await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
-        var bought = await player.OkAsync("BuySeatTicket", BuyArgs("seat-11"));
-        var sessionId = bought.GetProperty("session").GetProperty("sessionId").GetGuid();
-        var args = new { sessionId, durationUnits = 1, expectedPriceVersion = PriceVersion };
-
-        App.Clock.Advance(TimeSpan.FromMinutes(10));
-        Assert.Equal("SEAT_SESSION_EXPIRED", await player.ErrorAsync("ExtendSeatSession", args));
-
-        await SweepAsync();
-        Assert.Equal("SEAT_SESSION_EXPIRED", await player.ErrorAsync("ExtendSeatSession", args));
-    }
-
-    [Fact]
-    public async Task Extend_StalePrice_IsRejected()
-    {
-        await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
-        var bought = await player.OkAsync("BuySeatTicket", BuyArgs("seat-11"));
-        var sessionId = bought.GetProperty("session").GetProperty("sessionId").GetGuid();
-
-        Assert.Equal("PRICE_CHANGED", await player.ErrorAsync("ExtendSeatSession", new { sessionId, durationUnits = 1, expectedPriceVersion = "old" }));
-    }
-
-    [Fact]
-    public async Task Extend_RacingExpiryTimer_HasOneConsistentResult()
-    {
-        for (var round = 0; round < 5; round++)
-        {
-            var playerId = await App.NewPlayerAsync(1000);
-            var seatId = $"seat-{round + 11}";
-            var seats = App.Service<SeatSessions>();
-            var bought = await seats.BuyAsync(playerId, Guid.NewGuid(), seatId, 1, PriceVersion, default);
-            App.Clock.Advance(TimeSpan.FromMinutes(10) - TimeSpan.FromMilliseconds(1));
-
-            var extend = seats.ExtendCommandAsync(playerId, Guid.NewGuid(), bought.Session.SessionId, 1, PriceVersion, default);
-            var sweep = seats.SweepOnceAsync(default);
-            App.Clock.AdvanceMs(1);
-            var sweepLate = seats.SweepOnceAsync(default);
-            var extended = await extend.ContinueWith(task => task.IsCompletedSuccessfully);
-            await sweep;
-            await sweepLate;
-
-            var session = await SessionOfAsync(playerId);
-            if (extended) Assert.Null(session.EndedAt);
-            else Assert.NotNull(session.EndedAt);
-            if (session.EndedAt is null) await App.Service<ISeatSessions>().EndAsync(playerId, SeatEndReasons.LeftSeat, default);
-        }
     }
 
     private async Task WaitDisconnectedAsync(Guid playerId)

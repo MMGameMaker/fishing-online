@@ -1,7 +1,6 @@
 // HUD vé câu cá và hộp thoại mua vé. Vé không gắn với ghế; giá và Gold luôn lấy theo Server.
 import type { Services } from '../../core/services';
 import {
-  confirmDialog,
   createButton,
   createGoldLabel,
   createPanel,
@@ -25,6 +24,7 @@ export class SeatUi {
   private readonly sessionRow = document.createElement('div');
   private readonly leaveButton;
   private readonly unsubscribes: (() => void)[] = [];
+  private leaving = false;
 
   constructor(
     private readonly root: HTMLElement,
@@ -203,14 +203,18 @@ export class SeatUi {
     }
   }
 
+  /** Rời ghế không mất vé nên không cần hỏi lại (SPEC 0.9); gọi lặp khi đang gửi thì bỏ qua. */
   async leave(): Promise<void> {
-    const yes = await confirmDialog(this.root, {
-      title: 'Rời ghế',
-      message: 'Không hoàn vé. Bạn có chắc muốn rời ghế?',
-      confirmLabel: 'Rời ghế',
-    });
-    if (!yes) return;
-    const ack = await this.services.hub.invoke('LeaveSeat', {});
-    if (!ack.ok) showError(this.root, ack.error);
+    if (this.leaving) return;
+    this.leaving = true;
+    try {
+      const ack = await this.services.hub.invoke('LeaveSeat', {});
+      if (!ack.ok) showError(this.root, ack.error);
+    } catch (error) {
+      console.warn(error);
+      showError(this.root, { code: 'NETWORK_ERROR' });
+    } finally {
+      this.leaving = false;
+    }
   }
 }

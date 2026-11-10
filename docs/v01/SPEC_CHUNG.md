@@ -266,7 +266,7 @@ public interface ISeatSessions {
 }
 
 // BE-E
-public interface IFishingState { bool IsBusy(Guid playerId); bool IsInMinigame(Guid playerId); } // đang câu / đang minigame
+public interface IFishingState { bool IsBusy(Guid playerId); } // đang có lần câu chưa kết thúc; LeaveSeat/hết vé đọc phase minigame trong DB
 
 // BE-D
 public interface IProgress { Task<PlayerStats> GetStatsAsync(Guid playerId, CancellationToken ct); }

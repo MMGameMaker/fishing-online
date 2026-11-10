@@ -36,6 +36,8 @@ export interface LakeState {
   lastSeatEnd: { seatId: string; reason: string } | null;
   correction: { x: number; y: number; seq: number } | null;
   catches: Record<string, ShownCatch>;
+  /** Icon buồn khi thua minigame (FailShown): playerId → shownUntil. */
+  fails: Record<string, string>;
   chat: HubEvents['ChatReceived'][];
   emojis: Record<string, string>;
 }
@@ -72,6 +74,7 @@ export const initialLake: LakeState = {
   lastSeatEnd: null,
   correction: null,
   catches: {},
+  fails: {},
   chat: [],
   emojis: {},
 };
@@ -118,6 +121,7 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
         ...lake,
         players: without(lake.players, action.payload.playerId),
         catches: without(lake.catches, action.payload.playerId),
+        fails: without(lake.fails, action.payload.playerId),
         emojis: without(lake.emojis, action.payload.playerId),
       };
     case 'PlayerMoved': {
@@ -152,6 +156,11 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
         catches: { ...lake.catches, [playerId]: { speciesId, rarity, shownUntil } },
       };
     }
+    case 'FailShown':
+      return {
+        ...lake,
+        fails: { ...lake.fails, [action.payload.playerId]: action.payload.shownUntil },
+      };
     case 'SkinChanged': {
       const player = lake.players[action.payload.playerId];
       if (!player) return lake;

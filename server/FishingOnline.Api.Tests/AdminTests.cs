@@ -113,7 +113,7 @@ public sealed class AdminAuthTests(PostgresServer postgres) : AdminTestBase(post
 
 public sealed class AdminConfigTests(PostgresServer postgres) : AdminTestBase(postgres)
 {
-    private const string Base = "v0-test-2026-11-09-monitoring-05";
+    private const string Base = "v0-test-2026-11-10-ticket-01";
 
     private async Task<(HttpClient Client, JsonElement Draft)> DraftAsync()
     {
@@ -164,16 +164,17 @@ public sealed class AdminConfigTests(PostgresServer postgres) : AdminTestBase(po
     }
 
     [Fact]
-    public async Task Publish_RunningAttemptKeepsOldNumbers_NewSessionsUseNew()
+    public async Task Publish_RunningAttemptKeepsOldNumbers_NewCastsUseNew()
     {
         await using var before = await App.ConnectAsync(await App.NewPlayerAsync(1000));
         await before.OkAsync("JoinLake");
-        await before.OkAsync("BuySeatTicket", new { seatId = "seat-11", durationUnits = 1, expectedPriceVersion = PriceVersion });
+        await SitAsync(before, "seat-11");
+        var oldAttemptId = (await before.OkAsync("CastLine")).GetProperty("attemptId").GetGuid();
 
         var (client, draft) = await DraftAsync();
         var document = JsonNode.Parse(draft.GetProperty("document").GetRawText())!;
         foreach (var row in document["minigame"]!["rarity"]!.AsArray()) row!["durationMs"] = row["durationMs"]!.GetValue<int>() + 1000;
-        document["seatTiers"]![2]!["unitPriceGold"] = "50";
+        document["ticketPricing"]!["unitPriceGold"] = "60";
         (await SaveAsync(client, draft, 1, document)).EnsureSuccessStatusCode();
         var published = await DataAsync(PublishAsync(client, draft, 2, Base));
         var version = published.GetProperty("version").GetString()!;
@@ -181,10 +182,11 @@ public sealed class AdminConfigTests(PostgresServer postgres) : AdminTestBase(po
         Assert.Equal(version, App.Service<IConfigProvider>().Current.ConfigVersion);
         await using var after = await App.ConnectAsync(await App.NewPlayerAsync(1000));
         await after.OkAsync("JoinLake");
-        var bought = await after.OkAsync("BuySeatTicket", new { seatId = "seat-12", durationUnits = 2, expectedPriceVersion = PriceVersion });
-        Assert.Equal("100", bought.GetProperty("chargedGold").GetString());
+        var bought = await after.OkAsync("BuyTicket", TicketArgs(2));
+        Assert.Equal("120", bought.GetProperty("chargedGold").GetString());
+        await SitAsync(after, "seat-12", tickets: 0);
 
-        var oldAttempt = await MinigameAsync(before);
+        var oldAttempt = await MinigameAsync(before, oldAttemptId);
         var newAttempt = await MinigameAsync(after);
         var configs = App.Service<IConfigProvider>();
         Assert.Equal(Base, oldAttempt.ConfigVersion);
@@ -211,9 +213,9 @@ public sealed class AdminConfigTests(PostgresServer postgres) : AdminTestBase(po
         Assert.Equal(3, (await DataAsync(client.GetAsync("/api/v1/admin/config/versions"))).GetArrayLength());
     }
 
-    private async Task<(string ConfigVersion, string? Rarity, int DurationMs)> MinigameAsync(TestPlayer player)
+    private async Task<(string ConfigVersion, string? Rarity, int DurationMs)> MinigameAsync(TestPlayer player, Guid? cast = null)
     {
-        var attemptId = (await player.OkAsync("CastLine")).GetProperty("attemptId").GetGuid();
+        var attemptId = cast ?? (await player.OkAsync("CastLine")).GetProperty("attemptId").GetGuid();
         App.Clock.AdvanceMs(6000);
         await App.Service<FishingService>().TickOnceAsync(default);
         await player.OkAsync("HookFish", new { attemptId });
@@ -233,19 +235,22 @@ public sealed class AdminLookupTests(PostgresServer postgres) : AdminTestBase(po
     {
         var playerId = await App.NewPlayerAsync(500);
         await using (var player = await App.ConnectAsync(playerId))
-            await player.OkAsync("BuySeatTicket", new { seatId = "seat-11", durationUnits = 3, expectedPriceVersion = PriceVersion });
+        {
+            await player.OkAsync("JoinLake");
+            await SitAsync(player, "seat-11", tickets: 3);
+        }
         var client = await AdminAsync(AdminPermissions.PlayerRead);
 
         var detail = await DataAsync(client.GetAsync($"/api/v1/admin/players/{playerId}"));
         Assert.Equal(detail.GetProperty("gold").GetString(), detail.GetProperty("ledgerTotal").GetString());
-        Assert.Equal("480", detail.GetProperty("gold").GetString());
+        Assert.Equal("450", detail.GetProperty("gold").GetString());
 
         var first = await DataAsync(client.GetAsync($"/api/v1/admin/players/{playerId}/ledger?limit=2"));
         var cursor = first.GetProperty("nextCursor").GetString();
         var second = await DataAsync(client.GetAsync($"/api/v1/admin/players/{playerId}/ledger?limit=2&cursor={cursor}"));
         var all = first.GetProperty("items").EnumerateArray().Concat(second.GetProperty("items").EnumerateArray()).ToArray();
         Assert.Equal(3, all.Length);
-        Assert.Equal(480, all.Sum(row => row.GetProperty("delta").GetInt64()));
+        Assert.Equal(450, all.Sum(row => row.GetProperty("delta").GetInt64()));
         Assert.Equal(JsonValueKind.Null, second.GetProperty("nextCursor").ValueKind);
         Assert.Single((await DataAsync(client.GetAsync($"/api/v1/admin/players/{playerId}/seat-sessions"))).GetProperty("items").EnumerateArray());
     }

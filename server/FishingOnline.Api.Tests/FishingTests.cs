@@ -19,7 +19,7 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
     {
         var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
         await player.OkAsync("JoinLake");
-        await player.OkAsync("BuySeatTicket", new { seatId, durationUnits = 1, expectedPriceVersion = PriceVersion });
+        await SitAsync(player, seatId);
         return player;
     }
 
@@ -93,8 +93,8 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
 
     [Theory]
     [InlineData("seat-11", 2999, 6000)]
-    [InlineData("seat-01", 1999, 5000)]
-    public async Task Bite_ArrivesInsideWaitWindow(string seatId, int stillWaitingAt, int biteBy)
+    [InlineData("seat-01", 2999, 6000)]
+    public async Task Bite_ArrivesInsideWaitWindow_SameOnEverySeat(string seatId, int stillWaitingAt, int biteBy)
     {
         await using var player = await SeatedAsync(seatId);
         var attemptId = await CastAsync(player);
@@ -178,6 +178,26 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
 
         Assert.Equal("missed_bite", (await RowAsync(attemptId)).Reason);
         Assert.False(App.Service<IFishingState>().IsBusy(player.PlayerId));
+    }
+
+    [Fact]
+    public async Task MissedBite_StandsPlayerUp_TicketStays()
+    {
+        await using var watcher = await App.ConnectAsync();
+        await watcher.OkAsync("JoinLake");
+        await using var player = await SeatedAsync();
+        await ToBiteAsync(player);
+
+        await TickAfterAsync(3301);
+
+        var ended = await player.WaitForAsync("MySeat", payload => payload.TryGetProperty("ended", out _));
+        Assert.Equal("missed_bite", ended.GetProperty("reason").GetString());
+        Assert.Null(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
+        await watcher.WaitForAsync("SeatChanged", seat => seat.GetProperty("state").GetString() == "available");
+        Assert.DoesNotContain(watcher.Received, item => item.Name == "FailShown");
+        Assert.Equal("NOT_IN_SEAT", await player.ErrorAsync("CastLine"));
+        await SitAsync(player, "seat-11", tickets: 0);
+        await CastAsync(player);
     }
 
     [Fact]
@@ -299,33 +319,66 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
-    public async Task SessionExpiringInMinigame_CancelsWithoutCatch()
+    public async Task MinigameLoss_ShowsSadIconToTheRoom_PlayerStaysSeated()
     {
+        await using var watcher = await App.ConnectAsync();
+        await watcher.OkAsync("JoinLake");
         await using var player = await SeatedAsync();
         var attemptId = await ToMinigameAsync(player);
 
-        App.Clock.Advance(TimeSpan.FromMinutes(10));
+        await player.OkAsync("SubmitFishingResult", Result(attemptId, "failed"));
+
+        var shown = await watcher.WaitForAsync("FailShown");
+        Assert.Equal(player.PlayerId, shown.GetProperty("playerId").GetGuid());
+        Assert.Equal(App.Clock.GetUtcNow() + TimeSpan.FromSeconds(2), shown.GetProperty("shownUntil").GetDateTimeOffset(), TimeSpan.FromMilliseconds(1));
+        Assert.NotNull(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
+    }
+
+    [Fact]
+    public async Task TicketExpiringWhileWaiting_CancelsAndStandsUp()
+    {
+        await using var player = await SeatedAsync();
+        var attemptId = await CastAsync(player);
+        await App.WithDbAsync(db => db.Set<TicketRow>().Where(row => row.PlayerId == player.PlayerId)
+            .ExecuteUpdateAsync(setters => setters.SetProperty(row => row.ExpiresAt, App.Clock.GetUtcNow())));
+
         await App.Service<SeatSessions>().SweepOnceAsync(default);
 
         var row = await RowAsync(attemptId);
         Assert.Equal("cancelled", row.Phase);
-        Assert.Equal("session_expired", row.Reason);
-        Assert.Equal(0, await CatchCountAsync(player.PlayerId));
-        Assert.False(App.Service<IFishingState>().IsBusy(player.PlayerId));
+        Assert.Equal("ticket_expired", row.Reason);
+        Assert.Null(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
     }
 
     [Fact]
-    public async Task Result_AfterSeatExpiredBeforeSweep_IsNotRewarded()
+    public async Task TicketExpiringInMinigame_FinishesTheCatch_ThenStandsUp()
     {
         await using var player = await SeatedAsync();
         var attemptId = await ToMinigameAsync(player);
-        await App.WithDbAsync(db => db.Set<SeatSessionRow>().Where(row => row.PlayerId == player.PlayerId)
+        await App.WithDbAsync(db => db.Set<TicketRow>().Where(row => row.PlayerId == player.PlayerId)
+            .ExecuteUpdateAsync(setters => setters.SetProperty(row => row.ExpiresAt, App.Clock.GetUtcNow())));
+        var seats = App.Service<SeatSessions>();
+
+        await seats.SweepOnceAsync(default);
+        Assert.NotNull(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
+        var attempt = (await player.OkAsync("SubmitFishingResult", Result(attemptId))).GetProperty("attempt");
+        await seats.SweepOnceAsync(default);
+
+        Assert.Equal("success", attempt.GetProperty("phase").GetString());
+        Assert.Equal(1, await CatchCountAsync(player.PlayerId));
+        Assert.Null(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
+        var ended = await player.WaitForAsync("MySeat", payload => payload.TryGetProperty("ended", out _));
+        Assert.Equal("ticket_expired", ended.GetProperty("reason").GetString());
+    }
+
+    [Fact]
+    public async Task Cast_WithExpiredTicketBeforeSweep_NoTicket()
+    {
+        await using var player = await SeatedAsync();
+        await App.WithDbAsync(db => db.Set<TicketRow>().Where(row => row.PlayerId == player.PlayerId)
             .ExecuteUpdateAsync(setters => setters.SetProperty(row => row.ExpiresAt, App.Clock.GetUtcNow())));
 
-        Assert.Equal("NOT_IN_SEAT", await player.ErrorAsync("SubmitFishingResult", Result(attemptId)));
-
-        Assert.Equal("session_expired", (await RowAsync(attemptId)).Reason);
-        Assert.Equal(0, await CatchCountAsync(player.PlayerId));
+        Assert.Equal("NO_TICKET", await player.ErrorAsync("CastLine"));
     }
 
     [Fact]
@@ -339,6 +392,18 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
         var row = await RowAsync(attemptId);
         Assert.Equal("cancelled", row.Phase);
         Assert.Equal("left_seat", row.Reason);
+    }
+
+    [Fact]
+    public async Task LeaveSeat_InMinigame_IsRejected()
+    {
+        await using var player = await SeatedAsync();
+        var attemptId = await ToMinigameAsync(player);
+
+        Assert.Equal("STATE_CONFLICT", await player.ErrorAsync("LeaveSeat"));
+
+        Assert.Equal("minigame", (await RowAsync(attemptId)).Phase);
+        Assert.NotNull(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
     }
 
     [Fact]
@@ -357,13 +422,12 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
-    public async Task Extend_WhileFishing_KeepsAttemptRunning()
+    public async Task BuyingTickets_WhileFishing_KeepsAttemptRunning()
     {
         await using var player = await SeatedAsync();
-        var sessionId = (await App.WithDbAsync(db => db.Set<SeatSessionRow>().SingleAsync(row => row.PlayerId == player.PlayerId))).Id;
         var attemptId = await ToMinigameAsync(player);
 
-        await player.OkAsync("ExtendSeatSession", new { sessionId, durationUnits = 1, expectedPriceVersion = PriceVersion });
+        await player.OkAsync("BuyTicket", TicketArgs());
 
         Assert.Equal("minigame", (await RowAsync(attemptId)).Phase);
     }
@@ -403,7 +467,7 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
 
 public sealed class MonitoringTests(PostgresServer postgres) : GameTestBase(postgres)
 {
-    private const string ConfigVersion = "v0-test-2026-11-09-monitoring-05";
+    private const string ConfigVersion = "v0-test-2026-11-10-ticket-01";
 
     private SecurityMonitor Monitor => App.Service<SecurityMonitor>();
 
@@ -492,7 +556,7 @@ public sealed class MonitoringTests(PostgresServer postgres) : GameTestBase(post
     {
         await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
         await player.OkAsync("JoinLake");
-        await player.OkAsync("BuySeatTicket", new { seatId = "seat-11", durationUnits = 1, expectedPriceVersion = PriceVersion });
+        await SitAsync(player, "seat-11");
         var attemptId = (await player.OkAsync("CastLine")).GetProperty("attemptId").GetGuid();
         App.Clock.AdvanceMs(6000);
         await App.Service<FishingService>().TickOnceAsync(default);
@@ -534,8 +598,9 @@ public sealed class EndToEndTests(PostgresServer postgres) : GameTestBase(postgr
 
         await using var player = await app.ConnectAsync(playerId);
         await player.OkAsync("JoinLake");
-        var bought = await player.OkAsync("BuySeatTicket", new { seatId = "seat-11", durationUnits = 1, expectedPriceVersion = PriceVersion });
-        Assert.Equal("60", bought.GetProperty("gold").GetString());
+        var bought = await player.OkAsync("BuyTicket", TicketArgs());
+        Assert.Equal("50", bought.GetProperty("gold").GetString());
+        await SitAsync(player, "seat-11", tickets: 0, app);
 
         var attemptId = (await player.OkAsync("CastLine")).GetProperty("attemptId").GetGuid();
         await player.WaitForAsync("AttemptUpdate", update => update.GetProperty("phase").GetString() == "bite");
@@ -553,9 +618,9 @@ public sealed class EndToEndTests(PostgresServer postgres) : GameTestBase(postgr
         var sell = new HttpRequestMessage(HttpMethod.Post, "/api/v1/shop/sell-fish") { Content = JsonContent.Create(new { catchIds = new[] { fish.GetProperty("catchId").GetGuid() } }) };
         sell.Headers.Add("Idempotency-Key", Guid.NewGuid().ToString());
         var sold = await ReadDataAsync(await http.SendAsync(sell));
-        Assert.Equal(60 + long.Parse(sold.GetProperty("goldEarned").GetString()!), long.Parse(sold.GetProperty("gold").GetString()!));
+        Assert.Equal(50 + long.Parse(sold.GetProperty("goldEarned").GetString()!), long.Parse(sold.GetProperty("gold").GetString()!));
 
         var ledger = await app.WithDbAsync(db => db.Set<LedgerEntry>().Where(row => row.PlayerId == playerId).OrderBy(row => row.CreatedAt).Select(row => row.Reason).ToListAsync());
-        Assert.Equal([LedgerReasons.GrantNewPlayer, LedgerReasons.SeatPurchase, LedgerReasons.SellFish], ledger);
+        Assert.Equal([LedgerReasons.GrantNewPlayer, LedgerReasons.TicketPurchase, LedgerReasons.SellFish], ledger);
     }
 }

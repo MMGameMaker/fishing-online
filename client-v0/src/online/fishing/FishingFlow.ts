@@ -8,6 +8,7 @@ import { createPanel, showError, showToast } from '../ui/kit/components';
 import { FishButton } from './FishButton';
 import {
   biteProgress,
+  canLeaveSeat,
   isAttemptActive,
   isControlLocked,
   isPullVisible,
@@ -67,9 +68,9 @@ export class FishingFlow {
     return isControlLocked(this.services.store.getState().attempt, this.resultOpen);
   }
 
-  /** Chưa câu được cá thì luôn rời ghế được; LeaveSeat sẽ hủy lần câu dở. */
+  /** Rời ghế được trừ khi đã thu cần mà chưa có kết quả; LeaveSeat hủy lần câu đang chờ. */
   canLeaveSeat(): boolean {
-    return !this.resultOpen;
+    return canLeaveSeat(this.services.store.getState().attempt, this.hookSentAtMs !== null);
   }
 
   isFishing(): boolean {
@@ -141,7 +142,8 @@ export class FishingFlow {
 
   private async hook(attemptId: string): Promise<void> {
     this.hookSentAtMs = performance.now();
-    await this.run(() => this.services.hub.invoke('HookFish', { attemptId }));
+    const ok = await this.run(() => this.services.hub.invoke('HookFish', { attemptId }));
+    if (!ok) this.hookSentAtMs = null;
   }
 
   private onAttempt(attempt: AttemptView | null): void {
@@ -170,10 +172,16 @@ export class FishingFlow {
         break;
       case 'failed':
         this.finishRound();
+        this.nextCastAtMs = performance.now() + FAIL_HOLD_MS;
+        // Trượt cá: Server cho đứng dậy (MySeat ended), không hiện icon buồn.
+        if (attempt.reason === 'missed_bite') {
+          this.me.play('idle');
+          this.me.setHeadIcon(null);
+          break;
+        }
         this.me.play('fail');
         this.me.setHeadIcon({ type: 'sad' });
-        this.characterBusyUntilMs = performance.now() + FAIL_HOLD_MS;
-        this.nextCastAtMs = this.characterBusyUntilMs;
+        this.characterBusyUntilMs = this.nextCastAtMs;
         break;
       case 'cancelled':
         this.finishRound();

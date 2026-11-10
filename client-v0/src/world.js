@@ -190,8 +190,15 @@ export class WorldScene extends Phaser.Scene {
         else request('toggleDancing');
         return;
       }
+      // Coral Cove (Fishing Online): E cạnh ghế trống để ngồi; đang ngồi thì phím di chuyển là rời ghế.
+      if (e.code === 'KeyE' && this.online && !this.session.sitting) {
+        e.preventDefault();
+        this.seats.sitDown();
+        return;
+      }
       if (!KEYS[e.code]) return;
       e.preventDefault();
+      if (this.session.sitting && this.online) this.online.leave();
       this.held.add(KEYS[e.code]);
       this.clickTarget = null;
     });

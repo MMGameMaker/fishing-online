@@ -3,10 +3,11 @@
 - **Worker:** Claude
 - **Branch / PR:** chưa tạo nhánh/PR; thay đổi chưa commit trên working tree `main`
 - **Ngày gửi review:** 2026-11-09 (chờ commit/PR theo yêu cầu người dùng)
-- **Spec áp dụng:** SPEC_CHUNG v0.8, config `v0-test-2026-11-09-monitoring-05`
+- **Spec áp dụng:** SPEC_CHUNG v0.9, config v0-test-2026-11-10-ticket-01
 
 ## Đã làm
 
+- SPEC 0.9: loại khỏi v0.1, bỏ ExtendSeatSession; mua thêm vé khi còn hạn thay cho gia hạn.
 - `ExtendSeatSession`: khóa session, trừ ví `seat_extension`, cộng vào expiresAt cũ, tăng sessionVersion, receipt; event chỉ phát sau commit.
 
 ## File thay đổi
@@ -20,6 +21,8 @@
 
 ## Lệnh kiểm tra đã chạy
 
+- 2026-11-10 SPEC 0.9: server: Domain.Tests 156 đạt, Api.Tests 200 đạt (PostgreSQL portable); migration BEC_TicketsAndSeats thử trên DB có dữ liệu cũ
+
 ```
 dotnet restore server --locked-mode → exit 0
 dotnet build server -warnaserror → 0 Warning, 0 Error
@@ -30,6 +33,7 @@ dotnet test server → Domain 159/159; Api 169/169, 0 Skipped (chạy lại 2026
 
 | Tiêu chí (chép từ task) | Kết quả | Bằng chứng |
 | --- | --- | --- |
+| SPEC 0.9: không còn lệnh gia hạn | Đạt | `BuyWhileValid_AddsOnTop_EvenPastSixtyMinutes` |
 | Mua 20 phút rồi gia hạn 10 → tổng 30 phút từ startedAt | Đạt | `Extend_AddsToExpiry_RetryChargesOnce` |
 | Retry 1 key chỉ trừ/cộng 1 lần | Đạt | Cùng test |
 | Thiếu Gold không đổi expiresAt | Đạt | `Extend_NotEnoughGold_KeepsExpiry` |

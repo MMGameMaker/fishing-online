@@ -56,7 +56,7 @@ export class SeatController {
       // While fishing from a stool the Fish button takes this spot; stand up once done.
       // On a stool by the water the Fish button sits at y - 84, so Stand up goes above it.
       const above = this.session.fishZone ? 112 : 84;
-      // Coral Cove rời ghế bằng nút Rời ghế có xác nhận không hoàn vé.
+      // Coral Cove rời ghế bằng phím di chuyển hoặc nút Rời ghế trên HUD (SPEC 0.9).
       this.standButton.setVisible(!this.session.fishing.isFishing() && !this.scene.online).setPosition(me.x, me.y - above);
       return;
     }

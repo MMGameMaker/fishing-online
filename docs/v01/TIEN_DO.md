@@ -29,6 +29,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | Ngày | Nội dung | Nhóm cần làm gì |
 | --- | --- | --- |
 | 2026-11-09 | SPEC_CHUNG 0.8: tự câu sau khi ngồi, nút Kéo giữa màn hình chạm bất kỳ, popup chạm mới đóng, thua chờ 2 giây, chưa câu được cá vẫn rời ghế được; không đổi contract | CL-B/C, QA: test theo luồng mới |
+| 2026-11-10 | SPEC_CHUNG 0.9: vé theo thời gian tách khỏi ghế (`BuyTicket`, `SitDown`), bỏ Tier/buff/cooldown/gia hạn; nút móc câu góc phải; trượt cá tự đứng dậy; không rời ghế khi minigame; thêm `FailShown`. Đổi contract | BE-C/E, CL-B/C, AD, QA: test theo luồng mới |
 | 2026-11-09 | SPEC_CHUNG 0.7: gameplay chạy trong scene Coral Cove của `client-v0`, resource do dự án tự làm | CL-B/C, ART, QA: test trong scene này |
 | 2026-11-09 | SPEC_CHUNG 0.6: client đặt trong `client-v0/src/online/`, không còn `client-web/`; chỉ đổi đường dẫn | CL/SOC/ART/QA: dùng đường dẫn mới |
 | 2026-11-09 | SPEC_CHUNG 0.4: M0 duyệt; Client outcome, pool cộng dồn, BE tuần tự | Tất cả: đọc trước khi nhận task |
@@ -68,13 +69,13 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | BE-C-01 | Nạp map và kiểm tra vị trí | S | không | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-01.md) |
 | BE-C-02 | Vào phòng, presence, snapshot | M | BE-C-01 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-02.md) |
 | BE-C-03 | Di chuyển | M | BE-C-02 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-03.md) |
-| BE-C-04 | Bảng ghế, mua vé | L | BE-C-01; IWallet (giả được) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-04.md) |
-| BE-C-05 | Kết thúc phiên và cooldown | M | BE-C-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-05.md) |
+| BE-C-04 | Vé và ngồi ghế | L | BE-C-01; IWallet (giả được) | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-04.md) |
+| BE-C-05 | Rời ghế, hết vé | M | BE-C-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-05.md) |
 | BE-C-06 | Mất kết nối và vào lại | M | BE-C-05 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-06.md) |
 | BE-C-07 | Khôi phục sau restart | S | BE-C-05, BE-C-06 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-07.md) |
 | BE-C-08 | Test tải phòng | S | BE-C-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. p95 1.7 ms. [Báo cáo](bao-cao/BE-C-08.md) |
 
-| BE-C-09 | Gia hạn thời lượng giữ ghế | M | BE-C-04/05, BE-A-04 | Claude | Chờ review | 2026-11-09 | Chưa commit/PR. [Báo cáo](bao-cao/BE-C-09.md) |
+| BE-C-09 | Gia hạn thời lượng giữ ghế | M | BE-C-04/05, BE-A-04 | Claude | Chờ review | 2026-11-09 | SPEC 0.9 loại khỏi v0.1 (mua thêm vé thay gia hạn). [Báo cáo](bao-cao/BE-C-09.md) |
 
 ### BE-D — Kinh tế và tiến trình
 
@@ -125,7 +126,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | CL-B-02 | Scene hồ | M | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Map placeholder |
 | CL-B-03 | Nhân vật và animation | M | CL-B-02; sprite từ ART-02 (placeholder trước) | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Art tạm |
 | CL-B-04 | Điều khiển và đồng bộ di chuyển | M | CL-B-02, CL-A-04 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0. Chưa thử 2 tab |
-| CL-B-05 | Ghế và mua vé | M | CL-B-02, CL-A-05 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Chưa thử 2 tab, đồng hồ với Server |
+| CL-B-05 | Ghế và mua vé | M | CL-B-02, CL-A-05 | Claude | Chờ review | 2026-11-09 | Ghế và vé (SPEC 0.9: E để ngồi, phím di chuyển để rời ghế) chưa commit, đã thử với mock trên fishing.html; Coral Cove cần đăng nhập Google nên chưa thử trình duyệt |
 | CL-B-06 | Mất kết nối | S | CL-A-04, CL-B-05 | | Chưa nhận | |  |
 
 | CL-B-07 | Thiết kế và duyệt bố cục hồ câu mới | M | ART-01 | | Chưa nhận | | Không dùng nguyên map 30 anchor cũ |
@@ -135,10 +136,10 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | Task | Tên | Độ lớn | Phụ thuộc | Người làm | Trạng thái | Ngày | Ghi chú |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | CL-C-01 | Lõi minigame TS | S | CL-A-01 | Claude | Chờ review | 2026-11-09 | Chưa commit, trong client-v0 |
-| CL-C-02 | Nút Kéo | S | CL-A-05 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock |
-| CL-C-03 | Quăng, chờ, cá cắn | M | CL-C-02, CL-B-03 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Âm báo tạm |
-| CL-C-04 | Màn minigame | L | CL-C-01 | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Chưa đo FPS |
-| CL-C-05 | Kết quả | M | CL-C-04; icon cá (ART-04) | Claude | Chờ review | 2026-11-09 | Bản đầu đã commit; tự câu SPEC 0.8 chưa commit, đã thử với mock. Ảnh cá tạm |
+| CL-C-02 | Nút móc câu | S | CL-A-05 | Claude | Chờ review | 2026-11-09 | Nút móc câu góc phải (SPEC 0.9) chưa commit, đã thử với mock |
+| CL-C-03 | Quăng, chờ, cá cắn | M | CL-C-02, CL-B-03 | Claude | Chờ review | 2026-11-09 | Trượt cá tự đứng dậy (SPEC 0.9) chưa commit, đã thử với mock. Âm báo tạm |
+| CL-C-04 | Màn minigame | L | CL-C-01 | Claude | Chờ review | 2026-11-09 | Không rời ghế khi minigame (SPEC 0.9) chưa commit, đã thử với mock. Chưa đo FPS |
+| CL-C-05 | Kết quả | M | CL-C-04; icon cá (ART-04) | Claude | Chờ review | 2026-11-09 | Icon buồn người khác thấy (FailShown) chưa commit, đã thử với mock. Ảnh cá tạm |
 
 ### CL-D — HUD, Shop, túi đồ, tiến trình, Codex
 

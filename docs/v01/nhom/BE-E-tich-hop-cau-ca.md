@@ -18,7 +18,7 @@ Phụ thuộc: đây là nhóm tích hợp. Bắt đầu được ngay với b�
   - `CastLine`: lấy phiên ghế (`NOT_IN_SEAT`), không có lần câu mở (`ATTEMPT_ACTIVE`), pin `configVersion` của phiên, `waitMs` từ `FishingRules`. Lưu attempt `waiting`, trả `{attemptId}`, phát `AttemptUpdate` cho owner và `PlayerView.fishing = true` cho phòng.
   - `FishingTicker` (BackgroundService, 50 ms) gọi `attempt.Tick(now)` cho các attempt đang mở trong RAM; mỗi chuyển trạng thái: lưu `snapshotJson` + phase, phát `AttemptUpdate`.
   - Ở bước bite: chọn loài bằng `SpawnPicker` với `rareLuck` từ `IProgress`.
-- **Nghiệm thu:** với `TimeProvider` giả: Tier 3 chuyển bite sau 3-6 giây; Tier 1 1-4 giây; không giữ ghế → `NOT_IN_SEAT`.
+- **Nghiệm thu:** với `TimeProvider` giả: mọi ghế chuyển bite sau 3-6 giây (SPEC 0.9 bỏ Lure Time ghế); không ngồi ghế → `NOT_IN_SEAT`; vé hết → `NO_TICKET`.
 
 ### BE-E-03 HookFish và nhận kết quả Client
 - **Độ lớn:** M. **Phụ thuộc:** BE-E-02, BE-B-06.
@@ -42,7 +42,7 @@ Phụ thuộc: đây là nhóm tích hợp. Bắt đầu được ngay với b�
 
 ### BE-E-07 Test end-to-end Server
 - **Độ lớn:** M. **Phụ thuộc:** BE-E-01 đến BE-E-06, BE-C, BE-D xong.
-- **Spec:** test tích hợp chạy Server thật + PostgreSQL: login dev → JoinLake → BuySeatTicket  → CastLine → chờ bite → HookFish → gửi success từ Client sau Hook → kiểm tra túi có cá, EXP tăng, ledger đúng → bán cá → Gold tăng.
+- **Spec:** test tích hợp chạy Server thật + PostgreSQL: login dev → JoinLake → BuyTicket → SitDown → CastLine → chờ bite → HookFish → gửi success từ Client sau Hook → kiểm tra túi có cá, EXP tăng, ledger đúng → bán cá → Gold tăng.
 - **Nghiệm thu:** chạy được bằng `dotnet test --filter Category=E2E`.
 
 ### BE-E-08 Quần thể cá hữu hạn và tích hợp lượt câu

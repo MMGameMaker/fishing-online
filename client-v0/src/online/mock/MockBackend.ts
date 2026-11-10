@@ -81,6 +81,7 @@ const TICK_MS = 100;
 const BOT_MOVE_EVERY_MS = 600;
 const BOT_STEP_PX = 16;
 const BOT_CATCH_CHANCE = 0.02;
+const BOT_FAIL_CHANCE = 0.02;
 const SCALE_BROADCAST_EVERY_MS = 1000;
 const NO_FORCED_ERROR: ReadonlySet<HubCommandName> = new Set(['JoinLake', 'Move']);
 const NAME_PATTERN = /^[\p{L}\p{N} _]{3,16}$/u;
@@ -380,6 +381,12 @@ export class MockBackend {
           shownUntil: this.iso(this.nowMs + this.config.fishing.catchShownMs),
         });
       }
+      if (this.random() < BOT_FAIL_CHANCE) {
+        this.emit('FailShown', {
+          playerId: bot.playerId,
+          shownUntil: this.iso(this.nowMs + this.config.fishing.failShownMs),
+        });
+      }
     }
   }
 
@@ -652,6 +659,8 @@ export class MockBackend {
 
   private commandLeave(): null {
     if (!this.session) throw new CommandError('NOT_IN_SEAT');
+    // SPEC 0.9: từ lúc thu cần tới khi có kết quả không được rời ghế.
+    if (this.attempt?.phase === 'minigame') throw new CommandError('STATE_CONFLICT');
     this.endSession('left_seat', 'left_seat');
     return null;
   }
@@ -670,6 +679,7 @@ export class MockBackend {
 
   private commandCast(): { attemptId: string } {
     if (!this.session) throw new CommandError('NOT_IN_SEAT');
+    if (!this.ticket || this.nowMs >= this.ticket.expiresAtMs) throw new CommandError('NO_TICKET');
     if (this.attempt) throw new CommandError('ATTEMPT_ACTIVE');
     const { waitMinMs, waitMaxMs } = this.config.fishing;
     const attempt: AttemptRuntime = {
@@ -771,11 +781,17 @@ export class MockBackend {
   private finishFailed(attempt: AttemptRuntime, reason: string): AttemptView {
     this.attempt = null;
     this.recordHistory(attempt, 'failed', reason, null);
-    this.emit('FailShown', {
-      playerId: MY_ID,
-      shownUntil: this.iso(this.nowMs + this.config.fishing.failShownMs),
-    });
-    return this.settle(this.endedView(attempt, 'failed', reason, null));
+    const view = this.settle(this.endedView(attempt, 'failed', reason, null));
+    // SPEC 2.6: trượt cá thì tự đứng dậy; thua minigame thì cả phòng thấy icon buồn.
+    if (reason === 'missed_bite') {
+      this.endSession('missed_bite', 'left_seat');
+    } else {
+      this.emit('FailShown', {
+        playerId: MY_ID,
+        shownUntil: this.iso(this.nowMs + this.config.fishing.failShownMs),
+      });
+    }
+    return view;
   }
 
   private finishCancelled(attempt: AttemptRuntime, reason: string): void {

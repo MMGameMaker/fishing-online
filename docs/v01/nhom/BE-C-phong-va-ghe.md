@@ -1,7 +1,7 @@
 # BE-C — Phòng hồ, di chuyển, ghế và vé
 
-Mục tiêu: 20 người vào cùng hồ, đi lại, mua và gia hạn thời lượng ghế theo đơn giá đúng mọi luật ghế.
-Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 2.2, 2.3, 4, 6; `fixtures/lake-map.placeholder.json`.
+Mục tiêu: 20 người vào cùng hồ, đi lại, mua vé câu theo thời gian và ngồi ghế đúng luật SPEC 0.9 (vé không gắn ghế).
+Đọc trước: [SPEC_CHUNG](../SPEC_CHUNG.md) mục 2.2, 4, 6; `fixtures/lake-map.placeholder.json`.
 Phạm vi file: `server/FishingOnline.Api/Modules/Lake/`, `GameHub.Lake.cs`, migration `BEC_*`.
 Độc lập: dùng `ICurrentPlayer`, `IWallet`, `IConfigProvider`, `IIdempotency` qua interface. Khi BE-A chưa xong, dùng bản giả trong test (ví trong bộ nhớ, player cố định).
 
@@ -24,33 +24,33 @@ Mô hình chạy: một instance sở hữu phòng `lake-01`. Mọi lệnh thay 
 
 ### BE-C-03 Di chuyển
 - **Độ lớn:** M. **Phụ thuộc:** BE-C-02.
-- **Spec:** `Move {seq, x, y, dir}`: seq tăng dần (bỏ seq cũ); quãng đường từ vị trí trước ≤ `maxSpeedPxPerSec × Δt × 1.25 + 8`; `CanStand`; nếu đang giữ ghế: khoảng cách tới ghế ≤ `roamRadius`; nếu đang trong lần câu (BE-E báo qua `IFishingState.IsBusy(playerId)`): từ chối. Sai → `PositionCorrected` cho người gửi. Đúng → `PlayerMoved` cho người khác. Giới hạn 20 lệnh/giây.
-- **Nghiệm thu:** nhảy 500 px → bị kéo về; đi vào ô nước → bị kéo về; giữ ghế đi xa 100 px → bị kéo về.
+- **Spec:** `Move {seq, x, y, dir}`: seq tăng dần (bỏ seq cũ); quãng đường từ vị trí trước ≤ `maxSpeedPxPerSec × Δt × 1.25 + 8`; `CanStand`; đang ngồi ghế thì mọi Move bị kéo về (SPEC 0.9, muốn đi phải `LeaveSeat`); nếu đang trong lần câu (BE-E báo qua `IFishingState.IsBusy(playerId)`): từ chối. Sai → `PositionCorrected` cho người gửi. Đúng → `PlayerMoved` cho người khác. Giới hạn 20 lệnh/giây.
+- **Nghiệm thu:** nhảy 500 px → bị kéo về; đi vào ô nước → bị kéo về; đang ngồi đi 6 px → bị kéo về.
 
-### BE-C-04 Bảng ghế, mua vé
+### BE-C-04 Vé và ngồi ghế (viết lại theo SPEC 0.9)
 - **Độ lớn:** L. **Phụ thuộc:** BE-C-01; IWallet (giả được).
 - **Spec:**
-  - Bảng `seats(seatId PK, number, tier)` seed 20 dòng từ map. `seat_sessions(id, seatId, playerId, startedAt, expiresAt, endedAt null, endReason null, disconnectedAt null, configVersion)`. Unique partial index `(seatId) where endedAt is null` và `(playerId) where endedAt is null`. Bảng `seat_cooldowns(seatId PK, until)`.
-  - `BuySeatTicket {seatId, durationUnits, expectedPriceVersion}` trong transaction: kiểm tra cooldown (`SEAT_COOLDOWN`), phiên đang mở của ghế (`SEAT_TAKEN`), của player (`ALREADY_HAS_SEAT`), tính totalGold theo đơn giá server/ghế và durationUnits, `IWallet.DebitAsync(totalGold, "seat_purchase", purchaseId)`, insert session với expiresAt = now + thời lượng đã mua, lưu pricing snapshot và purchase receipt. Vi phạm unique index → map sang `SEAT_TAKEN`. Bọc `IIdempotency` theo requestId.
-  - Sau commit: dịch chuyển player tới vị trí ghế, phát `SeatChanged`, `MySeatSession` cho owner, `PlayerMoved`.
-- **Nghiệm thu:** 10 client cùng mua 1 ghế → 1 thành công, 9 nhận `SEAT_TAKEN`, chỉ 1 dòng ledger; mua ghế thứ 2 khi đang giữ ghế → `ALREADY_HAS_SEAT`; thiếu Gold → `INSUFFICIENT_GOLD`, ghế vẫn trống.
+  - Bảng `seats(seatId PK, number)` seed 20 dòng từ map. `tickets(playerId PK, expiresAt, purchasedMinutes, ticketVersion, priceVersion)`, `ticket_purchases` (biên nhận). `seat_sessions(id, seatId, playerId, startedAt, endedAt null, endReason null, disconnectedAt null, configVersion)` là một lần ngồi, không có hạn riêng. Unique partial index `(seatId) where endedAt is null` và `(playerId) where endedAt is null`.
+  - `BuyTicket {quantity, expectedPriceVersion}` trong transaction: `1 ≤ quantity ≤ maxUnitsPerPurchase` (`INVALID_QUANTITY`), đúng priceVersion (`PRICE_CHANGED`), khóa hàng vé, `IWallet.DebitAsync(total, "ticket_purchase", purchaseId)`, còn vé thì cộng nối hạn, hết vé thì tính từ now, ghi receipt. Bọc `IIdempotency` theo requestId. Sau commit phát `MyTicket`.
+  - `SitDown {seatId}`: đứng cách ghế ≤ 64 px (`OUT_OF_RANGE`), vé còn hạn (`NO_TICKET`), ghế trống (`SEAT_TAKEN`), chưa ngồi ghế khác (`ALREADY_HAS_SEAT`; gửi lại đúng ghế đang ngồi thì trả ghế đó). Vi phạm unique index → `SEAT_TAKEN`/`ALREADY_HAS_SEAT`. Sau commit: đặt player vào vị trí ghế, phát `SeatChanged`, `MySeat`, `PositionCorrected`, `PlayerMoved`.
+- **Nghiệm thu:** 10 client cùng ngồi 1 ghế → 1 thành công, 9 `SEAT_TAKEN`; mua 6 vé rồi mua thêm 1 khi còn 55 phút → còn 65 phút; thiếu Gold → `INSUFFICIENT_GOLD`, không có vé; retry cùng requestId chỉ trừ tiền một lần; không vé → `NO_TICKET`.
 
-### BE-C-05 Kết thúc phiên và cooldown
+### BE-C-05 Rời ghế, hết vé (viết lại theo SPEC 0.9)
 - **Độ lớn:** M. **Phụ thuộc:** BE-C-04.
 - **Spec:**
-  - `ISeatSessions.EndAsync(playerId, reason)`: set `endedAt`, `endReason`; tạo cooldown `until = now + 10000`; phát `SessionEnded` (BE-E hủy lần câu), `SeatChanged` (state cooldown), `MySeatSession {ended, reason}`.
-  - Lý do: `expired` (timer), `left_seat` (`LeaveSeat`), `left_lake` (rời phòng), `disconnect_timeout`.
-  - Timer: `BackgroundService` quét mỗi 250 ms các phiên `expiresAt ≤ now` và cooldown hết hạn (phát `SeatChanged` available).
-- **Nghiệm thu:** với đồng hồ giả (`TimeProvider`), phiên kết thúc đúng expiresAt mới nhất sau mua/gia hạn; ghế available đúng 10.000 ms sau; người vừa rời mua lại trong cooldown → `SEAT_COOLDOWN`.
+  - `ISeatSessions.EndAsync(playerId, reason)`: set `endedAt`, `endReason`; phát `SessionEnded` (BE-E hủy lần câu), `SeatChanged` (available ngay, không cooldown), `MySeat {seatId, ended, reason}`.
+  - Lý do: `left_seat` (`LeaveSeat`, bị từ chối `STATE_CONFLICT` khi đang minigame), `missed_bite` (BE-E gọi khi cá sổng), `ticket_expired`, `disconnect_timeout`, `left_lake`.
+  - Timer: `BackgroundService` quét mỗi 250 ms: vé hết hạn với người đang ngồi mà không ở minigame → `ticket_expired`; người đang minigame thì đợi có kết quả rồi lượt quét sau mới kết thúc.
+- **Nghiệm thu:** với đồng hồ giả, vé hết đúng hạn thì người đang ngồi đứng dậy; rời ghế xong ngồi lại ngay được, vé vẫn còn; vé hết giữa minigame vẫn ghi cá rồi mới đứng dậy.
 
 ### BE-C-06 Mất kết nối và vào lại
 - **Độ lớn:** M. **Phụ thuộc:** BE-C-05.
 - **Spec:** `OnDisconnectedAsync`: nếu đang giữ ghế → set `disconnectedAt`, phát `PlayerDisconnected` (BE-E hủy lần câu `disconnected`), avatar vẫn ở ghế (đánh dấu offline trong PlayerView [Đề xuất]). Timer: `disconnectedAt + 120000 ≤ now` → `EndAsync(disconnect_timeout)`. `JoinLake` lại trong hạn → xóa `disconnectedAt`, trả snapshot có `mySession`. Không giữ ghế thì disconnect = rời phòng ngay.
-- **Nghiệm thu:** ngắt 60 giây rồi vào lại → còn ghế, `expiresAt` không đổi; ngắt 125 giây → mất ghế, ghế vào cooldown.
+- **Nghiệm thu:** ngắt 60 giây rồi vào lại → còn ghế, hạn vé không đổi; ngắt 125 giây → mất ghế, ghế trống ngay.
 
 ### BE-C-07 Khôi phục sau restart
 - **Độ lớn:** S. **Phụ thuộc:** BE-C-05, BE-C-06.
-- **Spec:** khi khởi động: phiên mở có `disconnectedAt` hoặc mọi phiên mở (vì không còn kết nối) → coi như `disconnectedAt = thời điểm khởi động` nếu chưa có; xử lý phiên quá hạn và cooldown quá hạn ngay lần quét đầu.
+- **Spec:** khi khởi động: phiên mở có `disconnectedAt` hoặc mọi phiên mở (vì không còn kết nối) → coi như `disconnectedAt = thời điểm khởi động` nếu chưa có; xử lý ghế quá hạn mất kết nối và vé đã hết ngay lần quét đầu.
 - **Nghiệm thu:** tắt server khi có phiên còn 5 phút, bật lại sau 30 giây, player vào lại → còn ghế; tắt 3 phút → mất ghế.
 
 ### BE-C-08 Test tải phòng
@@ -60,6 +60,4 @@ Mô hình chạy: một instance sở hữu phòng `lake-01`. Mọi lệnh thay 
 
 
 ### BE-C-09 Gia hạn thời lượng giữ ghế
-- **Độ lớn:** M. **Phụ thuộc:** BE-C-04/05, BE-A-04; dùng IWallet trong cùng transaction.
-- **Spec:** ExtendSeatSession theo SPEC 0.3; owner và phiên còn hiệu lực; kiểm tra duration/priceVersion rồi khóa session + debit + ledger seat_extension + update expiresAt += addedMinutes + receipt atomic. Không đổi ghế, startedAt, config gameplay đã pin hoặc attempt đang câu; không tạo cooldown. Snapshot/event chỉ phát sau commit, MySeatSession và SeatChanged có expiresAt mới.
-- **Nghiệm thu:** mua 20 phút rồi gia hạn 10 → tổng 30 phút từ startedAt; retry 1 key chỉ trừ/cộng 1 lần; thiếu Gold không đổi expiresAt; gia hạn sau hạn/rời ghế bị từ chối; race timer/renew chỉ một kết quả nhất quán; config giá đổi trả PRICE_CHANGED; đang câu được gia hạn mà không reset/hủy attempt. Mức 10 phút trong test là block test, không khóa mọi phiên 10 phút.
+- **Loại khỏi v0.1 theo SPEC 0.9 (GD 2026-11-10):** không còn lệnh gia hạn riêng; mua thêm vé khi còn hạn đã cộng nối hạn (BE-C-04). Giữ ID để tra lịch sử, không giao code.

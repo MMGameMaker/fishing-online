@@ -1,33 +1,47 @@
-.fish-tap-layer {
+.fish-button {
   position: absolute;
-  inset: 0;
+  right: 16px;
+  bottom: 16px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 6px;
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  color: var(--ui-text);
+  background: var(--ui-danger);
+  border: 3px solid var(--ui-border);
+  border-radius: 50%;
   cursor: pointer;
   pointer-events: auto;
   touch-action: manipulation;
 }
 
-.fish-tap-layer[hidden] {
+.fish-button[hidden] {
   display: none;
 }
 
-.fish-button {
+.fish-button__icon {
+  width: 44px;
+  height: 44px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+}
+
+.fish-button__bar {
   --bite-progress: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 128px;
-  height: 128px;
-  font-size: 1.6em;
-  font-weight: bold;
-  color: var(--ui-text);
-  background:
-    radial-gradient(circle closest-side, var(--ui-danger) 80%, transparent 81%),
-    conic-gradient(var(--ui-gold) calc(var(--bite-progress) * 360deg), var(--ui-bg-2) 0);
-  border: 3px solid var(--ui-border);
-  border-radius: 50%;
+  width: 56px;
+  height: 6px;
+  background: linear-gradient(
+    to right,
+    var(--ui-gold) calc(var(--bite-progress) * 100%),
+    var(--ui-bg-2) 0
+  );
+  border-radius: 3px;
 }
 
 .result-overlay {

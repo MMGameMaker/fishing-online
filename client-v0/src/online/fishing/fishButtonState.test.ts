@@ -3,6 +3,7 @@ import samples from '@fixtures/api-samples.v0.json';
 import type { AttemptView } from '../net/contract';
 import {
   biteProgress,
+  canLeaveSeat,
   isAttemptActive,
   isControlLocked,
   isPullVisible,
@@ -13,7 +14,7 @@ import {
 const hub = samples.hub as unknown as Record<string, AttemptView>;
 const attempt = (name: string) => hub[`AttemptUpdate ${name}`]!;
 
-describe('nút Kéo', () => {
+describe('nút móc câu', () => {
   it('chỉ hiện khi cá cắn câu', () => {
     expect(isPullVisible(attempt('bite'))).toBe(true);
     for (const name of ['waiting', 'minigame', 'success', 'failed', 'cancelled']) {
@@ -90,5 +91,19 @@ describe('biteProgress', () => {
 
   it('bằng 0 khi không ở bước cá cắn', () => {
     expect(biteProgress(attempt('waiting'), deadline, 3000)).toBe(0);
+  });
+});
+
+describe('rời ghế (SPEC 0.9)', () => {
+  it('được rời khi chờ cá, khi cá cắn chưa thu cần, khi đã có kết quả', () => {
+    expect(canLeaveSeat(null, false)).toBe(true);
+    for (const name of ['waiting', 'bite', 'success', 'failed', 'cancelled']) {
+      expect(canLeaveSeat(attempt(name), false)).toBe(true);
+    }
+  });
+
+  it('không được rời từ lúc thu cần tới khi có kết quả minigame', () => {
+    expect(canLeaveSeat(attempt('bite'), true)).toBe(false);
+    expect(canLeaveSeat(attempt('minigame'), false)).toBe(false);
   });
 });

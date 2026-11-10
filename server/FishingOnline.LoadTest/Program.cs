@@ -5,13 +5,14 @@ using System.Text.Json;
 using Microsoft.AspNetCore.SignalR.Client;
 using Npgsql;
 
-// BE-C-08: 20 kết nối cùng hồ, mua 20 ghế khác nhau rồi đi lại 10 lần/giây. Server phải bật Auth:DevBypass.
+// BE-C-08: 20 kết nối cùng hồ, mỗi kết nối mua vé rồi đi lại 10 lần/giây quanh điểm spawn. Server phải bật Auth:DevBypass.
+// Từ SPEC 0.9 người đang ngồi ghế không được đi lại, nên phần đo di chuyển không ngồi ghế.
 var arguments = Enumerable.Range(0, args.Length / 2).ToDictionary(index => args[index * 2].TrimStart('-'), index => args[index * 2 + 1]);
 var baseUrl = arguments.GetValueOrDefault("url", "http://127.0.0.1:5199");
 var seconds = int.Parse(arguments.GetValueOrDefault("seconds", "120"), CultureInfo.InvariantCulture);
 var clients = int.Parse(arguments.GetValueOrDefault("clients", "20"), CultureInfo.InvariantCulture);
 var database = arguments["database"];
-var priceVersion = arguments.GetValueOrDefault("price-version", "seat-price-test-03");
+var priceVersion = arguments.GetValueOrDefault("price-version", "ticket-price-test-01");
 var serverProcess = arguments.TryGetValue("server-pid", out var pidText) ? Process.GetProcessById(int.Parse(pidText, CultureInfo.InvariantCulture)) : null;
 
 const int MovesPerSecond = 10;
@@ -75,17 +76,16 @@ var seats = new List<(double X, double Y)>();
 for (var index = 0; index < clients; index++)
 {
     var snapshot = Check(await connections[index].InvokeAsync<JsonElement>("JoinLake", new { requestId = Guid.NewGuid().ToString() }), "JoinLake");
-    var seatId = $"seat-{index + 1:00}";
-    Check(await connections[index].InvokeAsync<JsonElement>("BuySeatTicket", new
+    Check(await connections[index].InvokeAsync<JsonElement>("BuyTicket", new
     {
-        requestId = Guid.NewGuid().ToString(), seatId, durationUnits = 1, expectedPriceVersion = priceVersion,
-    }), "BuySeatTicket");
+        requestId = Guid.NewGuid().ToString(), quantity = 1, expectedPriceVersion = priceVersion,
+    }), "BuyTicket");
     _ = snapshot;
 }
 
 var map = JsonDocument.Parse(await File.ReadAllTextAsync(arguments.GetValueOrDefault("map", "docs/v01/fixtures/lake-map.placeholder.json")));
-seats.AddRange(map.RootElement.GetProperty("seats").EnumerateArray().Take(clients)
-    .Select(seat => (seat.GetProperty("x").GetDouble(), seat.GetProperty("y").GetDouble())));
+var spawn = map.RootElement.GetProperty("spawn");
+seats.AddRange(Enumerable.Repeat((spawn.GetProperty("x").GetDouble(), spawn.GetProperty("y").GetDouble()), clients));
 
 var cpuBefore = serverProcess?.TotalProcessorTime ?? TimeSpan.Zero;
 var clock = Stopwatch.StartNew();

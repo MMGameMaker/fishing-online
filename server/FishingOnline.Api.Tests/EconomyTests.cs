@@ -22,7 +22,7 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
     {
         await using var scope = App.Services.CreateAsyncScope();
         return await scope.ServiceProvider.GetRequiredService<ICatchRecorder>().RecordAsync(
-            playerId, attemptId ?? Guid.NewGuid(), species, length, exp, "v0-test-2026-11-09-monitoring-05", default);
+            playerId, attemptId ?? Guid.NewGuid(), species, length, exp, "v0-test-2026-11-10-ticket-01", default);
     }
 
     private Task<long> GoldOfAsync(Guid playerId) =>
@@ -53,7 +53,8 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
     {
         var playerId = await App.NewPlayerAsync(1000);
         await using var player = await App.ConnectAsync(playerId);
-        await player.OkAsync("BuySeatTicket", new { seatId = "seat-11", durationUnits = 1, expectedPriceVersion = PriceVersion });
+        await player.OkAsync("JoinLake");
+        await SitAsync(player, "seat-11");
         await player.OkAsync("CastLine");
 
         await AssertErrorAsync(await App.Http(playerId).PutAsJsonAsync("/api/v1/me/equipped-rod", new { rodId = "rod_old" }), 409, "ATTEMPT_ACTIVE");
@@ -219,19 +220,21 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
-    public async Task Progress_Level1_ThenSeatTier1()
+    public async Task Progress_Level1_SeatAddsNoBuff()
     {
         var playerId = await App.NewPlayerAsync(1000);
         var client = App.Http(playerId);
+        await using var player = await App.ConnectAsync(playerId);
+        await player.OkAsync("JoinLake");
 
         var before = await ReadDataAsync(await client.GetAsync("/api/v1/me/progress"));
-        await App.Service<SeatSessions>().BuyAsync(playerId, Guid.NewGuid(), "seat-01", 1, PriceVersion, default);
+        await SitAsync(player, "seat-01");
         var seated = await ReadDataAsync(await client.GetAsync("/api/v1/me/progress"));
 
         Assert.Equal(11, before.GetProperty("stats").GetProperty("strength").GetInt32());
         Assert.Equal(40, before.GetProperty("expToNext").GetInt32());
         Assert.Equal(0, before.GetProperty("stats").GetProperty("largeLuck").GetInt32());
-        Assert.Equal(1, seated.GetProperty("stats").GetProperty("largeLuck").GetInt32());
+        Assert.Equal(before.GetProperty("stats").GetRawText(), seated.GetProperty("stats").GetRawText());
         Assert.Equal(10, seated.GetProperty("breakdown").GetProperty("level").GetProperty("strength").GetInt32());
         Assert.Equal(1, seated.GetProperty("breakdown").GetProperty("rod").GetProperty("strength").GetInt32());
     }

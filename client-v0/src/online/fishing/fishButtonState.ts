@@ -22,12 +22,21 @@ export function isControlLocked(attempt: AttemptView | null, resultOpen: boolean
   return isAttemptActive(attempt) || resultOpen;
 }
 
-/** Nút Kéo và lớp chạm toàn màn hình chỉ có khi cá đang cắn câu. */
+/** Nút móc câu chỉ hiện khi cá đang cắn câu. */
 export function isPullVisible(attempt: AttemptView | null): boolean {
   return attempt?.phase === 'bite';
 }
 
-/** Giữ ghế là tự câu; chỉ chờ popup được đóng hoặc hết thời gian trễ sau khi trượt. */
+/**
+ * SPEC 0.9: rời ghế được mọi lúc trừ từ lúc thu cần tới khi có kết quả minigame.
+ * Đã gửi HookFish mà chưa nhận minigame cũng tính là đã thu cần.
+ */
+export function canLeaveSeat(attempt: AttemptView | null, hookPending: boolean): boolean {
+  if (attempt?.phase === 'minigame') return false;
+  return !(attempt?.phase === 'bite' && hookPending);
+}
+
+/** Ngồi ghế là tự câu; chỉ chờ popup được đóng hoặc hết thời gian trễ sau khi trượt. */
 export function shouldAutoCast(input: AutoCastInput): boolean {
   const { hasSession, seatReady, attempt, resultOpen, commandPending, nextCastAtMs, nowMs } = input;
   return (

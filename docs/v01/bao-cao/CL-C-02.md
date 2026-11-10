@@ -3,10 +3,11 @@
 - **Worker:** Claude (Opus 5.5)
 - **Branch / PR:** chưa có; bản đầu đã commit; luồng tự câu SPEC 0.8 còn trong working tree
 - **Ngày gửi review:** 2026-11-09 (chưa có PR)
-- **Spec áp dụng:** SPEC_CHUNG v0.8, config v0-test-2026-11-09-monitoring-05
+- **Spec áp dụng:** SPEC_CHUNG v0.9, config v0-test-2026-11-10-ticket-01
 
 ## Đã làm
 
+- SPEC 0.9: nút móc câu (biểu tượng móc câu + thanh đếm ngược) ở góc phải dưới, chỉ hiện khi cá cắn; phải bấm đúng nút, bỏ lớp chạm toàn màn hình.
 - SPEC 0.8: bỏ nút Câu và các trạng thái khóa; nút "Kéo!" giữa màn hình chỉ hiện khi cá cắn, lớp chạm phủ kín canvas, các nút HUD ghế vẫn bấm được.
 - Nút tròn góc phải dưới, chỉ hiện khi giữ ghế: Câu → khóa khi chờ → Kéo! kèm vòng đếm 3 giây → ẩn khi minigame → khóa trong popup.
 
@@ -15,6 +16,8 @@
 - client-v0/src/online/fishing/FishButton.ts, fishButtonState.ts, fishButtonState.test.ts, fishing.css
 
 ## Lệnh kiểm tra đã chạy
+
+- 2026-11-10 SPEC 0.9: client-v0: typecheck sạch, lint:online sạch, vitest 15 file / 186 test đạt, build đạt, npm test (server Node prototype) 30 đạt
 
 ```
 cd client-v0 && npm run typecheck && npm run lint:online && npm run test:online && npm run build
@@ -29,6 +32,7 @@ npm ci: chỉ chạy --dry-run đạt, vì dev server client-v0 đang giữ file
 
 | Tiêu chí (chép từ task) | Kết quả | Bằng chứng |
 | --- | --- | --- |
+| SPEC 0.9: nút ở góc phải, chỉ bấm nút mới thu cần | Đạt với mock | fishing.html: nút 96 px ở góc phải dưới canvas, chạm điểm xa không thu cần, bấm nút sang minigame; ảnh chụp có biểu tượng và thanh đếm |
 | SPEC 0.8: nút chỉ hiện ở bite, chạm xa nút vẫn Kéo, chỉ gửi 1 lệnh | Đạt với mock | Coral Cove: nút ở tâm canvas, điểm xa nút thuộc lớp chạm, 2 lần chạm liền chỉ sang minigame một lần; `fishButtonState.test.ts` |
 
 ## Lệch spec / giả định

@@ -26,7 +26,7 @@ public sealed class PopulationTests(PostgresServer postgres) : GameTestBase(post
     {
         var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
         await player.OkAsync("JoinLake");
-        await player.OkAsync("BuySeatTicket", new { seatId, durationUnits = 1, expectedPriceVersion = PriceVersion });
+        await SitAsync(player, seatId);
         return (player, (await player.OkAsync("CastLine")).GetProperty("attemptId").GetGuid());
     }
 

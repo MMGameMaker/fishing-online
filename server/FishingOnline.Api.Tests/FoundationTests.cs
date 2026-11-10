@@ -378,7 +378,8 @@ public sealed class ConfigTests(PostgresServer postgres) : GameTestBase(postgres
         Assert.Equal(fixture.ConfigVersion, catalog.GetProperty("configVersion").GetString());
         Assert.Equal(fixture.Fish.Count, catalog.GetProperty("fish").GetArrayLength());
         Assert.Equal(fixture.Levels.Count, catalog.GetProperty("levels").GetArrayLength());
-        Assert.Equal("120", catalog.GetProperty("seatTiers")[0].GetProperty("unitPriceGold").GetString());
+        Assert.Equal("50", catalog.GetProperty("ticketPricing").GetProperty("unitPriceGold").GetString());
+        Assert.False(catalog.TryGetProperty("seatTiers", out _));
         Assert.Equal(fixture, App.Service<IConfigProvider>().Current, GameplayConfigComparer.Instance);
         Assert.Equal(1, await App.WithDbAsync(db => db.Set<ConfigVersionRow>().CountAsync(row => row.IsActive)));
     }
