@@ -4,8 +4,8 @@
 
 - 2D Pixel Art; web client Phaser Engine + TypeScript.
 - ASP.NET Core + SignalR; PostgreSQL + Redis. Admin React + TypeScript riêng, do BE thực hiện cùng Server; hai luồng Client kiêm Art và BE kiêm Admin.
-- Một map hồ đi lại, 20 ghế/phòng; phòng và Lake là một. Login, vào phòng, chọn ghế, mua thời lượng giữ ghế và gia hạn.
-- Bản đầu tập trung làm câu Manual; Idle GD cập nhật sau.
+- Một map hồ đi lại, 20 vị trí ngồi câu/phòng; phòng và Lake là một. Login, vào phòng, mua vé câu cá theo thời gian, đi tới ghế trống và nhấn E để ngồi câu (GD cập nhật 2026-11-10).
+- Bản đầu có câu Manual và chế độ Idle (GD bổ sung 2026-11-10, mục Chế độ Idle).
 - Chỉ cần có cần câu là câu được; mỗi người chơi mặc định có 1 cần cấp thấp. Bản đầu làm 5 loại cần (bảng Fishing Rod).
 - 9 loài cá mẫu thuộc 5 bậc rarity (bảng Fish Codex); inventory, lịch sử câu, thành tích cá nhân.
 - **Thính đã bỏ khỏi bản đầu theo quyết định 2026-11-09**: không item/shop/nút dùng/effect hoặc tác động thời gian chờ.
@@ -15,50 +15,48 @@
 
 Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ dùng tiền để mua vé), hệ thống mồi câu, dây và lưỡi (GD bỏ khỏi bản đầu 2026-11-06; bổ sung sau nếu quyết định triển khai), kỹ năng riêng của từng loài cá, giải đấu và payment thật kể cả sandbox để sau. V1 được hiểu là bản đầu đang mang nhãn v0.1, chưa tự đổi version release. Không thêm stamina, nông trại hoặc hệ ngày/đêm từ ảnh tham khảo vào v0.1.
 
-## Cơ chế ghế
+## Vé câu cá và ghế
 
-**Đã chốt** (GD bổ sung 2026-11-05):
+Cập nhật 2026-11-10 thay luật vé theo ghế (2026-11-05, 06 và 09). Vé không còn gắn với ghế; bỏ Tier ghế, buff ghế (Rare/Large Fish Luck, Lure Time), giá theo ghế và cooldown khi ghế về trống.
 
-- Một Lake có tối đa 20 ghế. Ghế ở trạng thái **Available** khi không có user nào đang dùng. Muốn dùng ghế phải mua vé của chính ghế đó.
-- Mỗi user sở hữu tối đa 1 ghế trong khu vực câu cá.
-- Nhiều user cùng bấm mua vé một ghế: BE xác định ai bấm trước thì được mua. Các user còn lại nhận thông báo "ghế đang được sử dụng".
-- Giá vé khác nhau theo Tier của ghế (Tier 1/2/3). Tier cao tương ứng vị trí câu đẹp, cá dễ cắn câu hơn.
-- Thứ hạng Tier: Tier 1 tốt nhất, Tier 2 bình thường, Tier 3 thấp nhất.
-- Phân bổ 20 ghế, buff và giá vé theo bảng Tier ghế bên dưới.
-- Người dùng chọn thời lượng giữ ghế và trả Gold trước theo đơn giá của chính ghế. Có thể mua thêm thời gian khi phiên vẫn còn hiệu lực; không tự gia hạn.
-- Contract triển khai đề xuất: `durationUnits` nguyên dương, `billingUnitMinutes` lấy từ config; `durationMinutes = durationUnits × billingUnitMinutes`, `totalGold = durationUnits × unitPriceGold`. Ví dụ 10 phút/100 hoặc 200 Gold là minh họa của user, không phải bảng giá đã duyệt. Fixture dùng block 10 phút, mức 120/70/40 Gold theo Tier chỉ là giá test kế thừa, mỗi ghế có thể override đơn giá.
-- Mua mới: `expiresAt = serverNow + durationMinutes`. Gia hạn: `expiresAtNew = expiresAtOld + addedMinutes`, không tính lại từ now, không đổi ghế/startedAt, không hủy attempt đang chạy.
-- Cả mua và gia hạn phải atomic trừ Gold + ledger + ghi phiên/receipt; retry cùng key không cộng thời gian/trừ tiền lần hai. Client gửi expectedPriceVersion, Server tính giá; giá thay đổi trả PRICE_CHANGED trước khi thu tiền. Gia hạn dùng giá hiện hành được user xác nhận, không sửa phần thời gian đã thanh toán.
-- Khóa hàng session để xử lý race gia hạn/hết hạn/rời ghế; chỉ gia hạn nếu owner, endedAt null và serverNow < expiresAt. Phiên đã hết hạn không hồi sinh bằng gia hạn. Cùng key trả receipt cũ ngay cả khi phiên đã kết thúc.
-- Hết expiresAt mới nhất: rời ghế/hủy lần câu dở; cooldown 10 giây, reconnect grace 2 phút, đồng hồ vẫn chạy và không hoàn tiền khi bỏ sớm giữ nguyên. Giới hạn min/max thời lượng/tổng giữ ghế, bước thời gian và bảng giá cuối còn cần duyệt; không tự coi phiên luôn 10 phút.
-- Hết thời gian đã mua/gia hạn khi đang câu dở: lần câu đó tự động bị hủy, không cho câu tiếp.
-- Khi đang giữ ghế và không trong lần câu, nhân vật được đi lại trong phạm vi nhỏ, quy định khi xây map.
-- Trong thời gian giữ ghế, nếu user ra khỏi khu vực câu cá thì coi như bỏ ghế, ghế tự động chuyển về Available. Khu vực câu cá là phạm vi của Lake. Hiện tại khoanh vùng Lake thành khu vực câu cá; cách định nghĩa này để sau mở rộng map có nhiều khu vực liền nhau.
-- Không hoàn vé, kể cả khi bỏ ghế sớm.
-- Hết thời gian đã mua/gia hạn: user tự động rời ghế.
-- Cooldown 10 giây luôn áp dụng mỗi khi ghế chuyển từ đang dùng về trống, bất kể lý do (hết lượt, rời Lake, quá thời gian reconnect). Hết cooldown mới cho mua vé; mọi user mua như ghế trống, kể cả user vừa dùng.
-- Mất kết nối hoặc đóng tab: user có 2 phút để reconnect và giữ ghế. Quá 2 phút tính là bỏ ghế. Đồng hồ phiên theo expiresAt mới nhất vẫn chạy độc lập trong lúc mất kết nối. Nếu đang câu dở thì lần câu đó bị hủy ngay khi mất kết nối.
-- Vé mua bằng Gold; bản đầu không có nguồn vé miễn phí. Người chơi mới được tặng 100 Gold.
+**Đã chốt** (GD cập nhật 2026-11-10):
 
-**Bảng Tier ghế** (GD cung cấp 2026-11-06; đơn giá test theo block 10 phút; không cố định phiên 10 phút):
+- Vé là quyền câu cá theo thời gian. Trong thời gian vé còn hiệu lực, user câu ở bất kỳ ghế trống nào, không giới hạn ghế hay vị trí.
+- Mua được nhiều vé một lần: tổng Gold = đơn giá vé × số lượng.
+- Khu vực câu cá có 20 vị trí ngồi. Muốn câu, user đi tới ghế trống và nhấn **E** để ngồi.
+- Sau khi bấm nút thu cần (mục Quy trình câu cá), user không được rời ghế.
+- Vé mua bằng Gold; bản đầu không có nguồn vé miễn phí. Người chơi mới được tặng 100 Gold. Không hoàn vé.
+- Mỗi vé là một block thời gian lấy từ config (`billingUnitMinutes`).
+- Mua khi vé còn hạn thì cộng nối vào hạn hiện tại; mua khi không còn vé thì tính từ thời điểm mua. Không tự gia hạn.
+- Đồng hồ vé chạy theo giờ Server từ lúc mua, kể cả khi không ngồi ghế hoặc mất kết nối.
+- Mỗi ghế một người. Nhiều user cùng nhấn E vào một ghế: Server chọn người tới trước, những người còn lại nhận thông báo "ghế đang được sử dụng". Mỗi user ngồi tối đa 1 ghế.
+- Nhấn E khi không có vé hoặc vé đã hết: mở popup mua vé.
+- Rời ghế bằng phím di chuyển: nhân vật tự đứng dậy. Phím di chuyển bị chặn từ lúc user nhấn nút thu cần cho tới khi có kết quả minigame.
+- Vé hết hạn khi đang minigame: cho câu nốt lần đó rồi kết thúc câu.
+- Vé hết hạn khi đang chờ cá cắn (chưa thu cần): dừng câu, nhân vật tự đứng dậy ngay.
+- Mất kết nối khi đang ngồi: giữ ghế khoảng 2 phút; quá hạn thì ghế trống. Lần câu đang dở, kể cả đang minigame, bị hủy ngay khi mất kết nối.
+- Mua thêm khi còn vé luôn cộng đủ thời gian của số vé mua, kể cả khi tổng vượt 60 phút (ví dụ còn 55 phút, mua 1 vé thành 65 phút).
 
-| Tier | Ghế số | Số ghế | Rare Fish Luck | Large Fish Luck | Lure Time (giây) | Giá test / block 10 phút (Gold; ghế override được) |
-| --- | --- | --- | --- | --- | --- | --- |
-| Tier 1 | 1-5 | 5 | +1 | +1 | 1 | 120 |
-| Tier 2 | 6-10 | 5 | 0 | +1 | 0,5 | 70 |
-| Tier 3 | 11-20 | 10 | 0 | 0 | 0 | 40 |
+**Số tạm để test** (GD 2026-11-10): 50 Gold cho mỗi vé 10 phút. Một lần mua tối đa 1 tiếng (6 vé).
 
-Buff ghế có hiệu lực khi user đang giữ ghế và cộng với Luck từ level và cần. Lure Time là số giây giảm thời gian chờ cá cắn sau khi quăng câu: gốc 3-6 giây, Tier 1 còn 2-5 giây, Tier 2 còn 2,5-5,5 giây.
+**Giữ từ luật trước** (yêu cầu kỹ thuật, không đổi theo luật mới):
+
+- Server tính giá; trừ Gold + ledger + cập nhật hạn vé + receipt trong một transaction. Gửi lại cùng request không trừ tiền hay cộng thời gian lần hai. Client gửi phiên bản giá đang hiển thị; giá đổi thì Server trả PRICE_CHANGED trước khi thu tiền.
+- Rời ghế thì ghế trống ngay cho người khác, không cooldown.
+
+**Cần GD chốt:**
+
+- Có giới hạn tổng thời gian vé còn lại không. Hiện chỉ giới hạn 6 vé mỗi lần mua, nên mua nhiều lần liên tiếp có thể tích lũy thời gian không giới hạn.
 
 ## Quy trình câu cá
 
-**Đã chốt** (GD bổ sung 2026-11-06):
+**Đã chốt** (GD bổ sung 2026-11-06, cập nhật bước 1-3 và 5 ngày 2026-11-10):
 
-1. **Mua thời lượng ghế:** user chọn thời gian, xác nhận đơn giá/tổng Gold rồi thanh toán; trong phiên có thể gia hạn.
-2. **Quăng câu:** nút câu cá hiện ở góc phải màn hình, user chủ động bấm để bắt đầu.
-   - Trong lúc câu, nhân vật không di chuyển được (tắt joystick).
-   - User không thể tự hủy lần câu. Thời gian minigame tối đa theo Bảng độ khó (12-20 giây). Hệ thống vẫn tự hủy khi hết thời gian đã mua/gia hạn hoặc mất kết nối (mục Cơ chế ghế).
-3. **Cá cắn câu:** sau 3-6 giây kể từ khi bắt đầu câu (trừ Lure Time của ghế), có tín hiệu cá cắn: chấm than trên đầu nhân vật, cần động đậy, nút câu cá hiện thanh đếm ngược. Server chốt loài cá tại thời điểm này; chiều dài chỉ random khi bắt được cá. User có 3 giây để bấm nút và chuyển sang bước bắt cá. Không bấm thì tính là thất bại và quay lại bước 2.
+1. **Mua vé:** user chọn số vé, xác nhận tổng Gold rồi thanh toán (mục Vé câu cá và ghế).
+2. **Ngồi câu:** user đi tới ghế trống, nhấn E. Ngồi xong nhân vật **tự động vung cần**; không còn nút bấm để quăng câu.
+3. **Cá cắn câu:** sau 3-6 giây kể từ khi vung cần, có tín hiệu cá cắn: chấm than trên đầu nhân vật, cần động đậy. Nút có biểu tượng **móc câu** hiện ở góc phải màn hình, kèm thanh đếm ngược 3 giây. Server chốt loài cá tại thời điểm này; chiều dài chỉ random khi bắt được cá.
+   - Nhấn nút móc câu (thu cần): chuyển sang minigame. Từ lúc này user không được rời ghế cho tới khi có kết quả.
+   - Không nhấn kịp: hủy trạng thái câu, nhân vật **tự đứng dậy khỏi ghế**.
 4. **Bắt cá (minigame):** một cây kim chạy qua lại trên thanh đo.
    - Bấm khi kim ở vùng xanh dương: kéo cá lại gần.
    - Bấm khi kim ở vùng vàng ("điểm yếu"): kéo được gấp đôi.
@@ -66,13 +64,34 @@ Buff ghế có hiệu lực khi user đang giữ ghế và cộng với Luck t�
    - Thắng khi khoảng cách tới cá về 0. Thua khi hết giờ.
    - Độ khó minigame thay đổi theo độ hiếm của cá, cấu hình theo bảng: khoảng cách tới cá, độ rộng vùng và tốc độ kim tăng độ khó dần theo độ hiếm. Vùng xanh và vùng vàng luôn đổi vị trí sau mỗi lần tap; cá bậc thấp xê dịch ít hơn. Số liệu ở mục Bảng độ khó minigame.
 5. **Kết quả:**
-   - Thành công: popup gồm hình ảnh cá, tên, độ hiếm và chiều dài. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. Popup tự đóng sau 3 giây, user quay lại bước 2. Người chơi khác thấy icon cá trên đầu nhân vật của user vừa câu được; icon biến mất sau khoảng 5 giây.
-   - Thất bại: hiển thị emoji mặt buồn, chỉ user đó thấy. Không nhận EXP.
+   - Thành công: popup gồm hình ảnh cá, tên, độ hiếm và chiều dài, **chỉ user đó thấy**. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. User **phải tự tắt popup** mới câu tiếp được; tắt xong nhân vật tự vung cần lần mới (bước 3). Người chơi khác chỉ thấy hình cá trên đầu nhân vật của user vừa câu được; hình biến mất sau khoảng 5 giây.
+   - Thất bại: hiện icon buồn/thất vọng trên đầu nhân vật, người chơi khác cũng thấy; rồi nhân vật tự vung cần lần mới (bước 3). Không nhận EXP.
+   - Vé đã hết hạn trong lúc minigame: hiện kết quả như trên rồi kết thúc câu, không vung cần tiếp.
+
+- Rời ghế bằng phím di chuyển, được phép bất cứ lúc nào trừ khoảng từ khi nhấn thu cần tới khi có kết quả minigame (thay luật cũ "user không thể tự hủy lần câu").
+- Đã chốt 2026-11-09: Client tự xử lý minigame và gửi success/failed; Server chỉ quản attempt/ownership/deadline và trao tối đa 1 cá/attempt, không kiểm chứng tap. Chấp nhận gian lận thắng minigame nhưng không cấp cá/thưởng lặp.
 
 **Chưa chốt:**
 
-- Đã chốt 2026-11-09: Client tự xử lý minigame và gửi success/failed; Server chỉ quản attempt/ownership/deadline và trao tối đa 1 cá/attempt, không kiểm chứng tap. Chấp nhận gian lận thắng minigame nhưng không cấp cá/thưởng lặp.
 - Icon cá trên đầu nhân vật có khác nhau theo loài/độ hiếm không.
+
+## Chế độ Idle
+
+**Đã chốt** (GD bổ sung 2026-11-10): khi bật Idle, hệ thống tự làm thay user, lặp liên tục cho tới khi user rời ghế:
+
+1. Tự nhấn nút thu cần khi cá cắn câu.
+2. Trong minigame, tự bấm trúng vùng xanh nước biển (Normal Hit Zone); không nhắm vùng vàng.
+3. Tự tắt popup nhận cá.
+4. Tự vung cần câu con tiếp theo.
+
+Idle chỉ trúng vùng xanh nên mỗi lần trúng trừ HP bằng ATK, không có lần nào gấp đôi; cá càng hiếm càng tốn nhiều lần bấm.
+
+**GD mô tả chi tiết sau.** Các điểm cần có trước khi triển khai Idle:
+
+- Bật/tắt Idle ở đâu, có điều kiện gì (ví dụ cần vé, cấp độ, hay mở mặc định).
+- Idle có chạy khi tắt tab hoặc mất kết nối không. Hiện minigame do Client tính, nên Idle cần game đang mở; muốn câu khi offline thì Server phải tự tính kết quả.
+- Nhịp tự bấm trong minigame, và Idle có thể thua không (hết giờ trước khi kéo được cá hiếm).
+- Có giới hạn thời gian Idle, chống treo máy farm Gold, hoặc giảm thưởng so với câu tay không.
 
 **Tham khảo:** clip `ref minigame.mp4` chỉ minh họa cơ chế minigame; art/UI tự làm. Số đo được trong clip (khoảng 12 giây; trúng thường trừ 10 cm, điểm yếu trừ 20 cm) không phải yêu cầu.
 
@@ -129,15 +148,15 @@ Chốt 9 loài cá, 5 bậc rarity. Kích thước cá tính bằng chiều dài
 
 **Spawn cá** (GD duyệt 2026-11-09; số tạm để test): tại thời điểm cá cắn, Server random độ hiếm theo bảng dưới, rồi chọn đều một loài trong độ hiếm đó.
 
-| Rarity | Tỷ lệ gốc | Mỗi điểm Rare Fish Luck | Ở mức +7 |
+| Rarity | Tỷ lệ gốc | Mỗi điểm Rare Fish Luck | Ở mức +6 |
 | --- | --- | --- | --- |
-| common | 60,5% | -1,9% | 47,2% |
-| uncommon | 25% | +0,5% | 28,5% |
-| rare | 10% | +0,8% | 15,6% |
-| epic | 4% | +0,5% | 7,5% |
-| legendary | 0,5% | +0,1% | 1,2% |
+| common | 60,5% | -1,9% | 49,1% |
+| uncommon | 25% | +0,5% | 28% |
+| rare | 10% | +0,8% | 14,8% |
+| epic | 4% | +0,5% | 7% |
+| legendary | 0,5% | +0,1% | 1,1% |
 
-- Rare Fish Luck cộng từ level, cần và ghế, tối đa +7.
+- Rare Fish Luck cộng từ level và cần, tối đa +6 (Lv10 +4, Giant Caster +2). Ghế không còn cộng Luck từ 2026-11-10.
 - Tổng tỷ lệ luôn bằng 100% ở mọi mức Luck.
 - Dự kiến làm sau: bảo hiểm khi lâu không gặp cá hiếm (pity) và sự kiện cá hiếm theo hồ. Luật chi tiết chưa chốt.
 
@@ -152,9 +171,9 @@ Chốt 9 loài cá, 5 bậc rarity. Kích thước cá tính bằng chiều dài
 
 - Làm tròn đến 0,1 cm. Lưu dạng số nguyên theo đơn vị 0,1 cm (405 là 40,5 cm); UI hiển thị theo cm có 1 chữ số thập phân.
 - Lưu kỷ lục chiều dài theo từng loài cho mỗi user.
-- Large Fish Luck cộng từ level, cần và ghế, tối đa +7.
+- Large Fish Luck cộng từ level và cần, tối đa +6. Ghế không còn cộng Luck từ 2026-11-10.
 
-**Cần kiểm tra lại:** giá vé, giá cần và giá cá được cân bằng mô phỏng với tỷ lệ spawn cũ (60/25/10/4/1%); kiểm tra lại với tỷ lệ mới khi test thật.
+**Cần kiểm tra lại:** giá vé, giá cần và giá cá được cân bằng mô phỏng với tỷ lệ spawn cũ (60/25/10/4/1%) và buff/giá theo Tier ghế đã bỏ. Cần chạy lại mô phỏng với giá test 50 Gold/vé 10 phút, không buff ghế, thời gian chờ cá cắn cố định 3-6 giây, và thêm trường hợp Idle (chỉ trúng vùng xanh, tự đóng popup).
 
 ## Bảng độ khó minigame
 
@@ -175,9 +194,9 @@ Số tạm để test (đề xuất 2026-11-06, chỉnh bằng mô phỏng, chư
 
 ## GD cần đặc tả trước triển khai phần phụ thuộc
 
-Luồng dự kiến để viết acceptance: login → vào phòng → di chuyển/chọn ghế → mua vé → câu theo mục Quy trình câu cá → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
+Luồng dự kiến để viết acceptance: login → vào phòng → mua vé → đi tới ghế trống, nhấn E → tự câu theo mục Quy trình câu cá (Manual hoặc Idle) → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
 
-GD cần khóa (lượt/vé, rời ghế và mất kết nối đã chốt ở mục Cơ chế ghế; các bước câu đã chốt ở mục Quy trình câu cá): quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
+GD cần khóa: các điểm còn mở ở mục Vé câu cá và ghế, Quy trình câu cá và Chế độ Idle; quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
 
 Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
 
