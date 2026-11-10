@@ -97,7 +97,7 @@ export class FishingFlow {
       this.me.setHeadIcon(null);
     }
     const autoCast = shouldAutoCast({
-      hasSession: lake.mySession !== null,
+      hasSession: lake.mySeat !== null,
       seatReady: this.isSeatReady(),
       attempt,
       resultOpen: this.resultOpen,

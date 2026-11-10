@@ -18,12 +18,14 @@ import type {
   InventoryResponse,
   LakeSnapshot,
   MinigameParams,
-  MySeatSession,
+  MySeat,
+  MyTicket,
   PlayerProfile,
   PlayerView,
-  SeatPurchaseResult,
   SeatView,
+  SitDownResult,
   Stats,
+  TicketPurchaseResult,
 } from '../net/contract';
 import type { HubConnectionLike, HubHandler } from '../net/GameHub';
 import { canStand, inLakeArea, type LakeMap, type LakeSeat } from '../scenes/lake/walkable';
@@ -56,18 +58,17 @@ export interface MockOptions {
 /** Bảng mã lỗi → HTTP theo BE-A-01 và SPEC mục 5. */
 const HTTP_STATUS: Partial<Record<ErrorCode, number>> = {
   VALIDATION_FAILED: 400,
-  INVALID_DURATION: 400,
+  INVALID_QUANTITY: 400,
   UNAUTHENTICATED: 401,
   SESSION_EXPIRED: 401,
   FISH_NOT_FOUND: 404,
   SEAT_TAKEN: 409,
-  SEAT_COOLDOWN: 409,
   ALREADY_HAS_SEAT: 409,
+  NO_TICKET: 409,
   ATTEMPT_ACTIVE: 409,
   IDEMPOTENCY_CONFLICT: 409,
   ROD_ALREADY_OWNED: 409,
   PRICE_CHANGED: 409,
-  SEAT_SESSION_EXPIRED: 409,
   STATE_CONFLICT: 409,
   INSUFFICIENT_GOLD: 422,
   ROD_NOT_OWNED: 422,
@@ -97,17 +98,19 @@ interface SeatRuntime {
   info: LakeSeat;
   state: SeatView['state'];
   occupantPlayerId: string | null;
-  expiresAtMs: number | null;
-  cooldownUntilMs: number | null;
+}
+
+/** Vé không gắn với ghế (SPEC 2.2); ngồi ghế là SessionRuntime riêng. */
+interface TicketRuntime {
+  expiresAtMs: number;
+  purchasedMinutes: number;
+  ticketVersion: number;
 }
 
 interface SessionRuntime {
   sessionId: string;
   seatId: string;
   startedAtMs: number;
-  expiresAtMs: number;
-  purchasedMinutes: number;
-  sessionVersion: number;
 }
 
 interface AttemptRuntime {
@@ -165,6 +168,7 @@ export class MockBackend {
   private lastMoveSeq = 0;
   private readonly seats = new Map<string, SeatRuntime>();
   private session: SessionRuntime | null = null;
+  private ticket: TicketRuntime | null = null;
   private attempt: AttemptRuntime | null = null;
   private readonly settled = new Map<string, SettledAttempt>();
   private readonly bots: PlayerView[] = [];
@@ -189,13 +193,7 @@ export class MockBackend {
     this.rods = new Set([options.config.newPlayer.rodId]);
     this.position = { x: options.map.spawn.x, y: options.map.spawn.y, dir: 'down' };
     for (const info of options.map.seats) {
-      this.seats.set(info.seatId, {
-        info,
-        state: 'available',
-        occupantPlayerId: null,
-        expiresAtMs: null,
-        cooldownUntilMs: null,
-      });
+      this.seats.set(info.seatId, { info, state: 'available', occupantPlayerId: null });
     }
     this.createBots(options.botCount ?? 3);
   }
@@ -287,7 +285,6 @@ export class MockBackend {
   private tick(dt: number): void {
     this.applySeatTimeScale(dt);
     this.checkSession();
-    this.checkCooldowns();
     this.checkAttempt();
     this.moveBots(dt);
   }
@@ -295,36 +292,21 @@ export class MockBackend {
   private applySeatTimeScale(dt: number): void {
     if (this.seatTimeScale <= 1) return;
     const extra = dt * (this.seatTimeScale - 1);
-    if (this.session) this.session.expiresAtMs -= extra;
-    for (const seat of this.seats.values()) {
-      if (seat.expiresAtMs !== null) seat.expiresAtMs -= extra;
-      if (seat.cooldownUntilMs !== null) seat.cooldownUntilMs -= extra;
-    }
+    if (this.ticket) this.ticket.expiresAtMs -= extra;
     this.broadcastTimerMs += dt;
     if (this.broadcastTimerMs < SCALE_BROADCAST_EVERY_MS) return;
     this.broadcastTimerMs = 0;
-    if (this.session && this.session.expiresAtMs > this.nowMs) {
-      this.emit('MySeatSession', this.sessionView(this.session));
-      this.emit('SeatChanged', this.seatView(this.seatOf(this.session.seatId)));
-    }
-    for (const seat of this.seats.values()) {
-      if (seat.state === 'cooldown') this.emit('SeatChanged', this.seatView(seat));
+    if (this.ticket && this.ticket.expiresAtMs > this.nowMs) {
+      this.emit('MyTicket', this.ticketView(this.ticket));
     }
   }
 
+  /** Vé hết khi đang chờ cá cắn thì tự đứng dậy; giữa minigame thì câu nốt rồi kết thúc. */
   private checkSession(): void {
-    if (this.session && this.nowMs >= this.session.expiresAtMs) {
-      this.endSession('expired', 'session_expired');
-    }
-  }
-
-  private checkCooldowns(): void {
-    for (const seat of this.seats.values()) {
-      if (seat.state === 'cooldown' && this.nowMs >= (seat.cooldownUntilMs ?? 0)) {
-        seat.state = 'available';
-        seat.cooldownUntilMs = null;
-        this.emit('SeatChanged', this.seatView(seat));
-      }
+    if (!this.session) return;
+    const ticketExpired = !this.ticket || this.nowMs >= this.ticket.expiresAtMs;
+    if (ticketExpired && this.attempt?.phase !== 'minigame') {
+      this.endSession('ticket_expired', 'ticket_expired');
     }
   }
 
@@ -442,43 +424,28 @@ export class MockBackend {
     };
   }
 
-  private tierOf(seat: SeatRuntime) {
-    const tier = this.config.seatTiers.find((t) => t.tier === seat.info.tier);
-    if (!tier) throw new Error(`Không có Tier ${seat.info.tier}`);
-    return tier;
-  }
-
-  private unitPrice(seat: SeatRuntime): number {
-    const override = this.config.seatPricing.perSeatOverrides.find(
-      (o) => o.seatId === seat.info.seatId,
-    );
-    return Number(override?.unitPriceGold ?? this.tierOf(seat).unitPriceGold);
-  }
-
   private seatView(seat: SeatRuntime): SeatView {
     return {
       seatId: seat.info.seatId,
-      tier: seat.info.tier,
       state: seat.state,
       occupantPlayerId: seat.occupantPlayerId,
-      expiresAt: seat.expiresAtMs === null ? null : this.iso(seat.expiresAtMs),
-      cooldownUntil: seat.cooldownUntilMs === null ? null : this.iso(seat.cooldownUntilMs),
-      billingUnitMinutes: this.config.seatPricing.billingUnitMinutes,
-      unitPriceGold: String(this.unitPrice(seat)),
-      priceVersion: this.config.seatPricing.priceVersion,
     };
   }
 
-  private sessionView(session: SessionRuntime): MySeatSession {
+  private ticketView(ticket: TicketRuntime): MyTicket {
+    return {
+      expiresAt: this.iso(ticket.expiresAtMs),
+      purchasedMinutes: ticket.purchasedMinutes,
+      ticketVersion: ticket.ticketVersion,
+      priceVersion: this.config.ticketPricing.priceVersion,
+    };
+  }
+
+  private mySeatView(session: SessionRuntime): MySeat {
     return {
       seatId: session.seatId,
-      tier: this.seatOf(session.seatId).info.tier,
       sessionId: session.sessionId,
-      startedAt: this.iso(session.startedAtMs),
-      expiresAt: this.iso(session.expiresAtMs),
-      purchasedMinutes: session.purchasedMinutes,
-      sessionVersion: session.sessionVersion,
-      priceVersion: this.config.seatPricing.priceVersion,
+      sitAt: this.iso(session.startedAtMs),
     };
   }
 
@@ -509,7 +476,8 @@ export class MockBackend {
       serverTime: this.iso(this.nowMs),
       players: [this.myView(), ...this.bots.map((bot) => ({ ...bot }))],
       seats: [...this.seats.values()].map((seat) => this.seatView(seat)),
-      mySession: this.session ? this.sessionView(this.session) : null,
+      myTicket: this.ticket ? this.ticketView(this.ticket) : null,
+      mySeat: this.session ? this.mySeatView(this.session) : null,
       myAttempt: this.attempt ? this.attemptView(this.attempt) : null,
     };
   }
@@ -547,7 +515,7 @@ export class MockBackend {
 
     const name = method as HubCommandName;
     const fingerprint = JSON.stringify({ method, args: { ...args, requestId: undefined } });
-    const isMoney = name === 'BuySeatTicket' || name === 'ExtendSeatSession';
+    const isMoney = name === 'BuyTicket';
     if (isMoney) {
       const receipt = this.hubReceipts.get(requestId);
       if (receipt) {
@@ -577,10 +545,10 @@ export class MockBackend {
         return this.snapshot();
       case 'Move':
         return this.commandMove(args);
-      case 'BuySeatTicket':
-        return this.commandBuySeat(args);
-      case 'ExtendSeatSession':
-        return this.commandExtend(args);
+      case 'BuyTicket':
+        return this.commandBuyTicket(args);
+      case 'SitDown':
+        return this.commandSitDown(args);
       case 'LeaveSeat':
         return this.commandLeave();
       case 'CastLine':
@@ -631,83 +599,55 @@ export class MockBackend {
     return seat;
   }
 
-  private assertPurchase(
-    units: unknown,
-    expectedVersion: unknown,
-    seat: SeatRuntime,
-  ): { units: number; total: number } {
-    if (!Number.isInteger(units) || (units as number) <= 0) {
-      throw new CommandError('INVALID_DURATION');
+  private commandBuyTicket(args: Record<string, unknown>): TicketPurchaseResult {
+    const quantity = args.quantity;
+    if (!Number.isInteger(quantity) || (quantity as number) <= 0) {
+      throw new CommandError('INVALID_QUANTITY');
     }
-    if (expectedVersion !== this.config.seatPricing.priceVersion) {
+    if (args.expectedPriceVersion !== this.config.ticketPricing.priceVersion) {
       throw new CommandError('PRICE_CHANGED');
     }
-    const total = (units as number) * this.unitPrice(seat);
+    const units = quantity as number;
+    const total = units * Number(this.config.ticketPricing.unitPriceGold);
     if (this.gold < total) throw new CommandError('INSUFFICIENT_GOLD');
-    return { units: units as number, total };
+
+    const minutes = units * this.config.ticketPricing.billingUnitMinutes;
+    this.gold -= total;
+    const base =
+      this.ticket && this.ticket.expiresAtMs > this.nowMs ? this.ticket.expiresAtMs : this.nowMs;
+    this.ticket = {
+      expiresAtMs: base + minutes * 60_000,
+      purchasedMinutes: (this.ticket?.purchasedMinutes ?? 0) + minutes,
+      ticketVersion: (this.ticket?.ticketVersion ?? 0) + 1,
+    };
+    this.emit('MyTicket', this.ticketView(this.ticket));
+    return {
+      ticket: this.ticketView(this.ticket),
+      gold: String(this.gold),
+      chargedGold: String(total),
+    };
   }
 
-  private commandBuySeat(args: Record<string, unknown>): SeatPurchaseResult {
+  private commandSitDown(args: Record<string, unknown>): SitDownResult {
     if (this.session) throw new CommandError('ALREADY_HAS_SEAT');
+    if (!this.ticket || this.nowMs >= this.ticket.expiresAtMs) throw new CommandError('NO_TICKET');
     const seat = this.seatOf(String(args.seatId));
     if (seat.state === 'occupied') throw new CommandError('SEAT_TAKEN');
-    if (seat.state === 'cooldown') throw new CommandError('SEAT_COOLDOWN');
-    const { units, total } = this.assertPurchase(
-      args.durationUnits,
-      args.expectedPriceVersion,
-      seat,
-    );
 
-    const minutes = units * this.config.seatPricing.billingUnitMinutes;
-    this.gold -= total;
     this.session = {
       sessionId: this.nextId('session'),
       seatId: seat.info.seatId,
       startedAtMs: this.nowMs,
-      expiresAtMs: this.nowMs + minutes * 60_000,
-      purchasedMinutes: minutes,
-      sessionVersion: 1,
     };
     seat.state = 'occupied';
     seat.occupantPlayerId = MY_ID;
-    seat.expiresAtMs = this.session.expiresAtMs;
 
     // Đưa nhân vật về ghế để phạm vi roamRadius tính từ đúng vị trí.
     this.position = { x: seat.info.x, y: seat.info.y, dir: this.position.dir };
     this.emit('PositionCorrected', { x: seat.info.x, y: seat.info.y, seq: 0 });
     this.emit('SeatChanged', this.seatView(seat));
-    this.emit('MySeatSession', this.sessionView(this.session));
-    return {
-      session: this.sessionView(this.session),
-      gold: String(this.gold),
-      chargedGold: String(total),
-    };
-  }
-
-  private commandExtend(args: Record<string, unknown>): SeatPurchaseResult {
-    const session = this.session;
-    if (!session || session.sessionId !== args.sessionId || this.nowMs >= session.expiresAtMs) {
-      throw new CommandError('SEAT_SESSION_EXPIRED');
-    }
-    const seat = this.seatOf(session.seatId);
-    const { units, total } = this.assertPurchase(
-      args.durationUnits,
-      args.expectedPriceVersion,
-      seat,
-    );
-    const minutes = units * this.config.seatPricing.billingUnitMinutes;
-    this.gold -= total;
-    session.expiresAtMs += minutes * 60_000;
-    session.purchasedMinutes += minutes;
-    session.sessionVersion += 1;
-    seat.expiresAtMs = session.expiresAtMs;
-    this.emit('SeatChanged', this.seatView(seat));
-    this.emit('MySeatSession', this.sessionView(session));
-    return {
-      session: this.sessionView(session),
-      gold: String(this.gold),
-      chargedGold: String(total),
-    };
+    this.emit('MySeat', this.mySeatView(this.session));
+    return { seat: this.mySeatView(this.session) };
   }
 
   private commandLeave(): null {
@@ -722,11 +662,9 @@ export class MockBackend {
     if (this.attempt) this.finishCancelled(this.attempt, attemptReason);
     const seat = this.seatOf(session.seatId);
     this.session = null;
-    seat.state = 'cooldown';
+    seat.state = 'available';
     seat.occupantPlayerId = null;
-    seat.expiresAtMs = null;
-    seat.cooldownUntilMs = this.nowMs + this.config.seatSession.cooldownMs;
-    this.emit('MySeatSession', { seatId: seat.info.seatId, ended: true, reason: sessionReason });
+    this.emit('MySeat', { seatId: seat.info.seatId, ended: true, reason: sessionReason });
     this.emit('SeatChanged', this.seatView(seat));
   }
 
@@ -734,11 +672,10 @@ export class MockBackend {
     if (!this.session) throw new CommandError('NOT_IN_SEAT');
     if (this.attempt) throw new CommandError('ATTEMPT_ACTIVE');
     const { waitMinMs, waitMaxMs } = this.config.fishing;
-    const lure = this.tierOf(this.seatOf(this.session.seatId)).lureTimeMs;
     const attempt: AttemptRuntime = {
       attemptId: this.nextId('attempt'),
       phase: 'waiting',
-      biteAtMs: this.nowMs + uniformInt(this.random, waitMinMs, waitMaxMs) - lure,
+      biteAtMs: this.nowMs + uniformInt(this.random, waitMinMs, waitMaxMs),
       biteDeadlineMs: null,
       species: null,
       minigame: null,
@@ -750,18 +687,9 @@ export class MockBackend {
     return { attemptId: attempt.attemptId };
   }
 
-  private seatLuck(): { rareLuck: number; largeLuck: number } {
-    if (!this.session) return { rareLuck: 0, largeLuck: 0 };
-    return this.tierOf(this.seatOf(this.session.seatId));
-  }
-
   private toBite(attempt: AttemptRuntime): void {
     attempt.phase = 'bite';
-    attempt.species = pickSpecies(
-      this.config,
-      this.totalStats().rareLuck + this.seatLuck().rareLuck,
-      this.random,
-    );
+    attempt.species = pickSpecies(this.config, this.totalStats().rareLuck, this.random);
     attempt.biteDeadlineMs = this.nowMs + this.config.fishing.biteWindowMs;
     this.emit('AttemptUpdate', this.attemptView(attempt));
   }
@@ -843,6 +771,10 @@ export class MockBackend {
   private finishFailed(attempt: AttemptRuntime, reason: string): AttemptView {
     this.attempt = null;
     this.recordHistory(attempt, 'failed', reason, null);
+    this.emit('FailShown', {
+      playerId: MY_ID,
+      shownUntil: this.iso(this.nowMs + this.config.fishing.failShownMs),
+    });
     return this.settle(this.endedView(attempt, 'failed', reason, null));
   }
 
@@ -871,7 +803,7 @@ export class MockBackend {
 
   private finishSuccess(attempt: AttemptRuntime): AttemptView {
     const species = attempt.species!;
-    const largeLuck = this.totalStats().largeLuck + this.seatLuck().largeLuck;
+    const largeLuck = this.totalStats().largeLuck;
     const lengthTenthCm = rollLength(this.config, species, largeLuck, this.random);
     const levelBefore = this.level;
     this.exp += species.exp;

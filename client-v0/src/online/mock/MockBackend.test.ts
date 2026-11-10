@@ -9,7 +9,7 @@ import type {
   HubEventName,
   InventoryResponse,
   LoginResponse,
-  SeatPurchaseResult,
+  TicketPurchaseResult,
 } from '../net/contract';
 import { EVENT_GUARDS, isCommandAck, isInventory, isProgress } from '../net/contractGuards';
 import { GameHub } from '../net/GameHub';
@@ -20,7 +20,8 @@ import { MockBackend } from './MockBackend';
 
 const config = configJson as unknown as GameplayConfig;
 const map = mapJson as LakeMap;
-const PRICE = config.seatPricing.priceVersion;
+const PRICE = config.ticketPricing.priceVersion;
+const UNIT_PRICE = Number(config.ticketPricing.unitPriceGold);
 const T0 = Date.parse('2026-11-09T10:00:00Z');
 
 let requestCounter = 0;
@@ -70,14 +71,21 @@ async function setup(forcedError: ErrorCode | null = null, gold?: number): Promi
 const attemptOf = (rig: Rig): AttemptView | null => rig.store.getState().attempt;
 const goldOf = (rig: Rig) => rig.store.getState().session.gold;
 
-async function buy(rig: Rig, seatId = 'seat-11', durationUnits = 1) {
-  const ack = await rig.hub.invoke('BuySeatTicket', {
-    seatId,
-    durationUnits,
-    expectedPriceVersion: PRICE,
-  });
+async function buyTicket(rig: Rig, quantity = 1) {
+  const ack = await rig.hub.invoke('BuyTicket', { quantity, expectedPriceVersion: PRICE });
   if (ack.ok && ack.data) rig.store.dispatch({ type: 'session/gold', payload: ack.data.gold });
   return ack;
+}
+
+async function sitDown(rig: Rig, seatId = 'seat-11') {
+  return rig.hub.invoke('SitDown', { seatId });
+}
+
+/** Mua vé rồi ngồi luôn; trả ack SitDown (hoặc ack BuyTicket nếu mua vé thất bại). */
+async function buy(rig: Rig, seatId = 'seat-11', quantity = 1) {
+  const purchase = await buyTicket(rig, quantity);
+  if (!purchase.ok) return purchase;
+  return sitDown(rig, seatId);
 }
 
 async function waitForBite(rig: Rig) {
@@ -134,13 +142,14 @@ describe('MockBackend', () => {
     await expect(api.get('/me')).rejects.toMatchObject({ status: 401 });
   });
 
-  it('chơi trọn vòng: mua ghế → câu thắng → túi, EXP, Codex → bán cá', async () => {
-    const ack = await buy(rig, 'seat-11', 2);
-    expect(isCommandAck<SeatPurchaseResult>(ack, (d): d is SeatPurchaseResult => d !== null)).toBe(
-      true,
-    );
-    expect(ack.data?.chargedGold).toBe('80');
-    expect(goldOf(rig)).toBe('20');
+  it('chơi trọn vòng: mua vé, ngồi ghế → câu thắng → túi, EXP, Codex → bán cá', async () => {
+    const purchase = await buyTicket(rig, 2);
+    expect(
+      isCommandAck<TicketPurchaseResult>(purchase, (d): d is TicketPurchaseResult => d !== null),
+    ).toBe(true);
+    expect(purchase.data?.chargedGold).toBe(String(2 * UNIT_PRICE));
+    expect(goldOf(rig)).toBe(String(100 - 2 * UNIT_PRICE));
+    expect((await sitDown(rig, 'seat-11')).ok).toBe(true);
 
     await waitForBite(rig);
     expect(attemptOf(rig)?.result).toBeNull();
@@ -172,7 +181,7 @@ describe('MockBackend', () => {
       all: true,
     });
     expect(sold.soldCount).toBe(1);
-    expect(sold.gold).toBe(String(20 + species.sellGold));
+    expect(sold.gold).toBe(String(100 - 2 * UNIT_PRICE + species.sellGold));
 
     const history = await rig.api.get<{ items: { outcome: string }[] }>('/me/history');
     expect(history.items[0]?.outcome).toBe('success');
@@ -193,18 +202,6 @@ describe('MockBackend', () => {
     rig.mock.advance(biteWindowMs + biteGraceMs + 200);
     expect(attemptOf(rig)).toMatchObject({ phase: 'failed', reason: 'missed_bite' });
     expect(rig.badEvents).toEqual([]);
-  });
-
-  it('thời gian chờ cá cắn trừ Lure Time của ghế', async () => {
-    rig = await setup(null, 500);
-    expect((await buy(rig, 'seat-01')).ok).toBe(true);
-    const before = rig.mock.now();
-    await rig.hub.invoke('CastLine', {});
-    for (let i = 0; i < 80 && attemptOf(rig)?.phase !== 'bite'; i += 1) rig.mock.advance(100);
-    expect(attemptOf(rig)?.phase).toBe('bite');
-    const waited = rig.mock.now() - before;
-    expect(waited).toBeGreaterThanOrEqual(config.fishing.waitMinMs - 1000);
-    expect(waited).toBeLessThanOrEqual(config.fishing.waitMaxMs - 1000 + 100);
   });
 
   it('hết giờ minigame thì thất bại timeout', async () => {
@@ -278,72 +275,60 @@ describe('MockBackend', () => {
     expect(catalog.fishing).toBeDefined();
   });
 
-  it('ghế: đang có người, cooldown, đã giữ ghế', async () => {
+  it('ghế: đang có người, hết vé, đã giữ ghế, ngồi lại không cooldown', async () => {
     expect((await buy(rig)).ok).toBe(true);
-    expect((await buy(rig, 'seat-12')).error?.code).toBe('ALREADY_HAS_SEAT');
+    expect((await sitDown(rig, 'seat-12')).error?.code).toBe('ALREADY_HAS_SEAT');
     await rig.hub.invoke('LeaveSeat', {});
-    expect(rig.store.getState().lake.seats['seat-11']?.state).toBe('cooldown');
-    expect((await buy(rig)).error?.code).toBe('SEAT_COOLDOWN');
-    rig.mock.advance(config.seatSession.cooldownMs + 100);
     expect(rig.store.getState().lake.seats['seat-11']?.state).toBe('available');
-    expect((await buy(rig)).ok).toBe(true);
+    // Còn vé (vừa mua 10 phút) nên ngồi lại ngay được, không có cooldown.
+    expect((await sitDown(rig, 'seat-11')).ok).toBe(true);
+    await rig.hub.invoke('LeaveSeat', {});
+    // Hết vé thì không ngồi được nữa.
+    rig.mock.advance(config.ticketPricing.billingUnitMinutes * 60_000 + 1000);
+    expect((await sitDown(rig, 'seat-11')).error?.code).toBe('NO_TICKET');
   });
 
-  it('mua 2 block rồi gia hạn 1 block được đúng 3 block', async () => {
+  it('mua 2 đơn vị vé rồi mua thêm 1 đơn vị, cộng dồn hạn', async () => {
     rig = await setup(null, 500);
-    const bought = await buy(rig, 'seat-11', 2);
-    const sessionId = bought.data!.session.sessionId;
-    const originalExpiry = Date.parse(bought.data!.session.expiresAt);
+    const bought = await buyTicket(rig, 2);
+    const originalExpiry = Date.parse(bought.data!.ticket.expiresAt);
     rig.mock.advance(60_000);
-    const extended = await rig.hub.invoke('ExtendSeatSession', {
-      sessionId,
-      durationUnits: 1,
-      expectedPriceVersion: PRICE,
-    });
-    expect(extended.data?.session.purchasedMinutes).toBe(30);
-    expect(Date.parse(extended.data!.session.expiresAt)).toBe(originalExpiry + 10 * 60_000);
-    expect(extended.data?.session.sessionVersion).toBe(2);
-    expect(extended.data?.gold).toBe('380');
-    expect(rig.store.getState().lake.mySession?.purchasedMinutes).toBe(30);
+    const extended = await buyTicket(rig, 1);
+    expect(extended.data?.ticket.purchasedMinutes).toBe(30);
+    expect(Date.parse(extended.data!.ticket.expiresAt)).toBe(originalExpiry + 10 * 60_000);
+    expect(extended.data?.ticket.ticketVersion).toBe(2);
+    expect(extended.data?.gold).toBe(String(500 - 3 * UNIT_PRICE));
+    expect(rig.store.getState().lake.myTicket?.purchasedMinutes).toBe(30);
   });
 
   it('retry cùng requestId không trừ tiền hai lần', async () => {
     const connection = rig.mock.createConnection();
-    const args = {
-      requestId: 'same',
-      seatId: 'seat-11',
-      durationUnits: 1,
-      expectedPriceVersion: PRICE,
-    };
-    const first = await connection.invoke<{ data: SeatPurchaseResult }>('BuySeatTicket', args);
-    const second = await connection.invoke<{ data: SeatPurchaseResult }>('BuySeatTicket', args);
+    const args = { requestId: 'same', quantity: 1, expectedPriceVersion: PRICE };
+    const first = await connection.invoke<{ data: TicketPurchaseResult }>('BuyTicket', args);
+    const second = await connection.invoke<{ data: TicketPurchaseResult }>('BuyTicket', args);
     expect(second).toEqual(first);
-    expect(first.data.gold).toBe('60');
+    expect(first.data.gold).toBe(String(100 - UNIT_PRICE));
   });
 
-  it('thiếu Gold, sai thời lượng, sai phiên bản giá', async () => {
-    expect((await buy(rig, 'seat-01', 1)).error?.code).toBe('INSUFFICIENT_GOLD');
-    expect((await buy(rig, 'seat-11', 0)).error?.code).toBe('INVALID_DURATION');
-    const ack = await rig.hub.invoke('BuySeatTicket', {
-      seatId: 'seat-11',
-      durationUnits: 1,
-      expectedPriceVersion: 'cu',
-    });
+  it('thiếu Gold, sai số lượng, sai phiên bản giá', async () => {
+    const poor = await setup(null, 10);
+    expect((await buyTicket(poor, 1)).error?.code).toBe('INSUFFICIENT_GOLD');
+    expect((await buyTicket(rig, 0)).error?.code).toBe('INVALID_QUANTITY');
+    const ack = await rig.hub.invoke('BuyTicket', { quantity: 1, expectedPriceVersion: 'cu' });
     expect(ack.error?.code).toBe('PRICE_CHANGED');
     expect(goldOf(rig)).toBe('100');
   });
 
-  it('hết hạn khi đang câu: hủy lần câu, về cooldown', async () => {
+  it('hết vé khi đang câu (chưa vào minigame): hủy lần câu, tự đứng dậy', async () => {
     await buy(rig);
     await rig.hub.invoke('CastLine', {});
     rig.mock.setSeatTimeScale(1000);
-    // Dừng ngay khi phiên kết thúc, nếu tua tiếp thì cooldown cũng hết theo tốc độ x1000.
-    for (let i = 0; i < 100 && rig.store.getState().lake.mySession; i += 1) rig.mock.advance(100);
-    expect(attemptOf(rig)).toMatchObject({ phase: 'cancelled', reason: 'session_expired' });
+    for (let i = 0; i < 100 && rig.store.getState().lake.mySeat; i += 1) rig.mock.advance(100);
+    expect(attemptOf(rig)).toMatchObject({ phase: 'cancelled', reason: 'ticket_expired' });
     const lake = rig.store.getState().lake;
-    expect(lake.mySession).toBeNull();
-    expect(lake.lastSessionEnd?.reason).toBe('expired');
-    expect(lake.seats['seat-11']?.state).toBe('cooldown');
+    expect(lake.mySeat).toBeNull();
+    expect(lake.lastSeatEnd?.reason).toBe('ticket_expired');
+    expect(lake.seats['seat-11']?.state).toBe('available');
     expect(rig.badEvents).toEqual([]);
   });
 

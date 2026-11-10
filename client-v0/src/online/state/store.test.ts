@@ -5,7 +5,8 @@ import type {
   HubEvents,
   InventoryResponse,
   LakeSnapshot,
-  MySeatSession,
+  MySeat,
+  MyTicket,
   PlayerProfile,
   SeatView,
 } from '../net/contract';
@@ -18,7 +19,8 @@ const hub = samples.hub;
 const snapshot = hub['JoinLake ack'].data as unknown as LakeSnapshot;
 const seatChanged = hub.SeatChanged as unknown as SeatView;
 const profile = samples.http['GET /api/v1/me 200'].data as PlayerProfile;
-const session = hub['BuySeatTicket ack ok'].data.session as MySeatSession;
+const ticket = hub['BuyTicket ack ok'].data.ticket as MyTicket;
+const mySeat = hub['SitDown ack ok'].data.seat as MySeat;
 const joined = () => reduce(initialState, { type: 'LakeSnapshot', payload: snapshot });
 
 describe('reducer', () => {
@@ -52,27 +54,26 @@ describe('reducer', () => {
     expect(s.attempt?.result?.lengthTenthCm).toBe(143);
   });
 
-  it('phiên ghế: nhận, gia hạn, kết thúc', () => {
-    let s = reduce(joined(), { type: 'MySeatSession', payload: session });
-    expect(s.lake.mySession?.purchasedMinutes).toBe(20);
-    const extended = hub['ExtendSeatSession ack ok'].data.session as MySeatSession;
-    s = reduce(s, { type: 'MySeatSession', payload: extended });
-    expect(s.lake.mySession?.expiresAt).toBe('2026-11-09T10:30:00Z');
+  it('vé và ghế: mua vé, ngồi, kết thúc', () => {
+    let s = reduce(joined(), { type: 'MyTicket', payload: ticket });
+    expect(s.lake.myTicket?.purchasedMinutes).toBe(20);
+    s = reduce(s, { type: 'MySeat', payload: mySeat });
+    expect(s.lake.mySeat?.seatId).toBe('seat-11');
     s = reduce(s, {
-      type: 'MySeatSession',
-      payload: hub['MySeatSession ended'] as HubEvents['MySeatSession'],
+      type: 'MySeat',
+      payload: hub['MySeat ended'] as HubEvents['MySeat'],
     });
-    expect(s.lake.mySession).toBeNull();
-    expect(s.lake.lastSessionEnd?.reason).toBe('expired');
+    expect(s.lake.mySeat).toBeNull();
+    expect(s.lake.lastSeatEnd?.reason).toBe('missed_bite');
   });
 
   it('event kết thúc của ghế khác không xóa phiên hiện tại', () => {
-    let s = reduce(joined(), { type: 'MySeatSession', payload: session });
+    let s = reduce(joined(), { type: 'MySeat', payload: mySeat });
     s = reduce(s, {
-      type: 'MySeatSession',
-      payload: { seatId: 'seat-01', ended: true, reason: 'expired' },
+      type: 'MySeat',
+      payload: { seatId: 'seat-01', ended: true, reason: 'missed_bite' },
     });
-    expect(s.lake.mySession?.seatId).toBe('seat-11');
+    expect(s.lake.mySeat?.seatId).toBe('seat-11');
   });
 
   it('người chơi: vào, di chuyển, đổi skin, rời', () => {

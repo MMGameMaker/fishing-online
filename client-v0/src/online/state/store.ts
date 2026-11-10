@@ -1,12 +1,13 @@
 // Kho state chung. Client chỉ phản ánh dữ liệu Server gửi, không tự cộng trừ Gold/EXP/cá.
 import type { Catalog, Rarity } from '../core/gameplayConfig';
 import {
-  isSessionEnded,
+  isSeatEnded,
   type AttemptView,
   type HubEventName,
   type HubEvents,
   type InventoryResponse,
-  type MySeatSession,
+  type MySeat,
+  type MyTicket,
   type PlayerProfile,
   type PlayerView,
   type ProgressResponse,
@@ -29,9 +30,10 @@ export interface LakeState {
   serverTimeOffsetMs: number;
   players: Record<string, PlayerView>;
   seats: Record<string, SeatView>;
-  mySession: MySeatSession | null;
+  myTicket: MyTicket | null;
+  mySeat: MySeat | null;
   /** Lý do phiên ghế kết thúc gần nhất, UI dùng để thông báo. */
-  lastSessionEnd: { seatId: string; reason: string } | null;
+  lastSeatEnd: { seatId: string; reason: string } | null;
   correction: { x: number; y: number; seq: number } | null;
   catches: Record<string, ShownCatch>;
   chat: HubEvents['ChatReceived'][];
@@ -65,8 +67,9 @@ export const initialLake: LakeState = {
   serverTimeOffsetMs: 0,
   players: {},
   seats: {},
-  mySession: null,
-  lastSessionEnd: null,
+  myTicket: null,
+  mySeat: null,
+  lastSeatEnd: null,
   correction: null,
   catches: {},
   chat: [],
@@ -103,7 +106,8 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
         configVersion: s.configVersion,
         players: keyBy(s.players, (p) => p.playerId),
         seats: keyBy(s.seats, (seat) => seat.seatId),
-        mySession: s.mySession,
+        myTicket: s.myTicket,
+        mySeat: s.mySeat,
         correction: null,
       };
     }
@@ -126,18 +130,20 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
       return { ...lake, correction: action.payload };
     case 'SeatChanged':
       return { ...lake, seats: { ...lake.seats, [action.payload.seatId]: action.payload } };
-    case 'MySeatSession': {
+    case 'MyTicket':
+      return { ...lake, myTicket: action.payload };
+    case 'MySeat': {
       const payload = action.payload;
-      if (isSessionEnded(payload)) {
+      if (isSeatEnded(payload)) {
         // Event kết thúc của phiên cũ đến muộn không được xóa phiên mới.
-        if (lake.mySession && lake.mySession.seatId !== payload.seatId) return lake;
+        if (lake.mySeat && lake.mySeat.seatId !== payload.seatId) return lake;
         return {
           ...lake,
-          mySession: null,
-          lastSessionEnd: { seatId: payload.seatId, reason: payload.reason },
+          mySeat: null,
+          lastSeatEnd: { seatId: payload.seatId, reason: payload.reason },
         };
       }
-      return { ...lake, mySession: payload, lastSessionEnd: null };
+      return { ...lake, mySeat: payload, lastSeatEnd: null };
     }
     case 'CatchShown': {
       const { playerId, speciesId, rarity, shownUntil } = action.payload;

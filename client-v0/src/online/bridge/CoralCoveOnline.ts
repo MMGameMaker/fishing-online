@@ -3,8 +3,7 @@ import type Phaser from 'phaser';
 import '../ui/kit/kit.css';
 import '../scenes/lake/lake.css';
 import '../fishing/fishing.css';
-import configJson from '@fixtures/gameplay-config.v0.json';
-import type { Catalog, GameplayConfig, Rarity } from '../core/gameplayConfig';
+import type { Catalog, Rarity } from '../core/gameplayConfig';
 import { createServices, type Services } from '../core/services';
 import type { HeadIcon } from '../entities/CharacterView';
 import type { CharacterAnim } from '../entities/placeholderArt';
@@ -105,8 +104,7 @@ export class CoralCoveOnline {
     private readonly session: WorldSession,
     private readonly deps: CoralCoveDeps,
   ) {
-    const { seatTiers } = configJson as unknown as GameplayConfig;
-    connection ??= connect(buildCoralMap(session.room, seatTiers), session.me.display);
+    connection ??= connect(buildCoralMap(session.room), session.me.display);
     connection
       .then((services) => {
         if (!this.destroyed) this.attach(services);
@@ -149,7 +147,7 @@ export class CoralCoveOnline {
     const { store } = services;
     this.cleanups.push(
       store.select(
-        (s) => s.lake.mySession?.seatId ?? null,
+        (s) => s.lake.mySeat?.seatId ?? null,
         (seatId) => void this.syncSitting(seatId),
       ),
       store.select(
@@ -177,7 +175,7 @@ export class CoralCoveOnline {
     if (!seat) return;
     const result = await this.deps.request('sitDown', { index: seat.number - 1 });
     if (!result.ok && this.root) showToast(this.root, result.error ?? 'Không ngồi được ghế này.');
-    this.seatReady = this.services?.store.getState().lake.mySession?.seatId === seatId;
+    this.seatReady = this.services?.store.getState().lake.mySeat?.seatId === seatId;
   }
 
   /** Nút Sit của scene và số trên ghế cùng đi qua đây. */
@@ -192,11 +190,11 @@ export class CoralCoveOnline {
     const { lake } = services.store.getState();
     const view = lake.seats[seat.seatId];
     if (!view) return;
-    if (lake.mySession?.seatId === seat.seatId) return;
+    if (lake.mySeat?.seatId === seat.seatId) return;
     if (view.state === 'occupied') showError(root, { code: 'SEAT_TAKEN' });
-    else if (view.state === 'cooldown') showError(root, { code: 'SEAT_COOLDOWN' });
-    else if (lake.mySession) showError(root, { code: 'ALREADY_HAS_SEAT' });
-    else if (this.scene.seats.nearestSeat(this.scene.me) === seat.number - 1) seatUi.openBuy(seat);
+    else if (lake.mySeat) showError(root, { code: 'ALREADY_HAS_SEAT' });
+    else if (this.scene.seats.nearestSeat(this.scene.me) === seat.number - 1)
+      void seatUi.openSeat(seat);
   }
 
   leave(): void {
@@ -216,7 +214,7 @@ export class CoralCoveOnline {
     if (!this.flow) return;
     const serverNowMs = this.serverNow();
     this.flow.update();
-    this.markers?.update(serverNowMs);
+    this.markers?.update();
     this.seatUi?.update(serverNowMs);
   }
 

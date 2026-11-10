@@ -2,7 +2,7 @@ import type Phaser from 'phaser';
 import type { SeatView } from '../../net/contract';
 import type { Store } from '../../state/store';
 import type { LakeSeat } from './walkable';
-import { SEAT_COLORS, cooldownSeconds } from './seatLogic';
+import { SEAT_COLORS } from './seatLogic';
 
 const MARKER_DEPTH = -500;
 const DEFAULT_OFFSET_Y = -6;
@@ -16,7 +16,7 @@ interface Marker {
   owner: Phaser.GameObjects.Text;
 }
 
-/** Vẽ ghế theo trạng thái: xanh còn trống, đỏ có người, xám đang cooldown. */
+/** Vẽ ghế theo trạng thái: xanh còn trống, đỏ có người. */
 export class SeatMarkers {
   private readonly markers: Marker[];
 
@@ -49,14 +49,13 @@ export class SeatMarkers {
     });
   }
 
-  update(serverNowMs: number): void {
+  update(): void {
     const { seats, players } = this.store.getState().lake;
     for (const marker of this.markers) {
       const view: SeatView | undefined = seats[marker.seat.seatId];
       if (!view) continue;
       marker.rect.setFillStyle(SEAT_COLORS[view.state]);
-      const seconds = cooldownSeconds(view, serverNowMs);
-      marker.number.setText(view.state === 'cooldown' ? `${seconds}s` : String(marker.seat.number));
+      marker.number.setText(String(marker.seat.number));
       const occupant = view.occupantPlayerId ? players[view.occupantPlayerId] : undefined;
       marker.owner.setText(view.state === 'occupied' ? (occupant?.displayName ?? '') : '');
     }

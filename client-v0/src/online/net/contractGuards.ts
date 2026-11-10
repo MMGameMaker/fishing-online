@@ -11,15 +11,17 @@ import {
   type InventoryResponse,
   type LakeSnapshot,
   type LoginResponse,
-  type MySeatSession,
+  type MySeat,
+  type MyTicket,
   type PlayerProfile,
   type PlayerView,
   type ProgressResponse,
-  type SeatPurchaseResult,
-  type SeatSessionEnded,
+  type SeatEnded,
   type SeatView,
   type SellFishResponse,
+  type SitDownResult,
   type Stats,
+  type TicketPurchaseResult,
 } from './contract';
 
 type Guard<T> = (v: unknown) => v is T;
@@ -117,31 +119,27 @@ export const isPlayerView: Guard<PlayerView> = (v): v is PlayerView =>
 export const isSeatView: Guard<SeatView> = (v): v is SeatView =>
   obj(v) &&
   str(v.seatId) &&
-  int(v.tier) &&
-  (v.state === 'available' || v.state === 'occupied' || v.state === 'cooldown') &&
-  nullable(str)(v.occupantPlayerId) &&
-  nullable(iso)(v.expiresAt) &&
-  nullable(iso)(v.cooldownUntil) &&
-  int(v.billingUnitMinutes) &&
-  isGold(v.unitPriceGold) &&
-  str(v.priceVersion);
+  (v.state === 'available' || v.state === 'occupied') &&
+  nullable(str)(v.occupantPlayerId);
 
-export const isMySeatSession: Guard<MySeatSession> = (v): v is MySeatSession =>
+export const isMyTicket: Guard<MyTicket> = (v): v is MyTicket =>
   obj(v) &&
-  str(v.seatId) &&
-  int(v.tier) &&
-  str(v.sessionId) &&
-  iso(v.startedAt) &&
   iso(v.expiresAt) &&
   int(v.purchasedMinutes) &&
-  int(v.sessionVersion) &&
+  int(v.ticketVersion) &&
   str(v.priceVersion);
 
-export const isSeatSessionEnded: Guard<SeatSessionEnded> = (v): v is SeatSessionEnded =>
+export const isMySeat: Guard<MySeat> = (v): v is MySeat =>
+  obj(v) && str(v.seatId) && str(v.sessionId) && iso(v.sitAt);
+
+export const isSeatEndedView: Guard<SeatEnded> = (v): v is SeatEnded =>
   obj(v) && str(v.seatId) && v.ended === true && str(v.reason);
 
-export const isSeatPurchase: Guard<SeatPurchaseResult> = (v): v is SeatPurchaseResult =>
-  obj(v) && isMySeatSession(v.session) && isGold(v.gold) && isGold(v.chargedGold);
+export const isTicketPurchase: Guard<TicketPurchaseResult> = (v): v is TicketPurchaseResult =>
+  obj(v) && isMyTicket(v.ticket) && isGold(v.gold) && isGold(v.chargedGold);
+
+export const isSitDownResult: Guard<SitDownResult> = (v): v is SitDownResult =>
+  obj(v) && isMySeat(v.seat);
 
 const isMinigame = (v: unknown) =>
   obj(v) &&
@@ -192,7 +190,8 @@ export const isLakeSnapshot: Guard<LakeSnapshot> = (v): v is LakeSnapshot =>
   iso(v.serverTime) &&
   arrayOf(isPlayerView)(v.players) &&
   arrayOf(isSeatView)(v.seats) &&
-  (v.mySession === null || isMySeatSession(v.mySession)) &&
+  (v.myTicket === null || isMyTicket(v.myTicket)) &&
+  (v.mySeat === null || isMySeat(v.mySeat)) &&
   (v.myAttempt === null || isAttemptView(v.myAttempt));
 
 export function isCommandAck<T>(v: unknown, dataGuard: (d: unknown) => d is T): v is CommandAck<T> {
@@ -211,11 +210,12 @@ export const EVENT_GUARDS: { [K in HubEventName]: Guard<HubEvents[K]> } = {
   PositionCorrected: (v): v is HubEvents['PositionCorrected'] =>
     obj(v) && num(v.x) && num(v.y) && int(v.seq),
   SeatChanged: isSeatView,
-  MySeatSession: (v): v is HubEvents['MySeatSession'] =>
-    isMySeatSession(v) || isSeatSessionEnded(v),
+  MyTicket: isMyTicket,
+  MySeat: (v): v is HubEvents['MySeat'] => isMySeat(v) || isSeatEndedView(v),
   AttemptUpdate: isAttemptView,
   CatchShown: (v): v is HubEvents['CatchShown'] =>
     obj(v) && str(v.playerId) && str(v.speciesId) && isRarityValue(v.rarity) && iso(v.shownUntil),
+  FailShown: (v): v is HubEvents['FailShown'] => obj(v) && str(v.playerId) && iso(v.shownUntil),
   SkinChanged: (v): v is HubEvents['SkinChanged'] => obj(v) && str(v.playerId) && str(v.skinId),
   ChatReceived: (v): v is HubEvents['ChatReceived'] =>
     obj(v) && str(v.messageId) && str(v.playerId) && str(v.text),

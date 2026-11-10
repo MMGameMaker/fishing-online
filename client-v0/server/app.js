@@ -4,8 +4,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { Server } from 'socket.io';
+import { createRemoteJWKSet, jwtVerify } from 'jose';
 import {
-  FISH, FISH_BY_ID, LIMITS, REEL, ROD_PRICES, ROOM_KEYS, SEED_ACCOUNTS, START_ROOM,
+  DEFAULT_LOOK, FISH, FISH_BY_ID, LIMITS, REEL, ROD_PRICES, ROOM_KEYS, SEED_ACCOUNTS, START_ROOM,
   canStand, fishingZoneAt, isAtExit, isInZone, isRareFish, levelForPixels, nearestStandable, rollZone, validateLook,
 } from '../shared/config.js';
 import { NPC_REACH, NPCS, QUEST_NPCS, QUESTS, SEAT_REACH, npcsInRoom, questLine } from '../shared/npcs.js';
@@ -13,6 +14,22 @@ import { CROP_BY_ID, FARM_REACH, PLOTS, SEED_COST, plotStage, plotsInRoom } from
 import { applyRoomExtras } from '../shared/roomExtras.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+// Xác minh Firebase ID token bằng khóa công khai của Google, không cần Admin SDK credential
+// (cùng cách server ASP.NET Core ở server/FishingOnline.Api/Modules/Identity dùng).
+const FIREBASE_PROJECT_ID = process.env.FIREBASE_PROJECT_ID || 'fishing-online-c111f';
+const firebaseJwks = createRemoteJWKSet(
+  new URL('https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com'),
+);
+
+async function verifyGoogleIdToken(idToken) {
+  const { payload } = await jwtVerify(idToken, firebaseJwks, {
+    issuer: `https://securetoken.google.com/${FIREBASE_PROJECT_ID}`,
+    audience: FIREBASE_PROJECT_ID,
+  });
+  if (payload.firebase?.sign_in_provider !== 'google.com') throw new Error('Not a Google sign-in');
+  return { uid: payload.sub, name: typeof payload.name === 'string' ? payload.name : null };
+}
 const BOT_REPLIES = [
   'Hi! I am Mochi, the test bot. Your message arrived.',
   'The dock is the best place to fish!',
@@ -120,6 +137,20 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
   }
   function save() {
     if (dbPath && !saveTimer) saveTimer = setTimeout(flush, 250);
+  }
+
+  // Tìm account theo Firebase UID (dùng làm username nội bộ); tạo mới nếu đăng nhập Google lần đầu.
+  function findOrCreateGoogleAccount(uid, name) {
+    const existing = db.accounts[uid];
+    if (existing) return existing;
+    const account = {
+      username: uid, display: name || 'Player', bot: false, firebaseUid: uid,
+      look: validateLook(DEFAULT_LOOK), coins: 50, inventory: {}, rodLevel: 1, quests: {}, pixels: 0,
+      fishLog: {}, friends: [], crops: {}, characterCreated: false,
+    };
+    db.accounts[uid] = account;
+    save();
+    return account;
   }
 
   function publicPlayer(p) {
@@ -235,8 +266,19 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
     let player = null;
     const reply = (cb, value) => { if (typeof cb === 'function') cb(value); };
 
-    socket.on('login', (payload, cb) => {
-      const account = db.accounts[payload?.username];
+    socket.on('login', async (payload, cb) => {
+      let account;
+      if (payload?.idToken) {
+        let identity;
+        try {
+          identity = await verifyGoogleIdToken(payload.idToken);
+        } catch {
+          return reply(cb, { ok: false, error: 'Invalid Google sign-in' });
+        }
+        account = findOrCreateGoogleAccount(identity.uid, identity.name);
+      } else {
+        account = db.accounts[payload?.username];
+      }
       if (!account || account.bot) return reply(cb, { ok: false, error: 'Unknown account' });
       if (player) return reply(cb, { ok: false, error: 'Already logged in' });
 

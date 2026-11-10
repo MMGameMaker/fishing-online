@@ -8,8 +8,8 @@ export const ERROR_CODES = [
   'IDEMPOTENCY_CONFLICT',
   'RATE_LIMITED',
   'SEAT_TAKEN',
-  'SEAT_COOLDOWN',
   'ALREADY_HAS_SEAT',
+  'NO_TICKET',
   'NOT_IN_SEAT',
   'OUT_OF_RANGE',
   'INSUFFICIENT_GOLD',
@@ -20,9 +20,8 @@ export const ERROR_CODES = [
   'ROD_NOT_OWNED',
   'ROD_ALREADY_OWNED',
   'FISH_NOT_FOUND',
-  'INVALID_DURATION',
+  'INVALID_QUANTITY',
   'PRICE_CHANGED',
-  'SEAT_SESSION_EXPIRED',
   'STATE_CONFLICT',
 ] as const;
 
@@ -156,7 +155,7 @@ export type { Catalog };
 // ---------- SignalR ----------
 
 export type Direction = 'up' | 'down' | 'left' | 'right';
-export type SeatState = 'available' | 'occupied' | 'cooldown';
+export type SeatState = 'available' | 'occupied';
 export type AttemptPhase = 'waiting' | 'bite' | 'minigame' | 'success' | 'failed' | 'cancelled';
 export type TapResult = 'normal' | 'weak' | 'miss';
 export type FishingOutcome = 'success' | 'failed';
@@ -175,28 +174,25 @@ export interface PlayerView {
 
 export interface SeatView {
   seatId: string;
-  tier: number;
   state: SeatState;
   occupantPlayerId: string | null;
-  expiresAt: string | null;
-  cooldownUntil: string | null;
-  billingUnitMinutes: number;
-  unitPriceGold: string;
-  priceVersion: string;
 }
 
-export interface MySeatSession {
-  seatId: string;
-  tier: number;
-  sessionId: string;
-  startedAt: string;
+/** Hạn vé của player; vé không gắn với ghế (SPEC 2.2). */
+export interface MyTicket {
   expiresAt: string;
   purchasedMinutes: number;
-  sessionVersion: number;
+  ticketVersion: number;
   priceVersion: string;
 }
 
-export interface SeatSessionEnded {
+export interface MySeat {
+  seatId: string;
+  sessionId: string;
+  sitAt: string;
+}
+
+export interface SeatEnded {
   seatId: string;
   ended: true;
   reason: string;
@@ -244,7 +240,8 @@ export interface LakeSnapshot {
   serverTime: string;
   players: PlayerView[];
   seats: SeatView[];
-  mySession: MySeatSession | null;
+  myTicket: MyTicket | null;
+  mySeat: MySeat | null;
   myAttempt: AttemptView | null;
 }
 
@@ -255,24 +252,25 @@ export interface CommandAck<T> {
   data: T | null;
 }
 
-export interface SeatPurchaseResult {
-  session: MySeatSession;
+export interface TicketPurchaseResult {
+  ticket: MyTicket;
   gold: string;
   chargedGold: string;
+}
+
+export interface SitDownResult {
+  seat: MySeat;
 }
 
 /** Lệnh hub: tham số (chưa gồm requestId) và kiểu data của ack. */
 export interface HubCommands {
   JoinLake: { args: Record<string, never>; ack: LakeSnapshot };
   Move: { args: { seq: number; x: number; y: number; dir: Direction }; ack: null };
-  BuySeatTicket: {
-    args: { seatId: string; durationUnits: number; expectedPriceVersion: string };
-    ack: SeatPurchaseResult;
+  BuyTicket: {
+    args: { quantity: number; expectedPriceVersion: string };
+    ack: TicketPurchaseResult;
   };
-  ExtendSeatSession: {
-    args: { sessionId: string; durationUnits: number; expectedPriceVersion: string };
-    ack: SeatPurchaseResult;
-  };
+  SitDown: { args: { seatId: string }; ack: SitDownResult };
   LeaveSeat: { args: Record<string, never>; ack: null };
   CastLine: { args: Record<string, never>; ack: { attemptId: string } };
   HookFish: { args: { attemptId: string }; ack: null };
@@ -294,9 +292,11 @@ export interface HubEvents {
   PlayerMoved: { playerId: string; x: number; y: number; dir: Direction; seq: number };
   PositionCorrected: { x: number; y: number; seq: number };
   SeatChanged: SeatView;
-  MySeatSession: MySeatSession | SeatSessionEnded;
+  MyTicket: MyTicket;
+  MySeat: MySeat | SeatEnded;
   AttemptUpdate: AttemptView;
   CatchShown: { playerId: string; speciesId: string; rarity: Rarity; shownUntil: string };
+  FailShown: { playerId: string; shownUntil: string };
   SkinChanged: { playerId: string; skinId: string };
   ChatReceived: { messageId: string; playerId: string; text: string };
   EmojiReceived: { playerId: string; emojiId: string };
@@ -304,6 +304,6 @@ export interface HubEvents {
 
 export type HubEventName = keyof HubEvents;
 
-export function isSessionEnded(v: HubEvents['MySeatSession']): v is SeatSessionEnded {
+export function isSeatEnded(v: HubEvents['MySeat']): v is SeatEnded {
   return 'ended' in v;
 }

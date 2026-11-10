@@ -11,9 +11,10 @@ import {
   isLoginResponse,
   isPlayerProfile,
   isProgress,
-  isSeatPurchase,
   isSellFish,
+  isSitDownResult,
   isSubmitResult,
+  isTicketPurchase,
 } from './contractGuards';
 
 const http = samples.http as Record<string, { data?: unknown; error?: unknown }>;
@@ -50,9 +51,10 @@ describe('fixture khớp contract', () => {
 
   it.each([
     ['JoinLake ack', isLakeSnapshot],
-    ['BuySeatTicket ack ok', isSeatPurchase],
-    ['BuySeatTicket ack taken', noData],
-    ['ExtendSeatSession ack ok', isSeatPurchase],
+    ['BuyTicket ack ok', isTicketPurchase],
+    ['SitDown ack ok', isSitDownResult],
+    ['SitDown ack taken', noData],
+    ['SitDown ack no ticket', noData],
     ['SubmitFishingResult ack', isSubmitResult],
   ] as const)('ack %s', (key, guard) => {
     expect(isCommandAck(hub[key], guard as (d: unknown) => d is unknown)).toBe(true);
@@ -60,6 +62,9 @@ describe('fixture khớp contract', () => {
 
   it.each([
     ['SeatChanged', 'SeatChanged'],
+    ['MyTicket', 'MyTicket'],
+    ['MySeat', 'MySeat'],
+    ['MySeat ended', 'MySeat'],
     ['AttemptUpdate waiting', 'AttemptUpdate'],
     ['AttemptUpdate bite', 'AttemptUpdate'],
     ['AttemptUpdate minigame', 'AttemptUpdate'],
@@ -67,12 +72,12 @@ describe('fixture khớp contract', () => {
     ['AttemptUpdate failed', 'AttemptUpdate'],
     ['AttemptUpdate cancelled', 'AttemptUpdate'],
     ['CatchShown', 'CatchShown'],
-    ['MySeatSession ended', 'MySeatSession'],
+    ['FailShown', 'FailShown'],
   ] as const)('event %s', (key, event) => {
     expect(EVENT_GUARDS[event](hub[key])).toBe(true);
   });
 
   it('mọi mẫu hub đều đã được kiểm tra', () => {
-    expect(Object.keys(hub)).toHaveLength(14);
+    expect(Object.keys(hub)).toHaveLength(18);
   });
 });

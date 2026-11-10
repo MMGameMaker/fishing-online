@@ -204,8 +204,8 @@ export class LakeScene extends Phaser.Scene {
         },
       ),
       store.select(
-        (s) => s.lake.mySession,
-        (session) => this.onSessionChanged(session?.seatId ?? null),
+        (s) => s.lake.mySeat,
+        (seat) => this.onSessionChanged(seat?.seatId ?? null),
       ),
       store.select(
         (s) => s.lake.players,
@@ -231,8 +231,8 @@ export class LakeScene extends Phaser.Scene {
   }
 
   private bobberPoint(): { x: number; y: number } | null {
-    const session = this.services.store.getState().lake.mySession;
-    const seat = session ? this.seatById(session.seatId) : undefined;
+    const mySeat = this.services.store.getState().lake.mySeat;
+    const seat = mySeat ? this.seatById(mySeat.seatId) : undefined;
     if (!seat) return null;
     const facing = FACING_VECTORS[seat.facing] ?? { x: 0, y: 1 };
     return {
@@ -248,12 +248,10 @@ export class LakeScene extends Phaser.Scene {
     if (!view) return;
     if (view.state === 'occupied') {
       showError(this.root, { code: 'SEAT_TAKEN' });
-    } else if (view.state === 'cooldown') {
-      showError(this.root, { code: 'SEAT_COOLDOWN' });
-    } else if (lake.mySession) {
+    } else if (lake.mySeat) {
       showError(this.root, { code: 'ALREADY_HAS_SEAT' });
     } else if (isNearSeat(this.me.x, this.me.y, seat)) {
-      this.seatUi.openBuy(seat);
+      void this.seatUi.openSeat(seat);
     } else {
       // Ở xa thì tự đi tới rồi mở hộp mua.
       this.pendingSeat = seat;
@@ -382,7 +380,7 @@ export class LakeScene extends Phaser.Scene {
     const serverNowMs = this.serverNow();
     this.moveMe(delta, nowMs);
     this.flow.update();
-    this.seatMarkers.update(serverNowMs);
+    this.seatMarkers.update();
     this.seatUi.update(serverNowMs);
     this.updateRemotes(nowMs, serverNowMs);
   }

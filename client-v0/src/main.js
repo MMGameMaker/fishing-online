@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import { ROOM_KEYS } from '../shared/config.js';
 import { applyRoomExtras } from '../shared/roomExtras.js';
+import { googleIdToken } from './firebaseAuth.js';
 import { initFishing } from './fishing.js';
-import { request, socket, username } from './net.js';
+import { request, socket } from './net.js';
 import {
   initBag, initChat, initFishLog, initFriends, initLook, initMenu, initMessages, initPanels,
   initProgress, initQuestLog, initShop,
@@ -11,6 +12,14 @@ import { VIEW_H, VIEW_W, WorldScene } from './world.js';
 
 const $ = (id) => document.getElementById(id);
 const roomCache = new Map();
+
+const LOADING_TIPS = [
+  'Mẹo: Bấm trúng vùng vàng để kéo cá gấp đôi.',
+  'Bước vào cửa để đổi phòng.',
+  'Câu cá ở mép bến Coral Cove.',
+  'Bấm vào NPC có dấu ! trên đầu để nhận nhiệm vụ.',
+  'Bấm vào đệm để ngồi, nhấn X để nhảy múa.',
+];
 
 function fatal(text) {
   $('loading').hidden = true;
@@ -27,6 +36,11 @@ function setProgress(done, total) {
   const percent = Math.round((done / total) * 100);
   $('loading-fill').style.width = `${percent}%`;
   $('loading-percent').textContent = `${percent}%`;
+}
+
+function revealLoading() {
+  $('loading-tip').textContent = LOADING_TIPS[Math.floor(Math.random() * LOADING_TIPS.length)];
+  $('loading').hidden = false;
 }
 
 async function preloadRooms() {
@@ -48,7 +62,7 @@ function startGame(res) {
     sitting: false,
     showLoading() {
       setProgress(1, 1);
-      $('loading').hidden = false;
+      revealLoading();
     },
     hideLoading() {
       $('loading').hidden = true;
@@ -123,14 +137,30 @@ window.addEventListener('resize', () => requestAnimationFrame(() => {
 socket.on('replaced', () => fatal('This account was opened in another tab.'));
 socket.on('connect_error', () => fatal('Cannot reach the game server. Is it running on port 3001?'));
 
-socket.once('connect', async () => {
-  // The session lives on the socket, so a reconnect starts over with a fresh login.
-  socket.io.on('reconnect', () => location.reload());
-  await preloadRooms();
-  // Accounts are fixed local test accounts (auth is bypassed): ?user=bob picks one, default alice.
-  const res = await request('login', { username });
-  if (!res.ok) return fatal(`Login failed: ${res.error}.`);
-  startGame(res);
-});
+async function enterWithToken(idToken) {
+  $('login').hidden = true;
+  revealLoading();
+  socket.once('connect', async () => {
+    // The session lives on the socket, so a reconnect starts over with a fresh login.
+    socket.io.on('reconnect', () => location.reload());
+    await preloadRooms();
+    const res = await request('login', { idToken });
+    if (!res.ok) return fatal(`Login failed: ${res.error}.`);
+    startGame(res);
+  });
+  socket.connect();
+}
 
-socket.connect();
+const loginButton = $('login-google');
+const loginError = $('login-error');
+loginButton.addEventListener('click', async () => {
+  loginButton.disabled = true;
+  loginError.hidden = true;
+  try {
+    await enterWithToken(await googleIdToken());
+  } catch (error) {
+    loginError.textContent = error?.message || 'Google sign-in failed.';
+    loginError.hidden = false;
+    loginButton.disabled = false;
+  }
+});

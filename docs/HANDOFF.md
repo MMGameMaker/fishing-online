@@ -4,11 +4,13 @@ Mỗi việc phối hợp dùng một file trong work/, có phần GD, Web Clien
 
 | ID / Công việc | GD | Web Client | Server | Admin Tool | Link |
 | --- | --- | --- | --- | --- | --- |
-| S01 / Scope & kế hoạch v1 | Luật còn mở | Client trong `client-v0/src/online/` chạy mock, chờ review, chưa tích hợp thật; xem [TIEN_DO](v01/TIEN_DO.md) | Persistence/migration/readiness + outage test đạt; contract draft | Có plan/API draft; chưa React | [Chi tiết](work/S01-cap-nhat-scope-ke-hoach-v1.md) |
-| S02 / Login & tài khoản | Chờ review phiên chơi | Chờ review auth contract | Đã chọn Firebase/Google; Facebook sau; session đề xuất, chưa code | Đề xuất quyền/MFA/lookup, chưa code | [Chi tiết](work/S02-login-quan-ly-tai-khoan.md) |
+| S01 / Scope & kế hoạch v1 | Luật còn mở | `client-v0/src/online/` đã đồng bộ lại theo contract vé-theo-thời-gian (không Tier ghế); typecheck/test/build sạch; chưa tích hợp Server thật, chưa Client review | Persistence/migration/readiness + outage test đạt; contract draft | Có plan/API draft; chưa React | [Chi tiết](work/S01-cap-nhat-scope-ke-hoach-v1.md) |
+| S02 / Login & tài khoản | Chờ review phiên chơi | Chờ review auth contract (BE C#); riêng app `client-v0/index.html` đã có đăng nhập Google thật chạy được, nhưng dùng server Node độc lập, không phải hệ BE C#/PostgreSQL mô tả ở đây | Đã chọn Firebase/Google; Facebook sau; session đề xuất, chưa code | Đề xuất quyền/MFA/lookup, chưa code | [Chi tiết](work/S02-login-quan-ly-tai-khoan.md) |
 | W02 / Art và map hồ | Chờ tiêu chí map thật | Prototype hồ có 10 chòi và 30 anchor; chờ kiểm tra scene Cocos và tích hợp | — | — | [Chi tiết](work/W02-art-map-ho.md) |
 
 S01 đã nhận phần BE nền tảng/contract/môi trường; S02 chỉ nhận phần đề xuất login/tài khoản, chưa bắt đầu code. Các ID khác không mặc định đã được giao.
+
+**Chưa có ID:** `client-v0/index.html` (app nhân vật/phòng/câu cá kiểu cũ, server Node `client-v0/server/app.js`) không nằm trong quyết định PROJECT.md (client Playable v0.1 là `client-v0/src/online/` + Server C#) và không có ID S/W/A tương ứng trong backlog Notion, nhưng là app người dùng thực tế đang dùng/yêu cầu sửa trong phiên 2026-11-10 (đăng nhập Google, màn hình loading, sửa crash phòng Coral Cove). Cần người dùng/GD xác nhận hướng đi trước khi coi đây là việc chính thức có ID riêng.
 
 ## Đã thiết lập
 

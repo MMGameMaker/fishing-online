@@ -2,7 +2,6 @@
 export interface LakeSeat {
   seatId: string;
   number: number;
-  tier: number;
   x: number;
   y: number;
   facing: string;

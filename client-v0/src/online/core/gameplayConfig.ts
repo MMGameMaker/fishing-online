@@ -34,15 +34,6 @@ export interface FishConfig {
   sellGold: number;
 }
 
-export interface SeatTierConfig {
-  tier: number;
-  seatNumbers: [number, number];
-  rareLuck: number;
-  largeLuck: number;
-  lureTimeMs: number;
-  unitPriceGold: string;
-}
-
 export interface MinigameRarityConfig {
   rarity: Rarity;
   durationMs: number;
@@ -74,10 +65,11 @@ export interface ShopOffer {
   priceGold: number;
 }
 
-export interface SeatPricingConfig {
+export interface TicketPricingConfig {
   billingUnitMinutes: number;
+  unitPriceGold: string;
+  maxUnitsPerPurchase: number;
   priceVersion: string;
-  perSeatOverrides: { seatId: string; unitPriceGold: string }[];
 }
 
 export interface GameplayConfig {
@@ -86,21 +78,20 @@ export interface GameplayConfig {
   levels: LevelConfig[];
   rods: RodConfig[];
   fish: FishConfig[];
-  seatTiers: SeatTierConfig[];
-  seatSession: { cooldownMs: number; disconnectGraceMs: number };
+  seatSession: { disconnectGraceMs: number };
   fishing: {
     waitMinMs: number;
     waitMaxMs: number;
     biteWindowMs: number;
     biteGraceMs: number;
     catchShownMs: number;
-    resultPopupMs: number;
+    failShownMs: number;
   };
   minigame: { rarity: MinigameRarityConfig[]; resultGraceMs: number };
   lengthTiers: { maxLargeLuck: number; tiers: LengthTierConfig[] };
   spawn: SpawnConfig;
   shopOffers: ShopOffer[];
-  seatPricing: SeatPricingConfig;
+  ticketPricing: TicketPricingConfig;
 }
 
 /** GET /catalog: config bỏ khối spawn để Client không biết tỷ lệ. */
@@ -132,15 +123,13 @@ function isRarityBp(v: unknown): boolean {
 /** Kiểm tra đúng hình dạng config để phát hiện fixture lệch type. */
 export function isGameplayConfig(v: unknown): v is GameplayConfig {
   if (!isRecord(v) || !isStr(v.configVersion)) return false;
-  const { newPlayer, levels, rods, fish, seatTiers, seatSession, fishing } = v;
-  const { minigame, lengthTiers, spawn, shopOffers, seatPricing } = v;
+  const { newPlayer, levels, rods, fish, seatSession, fishing } = v;
+  const { minigame, lengthTiers, spawn, shopOffers, ticketPricing } = v;
   if (!isRecord(newPlayer) || !isNum(newPlayer.gold) || !isStr(newPlayer.rodId)) return false;
   if (!Array.isArray(levels) || !levels.every(isLevel)) return false;
   if (!Array.isArray(rods) || !rods.every(isRod)) return false;
   if (!Array.isArray(fish) || !fish.every(isFish)) return false;
-  if (!Array.isArray(seatTiers) || !seatTiers.every(isSeatTier)) return false;
-  if (!isRecord(seatSession) || !isNum(seatSession.cooldownMs)) return false;
-  if (!isNum(seatSession.disconnectGraceMs)) return false;
+  if (!isRecord(seatSession) || !isNum(seatSession.disconnectGraceMs)) return false;
   if (!isRecord(fishing)) return false;
   const fishingKeys = [
     'waitMinMs',
@@ -148,7 +137,7 @@ export function isGameplayConfig(v: unknown): v is GameplayConfig {
     'biteWindowMs',
     'biteGraceMs',
     'catchShownMs',
-    'resultPopupMs',
+    'failShownMs',
   ];
   if (!fishingKeys.every((k) => isNum(fishing[k]))) return false;
   if (!isRecord(minigame) || !Array.isArray(minigame.rarity)) return false;
@@ -160,10 +149,11 @@ export function isGameplayConfig(v: unknown): v is GameplayConfig {
   if (!isRarityBp(spawn.rarityBaseBp) || !isRarityBp(spawn.rarityDeltaBpPerLuck)) return false;
   if (!Array.isArray(shopOffers) || !shopOffers.every(isShopOffer)) return false;
   return (
-    isRecord(seatPricing) &&
-    isNum(seatPricing.billingUnitMinutes) &&
-    isStr(seatPricing.priceVersion) &&
-    Array.isArray(seatPricing.perSeatOverrides)
+    isRecord(ticketPricing) &&
+    isNum(ticketPricing.billingUnitMinutes) &&
+    isStr(ticketPricing.unitPriceGold) &&
+    isNum(ticketPricing.maxUnitsPerPurchase) &&
+    isStr(ticketPricing.priceVersion)
   );
 }
 
@@ -193,19 +183,6 @@ function isFish(v: unknown): boolean {
     isNum(v.hp) &&
     isNum(v.exp) &&
     isNum(v.sellGold)
-  );
-}
-
-function isSeatTier(v: unknown): boolean {
-  return (
-    isRecord(v) &&
-    isNum(v.tier) &&
-    Array.isArray(v.seatNumbers) &&
-    v.seatNumbers.length === 2 &&
-    isNum(v.rareLuck) &&
-    isNum(v.largeLuck) &&
-    isNum(v.lureTimeMs) &&
-    isStr(v.unitPriceGold)
   );
 }
 
