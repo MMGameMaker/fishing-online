@@ -64,7 +64,7 @@ Cập nhật 2026-11-10 thay luật vé theo ghế (2026-11-05, 06 và 09). Vé 
    - Thắng khi khoảng cách tới cá về 0. Thua khi hết giờ.
    - Độ khó minigame thay đổi theo độ hiếm của cá, cấu hình theo bảng: khoảng cách tới cá, độ rộng vùng và tốc độ kim tăng độ khó dần theo độ hiếm. Vùng xanh và vùng vàng luôn đổi vị trí sau mỗi lần tap; cá bậc thấp xê dịch ít hơn. Số liệu ở mục Bảng độ khó minigame.
 5. **Kết quả:**
-   - Thành công: popup gồm hình ảnh cá, tên, độ hiếm và chiều dài, **chỉ user đó thấy**. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. User **phải tự tắt popup** mới câu tiếp được; tắt xong nhân vật tự vung cần lần mới (bước 3). Người chơi khác chỉ thấy hình cá trên đầu nhân vật của user vừa câu được; hình biến mất sau khoảng 5 giây.
+   - Thành công: popup gồm hình ảnh cá, tên, độ hiếm và chiều dài, **chỉ user đó thấy**. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. User **phải tự tắt popup** mới câu tiếp được, bằng cách chạm/bấm ra ngoài popup (GD chốt 2026-11-10); tắt xong nhân vật tự vung cần lần mới (bước 3). Người chơi khác chỉ thấy hình cá trên đầu nhân vật của user vừa câu được; hình biến mất sau khoảng 5 giây.
    - Thất bại: hiện icon buồn/thất vọng trên đầu nhân vật, người chơi khác cũng thấy; rồi nhân vật tự vung cần lần mới (bước 3). Không nhận EXP.
    - Vé đã hết hạn trong lúc minigame: hiện kết quả như trên rồi kết thúc câu, không vung cần tiếp.
 
