@@ -87,7 +87,8 @@ export interface GameplayConfig {
     catchShownMs: number;
     failShownMs: number;
   };
-  minigame: { rarity: MinigameRarityConfig[]; resultGraceMs: number };
+  /** introMs: chờ từ lúc thu cần tới khi minigame bắt đầu. */
+  minigame: { rarity: MinigameRarityConfig[]; resultGraceMs: number; introMs: number };
   lengthTiers: { maxLargeLuck: number; tiers: LengthTierConfig[] };
   spawn: SpawnConfig;
   shopOffers: ShopOffer[];
@@ -142,7 +143,7 @@ export function isGameplayConfig(v: unknown): v is GameplayConfig {
   if (!fishingKeys.every((k) => isNum(fishing[k]))) return false;
   if (!isRecord(minigame) || !Array.isArray(minigame.rarity)) return false;
   if (!minigame.rarity.every(isMinigameRarity)) return false;
-  if (!isNum(minigame.resultGraceMs)) return false;
+  if (!isNum(minigame.resultGraceMs) || !isNum(minigame.introMs)) return false;
   if (!isRecord(lengthTiers) || !Array.isArray(lengthTiers.tiers)) return false;
   if (!isNum(lengthTiers.maxLargeLuck) || !lengthTiers.tiers.every(isLengthTier)) return false;
   if (!isRecord(spawn) || !isNum(spawn.maxRareLuck)) return false;

@@ -1,5 +1,6 @@
 // Điều phối giao diện một lần câu theo AttemptUpdate từ Server.
 import type Phaser from 'phaser';
+import { drawFishIcon } from '../../art.js';
 import type { Services } from '../core/services';
 import type { HeadIcon } from '../entities/CharacterView';
 import type { CharacterAnim } from '../entities/placeholderArt';
@@ -20,6 +21,8 @@ import { playBiteBeep } from './sound';
 import { submitFishingResult } from './submitResult';
 
 const DEFAULT_BITE_WINDOW_MS = 3000;
+/** Chờ từ lúc thu cần tới khi minigame hiện, nếu catalog chưa có (feedback 2026-11-11). */
+const DEFAULT_MINIGAME_INTRO_MS = 750;
 const CAST_ANIM_MS = 500;
 /** Thời gian hiện icon buồn trước khi tự câu lại. */
 const FAIL_HOLD_MS = 2000;
@@ -45,6 +48,8 @@ export class FishingFlow {
   private hookSentAtMs: number | null = null;
   private lastAttemptKey = '';
   private castTimer: Phaser.Time.TimerEvent | null = null;
+  /** Hẹn giờ theo giờ thật (không theo đồng hồ scene) để khớp hạn minigame của Server. */
+  private introTimer: number | null = null;
 
   constructor(
     private readonly scene: Phaser.Scene,
@@ -54,6 +59,8 @@ export class FishingFlow {
     private readonly bobberPoint: () => { x: number; y: number } | null,
     private readonly serverNow: () => number,
     private readonly isSeatReady: () => boolean = () => true,
+    /** Màu hình cá theo loài của scene; không có thì tô theo màu độ hiếm. */
+    private readonly fishColor: (speciesId: string) => string | undefined = () => undefined,
   ) {
     this.button = new FishButton(root, () => this.press());
     this.bobber = scene.add.circle(0, 0, BOBBER_RADIUS, 0xf25c54).setVisible(false);
@@ -110,6 +117,7 @@ export class FishingFlow {
   }
 
   destroy(): void {
+    this.clearIntro();
     this.unsubscribe();
     this.button.destroy();
   }
@@ -153,6 +161,7 @@ export class FishingFlow {
     this.lastAttemptKey = key;
     this.castTimer?.remove();
     this.castTimer = null;
+    this.clearIntro();
 
     switch (attempt.phase) {
       case 'waiting':
@@ -212,18 +221,33 @@ export class FishingFlow {
     });
   }
 
+  /** Server tính hạn minigame sau introMs kể từ lúc thu cần, nên Client chờ đúng khoảng đó rồi mới hiện. */
   private startMinigame(attempt: AttemptView): void {
     if (!attempt.minigame) return;
     this.me.play('reel');
     this.me.setHeadIcon(null);
     const receivedAt = performance.now();
     const rtt = this.hookSentAtMs === null ? 0 : receivedAt - this.hookSentAtMs;
+    const introMs =
+      this.services.store.getState().catalog?.minigame.introMs ?? DEFAULT_MINIGAME_INTRO_MS;
+    const t0 = receivedAt - rtt / 2 + introMs;
     const data: MinigameData = {
       params: attempt.minigame,
-      t0: receivedAt - rtt / 2,
+      t0,
       onFinish: (outcome) => void this.submit(attempt.attemptId, outcome),
     };
-    this.scene.scene.launch(MINIGAME_SCENE, data);
+    this.introTimer = window.setTimeout(
+      () => {
+        this.introTimer = null;
+        this.scene.scene.launch(MINIGAME_SCENE, data);
+      },
+      Math.max(0, t0 - performance.now()),
+    );
+  }
+
+  private clearIntro(): void {
+    if (this.introTimer !== null) window.clearTimeout(this.introTimer);
+    this.introTimer = null;
   }
 
   /** Chỉ hiện cá/EXP khi Server đã ghi kết quả; không tự cộng phần thưởng. */
@@ -254,16 +278,19 @@ export class FishingFlow {
     this.finishRound();
     this.me.play('success');
     const { catalog } = this.services.store.getState();
-    if (attempt.result) this.openPopup(buildResultCard(attempt.result, catalog));
+    if (!attempt.result) return;
+    const color = this.fishColor(attempt.result.speciesId);
+    this.openPopup(buildResultCard(attempt.result, catalog), color);
   }
 
-  private openPopup(card: ReturnType<typeof buildResultCard>): void {
+  private openPopup(card: ReturnType<typeof buildResultCard>, fishColor?: string): void {
     const body = document.createElement('div');
     body.className = 'result-card';
 
-    const icon = document.createElement('div');
+    // Hình cá hiện ngay trong popup, không đợi đóng popup (feedback 2026-11-11).
+    const icon = drawFishIcon(fishColor ?? card.rarityColor);
     icon.className = 'result-card__fish';
-    icon.style.background = card.rarityColor;
+    icon.style.setProperty('--rarity-color', card.rarityColor);
 
     const add = (text: string, className: string, color?: string) => {
       const el = document.createElement('div');

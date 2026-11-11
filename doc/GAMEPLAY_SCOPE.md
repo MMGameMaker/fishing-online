@@ -4,7 +4,7 @@
 
 - 2D Pixel Art; web client Phaser Engine + TypeScript.
 - ASP.NET Core + SignalR; PostgreSQL + Redis. Admin React + TypeScript riêng, do BE thực hiện cùng Server; hai luồng Client kiêm Art và BE kiêm Admin.
-- Một map hồ đi lại, 20 vị trí ngồi câu/phòng; phòng và Lake là một. Login, vào phòng, mua vé câu cá theo thời gian, đi tới ghế trống và nhấn E để ngồi câu (GD cập nhật 2026-11-10).
+- Một map hồ đi lại, 20 vị trí ngồi câu/phòng; phòng và Lake là một. Login, vào phòng, mua vé câu cá theo thời gian, đi tới ghế trống và nhấn F hoặc bấm icon chọn ghế để ngồi câu (GD cập nhật 2026-11-10; feedback người dùng 2026-11-11 đổi phím E thành F).
 - Bản đầu có câu Manual và chế độ Idle (GD bổ sung 2026-11-10, mục Chế độ Idle).
 - Chỉ cần có cần câu là câu được; mỗi người chơi mặc định có 1 cần cấp thấp. Bản đầu làm 5 loại cần (bảng Fishing Rod).
 - 9 loài cá mẫu thuộc 5 bậc rarity (bảng Fish Codex); inventory, lịch sử câu, thành tích cá nhân.
@@ -23,14 +23,15 @@ Cập nhật 2026-11-10 thay luật vé theo ghế (2026-11-05, 06 và 09). Vé 
 
 - Vé là quyền câu cá theo thời gian. Trong thời gian vé còn hiệu lực, user câu ở bất kỳ ghế trống nào, không giới hạn ghế hay vị trí.
 - Mua được nhiều vé một lần: tổng Gold = đơn giá vé × số lượng.
-- Khu vực câu cá có 20 vị trí ngồi. Muốn câu, user đi tới ghế trống và nhấn **E** để ngồi.
+- Khu vực câu cá có 20 vị trí ngồi. Muốn câu, user đi tới ghế trống; khi icon chọn ghế hiện thì nhấn **F** hoặc bấm vào icon để ngồi (feedback 2026-11-11, thay phím E).
+- Nhân vật chỉ di chuyển bằng phím (hoặc joystick trên mobile); bấm chuột lên map không làm nhân vật đi (feedback 2026-11-11).
 - Sau khi bấm nút thu cần (mục Quy trình câu cá), user không được rời ghế.
 - Vé mua bằng Gold; bản đầu không có nguồn vé miễn phí. Người chơi mới được tặng 100 Gold. Không hoàn vé.
 - Mỗi vé là một block thời gian lấy từ config (`billingUnitMinutes`).
 - Mua khi vé còn hạn thì cộng nối vào hạn hiện tại; mua khi không còn vé thì tính từ thời điểm mua. Không tự gia hạn.
 - Đồng hồ vé chạy theo giờ Server từ lúc mua, kể cả khi không ngồi ghế hoặc mất kết nối.
-- Mỗi ghế một người. Nhiều user cùng nhấn E vào một ghế: Server chọn người tới trước, những người còn lại nhận thông báo "ghế đang được sử dụng". Mỗi user ngồi tối đa 1 ghế.
-- Nhấn E khi không có vé hoặc vé đã hết: mở popup mua vé.
+- Mỗi ghế một người. Nhiều user cùng ngồi vào một ghế: Server chọn người tới trước, những người còn lại nhận thông báo "ghế đang được sử dụng". Mỗi user ngồi tối đa 1 ghế.
+- Nhấn F (hoặc bấm icon) khi không có vé hoặc vé đã hết: mở popup mua vé.
 - Rời ghế bằng phím di chuyển: nhân vật tự đứng dậy. Phím di chuyển bị chặn từ lúc user nhấn nút thu cần cho tới khi có kết quả minigame.
 - Vé hết hạn khi đang minigame: cho câu nốt lần đó rồi kết thúc câu.
 - Vé hết hạn khi đang chờ cá cắn (chưa thu cần): dừng câu, nhân vật tự đứng dậy ngay.
@@ -53,18 +54,18 @@ Cập nhật 2026-11-10 thay luật vé theo ghế (2026-11-05, 06 và 09). Vé 
 **Đã chốt** (GD bổ sung 2026-11-06, cập nhật bước 1-3 và 5 ngày 2026-11-10):
 
 1. **Mua vé:** user chọn số vé, xác nhận tổng Gold rồi thanh toán (mục Vé câu cá và ghế).
-2. **Ngồi câu:** user đi tới ghế trống, nhấn E. Ngồi xong nhân vật **tự động vung cần**; không còn nút bấm để quăng câu.
-3. **Cá cắn câu:** sau 3-6 giây kể từ khi vung cần, có tín hiệu cá cắn: chấm than trên đầu nhân vật, cần động đậy. Nút có biểu tượng **móc câu** hiện ở góc phải màn hình, kèm thanh đếm ngược 3 giây. Server chốt loài cá tại thời điểm này; chiều dài chỉ random khi bắt được cá.
-   - Nhấn nút móc câu (thu cần): chuyển sang minigame. Từ lúc này user không được rời ghế cho tới khi có kết quả.
+2. **Ngồi câu:** user đi tới ghế trống, nhấn F hoặc bấm icon chọn ghế. Ngồi xong nhân vật **tự động vung cần**; không còn nút bấm để quăng câu.
+3. **Cá cắn câu:** sau 3-6 giây kể từ khi vung cần, có tín hiệu cá cắn: chấm than trên đầu nhân vật, cần động đậy. Nút lớn có biểu tượng **móc câu** hiện gần giữa màn hình, kèm thanh đếm ngược 3 giây (feedback 2026-11-11, trước đây ở góc phải). Server chốt loài cá tại thời điểm này; chiều dài chỉ random khi bắt được cá.
+   - Nhấn phím Space hoặc bấm nút móc câu (thu cần): sau 0,75 giây thì hiện minigame (feedback 2026-11-11; thời gian minigame tính từ lúc hiện). Từ lúc thu cần user không được rời ghế cho tới khi có kết quả.
    - Không nhấn kịp: hủy trạng thái câu, nhân vật **tự đứng dậy khỏi ghế**.
-4. **Bắt cá (minigame):** một cây kim chạy qua lại trên thanh đo.
+4. **Bắt cá (minigame):** một cây kim chạy qua lại trên thanh đo. Giao diện theo ảnh mẫu `doc/feedback/minigame-ui.png` (feedback 2026-11-11): đồng hồ tròn bên trái, thanh khoảng cách tới cá (số cm còn lại) ở trên, thanh đo ở dưới.
    - Bấm khi kim ở vùng xanh dương: kéo cá lại gần.
    - Bấm khi kim ở vùng vàng ("điểm yếu"): kéo được gấp đôi.
    - Bấm trượt ra ngoài vùng: bị trừ mạnh thời gian.
    - Thắng khi khoảng cách tới cá về 0. Thua khi hết giờ.
    - Độ khó minigame thay đổi theo độ hiếm của cá, cấu hình theo bảng: khoảng cách tới cá, độ rộng vùng và tốc độ kim tăng độ khó dần theo độ hiếm. Vùng xanh và vùng vàng luôn đổi vị trí sau mỗi lần tap; cá bậc thấp xê dịch ít hơn. Số liệu ở mục Bảng độ khó minigame.
 5. **Kết quả:**
-   - Thành công: popup gồm hình ảnh cá, tên, độ hiếm và chiều dài, **chỉ user đó thấy**. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. User **phải tự tắt popup** mới câu tiếp được; tắt xong nhân vật tự vung cần lần mới (bước 3). Người chơi khác chỉ thấy hình cá trên đầu nhân vật của user vừa câu được; hình biến mất sau khoảng 5 giây.
+   - Thành công: popup gồm hình ảnh cá (hiện ngay khi popup mở), tên, độ hiếm và chiều dài, **chỉ user đó thấy**. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. User **phải tự tắt popup** mới câu tiếp được; tắt xong nhân vật tự vung cần lần mới (bước 3). Người chơi khác chỉ thấy hình cá trên đầu nhân vật của user vừa câu được; hình biến mất sau khoảng 5 giây.
    - Thất bại: hiện icon buồn/thất vọng trên đầu nhân vật, người chơi khác cũng thấy; rồi nhân vật tự vung cần lần mới (bước 3). Không nhận EXP.
    - Vé đã hết hạn trong lúc minigame: hiện kết quả như trên rồi kết thúc câu, không vung cần tiếp.
 
@@ -181,12 +182,13 @@ Số tạm để test (đề xuất 2026-11-06, chỉnh bằng mô phỏng, chư
 
 | Rarity | Thời gian (giây) | Kim chạy hết thanh (giây) | Vùng xanh gốc (% thanh) | Vùng vàng gốc (% thanh) | Trừ giờ khi trượt (giây) | Xê dịch sau mỗi tap (% thanh) |
 | --- | --- | --- | --- | --- | --- | --- |
-| common | 12 | 0,90 | 20 | 6 | 2 | 5-15 |
-| uncommon | 13 | 0,80 | 16 | 5 | 2 | 10-25 |
-| rare | 15 | 0,70 | 13 | 4,5 | 2,5 | 15-35 |
-| epic | 17 | 0,60 | 11 | 4 | 3 | 20-50 |
-| legendary | 20 | 0,55 | 9 | 4 | 3,5 | 30-70 |
+| common | 12 | 0,72 | 20 | 6 | 2 | 5-15 |
+| uncommon | 13 | 0,64 | 16 | 5 | 2 | 10-25 |
+| rare | 15 | 0,56 | 13 | 4,5 | 2,5 | 15-35 |
+| epic | 17 | 0,48 | 11 | 4 | 3 | 20-50 |
+| legendary | 20 | 0,44 | 9 | 4 | 3,5 | 30-70 |
 
+- Cột "Kim chạy hết thanh" đã giảm 20% so với đề xuất 2026-11-06 theo feedback người dùng 2026-11-11 (kim nhanh hơn).
 - Kích thước thật = gốc x (1 + Hit Zone Increase / 100).
 - Vùng vàng nằm trong vùng xanh, vị trí ngẫu nhiên trong vùng xanh.
 - Sau mỗi lần tap, trúng hay trượt, vùng xanh dịch trái hoặc phải một khoảng ngẫu nhiên trong cột Xê dịch, tính so với vị trí cũ và không ra ngoài thanh đo.
@@ -194,7 +196,7 @@ Số tạm để test (đề xuất 2026-11-06, chỉnh bằng mô phỏng, chư
 
 ## GD cần đặc tả trước triển khai phần phụ thuộc
 
-Luồng dự kiến để viết acceptance: login → vào phòng → mua vé → đi tới ghế trống, nhấn E → tự câu theo mục Quy trình câu cá (Manual hoặc Idle) → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
+Luồng dự kiến để viết acceptance: login → vào phòng → mua vé → đi tới ghế trống, nhấn F → tự câu theo mục Quy trình câu cá (Manual hoặc Idle) → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
 
 GD cần khóa: các điểm còn mở ở mục Vé câu cá và ghế, Quy trình câu cá và Chế độ Idle; quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
 

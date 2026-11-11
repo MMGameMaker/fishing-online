@@ -14,7 +14,7 @@ Phạm vi file: `client-v0/src/online/scenes/lake/`, `client-v0/src/online/entit
 
 ### CL-B-02 Scene hồ
 - **Độ lớn:** M. **Phụ thuộc:** CL-A-01.
-- **Spec:** nạp tilemap (placeholder trước), camera theo nhân vật trong giới hạn map, sắp lớp theo y (depth = y), va chạm theo `walkableRows` giống thuật toán Server (`canStand` với chân 14×6).
+- **Spec:** nạp tilemap (placeholder trước), camera theo nhân vật trong giới hạn map (Coral Cove thấy khoảng 711x497, gần hơn khung chuẩn 1024x716, SPEC 0.11), sắp lớp theo y (depth = y), va chạm theo `walkableRows` giống thuật toán Server (`canStand` với chân 14×6).
 - **Nghiệm thu:** không đi xuyên nước/vật cản; nhân vật đứng sau cây khi y nhỏ hơn.
 
 ### CL-B-03 Nhân vật và animation
@@ -24,12 +24,12 @@ Phạm vi file: `client-v0/src/online/scenes/lake/`, `client-v0/src/online/entit
 
 ### CL-B-04 Điều khiển và đồng bộ di chuyển
 - **Độ lớn:** M. **Phụ thuộc:** CL-B-02, CL-A-04.
-- **Spec:** joystick ảo (mobile) + WASD/mũi tên + click để đi tới. Tự di chuyển cục bộ, gửi `Move` tối đa 10 lần/giây và khi dừng. `PositionCorrected` → đặt lại vị trí. Người khác: nội suy tới vị trí mới (100 ms trễ). Đang ngồi ghế thì không đi lại: bấm phím di chuyển là gửi `LeaveSeat` và đứng dậy (bị chặn khi đang minigame), không cần hộp xác nhận vì rời ghế không mất vé. Không còn vòng phạm vi `roamRadius`.
+- **Spec:** joystick ảo (mobile) + WASD/mũi tên; không đi bằng chuột (SPEC 0.11, bấm lên map không làm nhân vật đi). Tự di chuyển cục bộ, gửi `Move` tối đa 10 lần/giây và khi dừng. `PositionCorrected` → đặt lại vị trí. Người khác: nội suy tới vị trí mới (100 ms trễ). Đang ngồi ghế thì không đi lại: bấm phím di chuyển là gửi `LeaveSeat` và đứng dậy (bị chặn khi đang minigame), không cần hộp xác nhận vì rời ghế không mất vé. Không còn vòng phạm vi `roamRadius`.
 - **Nghiệm thu:** 2 tab mock/Server thật thấy nhau đi mượt; đi ra ngoài phạm vi ghế bị kéo về.
 
 ### CL-B-05 Ghế và mua vé
 - **Độ lớn:** M. **Phụ thuộc:** CL-B-02, CL-A-05.
-- **Spec (SPEC 0.9):** mỗi ghế có số và màu theo trạng thái: available (xanh), occupied (đỏ, tên người ngồi). Nhấn **E** (hoặc nút Sit / bấm số ghế) khi đứng cạnh ghế trống (≤ 64 px): còn vé thì gửi `SitDown` ngay; hết vé thì mở popup mua vé (đơn giá chung, chọn 1..`maxUnitsPerPurchase` vé, tổng Gold, thanh toán `BuyTicket`) rồi ngồi. Lỗi: `SEAT_TAKEN` → "Ghế đang được sử dụng"; `NO_TICKET`; `INSUFFICIENT_GOLD`; `ALREADY_HAS_SEAT`; `OUT_OF_RANGE`. Khi ngồi: HUD đồng hồ vé đếm theo `myTicket.expiresAt` (đồng bộ `serverTime`), nút "Mua thêm vé" (cộng nối hạn), nút "Rời ghế" không cần xác nhận, bị khóa khi đang minigame. Ngồi xong tự câu theo CL-C-03. Ghế kết thúc → thông báo theo `reason` (`left_seat`, `missed_bite`, `ticket_expired`, `disconnect_timeout`, `left_lake`).
+- **Spec (SPEC 0.9):** mỗi ghế có số và màu theo trạng thái: available (xanh), occupied (đỏ, tên người ngồi). Khi icon chọn ghế đã hiện, nhấn **F** hoặc bấm vào icon (SPEC 0.11 thay phím E; bấm số ghế khi đứng cạnh cũng được) khi đứng cạnh ghế trống (≤ 64 px): còn vé thì gửi `SitDown` ngay; hết vé thì mở popup mua vé (đơn giá chung, chọn 1..`maxUnitsPerPurchase` vé, tổng Gold, thanh toán `BuyTicket`) rồi ngồi. Lỗi: `SEAT_TAKEN` → "Ghế đang được sử dụng"; `NO_TICKET`; `INSUFFICIENT_GOLD`; `ALREADY_HAS_SEAT`; `OUT_OF_RANGE`. Khi ngồi: HUD đồng hồ vé đếm theo `myTicket.expiresAt` (đồng bộ `serverTime`), nút "Mua thêm vé" (cộng nối hạn), nút "Rời ghế" không cần xác nhận, bị khóa khi đang minigame. Ngồi xong tự câu theo CL-C-03. Ghế kết thúc → thông báo theo `reason` (`left_seat`, `missed_bite`, `ticket_expired`, `disconnect_timeout`, `left_lake`).
 - **Nghiệm thu:** mua 20 phút, gia hạn 10 phút test → đúng 30 phút; thiếu Gold không tăng thời gian; 2 tab bấm mua cùng ghế: 1 tab vào ghế, tab kia thấy thông báo; đồng hồ lệch Server ≤ 1 giây.
 
 ### CL-B-06 Mất kết nối

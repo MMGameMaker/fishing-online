@@ -159,6 +159,8 @@ export function initFishing(session) {
 
   window.addEventListener('keydown', (e) => {
     if (isTyping() || e.repeat) return;
+    // Coral Cove dùng F để ngồi ghế và Space để thu cần của Fishing Online, không dùng câu cá cũ.
+    if (session.world?.online) return;
     if (e.code === 'KeyF' && phase === 'none') start();
     if (e.code !== 'KeyF' && e.code !== 'Space') return;
     e.preventDefault();

@@ -4,7 +4,6 @@ import {
   RemoteMotion,
   directionFromVector,
   joystickVector,
-  vectorToTarget,
   type MoveMessage,
 } from './movement';
 
@@ -62,13 +61,6 @@ describe('hướng và vector', () => {
     expect(directionFromVector(0, 2, 'up')).toBe('down');
     expect(directionFromVector(0, -2, 'left')).toBe('up');
     expect(directionFromVector(0, 0, 'left')).toBe('left');
-  });
-
-  it('vectorToTarget dừng khi tới nơi', () => {
-    expect(vectorToTarget(0, 0, 1, 1).arrived).toBe(true);
-    const v = vectorToTarget(0, 0, 30, 40);
-    expect(v.x).toBeCloseTo(0.6);
-    expect(v.y).toBeCloseTo(0.8);
   });
 
   it('joystickVector có vùng chết và giới hạn độ dài', () => {

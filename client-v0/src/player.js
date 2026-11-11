@@ -188,9 +188,11 @@ export class PlayerEntity {
     const [hx, hy] = (this.sitting ? SIT_HAND : FISH_HAND)[this.dir];
     const handX = this.x + hx - FRAME_W / 2, handY = this.y + hy - FRAME_H * FOOT_ORIGIN_Y;
     const left = Math.max(0, 1 - (time - this.fishPhaseAt) / REEL.hookedMs);
-    this.alert.setPosition(handX + (this.dir === 'left' ? -22 : 22), handY - 8);
-    line.fillStyle(0xffffff).fillRect(this.alert.x - 16, this.alert.y + 3, 32, 6);
-    line.fillStyle(0xe74c3c).fillRect(this.alert.x - 15, this.alert.y + 4, 30 * left, 4);
+    const baseX = handX + (this.dir === 'left' ? -22 : 22);
+    // Dấu ! lắc trái phải khi cá cắn (feedback 2026-11-11); thanh thời gian bên dưới đứng yên.
+    this.alert.setPosition(baseX + Math.sin(time / 35) * 3, handY - 8);
+    line.fillStyle(0xffffff).fillRect(baseX - 16, this.alert.y + 3, 32, 6);
+    line.fillStyle(0xe74c3c).fillRect(baseX - 15, this.alert.y + 4, 30 * left, 4);
   }
 
   // Frame names for the fishing pose. Cast plays the throw once (body 3 frames, rod 16 frames over

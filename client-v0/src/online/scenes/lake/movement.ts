@@ -4,7 +4,6 @@ import type { Direction } from '../../net/contract';
 export const MOVE_SEND_INTERVAL_MS = 100;
 const REMOTE_LERP_MS = 100;
 const REMOTE_WALK_HOLD_MS = 150;
-const ARRIVE_DISTANCE_PX = 2;
 
 export function directionFromVector(dx: number, dy: number, fallback: Direction): Direction {
   if (dx === 0 && dy === 0) return fallback;
@@ -74,20 +73,6 @@ export class RemoteMotion {
       moving: elapsed < REMOTE_LERP_MS + REMOTE_WALK_HOLD_MS,
     };
   }
-}
-
-/** Hướng chuẩn hóa tới đích; arrived khi đã đủ gần. */
-export function vectorToTarget(
-  x: number,
-  y: number,
-  targetX: number,
-  targetY: number,
-): { x: number; y: number; arrived: boolean } {
-  const dx = targetX - x;
-  const dy = targetY - y;
-  const length = Math.hypot(dx, dy);
-  if (length <= ARRIVE_DISTANCE_PX) return { x: 0, y: 0, arrived: true };
-  return { x: dx / length, y: dy / length, arrived: false };
 }
 
 /** Quy đổi vị trí ngón tay trên joystick thành vector độ dài tối đa 1, có vùng chết. */

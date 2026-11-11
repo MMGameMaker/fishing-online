@@ -16,6 +16,9 @@ export const VIEW_H = 716;
 // Camera zoom for rooms that look too small at 1:1 (e.g. the Tinkerbean shop). These rooms are
 // snapped to a whole number of screen pixels per art pixel so the pixel art stays sharp.
 const ROOM_ZOOM = { store: 1.5 };
+// Vùng nhìn của phòng câu cá so với khung chuẩn 1024x716 (feedback 2026-11-11): lần đầu rộng hơn 25%,
+// sau đó phóng to 50%, rồi phóng thêm 20%: 1,25 / 1,5 / 1,2 ≈ 0,69 (thấy khoảng 711x497).
+const ROOM_VIEW_SCALE = { coralCove: 1.25 / 1.5 / 1.2 };
 
 // The canvas is sized in real screen pixels (see main.js), so the camera zoom carries both the
 // fit-to-window scale and the room zoom.
@@ -25,7 +28,8 @@ function cameraZoom(scene, roomKey) {
   const { width, height } = scene.scale;
   const bounds = scene.cameras.main.getBounds();
   const fillRoom = bounds.width > 0 && bounds.height > 0 ? Math.max(width / bounds.width, height / bounds.height) : 0;
-  const fit = Math.max(Math.min(width / VIEW_W, height / VIEW_H), fillRoom);
+  const viewScale = ROOM_VIEW_SCALE[roomKey] ?? 1;
+  const fit = Math.max(Math.min(width / (VIEW_W * viewScale), height / (VIEW_H * viewScale)), fillRoom);
   const roomZoom = ROOM_ZOOM[roomKey];
   return roomZoom ? Math.max(1, Math.round(fit * roomZoom), fillRoom) : fit;
 }
@@ -41,7 +45,6 @@ export class WorldScene extends Phaser.Scene {
     session.world = this;
     this.players = new Map();
     this.held = new Set();
-    this.clickTarget = null;
     this.lastSend = 0;
     this.sentMoving = false;
     this.changingRoom = false;
@@ -71,7 +74,6 @@ export class WorldScene extends Phaser.Scene {
     const animSheets = new Set(room.decor.filter((d) => d.anim).map((d) => d.anim.sheet));
     for (const sheet of animSheets) registerFrames(this, `decoranim_${sheet}`, `decoranim_${sheet}_json`);
     this.players = new Map();
-    this.clickTarget = null;
     this.drawRoom(room);
 
     this.me = new PlayerEntity(this, me, true);
@@ -109,11 +111,11 @@ export class WorldScene extends Phaser.Scene {
     this.events.once('shutdown', () => this.scale.off('resize', onResize));
     this.cameras.main.startFollow(this.me.followTarget, true);
 
-    this.input.on('pointerdown', (pointer) => {
+    // Bấm chuột lên map không còn làm nhân vật đi (feedback 2026-11-11); chỉ đi bằng phím.
+    this.input.on('pointerdown', () => {
       document.activeElement?.blur();
       if (this.online?.blocksWorldClick()) return;
-      if (this.session.fishing.onWorldPointer()) return;
-      this.clickTarget = { x: pointer.worldX, y: pointer.worldY };
+      this.session.fishing.onWorldPointer();
     });
     if (!this.bound) {
       this.bound = true;
@@ -195,8 +197,8 @@ export class WorldScene extends Phaser.Scene {
         else request('toggleDancing');
         return;
       }
-      // Coral Cove (Fishing Online): E cạnh ghế trống để ngồi; đang ngồi thì phím di chuyển là rời ghế.
-      if (e.code === 'KeyE' && this.online && !this.session.sitting) {
+      // Coral Cove (Fishing Online): F cạnh ghế trống để ngồi; đang ngồi thì phím di chuyển là rời ghế.
+      if (e.code === 'KeyF' && this.online && !this.session.sitting) {
         e.preventDefault();
         this.seats.sitDown();
         return;
@@ -205,27 +207,16 @@ export class WorldScene extends Phaser.Scene {
       e.preventDefault();
       if (this.session.sitting && this.online) this.online.leave();
       this.held.add(KEYS[e.code]);
-      this.clickTarget = null;
     });
     window.addEventListener('keyup', (e) => this.held.delete(KEYS[e.code]));
     window.addEventListener('blur', () => this.held.clear());
   }
 
   movementVector() {
-    if (this.session.fishing.isFishing() || this.session.sitting || this.online?.isLocked() || isTyping()) {
-      this.clickTarget = null;
-      return null;
-    }
+    if (this.session.fishing.isFishing() || this.session.sitting || this.online?.isLocked() || isTyping()) return null;
     const vx = (this.held.has('right') ? 1 : 0) - (this.held.has('left') ? 1 : 0);
     const vy = (this.held.has('down') ? 1 : 0) - (this.held.has('up') ? 1 : 0);
-    if (vx || vy) return { vx, vy };
-    if (!this.clickTarget) return null;
-    const dx = this.clickTarget.x - this.me.x, dy = this.clickTarget.y - this.me.y;
-    if (Math.hypot(dx, dy) < 4) {
-      this.clickTarget = null;
-      return null;
-    }
-    return { vx: dx, vy: dy };
+    return vx || vy ? { vx, vy } : null;
   }
 
   moveMe(delta) {
@@ -240,7 +231,6 @@ export class WorldScene extends Phaser.Scene {
       const ny = me.y + (vector.vy / length) * step;
       if (canStand(room, nx, me.y)) { me.x = nx; moved = true; }
       if (canStand(room, me.x, ny)) { me.y = ny; moved = true; }
-      if (!moved) this.clickTarget = null;
       if (Math.abs(vector.vx) >= Math.abs(vector.vy)) me.dir = vector.vx > 0 ? 'right' : 'left';
       else me.dir = vector.vy > 0 ? 'down' : 'up';
     }

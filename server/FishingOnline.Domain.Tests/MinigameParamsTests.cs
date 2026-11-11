@@ -51,13 +51,15 @@ public class MinigameParamsTests
     }
 
     [Fact]
-    public void Deadline_IsDurationPlusResultGrace()
+    public void StartsAfterIntro_DeadlineIsDurationPlusResultGrace()
     {
+        var hookedAt = StartedAt;
         var minigame = MinigameParams.Create(
-            TestData.Config.Minigame, TestData.Species("perch"), StatsFor(1, "rod_old"), 1, StartedAt);
+            TestData.Config.Minigame, TestData.Species("perch"), StatsFor(1, "rod_old"), 1, hookedAt);
 
-        Assert.Equal(StartedAt, minigame.StartedAt);
-        Assert.Equal(StartedAt.AddMilliseconds(12000 + 1500), minigame.DeadlineAt);
+        Assert.Equal(750, TestData.Config.Minigame.IntroMs);
+        Assert.Equal(hookedAt.AddMilliseconds(750), minigame.StartedAt);
+        Assert.Equal(hookedAt.AddMilliseconds(750 + 12000 + 1500), minigame.DeadlineAt);
     }
 
     [Fact]

@@ -3,7 +3,7 @@ import type Phaser from 'phaser';
 import '../ui/kit/kit.css';
 import '../scenes/lake/lake.css';
 import '../fishing/fishing.css';
-import type { Catalog, Rarity } from '../core/gameplayConfig';
+import type { Catalog } from '../core/gameplayConfig';
 import { getFirebaseIdToken } from '../core/idToken';
 import { createServices, type Services } from '../core/services';
 import type { HeadIcon } from '../entities/CharacterView';
@@ -21,7 +21,6 @@ import { createOnlineBagSource, type OnlineBagSource } from './onlineBag';
 const MARKER_DEPTH = 2950;
 const MARKER_OFFSET_Y = -34;
 const MARKER_HIT_SIZE = 36;
-const RARE_RARITIES: readonly Rarity[] = ['rare', 'epic', 'legendary'];
 const SCENE_PHASES: Partial<Record<CharacterAnim, string>> = {
   cast: 'cast',
   wait: 'bob',
@@ -36,7 +35,6 @@ interface PlayerEntity {
   setFishing(phase: string | null): void;
   showBubble(text: string): void;
   hideBubble(): void;
-  showCatch(fish: unknown, rare: boolean): void;
 }
 
 interface WorldScene extends Phaser.Scene {
@@ -167,6 +165,7 @@ export class CoralCoveOnline {
       () => null,
       () => this.serverNow(),
       () => this.seatReady,
+      (speciesId) => (this.deps.fishById[speciesId] as { color?: string } | undefined)?.color,
     );
     this.seatUi = new SeatUi(overlay.root, services, () => this.flow?.canLeaveSeat() ?? false);
     this.markers = new SeatMarkers(
@@ -191,9 +190,8 @@ export class CoralCoveOnline {
         (attempt) => {
           if (attempt?.phase !== 'success' || !attempt.result) return;
           // Server đã ghi cá vào kho lúc trả success, nên tải lại túi để thấy cá vừa câu.
+          // Không vẽ cá trên đầu nhân vật nữa, hình cá chỉ hiện trong popup (feedback 2026-11-11).
           this.session.bag?.render();
-          const fish = this.deps.fishById[attempt.result.speciesId];
-          if (fish) this.scene.me.showCatch(fish, RARE_RARITIES.includes(attempt.result.rarity));
         },
       ),
     );

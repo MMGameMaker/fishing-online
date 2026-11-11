@@ -86,10 +86,12 @@ public sealed record FishingTiming(
     int CatchShownMs,
     int FailShownMs);
 
+/// <param name="IntroMs">Khoảng chờ từ lúc thu cần tới khi minigame bắt đầu chạy; hạn minigame tính sau khoảng này.</param>
 public sealed record MinigameConfig(
     IReadOnlyList<MinigameRarityConfig> Rarity,
     string Authority,
-    int ResultGraceMs);
+    int ResultGraceMs,
+    int IntroMs);
 
 public sealed record MinigameRarityConfig(
     Rarity Rarity,

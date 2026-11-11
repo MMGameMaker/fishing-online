@@ -1,4 +1,5 @@
-// Nút móc câu ở góc phải màn hình, kèm thanh đếm ngược; chỉ hiện khi cá cắn (SPEC 0.9 mục 2.6).
+// Nút móc câu gần giữa màn hình, kèm thanh đếm ngược; chỉ hiện khi cá cắn.
+// Thu cần bằng cách bấm nút hoặc phím Space (feedback 2026-11-11).
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const HOOK_PATH = 'M15 3v15a5 5 0 1 1-10 0v-2';
 
@@ -17,22 +18,38 @@ function hookIcon(): SVGSVGElement {
   return svg;
 }
 
+function isTyping(): boolean {
+  return ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName ?? '');
+}
+
 export class FishButton {
   private readonly button = document.createElement('button');
   private readonly bar = document.createElement('div');
+  private readonly onKeyDown: (event: KeyboardEvent) => void;
 
   constructor(root: HTMLElement, onPress: () => void) {
     this.button.type = 'button';
     this.button.className = 'fish-button';
     this.button.hidden = true;
-    this.button.setAttribute('aria-label', 'Thu cần');
+    this.button.setAttribute('aria-label', 'Thu cần (Space)');
     this.button.addEventListener('pointerdown', (event) => {
       event.stopPropagation();
       onPress();
     });
+    const key = document.createElement('div');
+    key.className = 'fish-button__key';
+    key.textContent = 'SPACE';
     this.bar.className = 'fish-button__bar';
-    this.button.append(hookIcon(), this.bar);
+    this.button.append(hookIcon(), key, this.bar);
     root.append(this.button);
+
+    // Nghe trên window vì scene Coral Cove tắt bàn phím của Phaser.
+    this.onKeyDown = (event) => {
+      if (event.code !== 'Space' || event.repeat || this.button.hidden || isTyping()) return;
+      event.preventDefault();
+      onPress();
+    };
+    window.addEventListener('keydown', this.onKeyDown);
   }
 
   render(visible: boolean, progress: number): void {
@@ -41,6 +58,7 @@ export class FishButton {
   }
 
   destroy(): void {
+    window.removeEventListener('keydown', this.onKeyDown);
     this.button.remove();
   }
 }

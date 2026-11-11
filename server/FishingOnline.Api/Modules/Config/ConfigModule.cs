@@ -67,6 +67,7 @@ public static class GameplayConfigValidator
         var missing = Enum.GetValues<Rarity>().Except(config.Minigame.Rarity.Select(row => row.Rarity)).ToArray();
         if (missing.Length > 0 || config.Minigame.Rarity.Count != Enum.GetValues<Rarity>().Length)
             errors.Add($"minigame: phải đủ 5 rarity, thiếu [{string.Join(", ", missing)}].");
+        if (config.Minigame.IntroMs is < 0 or > 10000) errors.Add("minigame: introMs phải trong khoảng 0..10000.");
 
         var pricing = config.TicketPricing;
         if (pricing.BillingUnitMinutes <= 0 || pricing.UnitPriceGold <= 0 || pricing.MaxUnitsPerPurchase <= 0)

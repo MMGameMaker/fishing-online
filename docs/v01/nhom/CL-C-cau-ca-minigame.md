@@ -14,8 +14,8 @@ Phạm vi file: `client-v0/src/online/fishing/`; test vectors minigame TS trong 
 
 ### CL-C-02 Nút móc câu
 - **Độ lớn:** S. **Phụ thuộc:** CL-A-05.
-- **Spec (SPEC 0.9):** không có nút bắt đầu câu. Nút tròn có biểu tượng móc câu ở góc phải dưới màn hình, chỉ hiện khi bite, kèm thanh đếm ngược 3 giây theo `biteDeadlineAt`. Phải bấm đúng nút để gửi `HookFish`; chạm chỗ khác không tính.
-- **Nghiệm thu:** nút chỉ hiện ở bite; bấm nút gửi `HookFish` đúng một lần; chạm ngoài nút hoặc ngoài bite không gửi lệnh.
+- **Spec (SPEC 0.11):** không có nút bắt đầu câu. Nút tròn lớn có biểu tượng móc câu gần giữa màn hình (ngay dưới nhân vật), chỉ hiện khi bite, kèm thanh đếm ngược 3 giây theo `biteDeadlineAt`. Thu cần bằng phím **Space** hoặc bấm vào nút để gửi `HookFish`; chạm chỗ khác không tính. Sau khi vào `minigame`, chờ `minigame.introMs` (test 0,75 giây) rồi mới hiện minigame.
+- **Nghiệm thu:** nút chỉ hiện ở bite; bấm nút hoặc Space gửi `HookFish` đúng một lần; chạm ngoài nút hoặc ngoài bite không gửi lệnh; minigame hiện sau 0,75 giây và vẫn đủ thời gian chơi.
 
 ### CL-C-03 Quăng, chờ, cá cắn
 - **Độ lớn:** M. **Phụ thuộc:** CL-C-02, CL-B-03.
@@ -25,9 +25,10 @@ Phạm vi file: `client-v0/src/online/fishing/`; test vectors minigame TS trong 
 ### CL-C-04 Màn minigame
 - **Độ lớn:** L. **Phụ thuộc:** CL-C-01.
 - **Spec:**
-  - Thanh ngang, kim chạy theo `needlePos(t)` với `t = performance.now() − mốc nhận params` (bù nửa RTT ước lượng).
+  - Bố cục theo ảnh mẫu `doc/feedback/minigame-ui.png` (SPEC 0.11): cả cụm ở giữa phía dưới màn hình; đồng hồ tròn bên trái (số giây còn lại); thanh khoảng cách có chấm trắng, con cá và số cm còn lại (= HP) ở trên; thanh đo bo tròn có kim ở dưới.
+  - Thanh ngang, kim chạy theo `needlePos(t)` với `t = performance.now() − (mốc nhận params + introMs)` (bù nửa RTT ước lượng).
   - Vùng xanh, vùng vàng nằm trong xanh; vị trí theo state của `minigameCore`.
-  - Thanh "khoảng cách tới cá" = hp / fishHp; đồng hồ `remainingMs`.
+  - Thanh khoảng cách tới cá = hp / fishHp, cá tiến về trái khi HP giảm; đồng hồ `remainingMs`.
   - Bấm (chuột, chạm, Space) → `applyTap` cục bộ để hiện ngay hiệu ứng (trúng: cá bị kéo lại gần, vàng: hiệu ứng mạnh + chữ "x2", trượt: thanh giờ nháy đỏ), không gửi tap. Khi kết thúc chỉ gửi SubmitFishingResult với outcome và attemptId; chờ settlement trước hiển thị cá/EXP thật.
   - Khi mất response kết quả: giữ attemptId/requestId, tra snapshot hoặc gửi lại cùng outcome; không tự cộng cá/EXP/Gold. Server đã hủy/hết hạn thì kết quả cục bộ không phát thưởng.
   - Không có nút thoát trong minigame. Từ lúc thu cần tới khi có kết quả không rời ghế được: phím di chuyển và nút Rời ghế không có tác dụng, Server cũng từ chối `LeaveSeat` (`STATE_CONFLICT`). Vé hết giữa minigame vẫn câu nốt.

@@ -9,11 +9,11 @@ Stack: Phaser 3 + Vite (client), Node.js + Express + Socket.IO (server), JSON fi
 
 ## Fishing Online
 
-Client Fishing Online nằm trong `src/online/`. Vào phòng **Coral Cove**: đứng cạnh ghế đẩu trống, nhấn E (hoặc bấm Sit) để ngồi; chưa có vé thì mở hộp mua vé trước. Ngồi xong nhân vật tự câu; cá cắn thì nút móc câu hiện ở góc phải dưới, bấm nút để vào minigame. Trượt cá thì tự đứng dậy; bấm phím di chuyển để rời ghế (trừ lúc đang minigame). Ghế, Gold và cá ở đây đang chạy bằng **mock** trong trình duyệt (có chữ MOCK), chưa nối Server thật, nên tách khỏi coins và Bag của prototype. `fishing.html` là trang thử riêng bằng art tạm.
+Client Fishing Online nằm trong `src/online/`. Vào phòng **Coral Cove**: đứng cạnh ghế đẩu trống, nhấn F (hoặc bấm icon Sit) để ngồi; chưa có vé thì mở hộp mua vé trước. Ngồi xong nhân vật tự câu; cá cắn thì nút móc câu lớn hiện gần giữa màn hình, nhấn Space hoặc bấm nút để thu cần; 0,75 giây sau minigame hiện ra. Nhân vật chỉ đi bằng phím, bấm chuột lên map không đi. Trượt cá thì tự đứng dậy; bấm phím di chuyển để rời ghế (trừ lúc đang minigame). Ghế, Gold và cá ở đây đang chạy bằng **mock** trong trình duyệt (có chữ MOCK), chưa nối Server thật, nên tách khỏi coins và Bag của prototype. `fishing.html` là trang thử riêng bằng art tạm.
 
 | Địa chỉ | Nội dung |
 | --- | --- |
-| `/fishing.html` | Vào hồ: WASD/mũi tên/bấm chuột để đi, đứng cạnh ghế xanh nhấn E hoặc bấm ghế để ngồi (chưa có vé thì mua trước), ngồi xong tự câu |
+| `/fishing.html` | Vào hồ: WASD/mũi tên để đi, đứng cạnh ghế xanh nhấn F hoặc bấm ghế để ngồi (chưa có vé thì mua trước), ngồi xong tự câu |
 | `/fishing.html?scene=ui-demo` | Trang demo UI kit |
 | `/fishing.html?scene=char-debug` | 4 hướng × mọi animation của một skin |
 | `/fishing.html?mockError=SEAT_TAKEN` | Mock trả lỗi giả |

@@ -20,10 +20,14 @@ public sealed record MinigameParams(
     int Atk,
     DateTimeOffset DeadlineAt)
 {
-    /// <summary>Kích thước vùng = gốc × (1 + Hit Zone Increase / 100); vùng vàng không rộng hơn vùng xanh.</summary>
+    /// <summary>
+    /// Kích thước vùng = gốc × (1 + Hit Zone Increase / 100); vùng vàng không rộng hơn vùng xanh.
+    /// Minigame bắt đầu sau <see cref="MinigameConfig.IntroMs"/> kể từ lúc thu cần, nên hạn cũng lùi theo.
+    /// </summary>
     public static MinigameParams Create(
-        MinigameConfig config, Fish fish, Stats stats, uint seed, DateTimeOffset startedAt)
+        MinigameConfig config, Fish fish, Stats stats, uint seed, DateTimeOffset hookedAt)
     {
+        var startedAt = hookedAt.AddMilliseconds(config.IntroMs);
         var row = config.Rarity.Single(entry => entry.Rarity == fish.Rarity);
         var greenWidth = Math.Min(1, row.GreenBasePct / 100 * (1 + stats.NormalHitZonePct / 100d));
         var yellowWidth = Math.Min(greenWidth, row.YellowBasePct / 100 * (1 + stats.WeaknessHitZonePct / 100d));

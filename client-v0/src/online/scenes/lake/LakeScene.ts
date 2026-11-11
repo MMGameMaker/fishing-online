@@ -4,9 +4,9 @@ import { getServices, type Services } from '../../core/services';
 import { CharacterView } from '../../entities/CharacterView';
 import { FishingFlow } from '../../fishing/FishingFlow';
 import type { Direction, PlayerView } from '../../net/contract';
-import { mountUiOverlay, showError } from '../../ui/kit/components';
+import { mountUiOverlay, showError, showToast } from '../../ui/kit/components';
 import { Joystick } from './Joystick';
-import { MoveSender, RemoteMotion, directionFromVector, vectorToTarget } from './movement';
+import { MoveSender, RemoteMotion, directionFromVector } from './movement';
 import { isNearSeat } from './seatLogic';
 import { SeatMarkers } from './SeatMarkers';
 import { SeatUi } from './SeatUi';
@@ -58,8 +58,6 @@ export class LakeScene extends Phaser.Scene {
   private wasd!: Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
   private root!: HTMLElement;
   private myId = '';
-  private moveTarget: { x: number; y: number } | null = null;
-  private pendingSeat: LakeSeat | null = null;
   private readonly remotes = new Map<string, RemotePlayer>();
   private readonly cleanups: (() => void)[] = [];
 
@@ -179,21 +177,13 @@ export class LakeScene extends Phaser.Scene {
     if (!keyboard) throw new Error('Trình duyệt không có bàn phím');
     this.cursors = keyboard.createCursorKeys();
     this.wasd = keyboard.addKeys('W,A,S,D') as typeof this.wasd;
-    // Nhấn E cạnh ghế trống để ngồi (SPEC 0.9 mục 2.2).
-    keyboard.addKey('E').on('down', () => {
+    // Nhấn F cạnh ghế trống để ngồi (feedback 2026-11-11, thay phím E).
+    keyboard.addKey('F').on('down', () => {
       const seat = this.map.seats.find((item) => isNearSeat(this.me.x, this.me.y, item));
       if (seat) this.onSeatPressed(seat);
     });
+    // Không còn bấm chuột lên map để đi; chỉ phím di chuyển hoặc joystick.
     if (this.sys.game.device.input.touch) this.joystick = new Joystick(this.root);
-
-    this.input.on(
-      'pointerdown',
-      (pointer: Phaser.Input.Pointer, over: Phaser.GameObjects.GameObject[]) => {
-        if (over.length > 0 || this.flow.isLocked()) return;
-        this.pendingSeat = null;
-        this.moveTarget = { x: pointer.worldX, y: pointer.worldY };
-      },
-    );
   }
 
   private bindStore(): void {
@@ -203,8 +193,6 @@ export class LakeScene extends Phaser.Scene {
         (s) => s.lake.correction,
         (correction) => {
           if (!correction) return;
-          this.moveTarget = null;
-          this.pendingSeat = null;
           this.me.setPosition(correction.x, correction.y);
         },
       ),
@@ -237,8 +225,6 @@ export class LakeScene extends Phaser.Scene {
     this.roamCircle.setVisible(false);
     if (!seat) return;
     // Server không giữ map nên Client tự đặt nhân vật vào ghế rồi báo vị trí.
-    this.moveTarget = null;
-    this.pendingSeat = null;
     this.me.setPosition(seat.x, seat.y);
     this.me.setDirection(seat.facing as Direction);
     this.moveSender.flush(performance.now(), seat.x, seat.y, seat.facing as Direction);
@@ -267,9 +253,7 @@ export class LakeScene extends Phaser.Scene {
     } else if (isNearSeat(this.me.x, this.me.y, seat)) {
       void this.seatUi.openSeat(seat);
     } else {
-      // Ở xa thì tự đi tới rồi mở hộp mua.
-      this.pendingSeat = seat;
-      this.moveTarget = { x: seat.x, y: seat.y };
+      showToast(this.root, 'Hãy đi tới gần ghế để ngồi.');
     }
   }
 
@@ -358,27 +342,6 @@ export class LakeScene extends Phaser.Scene {
     return length > 1 ? { x: x / length, y: y / length } : { x, y };
   }
 
-  private axisFromInput(): { x: number; y: number } {
-    const axis = this.readAxis();
-    if (axis.x !== 0 || axis.y !== 0) {
-      this.moveTarget = null;
-      this.pendingSeat = null;
-      return axis;
-    }
-    if (!this.moveTarget) return axis;
-
-    if (this.pendingSeat && isNearSeat(this.me.x, this.me.y, this.pendingSeat)) {
-      const seat = this.pendingSeat;
-      this.moveTarget = null;
-      this.pendingSeat = null;
-      this.onSeatPressed(seat);
-      return { x: 0, y: 0 };
-    }
-    const toward = vectorToTarget(this.me.x, this.me.y, this.moveTarget.x, this.moveTarget.y);
-    if (toward.arrived) this.moveTarget = null;
-    return toward;
-  }
-
   private moveMe(deltaMs: number, nowMs: number): void {
     // Đang ngồi: bấm phím di chuyển là rời ghế (bị chặn khi đang minigame), không đi luôn.
     const seated = this.services.store.getState().lake.mySeat !== null;
@@ -387,11 +350,7 @@ export class LakeScene extends Phaser.Scene {
       if ((keys.x !== 0 || keys.y !== 0) && this.flow.canLeaveSeat()) void this.seatUi.leave();
     }
     const locked = this.flow.isLocked() || seated;
-    if (locked) {
-      this.moveTarget = null;
-      this.pendingSeat = null;
-    }
-    const axis = locked ? { x: 0, y: 0 } : this.axisFromInput();
+    const axis = locked ? { x: 0, y: 0 } : this.readAxis();
     let moving = false;
     if (axis.x !== 0 || axis.y !== 0) {
       const distance =
@@ -399,7 +358,6 @@ export class LakeScene extends Phaser.Scene {
       const next = stepMove(this.map, this.me.x, this.me.y, axis.x * distance, axis.y * distance);
       moving = next.x !== this.me.x || next.y !== this.me.y;
       if (moving) this.me.setPosition(next.x, next.y);
-      else this.moveTarget = null;
       this.me.setDirection(directionFromVector(axis.x, axis.y, this.me.direction));
     }
     if (moving) this.me.play('walk');

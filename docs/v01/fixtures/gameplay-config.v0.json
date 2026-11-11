@@ -262,7 +262,7 @@
       {
         "rarity": "common",
         "durationMs": 12000,
-        "needlePassMs": 900,
+        "needlePassMs": 720,
         "greenBasePct": 20,
         "yellowBasePct": 6,
         "missPenaltyMs": 2000,
@@ -272,7 +272,7 @@
       {
         "rarity": "uncommon",
         "durationMs": 13000,
-        "needlePassMs": 800,
+        "needlePassMs": 640,
         "greenBasePct": 16,
         "yellowBasePct": 5,
         "missPenaltyMs": 2000,
@@ -282,7 +282,7 @@
       {
         "rarity": "rare",
         "durationMs": 15000,
-        "needlePassMs": 700,
+        "needlePassMs": 560,
         "greenBasePct": 13,
         "yellowBasePct": 4.5,
         "missPenaltyMs": 2500,
@@ -292,7 +292,7 @@
       {
         "rarity": "epic",
         "durationMs": 17000,
-        "needlePassMs": 600,
+        "needlePassMs": 480,
         "greenBasePct": 11,
         "yellowBasePct": 4,
         "missPenaltyMs": 3000,
@@ -302,7 +302,7 @@
       {
         "rarity": "legendary",
         "durationMs": 20000,
-        "needlePassMs": 550,
+        "needlePassMs": 440,
         "greenBasePct": 9,
         "yellowBasePct": 4,
         "missPenaltyMs": 3500,
@@ -311,7 +311,8 @@
       }
     ],
     "authority": "client_outcome",
-    "resultGraceMs": 1500
+    "resultGraceMs": 1500,
+    "introMs": 750
   },
   "lengthTiers": {
     "maxLargeLuck": 6,

@@ -23,6 +23,9 @@ export type HeadIcon =
 const LABEL_Y = -34;
 const ICON_Y = -46;
 const TEXT_ICONS = { bite: '!', sad: ':(' } as const;
+/** Dấu ! khi cá cắn lắc trái phải (feedback 2026-11-11). */
+const BITE_SHAKE_PX = 3;
+const BITE_SHAKE_MS = 70;
 
 /** Nhân vật gồm thân, lớp cần câu, nhãn tên và chỗ gắn icon trên đầu. Gốc tọa độ ở chân. */
 export class CharacterView {
@@ -110,6 +113,7 @@ export class CharacterView {
   }
 
   setHeadIcon(icon: HeadIcon): void {
+    this.scene.tweens.killTweensOf(this.iconSlot.list);
     this.iconSlot.removeAll(true);
     if (!icon) return;
     if (icon.type === 'fish') {
@@ -118,21 +122,32 @@ export class CharacterView {
       return;
     }
     const text = icon.type === 'emoji' ? icon.emojiId : TEXT_ICONS[icon.type];
-    this.iconSlot.add(
-      this.scene.add
-        .text(0, 0, text, {
-          fontFamily: 'monospace',
-          fontSize: '14px',
-          fontStyle: 'bold',
-          color: icon.type === 'bite' ? '#ffdd33' : '#ffffff',
-          stroke: '#000000',
-          strokeThickness: 2,
-        })
-        .setOrigin(0.5),
-    );
+    const label = this.scene.add
+      .text(0, 0, text, {
+        fontFamily: 'monospace',
+        fontSize: '14px',
+        fontStyle: 'bold',
+        color: icon.type === 'bite' ? '#ffdd33' : '#ffffff',
+        stroke: '#000000',
+        strokeThickness: 2,
+      })
+      .setOrigin(0.5);
+    this.iconSlot.add(label);
+    if (icon.type === 'bite') {
+      label.x = -BITE_SHAKE_PX;
+      this.scene.tweens.add({
+        targets: label,
+        x: BITE_SHAKE_PX,
+        duration: BITE_SHAKE_MS,
+        yoyo: true,
+        repeat: -1,
+        ease: 'Sine.easeInOut',
+      });
+    }
   }
 
   destroy(): void {
+    this.scene.tweens.killTweensOf(this.iconSlot.list);
     this.container.destroy(true);
   }
 

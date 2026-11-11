@@ -731,9 +731,11 @@ export class MockBackend {
     );
     attempt.phase = 'minigame';
     attempt.minigame = params;
-    attempt.minigameStartedAtMs = this.nowMs;
+    // Minigame chạy sau introMs kể từ lúc thu cần, hạn cũng lùi theo (giống Server).
+    const startedAtMs = this.nowMs + this.config.minigame.introMs;
+    attempt.minigameStartedAtMs = startedAtMs;
     attempt.minigameDeadlineMs =
-      this.nowMs + params.durationMs + this.config.minigame.resultGraceMs;
+      startedAtMs + params.durationMs + this.config.minigame.resultGraceMs;
     attempt.biteDeadlineMs = null;
     this.emit('AttemptUpdate', this.attemptView(attempt));
     return null;

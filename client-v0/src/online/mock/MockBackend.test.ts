@@ -204,16 +204,19 @@ describe('MockBackend', () => {
     expect(rig.badEvents).toEqual([]);
   });
 
-  it('hết giờ minigame thì thất bại timeout', async () => {
+  it('hết giờ minigame thì thất bại timeout, tính cả khoảng chờ introMs trước minigame', async () => {
     const attemptId = await reachMinigame(rig);
     const duration = attemptOf(rig)!.minigame!.durationMs;
-    rig.mock.advance(duration + config.minigame.resultGraceMs + 200);
+    const { resultGraceMs, introMs } = config.minigame;
+    rig.mock.advance(introMs + duration + resultGraceMs - 100);
+    expect(attemptOf(rig)?.phase).toBe('minigame');
+    rig.mock.advance(300);
     expect(attemptOf(rig)).toMatchObject({ phase: 'failed', reason: 'timeout' });
     const late = await rig.hub.invoke('SubmitFishingResult', { attemptId, outcome: 'success' });
     expect(late.error?.code).toBe('RESULT_EXPIRED');
   });
 
-  it('deadlineAt bằng duration cộng resultGraceMs', async () => {
+  it('minigame bắt đầu sau introMs, deadlineAt bằng duration cộng resultGraceMs', async () => {
     await reachMinigame(rig);
     const game = attemptOf(rig)!.minigame!;
     expect(Date.parse(game.deadlineAt) - Date.parse(game.startedAt)).toBe(

@@ -15,7 +15,8 @@ public class FishingAttemptTests
     private static readonly DateTimeOffset BiteAt = T0.AddMilliseconds(WaitMs);
     private static readonly DateTimeOffset BiteLimit = BiteAt.AddMilliseconds(BiteWindowMs + BiteGraceMs);
     private static readonly DateTimeOffset HookAt = BiteAt.AddMilliseconds(500);
-    private static readonly DateTimeOffset ResultDeadline = HookAt.AddMilliseconds(12000 + 1500);
+    private const int IntroMs = 750;
+    private static readonly DateTimeOffset ResultDeadline = HookAt.AddMilliseconds(IntroMs + 12000 + 1500);
 
     private static readonly Stats PlayerStats = new(11, 0, 0, RareLuck: 3, LargeLuck: 2);
 
@@ -210,8 +211,8 @@ public class FishingAttemptTests
         Assert.Equal([new PhaseChanged(FishingPhase.Minigame, null)], step.Events);
         var minigame = attempt.Snapshot().Minigame!;
         Assert.Equal(0x12345678u, minigame.Seed);
-        Assert.Equal(BiteLimit, minigame.StartedAt);
-        Assert.Equal(BiteLimit.AddMilliseconds(13500), minigame.DeadlineAt);
+        Assert.Equal(BiteLimit.AddMilliseconds(IntroMs), minigame.StartedAt);
+        Assert.Equal(BiteLimit.AddMilliseconds(IntroMs + 13500), minigame.DeadlineAt);
         Assert.Equal(PlayerStats.Strength, minigame.Atk);
     }
 

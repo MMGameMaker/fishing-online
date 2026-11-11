@@ -29,6 +29,7 @@ Worker chỉ sửa dòng task của mình (Người làm, Trạng thái, Ngày, 
 | Ngày | Nội dung | Nhóm cần làm gì |
 | --- | --- | --- |
 | 2026-11-09 | SPEC_CHUNG 0.8: tự câu sau khi ngồi, nút Kéo giữa màn hình chạm bất kỳ, popup chạm mới đóng, thua chờ 2 giây, chưa câu được cá vẫn rời ghế được; không đổi contract | CL-B/C, QA: test theo luồng mới |
+| 2026-11-11 | SPEC_CHUNG 0.11 (feedback người dùng, doc/FEEDBACK.md): F hoặc bấm icon để ngồi ghế, bỏ đi bằng chuột, nút móc câu to giữa màn hình + phím Space, minigame hiện sau 0,75 giây (config `minigame.introMs` = 750, hạn lùi theo), popup nhận cá có hình cá, camera Coral Cove phóng gần, thấy khoảng 711x497, giao diện minigame theo ảnh mẫu | BE-B/E, CL-B/C, AD, QA: test theo luồng mới; Server cần chạy migration `BEE_MinigameIntro` |
 | 2026-11-10 | SPEC_CHUNG 0.10: Server không giữ map, không kiểm tra khoảng cách ghế; `Move` chỉ báo vị trí và Client gửi mọi lúc, `JoinLake` nhận vị trí ban đầu, bỏ `PositionCorrected`/`OUT_OF_RANGE`. Đổi contract | BE-C, CL-B/C, QA: test theo luồng mới |
 | 2026-11-10 | SPEC_CHUNG 0.9: vé theo thời gian tách khỏi ghế (`BuyTicket`, `SitDown`), bỏ Tier/buff/cooldown/gia hạn; nút móc câu góc phải; trượt cá tự đứng dậy; không rời ghế khi minigame; thêm `FailShown`. Đổi contract | BE-C/E, CL-B/C, AD, QA: test theo luồng mới |
 | 2026-11-09 | SPEC_CHUNG 0.7: gameplay chạy trong scene Coral Cove của `client-v0`, resource do dự án tự làm | CL-B/C, ART, QA: test trong scene này |

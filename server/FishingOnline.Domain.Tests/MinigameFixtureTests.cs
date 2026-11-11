@@ -37,9 +37,11 @@ public class MinigameFixtureTests
             TestData.Level(sample.Player.Level),
             TestData.Rod(sample.Player.RodId));
 
-        var attempt = FishingAttempt.Start(context, stats, sample.Params.StartedAt.AddMilliseconds(-WaitMs), WaitMs);
-        attempt.Tick(sample.Params.StartedAt);
-        return (attempt, attempt.Hook(sample.Params.StartedAt));
+        // startedAt trong mẫu là lúc minigame chạy, tức introMs sau lúc thu cần.
+        var hookedAt = sample.Params.StartedAt.AddMilliseconds(-TestData.Config.Minigame.IntroMs);
+        var attempt = FishingAttempt.Start(context, stats, hookedAt.AddMilliseconds(-WaitMs), WaitMs);
+        attempt.Tick(hookedAt);
+        return (attempt, attempt.Hook(hookedAt));
     }
 
     [Fact]
