@@ -192,8 +192,9 @@ export class WorldScene extends Phaser.Scene {
       if (isTyping()) return;
       if (e.code === 'KeyX' && !this.session.fishing.isFishing()) {
         e.preventDefault();
-        if (this.session.sitting && this.online) this.online.leave();
-        else if (this.session.sitting) request('standUp');
+        // Coral Cove: X không còn làm rời ghế; rời ghế bằng nút Rời ghế, phím di chuyển hoặc khi hết vé.
+        if (this.session.sitting && this.online) return;
+        if (this.session.sitting) request('standUp');
         else request('toggleDancing');
         return;
       }

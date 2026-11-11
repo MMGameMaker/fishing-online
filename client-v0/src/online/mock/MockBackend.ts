@@ -788,10 +788,8 @@ export class MockBackend {
     this.attempt = null;
     this.recordHistory(attempt, 'failed', reason, null);
     const view = this.settle(this.endedView(attempt, 'failed', reason, null));
-    // SPEC 2.6: trượt cá thì tự đứng dậy; thua minigame thì cả phòng thấy icon buồn.
-    if (reason === 'missed_bite') {
-      this.endSession('missed_bite', 'left_seat');
-    } else {
+    // Trượt cá: vẫn ngồi ghế, Client tự câu lại (feedback 2026-11-11); thua minigame thì cả phòng thấy icon buồn.
+    if (reason !== 'missed_bite') {
       this.emit('FailShown', {
         playerId: MY_ID,
         shownUntil: this.iso(this.nowMs + this.config.fishing.failShownMs),

@@ -26,6 +26,8 @@ const DEFAULT_MINIGAME_INTRO_MS = 750;
 const CAST_ANIM_MS = 500;
 /** Thời gian hiện icon buồn trước khi tự câu lại. */
 const FAIL_HOLD_MS = 2000;
+/** Trượt cá thì chờ khoảng này rồi tự câu lại, không rời ghế. */
+const MISSED_RECAST_MS = 1000;
 const CAST_RETRY_MS = 5000;
 /** Bỏ qua cú chạm dư của minigame để popup không bị đóng nhầm. */
 const RESULT_TAP_GUARD_MS = 400;
@@ -181,13 +183,14 @@ export class FishingFlow {
         break;
       case 'failed':
         this.finishRound();
-        this.nextCastAtMs = performance.now() + FAIL_HOLD_MS;
-        // Trượt cá: Server cho đứng dậy (MySeat ended), không hiện icon buồn.
+        // Trượt cá: vẫn ngồi ghế, không icon buồn, khoảng 1 giây sau tự câu lại (feedback 2026-11-11).
         if (attempt.reason === 'missed_bite') {
+          this.nextCastAtMs = performance.now() + MISSED_RECAST_MS;
           this.me.play('idle');
           this.me.setHeadIcon(null);
           break;
         }
+        this.nextCastAtMs = performance.now() + FAIL_HOLD_MS;
         this.me.play('fail');
         this.me.setHeadIcon({ type: 'sad' });
         this.characterBusyUntilMs = this.nextCastAtMs;

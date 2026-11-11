@@ -64,12 +64,13 @@ export function LakePage() {
               {lake.data.seats.map((seat) => (
                 <div key={seat.seatId} className={`seat ${seat.state}`}>
                   <strong>{seat.seatId}</strong>
-                  <span>
-                    Tier {seat.tier} · {seat.unitPriceGold} Gold
-                  </span>
                   <span>{seat.state}</span>
-                  {seat.expiresAt && <span>hết hạn {formatTime(seat.expiresAt)}</span>}
-                  {seat.cooldownUntil && <span>cooldown tới {formatTime(seat.cooldownUntil)}</span>}
+                  {seat.occupantPlayerId && (
+                    <span>
+                      {lake.data?.onlinePlayers.find((player) => player.playerId === seat.occupantPlayerId)?.displayName ??
+                        seat.occupantPlayerId.slice(0, 8)}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>

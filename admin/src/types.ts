@@ -81,14 +81,11 @@ export interface Signal {
   reviewNote: string | null;
 }
 
+/** Từ khi đổi sang vé câu theo thời gian, ghế không còn Tier hay giá riêng. */
 export interface SeatView {
   seatId: string;
-  tier: number;
   state: string;
   occupantPlayerId: string | null;
-  expiresAt: string | null;
-  cooldownUntil: string | null;
-  unitPriceGold: string;
 }
 
 export interface PlayerView {

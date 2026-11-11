@@ -218,6 +218,26 @@ test('the bot replies to direct messages', async () => {
   a.socket.disconnect();
 });
 
+test('a seat holds one player until they stand up or leave', async () => {
+  const a = await login('alice');
+  const b = await login('bob');
+  const { index, seat } = fishingStool();
+  for (const socket of [a.socket, b.socket]) socket.emit('playerMovement', { x: seat.exitX, y: seat.exitY, dir: 'down', moving: false });
+  await new Promise((resolve) => setTimeout(resolve, 20));
+
+  assert.equal((await call(a.socket, 'sitDown', { index })).ok, true);
+  const second = await call(b.socket, 'sitDown', { index });
+  assert.equal(second.ok, false);
+  assert.equal(second.error, 'Seat taken');
+
+  assert.equal((await call(a.socket, 'standUp')).ok, true);
+  b.socket.emit('playerMovement', { x: seat.exitX, y: seat.exitY, dir: 'down', moving: false });
+  await new Promise((resolve) => setTimeout(resolve, 20));
+  assert.equal((await call(b.socket, 'sitDown', { index })).ok, true);
+  a.socket.disconnect();
+  b.socket.disconnect();
+});
+
 test('fishing requires sitting on a stool by the water', async () => {
   const a = await login('alice');
   assert.equal((await call(a.socket, 'startFishing')).ok, false);
@@ -571,4 +591,38 @@ test('Coral Cove has 20 stools along the dock, each on a fishing edge facing the
   // The stools must not cut the dock: every exit is still reachable from the spawn.
   cove.teleports.forEach((exit) => assert.ok(walked.some(([x, y]) => isAtExit(exit, x, y, 6))));
   assert.ok(walked.some(([x, y]) => Math.hypot(x - 2420, y - 1900) < 40), 'the bridge to the island is still reachable');
+});
+
+test('Coral Cove fishing steps and catches are relayed to the room for animation only', async () => {
+  const a = await login('alice');
+  await call(a.socket, 'sellFish', { id: 'all' });
+  const b = await login('bob');
+  const { index, seat } = fishingStool();
+  a.socket.emit('playerMovement', { x: seat.exitX, y: seat.exitY, dir: 'down', moving: false });
+  await new Promise((resolve) => setTimeout(resolve, 20));
+
+  assert.equal((await call(a.socket, 'sceneFishing', { phase: 'cast' })).ok, false, 'must be seated');
+  assert.equal((await call(a.socket, 'sitDown', { index })).ok, true);
+
+  const phase = once(b.socket, 'playerFishing');
+  assert.equal((await call(a.socket, 'sceneFishing', { phase: 'reel' })).ok, true);
+  const relayed = await phase;
+  assert.equal(relayed.id, 'alice');
+  assert.equal(relayed.phase, 'reel');
+  assert.equal((await call(a.socket, 'sceneFishing', { phase: 'dance' })).ok, false);
+
+  const caught = once(b.socket, 'catchSuccess');
+  assert.equal((await call(a.socket, 'sceneCatch', { fishId: 'koi' })).ok, true);
+  const shown = await caught;
+  assert.equal(shown.id, 'alice');
+  assert.equal(shown.fish.id, 'koi');
+  assert.equal((await call(a.socket, 'sceneCatch', { fishId: 'koi' })).ok, false, 'rate limited');
+
+  const stood = once(b.socket, 'playerFishing');
+  assert.equal((await call(a.socket, 'standUp')).ok, true);
+  assert.equal((await stood).phase, null);
+  const sold = await call(a.socket, 'sellFish', { id: 'all' });
+  assert.equal(sold.earned, 0, 'relayed catches never add fish to the bag');
+  a.socket.disconnect();
+  b.socket.disconnect();
 });

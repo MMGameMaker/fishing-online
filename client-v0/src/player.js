@@ -183,8 +183,10 @@ export class PlayerEntity {
   drawFishing(time) {
     const { line, fishPhase: phase } = this;
     line.clear();
-    this.alert.setVisible(phase === 'hooked');
-    if (phase !== 'hooked') return;
+    // Dấu ! và thanh thời gian chỉ dành cho người đang câu; máy khác chỉ thấy anim cầm cần (feedback 2026-11-12).
+    const showAlert = phase === 'hooked' && this.isMe;
+    this.alert.setVisible(showAlert);
+    if (!showAlert) return;
     const [hx, hy] = (this.sitting ? SIT_HAND : FISH_HAND)[this.dir];
     const handX = this.x + hx - FRAME_W / 2, handY = this.y + hy - FRAME_H * FOOT_ORIGIN_Y;
     const left = Math.max(0, 1 - (time - this.fishPhaseAt) / REEL.hookedMs);

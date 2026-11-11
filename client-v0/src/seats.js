@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { request } from './net.js';
+import { toast } from './ui.js';
 
 const REACH = 36;
 
@@ -37,12 +38,26 @@ export class SeatController {
     if (this.session.sitting || this.session.fishing.isFishing()) return;
     const index = this.nearestSeat(this.session.world.me);
     if (index < 0) return;
+    if (this.isTaken(index)) {
+      toast('Ghế đang có người ngồi.');
+      return;
+    }
     // Coral Cove phải thuê ghế trước, thuê xong mới ngồi xuống.
     if (this.scene.online) {
       this.scene.online.pressSeatIndex(index);
       return;
     }
     await request('sitDown', { index });
+  }
+
+  /** Ghế đã có người: theo Server Fishing Online (Coral Cove) hoặc có người chơi khác đang ngồi ngay trên ghế. */
+  isTaken(index) {
+    if (this.scene.online?.isSeatTaken(index)) return true;
+    const seat = this.seats[index];
+    for (const player of this.scene.players.values()) {
+      if (player !== this.scene.me && player.sitting && Phaser.Math.Distance.Between(player.x, player.y, seat.x, seat.y) < 2) return true;
+    }
+    return false;
   }
 
   async standUp() {
@@ -62,7 +77,7 @@ export class SeatController {
     }
     this.standButton.setVisible(false);
     const index = !busy && !me.moving ? this.nearestSeat(me) : -1;
-    if (index >= 0) {
+    if (index >= 0 && !this.isTaken(index)) {
       const seat = this.seats[index];
       this.sitButton.setVisible(true).setPosition(seat.x, seat.y - 30);
     } else {

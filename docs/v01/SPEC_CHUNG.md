@@ -58,7 +58,7 @@ Vé là quyền câu theo thời gian, không gắn với ghế. Bỏ Tier ghế
 - `LeaveSeat` bị từ chối (`STATE_CONFLICT`) khi lần câu đang ở `minigame`, tức từ lúc thu cần tới khi có kết quả. Ở `waiting`/`bite`, rời ghế hủy lần câu với lý do `left_seat`.
 - Ghế kết thúc (`MySeat {seatId, ended: true, reason}`) với các lý do:
   - `left_seat`: user rời ghế.
-  - `missed_bite`: cá cắn mà không thu cần kịp; nhân vật tự đứng dậy.
+  - `missed_bite`: cá cắn mà không thu cần kịp; nhân vật vẫn ngồi ghế, khoảng 1 giây sau tự câu lại (người dùng duyệt 2026-11-11).
   - `ticket_expired`: vé hết khi đang ngồi. Đang `waiting`/`bite` thì hủy lần câu (`ticket_expired`) và đứng dậy ngay; đang `minigame` thì cho câu nốt, có kết quả rồi mới đứng dậy, không câu tiếp.
   - `disconnect_timeout`: mất kết nối quá `seatSession.disconnectGraceMs` (2 phút). Lần câu dở, kể cả minigame, bị hủy ngay khi mất kết nối (`disconnected`); kết nối lại trong hạn thì vẫn còn ghế.
   - `left_lake`: rời phòng.
@@ -85,7 +85,7 @@ Trạng thái: `waiting` → `bite` → `minigame` → `success` | `failed`; m�
 | HookFish | Đến trước `biteDeadlineAt` (dung sai 300 ms tính theo giờ nhận của Server) → `minigame`. Quá hạn → `failed/missed_bite` |
 | minigame | Theo mục 2.7 |
 | success | Random chiều dài (2.9), cộng EXP, tạo catch, cập nhật Codex, phát `CatchShown` cho phòng |
-| failed | Không EXP. Owner nhận `AttemptUpdate`. `missed_bite`: Server kết thúc ghế `missed_bite`. Thua minigame (`timeout`): phát `FailShown` cho cả phòng để người khác thấy icon buồn |
+| failed | Không EXP. Owner nhận `AttemptUpdate`. `missed_bite`: vẫn giữ ghế, không phát `FailShown`. Thua minigame (`timeout`): phát `FailShown` cho cả phòng để người khác thấy icon buồn |
 | cancelled | Lý do `ticket_expired`, `disconnected`, `left_seat`. Không EXP, không cá |
 
 User không có lệnh hủy riêng. `LeaveSeat` ở `waiting`/`bite` hủy lần câu với lý do `left_seat`; ở `minigame` bị từ chối.
@@ -97,7 +97,7 @@ User không có lệnh hủy riêng. `LeaveSeat` ở `waiting`/`bite` hủy lầ
 - Nhân vật chỉ đi bằng phím di chuyển hoặc joystick; bấm chuột lên map không làm nhân vật đi (v0.11).
 - `success`: popup chỉ user thấy, có hình con cá ngay khi popup mở, ở lại tới khi user tự tắt; tắt xong tự `CastLine`.
 - `failed/timeout` (thua minigame): icon buồn trên đầu, người khác cũng thấy qua `FailShown`; khoảng 2 giây sau tự `CastLine`.
-- `failed/missed_bite`: Server kết thúc ghế, nhân vật đứng dậy, không câu tiếp.
+- `failed/missed_bite`: vẫn giữ ghế, không icon buồn; Client chờ khoảng 1 giây rồi tự gửi `CastLine`.
 - Rời ghế bằng phím di chuyển hoặc nút Rời ghế, được phép mọi lúc trừ khi đang `minigame`.
 - Vé hết giữa minigame: vẫn hiện kết quả, sau đó Server kết thúc ghế `ticket_expired` và Client không câu tiếp.
 - Chế độ Idle có trong GAMEPLAY_SCOPE nhưng GD chưa mô tả chi tiết, chưa đưa vào spec này.

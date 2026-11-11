@@ -59,10 +59,16 @@ export interface CoralCoveDeps {
 class SceneActor implements FishingActor {
   private showingSad = false;
 
-  constructor(private readonly entity: PlayerEntity) {}
+  constructor(
+    private readonly entity: PlayerEntity,
+    /** Báo bước câu cho server của scene để người cùng phòng thấy cùng anim. */
+    private readonly report: (phase: string | null) => void,
+  ) {}
 
   play(anim: CharacterAnim): void {
-    this.entity.setFishing(SCENE_PHASES[anim] ?? null);
+    const phase = SCENE_PHASES[anim] ?? null;
+    this.entity.setFishing(phase);
+    this.report(phase);
   }
 
   setHeadIcon(icon: HeadIcon): void {
@@ -161,7 +167,9 @@ export class CoralCoveOnline {
       this.scene,
       services,
       overlay.root,
-      new SceneActor(this.scene.me),
+      new SceneActor(this.scene.me, (phase) => {
+        void this.deps.request('sceneFishing', { phase });
+      }),
       () => null,
       () => this.serverNow(),
       () => this.seatReady,
@@ -192,6 +200,8 @@ export class CoralCoveOnline {
           // Server đã ghi cá vào kho lúc trả success, nên tải lại túi để thấy cá vừa câu.
           // Không vẽ cá trên đầu nhân vật nữa, hình cá chỉ hiện trong popup (feedback 2026-11-11).
           this.session.bag?.render();
+          // Người cùng phòng thấy con cá vừa câu trên đầu mình kèm thông báo (feedback 2026-11-11).
+          void this.deps.request('sceneCatch', { fishId: attempt.result.speciesId });
         },
       ),
     );
@@ -210,11 +220,32 @@ export class CoralCoveOnline {
     const seat = this.services?.map.seats.find((s) => s.seatId === seatId);
     if (!seat) return;
     const result = await this.deps.request('sitDown', { index: seat.number - 1 });
-    if (!result.ok && this.root) showToast(this.root, result.error ?? 'Không ngồi được ghế này.');
+    if (!result.ok) {
+      // Scene (server cũ, dùng chung giữa các tab) báo ghế đã có người: trả ghế Fishing Online để hai bên
+      // không lệch nhau. Gặp ở chế độ mock, khi mỗi tab có server giả riêng nên không tự chặn được.
+      if (this.root)
+        showToast(
+          this.root,
+          result.error === 'Seat taken'
+            ? 'Ghế đang có người ngồi.'
+            : (result.error ?? 'Không ngồi được ghế này.'),
+        );
+      void this.seatUi?.leave();
+      return;
+    }
     this.seatReady = this.services?.store.getState().lake.mySeat?.seatId === seatId;
   }
 
   /** Nút Sit của scene và số trên ghế cùng đi qua đây. */
+  /** Ghế đã có người khác giữ theo Server: ẩn nút ngồi và chặn phím F. */
+  isSeatTaken(index: number): boolean {
+    const seat = this.services?.map.seats[index];
+    if (!seat || !this.services) return false;
+    const { lake, session } = this.services.store.getState();
+    const view = lake.seats[seat.seatId];
+    return view?.state === 'occupied' && view.occupantPlayerId !== session.profile?.playerId;
+  }
+
   pressSeatIndex(index: number): void {
     const seat = this.services?.map.seats[index];
     if (seat) this.pressSeat(seat);

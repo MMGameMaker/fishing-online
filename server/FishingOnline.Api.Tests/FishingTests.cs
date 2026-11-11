@@ -167,22 +167,19 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
-    public async Task MissedBite_StandsPlayerUp_TicketStays()
+    public async Task MissedBite_KeepsPlayerSeated_CanCastAgain()
     {
         await using var watcher = await App.ConnectAsync();
         await watcher.OkAsync("JoinLake");
         await using var player = await SeatedAsync();
-        await ToBiteAsync(player);
+        var attemptId = await ToBiteAsync(player);
 
         await TickAfterAsync(3301);
 
-        var ended = await player.WaitForAsync("MySeat", payload => payload.TryGetProperty("ended", out _));
-        Assert.Equal("missed_bite", ended.GetProperty("reason").GetString());
-        Assert.Null(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
-        await watcher.WaitForAsync("SeatChanged", seat => seat.GetProperty("state").GetString() == "available");
+        Assert.Equal("missed_bite", (await RowAsync(attemptId)).Reason);
+        Assert.NotNull(await App.Service<ISeatSessions>().GetActiveAsync(player.PlayerId, default));
+        Assert.DoesNotContain(player.Received, item => item.Name == "MySeat" && item.Payload.TryGetProperty("ended", out _));
         Assert.DoesNotContain(watcher.Received, item => item.Name == "FailShown");
-        Assert.Equal("NOT_IN_SEAT", await player.ErrorAsync("CastLine"));
-        await SitAsync(player, "seat-11", tickets: 0);
         await CastAsync(player);
     }
 

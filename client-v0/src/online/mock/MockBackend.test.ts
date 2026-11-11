@@ -365,18 +365,17 @@ describe('MockBackend', () => {
     expect(rig.store.getState().lake.mySeat).not.toBeNull();
   });
 
-  it('trượt cá thì tự đứng dậy, không phát icon buồn; thua minigame thì có', async () => {
+  it('trượt cá thì vẫn ngồi ghế, không phát icon buồn; thua minigame thì có', async () => {
     const fails: string[] = [];
     rig.hub.on('FailShown', (event) => fails.push(event.playerId));
     await buy(rig, 'seat-11', 2);
     await waitForBite(rig);
     rig.mock.advance(config.fishing.biteWindowMs + config.fishing.biteGraceMs + 200);
     expect(attemptOf(rig)).toMatchObject({ phase: 'failed', reason: 'missed_bite' });
-    expect(rig.store.getState().lake.mySeat).toBeNull();
-    expect(rig.store.getState().lake.lastSeatEnd?.reason).toBe('missed_bite');
+    expect(rig.store.getState().lake.mySeat).not.toBeNull();
+    expect(rig.store.getState().lake.lastSeatEnd).toBeNull();
     expect(fails.filter((id) => !id.startsWith('bot-'))).toHaveLength(0);
 
-    await sitDown(rig);
     await waitForBite(rig);
     const attemptId = await hook(rig);
     await rig.hub.invoke('SubmitFishingResult', { attemptId, outcome: 'failed' });

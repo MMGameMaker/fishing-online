@@ -5,7 +5,14 @@ import type { ConfigVersion, Draft, JsonObject, ValidationIssue, ValidationRepor
 import { ErrorBanner, Status, useLoad } from '../ui';
 import { ValueEditor } from './ConfigEditor';
 
-const SECTIONS = ['levels', 'rods', 'fish', 'seatTiers', 'seatPricing', 'minigame', 'spawn', 'fishing', 'lengthTiers', 'shopOffers'];
+// Thứ tự ưu tiên khi hiển thị; mục mới Server thêm vào config vẫn hiện ở cuối nên không bị bỏ sót.
+const PREFERRED = ['levels', 'rods', 'fish', 'ticketPricing', 'seatSession', 'minigame', 'spawn', 'fishing', 'lengthTiers', 'shopOffers'];
+const HIDDEN = ['configVersion', 'status'];
+
+export function sectionsOf(document: JsonObject): string[] {
+  const rest = Object.keys(document).filter((key) => !PREFERRED.includes(key) && !HIDDEN.includes(key));
+  return [...PREFERRED.filter((key) => key in document), ...rest];
+}
 
 /** Lỗi Server trả theo đường dẫn ("fish", "$.seatTiers[2].unitPriceGold"); lấy phần đầu để gắn vào đúng mục. */
 export function sectionOf(path: string): string {
@@ -68,7 +75,8 @@ export function ConfigPage({ canWrite, canPublish }: { canWrite: boolean; canPub
     });
 
   const issuesFor = (section: string): ValidationIssue[] => report?.errors.filter((issue) => sectionOf(issue.path) === section) ?? [];
-  const otherIssues = report?.errors.filter((issue) => !SECTIONS.includes(sectionOf(issue.path))) ?? [];
+  const sections = document ? sectionsOf(document) : [];
+  const otherIssues = report?.errors.filter((issue) => !sections.includes(sectionOf(issue.path))) ?? [];
 
   return (
     <section>
@@ -140,7 +148,7 @@ export function ConfigPage({ canWrite, canPublish }: { canWrite: boolean; canPub
               {issue.path}: {issue.message}
             </p>
           ))}
-          {SECTIONS.filter((section) => section in document).map((section) => (
+          {sections.map((section) => (
             <fieldset key={section} className={issuesFor(section).length ? 'invalid' : undefined}>
               <legend>{section}</legend>
               {issuesFor(section).map((issue, index) => (

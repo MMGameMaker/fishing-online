@@ -280,10 +280,9 @@ public sealed class FishingService(
         if (terminal) await room.PublishPlayerAsync(row.PlayerId);
         if (applied.Snapshot.Phase != FishingPhase.Failed) return;
 
-        // SPEC 2.6: trượt cá thì nhân vật tự đứng dậy; thua minigame thì cả phòng thấy icon buồn.
-        if (applied.Snapshot.Reason == AttemptReasons.MissedBite)
-            await seats.EndAsync(row.PlayerId, SeatEndReasons.MissedBite, CancellationToken.None);
-        else
+        // Trượt cá: vẫn ngồi ghế, Client tự câu lại sau khoảng 1 giây (feedback 2026-11-11).
+        // Thua minigame thì cả phòng thấy icon buồn.
+        if (applied.Snapshot.Reason != AttemptReasons.MissedBite)
             await room.BroadcastAsync("FailShown", new FailShownView(
                 row.PlayerId, Now.AddMilliseconds(configs.Get(row.ConfigVersion).Fishing.FailShownMs)));
     }

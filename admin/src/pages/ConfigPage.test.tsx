@@ -100,3 +100,15 @@ describe('ConfigPage', () => {
     expect(await screen.findByText('Bạn không có quyền xem mục này.')).toBeTruthy();
   });
 });
+
+describe('sectionsOf', () => {
+  it('keeps preferred order and still shows sections the server adds later', async () => {
+    const { sectionsOf } = await import('./ConfigPage');
+    expect(sectionsOf({ configVersion: 'v', status: 's', fish: [], ticketPricing: {}, newThing: 1, levels: [] })).toEqual([
+      'levels',
+      'fish',
+      'ticketPricing',
+      'newThing',
+    ]);
+  });
+});

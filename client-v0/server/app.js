@@ -14,6 +14,10 @@ import { CROP_BY_ID, FARM_REACH, PLOTS, SEED_COST, plotStage, plotsInRoom } from
 import { applyRoomExtras } from '../shared/roomExtras.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+// Các bước câu Fishing Online được phát lại cho người cùng phòng (trùng tên với anim câu của scene).
+const SCENE_FISHING_PHASES = new Set(['cast', 'bob', 'hooked', 'reel']);
+// Một lượt câu dài nhiều giây; chặn spam hiệu ứng cá trên đầu.
+const SCENE_CATCH_MIN_MS = 2000;
 
 // Xác minh Firebase ID token bằng khóa công khai của Google, không cần Admin SDK credential
 // (cùng cách server ASP.NET Core ở server/FishingOnline.Api/Modules/Identity dùng).
@@ -157,7 +161,9 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
     const account = db.accounts[p.id];
     return {
       id: p.id, display: account.display, look: account.look, x: p.x, y: p.y, dir: p.dir,
-      fishing: p.fishing ? { phase: p.fishing.phase, rodLevel: account.rodLevel } : null,
+      fishing: p.fishing || p.sceneFishing
+        ? { phase: p.fishing?.phase ?? p.sceneFishing, rodLevel: account.rodLevel }
+        : null,
       sitting: p.sitting ?? null,
       dancing: Boolean(p.dancing),
     };
@@ -370,6 +376,9 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
       if (!seat || dist(player.x, player.y, seat.x, seat.y) > SEAT_REACH) {
         return reply(cb, { ok: false, error: 'No seat here' });
       }
+      // Một ghế chỉ một người ngồi; người đã thoát game thì không còn trong `online` nên ghế được trả lại.
+      const taken = [...online.values()].some((other) => other !== player && other.room === player.room && other.sitting === index);
+      if (taken) return reply(cb, { ok: false, error: 'Seat taken' });
       player.sitting = index;
       player.dancing = false;
       player.x = seat.x;
@@ -389,6 +398,10 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
       // nearest walkable tile so standing up never leaves the player stuck on the seat.
       const fallback = seat && seat.exitX === undefined ? nearestStandable(room, seat.x, seat.y) : null;
       player.sitting = null;
+      if (player.sceneFishing) {
+        player.sceneFishing = null;
+        io.to(player.room).emit('playerFishing', { id: player.id, phase: null, dir: player.dir });
+      }
       player.x = seat?.exitX ?? fallback?.x ?? player.x;
       player.y = seat?.exitY ?? fallback?.y ?? player.y;
       player.dir = seat?.exitDirection ?? player.dir;
@@ -570,6 +583,35 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
       reply(cb, { ok: true, hit: true, hits, caught: true, inventory: account.inventory, coins: account.coins });
       io.to(player.room).emit('catchSuccess', { id: player.id, display: account.display, fish, rare: isRareFish(fish) });
       advanceQuests(player, 'catchFish');
+    });
+
+    // Câu cá Fishing Online chạy ở Server khác (Coral Cove). Client báo từng bước câu và con cá vừa câu
+    // được chỉ để người cùng phòng thấy anim; không cộng cá, tiền hay XP ở đây.
+    socket.on('sceneFishing', (payload, cb) => {
+      if (!player) return reply(cb, { ok: false, error: 'Not logged in' });
+      const phase = payload?.phase ?? null;
+      if (phase !== null && (!SCENE_FISHING_PHASES.has(phase) || player.sitting == null || player.fishing)) {
+        return reply(cb, { ok: false, error: 'Cannot fish here' });
+      }
+      if ((player.sceneFishing ?? null) !== phase) {
+        player.sceneFishing = phase;
+        socket.to(player.room).emit('playerFishing', {
+          id: player.id, phase, dir: player.dir, rodLevel: db.accounts[player.id].rodLevel,
+        });
+      }
+      reply(cb, { ok: true });
+    });
+
+    socket.on('sceneCatch', (payload, cb) => {
+      if (!player) return reply(cb, { ok: false, error: 'Not logged in' });
+      const fish = FISH_BY_ID[payload?.fishId];
+      if (!fish || fish.rarity === 'junk' || player.sitting == null) return reply(cb, { ok: false, error: 'Unknown fish' });
+      const now = Date.now();
+      if (now - (player.lastSceneCatchAt ?? 0) < SCENE_CATCH_MIN_MS) return reply(cb, { ok: false, error: 'Too fast' });
+      player.lastSceneCatchAt = now;
+      const account = db.accounts[player.id];
+      socket.to(player.room).emit('catchSuccess', { id: player.id, display: account.display, fish, rare: isRareFish(fish) });
+      reply(cb, { ok: true });
     });
 
     socket.on('sellFish', (payload, cb) => {
