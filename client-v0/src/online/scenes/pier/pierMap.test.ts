@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import { NEAR_SEAT_PX, isNearSeat } from '../lake/seatLogic';
+import { canStand, nearestStandable } from '../lake/walkable';
 import mapData from './fishingPierMap.json';
 import {
   PIER_SHEETS,
@@ -73,6 +75,7 @@ describe('map bến cá dựng lại từ ảnh gốc', () => {
     expect(depthOf({ ...base, layer: 0 })).toBeLessThan(depthOf({ ...base, layer: 0.5 }));
     expect(depthOf({ ...base, layer: 0.5, y: 900 })).toBeLessThan(depthOf({ ...base, y: -50 }));
     expect(depthOf({ ...base, layer: 1.2 })).toBeGreaterThan(depthOf(base));
+    expect(depthOf({ ...base, layer: 1.2, d: 448 })).toBe(448);
   });
 });
 
@@ -110,5 +113,123 @@ describe('animation nước', () => {
 
   it('không có ô nước trống thì không đặt gợn sóng', () => {
     expect(pickRippleSpot([], { w: 4, h: 4 }, 16, Math.random)).toBeNull();
+  });
+});
+
+describe('map chơi được của pier', () => {
+  const lake = MAP.lake;
+  const FACING: Record<string, [number, number]> = {
+    up: [0, -1],
+    down: [0, 1],
+    left: [-1, 0],
+    right: [1, 0],
+  };
+
+  it('lưới đi được khớp kích thước map và spawn đứng được', () => {
+    expect(lake.walkableRows).toHaveLength(lake.heightTiles);
+    expect(lake.widthTiles * lake.tileSize).toBe(MAP.width);
+    expect(canStand(lake, lake.spawn.x, lake.spawn.y)).toBe(true);
+  });
+
+  it('mỗi ghế có chỗ đứng trong tầm ngồi và phao rơi xuống nước', () => {
+    expect(lake.seats).toHaveLength(16);
+    for (const seat of lake.seats) {
+      // Ghế là vật cản: rời ghế thì bước sang chỗ đứng được gần nhất, không quá 24px.
+      const stand = nearestStandable(lake, seat.x, seat.y, 24);
+      expect(stand, `${seat.seatId} có chỗ đứng khi rời ghế`).not.toBeNull();
+      let reachable = false;
+      for (let dy = -NEAR_SEAT_PX; dy <= NEAR_SEAT_PX && !reachable; dy += 4) {
+        for (let dx = -NEAR_SEAT_PX; dx <= NEAR_SEAT_PX && !reachable; dx += 4) {
+          reachable =
+            isNearSeat(seat.x + dx, seat.y + dy, seat) && canStand(lake, seat.x + dx, seat.y + dy);
+        }
+      }
+      expect(reachable, seat.seatId).toBe(true);
+      const [vx, vy] = FACING[seat.facing]!;
+      const bx = seat.x + vx * 48;
+      const by = seat.y + vy * 48;
+      const row = lake.walkableRows[Math.floor(by / lake.tileSize)]!;
+      expect(row[Math.floor(bx / lake.tileSize)], `${seat.seatId} phao`).toBe('0');
+    }
+  });
+});
+
+describe('va chạm map pier', () => {
+  const lake = MAP.lake;
+  const objectsNamed = (frame: string): PierObject[] =>
+    MAP.objects.filter((o) => o.frame === frame);
+
+  it('không đứng được giữa ghế đẩu, ghế băng, bàn, thùng, máy bán nước', () => {
+    const frames = [
+      'main-objects/stool',
+      'main-objects/frontBench',
+      'main-objects/leftBench',
+      'main-objects/rightBench',
+      'main-objects/smallTable',
+      'main-objects/picnicTableMiddle',
+      'fishing-objects/boxClosed',
+      'fishing-objects/tripleBox',
+      'main-objects/vendingMachine',
+    ];
+    for (const frame of frames) {
+      const list = objectsNamed(frame);
+      expect(list.length, frame).toBeGreaterThan(0);
+      for (const o of list) {
+        // Tâm phần dưới của hình (chỗ vật chạm đất).
+        const bottom = o.by ?? o.y + o.h;
+        const x = o.x + o.w / 2;
+        const y = bottom - 3;
+        expect(canStand(lake, x, y), `${frame} @${o.x},${o.y}`).toBe(false);
+      }
+    }
+  });
+
+  it('không đứng được trên mặt nước trống', () => {
+    for (const [c, r] of MAP.openWater) {
+      const x = c * MAP.tile + MAP.tile / 2;
+      const y = r * MAP.tile + MAP.tile - 1;
+      expect(canStand(lake, x, y), `nước ${c},${r}`).toBe(false);
+    }
+  });
+});
+
+describe('chồng thùng', () => {
+  it('thùng đỉnh vẽ trên các thùng bên dưới nhưng dưới nhân vật đứng trước chồng', () => {
+    const tops = MAP.objects.filter((o) => o.layer > 1);
+    expect(tops.length).toBeGreaterThan(0);
+    for (const top of tops) {
+      const under = MAP.objects.filter(
+        (o) =>
+          o.layer === 1 &&
+          o.frame.includes('box') &&
+          o.x < top.x + top.w &&
+          o.x + o.w > top.x &&
+          (o.by ?? 0) > (top.by ?? 0),
+      );
+      for (const o of under) expect(depthOf(top)).toBeGreaterThan(depthOf(o));
+      // Nhân vật đứng trước chồng thùng có chân thấp hơn đáy thấp nhất; vùng chặn không cho đứng lấn vào.
+      const lowest = Math.max(...under.map((o) => o.by ?? 0), top.by ?? 0);
+      expect(depthOf(top)).toBeLessThanOrEqual(lowest + 1);
+    }
+  });
+});
+
+describe('ghế câu của pier', () => {
+  it('mọi ghế câu nằm trên một ghế đẩu có sẵn của map (ghế băng không câu được)', () => {
+    const stools = MAP.objects.filter((o) => o.frame === 'main-objects/stool');
+    for (const seat of MAP.lake.seats) {
+      const onStool = stools.some(
+        (o) =>
+          seat.x >= o.x &&
+          seat.x <= o.x + o.w &&
+          seat.y >= o.y &&
+          seat.y <= (o.by ?? o.y + o.h) + 4,
+      );
+      expect(onStool, seat.seatId).toBe(true);
+    }
+  });
+
+  it('số ghế không vượt số ghế mặc định của Server (20)', () => {
+    expect(MAP.lake.seats.length).toBeLessThanOrEqual(20);
   });
 });

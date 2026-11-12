@@ -1,12 +1,15 @@
 // Sprite tạm vẽ bằng canvas, đặt tên khung `<anim>_<dir>_<i>` theo ART-02 để thay được bằng atlas thật.
 import type Phaser from 'phaser';
 import type { Direction } from '../net/contract';
+import { bakedData } from './characterArt';
 
 export const DIRECTIONS: readonly Direction[] = ['down', 'up', 'left', 'right'];
 
 export const CHARACTER_ANIMS = {
   idle: { frames: 4, rate: 4, loop: true },
   walk: { frames: 6, rate: 10, loop: true },
+  /** Ngồi ghế khi chưa câu (ART-02: sit 2). */
+  sit: { frames: 2, rate: 2, loop: true },
   cast: { frames: 6, rate: 12, loop: false },
   wait: { frames: 4, rate: 3, loop: true },
   bite: { frames: 4, rate: 12, loop: true },
@@ -133,8 +136,10 @@ function drawRod(rodId: string): DrawFrame {
 }
 
 function ensureAnimations(scene: Phaser.Scene, texture: string): void {
+  // Art thật ghi số frame/tốc độ riêng trong JSON; sprite vẽ tạm dùng bảng mặc định.
+  const baked = bakedData(scene, texture).animations ?? {};
   for (const anim of ANIM_NAMES) {
-    const { frames, rate, loop } = CHARACTER_ANIMS[anim];
+    const { frames, rate, loop } = baked[anim] ?? CHARACTER_ANIMS[anim];
     for (const dir of DIRECTIONS) {
       const key = animKey(texture, anim, dir);
       if (scene.anims.exists(key)) continue;

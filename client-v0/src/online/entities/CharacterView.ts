@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import type { Rarity } from '../core/gameplayConfig';
 import type { Direction } from '../net/contract';
 import { RARITY_COLORS } from '../ui/kit/format';
+import { bakedData } from './characterArt';
 import { animKey, ensureRod, ensureSkin, frameName, type CharacterAnim } from './placeholderArt';
 
 export interface CharacterOptions {
@@ -11,6 +12,8 @@ export interface CharacterOptions {
   rodId: string;
   name: string;
   dir?: Direction;
+  /** Nhân vật của người đang chơi: tên chữ vàng để dễ nhận ra giữa người khác. */
+  isMe?: boolean;
 }
 
 export type HeadIcon =
@@ -20,8 +23,12 @@ export type HeadIcon =
   | { type: 'emoji'; emojiId: string }
   | null;
 
-const LABEL_Y = -34;
-const ICON_Y = -46;
+/** Đỉnh đầu sprite vẽ tạm so với chân; art thật ghi `headTop` trong JSON. */
+const PLACEHOLDER_HEAD_TOP = 25;
+const LABEL_GAP = 9;
+const NAME_COLOR = '#ffffff';
+const MY_NAME_COLOR = '#ffd84a';
+const ICON_GAP = 21;
 const TEXT_ICONS = { bite: '!', sad: ':(' } as const;
 /** Dấu ! khi cá cắn lắc trái phải (feedback 2026-11-11). */
 const BITE_SHAKE_PX = 3;
@@ -33,10 +40,13 @@ export class CharacterView {
   private readonly body: Phaser.GameObjects.Sprite;
   private readonly rod: Phaser.GameObjects.Sprite;
   private readonly iconSlot: Phaser.GameObjects.Container;
+  private readonly label: Phaser.GameObjects.Text;
   private skinId: string;
   private rodId: string;
   private dir: Direction;
   private anim: CharacterAnim = 'idle';
+  /** Đang ngồi ghế: 'idle' hiển thị thành tư thế ngồi. */
+  private seated = false;
 
   constructor(
     private readonly scene: Phaser.Scene,
@@ -51,22 +61,23 @@ export class CharacterView {
     const firstFrame = frameName('idle', this.dir, 0);
     this.body = scene.add.sprite(0, 0, this.skinId, firstFrame).setOrigin(0.5, 1);
     this.rod = scene.add.sprite(0, 0, this.rodId, firstFrame).setOrigin(0.5, 1);
-    const label = scene.add
-      .text(0, LABEL_Y, options.name, {
+    this.label = scene.add
+      .text(0, 0, options.name, {
         fontFamily: 'monospace',
         fontSize: '8px',
-        color: '#ffffff',
+        color: options.isMe ? MY_NAME_COLOR : NAME_COLOR,
         backgroundColor: '#00000066',
       })
       .setOrigin(0.5, 1);
-    this.iconSlot = scene.add.container(0, ICON_Y);
+    this.iconSlot = scene.add.container(0, 0);
     this.container = scene.add.container(options.x, options.y, [
       this.body,
       this.rod,
-      label,
+      this.label,
       this.iconSlot,
     ]);
     this.container.setDepth(options.y);
+    this.placeHeadItems();
     this.applyAnimation();
   }
 
@@ -76,6 +87,11 @@ export class CharacterView {
 
   get y(): number {
     return this.container.y;
+  }
+
+  /** Toạ độ y của đỉnh đầu (tai) trong thế giới, để đặt gợi ý cạnh đầu nhân vật. */
+  get headY(): number {
+    return this.container.y - (bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP);
   }
 
   get direction(): Direction {
@@ -93,15 +109,28 @@ export class CharacterView {
   }
 
   play(anim: CharacterAnim): void {
-    if (anim === this.anim) return;
-    this.anim = anim;
+    const shown = this.seated && anim === 'idle' ? 'sit' : anim;
+    if (shown === this.anim) return;
+    this.anim = shown;
     this.applyAnimation();
+  }
+
+  /** Ngồi xuống/đứng dậy khỏi ghế; animation câu cá của art thật đã ở tư thế ngồi. */
+  setSeated(seated: boolean): void {
+    if (seated === this.seated) return;
+    this.seated = seated;
+    if (seated && this.anim === 'idle') this.play('idle');
+    else if (!seated && this.anim === 'sit') {
+      this.anim = 'idle';
+      this.applyAnimation();
+    }
   }
 
   setSkin(skinId: string): void {
     if (skinId === this.skinId) return;
     this.skinId = skinId;
     ensureSkin(this.scene, skinId);
+    this.placeHeadItems();
     this.applyAnimation();
   }
 
@@ -151,8 +180,19 @@ export class CharacterView {
     this.container.destroy(true);
   }
 
+  /** Nhãn tên và icon đặt theo chiều cao skin (thỏ có tai cao hơn sprite vẽ tạm). */
+  private placeHeadItems(): void {
+    const headTop = bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP;
+    this.label.y = -(headTop + LABEL_GAP);
+    this.iconSlot.y = -(headTop + ICON_GAP);
+  }
+
   private applyAnimation(): void {
     this.body.play(animKey(this.skinId, this.anim, this.dir));
     this.rod.play(animKey(this.rodId, this.anim, this.dir));
+    // Art thật mang pivot chân trong frame (Phaser tự áp); sprite vẽ tạm neo đáy-giữa.
+    for (const sprite of [this.body, this.rod]) {
+      if (!sprite.frame.customPivot) sprite.setOrigin(0.5, 1);
+    }
   }
 }

@@ -156,7 +156,12 @@ loginButton.addEventListener('click', async () => {
   loginButton.disabled = true;
   loginError.hidden = true;
   try {
-    await enterWithToken(await googleIdToken());
+    await googleIdToken();
+    // Feedback 2026-11-12: đăng nhập xong thì sang /fishing.html. Phiên Firebase lưu trong trình duyệt
+    // nên trang đó tự lấy lại token, không mở popup lần nữa. Mờ dần màn đăng nhập trước khi chuyển trang.
+    document.body.style.transition = 'opacity 200ms ease-in';
+    document.body.style.opacity = '0';
+    setTimeout(() => location.assign('/pier.html'), 200);
   } catch (error) {
     loginError.textContent = error?.message || 'Google sign-in failed.';
     loginError.hidden = false;

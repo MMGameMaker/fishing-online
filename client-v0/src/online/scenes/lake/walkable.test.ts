@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import mapJson from '@fixtures/lake-map.placeholder.json';
-import { canStand, inLakeArea, stepMove, type LakeMap } from './walkable';
+import {
+  canStand,
+  inLakeArea,
+  nearestStandable,
+  startPosition,
+  stepMove,
+  type LakeMap,
+} from './walkable';
 
 const map = mapJson as LakeMap;
 
@@ -57,5 +64,44 @@ describe('stepMove', () => {
     for (let i = 0; i < 100; i += 1) p = stepMove(map, p.x, p.y, 2, 0);
     expect(canStand(map, p.x, p.y)).toBe(true);
     expect(p.x).toBeLessThanOrEqual(377);
+  });
+});
+
+describe('nearestStandable', () => {
+  it('đang đứng được thì giữ nguyên', () => {
+    expect(nearestStandable(map, map.spawn.x, map.spawn.y)).toEqual(map.spawn);
+  });
+
+  it('từ trên nước sát bờ tìm ra điểm đứng được gần nhất', () => {
+    // Bờ trái hồ ở x = 384: đứng ở 384 - 6 thì chạm nước, lùi 2px là đứng được.
+    const spot = nearestStandable(map, 384 - 6, 576);
+    expect(spot).not.toBeNull();
+    expect(canStand(map, spot!.x, spot!.y)).toBe(true);
+    expect(Math.hypot(spot!.x - (384 - 6), spot!.y - 576)).toBeLessThanOrEqual(2);
+  });
+
+  it('giữa hồ không có chỗ đứng trong bán kính thì trả null', () => {
+    expect(nearestStandable(map, 768, 576, 16)).toBeNull();
+  });
+});
+
+describe('startPosition', () => {
+  it('chưa có vị trí hoặc người mới ở (0, 0) thì xuất phát ở spawn', () => {
+    expect(startPosition(map, undefined)).toEqual(map.spawn);
+    expect(startPosition(map, { x: 0, y: 0 })).toEqual(map.spawn);
+  });
+
+  it('vị trí đứng được thì giữ nguyên', () => {
+    expect(startPosition(map, { x: map.spawn.x, y: map.spawn.y })).toEqual(map.spawn);
+  });
+
+  it('vị trí ngoài map (từ map khác) thì về spawn', () => {
+    expect(startPosition(map, { x: 99999, y: 99999 })).toEqual(map.spawn);
+  });
+
+  it('lệch nhẹ xuống nước thì bước sang chỗ đứng được gần nhất', () => {
+    const spot = startPosition(map, { x: 384 - 6, y: 576 });
+    expect(canStand(map, spot.x, spot.y)).toBe(true);
+    expect(spot).not.toEqual(map.spawn);
   });
 });

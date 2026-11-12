@@ -1,3 +1,5 @@
+import type { LakeMap } from '../lake/walkable';
+
 // Kiểu dữ liệu và hàm thuần cho map bến cá dựng lại từ ảnh gốc
 // (public/new resources/art/ac50186c-…png). Dữ liệu nằm ở fishingPierMap.json, sinh bằng cách
 // đối chiếu từng ô 16px và từng sprite của atlas với ảnh gốc.
@@ -22,6 +24,10 @@ export interface PierObject {
   /** Animation chứa frame này (nếu có), để chạy tiếp từ đúng frame trong ảnh gốc. */
   anim?: string;
   animIndex?: number;
+  /** Đáy phần hình có màu (bỏ khoảng trống cuối khung); dùng xếp lớp với nhân vật đứng ở chân. */
+  by?: number;
+  /** Độ sâu đặt sẵn: thùng trên đỉnh chồng nằm ngay trên đáy các thùng nó đè lên. */
+  d?: number;
 }
 
 export interface PierMapData {
@@ -40,6 +46,8 @@ export interface PierMapData {
   pillarFlows: [number, number][];
   /** Ô 16px toàn nước, không bóng, không bị thuyền/object che: [col, row]. */
   openWater: [number, number][];
+  /** Map chơi được (vùng đi, ghế câu, spawn) theo schema LakeMap của hồ. */
+  lake: LakeMap;
 }
 
 /** Gợn sóng rải trên mặt nước, giống WaterAnimationManager của game gốc (sinh lúc chạy). */
@@ -88,5 +96,7 @@ const STACK_TOP_BIAS = 40;
 export function depthOf(o: PierObject): number {
   if (o.layer === 0) return -9000;
   if (o.layer < 1) return -8000 + o.y + o.h;
-  return o.y + o.h + (o.layer > 1 ? STACK_TOP_BIAS : 0);
+  if (o.d !== undefined) return o.d;
+  // Nhân vật lấy độ sâu = y chân, nên vật thể lấy đáy phần hình thật để trước/sau cho đúng.
+  return (o.by ?? o.y + o.h) + (o.layer > 1 ? STACK_TOP_BIAS : 0);
 }

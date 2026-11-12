@@ -6,11 +6,13 @@ import { FishingFlow } from '../../fishing/FishingFlow';
 import type { Direction, PlayerView } from '../../net/contract';
 import { mountUiOverlay, showError, showToast } from '../../ui/kit/components';
 import { Joystick } from './Joystick';
+import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
-import { isNearSeat } from './seatLogic';
+import { isNearSeat, nearestSeat } from './seatLogic';
+import { SeatPrompt } from './SeatPrompt';
 import { SeatMarkers } from './SeatMarkers';
 import { SeatUi } from './SeatUi';
-import { stepMove, type LakeMap, type LakeSeat } from './walkable';
+import { nearestStandable, startPosition, stepMove, type LakeMap, type LakeSeat } from './walkable';
 
 export const LAKE_SCENE = 'Lake';
 
@@ -51,6 +53,7 @@ export class LakeScene extends Phaser.Scene {
   private flow!: FishingFlow;
   private seatUi!: SeatUi;
   private seatMarkers!: SeatMarkers;
+  private seatPrompt!: SeatPrompt;
   private roamCircle!: Phaser.GameObjects.Arc;
   private joystick: Joystick | null = null;
   private moveSender!: MoveSender;
@@ -65,12 +68,23 @@ export class LakeScene extends Phaser.Scene {
     super(LAKE_SCENE);
   }
 
+  preload(): void {
+    getLakeMapArt(this)?.preload(this);
+  }
+
   create(): void {
     this.services = getServices(this);
     this.map = this.services.map;
-    this.createPlaceholderTextures();
-    this.createGround();
-    this.createTrees();
+    const art = getLakeMapArt(this);
+    if (art) {
+      art.create(this);
+      const { tileSize, widthTiles, heightTiles } = this.map;
+      this.cameras.main.setBounds(0, 0, widthTiles * tileSize, heightTiles * tileSize);
+    } else {
+      this.createPlaceholderTextures();
+      this.createGround();
+      this.createTrees();
+    }
     this.createMe();
 
     const overlay = mountUiOverlay(this.game);
@@ -86,6 +100,7 @@ export class LakeScene extends Phaser.Scene {
   }
 
   private shutdown(): void {
+    this.seatPrompt.destroy();
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups.length = 0;
     this.flow.destroy();
@@ -136,13 +151,15 @@ export class LakeScene extends Phaser.Scene {
     const { profile } = this.services.store.getState().session;
     this.myId = profile?.playerId ?? '';
     const mine = this.services.store.getState().lake.players[this.myId];
-    const start = mine ?? this.map.spawn;
+    const start = startPosition(this.map, mine);
+    const corrected = !mine || start.x !== mine.x || start.y !== mine.y;
     this.me = new CharacterView(this, {
       x: start.x,
       y: start.y,
       skinId: profile?.selectedSkinId ?? 'skin_01',
       rodId: profile?.equippedRodId ?? 'rod_old',
       name: profile?.displayName ?? '',
+      isMe: true,
     });
     this.cameras.main.startFollow(this.me.container, true);
     this.roamCircle = this.add.circle(0, 0, 10, 0xffffff, 0.12).setVisible(false);
@@ -152,6 +169,14 @@ export class LakeScene extends Phaser.Scene {
         .invoke('Move', message)
         .catch((error: unknown) => console.warn('Gửi Move thất bại', error));
     });
+    if (corrected) this.moveSender.flush(performance.now(), start.x, start.y, this.me.direction);
+    // Nối lại sau khi rớt mạng: JoinLake gửi kèm vị trí đang đứng thay vì để Server giữ vị trí cũ.
+    this.services.hub.setPositionProvider(() => ({
+      x: this.me.x,
+      y: this.me.y,
+      dir: this.me.direction,
+    }));
+    this.cleanups.push(() => this.services.hub.setPositionProvider(null));
   }
 
   private createFishing(): void {
@@ -179,7 +204,13 @@ export class LakeScene extends Phaser.Scene {
     this.wasd = keyboard.addKeys('W,A,S,D') as typeof this.wasd;
     // Nhấn F cạnh ghế trống để ngồi (feedback 2026-11-11, thay phím E).
     keyboard.addKey('F').on('down', () => {
-      const seat = this.map.seats.find((item) => isNearSeat(this.me.x, this.me.y, item));
+      // Ưu tiên ghế trống gần nhất; không có thì ghế gần nhất để báo lỗi (đã có người…).
+      const seat = this.freeSeatNearMe() ?? nearestSeat(this.me.x, this.me.y, this.map.seats);
+      if (seat) this.onSeatPressed(seat);
+    });
+    // Phím gợi ý F cạnh đầu nhân vật khi đứng gần ghế trống; chạm vào cũng ngồi được.
+    this.seatPrompt = new SeatPrompt(this, () => {
+      const seat = this.freeSeatNearMe();
       if (seat) this.onSeatPressed(seat);
     });
     // Không còn bấm chuột lên map để đi; chỉ phím di chuyển hoặc joystick.
@@ -223,11 +254,41 @@ export class LakeScene extends Phaser.Scene {
     const seat = seatId ? this.seatById(seatId) : undefined;
     // SPEC 0.9: đang ngồi thì không đi lại, nên không còn vẽ vòng phạm vi roamRadius.
     this.roamCircle.setVisible(false);
-    if (!seat) return;
+    this.me.setSeated(Boolean(seat));
+    if (!seat) {
+      this.standUpFromSeat();
+      return;
+    }
     // Server không giữ map nên Client tự đặt nhân vật vào ghế rồi báo vị trí.
     this.me.setPosition(seat.x, seat.y);
     this.me.setDirection(seat.facing as Direction);
     this.moveSender.flush(performance.now(), seat.x, seat.y, seat.facing as Direction);
+  }
+
+  /** Ghế trống gần nhất trong tầm ngồi của nhân vật. */
+  private freeSeatNearMe(): LakeSeat | null {
+    const { seats } = this.services.store.getState().lake;
+    return nearestSeat(
+      this.me.x,
+      this.me.y,
+      this.map.seats,
+      (seat) => seats[seat.seatId]?.state === 'available',
+    );
+  }
+
+  /** Hiện phím F khi đang đứng (chưa giữ ghế), không bận câu và có ghế trống trong tầm. */
+  private updateSeatPrompt(): void {
+    const { lake } = this.services.store.getState();
+    const visible = !lake.mySeat && !this.flow.isLocked() && this.freeSeatNearMe() !== null;
+    this.seatPrompt.update(this.me.x, this.me.headY, visible);
+  }
+
+  /** Ghế là vật cản (map pier): rời ghế thì bước sang chỗ đứng được gần nhất để không kẹt. */
+  private standUpFromSeat(): void {
+    const spot = nearestStandable(this.map, this.me.x, this.me.y);
+    if (!spot || (spot.x === this.me.x && spot.y === this.me.y)) return;
+    this.me.setPosition(spot.x, spot.y);
+    this.moveSender.flush(performance.now(), spot.x, spot.y, this.me.direction);
   }
 
   private bobberPoint(): { x: number; y: number } | null {
@@ -290,6 +351,7 @@ export class LakeScene extends Phaser.Scene {
     }
     remote.motion.setTarget(player.x, player.y, now);
     remote.view.setDirection(player.dir);
+    remote.view.setSeated(player.seatId !== null);
     remote.view.setSkin(player.skinId);
     remote.view.setRod(player.rodId);
   }
@@ -371,6 +433,7 @@ export class LakeScene extends Phaser.Scene {
     this.moveMe(delta, nowMs);
     this.flow.update();
     this.seatMarkers.update();
+    this.updateSeatPrompt();
     this.seatUi.update(serverNowMs);
     this.updateRemotes(nowMs, serverNowMs);
   }

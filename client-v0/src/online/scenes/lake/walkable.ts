@@ -69,3 +69,50 @@ export function stepMove(
   const nextY = dy !== 0 && canStand(map, nextX, y + dy) ? y + dy : y;
   return { x: nextX, y: nextY };
 }
+
+/**
+ * Điểm đứng được gần (x, y) nhất trong bán kính maxRadius, quét theo vòng vuông bước `step`.
+ * Dùng khi rời ghế: ghế là vật cản nên điểm ngồi có thể không đứng được.
+ */
+export function nearestStandable(
+  map: LakeMap,
+  x: number,
+  y: number,
+  maxRadius = 48,
+  step = 2,
+): { x: number; y: number } | null {
+  if (canStand(map, x, y)) return { x, y };
+  for (let r = step; r <= maxRadius; r += step) {
+    let bestD = Infinity;
+    let bestX = 0;
+    let bestY = 0;
+    for (let dy = -r; dy <= r; dy += step) {
+      for (let dx = -r; dx <= r; dx += step) {
+        if (Math.max(Math.abs(dx), Math.abs(dy)) !== r) continue;
+        const d = Math.hypot(dx, dy);
+        if (d >= bestD || !canStand(map, x + dx, y + dy)) continue;
+        bestD = d;
+        bestX = x + dx;
+        bestY = y + dy;
+      }
+    }
+    if (bestD < Infinity) return { x: bestX, y: bestY };
+  }
+  return null;
+}
+
+/** Bán kính tìm chỗ đứng được quanh vị trí Server trả về lúc vào hồ. */
+const START_SEARCH_PX = 32;
+
+/**
+ * Chỗ xuất phát khi vào hồ. Server không giữ map: người mới ở (0, 0), người cũ giữ vị trí lần trước
+ * (có thể của map khác). (0, 0) hoặc chưa có thì ở spawn; vị trí không đứng được thì lấy chỗ đứng được
+ * gần nhất, không có thì về spawn.
+ */
+export function startPosition(
+  map: LakeMap,
+  reported: { x: number; y: number } | undefined,
+): { x: number; y: number } {
+  if (!reported || (reported.x === 0 && reported.y === 0)) return { ...map.spawn };
+  return nearestStandable(map, reported.x, reported.y, START_SEARCH_PX) ?? { ...map.spawn };
+}

@@ -11,6 +11,24 @@ export function isNearSeat(x: number, y: number, seat: { x: number; y: number })
   return Math.hypot(x - seat.x, y - seat.y) <= NEAR_SEAT_PX;
 }
 
+/** Ghế gần nhất trong tầm ngồi; `isFree` lọc ghế còn trống (bỏ qua thì lấy mọi ghế). */
+export function nearestSeat<T extends { x: number; y: number }>(
+  x: number,
+  y: number,
+  seats: readonly T[],
+  isFree: (seat: T) => boolean = () => true,
+): T | null {
+  let best: T | null = null;
+  let bestDistance = Infinity;
+  for (const seat of seats) {
+    const distance = Math.hypot(x - seat.x, y - seat.y);
+    if (distance > NEAR_SEAT_PX || distance >= bestDistance || !isFree(seat)) continue;
+    best = seat;
+    bestDistance = distance;
+  }
+  return best;
+}
+
 /** Phút và tổng Gold chỉ để hiển thị xác nhận; Server tính lại khi thanh toán. */
 export function priceSummary(
   pricing: TicketPricingConfig,

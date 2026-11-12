@@ -30,3 +30,10 @@ export async function currentIdToken() {
   await instance.authStateReady();
   return instance.currentUser ? instance.currentUser.getIdToken() : null;
 }
+
+// Display name of the signed-in Google account, or null when nobody is signed in.
+export async function currentDisplayName() {
+  const instance = auth();
+  await instance.authStateReady();
+  return instance.currentUser?.displayName ?? null;
+}

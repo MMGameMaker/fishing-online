@@ -247,7 +247,7 @@ export class CabinScene extends Phaser.Scene {
     door.setDepth(YARD_WALL.y + LOG_CROP.height + 1);
 
     this.drawColliders('fishing-cabin-backyard.json');
-    this.camera = new PreviewCamera(this, view, { x: 530, y: 640 });
+    this.camera = new PreviewCamera(this, view, { center: { x: 530, y: 640 } });
   }
 
   /** Ao: tile bờ của fishing-pier đã bỏ phần cát (texture tạo lúc chạy), giữa ao là ô nước. */

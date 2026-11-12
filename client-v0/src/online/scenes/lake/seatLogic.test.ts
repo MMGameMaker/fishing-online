@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import configJson from '@fixtures/gameplay-config.v0.json';
 import type { GameplayConfig } from '../../core/gameplayConfig';
-import { formatClock, isNearSeat, priceSummary, sessionEndText } from './seatLogic';
+import { formatClock, isNearSeat, nearestSeat, priceSummary, sessionEndText } from './seatLogic';
 
 const { ticketPricing } = configJson as unknown as GameplayConfig;
 
@@ -24,5 +24,25 @@ describe('seatLogic', () => {
   it('thông báo theo lý do kết thúc phiên', () => {
     expect(sessionEndText('missed_bite')).toBe('Bạn không thu cần kịp nên đã tự đứng dậy.');
     expect(sessionEndText('xyz')).toBe('Phiên giữ ghế đã kết thúc.');
+  });
+});
+
+describe('nearestSeat', () => {
+  const seats = [
+    { id: 'a', x: 100, y: 100 },
+    { id: 'b', x: 140, y: 100 },
+    { id: 'c', x: 400, y: 400 },
+  ];
+
+  it('chọn ghế gần nhất trong tầm ngồi', () => {
+    expect(nearestSeat(130, 100, seats)?.id).toBe('b');
+  });
+
+  it('bỏ qua ghế đã có người', () => {
+    expect(nearestSeat(130, 100, seats, (seat) => seat.id !== 'b')?.id).toBe('a');
+  });
+
+  it('không có ghế nào trong tầm thì trả null', () => {
+    expect(nearestSeat(250, 250, seats)).toBeNull();
   });
 });
