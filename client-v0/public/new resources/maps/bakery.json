@@ -1,0 +1,285 @@
+{
+  "objects": {
+    "scene-colliders": {
+      "name": "SceneColliders",
+      "params": {
+        "spawnPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "colliders": [
+          {
+            "x": 245,
+            "y": 69,
+            "width": 109,
+            "height": 151,
+            "level": 1
+          },
+          {
+            "x": 196,
+            "y": 239,
+            "width": 46,
+            "height": 10,
+            "level": 1
+          },
+          {
+            "x": 7,
+            "y": 18,
+            "width": 577,
+            "height": 51
+          },
+          {
+            "x": 7,
+            "y": 69,
+            "width": 12,
+            "height": 103
+          },
+          {
+            "x": 42,
+            "y": 513,
+            "width": 99,
+            "height": 70
+          },
+          {
+            "x": 141,
+            "y": 540,
+            "width": 151,
+            "height": 43
+          },
+          {
+            "x": 292,
+            "y": 513,
+            "width": 156,
+            "height": 70
+          },
+          {
+            "x": 354,
+            "y": 157,
+            "width": 11,
+            "height": 150,
+            "level": 1
+          },
+          {
+            "x": 354,
+            "y": 201,
+            "width": 11,
+            "height": 106,
+            "level": 2
+          },
+          {
+            "x": 42,
+            "y": 479,
+            "width": 20,
+            "height": 20
+          },
+          {
+            "x": 106,
+            "y": 479,
+            "width": 35,
+            "height": 20
+          },
+          {
+            "x": 292,
+            "y": 479,
+            "width": 156,
+            "height": 20
+          },
+          {
+            "x": 130,
+            "y": 509,
+            "width": 20,
+            "height": 63
+          },
+          {
+            "x": 282,
+            "y": 509,
+            "width": 20,
+            "height": 63
+          },
+          {
+            "x": 150,
+            "y": 520,
+            "width": 132,
+            "height": 31
+          },
+          {
+            "x": 53,
+            "y": 258,
+            "width": 87,
+            "height": 10,
+            "level": 1
+          },
+          {
+            "x": 140,
+            "y": 239,
+            "width": 56,
+            "height": 10,
+            "level": 1
+          },
+          {
+            "x": 242,
+            "y": 239,
+            "width": 50,
+            "height": 10,
+            "level": 1
+          },
+          {
+            "x": 292,
+            "y": 257,
+            "width": 62,
+            "height": 10,
+            "level": 1
+          },
+          {
+            "x": 140,
+            "y": 239,
+            "width": 10,
+            "height": 29,
+            "level": 1
+          },
+          {
+            "x": 282,
+            "y": 239,
+            "width": 10,
+            "height": 28,
+            "level": 1
+          },
+          {
+            "x": 140,
+            "y": 79,
+            "width": 20,
+            "height": 13
+          },
+          {
+            "x": 152,
+            "y": 199,
+            "width": 146,
+            "height": 3,
+            "level": 2
+          },
+          {
+            "x": 292,
+            "y": 212,
+            "width": 62,
+            "height": 8,
+            "level": 2
+          },
+          {
+            "x": 151,
+            "y": 94,
+            "width": 99,
+            "height": 8
+          },
+          {
+            "x": 245,
+            "y": 102,
+            "width": 2,
+            "height": 97
+          },
+          {
+            "x": 68,
+            "y": 68,
+            "width": 17,
+            "height": 40
+          },
+          {
+            "x": 68,
+            "y": 108,
+            "width": 17,
+            "height": 3
+          },
+          {
+            "x": 127,
+            "y": 67,
+            "width": 4,
+            "height": 42,
+            "level": 2
+          },
+          {
+            "x": 128,
+            "y": 104,
+            "width": 111,
+            "height": 6,
+            "level": 2
+          },
+          {
+            "x": 574,
+            "y": 58,
+            "width": 10,
+            "height": 206
+          },
+          {
+            "x": 448,
+            "y": 214,
+            "width": 135,
+            "height": 49
+          },
+          {
+            "x": 438,
+            "y": 223,
+            "width": 8,
+            "height": 258
+          },
+          {
+            "x": 428,
+            "y": 195,
+            "width": 17,
+            "height": 106
+          },
+          {
+            "x": 42,
+            "y": 214,
+            "width": 11,
+            "height": 286
+          },
+          {
+            "x": 7,
+            "y": 172,
+            "width": 12,
+            "height": 52
+          },
+          {
+            "x": 8,
+            "y": 213,
+            "width": 45,
+            "height": 11
+          },
+          {
+            "x": 140,
+            "y": 111,
+            "width": 93,
+            "height": 15
+          },
+          {
+            "x": 156,
+            "y": 126,
+            "width": 76,
+            "height": 12
+          },
+          {
+            "x": 85,
+            "y": 69,
+            "width": 45,
+            "height": 28
+          }
+        ],
+        "levelTriggers": [
+          {
+            "x": 365,
+            "y": 185,
+            "width": 62,
+            "height": 19,
+            "targetLevel": 2
+          },
+          {
+            "x": 365,
+            "y": 292,
+            "width": 62,
+            "height": 18,
+            "targetLevel": 1
+          }
+        ]
+      }
+    }
+  }
+}

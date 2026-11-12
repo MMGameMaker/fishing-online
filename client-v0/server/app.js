@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { Server } from 'socket.io';
 import { createRemoteJWKSet, jwtVerify } from 'jose';
 import {
-  DEFAULT_LOOK, FISH, FISH_BY_ID, LIMITS, REEL, ROD_PRICES, ROOM_KEYS, SEED_ACCOUNTS, START_ROOM,
+  DEFAULT_LOOK, FISH, FISH_BY_ID, LIMITS, REEL, ROD_PRICES, ROOM_KEYS, SEED_ACCOUNTS, START_ROOM, START_SPAWN,
   canStand, fishingZoneAt, isAtExit, isInZone, isRareFish, levelForPixels, nearestStandable, rollZone, validateLook,
 } from '../shared/config.js';
 import { NPC_REACH, NPCS, QUEST_NPCS, QUESTS, SEAT_REACH, npcsInRoom, questLine } from '../shared/npcs.js';
@@ -107,7 +107,7 @@ function cleanText(value, maxLen) {
 
 export function createGameServer({ port = 3001, dbPath = null, rng = Math.random, timing = {}, startRoom = START_ROOM, startAt = null } = {}) {
   const rooms = loadRooms();
-  const spawn = startAt ?? rooms[startRoom].spawn;
+  const spawn = startAt ?? rooms[startRoom].spawn ?? (startRoom === START_ROOM ? START_SPAWN : null);
   const timings = {
     cast: REEL.castMs,
     biteMin: 2000,
@@ -293,7 +293,7 @@ export function createGameServer({ port = 3001, dbPath = null, rng = Math.random
         previous.socket.emit('replaced');
         previous.socket.disconnect(true);
       }
-      player = { id: account.username, socket, room: startRoom, x: spawn.x, y: spawn.y, dir: 'down', fishing: null, sitting: null, dancing: false, rate: {} };
+      player = { id: account.username, socket, room: startRoom, x: spawn.x, y: spawn.y, dir: spawn.dir ?? 'down', fishing: null, sitting: null, dancing: false, rate: {} };
       online.set(player.id, player);
       socket.join(player.room);
       socket.to(player.room).emit('playerJoined', publicPlayer(player));

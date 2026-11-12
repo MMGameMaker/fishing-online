@@ -31,6 +31,8 @@ export default defineConfig(({ mode }) => {
         input: {
           main: fileURLToPath(new URL('./index.html', import.meta.url)),
           fishing: fileURLToPath(new URL('./fishing.html', import.meta.url)),
+          pier: fileURLToPath(new URL('./pier.html', import.meta.url)),
+          cabin: fileURLToPath(new URL('./cabin.html', import.meta.url)),
         },
       },
     },

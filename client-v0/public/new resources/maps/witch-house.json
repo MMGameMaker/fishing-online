@@ -1,0 +1,98 @@
+{
+  "objects": {
+    "scene-colliders": {
+      "name": "SceneColliders",
+      "params": {
+        "spawnPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "colliders": [
+          {
+            "x": -16,
+            "y": -16,
+            "width": 784,
+            "height": 16
+          },
+          {
+            "x": -16,
+            "y": 0,
+            "width": 16,
+            "height": 768
+          },
+          {
+            "x": 752,
+            "y": 0,
+            "width": 16,
+            "height": 768
+          },
+          {
+            "x": 0,
+            "y": 752,
+            "width": 752,
+            "height": 16
+          },
+          {
+            "x": 0,
+            "y": 266,
+            "width": 115,
+            "height": 28
+          },
+          {
+            "x": 189,
+            "y": 266,
+            "width": 563,
+            "height": 28
+          },
+          {
+            "x": 0,
+            "y": 738,
+            "width": 528,
+            "height": 14
+          },
+          {
+            "x": 572,
+            "y": 738,
+            "width": 180,
+            "height": 14
+          },
+          {
+            "x": 399,
+            "y": 20,
+            "width": 160,
+            "height": 57,
+            "kind": "water"
+          },
+          {
+            "x": 0,
+            "y": 325,
+            "width": 45,
+            "height": 120,
+            "kind": "water"
+          },
+          {
+            "x": 0,
+            "y": 445,
+            "width": 12,
+            "height": 29,
+            "kind": "water"
+          },
+          {
+            "x": 706,
+            "y": 582,
+            "width": 46,
+            "height": 124,
+            "kind": "water"
+          },
+          {
+            "x": 735,
+            "y": 706,
+            "width": 17,
+            "height": 23,
+            "kind": "water"
+          }
+        ]
+      }
+    }
+  }
+}

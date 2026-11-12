@@ -1,0 +1,3202 @@
+{
+  "objects": {
+    "0d7f7e239367": {
+      "name": "VsTallStone1",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 494,
+          "y": 741
+        },
+        "sceneDressOrder": 179
+      }
+    },
+    "23b1802b50af": {
+      "name": "VsHorizontalWoodenDeck",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 133,
+          "y": 395
+        },
+        "sceneDressOrder": 3
+      }
+    },
+    "299c7409674c": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 71,
+          "y": 724
+        },
+        "sceneDressOrder": 141
+      }
+    },
+    "31abae356b48": {
+      "name": "VsTallStone1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 251,
+          "y": 823
+        },
+        "sceneDressOrder": 180
+      }
+    },
+    "3eb8e66b31e5": {
+      "name": "VsFolder",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 490,
+          "y": 639
+        },
+        "sceneDressOrder": 175
+      }
+    },
+    "50cac2157564": {
+      "name": "VsHorizontalWoodenDeck",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 133,
+          "y": 343
+        },
+        "sceneDressOrder": 2
+      }
+    },
+    "52f66cb02c67": {
+      "name": "VsHorizontalWoodenDeck",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 133,
+          "y": 487
+        },
+        "sceneDressOrder": 5
+      }
+    },
+    "65fe1d9ed39b": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 500,
+          "y": 700
+        },
+        "sceneDressOrder": 139
+      }
+    },
+    "6c86fb0e86fd": {
+      "name": "VsHorizontalWoodenDeck",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 133,
+          "y": 447
+        },
+        "sceneDressOrder": 4
+      }
+    },
+    "8bb18fdae681": {
+      "name": "VsTallStone1",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 551,
+          "y": 732
+        },
+        "sceneDressOrder": 178
+      }
+    },
+    "9207d9624a89": {
+      "name": "VsTallStone1",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 424,
+          "y": 857
+        },
+        "sceneDressOrder": 181
+      }
+    },
+    "937ab44d335b": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 158,
+          "y": 642
+        },
+        "sceneDressOrder": 174
+      }
+    },
+    "9ebd4ac0b8fc": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 103,
+          "y": 708
+        },
+        "sceneDressOrder": 140
+      }
+    },
+    "a882379abe13": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 550,
+          "y": 729
+        },
+        "sceneDressOrder": 144
+      }
+    },
+    "b14cba869b7c": {
+      "name": "VsWoodenBucketEmpty",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 165,
+          "y": 714
+        },
+        "sceneDressOrder": 143
+      }
+    },
+    "c51805aa5425": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 148,
+          "y": 689
+        },
+        "sceneDressOrder": 177
+      }
+    },
+    "d2339cebd2ab": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 500,
+          "y": 678
+        },
+        "sceneDressOrder": 138
+      }
+    },
+    "d6f4582ae221": {
+      "name": "VsWall1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 79,
+          "y": 544
+        },
+        "sceneDressOrder": 6
+      }
+    },
+    "e2600afe1cb0": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 560,
+          "y": 688
+        },
+        "sceneDressOrder": 176
+      }
+    },
+    "f1cb31508242": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 500,
+          "y": 722
+        },
+        "sceneDressOrder": 142
+      }
+    },
+    "0aca8d251095": {
+      "name": "VsPillarsRight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 558,
+          "y": 754
+        },
+        "sceneDressOrder": 12
+      }
+    },
+    "31e063ac068a": {
+      "name": "VsPillars",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 82,
+          "y": 754
+        },
+        "sceneDressOrder": 11
+      }
+    },
+    "4f035569c462": {
+      "name": "VsSaunaWall1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 161,
+          "y": 276
+        },
+        "sceneDressOrder": 0
+      }
+    },
+    "18507607a0ad": {
+      "name": "VsSaunaWall2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 481,
+          "y": 276
+        },
+        "sceneDressOrder": 1
+      }
+    },
+    "1b509d519a22": {
+      "name": "VsSpaDoorCenter",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 320,
+          "y": 274
+        },
+        "sceneDressOrder": 8
+      }
+    },
+    "33787f71d397": {
+      "name": "VsSpaDoorSide",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 112,
+          "y": 273
+        },
+        "sceneDressOrder": 7
+      }
+    },
+    "e02b05145613": {
+      "name": "VsSpaDoorSide",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 528,
+          "y": 273
+        },
+        "sceneDressOrder": 9
+      }
+    },
+    "0089787f37e9": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": 0
+          },
+          "parentId": "a7958ddfcb45"
+        },
+        "spawnPosition": {
+          "x": 456,
+          "y": 357
+        },
+        "sceneDressOrder": 67
+      }
+    },
+    "027da9eebfba": {
+      "name": "VsBambooTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 388,
+          "y": 422
+        },
+        "sceneDressOrder": 79
+      }
+    },
+    "028834652677": {
+      "name": "VsWoodenBucketEmpty",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 40,
+          "y": 389
+        },
+        "sceneDressOrder": 80,
+        "attachment": {
+          "parentId": "c6e3ef97d664",
+          "layer": 1,
+          "offset": {
+            "x": 8,
+            "y": -30
+          }
+        }
+      }
+    },
+    "031d4c9dad25": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 194,
+          "y": 410
+        },
+        "sceneDressOrder": 73
+      }
+    },
+    "04014964176d": {
+      "name": "VsTallStone2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 410,
+          "y": 1165
+        },
+        "sceneDressOrder": 148
+      }
+    },
+    "07dab1108d6f": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 561,
+          "y": 547
+        },
+        "sceneDressOrder": 110
+      }
+    },
+    "09508f8c46bf": {
+      "name": "VsBambooTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 254,
+          "y": 422
+        },
+        "sceneDressOrder": 76
+      }
+    },
+    "0aa67f304147": {
+      "name": "VsTurnstile",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 411,
+          "y": 652
+        },
+        "sceneDressOrder": 135
+      }
+    },
+    "0be2488f8654": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": 0
+          },
+          "parentId": "18d044424ca6"
+        },
+        "spawnPosition": {
+          "x": 415,
+          "y": 483
+        },
+        "sceneDressOrder": 103
+      }
+    },
+    "0be320ec6d75": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 206,
+          "y": 652
+        },
+        "sceneDressOrder": 166
+      }
+    },
+    "0c9f1fcde078": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 511,
+          "y": 553
+        },
+        "sceneDressOrder": 116
+      }
+    },
+    "0d21bd862c71": {
+      "name": "VsWoodenBucketTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 97,
+          "y": 425
+        },
+        "sceneDressOrder": 83,
+        "attachment": {
+          "parentId": "7a1b657da9c5",
+          "layer": 1,
+          "offset": {
+            "x": 18,
+            "y": -20
+          }
+        }
+      }
+    },
+    "0d6859a1ebb5": {
+      "name": "VsTinyRock",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 224,
+          "y": 1138
+        },
+        "sceneDressOrder": 151
+      }
+    },
+    "0daffe9272c0": {
+      "name": "VsTallStone2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 235,
+          "y": 1107
+        },
+        "sceneDressOrder": 146
+      }
+    },
+    "0e07f933b204": {
+      "name": "VsTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 19,
+          "y": 276
+        },
+        "sceneDressOrder": 45,
+        "attachment": {
+          "parentId": "24bc7c43e189",
+          "layer": 1,
+          "offset": {
+            "x": -13,
+            "y": -17
+          }
+        }
+      }
+    },
+    "0fc72e49f505": {
+      "name": "VsTowelInsideCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 563,
+          "y": 543
+        },
+        "sceneDressOrder": 123,
+        "attachment": {
+          "parentId": "07dab1108d6f",
+          "layer": 3,
+          "offset": {
+            "x": 2,
+            "y": -4
+          }
+        }
+      }
+    },
+    "0fd2c5a85c45": {
+      "name": "VsReceptionCounter",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 320,
+          "y": 681
+        },
+        "sceneDressOrder": 136
+      }
+    },
+    "102ae29db95d": {
+      "name": "VsTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 72,
+          "y": 360
+        },
+        "sceneDressOrder": 68,
+        "attachment": {
+          "parentId": "4c1d196cdb64",
+          "layer": 1,
+          "offset": {
+            "x": -7,
+            "y": -22
+          }
+        }
+      }
+    },
+    "10a0293125ab": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 10,
+          "y": 171
+        },
+        "sceneDressOrder": 28,
+        "attachment": {
+          "parentId": "b869e12788a0",
+          "layer": 1,
+          "offset": {
+            "x": -14,
+            "y": -15
+          }
+        }
+      }
+    },
+    "185eb5539de7": {
+      "name": "VsStoneBenchTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 43,
+          "y": 857
+        },
+        "sceneDressOrder": 154
+      }
+    },
+    "18d044424ca6": {
+      "name": "VsBambooTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 388,
+          "y": 483
+        },
+        "sceneDressOrder": 98
+      }
+    },
+    "19235ef39693": {
+      "name": "VsBambooStool",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 245,
+          "y": 76
+        },
+        "sceneDressOrder": 17
+      }
+    },
+    "193d854a0fd3": {
+      "name": "VsSaunaBench3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 434,
+          "y": 76
+        },
+        "sceneDressOrder": 16
+      }
+    },
+    "1ae1a46c6896": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 533,
+          "y": 283
+        },
+        "sceneDressOrder": 161
+      }
+    },
+    "1d96eed607e8": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 200,
+          "y": 299
+        },
+        "sceneDressOrder": 48
+      }
+    },
+    "23282b8c984c": {
+      "name": "VsLavaFlowLeft",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 169,
+          "y": 932
+        },
+        "sceneDressOrder": 184
+      }
+    },
+    "24bc7c43e189": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 32,
+          "y": 293
+        },
+        "sceneDressOrder": 43
+      }
+    },
+    "26524e077f01": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": -16
+          },
+          "parentId": "09508f8c46bf"
+        },
+        "spawnPosition": {
+          "x": 228,
+          "y": 406
+        },
+        "sceneDressOrder": 75
+      }
+    },
+    "278a81421d4c": {
+      "name": "VsJacuzziFull",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 589,
+          "y": 424
+        },
+        "sceneDressOrder": 71
+      }
+    },
+    "27c01bb8954d": {
+      "name": "VsWoodenBucketTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 224,
+          "y": 189
+        },
+        "sceneDressOrder": 31
+      }
+    },
+    "289e221c0f49": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": -16
+          },
+          "parentId": "2a325c600369"
+        },
+        "spawnPosition": {
+          "x": 281,
+          "y": 467
+        },
+        "sceneDressOrder": 96
+      }
+    },
+    "2a325c600369": {
+      "name": "VsBambooTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 254,
+          "y": 483
+        },
+        "sceneDressOrder": 95
+      }
+    },
+    "2b0c984726c5": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": 0
+          },
+          "parentId": "3b457ebbff07"
+        },
+        "spawnPosition": {
+          "x": 235,
+          "y": 357
+        },
+        "sceneDressOrder": 65
+      }
+    },
+    "2b716e2e2937": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": -16
+          },
+          "parentId": "2a325c600369"
+        },
+        "spawnPosition": {
+          "x": 228,
+          "y": 467
+        },
+        "sceneDressOrder": 94
+      }
+    },
+    "2b818ac17a94": {
+      "name": "VsSoap",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 293,
+          "y": 527
+        },
+        "sceneDressOrder": 117
+      }
+    },
+    "2ecba2600117": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 251,
+          "y": 653
+        },
+        "sceneDressOrder": 168
+      }
+    },
+    "2fc3ffa958a6": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 434,
+          "y": 713
+        },
+        "sceneDressOrder": 171
+      }
+    },
+    "31f7d965b804": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 347,
+          "y": 551
+        },
+        "sceneDressOrder": 113
+      }
+    },
+    "32c63e96921b": {
+      "name": "VsTallStone2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 449,
+          "y": 1096
+        },
+        "sceneDressOrder": 145
+      }
+    },
+    "3754e1fdad5a": {
+      "name": "VsWoodenBucketTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 500,
+          "y": 363
+        },
+        "sceneDressOrder": 63,
+        "attachment": {
+          "parentId": "5a1e5c718d0a",
+          "layer": 1,
+          "offset": {
+            "x": -15,
+            "y": -23
+          }
+        }
+      }
+    },
+    "38730a900667": {
+      "name": "VsIgnisOctopusStatue",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 491,
+          "y": 163
+        },
+        "sceneDressOrder": 22
+      }
+    },
+    "3a19f5fb8dfa": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 257,
+          "y": 298
+        },
+        "sceneDressOrder": 39
+      }
+    },
+    "3abe8e35520b": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 347,
+          "y": 326
+        },
+        "sceneDressOrder": 163
+      }
+    },
+    "3af93e89673c": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 347,
+          "y": 283
+        },
+        "sceneDressOrder": 159
+      }
+    },
+    "3b11c4749cc5": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 440,
+          "y": 299
+        },
+        "sceneDressOrder": 49
+      }
+    },
+    "3b457ebbff07": {
+      "name": "VsBambooTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 208,
+          "y": 357
+        },
+        "sceneDressOrder": 58
+      }
+    },
+    "3d33fd69ab03": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 353,
+          "y": 543
+        },
+        "sceneDressOrder": 114,
+        "attachment": {
+          "parentId": "31f7d965b804",
+          "layer": 2,
+          "offset": {
+            "x": 6,
+            "y": -8
+          }
+        }
+      }
+    },
+    "3da3cb998f1a": {
+      "name": "VsVIPCrowdControlBarrier3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 263,
+          "y": 635
+        },
+        "sceneDressOrder": 124
+      }
+    },
+    "3f23e58c89fa": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 434,
+          "y": 652
+        },
+        "sceneDressOrder": 167
+      }
+    },
+    "4199a68ecad9": {
+      "name": "VsTurnstile",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 228,
+          "y": 652
+        },
+        "sceneDressOrder": 134
+      }
+    },
+    "41af486524de": {
+      "name": "VsSoap",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 21,
+          "y": 145
+        },
+        "sceneDressOrder": 26
+      }
+    },
+    "4370dcbb594c": {
+      "name": "VsIgnisOctopusWaterFlow",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 146,
+          "y": 167
+        },
+        "sceneDressOrder": 21
+      }
+    },
+    "439661e8dffb": {
+      "name": "VsBambooStool",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 397,
+          "y": 76
+        },
+        "sceneDressOrder": 19
+      }
+    },
+    "440cbf3c8d83": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 303,
+          "y": 532
+        },
+        "sceneDressOrder": 107,
+        "attachment": {
+          "parentId": "7a4d58c2f091",
+          "layer": 2,
+          "offset": {
+            "x": 7,
+            "y": -7
+          }
+        }
+      }
+    },
+    "445ce1238ab4": {
+      "name": "VsLavaFlowRight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 479,
+          "y": 924
+        },
+        "sceneDressOrder": 183
+      }
+    },
+    "44b8531b28b8": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 10,
+          "y": 145
+        },
+        "sceneDressOrder": 24,
+        "attachment": {
+          "parentId": "93722af90719",
+          "layer": 1,
+          "offset": {
+            "x": -14,
+            "y": -15
+          }
+        }
+      }
+    },
+    "4668a86846d7": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": -16
+          },
+          "parentId": "a7958ddfcb45"
+        },
+        "spawnPosition": {
+          "x": 403,
+          "y": 341
+        },
+        "sceneDressOrder": 60
+      }
+    },
+    "46c902cbcf79": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 568,
+          "y": 537
+        },
+        "sceneDressOrder": 111,
+        "attachment": {
+          "parentId": "07dab1108d6f",
+          "layer": 2,
+          "offset": {
+            "x": 7,
+            "y": -10
+          }
+        }
+      }
+    },
+    "4768eadd9227": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 356,
+          "y": 366
+        },
+        "sceneDressOrder": 165
+      }
+    },
+    "4794a9a72817": {
+      "name": "VsJacuzziFull",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 589,
+          "y": 345
+        },
+        "sceneDressOrder": 53
+      }
+    },
+    "4829b891b63f": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 515,
+          "y": 470
+        },
+        "sceneDressOrder": 91
+      }
+    },
+    "4a585803e6fe": {
+      "name": "VsTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 36,
+          "y": 276
+        },
+        "sceneDressOrder": 46,
+        "attachment": {
+          "parentId": "24bc7c43e189",
+          "layer": 2,
+          "offset": {
+            "x": 4,
+            "y": -17
+          }
+        }
+      }
+    },
+    "4c1d196cdb64": {
+      "name": "VsSpaBed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 79,
+          "y": 382
+        },
+        "sceneDressOrder": 69
+      }
+    },
+    "509163a06168": {
+      "name": "VsFolder",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 342,
+          "y": 646
+        },
+        "sceneDressOrder": 137
+      }
+    },
+    "539ffb49a1b5": {
+      "name": "VsWoodenBucketFilled",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 496,
+          "y": 442
+        },
+        "sceneDressOrder": 90
+      }
+    },
+    "5535f8c894e3": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 464,
+          "y": 299
+        },
+        "sceneDressOrder": 50
+      }
+    },
+    "56eac6b8cc7b": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 282,
+          "y": 550
+        },
+        "sceneDressOrder": 120,
+        "attachment": {
+          "parentId": "c6e108b4a72d",
+          "layer": 1,
+          "offset": {
+            "x": -14,
+            "y": -13
+          }
+        }
+      }
+    },
+    "597aded4b22c": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 294,
+          "y": 283
+        },
+        "sceneDressOrder": 158
+      }
+    },
+    "5993ee5ce410": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 436,
+          "y": 272
+        },
+        "sceneDressOrder": 35,
+        "attachment": {
+          "parentId": "3b11c4749cc5",
+          "layer": 1,
+          "offset": {
+            "x": -4,
+            "y": -27
+          }
+        }
+      }
+    },
+    "5a1e5c718d0a": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 515,
+          "y": 386
+        },
+        "sceneDressOrder": 70
+      }
+    },
+    "5a7aeefac82a": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 229,
+          "y": 298
+        },
+        "sceneDressOrder": 38
+      }
+    },
+    "6357c673bba0": {
+      "name": "VsSoap",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 21,
+          "y": 171
+        },
+        "sceneDressOrder": 33
+      }
+    },
+    "6df4d1042abf": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 294,
+          "y": 326
+        },
+        "sceneDressOrder": 162
+      }
+    },
+    "705600e6f85f": {
+      "name": "VsJacuzziFull",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 589,
+          "y": 508
+        },
+        "sceneDressOrder": 93
+      }
+    },
+    "72838d640d81": {
+      "name": "VsWoodenBucketFilled",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 43,
+          "y": 459
+        },
+        "sceneDressOrder": 92
+      }
+    },
+    "78931c738786": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": 0
+          },
+          "parentId": "09508f8c46bf"
+        },
+        "spawnPosition": {
+          "x": 228,
+          "y": 422
+        },
+        "sceneDressOrder": 85
+      }
+    },
+    "78ebe71e4189": {
+      "name": "VsVIPCrowdControlBarrier1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 173,
+          "y": 626
+        },
+        "sceneDressOrder": 109
+      }
+    },
+    "79c36f720d1d": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 451,
+          "y": 272
+        },
+        "sceneDressOrder": 36,
+        "attachment": {
+          "parentId": "5535f8c894e3",
+          "layer": 1,
+          "offset": {
+            "x": -13,
+            "y": -27
+          }
+        }
+      }
+    },
+    "7a1b657da9c5": {
+      "name": "VsSpaBed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 79,
+          "y": 445
+        },
+        "sceneDressOrder": 84
+      }
+    },
+    "7a4d58c2f091": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 296,
+          "y": 539
+        },
+        "sceneDressOrder": 105
+      }
+    },
+    "7da741b03224": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": 0
+          },
+          "parentId": "027da9eebfba"
+        },
+        "spawnPosition": {
+          "x": 415,
+          "y": 422
+        },
+        "sceneDressOrder": 88
+      }
+    },
+    "7e0976db022e": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 32,
+          "y": 356
+        },
+        "sceneDressOrder": 54
+      }
+    },
+    "7e4d95fa3dc5": {
+      "name": "VsMetalDrawerOpen",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 288,
+          "y": 636
+        },
+        "sceneDressOrder": 131
+      }
+    },
+    "7fdd726edb5f": {
+      "name": "VsWoodenBucketFilled",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 526,
+          "y": 516
+        },
+        "sceneDressOrder": 104
+      }
+    },
+    "80029d019b90": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 412,
+          "y": 298
+        },
+        "sceneDressOrder": 44
+      }
+    },
+    "816eeec2e3f4": {
+      "name": "VsStoneBenchTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 560,
+          "y": 800
+        },
+        "sceneDressOrder": 153
+      }
+    },
+    "841dfb91bd48": {
+      "name": "VsTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 36,
+          "y": 339
+        },
+        "sceneDressOrder": 57,
+        "attachment": {
+          "parentId": "7e0976db022e",
+          "layer": 3,
+          "offset": {
+            "x": 4,
+            "y": -17
+          }
+        }
+      }
+    },
+    "8a13a94328eb": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": -16
+          },
+          "parentId": "09508f8c46bf"
+        },
+        "spawnPosition": {
+          "x": 281,
+          "y": 406
+        },
+        "sceneDressOrder": 77
+      }
+    },
+    "8d8a63775401": {
+      "name": "VsTowelInsideCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 348,
+          "y": 549
+        },
+        "sceneDressOrder": 125,
+        "attachment": {
+          "parentId": "31f7d965b804",
+          "layer": 3,
+          "offset": {
+            "x": 1,
+            "y": -2
+          }
+        }
+      }
+    },
+    "8d9c8cd36611": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": -16
+          },
+          "parentId": "3b457ebbff07"
+        },
+        "spawnPosition": {
+          "x": 235,
+          "y": 341
+        },
+        "sceneDressOrder": 59
+      }
+    },
+    "8ffbe27cecc7": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": 0
+          },
+          "parentId": "a7958ddfcb45"
+        },
+        "spawnPosition": {
+          "x": 403,
+          "y": 357
+        },
+        "sceneDressOrder": 66
+      }
+    },
+    "904f261b3a9e": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 31,
+          "y": 150
+        },
+        "sceneDressOrder": 27,
+        "attachment": {
+          "parentId": "93722af90719",
+          "layer": 2,
+          "offset": {
+            "x": 7,
+            "y": -10
+          }
+        }
+      }
+    },
+    "93722af90719": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 24,
+          "y": 160
+        },
+        "sceneDressOrder": 25
+      }
+    },
+    "93b2fa4faec7": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": 0
+          },
+          "parentId": "2a325c600369"
+        },
+        "spawnPosition": {
+          "x": 281,
+          "y": 483
+        },
+        "sceneDressOrder": 101
+      }
+    },
+    "9400b9de2c12": {
+      "name": "VsTowelInsideCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 26,
+          "y": 182
+        },
+        "sceneDressOrder": 34,
+        "attachment": {
+          "parentId": "b869e12788a0",
+          "layer": 3,
+          "offset": {
+            "x": 2,
+            "y": -4
+          }
+        }
+      }
+    },
+    "95fbd351652b": {
+      "name": "VsTallStone1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 186,
+          "y": 1124
+        },
+        "sceneDressOrder": 150
+      }
+    },
+    "96a6dde5867b": {
+      "name": "VsTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 72,
+          "y": 297
+        },
+        "sceneDressOrder": 51,
+        "attachment": {
+          "parentId": "f5cb330e6905",
+          "layer": 1,
+          "offset": {
+            "x": -7,
+            "y": -22
+          }
+        }
+      }
+    },
+    "97f64fdf250d": {
+      "name": "VsBambooStool",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 321,
+          "y": 76
+        },
+        "sceneDressOrder": 18
+      }
+    },
+    "9802cf0ec70e": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": -16
+          },
+          "parentId": "3b457ebbff07"
+        },
+        "spawnPosition": {
+          "x": 182,
+          "y": 341
+        },
+        "sceneDressOrder": 173
+      }
+    },
+    "981907c6a709": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 176,
+          "y": 299
+        },
+        "sceneDressOrder": 47
+      }
+    },
+    "98847cc03c64": {
+      "name": "VsWoodenBucketEmpty",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 40,
+          "y": 326
+        },
+        "sceneDressOrder": 55,
+        "attachment": {
+          "parentId": "7e0976db022e",
+          "layer": 1,
+          "offset": {
+            "x": 8,
+            "y": -30
+          }
+        }
+      }
+    },
+    "9a5025b6956b": {
+      "name": "VsSaunaBench3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 283,
+          "y": 76
+        },
+        "sceneDressOrder": 14
+      }
+    },
+    "9a7c3a90d850": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": -16
+          },
+          "parentId": "18d044424ca6"
+        },
+        "spawnPosition": {
+          "x": 415,
+          "y": 467
+        },
+        "sceneDressOrder": 99
+      }
+    },
+    "9b4a9fa2c66b": {
+      "name": "VsWoodenBucketStack",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 384,
+          "y": 298
+        },
+        "sceneDressOrder": 42
+      }
+    },
+    "9ca088bef2db": {
+      "name": "VsVIPCrowdControlBarrier1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 367,
+          "y": 371
+        },
+        "sceneDressOrder": 41
+      }
+    },
+    "a2a1b99e3bb1": {
+      "name": "VsMetalStand",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 14,
+          "y": 448
+        },
+        "sceneDressOrder": 89
+      }
+    },
+    "a33a659f099f": {
+      "name": "VsSaunaBench3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 359,
+          "y": 76
+        },
+        "sceneDressOrder": 15
+      }
+    },
+    "a54adb7095f4": {
+      "name": "VsTallStone1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 261,
+          "y": 1114
+        },
+        "sceneDressOrder": 149
+      }
+    },
+    "a5cac7af479e": {
+      "name": "VsVIPCrowdControlBarrier2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 273,
+          "y": 371
+        },
+        "sceneDressOrder": 40
+      }
+    },
+    "a7958ddfcb45": {
+      "name": "VsBambooTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 429,
+          "y": 357
+        },
+        "sceneDressOrder": 61
+      }
+    },
+    "b0bef3e40672": {
+      "name": "VsIgnisOctopusWaterFlow",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 491,
+          "y": 167
+        },
+        "sceneDressOrder": 23
+      }
+    },
+    "b17edb32d284": {
+      "name": "VsSoap",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 293,
+          "y": 550
+        },
+        "sceneDressOrder": 128
+      }
+    },
+    "b37a3f8198cc": {
+      "name": "VsStoneBenchTable",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 596,
+          "y": 870
+        },
+        "sceneDressOrder": 155
+      }
+    },
+    "b590bd8aac9d": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 31,
+          "y": 176
+        },
+        "sceneDressOrder": 32,
+        "attachment": {
+          "parentId": "b869e12788a0",
+          "layer": 2,
+          "offset": {
+            "x": 7,
+            "y": -10
+          }
+        }
+      }
+    },
+    "b869e12788a0": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 24,
+          "y": 186
+        },
+        "sceneDressOrder": 29
+      }
+    },
+    "c0e12234716d": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": -16
+          },
+          "parentId": "027da9eebfba"
+        },
+        "spawnPosition": {
+          "x": 415,
+          "y": 406
+        },
+        "sceneDressOrder": 81
+      }
+    },
+    "c0fa0e1514a4": {
+      "name": "VsSaunaBench3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 207,
+          "y": 76
+        },
+        "sceneDressOrder": 13
+      }
+    },
+    "c3053c676815": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 206,
+          "y": 713
+        },
+        "sceneDressOrder": 170
+      }
+    },
+    "c4635437605d": {
+      "name": "VsTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 19,
+          "y": 339
+        },
+        "sceneDressOrder": 56,
+        "attachment": {
+          "parentId": "7e0976db022e",
+          "layer": 2,
+          "offset": {
+            "x": -13,
+            "y": -17
+          }
+        }
+      }
+    },
+    "c4d86ace9d0d": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": 0
+          },
+          "parentId": "18d044424ca6"
+        },
+        "spawnPosition": {
+          "x": 362,
+          "y": 483
+        },
+        "sceneDressOrder": 102
+      }
+    },
+    "c6e108b4a72d": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 296,
+          "y": 563
+        },
+        "sceneDressOrder": 118
+      }
+    },
+    "c6e3ef97d664": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 32,
+          "y": 419
+        },
+        "sceneDressOrder": 82
+      }
+    },
+    "cf8dded7bfb6": {
+      "name": "VsVIPCrowdControlBarrier2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 466,
+          "y": 626
+        },
+        "sceneDressOrder": 112
+      }
+    },
+    "d104120a5874": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": 0
+          },
+          "parentId": "027da9eebfba"
+        },
+        "spawnPosition": {
+          "x": 362,
+          "y": 422
+        },
+        "sceneDressOrder": 87
+      }
+    },
+    "d14f1b7ebe04": {
+      "name": "VsSaunaPool",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 321,
+          "y": 162
+        },
+        "sceneDressOrder": 10
+      }
+    },
+    "d1e00dc69cf8": {
+      "name": "VsLavaFlowRight2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 449,
+          "y": 963
+        },
+        "sceneDressOrder": 182
+      }
+    },
+    "d261c9ef90a4": {
+      "name": "VsIgnisOctopusStatue",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 319,
+          "y": 461
+        },
+        "sceneDressOrder": 74
+      }
+    },
+    "d49c4b12054e": {
+      "name": "VsMetalCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 336,
+          "y": 594
+        },
+        "sceneDressOrder": 126
+      }
+    },
+    "d62e0a56c31a": {
+      "name": "VsWoodenBucketTowel",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 333,
+          "y": 580
+        },
+        "sceneDressOrder": 130,
+        "attachment": {
+          "parentId": "d49c4b12054e",
+          "layer": 1,
+          "offset": {
+            "x": -3,
+            "y": -14
+          }
+        }
+      }
+    },
+    "d77473b6f596": {
+      "name": "VsSaunaSteamLayer",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 320,
+          "y": 218
+        },
+        "sceneDressOrder": 172
+      }
+    },
+    "d79196350bb1": {
+      "name": "VsIgnisOctopusStatue",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 146,
+          "y": 163
+        },
+        "sceneDressOrder": 20
+      }
+    },
+    "d86089dc2c1e": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 547,
+          "y": 532
+        },
+        "sceneDressOrder": 108,
+        "attachment": {
+          "parentId": "07dab1108d6f",
+          "layer": 1,
+          "offset": {
+            "x": -14,
+            "y": -15
+          }
+        }
+      }
+    },
+    "d9c5d228ac38": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 116,
+          "y": 283
+        },
+        "sceneDressOrder": 156
+      }
+    },
+    "dd27646095f4": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 466,
+          "y": 272
+        },
+        "sceneDressOrder": 37,
+        "attachment": {
+          "parentId": "5535f8c894e3",
+          "layer": 2,
+          "offset": {
+            "x": 2,
+            "y": -27
+          }
+        }
+      }
+    },
+    "ddd44b36b861": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 285,
+          "y": 366
+        },
+        "sceneDressOrder": 164
+      }
+    },
+    "de0a1ead24cf": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 170,
+          "y": 410
+        },
+        "sceneDressOrder": 72
+      }
+    },
+    "e3a73b469817": {
+      "name": "VsSoap",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 343,
+          "y": 538
+        },
+        "sceneDressOrder": 122
+      }
+    },
+    "e69c743853bb": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": 0
+          },
+          "parentId": "3b457ebbff07"
+        },
+        "spawnPosition": {
+          "x": 182,
+          "y": 357
+        },
+        "sceneDressOrder": 64
+      }
+    },
+    "e8403a1bc7eb": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 332,
+          "y": 538
+        },
+        "sceneDressOrder": 115,
+        "attachment": {
+          "parentId": "31f7d965b804",
+          "layer": 1,
+          "offset": {
+            "x": -15,
+            "y": -13
+          }
+        }
+      }
+    },
+    "e9bdc88e4050": {
+      "name": "VsBridge",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 319,
+          "y": 888
+        },
+        "sceneDressOrder": 152
+      }
+    },
+    "ea9f81603ea2": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": -16
+          },
+          "parentId": "027da9eebfba"
+        },
+        "spawnPosition": {
+          "x": 362,
+          "y": 406
+        },
+        "sceneDressOrder": 78
+      }
+    },
+    "eb6d886cd8f4": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": 0
+          },
+          "parentId": "2a325c600369"
+        },
+        "spawnPosition": {
+          "x": 228,
+          "y": 483
+        },
+        "sceneDressOrder": 100
+      }
+    },
+    "eb736637ce56": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 303,
+          "y": 555
+        },
+        "sceneDressOrder": 119,
+        "attachment": {
+          "parentId": "c6e108b4a72d",
+          "layer": 2,
+          "offset": {
+            "x": 7,
+            "y": -8
+          }
+        }
+      }
+    },
+    "ebbf1543b52d": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": -16
+          },
+          "parentId": "a7958ddfcb45"
+        },
+        "spawnPosition": {
+          "x": 456,
+          "y": 341
+        },
+        "sceneDressOrder": 62
+      }
+    },
+    "ec4f13ce7fa8": {
+      "name": "VsTowelTower",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 282,
+          "y": 527
+        },
+        "sceneDressOrder": 106,
+        "attachment": {
+          "parentId": "7a4d58c2f091",
+          "layer": 1,
+          "offset": {
+            "x": -14,
+            "y": -12
+          }
+        }
+      }
+    },
+    "ec9fcbfa18e3": {
+      "name": "VsBambooStoolRight",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": -26,
+            "y": -16
+          },
+          "parentId": "18d044424ca6"
+        },
+        "spawnPosition": {
+          "x": 362,
+          "y": 467
+        },
+        "sceneDressOrder": 97
+      }
+    },
+    "eca0644ed1b5": {
+      "name": "VsTowelInsideCart",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 298,
+          "y": 561
+        },
+        "sceneDressOrder": 129,
+        "attachment": {
+          "parentId": "c6e108b4a72d",
+          "layer": 3,
+          "offset": {
+            "x": 2,
+            "y": -2
+          }
+        }
+      }
+    },
+    "ee91df41a907": {
+      "name": "VsTallStone2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 63,
+          "y": 1151
+        },
+        "sceneDressOrder": 147
+      }
+    },
+    "eead9aceb93f": {
+      "name": "VsBambooStoolLeft",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 27,
+            "y": 0
+          },
+          "parentId": "09508f8c46bf"
+        },
+        "spawnPosition": {
+          "x": 281,
+          "y": 422
+        },
+        "sceneDressOrder": 86
+      }
+    },
+    "f22e15ff745f": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 389,
+          "y": 653
+        },
+        "sceneDressOrder": 169
+      }
+    },
+    "f33e222ab77e": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 155,
+          "y": 283
+        },
+        "sceneDressOrder": 157
+      }
+    },
+    "f539a2798e00": {
+      "name": "VsGroundSpotLight",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 480,
+          "y": 283
+        },
+        "sceneDressOrder": 160
+      }
+    },
+    "f5cb330e6905": {
+      "name": "VsSpaBed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 79,
+          "y": 319
+        },
+        "sceneDressOrder": 52
+      }
+    },
+    "f750c8f698bb": {
+      "name": "VsWoodenBucketFilled",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 204,
+          "y": 173
+        },
+        "sceneDressOrder": 30
+      }
+    },
+    "f874ec78d73c": {
+      "name": "VsSoap",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 558,
+          "y": 532
+        },
+        "sceneDressOrder": 121
+      }
+    },
+    "f8a315e872ae": {
+      "name": "VsMetalDrawerClosed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 351,
+          "y": 632
+        },
+        "sceneDressOrder": 132
+      }
+    },
+    "fa688b8f7e79": {
+      "name": "VsVIPCrowdControlBarrier3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 376,
+          "y": 635
+        },
+        "sceneDressOrder": 127
+      }
+    },
+    "ff9b549f03f2": {
+      "name": "VsFolder",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 289,
+          "y": 608
+        },
+        "sceneDressOrder": 133
+      }
+    },
+    "scene-colliders": {
+      "name": "SceneColliders",
+      "params": {
+        "colliders": [
+          {
+            "x": 265,
+            "y": 878,
+            "kind": "shallow-water",
+            "width": 114,
+            "height": 149
+          },
+          {
+            "x": 380,
+            "y": 926,
+            "kind": "shallow-water",
+            "width": 38,
+            "height": 101
+          },
+          {
+            "x": 202,
+            "y": 947,
+            "kind": "shallow-water",
+            "width": 231,
+            "height": 75
+          },
+          {
+            "x": 213,
+            "y": 924,
+            "kind": "shallow-water",
+            "width": 212,
+            "height": 23
+          },
+          {
+            "x": 1,
+            "y": 964,
+            "kind": "shallow-water",
+            "width": 93,
+            "height": 60
+          },
+          {
+            "x": 94,
+            "y": 976,
+            "kind": "shallow-water",
+            "width": 30,
+            "height": 19
+          },
+          {
+            "x": 94,
+            "y": 995,
+            "kind": "shallow-water",
+            "width": 15,
+            "height": 8
+          },
+          {
+            "x": 94,
+            "y": 1002,
+            "kind": "shallow-water",
+            "width": 9,
+            "height": 5
+          },
+          {
+            "x": 109,
+            "y": 994,
+            "kind": "shallow-water",
+            "width": 7,
+            "height": 6
+          },
+          {
+            "x": 512,
+            "y": 1002,
+            "kind": "shallow-water",
+            "width": 128,
+            "height": 168
+          },
+          {
+            "x": 481,
+            "y": 967,
+            "kind": "shallow-water",
+            "width": 157,
+            "height": 34
+          },
+          {
+            "x": 481,
+            "y": 926,
+            "kind": "shallow-water",
+            "width": 29,
+            "height": 39
+          },
+          {
+            "x": 511,
+            "y": 939,
+            "kind": "shallow-water",
+            "width": 61,
+            "height": 27
+          },
+          {
+            "x": 511,
+            "y": 932,
+            "kind": "shallow-water",
+            "width": 31,
+            "height": 7
+          },
+          {
+            "x": 113,
+            "y": 110,
+            "kind": "shallow-water",
+            "width": 68,
+            "height": 67
+          },
+          {
+            "x": 182,
+            "y": 110,
+            "kind": "shallow-water",
+            "width": 344,
+            "height": 39
+          },
+          {
+            "x": 458,
+            "y": 149,
+            "kind": "shallow-water",
+            "width": 68,
+            "height": 29
+          },
+          {
+            "x": 545,
+            "y": 902,
+            "width": 43,
+            "height": 34
+          },
+          {
+            "x": 576,
+            "y": 912,
+            "width": 64,
+            "height": 51
+          },
+          {
+            "x": 428,
+            "y": 798,
+            "width": 5,
+            "height": 141
+          },
+          {
+            "x": 434,
+            "y": 940,
+            "width": 9,
+            "height": 82
+          },
+          {
+            "x": 205,
+            "y": 798,
+            "width": 6,
+            "height": 147
+          },
+          {
+            "x": 192,
+            "y": 940,
+            "width": 8,
+            "height": 83
+          },
+          {
+            "x": 193,
+            "y": 1024,
+            "width": 96,
+            "height": 10
+          },
+          {
+            "x": 348,
+            "y": 1023,
+            "width": 95,
+            "height": 8
+          },
+          {
+            "x": 19,
+            "y": 1058,
+            "width": 85,
+            "height": 27
+          },
+          {
+            "x": 49,
+            "y": 1045,
+            "width": 55,
+            "height": 12
+          },
+          {
+            "x": 138,
+            "y": 1031,
+            "width": 27,
+            "height": 24
+          },
+          {
+            "x": 161,
+            "y": 1009,
+            "width": 25,
+            "height": 24
+          },
+          {
+            "x": 178,
+            "y": 992,
+            "width": 14,
+            "height": 36
+          },
+          {
+            "x": 139,
+            "y": 1055,
+            "width": 11,
+            "height": 13
+          },
+          {
+            "x": 165,
+            "y": 1034,
+            "width": 11,
+            "height": 8
+          },
+          {
+            "x": 151,
+            "y": 1022,
+            "width": 9,
+            "height": 7
+          },
+          {
+            "x": 170,
+            "y": 1001,
+            "width": 7,
+            "height": 6
+          },
+          {
+            "x": 185,
+            "y": 985,
+            "width": 6,
+            "height": 6
+          },
+          {
+            "x": 151,
+            "y": 1056,
+            "width": 5,
+            "height": 5
+          },
+          {
+            "x": 139,
+            "y": 1069,
+            "width": 4,
+            "height": 5
+          },
+          {
+            "x": 1,
+            "y": 721,
+            "width": 210,
+            "height": 4
+          },
+          {
+            "x": 431,
+            "y": 721,
+            "width": 208,
+            "height": 3
+          },
+          {
+            "x": 427,
+            "y": 722,
+            "width": 3,
+            "height": 27
+          },
+          {
+            "x": 208,
+            "y": 721,
+            "width": 3,
+            "height": 28
+          },
+          {
+            "x": 212,
+            "y": 802,
+            "level": 2,
+            "width": 83,
+            "height": 9
+          },
+          {
+            "x": 341,
+            "y": 803,
+            "level": 2,
+            "width": 87,
+            "height": 8
+          },
+          {
+            "x": 211,
+            "y": 732,
+            "level": 2,
+            "width": 84,
+            "height": 5
+          },
+          {
+            "x": 341,
+            "y": 732,
+            "level": 2,
+            "width": 86,
+            "height": 5
+          },
+          {
+            "x": 212,
+            "y": 748,
+            "level": 2,
+            "width": 83,
+            "height": 3
+          },
+          {
+            "x": 341,
+            "y": 748,
+            "level": 2,
+            "width": 86,
+            "height": 3
+          },
+          {
+            "x": 295,
+            "y": 748,
+            "level": 2,
+            "width": 46,
+            "height": 3
+          },
+          {
+            "x": 295,
+            "y": 802,
+            "level": 2,
+            "width": 46,
+            "height": 9
+          },
+          {
+            "x": 255,
+            "y": 865,
+            "width": 128,
+            "height": 11
+          },
+          {
+            "x": 380,
+            "y": 877,
+            "width": 5,
+            "height": 45
+          },
+          {
+            "x": 255,
+            "y": 878,
+            "width": 9,
+            "height": 44
+          },
+          {
+            "x": 1,
+            "y": 59,
+            "width": 75,
+            "height": 17
+          },
+          {
+            "x": 124,
+            "y": 44,
+            "width": 393,
+            "height": 13
+          },
+          {
+            "x": 562,
+            "y": 57,
+            "width": 78,
+            "height": 18
+          },
+          {
+            "x": 518,
+            "y": 44,
+            "width": 44,
+            "height": 13
+          },
+          {
+            "x": 75,
+            "y": 47,
+            "width": 48,
+            "height": 10
+          },
+          {
+            "x": 76,
+            "y": 57,
+            "width": 6,
+            "height": 18
+          },
+          {
+            "x": 138,
+            "y": 827,
+            "width": 66,
+            "height": 9
+          },
+          {
+            "x": 127,
+            "y": 838,
+            "width": 14,
+            "height": 70
+          },
+          {
+            "x": 133,
+            "y": 833,
+            "width": 4,
+            "height": 4
+          },
+          {
+            "x": 141,
+            "y": 900,
+            "width": 64,
+            "height": 10
+          },
+          {
+            "x": 165,
+            "y": 910,
+            "width": 40,
+            "height": 10
+          },
+          {
+            "x": 178,
+            "y": 920,
+            "width": 27,
+            "height": 8
+          },
+          {
+            "x": 189,
+            "y": 928,
+            "width": 16,
+            "height": 9
+          },
+          {
+            "x": 155,
+            "y": 910,
+            "width": 10,
+            "height": 4
+          },
+          {
+            "x": 160,
+            "y": 914,
+            "width": 4,
+            "height": 4
+          },
+          {
+            "x": 172,
+            "y": 921,
+            "width": 5,
+            "height": 4
+          },
+          {
+            "x": 434,
+            "y": 828,
+            "width": 65,
+            "height": 77
+          },
+          {
+            "x": 434,
+            "y": 905,
+            "width": 29,
+            "height": 17
+          },
+          {
+            "x": 463,
+            "y": 905,
+            "width": 18,
+            "height": 9
+          },
+          {
+            "x": 434,
+            "y": 921,
+            "width": 10,
+            "height": 18
+          },
+          {
+            "x": 444,
+            "y": 922,
+            "width": 9,
+            "height": 5
+          },
+          {
+            "x": 500,
+            "y": 839,
+            "width": 12,
+            "height": 82
+          },
+          {
+            "x": 480,
+            "y": 904,
+            "width": 20,
+            "height": 17
+          },
+          {
+            "x": 501,
+            "y": 1002,
+            "width": 10,
+            "height": 166
+          },
+          {
+            "x": 467,
+            "y": 1032,
+            "width": 31,
+            "height": 14
+          },
+          {
+            "x": 481,
+            "y": 1046,
+            "width": 18,
+            "height": 16
+          },
+          {
+            "x": 491,
+            "y": 1062,
+            "width": 9,
+            "height": 9
+          },
+          {
+            "x": 454,
+            "y": 997,
+            "width": 14,
+            "height": 34
+          },
+          {
+            "x": 445,
+            "y": 983,
+            "width": 9,
+            "height": 40
+          },
+          {
+            "x": 62,
+            "y": 900,
+            "width": 32,
+            "height": 36
+          },
+          {
+            "x": 1,
+            "y": 1044,
+            "width": 39,
+            "height": 11
+          },
+          {
+            "x": 527,
+            "y": 97,
+            "width": 15,
+            "height": 81
+          },
+          {
+            "x": 2,
+            "y": 916,
+            "width": 69,
+            "height": 47
+          },
+          {
+            "x": 45,
+            "y": 909,
+            "width": 17,
+            "height": 7
+          },
+          {
+            "x": 54,
+            "y": 905,
+            "width": 8,
+            "height": 3
+          },
+          {
+            "x": 39,
+            "y": 912,
+            "width": 5,
+            "height": 3
+          },
+          {
+            "x": 1,
+            "y": 1058,
+            "width": 32,
+            "height": 32
+          },
+          {
+            "x": 284,
+            "y": 738,
+            "level": 1,
+            "width": 10,
+            "height": 63
+          },
+          {
+            "x": 343,
+            "y": 737,
+            "level": 1,
+            "width": 17,
+            "height": 65
+          },
+          {
+            "x": 2,
+            "y": 1023,
+            "width": 95,
+            "height": 6
+          },
+          {
+            "x": 96,
+            "y": 1011,
+            "width": 5,
+            "height": 18
+          },
+          {
+            "x": 126,
+            "y": 956,
+            "width": 4,
+            "height": 40
+          },
+          {
+            "x": 99,
+            "y": 1009,
+            "width": 11,
+            "height": 3
+          },
+          {
+            "x": 108,
+            "y": 1005,
+            "width": 8,
+            "height": 3
+          },
+          {
+            "x": 115,
+            "y": 1001,
+            "width": 8,
+            "height": 3
+          },
+          {
+            "x": 121,
+            "y": 997,
+            "width": 7,
+            "height": 4
+          },
+          {
+            "x": 72,
+            "y": 951,
+            "width": 13,
+            "height": 8
+          },
+          {
+            "x": 126,
+            "y": 908,
+            "width": 11,
+            "height": 17
+          },
+          {
+            "x": 212,
+            "y": 799,
+            "level": 1,
+            "width": 82,
+            "height": 5
+          },
+          {
+            "x": 344,
+            "y": 799,
+            "level": 1,
+            "width": 84,
+            "height": 5
+          },
+          {
+            "x": 213,
+            "y": 738,
+            "level": 1,
+            "width": 81,
+            "height": 4
+          },
+          {
+            "x": 343,
+            "y": 737,
+            "level": 1,
+            "width": 83,
+            "height": 5
+          }
+        ],
+        "levelTriggers": [
+          {
+            "x": 150,
+            "y": 752,
+            "width": 12,
+            "height": 48,
+            "targetLevel": 1
+          },
+          {
+            "x": 212,
+            "y": 752,
+            "width": 12,
+            "height": 48,
+            "targetLevel": 2
+          },
+          {
+            "x": 416,
+            "y": 752,
+            "width": 12,
+            "height": 48,
+            "targetLevel": 2
+          },
+          {
+            "x": 478,
+            "y": 752,
+            "width": 12,
+            "height": 48,
+            "targetLevel": 1
+          },
+          {
+            "x": 296,
+            "y": 732,
+            "width": 45,
+            "height": 14,
+            "targetLevel": 1
+          },
+          {
+            "x": 296,
+            "y": 813,
+            "width": 45,
+            "height": 14,
+            "targetLevel": 1
+          },
+          {
+            "x": 104,
+            "y": 1087,
+            "width": 33,
+            "height": 16,
+            "targetLevel": 1
+          },
+          {
+            "x": 137,
+            "y": 1075,
+            "width": 22,
+            "height": 29,
+            "targetLevel": 1
+          },
+          {
+            "x": 83,
+            "y": 1086,
+            "width": 21,
+            "height": 17,
+            "targetLevel": 1
+          },
+          {
+            "x": 166,
+            "y": 726,
+            "width": 39,
+            "height": 99,
+            "targetLevel": 2
+          },
+          {
+            "x": 435,
+            "y": 726,
+            "width": 39,
+            "height": 99,
+            "targetLevel": 2
+          }
+        ],
+        "spawnPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "levelRenderZones": [
+          {
+            "x": 160,
+            "y": 726,
+            "level": 2,
+            "width": 320,
+            "height": 99,
+            "targetObjectId": "e9bdc88e4050"
+          }
+        ]
+      }
+    }
+  }
+}

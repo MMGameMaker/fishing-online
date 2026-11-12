@@ -1,0 +1,2174 @@
+{
+  "objects": {
+    "coloring": {
+      "name": "WhaleBarColoring",
+      "params": {
+        "spawnPosition": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    "scene-colliders": {
+      "name": "SceneColliders",
+      "params": {
+        "spawnPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "colliders": [
+          {
+            "x": 203,
+            "y": 21,
+            "width": 576,
+            "height": 100
+          },
+          {
+            "x": 12,
+            "y": 285,
+            "width": 111,
+            "height": 324
+          },
+          {
+            "x": -68,
+            "y": -63,
+            "width": 85,
+            "height": 518
+          },
+          {
+            "x": -22,
+            "y": -24,
+            "width": 230,
+            "height": 145
+          },
+          {
+            "x": 190,
+            "y": 108,
+            "width": 52,
+            "height": 26
+          },
+          {
+            "x": 333,
+            "y": 114,
+            "width": 38,
+            "height": 19
+          },
+          {
+            "x": 457,
+            "y": 117,
+            "width": 84,
+            "height": 17
+          },
+          {
+            "x": 626,
+            "y": 112,
+            "width": 28,
+            "height": 20
+          },
+          {
+            "x": 747,
+            "y": 112,
+            "width": 33,
+            "height": 20
+          },
+          {
+            "x": 771,
+            "y": 54,
+            "width": 32,
+            "height": 67
+          },
+          {
+            "x": 799,
+            "y": 44,
+            "width": 155,
+            "height": 60
+          },
+          {
+            "x": 861,
+            "y": 283,
+            "width": 118,
+            "height": 297
+          },
+          {
+            "x": 960,
+            "y": -34,
+            "width": 61,
+            "height": 393
+          },
+          {
+            "x": 937,
+            "y": 89,
+            "width": 31,
+            "height": 29
+          },
+          {
+            "x": 109,
+            "y": 287,
+            "width": 328,
+            "height": 16
+          },
+          {
+            "x": 553,
+            "y": 284,
+            "width": 314,
+            "height": 20
+          },
+          {
+            "x": 277,
+            "y": 298,
+            "width": 161,
+            "height": 73
+          },
+          {
+            "x": 428,
+            "y": 287,
+            "width": 3,
+            "height": 16
+          },
+          {
+            "x": 551,
+            "y": 284,
+            "width": 6,
+            "height": 188
+          },
+          {
+            "x": 553,
+            "y": 294,
+            "width": 313,
+            "height": 62
+          },
+          {
+            "x": 414,
+            "y": 285,
+            "width": 16,
+            "height": 18
+          },
+          {
+            "x": 433,
+            "y": 286,
+            "width": 11,
+            "height": 187
+          },
+          {
+            "x": 526,
+            "y": 532,
+            "width": 350,
+            "height": 80
+          },
+          {
+            "x": 108,
+            "y": 531,
+            "width": 350,
+            "height": 104
+          },
+          {
+            "x": 429,
+            "y": 603,
+            "width": 126,
+            "height": 35
+          },
+          {
+            "x": 117,
+            "y": 292,
+            "width": 160,
+            "height": 81
+          },
+          {
+            "x": 557,
+            "y": 344,
+            "width": 33,
+            "height": 33
+          },
+          {
+            "x": 644,
+            "y": 350,
+            "width": 12,
+            "height": 27
+          },
+          {
+            "x": 586,
+            "y": 346,
+            "width": 69,
+            "height": 19
+          },
+          {
+            "x": 386,
+            "y": 361,
+            "width": 46,
+            "height": 18
+          },
+          {
+            "x": 240,
+            "y": 108,
+            "width": 104,
+            "height": 21
+          },
+          {
+            "x": 651,
+            "y": 108,
+            "width": 101,
+            "height": 21
+          },
+          {
+            "x": 777,
+            "y": 115,
+            "width": 19,
+            "height": 15
+          },
+          {
+            "x": 801,
+            "y": 96,
+            "width": 18,
+            "height": 18
+          },
+          {
+            "x": 894,
+            "y": 95,
+            "width": 42,
+            "height": 18
+          },
+          {
+            "x": 953,
+            "y": 111,
+            "width": 12,
+            "height": 27
+          },
+          {
+            "x": 939,
+            "y": 115,
+            "width": 17,
+            "height": 13
+          },
+          {
+            "x": 928,
+            "y": 108,
+            "width": 13,
+            "height": 10
+          },
+          {
+            "x": 11,
+            "y": 107,
+            "width": 17,
+            "height": 34
+          },
+          {
+            "x": 24,
+            "y": 110,
+            "width": 14,
+            "height": 22
+          },
+          {
+            "x": 173,
+            "y": 115,
+            "width": 21,
+            "height": 12
+          },
+          {
+            "x": 119,
+            "y": 286,
+            "width": 324,
+            "height": 21
+          }
+        ]
+      }
+    },
+    "shelf-4": {
+      "name": "WhaleBarShelf",
+      "params": {
+        "spawnPosition": {
+          "x": 831,
+          "y": 57
+        }
+      }
+    },
+    "shelf-5": {
+      "name": "WhaleBarShelf",
+      "params": {
+        "spawnPosition": {
+          "x": 831,
+          "y": 83
+        }
+      }
+    },
+    "ice-table-2-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 817,
+          "y": 136
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-2",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-2-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 881,
+          "y": 136
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-2",
+          "offset": {
+            "x": 46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "nightstand-left": {
+      "name": "WhaleBarNightstand",
+      "params": {
+        "spawnPosition": {
+          "x": 431,
+          "y": 153
+        }
+      }
+    },
+    "nightstand-right": {
+      "name": "WhaleBarNightstand",
+      "params": {
+        "spawnPosition": {
+          "x": 548,
+          "y": 153
+        }
+      }
+    },
+    "couch-left": {
+      "name": "WhaleBarCouch",
+      "params": {
+        "spawnPosition": {
+          "x": 376,
+          "y": 154
+        }
+      }
+    },
+    "couch-right": {
+      "name": "WhaleBarCouch",
+      "params": {
+        "spawnPosition": {
+          "x": 567,
+          "y": 154
+        }
+      }
+    },
+    "ice-table-2-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 817,
+          "y": 156
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-2",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-2-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 881,
+          "y": 156
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-2",
+          "offset": {
+            "x": 46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-2": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 835,
+          "y": 157
+        }
+      }
+    },
+    "ice-table-0-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 251,
+          "y": 158
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-0",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-0-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 315,
+          "y": 158
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-0",
+          "offset": {
+            "x": 46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-1-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 660,
+          "y": 158
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-1",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-1-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 724,
+          "y": 158
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-1",
+          "offset": {
+            "x": 46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "long-table-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 93,
+          "y": 169
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": -18,
+            "y": -92
+          }
+        }
+      }
+    },
+    "long-table-seat-5": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 157,
+          "y": 169
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": 46,
+            "y": -92
+          }
+        }
+      }
+    },
+    "ice-table-0-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 251,
+          "y": 178
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-0",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-0-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 315,
+          "y": 178
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-0",
+          "offset": {
+            "x": 46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-1-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 660,
+          "y": 178
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-1",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-1-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 724,
+          "y": 178
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-1",
+          "offset": {
+            "x": 46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-0": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 269,
+          "y": 179
+        }
+      }
+    },
+    "ice-table-1": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 678,
+          "y": 179
+        }
+      }
+    },
+    "vapor-top-left": {
+      "name": "WhaleBarFridgeVapor2",
+      "params": {
+        "spawnPosition": {
+          "x": 39,
+          "y": 181
+        },
+        "flipped": true
+      }
+    },
+    "vapor-top-right": {
+      "name": "WhaleBarFridgeVapor2",
+      "params": {
+        "spawnPosition": {
+          "x": 943,
+          "y": 181
+        }
+      }
+    },
+    "long-table-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 93,
+          "y": 189
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": -18,
+            "y": -72
+          }
+        }
+      }
+    },
+    "long-table-seat-6": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 157,
+          "y": 189
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": 46,
+            "y": -72
+          }
+        }
+      }
+    },
+    "barrel-top-0": {
+      "name": "WhaleBarBarrelTop",
+      "params": {
+        "spawnPosition": {
+          "x": 24,
+          "y": 199
+        }
+      }
+    },
+    "barrel-top-2": {
+      "name": "WhaleBarBarrelTop",
+      "params": {
+        "spawnPosition": {
+          "x": 917,
+          "y": 199
+        }
+      }
+    },
+    "long-table-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 93,
+          "y": 209
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": -18,
+            "y": -52
+          }
+        }
+      }
+    },
+    "long-table-seat-7": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 157,
+          "y": 209
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": 46,
+            "y": -52
+          }
+        }
+      }
+    },
+    "long-table-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 93,
+          "y": 229
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": -18,
+            "y": -32
+          }
+        }
+      }
+    },
+    "long-table-seat-8": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 157,
+          "y": 229
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": 46,
+            "y": -32
+          }
+        }
+      }
+    },
+    "ice-table-3-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 817,
+          "y": 242
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-3",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-3-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 881,
+          "y": 242
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-3",
+          "offset": {
+            "x": 46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-4-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 340,
+          "y": 245
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-4",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-4-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 404,
+          "y": 245
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-4",
+          "offset": {
+            "x": 46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-5-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 571,
+          "y": 245
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-5",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-5-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 635,
+          "y": 245
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-5",
+          "offset": {
+            "x": 46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "long-table-seat-4": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 93,
+          "y": 249
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": -18,
+            "y": -12
+          }
+        }
+      }
+    },
+    "long-table-seat-9": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 157,
+          "y": 249
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "long-table",
+          "offset": {
+            "x": 46,
+            "y": -12
+          }
+        }
+      }
+    },
+    "long-table": {
+      "name": "WhaleBarLongTable",
+      "params": {
+        "spawnPosition": {
+          "x": 111,
+          "y": 261
+        }
+      }
+    },
+    "ice-table-3-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 817,
+          "y": 262
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-3",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-3-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 881,
+          "y": 262
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-3",
+          "offset": {
+            "x": 46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "barrel-top-1": {
+      "name": "WhaleBarBarrelTop",
+      "params": {
+        "spawnPosition": {
+          "x": 24,
+          "y": 263
+        }
+      }
+    },
+    "barrel-top-3": {
+      "name": "WhaleBarBarrelTop",
+      "params": {
+        "spawnPosition": {
+          "x": 917,
+          "y": 263
+        }
+      }
+    },
+    "ice-table-3": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 835,
+          "y": 263
+        }
+      }
+    },
+    "ice-table-4-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 340,
+          "y": 265
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-4",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-4-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 404,
+          "y": 265
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-4",
+          "offset": {
+            "x": 46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-5-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 571,
+          "y": 265
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-5",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-5-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 635,
+          "y": 265
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-5",
+          "offset": {
+            "x": 46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-4": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 358,
+          "y": 266
+        }
+      }
+    },
+    "ice-table-5": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 589,
+          "y": 266
+        }
+      }
+    },
+    "carpet": {
+      "name": "WhaleBarCarpet",
+      "params": {
+        "spawnPosition": {
+          "x": 468,
+          "y": 276
+        }
+      }
+    },
+    "lamp-light-0": {
+      "name": "WhaleBarLampLight",
+      "params": {
+        "spawnPosition": {
+          "x": 67,
+          "y": 298
+        },
+        "sceneDressOrder": 1,
+        "attachment": {
+          "parentId": "wall-lamp-0",
+          "offset": {
+            "x": 6,
+            "y": -6
+          },
+          "layer": 0
+        }
+      }
+    },
+    "lamp-light-3": {
+      "name": "WhaleBarLampLight",
+      "params": {
+        "spawnPosition": {
+          "x": 913,
+          "y": 298
+        },
+        "sceneDressOrder": 1,
+        "attachment": {
+          "parentId": "wall-lamp-3",
+          "offset": {
+            "x": 6,
+            "y": -6
+          },
+          "layer": 0
+        }
+      }
+    },
+    "wall-lamp-0": {
+      "name": "WhaleBarWallLamp",
+      "params": {
+        "spawnPosition": {
+          "x": 61,
+          "y": 304
+        }
+      }
+    },
+    "wall-lamp-3": {
+      "name": "WhaleBarWallLamp",
+      "params": {
+        "spawnPosition": {
+          "x": 907,
+          "y": 304
+        }
+      }
+    },
+    "left-bar-barrel-high": {
+      "name": "WhaleBarBarrelBack",
+      "params": {
+        "spawnPosition": {
+          "x": 230,
+          "y": 317
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 106,
+            "y": -91
+          },
+          "layer": 2
+        }
+      }
+    },
+    "right-bar-barrel-high": {
+      "name": "WhaleBarBarrelBack",
+      "params": {
+        "spawnPosition": {
+          "x": 711,
+          "y": 317
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 7,
+            "y": -90
+          },
+          "layer": 2
+        }
+      }
+    },
+    "vapor-stairs-right": {
+      "name": "WhaleBarFridgeVapor2",
+      "params": {
+        "spawnPosition": {
+          "x": 576,
+          "y": 342
+        },
+        "layer": "under",
+        "sceneDressOrder": -1,
+        "flipped": true
+      }
+    },
+    "vapor-stairs-left": {
+      "name": "WhaleBarFridgeVapor2",
+      "params": {
+        "spawnPosition": {
+          "x": 427,
+          "y": 342
+        },
+        "layer": "under",
+        "sceneDressOrder": -1
+      }
+    },
+    "shelf-0": {
+      "name": "WhaleBarShelf",
+      "params": {
+        "spawnPosition": {
+          "x": 276,
+          "y": 325
+        }
+      }
+    },
+    "shelf-2": {
+      "name": "WhaleBarShelf",
+      "params": {
+        "spawnPosition": {
+          "x": 622,
+          "y": 325
+        }
+      }
+    },
+    "lamp-light-1": {
+      "name": "WhaleBarLampLight",
+      "params": {
+        "spawnPosition": {
+          "x": 419,
+          "y": 328
+        },
+        "sceneDressOrder": 1,
+        "attachment": {
+          "parentId": "wall-lamp-1",
+          "offset": {
+            "x": 6,
+            "y": -6
+          },
+          "layer": 0
+        }
+      }
+    },
+    "lamp-light-2": {
+      "name": "WhaleBarLampLight",
+      "params": {
+        "spawnPosition": {
+          "x": 577,
+          "y": 328
+        },
+        "sceneDressOrder": 1,
+        "attachment": {
+          "parentId": "wall-lamp-2",
+          "offset": {
+            "x": 6,
+            "y": -6
+          },
+          "layer": 0
+        }
+      }
+    },
+    "wall-lamp-1": {
+      "name": "WhaleBarWallLamp",
+      "params": {
+        "spawnPosition": {
+          "x": 413,
+          "y": 334
+        }
+      }
+    },
+    "wall-lamp-2": {
+      "name": "WhaleBarWallLamp",
+      "params": {
+        "spawnPosition": {
+          "x": 571,
+          "y": 334
+        }
+      }
+    },
+    "left-bar-barrel-mid": {
+      "name": "WhaleBarBarrelBack",
+      "params": {
+        "spawnPosition": {
+          "x": 230,
+          "y": 338
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 106,
+            "y": -70
+          },
+          "layer": 3
+        }
+      }
+    },
+    "right-bar-barrel-mid": {
+      "name": "WhaleBarBarrelBack",
+      "params": {
+        "spawnPosition": {
+          "x": 711,
+          "y": 338
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 7,
+            "y": -69
+          },
+          "layer": 3
+        }
+      }
+    },
+    "vapor-right-bar": {
+      "name": "WhaleBarFridgeVapor2",
+      "params": {
+        "spawnPosition": {
+          "x": 689,
+          "y": 341
+        }
+      }
+    },
+    "vapor-left-bar": {
+      "name": "WhaleBarFridgeVapor2",
+      "params": {
+        "spawnPosition": {
+          "x": 293,
+          "y": 342
+        },
+        "flipped": true
+      }
+    },
+    "postit-2": {
+      "name": "WhaleBarPostit",
+      "params": {
+        "spawnPosition": {
+          "x": 601,
+          "y": 343
+        }
+      }
+    },
+    "left-bar-mug-1": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 139,
+          "y": 344
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 15,
+            "y": -64
+          },
+          "layer": 4
+        }
+      }
+    },
+    "left-bar-mug-2": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 157,
+          "y": 344
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 33,
+            "y": -64
+          },
+          "layer": 4
+        }
+      }
+    },
+    "right-bar-mug-1": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 808,
+          "y": 344
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 104,
+            "y": -63
+          },
+          "layer": 4
+        }
+      }
+    },
+    "right-bar-mug-2": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 826,
+          "y": 344
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 122,
+            "y": -63
+          },
+          "layer": 4
+        }
+      }
+    },
+    "shelf-1": {
+      "name": "WhaleBarShelf",
+      "params": {
+        "spawnPosition": {
+          "x": 276,
+          "y": 351
+        }
+      }
+    },
+    "shelf-3": {
+      "name": "WhaleBarShelf",
+      "params": {
+        "spawnPosition": {
+          "x": 622,
+          "y": 351
+        }
+      }
+    },
+    "newspaper-2": {
+      "name": "WhaleBarNewspaper2",
+      "params": {
+        "spawnPosition": {
+          "x": 393,
+          "y": 351
+        }
+      }
+    },
+    "left-bar-mug-3": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 130,
+          "y": 353
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 6,
+            "y": -55
+          },
+          "layer": 3
+        }
+      }
+    },
+    "left-bar-mug-4": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 148,
+          "y": 353
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 24,
+            "y": -55
+          },
+          "layer": 3
+        }
+      }
+    },
+    "left-bar-mug-5": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 166,
+          "y": 353
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 42,
+            "y": -55
+          },
+          "layer": 3
+        }
+      }
+    },
+    "right-bar-mug-3": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 799,
+          "y": 353
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 95,
+            "y": -54
+          },
+          "layer": 3
+        }
+      }
+    },
+    "right-bar-mug-4": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 817,
+          "y": 353
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 113,
+            "y": -54
+          },
+          "layer": 3
+        }
+      }
+    },
+    "right-bar-mug-5": {
+      "name": "WhaleBarMugUpside",
+      "params": {
+        "spawnPosition": {
+          "x": 835,
+          "y": 353
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 131,
+            "y": -54
+          },
+          "layer": 3
+        }
+      }
+    },
+    "left-bar-barrel-low": {
+      "name": "WhaleBarBarrelBack",
+      "params": {
+        "spawnPosition": {
+          "x": 230,
+          "y": 359
+        },
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 106,
+            "y": -49
+          },
+          "layer": 5
+        }
+      }
+    },
+    "right-bar-barrel-low": {
+      "name": "WhaleBarBarrelBack",
+      "params": {
+        "spawnPosition": {
+          "x": 711,
+          "y": 359
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 7,
+            "y": -48
+          },
+          "layer": 5
+        }
+      }
+    },
+    "left-bar-barrel-side": {
+      "name": "WhaleBarBarrelSide",
+      "params": {
+        "spawnPosition": {
+          "x": 239,
+          "y": 360
+        },
+        "flipped": true,
+        "attachment": {
+          "parentId": "left-back-bar",
+          "offset": {
+            "x": 115,
+            "y": -48
+          },
+          "layer": 4
+        }
+      }
+    },
+    "right-bar-barrel-side": {
+      "name": "WhaleBarBarrelSide",
+      "params": {
+        "spawnPosition": {
+          "x": 744,
+          "y": 360
+        },
+        "attachment": {
+          "parentId": "right-back-bar",
+          "offset": {
+            "x": 40,
+            "y": -47
+          },
+          "layer": 4
+        }
+      }
+    },
+    "newspaper-1": {
+      "name": "WhaleBarNewspaper1",
+      "params": {
+        "spawnPosition": {
+          "x": 360,
+          "y": 364
+        }
+      }
+    },
+    "postit-1": {
+      "name": "WhaleBarPostit",
+      "params": {
+        "spawnPosition": {
+          "x": 411,
+          "y": 368
+        }
+      }
+    },
+    "newspaper-3": {
+      "name": "WhaleBarNewspaper3",
+      "params": {
+        "spawnPosition": {
+          "x": 567,
+          "y": 371
+        }
+      }
+    },
+    "wall-desk-left-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 384,
+          "y": 396
+        },
+        "flipped": true,
+        "facing": "left",
+        "seatHost": {
+          "parentId": "wall-desk-left",
+          "offset": {
+            "x": 18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "wall-desk-right-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 592,
+          "y": 396
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "wall-desk-right",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "right-back-bar": {
+      "name": "WhaleBarBackBarRight",
+      "params": {
+        "spawnPosition": {
+          "x": 704,
+          "y": 407
+        }
+      }
+    },
+    "left-back-bar": {
+      "name": "WhaleBarBackBarLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 124,
+          "y": 408
+        }
+      }
+    },
+    "barrel-front-left": {
+      "name": "WhaleBarBarrelFront",
+      "params": {
+        "spawnPosition": {
+          "x": 280,
+          "y": 413
+        }
+      }
+    },
+    "barrel-front-right": {
+      "name": "WhaleBarBarrelFront",
+      "params": {
+        "spawnPosition": {
+          "x": 660,
+          "y": 413
+        }
+      }
+    },
+    "wall-desk-left-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 384,
+          "y": 416
+        },
+        "flipped": true,
+        "facing": "left",
+        "seatHost": {
+          "parentId": "wall-desk-left",
+          "offset": {
+            "x": 18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "wall-desk-right-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 592,
+          "y": 416
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "wall-desk-right",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "wall-desk-left": {
+      "name": "WhaleBarWallDesk",
+      "params": {
+        "spawnPosition": {
+          "x": 366,
+          "y": 417
+        },
+        "flipped": true
+      }
+    },
+    "wall-desk-right": {
+      "name": "WhaleBarWallDesk",
+      "params": {
+        "spawnPosition": {
+          "x": 610,
+          "y": 417
+        }
+      }
+    },
+    "left-counter-side-tap": {
+      "name": "WhaleBarBeerTapSide",
+      "params": {
+        "spawnPosition": {
+          "x": 213,
+          "y": 433
+        },
+        "flipped": true,
+        "attachment": {
+          "parentId": "left-counter",
+          "offset": {
+            "x": 89,
+            "y": -44
+          },
+          "layer": 2
+        }
+      }
+    },
+    "right-counter-side-tap": {
+      "name": "WhaleBarBeerTapSide",
+      "params": {
+        "spawnPosition": {
+          "x": 768,
+          "y": 433
+        },
+        "attachment": {
+          "parentId": "right-counter",
+          "offset": {
+            "x": -90,
+            "y": -44
+          },
+          "layer": 2
+        }
+      }
+    },
+    "left-bar-side-stool-0": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 240,
+          "y": 435
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "left-counter",
+          "offset": {
+            "x": 116,
+            "y": -42
+          }
+        }
+      }
+    },
+    "right-bar-side-stool-0": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 741,
+          "y": 435
+        },
+        "flipped": true,
+        "facing": "right",
+        "seatHost": {
+          "parentId": "right-counter",
+          "offset": {
+            "x": -117,
+            "y": -42
+          }
+        }
+      }
+    },
+    "left-counter-tap-1": {
+      "name": "WhaleBarBeerTapFront",
+      "params": {
+        "spawnPosition": {
+          "x": 133,
+          "y": 444
+        },
+        "attachment": {
+          "parentId": "left-counter",
+          "offset": {
+            "x": 9,
+            "y": -33
+          },
+          "layer": 2
+        }
+      }
+    },
+    "left-counter-tap-2": {
+      "name": "WhaleBarBeerTapFront",
+      "params": {
+        "spawnPosition": {
+          "x": 168,
+          "y": 444
+        },
+        "attachment": {
+          "parentId": "left-counter",
+          "offset": {
+            "x": 44,
+            "y": -33
+          },
+          "layer": 2
+        }
+      }
+    },
+    "right-counter-tap-1": {
+      "name": "WhaleBarBeerTapFront",
+      "params": {
+        "spawnPosition": {
+          "x": 787,
+          "y": 444
+        },
+        "attachment": {
+          "parentId": "right-counter",
+          "offset": {
+            "x": -71,
+            "y": -33
+          },
+          "layer": 2
+        }
+      }
+    },
+    "right-counter-tap-2": {
+      "name": "WhaleBarBeerTapFront",
+      "params": {
+        "spawnPosition": {
+          "x": 822,
+          "y": 444
+        },
+        "attachment": {
+          "parentId": "right-counter",
+          "offset": {
+            "x": -36,
+            "y": -33
+          },
+          "layer": 2
+        }
+      }
+    },
+    "left-bar-side-stool-1": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 240,
+          "y": 466
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "left-counter",
+          "offset": {
+            "x": 116,
+            "y": -11
+          }
+        }
+      }
+    },
+    "right-bar-side-stool-1": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 741,
+          "y": 466
+        },
+        "flipped": true,
+        "facing": "right",
+        "seatHost": {
+          "parentId": "right-counter",
+          "offset": {
+            "x": -117,
+            "y": -11
+          }
+        }
+      }
+    },
+    "stairs": {
+      "name": "WhaleBarStairs",
+      "params": {
+        "spawnPosition": {
+          "x": 430,
+          "y": 472
+        }
+      }
+    },
+    "left-counter": {
+      "name": "WhaleBarCounter",
+      "params": {
+        "spawnPosition": {
+          "x": 124,
+          "y": 477
+        }
+      }
+    },
+    "right-counter": {
+      "name": "WhaleBarCounter",
+      "params": {
+        "spawnPosition": {
+          "x": 858,
+          "y": 477
+        },
+        "flipped": true
+      }
+    },
+    "wall-outer-left": {
+      "name": "WhaleBarWallOuterLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 2,
+          "y": 487
+        }
+      }
+    },
+    "wall-outer-right": {
+      "name": "WhaleBarWallOuterRight",
+      "params": {
+        "spawnPosition": {
+          "x": 963,
+          "y": 487
+        }
+      }
+    },
+    "ice-table-6-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 305,
+          "y": 492
+        },
+        "flipped": true,
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-6",
+          "offset": {
+            "x": -46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-6-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 369,
+          "y": 492
+        },
+        "flipped": true,
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-6",
+          "offset": {
+            "x": 18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-7-seat-0": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 615,
+          "y": 492
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-7",
+          "offset": {
+            "x": -18,
+            "y": -21
+          }
+        }
+      }
+    },
+    "ice-table-7-seat-2": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 679,
+          "y": 492
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-7",
+          "offset": {
+            "x": 46,
+            "y": -21
+          }
+        }
+      }
+    },
+    "left-bar-stool-0": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 131,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "left-bar-stool-1": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 159,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "left-bar-stool-2": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 187,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "left-bar-stool-3": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 215,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "right-bar-stool-0": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 752,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "right-bar-stool-1": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 780,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "right-bar-stool-2": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 808,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "right-bar-stool-3": {
+      "name": "WhaleBarBarStool",
+      "params": {
+        "spawnPosition": {
+          "x": 836,
+          "y": 493
+        },
+        "facing": "up"
+      }
+    },
+    "ice-table-6-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 305,
+          "y": 512
+        },
+        "flipped": true,
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-6",
+          "offset": {
+            "x": -46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-6-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 369,
+          "y": 512
+        },
+        "flipped": true,
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-6",
+          "offset": {
+            "x": 18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-7-seat-1": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 615,
+          "y": 512
+        },
+        "facing": "right",
+        "seatHost": {
+          "parentId": "ice-table-7",
+          "offset": {
+            "x": -18,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-7-seat-3": {
+      "name": "WhaleBarIceStool",
+      "params": {
+        "spawnPosition": {
+          "x": 679,
+          "y": 512
+        },
+        "facing": "left",
+        "seatHost": {
+          "parentId": "ice-table-7",
+          "offset": {
+            "x": 46,
+            "y": -1
+          }
+        }
+      }
+    },
+    "ice-table-6": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 351,
+          "y": 513
+        },
+        "flipped": true
+      }
+    },
+    "ice-table-7": {
+      "name": "WhaleBarIceTable",
+      "params": {
+        "spawnPosition": {
+          "x": 633,
+          "y": 513
+        }
+      }
+    },
+    "wall-inner-left": {
+      "name": "WhaleBarWallInnerLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 107,
+          "y": 560
+        }
+      }
+    },
+    "wall-inner-right": {
+      "name": "WhaleBarWallInnerRight",
+      "params": {
+        "spawnPosition": {
+          "x": 858,
+          "y": 560
+        }
+      }
+    }
+  }
+}

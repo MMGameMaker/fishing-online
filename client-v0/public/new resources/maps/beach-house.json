@@ -1,0 +1,2853 @@
+{
+   "objects": {
+      "scene-colliders": {
+         "name": "SceneColliders",
+         "params": {
+            "spawnPosition": { "x": 0, "y": 0 },
+            "colliders": [
+               { "x": 0, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 32, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 64, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 64, "y": 32, "width": 32, "height": 32, "kind": "water" },
+               { "x": 64, "y": 64, "width": 32, "height": 32, "kind": "water" },
+               { "x": 32, "y": 64, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 64, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 32, "width": 32, "height": 32, "kind": "water" },
+               { "x": 32, "y": 32, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 96, "width": 32, "height": 32, "kind": "water" },
+               { "x": 32, "y": 96, "width": 32, "height": 32, "kind": "water" },
+               { "x": 64, "y": 96, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 160,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 160,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 128,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 128,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 96, "y": 64, "width": 32, "height": 32, "kind": "water" },
+               { "x": 96, "y": 32, "width": 32, "height": 32, "kind": "water" },
+               { "x": 96, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 128, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 160, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 192, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 192,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 224,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 224, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 256, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 288, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 288,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 256,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 272,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 320,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 352,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 320, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 352, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 384, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 416, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 448, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 480, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 512, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 544, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 544,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 576, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 544,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 448,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 416,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 384,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 416,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 448,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 544,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 352,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 224,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 256,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 256,
+                  "y": 608,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 288,
+                  "y": 608,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 288,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 320,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 192,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 192,
+                  "y": 608,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 96,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 128,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 160,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 0, "y": 576, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 544, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 448, "width": 32, "height": 16, "kind": "water" },
+               { "x": 0, "y": 416, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 32,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 0, "y": 128, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 160, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 192, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 224, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 256, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 288, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 320, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 352, "width": 32, "height": 32, "kind": "water" },
+               { "x": 0, "y": 384, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 32,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 608, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 608,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 576,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 608,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 640,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 640, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 672, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 704, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 704,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 768, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 736, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 800,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 800, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 832, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               { "x": 864, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 864,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 896, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 896,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 816,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 672,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 704,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 736,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 768,
+                  "y": 608,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 800,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 576,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 544,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 512,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 480,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 448,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 864,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 384,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 832,
+                  "y": 416,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 896,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 256,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 288,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 320,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 352,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 224,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 192,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 160,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 128,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 96,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 928,
+                  "y": 64,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               { "x": 928, "y": 0, "width": 32, "height": 32, "kind": "water" },
+               {
+                  "x": 928,
+                  "y": 32,
+                  "width": 32,
+                  "height": 32,
+                  "kind": "water"
+               },
+               {
+                  "x": 384,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 368,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 352,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 336,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 320,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 304,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 288,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 256,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 240,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 224,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 208,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 192,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 192,
+                  "y": 80,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 192,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 176,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 160,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 144,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 128,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 112,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               { "x": 96, "y": 96, "width": 16, "height": 16, "kind": "water" },
+               {
+                  "x": 96,
+                  "y": 112,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 96,
+                  "y": 128,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 80,
+                  "y": 128,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 128,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 144,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 160,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 176,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 192,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 208,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 224,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 240,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 256,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 48,
+                  "y": 256,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 256,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 272,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 288,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 304,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 320,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 336,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 352,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 368,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 384,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 400,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 416,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 432,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 448,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 544,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 32,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 48,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 64,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 80,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 96,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 112,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 128,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 144,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 160,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 176,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 192,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 208,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 208,
+                  "y": 544,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 208,
+                  "y": 528,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 224,
+                  "y": 528,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 224,
+                  "y": 544,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 224,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 240,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 256,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 272,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 288,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 304,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 320,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 336,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 352,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 368,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 384,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 400,
+                  "y": 560,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 400,
+                  "y": 544,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 400,
+                  "y": 528,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 416,
+                  "y": 528,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 432,
+                  "y": 528,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 448,
+                  "y": 528,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 528,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 512,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 496,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 496,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 496,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 480,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 464,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 448,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 432,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 432,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 432,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 416,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 400,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 384,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 368,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 352,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 336,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 320,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 320,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 320,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 304,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 288,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 272,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 256,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 240,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 224,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 224,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 224,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 208,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 192,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 176,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 176,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 176,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 160,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 144,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 144,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 144,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 384,
+                  "y": 48,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 384,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 400,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 416,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 432,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 448,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 464,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 480,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 32,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 48,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 496,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 512,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 64,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 80,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 96,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 112,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 528,
+                  "y": 128,
+                  "width": 16,
+                  "height": 16,
+                  "kind": "water"
+               }
+            ]
+         }
+      }
+   }
+}

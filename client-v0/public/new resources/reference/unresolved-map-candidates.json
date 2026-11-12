@@ -1,0 +1,1342 @@
+[
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorBlueBook",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorBlueBook",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorBookshelfFront1",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorBookshelfFront1",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorBookshelfFront2",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorBookshelfFront2",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorBookshelfSide1",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorBookshelfSide1",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorCompositionDining",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorCompositionDining",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorCompositionEntrance",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorCompositionEntrance",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorCompositionFloor",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorCompositionFloor",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorCompositionLowerFurniture",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorCompositionLowerFurniture",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorCompositionMezzanine",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorCompositionMezzanine",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorCompositionOverlay",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorCompositionOverlay",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorCompositionUnderlay",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorCompositionUnderlay",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorDesk",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorDesk",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorFloorDecor",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorFloorDecor",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorGreenBook",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorGreenBook",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorHangingLantern",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorHangingLantern",
+        "group": "shared-garden"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorHangingLanternBehindMezzanine",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorLeftWall1",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorLeftWall1",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorLeftWall2",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorLeftWall2",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorMetalStairs",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorMetalStairs",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorPlantsEntrance",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorPlantsEntrance",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorPottedBushyPlant",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorPottedBushyPlant",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorPottedRose",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorPottedRose",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorRedBook",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorRedBook",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorRightWall1",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorRightWall1",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorSecondFloorCut",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorSecondFloorCut",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorSecondFloorHandrail",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorSecondFloorHandrail",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorSecondFloorMiddleCut",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorSecondFloorMiddleCut",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorSecondFloorSupport",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorSecondFloorSupport",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorStool",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorStool",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorStoolLeft",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorStoolRight",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorStoolUp",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorTable",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorTable",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorTableDetails",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorTableDetails",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorTableMezzanineLeft",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorTableMezzanineLeft",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorTableMezzanineRight",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorTableMezzanineRight",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorUpperWallDecor",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorUpperWallDecor",
+        "group": "shared-garden"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp-tree-interior",
+    "object": "SwTreeInteriorYellowBook",
+    "candidates": [
+      {
+        "sprite": "swamp/tree-interior/SwTreeInteriorYellowBook",
+        "group": "swamp-interior"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBigTree",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBigTree",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBigTreeBranch",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBigTreeBranch",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBigTreeChair",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBigTreeChair",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBigTreeChairUp",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBigTreeDesk2",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBigTreeDesk2",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBigTreeStoolLeft",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBigTreeStoolRight",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBranch",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBranch",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBridgeCenter",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBridgeCenter",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBridgeLeft",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBridgeLeft",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBridgeLeftFrontLayer",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBridgeLeftFrontLayer",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBridgeRight",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBridgeRight",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwBridgeRightFrontLayer",
+    "candidates": [
+      {
+        "sprite": "swamp/SwBridgeRightFrontLayer",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwCamelliaTree",
+    "candidates": [
+      {
+        "sprite": "swamp/SwCamelliaTree",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwDriftwood",
+    "candidates": [
+      {
+        "sprite": "swamp/SwDriftwood",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwFern1",
+    "candidates": [
+      {
+        "sprite": "swamp/SwFern1",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwFern2",
+    "candidates": [
+      {
+        "sprite": "swamp/SwFern2",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLand1",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLand1",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLand2",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLand2",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLand3",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLand3",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLand4",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLand4",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLand5",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLand5",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLandLayerCenterLeftLedge",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLandLayerNearLeftBridgeContinuation",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLandLayerNearLeftBridgeLedge",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLandLayerRightDownLedge",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLandLayerSlope",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLilypad1",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLilypad1",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLilypad2",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLilypad2",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLilypadChair",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLilypadChair",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLilypadChairUp",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLilypadDesk",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLilypadDesk",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLongGrass1",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLongGrass1",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwLongGrass2",
+    "candidates": [
+      {
+        "sprite": "swamp/SwLongGrass2",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwRootToWater1",
+    "candidates": [
+      {
+        "sprite": "swamp/SwRootToWater1",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwRootToWater2",
+    "candidates": [
+      {
+        "sprite": "swamp/SwRootToWater2",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwShoreLedge1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwShoreLedge2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwShoreSlope1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwShoreSlope2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwSubtleLight",
+    "candidates": [
+      {
+        "sprite": "swamp/SwSubtleLight",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwSwampLily",
+    "candidates": [
+      {
+        "sprite": "swamp/SwSwampLily",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwTinyLand",
+    "candidates": [
+      {
+        "sprite": "swamp/SwTinyLand",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwTreeClusterLeft",
+    "candidates": [
+      {
+        "sprite": "swamp/SwTreeClusterLeft",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwTreeClusterRight",
+    "candidates": [
+      {
+        "sprite": "swamp/SwTreeClusterRight",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwTreeRootCattail",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwTypha1",
+    "candidates": [
+      {
+        "sprite": "swamp/SwTypha1",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwTypha2",
+    "candidates": [
+      {
+        "sprite": "swamp/SwTypha2",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwTypha3",
+    "candidates": [
+      {
+        "sprite": "swamp/SwTypha3",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "vivid-swamp",
+    "object": "SwUpperRightSceneLayer",
+    "candidates": [
+      {
+        "sprite": "swamp/SwUpperRightSceneLayer",
+        "group": "swamp-props"
+      }
+    ],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBeachChairBlue",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBeachChairRed",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBeachPalmTree",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBeachTableBack",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBeachTableFront",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBigHead",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBigHeadLavaFlow",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBurntRock1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBurntRock2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbBurntSmallRocks",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbCameliaBush",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbDriedGrassPatch1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbDriedGrassPatch2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbDriedGrassPatch3",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbFireBlossomAnimation",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbGrass1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbGrass2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbGrass3",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbGrass4",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbGrassPatch1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbGrassPatch2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbLavaRock1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbLavaRock2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbLavaRock3",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbSurfboard1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbSurfboard2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbTallBigHeadLavaFlow",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbUmbrellaBlue",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbUmbrellaRed",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbUmbrellaYellow",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbUnlitTorch",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbVolcanicTulip",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbWaterRock1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbWaterRock2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-beach",
+    "object": "VbWaterRock3",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsBambooStool",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsBambooStoolLeft",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsBambooStoolRight",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsBambooTable",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsBridge",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsFolder",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsGroundSpotLight",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsHorizontalWoodenDeck",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsIgnisOctopusStatue",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsIgnisOctopusWaterFlow",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsLavaFlowLeft",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsLavaFlowRight",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsLavaFlowRight2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsMetalCart",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsMetalDrawerClosed",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsMetalDrawerOpen",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsMetalStand",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsPillars",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsPillarsRight",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSaunaBench3",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSaunaSteamLayer",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSaunaWall1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSaunaWall2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSoap",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSpaBed",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSpaDoorCenter",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsSpaDoorSide",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsTallStone1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsTallStone2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsTinyRock",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsTowel",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsTowelInsideCart",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsTowelTower",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsTurnstile",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsVIPCrowdControlBarrier1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsVIPCrowdControlBarrier2",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsVIPCrowdControlBarrier3",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsWall1",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsWoodenBucketEmpty",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsWoodenBucketFilled",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsWoodenBucketStack",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  },
+  {
+    "map": "volcanic-spa-interior",
+    "object": "VsWoodenBucketTowel",
+    "candidates": [],
+    "basis": "Exact sprite basename match only; object-to-sprite binding unverified"
+  }
+]

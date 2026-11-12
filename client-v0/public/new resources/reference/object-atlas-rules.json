@@ -1,0 +1,2303 @@
+[
+  {
+    "groups": [],
+    "objects": [
+      "ArboreumColoring",
+      "ArboreumRCopperSofa",
+      "BakeryExit",
+      "BakeryKitchenOcclusion",
+      "BakeryPassages",
+      "BeachHouseInteriorDoor",
+      "BurrowExitToMainTown",
+      "CoffeeShopDoorToMain",
+      "CoffeeShopWalls",
+      "DiagonalBlueGift",
+      "DiagonalRedGift",
+      "DoorToCoffeeShop",
+      "DoorToFishingShop",
+      "DoorToMainTownFromBeach",
+      "EvernightPeakColliders",
+      "FishShopDoorToPier",
+      "FishingPierSign",
+      "FishingSceneColliders",
+      "GiantChristmasTree",
+      "LeftWallDoor",
+      "RightDoorToFishing",
+      "SmRoyalColliders",
+      "SnowMan",
+      "SnowPile1",
+      "SnowPile2",
+      "Stage",
+      "TallDiagonalGift",
+      "TpBackToBeachHouse",
+      "TpBackToCabin",
+      "WinterStore1",
+      "WinterStore2",
+      "WitchInteriorExit"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2255546
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core",
+      "witch-interior"
+    ],
+    "objects": [
+      "CrystalStudyTableWitchHut",
+      "UpperTableWitchHut",
+      "WitchInteriorBookStand",
+      "WitchInteriorBubblingCauldron",
+      "WitchInteriorCrystalStudyTable",
+      "WitchInteriorFloatingBook",
+      "WitchInteriorLongTable",
+      "WitchInteriorSecondRailRight",
+      "WitchInteriorSecondStairRails",
+      "WitchInteriorStudyTable",
+      "WitchInteriorUpperTable"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2256167
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "GoKartDown",
+      "GoKartLeft",
+      "GoKartRight",
+      "GoKartUp",
+      "JetskiInteractable",
+      "LayeredBuilding",
+      "SantaHatBox",
+      "TeleportToSceneInteractable",
+      "VsReceptionCounter",
+      "VsStoneBenchTable",
+      "WhaleBarBackBar",
+      "WhaleBarColoring",
+      "WitchHouseLightObject"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2256534
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "main-town",
+      "ui-core"
+    ],
+    "objects": [
+      "BackBench",
+      "JengaTable",
+      "LeftBench",
+      "PicnicTable",
+      "RightBench",
+      "SmallTable",
+      "Woodpecker"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2256813
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-halloween",
+      "ui-core",
+      "witch-interior"
+    ],
+    "objects": [
+      "WitchInteriorCrystalBall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2256958
+  },
+  {
+    "groups": [
+      "furniture-halloween"
+    ],
+    "objects": [
+      "WitchInteriorHerbBottleLeft",
+      "WitchInteriorHerbBottleRight"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2257067
+  },
+  {
+    "groups": [
+      "witch-interior"
+    ],
+    "objects": [
+      "LowerBookshelfWitchHut",
+      "WitchInteriorBookshelf",
+      "WitchInteriorBookshelfSide",
+      "WitchInteriorCounter",
+      "WitchInteriorDrapery",
+      "WitchInteriorDraperyBurned",
+      "WitchInteriorFairyJar",
+      "WitchInteriorGiantCarpet",
+      "WitchInteriorLongCarpet",
+      "WitchInteriorLowerBookshelf",
+      "WitchInteriorPetiteBottle",
+      "WitchInteriorPillarLeft",
+      "WitchInteriorPillarRight",
+      "WitchInteriorPlant",
+      "WitchInteriorPotionBlue",
+      "WitchInteriorPotionRed",
+      "WitchInteriorRoofLeft",
+      "WitchInteriorRoofRight",
+      "WitchInteriorSecondFloor",
+      "WitchInteriorSecondRailCenter",
+      "WitchInteriorSecondRailSides",
+      "WitchInteriorSecondStairs",
+      "WitchInteriorStool",
+      "WitchInteriorStove",
+      "WitchInteriorThirdFloor",
+      "WitchInteriorThirdRailCenter",
+      "WitchInteriorThirdStairs",
+      "WitchInteriorTinyPotionBlue",
+      "WitchInteriorTinyPotionGreen",
+      "WitchInteriorVine",
+      "WitchInteriorVine2",
+      "WitchInteriorVine3"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2257171
+  },
+  {
+    "groups": [
+      "witch-exterior"
+    ],
+    "objects": [
+      "WitchHouseCandleFront",
+      "WitchHouseCandleSide",
+      "WitchHouseCemeteryFenceLeft",
+      "WitchHouseCemeteryFenceMiddle",
+      "WitchHouseCemeteryFenceRight",
+      "WitchHouseCrossedTomb",
+      "WitchHouseCrossedTombstone",
+      "WitchHouseEntranceFenceMiddle",
+      "WitchHouseFire",
+      "WitchHouseIronShovel",
+      "WitchHouseMushrooms",
+      "WitchHousePondCenterBottom",
+      "WitchHousePondCenterTop",
+      "WitchHousePondLeftBottom",
+      "WitchHousePondLeftMiddle",
+      "WitchHousePondLeftTop",
+      "WitchHousePondRightBottom",
+      "WitchHousePondRightMiddle",
+      "WitchHousePondRightTop",
+      "WitchHouseTinyMushroom",
+      "WitchHouseTomb",
+      "WitchHouseTombAngledGrassPatch",
+      "WitchHouseTombDirt",
+      "WitchHouseTombGrassPatch",
+      "WitchHouseTombVariant",
+      "WitchHouseTombstone",
+      "WitchHouseTombstoneAngle",
+      "WitchHouseTreeRoots",
+      "WitchHouseTreeRootsBone"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2258039
+  },
+  {
+    "groups": [
+      "main-town"
+    ],
+    "objects": [
+      "ApartmentBuilding",
+      "ArboreumArches",
+      "ArboreumBuilding",
+      "BackwardsBeanBag",
+      "BakeryBuilding",
+      "BlackTree",
+      "BlueCornhole",
+      "CoffeeShopBuilding",
+      "DJSpeaker",
+      "DJTable",
+      "DarkTree",
+      "DownSittingStool",
+      "FishingSign",
+      "Flower",
+      "ForwardsBeanBag",
+      "FrontBench",
+      "GamingChairBack",
+      "GamingChairFront",
+      "GamingTV",
+      "GamingTable",
+      "Gondola",
+      "Grass",
+      "GreenRecycleBin",
+      "LeftSittingStool",
+      "LightTree",
+      "LofeeShopMain",
+      "LofeeShopSide",
+      "LofeeShopSign",
+      "MainTownFlower",
+      "MainTownLamp",
+      "NewsBoard",
+      "PikinRecovered",
+      "PikinSad",
+      "Pillow",
+      "PinkRecycleBin",
+      "RedCornhole",
+      "RightSittingStool",
+      "Stool",
+      "StoreMain",
+      "StoreSide",
+      "TwistTree",
+      "UpSittingStool",
+      "UpdatedDJStage",
+      "VendingMachine",
+      "WitchHousePumpkin",
+      "WitchHousePumpkinBig",
+      "WitchHousePumpkinRough",
+      "WitchHousePumpkinVines",
+      "ZoomiesTrackSignDiagonal",
+      "ZoomiesTrackSignUp"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2258822
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core",
+      "witch-exterior"
+    ],
+    "objects": [
+      "WitchHouseAtmosphere",
+      "WitchHouseBuilding",
+      "WitchHouseCemeteryFog",
+      "WitchHouseEntranceFenceLeft",
+      "WitchHouseEntranceFenceRight",
+      "WitchHouseFog1",
+      "WitchHouseFog2",
+      "WitchHouseFog3",
+      "WitchHouseLightBig",
+      "WitchHouseLightSmall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2259646
+  },
+  {
+    "groups": [
+      "cathedral"
+    ],
+    "objects": [
+      "CathedralColumn",
+      "CathedralColumnTop",
+      "CathedralFloor",
+      "CathedralLunarStool",
+      "CathedralSmallStone1",
+      "CathedralSmallStone2",
+      "CathedralStairsSteps",
+      "CathedralStoneSlab1",
+      "CathedralStoneSlab2",
+      "CathedralThrone",
+      "CathedralWallLeft",
+      "CathedralWallRight",
+      "CathedralWalls",
+      "CathedralWindowLightCenter",
+      "CathedralWindowLightSide"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2259930
+  },
+  {
+    "groups": [
+      "cathedral",
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "CathedralLunarBench",
+      "CathedralStairsBack",
+      "CathedralStairsFront",
+      "CathedralStairsInnerRail"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2260286
+  },
+  {
+    "groups": [
+      "shared-garden"
+    ],
+    "objects": [
+      "ArboreumLilypad",
+      "ArboreumWaterLily",
+      "CathedralHangingLantern"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2260435
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "shared-garden",
+      "ui-core"
+    ],
+    "objects": [
+      "CathedralCornerFlowers"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2260536
+  },
+  {
+    "groups": [
+      "arboreum-props"
+    ],
+    "objects": [
+      "ArboreumBamboo",
+      "ArboreumBambooStump",
+      "ArboreumBigPlaque",
+      "ArboreumBirdOfParadise",
+      "ArboreumBlueBells",
+      "ArboreumBlueDeathLilies",
+      "ArboreumBluePoppies",
+      "ArboreumBlueTulips",
+      "ArboreumBushy",
+      "ArboreumCadaverFlower",
+      "ArboreumCopperSofa",
+      "ArboreumCupLily",
+      "ArboreumHortency",
+      "ArboreumIxora",
+      "ArboreumLaceRoot1",
+      "ArboreumLaceRoot2",
+      "ArboreumLaceTree",
+      "ArboreumLeaves",
+      "ArboreumLilTallGrass",
+      "ArboreumLunarTree",
+      "ArboreumPlaque",
+      "ArboreumPool",
+      "ArboreumPoolBorder",
+      "ArboreumRedDeathLilies",
+      "ArboreumRedPoppies",
+      "ArboreumSunTree",
+      "ArboreumTinyPalm",
+      "ArboreumTinyPlaque",
+      "ArboreumWall",
+      "ArboreumWaterSpotlight",
+      "ArboreumYellowTulips",
+      "ArboreumYoungBirchTree"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2260620
+  },
+  {
+    "groups": [
+      "arboreum-props",
+      "shared-garden"
+    ],
+    "objects": [
+      "ArboreumPineTree"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2261309
+  },
+  {
+    "groups": [
+      "arboreum-props",
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "ArboreumCopperBench",
+      "ArboreumLCopperSofa",
+      "ArboreumWindowLight1",
+      "ArboreumWindowLight2",
+      "ArboreumWindowLightCenter",
+      "ArboreumWindowLightDownpart"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2261382
+  },
+  {
+    "groups": [
+      "arboreum"
+    ],
+    "objects": [
+      "ArboreumRoofWindowsShadow"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2261590
+  },
+  {
+    "groups": [
+      "arctic-props"
+    ],
+    "objects": [
+      "ArcticCrate",
+      "ArcticCrateSeat",
+      "ArcticCrateStack",
+      "ArcticFirepit",
+      "ArcticFishStore",
+      "ArcticIceCube",
+      "ArcticIceCubeCluster",
+      "ArcticPackedSnow",
+      "ArcticPackedSnow1",
+      "ArcticPackedSnow2",
+      "ArcticPackedSnow3",
+      "ArcticPackedSnow4",
+      "ArcticPinecone",
+      "ArcticPinecones",
+      "ArcticPortBridge",
+      "ArcticRock1",
+      "ArcticRock2",
+      "ArcticRock4",
+      "ArcticSnowBunny",
+      "ArcticSnowClumps",
+      "ArcticSnowClumps1",
+      "ArcticSnowman",
+      "ArcticTotem",
+      "ArcticTreePole1",
+      "ArcticTreePole2"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2261650
+  },
+  {
+    "groups": [
+      "arctic-props",
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "ArcticCruzyaton",
+      "ArcticPicnicTable",
+      "ArcticPineTree",
+      "ArcticWhaleBar"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2262128
+  },
+  {
+    "groups": [
+      "arctic-props",
+      "cosmetics",
+      "shared-garden",
+      "ui-core"
+    ],
+    "objects": [
+      "ArcticTinyPineTree"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2262258
+  },
+  {
+    "groups": [
+      "whale-bar-props"
+    ],
+    "objects": [
+      "WhaleBarBackBarLeft",
+      "WhaleBarBackBarRight",
+      "WhaleBarBarStool",
+      "WhaleBarBarrelBack",
+      "WhaleBarBarrelFront",
+      "WhaleBarBarrelSide",
+      "WhaleBarBarrelTop",
+      "WhaleBarBeerTapFront",
+      "WhaleBarBeerTapSide",
+      "WhaleBarCarpet",
+      "WhaleBarCarpetHorizontal",
+      "WhaleBarCouch",
+      "WhaleBarCouchLeft",
+      "WhaleBarCouchBack",
+      "WhaleBarCouchRight",
+      "WhaleBarCounter",
+      "WhaleBarFridgeVapor1",
+      "WhaleBarFridgeVapor2",
+      "WhaleBarIceStool",
+      "WhaleBarLampLight",
+      "WhaleBarNewspaper1",
+      "WhaleBarNewspaper2",
+      "WhaleBarNewspaper3",
+      "WhaleBarNightstand",
+      "WhaleBarPostit",
+      "WhaleBarShelf",
+      "WhaleBarStairs",
+      "WhaleBarWallInnerLeft",
+      "WhaleBarWallInnerRight",
+      "WhaleBarWallLamp",
+      "WhaleBarWallOuterLeft",
+      "WhaleBarWallOuterRight"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2262353
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core",
+      "whale-bar-props"
+    ],
+    "objects": [
+      "WhaleBarIceTable",
+      "WhaleBarLongTable",
+      "WhaleBarWallDesk"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2263060
+  },
+  {
+    "groups": [
+      "cosmetics"
+    ],
+    "objects": [
+      "GokartDecorative",
+      "JetSkiDown",
+      "JetSkiLeft",
+      "JetSkiRight",
+      "JetSkiUp",
+      "WhaleBarMug",
+      "WhaleBarMugBeer",
+      "WhaleBarMugUpside",
+      "WhaleBarMugWine"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2263179
+  },
+  {
+    "groups": [
+      "bakery",
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "BakeryStructure"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2263352
+  },
+  {
+    "groups": [
+      "fishing-pier"
+    ],
+    "objects": [
+      "Boat",
+      "BoxClosed",
+      "BoxOpen",
+      "FishShop",
+      "Lighthouse",
+      "SmallRaft",
+      "TripleBox",
+      "WoodenDockPillar",
+      "WoodenDockPillarWithRope"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2263422
+  },
+  {
+    "groups": [
+      "fishing-shop"
+    ],
+    "objects": [
+      "FishPainting",
+      "FishStoreCashier",
+      "FishStoreShelf",
+      "FrontMat",
+      "HangingFish",
+      "IceBox",
+      "LCounter",
+      "LeftTable",
+      "MiddleTable",
+      "MiscWallObjects",
+      "PottedPlant",
+      "RightTable",
+      "YellowMat"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2263581
+  },
+  {
+    "groups": [
+      "coffee-shop"
+    ],
+    "objects": [
+      "BigWindowLight",
+      "CoffeeShopBar",
+      "CoffeeShopBottomCounter",
+      "CoffeeShopDownStool",
+      "CoffeeShopExtensionBar",
+      "CoffeeShopHangingPlant",
+      "CoffeeShopLeftStool",
+      "CoffeeShopRightStool",
+      "CoffeeShopSideTableWall",
+      "CoffeeShopSofaBack",
+      "CoffeeShopSofaFront",
+      "CoffeeShopUpStool",
+      "CoffeeshopBookshelf",
+      "FrontDoubleWindowLight",
+      "OrangeLSofa"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2263796
+  },
+  {
+    "groups": [
+      "coffee-shop",
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "Barista",
+      "CoffeeShopBigTable",
+      "CoffeeShopCircularTable",
+      "CoffeeShopLampLeft",
+      "CoffeeShopLampRight",
+      "CoffeeShopRectangleTable",
+      "CoffeeShopSideRectangleTable",
+      "CoffeeShopSingleSideTable",
+      "WindowDustParticlesType1",
+      "WindowDustParticlesType2"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2264157
+  },
+  {
+    "groups": [
+      "gokart-track"
+    ],
+    "objects": [
+      "BillboardCozy",
+      "BillboardEmpty",
+      "GokartBenches1",
+      "GokartBenches2",
+      "GokartFinishLine",
+      "GokartFlagPole1",
+      "GokartFlagPole2",
+      "GokartPodium",
+      "GokartStartLine",
+      "GokartTires1",
+      "GokartTires2",
+      "GokartTires3",
+      "KartPositionMarker"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2264454
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "gokart-track",
+      "ui-core"
+    ],
+    "objects": [
+      "GokartStand"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2264711
+  },
+  {
+    "groups": [
+      "room-apartment"
+    ],
+    "objects": [
+      "LgBottomApartmentWall",
+      "MdBottomApartmentWall",
+      "SmallApartmentWall",
+      "SmallBottomApartmentWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2264783
+  },
+  {
+    "groups": [
+      "room-60s-beige"
+    ],
+    "objects": [
+      "LgSixtiesBottomWall",
+      "LgSixtiesMiddleWall",
+      "MdSixtiesBottomWall",
+      "MdSixtiesMiddleWall",
+      "SmSixtiesBottomWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2264917
+  },
+  {
+    "groups": [
+      "room-treehouse"
+    ],
+    "objects": [
+      "MdTreehouseBottomWall",
+      "SmTreehouseBottomWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2265065
+  },
+  {
+    "groups": [
+      "room-pink-kawaii"
+    ],
+    "objects": [
+      "MdPinkKawaiiBottomHorizontalFence",
+      "MdPinkKawaiiBottomWall",
+      "MdPinkKawaiiDiagonalFence",
+      "MdPinkKawaiiTopHorizontalFence",
+      "PinkKawaiiWindowLight",
+      "SmPinkKawaiiBottomWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2265151
+  },
+  {
+    "groups": [
+      "room-urban-jungle"
+    ],
+    "objects": [
+      "LgUrbanJungleFenceLeft",
+      "LgUrbanJungleMiddleFence",
+      "LgUrbanJungleRightFence",
+      "LgUrbanJungleWalls",
+      "MdUrbanJungleBottomWall",
+      "MdUrbanJungleMiddleWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2265362
+  },
+  {
+    "groups": [
+      "room-beach-house-interior"
+    ],
+    "objects": [
+      "BeachHouseInteriorBottomWall",
+      "BeachHouseInteriorMiddleWall1",
+      "BeachHouseInteriorMiddleWall2",
+      "BeachHouseInteriorMiddleWall3",
+      "BeachHouseInteriorMiddleWall4"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2265554
+  },
+  {
+    "groups": [
+      "room-igloo"
+    ],
+    "objects": [
+      "IglooFishingHole",
+      "IglooSideLeft",
+      "IglooSideRightLower",
+      "IglooSideRightUpper",
+      "IglooWallLeft",
+      "IglooWallRight"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2265762
+  },
+  {
+    "groups": [
+      "room-royal"
+    ],
+    "objects": [
+      "MdRoyalBottomWall",
+      "RoyalWindowLight",
+      "SmRoyalBottomWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2265908
+  },
+  {
+    "groups": [
+      "room-fishing-cabin"
+    ],
+    "objects": [
+      "FishingCabinEggWindow",
+      "FishingCabinFlapWindow",
+      "FishingCabinOpenWindow",
+      "FishingCabinSquawkWindow",
+      "LgFishingCabinBottomWall",
+      "LgFishingCabinMiddleWall",
+      "MdFishingCabinBottomWall",
+      "MdFishingCabinMiddleWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266001
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "room-fishing-cabin",
+      "ui-core"
+    ],
+    "objects": [
+      "FishingCabinFishingDoor"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266252
+  },
+  {
+    "groups": [
+      "room-painter-studio"
+    ],
+    "objects": [
+      "MdBottomPainterStudioWall",
+      "SmallBottomPainterStudioWall",
+      "SmallPainterStudioWall"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266342
+  },
+  {
+    "groups": [
+      "furniture-misc"
+    ],
+    "objects": [
+      "Pedro"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266469
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core",
+      "ui-economy"
+    ],
+    "objects": [
+      "Pimkin"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266515
+  },
+  {
+    "groups": [
+      "winter-props"
+    ],
+    "objects": [
+      "ArtificialChristmasTree",
+      "BlueGift",
+      "PineChristmasTree",
+      "PinkGift",
+      "RedGift",
+      "TallGift"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266580
+  },
+  {
+    "groups": [
+      "event-anniversary"
+    ],
+    "objects": [
+      "Balloons",
+      "CarrotCake"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266705
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "event-anniversary",
+      "ui-core"
+    ],
+    "objects": [
+      "FreeAnniversaryCarrotCake"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266770
+  },
+  {
+    "groups": [
+      "evernight-props"
+    ],
+    "objects": [
+      "EpBaseTree",
+      "EpBenchLogFront",
+      "EpBenchLogFrontUp",
+      "EpBenchLogSide",
+      "EpBenchLogSideRight",
+      "EpBirch1",
+      "EpBirch2",
+      "EpBorderCenterUp",
+      "EpBoulder",
+      "EpCampfire",
+      "EpCampingBagBlue",
+      "EpCampingBagGreen",
+      "EpDaisy",
+      "EpFallenStar1",
+      "EpFallenStar2",
+      "EpFenceFrontLeftEnd",
+      "EpFenceFrontLoop",
+      "EpFenceFrontRightEnd",
+      "EpFenceSide",
+      "EpFenceSideEnd",
+      "EpFenceSideEndFlipped",
+      "EpGlowingLunarTree",
+      "EpGondola",
+      "EpGondolaPosts",
+      "EpKonamiPoster",
+      "EpLogChair",
+      "EpLogChairLeft",
+      "EpLogChairRight",
+      "EpLogChairUp",
+      "EpLogPile",
+      "EpMainCampfire",
+      "EpMarshmallowOnStick",
+      "EpMoonPhase",
+      "EpNewsBoard",
+      "EpPoppy",
+      "EpRock1",
+      "EpRock2",
+      "EpRock3",
+      "EpShortLamp",
+      "EpStarShiny1",
+      "EpStarShiny2",
+      "EpStarShiny3",
+      "EpTable",
+      "EpTent",
+      "EpTrash",
+      "EpTrashGreen",
+      "EpTreeLayer1",
+      "EpTreeLayer2",
+      "EpWaterfall",
+      "EpWaterfallSides"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2266861
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "evernight-props",
+      "ui-core"
+    ],
+    "objects": [
+      "EpCampfireLight",
+      "EpCampfireParticles",
+      "EpFire",
+      "EpFireGreen",
+      "EpFireGrey",
+      "EpFireLight",
+      "EpFirefliesLoop",
+      "EpFirefly",
+      "EpLampLight",
+      "EpPicnicTable",
+      "EpTelescope"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2267672
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core",
+      "volcanic-props"
+    ],
+    "objects": [
+      "VbFarBackLavaFlow"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2267897
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core",
+      "volcanic-spa-props"
+    ],
+    "objects": [
+      "VsJacuzziFull",
+      "VsSaunaPool"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2267977
+  },
+  {
+    "groups": [
+      "furniture-beige"
+    ],
+    "objects": [
+      "BathroomSinkBeige",
+      "BathtubBeige",
+      "BedBeige",
+      "BookShelfFrontBeige",
+      "BookShelfLeftBeige",
+      "BookShelfRightBeige",
+      "CabinetFrontBeige",
+      "CabinetLeftBeige",
+      "CabinetRightBeige",
+      "CarpetHorizontalBeige",
+      "CarpetVerticalBeige",
+      "CelingPlantBeige",
+      "ComputerTableFrontBeige",
+      "ComputerTableLeftBeige",
+      "ComputerTableRightBeige",
+      "Counter1Beige",
+      "Counter2Beige",
+      "ItemShelfFrontBeige",
+      "ItemShelfLeftBeige",
+      "ItemShelfRightBeige",
+      "LCounter1Beige",
+      "LCounter2Beige",
+      "LongCouchBackBeige",
+      "LongCouchFrontBeige",
+      "NightstandBeige",
+      "PianoBeige",
+      "Plant1Beige",
+      "Plant2Beige",
+      "Plant3Beige",
+      "Plant4Beige",
+      "Plant5Beige",
+      "Plant6Beige",
+      "PlantDeadBeige",
+      "SmallCouchBackBeige",
+      "SmallCouchFrontBeige",
+      "SquareCarpetHorizontalBeige",
+      "SquareCarpetVerticalBeige",
+      "Stool1DownBeige",
+      "Stool1LeftBeige",
+      "Stool1RightBeige",
+      "Stool1UpBeige",
+      "Stool2DownBeige",
+      "Stool2LeftBeige",
+      "Stool2RightBeige",
+      "Stool2UpBeige",
+      "StudyTableFrontBeige",
+      "StudyTableLeftBeige",
+      "StudyTableRightBeige",
+      "TVTableOffBackBeige",
+      "TVTableOffFrontBeige",
+      "TVTableOffLeftBeige",
+      "TVTableOffRightBeige",
+      "TVTableOnBackBeige",
+      "TVTableOnFrontBeige",
+      "TVTableOnLeftBeige",
+      "TVTableOnRightBeige",
+      "TableBeige",
+      "TallChairBackBeige",
+      "TallChairFrontBeige",
+      "TallChairLeftBeige",
+      "TallChairRightBeige",
+      "TallLampBeige",
+      "TallVaseBeige",
+      "ToiletBeige"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2268071
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-beige",
+      "ui-core"
+    ],
+    "objects": [
+      "LongCouchLeftBeige",
+      "LongCouchRightBeige",
+      "SmallCouchLeftBeige",
+      "SmallCouchRightBeige"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2269362
+  },
+  {
+    "groups": [
+      "aquarium",
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "AquariumDoor"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2269511
+  },
+  {
+    "groups": [
+      "furniture-pink-kawaii"
+    ],
+    "objects": [
+      "BathtubPinkKawaii",
+      "BathtubSidePinkKawaii",
+      "BookShelfFrontPinkKawaii",
+      "BookShelfLeftPinkKawaii",
+      "BookShelfRightPinkKawaii",
+      "Counter1PinkKawaii",
+      "Counter2PinkKawaii",
+      "ItemShelfFrontPinkKawaii",
+      "ItemShelfLeftPinkKawaii",
+      "ItemShelfRightPinkKawaii",
+      "LCounter1PinkKawaii",
+      "LCounter2PinkKawaii",
+      "PianoPinkKawaii",
+      "PinkKawaiiACEPrideFlag",
+      "PinkKawaiiAlignedBooks",
+      "PinkKawaiiBeanBag",
+      "PinkKawaiiBiPrideFlag",
+      "PinkKawaiiBook",
+      "PinkKawaiiCatClock",
+      "PinkKawaiiCircularCarpet",
+      "PinkKawaiiClock",
+      "PinkKawaiiComputerFront",
+      "PinkKawaiiComputerFrontGreen",
+      "PinkKawaiiComputerFrontOrange",
+      "PinkKawaiiComputerFrontPurple",
+      "PinkKawaiiComputerFrontRed",
+      "PinkKawaiiComputerSide",
+      "PinkKawaiiComputerSideGreen",
+      "PinkKawaiiComputerSideOrange",
+      "PinkKawaiiComputerSidePurple",
+      "PinkKawaiiComputerSideRed",
+      "PinkKawaiiCurtainFront",
+      "PinkKawaiiCurtainFrontOpen",
+      "PinkKawaiiCurtainSide",
+      "PinkKawaiiDeskFront",
+      "PinkKawaiiDeskLamp",
+      "PinkKawaiiDeskSide",
+      "PinkKawaiiDoubleBed",
+      "PinkKawaiiDoubleBedSide",
+      "PinkKawaiiForgNoteBoard",
+      "PinkKawaiiForgPlush",
+      "PinkKawaiiGayPrideFlag",
+      "PinkKawaiiHighKitchenDrawer1",
+      "PinkKawaiiHighKitchenDrawer2",
+      "PinkKawaiiKonamiWallpaper",
+      "PinkKawaiiLesbPrideFlag",
+      "PinkKawaiiNBPrideFlag",
+      "PinkKawaiiNekomataTrophy",
+      "PinkKawaiiNightStandFront",
+      "PinkKawaiiNightStandSide",
+      "PinkKawaiiPanPrideFlag",
+      "PinkKawaiiPlush1",
+      "PinkKawaiiPlush2",
+      "PinkKawaiiPlush3",
+      "PinkKawaiiRainbowPrideFlag",
+      "PinkKawaiiRandomSmallCouchBack",
+      "PinkKawaiiRandomSmallCouchFront",
+      "PinkKawaiiRandomSmallCouchLeft",
+      "PinkKawaiiRandomSmallCouchRight",
+      "PinkKawaiiTile",
+      "PinkKawaiiTransPrideFlag",
+      "PinkKawaiiWardrobe",
+      "PinkKawaiiWardrobeSide",
+      "SmallCouchBackPinkKawaii",
+      "SmallCouchFrontPinkKawaii",
+      "SmallCouchLeftPinkKawaii",
+      "SmallCouchRightPinkKawaii",
+      "SquareCarpetHorizontalPinkKawaii",
+      "SquareCarpetVerticalPinkKawaii",
+      "Stool1DownPinkKawaii",
+      "Stool1LeftPinkKawaii",
+      "Stool1RightPinkKawaii",
+      "Stool1UpPinkKawaii",
+      "Stool2DownPinkKawaii",
+      "Stool2LeftPinkKawaii",
+      "Stool2RightPinkKawaii",
+      "Stool2UpPinkKawaii",
+      "TablePinkKawaii",
+      "TallChairBackPinkKawaii",
+      "TallChairFrontPinkKawaii",
+      "TallChairLeftPinkKawaii",
+      "TallChairRightPinkKawaii",
+      "TallLampPinkKawaii",
+      "ToiletPinkKawaii"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2269580
+  },
+  {
+    "groups": [
+      "furniture-urban-jungle"
+    ],
+    "objects": [
+      "BathroomSinkUrbanJungle",
+      "BathtubUrbanJungle",
+      "BedSideUrbanJungle",
+      "BedUrbanJungle",
+      "BookShelfFrontUrbanJungle",
+      "BookShelfLeftUrbanJungle",
+      "BookShelfRightUrbanJungle",
+      "Counter1UrbanJungle",
+      "Counter2UrbanJungle",
+      "LCounter1UrbanJungle",
+      "LCounter2UrbanJungle",
+      "LongCouchFrontUrbanJungle",
+      "PianoUrbanJungle",
+      "SquareCarpetHorizontalUrbanJungle",
+      "SquareCarpetVerticalUrbanJungle",
+      "Stool1DownUrbanJungle",
+      "Stool1LeftUrbanJungle",
+      "Stool1RightUrbanJungle",
+      "Stool1UpUrbanJungle",
+      "Stool2DownUrbanJungle",
+      "Stool2LeftUrbanJungle",
+      "Stool2RightUrbanJungle",
+      "Stool2UpUrbanJungle",
+      "StudyTableFrontUrbanJungle",
+      "StudyTableLeftUrbanJungle",
+      "StudyTableRightUrbanJungle",
+      "TableUrbanJungle",
+      "TallLampUrbanJungle",
+      "TallVaseUrbanJungle",
+      "ToiletUrbanJungle",
+      "UrbanJungleAshbroom",
+      "UrbanJungleBigCarpet",
+      "UrbanJungleBigFireplace",
+      "UrbanJungleBookcase",
+      "UrbanJungleCactusPot1",
+      "UrbanJungleCactusPot2",
+      "UrbanJungleCactusPot3",
+      "UrbanJungleFireplace",
+      "UrbanJungleMajestyPalmPlant",
+      "UrbanJungleMonsteraPlant",
+      "UrbanJungleNightstandFront",
+      "UrbanJungleNightstandSide",
+      "UrbanJunglePlantWall",
+      "UrbanJunglePrayerhandPlant",
+      "UrbanJungleShelf",
+      "UrbanJungleWardrobe",
+      "UrbanJungleWardrobeSide"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2271749
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-urban-jungle",
+      "ui-core"
+    ],
+    "objects": [
+      "BathtubSideUrbanJungle",
+      "LongCouchBackUrbanJungle",
+      "LongCouchLeftUrbanJungle",
+      "LongCouchRightUrbanJungle"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2272950
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "room-urban-jungle",
+      "ui-core"
+    ],
+    "objects": [
+      "LightsUrbanJungle"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2273125
+  },
+  {
+    "groups": [
+      "beach-island"
+    ],
+    "objects": [
+      "BeachDock",
+      "BeachGrass",
+      "BeachPalmTree",
+      "BeachParadiseBirdSapling",
+      "BeachShell1",
+      "BeachShell2",
+      "BeachStarfish",
+      "BeachStones1",
+      "BeachStones2",
+      "BeachTallGrass",
+      "BeachTinyBush1",
+      "BeachTinyBush2",
+      "BeachWaterStain",
+      "BeachWaterWave",
+      "BeachhouseBuilding1",
+      "BeachhouseBuilding2",
+      "BeachhouseBuilding3",
+      "BeachhouseBuilding4",
+      "BeachhouseEverything",
+      "BeachhouseFence1",
+      "BeachhouseFence2"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2273208
+  },
+  {
+    "groups": [
+      "beach-island",
+      "cosmetics"
+    ],
+    "objects": [
+      "BeachUmbrella"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2273621
+  },
+  {
+    "groups": [
+      "furniture-beach-house"
+    ],
+    "objects": [
+      "BeachBigCarpetHorizontal",
+      "BeachBigCarpetVertical",
+      "BeachChairAngledBlue",
+      "BeachChairAngledGreen",
+      "BeachChairAngledWhite",
+      "BeachChairAngledWood",
+      "BeachChairBackBlue",
+      "BeachChairBackGreen",
+      "BeachChairBackWhite",
+      "BeachChairBackWood",
+      "BeachChairFrontBlue",
+      "BeachChairFrontGreen",
+      "BeachChairFrontWhite",
+      "BeachChairFrontWood",
+      "BeachCounterSinkBack",
+      "BeachCounterSinkFront",
+      "BeachDiscoPlayer",
+      "BeachDoubleBed",
+      "BeachDoubleBedSide",
+      "BeachDoubleShelf",
+      "BeachFloralSurfingBoardFront",
+      "BeachFloralSurfingBoardSide",
+      "BeachFridge",
+      "BeachHangingBirdOfParadise",
+      "BeachHangingLamp",
+      "BeachHangingPlant",
+      "BeachHotSurfingBoard",
+      "BeachHotSurfingBoardOnWall",
+      "BeachKitchenCabinetBack",
+      "BeachKitchenCabinetFront",
+      "BeachKitchenCabinetSide",
+      "BeachLongCarpet",
+      "BeachLongCouchBackGreen",
+      "BeachLongCouchBackWhite",
+      "BeachLongCouchFrontGreen",
+      "BeachLongCouchFrontWhite",
+      "BeachModernCoffeeMachineFront",
+      "BeachModernCoffeeMachineSide",
+      "BeachOvenBack",
+      "BeachOvenFront",
+      "BeachPalmSurfingBoard",
+      "BeachPalmSurfingBoardOnWall",
+      "BeachPottedFlowers",
+      "BeachRectangleCarpet",
+      "BeachShelf",
+      "BeachShelfBoard",
+      "BeachSinkBack",
+      "BeachSinkFront",
+      "BeachTVTableBack",
+      "BeachTVTableFront",
+      "BeachTVTableSide",
+      "BeachTinyPottedFlower",
+      "BeachTribalSurfingBoardFront",
+      "BeachTribalSurfingBoardSide",
+      "CarpetHorizontalBeach",
+      "CarpetVerticalBeach",
+      "Counter1Beach",
+      "Counter2Beach",
+      "SmallCouchBackGreenBeach",
+      "SmallCouchBackWhiteBeach",
+      "SmallCouchFrontGreenBeach",
+      "SmallCouchFrontWhiteBeach",
+      "SmallCouchLeftGreenBeach",
+      "SmallCouchLeftWhiteBeach",
+      "SmallCouchRightGreenBeach",
+      "SmallCouchRightWhiteBeach",
+      "SquareCarpetHorizontalBeach",
+      "SquareCarpetVerticalBeach",
+      "ToiletBeach"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2273685
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-beach-house",
+      "ui-core"
+    ],
+    "objects": [
+      "BeachChairSideBlue",
+      "BeachChairSideGreen",
+      "BeachChairSideWhite",
+      "BeachChairSideWood",
+      "BeachLongCouchLeftGreen",
+      "BeachLongCouchLeftWhite",
+      "BeachLongCouchRightGreen",
+      "BeachLongCouchRightWhite"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2275344
+  },
+  {
+    "groups": [
+      "furniture-misc"
+    ],
+    "objects": [
+      "AirConditioner",
+      "AppleCarpet",
+      "Banner1",
+      "BatTrophy",
+      "BlankEasel",
+      "BluePaint",
+      "Cactus0",
+      "Cactus1",
+      "Cactus2",
+      "Cactus3",
+      "Cactus4",
+      "Cactus5",
+      "CactusDead",
+      "CatfishTrophy",
+      "CobraTrophy",
+      "ColorfulFlags",
+      "EmptyEasel",
+      "FairyLights",
+      "FrogCarpet",
+      "FrontFacingCoffeeMachine",
+      "FrontFacingCoffeeMachineSide",
+      "Fruits",
+      "GreenPaint",
+      "HeaterFront",
+      "HeaterSide",
+      "LargePileArt",
+      "Lily1",
+      "Lily2",
+      "MarlinsKombini",
+      "MediumPainting1",
+      "MediumPainting2",
+      "MonkeyTrophy",
+      "NotesOnWall",
+      "OrangePaint",
+      "PaintedEasel",
+      "PomodoroTrophy",
+      "RedPaint",
+      "SideFacingCoffeeMachine",
+      "SideFacingCoffeeMachineFront",
+      "SmallPainting1",
+      "SmallPainting2",
+      "SmallPainting3",
+      "SmallPainting4",
+      "SmallPileArt",
+      "StencilTrophy",
+      "TackBoard",
+      "TinyAmberStone",
+      "TinyApple",
+      "TinyBanana",
+      "TinyBrushCup",
+      "TinyCactus",
+      "TinyCandle1Lit",
+      "TinyCandle1Unlit",
+      "TinyCandle3Lit",
+      "TinyCandle3Unlit",
+      "TinyCeramicElephant",
+      "TinyCeramicVase",
+      "TinyCherry",
+      "TinyFeatherPen",
+      "TinyFlowerVase",
+      "TinyGoldenOrb",
+      "TinyGrapes",
+      "TinyLamp",
+      "TinyLilyCup",
+      "TinyPaintBrush",
+      "TinyPallet",
+      "TinyPencilCup",
+      "TinyPineapple",
+      "TinyPottedPlant",
+      "TinySoap",
+      "TinyWaterCup",
+      "TinyWatermelon",
+      "TinyWatermelonSlice",
+      "TrashCanEmpty",
+      "TrashCanFull"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2275603
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-misc",
+      "ui-core"
+    ],
+    "objects": [
+      "InflatableTV"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2276782
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-school",
+      "ui-core"
+    ],
+    "objects": [
+      "DoodleTV"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2276857
+  },
+  {
+    "groups": [],
+    "objects": [
+      "ChalkboardBackToSchool",
+      "PlantDeadPainter"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2276930
+  },
+  {
+    "groups": [
+      "furniture-school"
+    ],
+    "objects": [
+      "MovableChalkboardBackToSchool"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2276996
+  },
+  {
+    "groups": [
+      "furniture-treehouse"
+    ],
+    "objects": [
+      "BathroomSinkTreehouse",
+      "BathtubTreehouse",
+      "BedTreehouse",
+      "BookShelfFrontTreehouse",
+      "BookShelfLeftTreehouse",
+      "BookShelfRightTreehouse",
+      "CabinetFrontTreehouse",
+      "CabinetLeftTreehouse",
+      "CabinetRightTreehouse",
+      "CarpetHorizontalTreehouse",
+      "CarpetVerticalTreehouse",
+      "CelingPlantTreehouse",
+      "ComputerTableFrontTreehouse",
+      "ComputerTableLeftTreehouse",
+      "ComputerTableRightTreehouse",
+      "Counter1Treehouse",
+      "Counter2Treehouse",
+      "ItemShelfFrontTreehouse",
+      "ItemShelfLeftTreehouse",
+      "ItemShelfRightTreehouse",
+      "LCounter1Treehouse",
+      "LCounter2Treehouse",
+      "LongCouchBackTreehouse",
+      "LongCouchFrontTreehouse",
+      "LongCouchLeftTreehouse",
+      "LongCouchRightTreehouse",
+      "NightstandTreehouse",
+      "PianoTreehouse",
+      "Plant1Treehouse",
+      "Plant2Treehouse",
+      "Plant3Treehouse",
+      "Plant4Treehouse",
+      "Plant5Treehouse",
+      "Plant6Treehouse",
+      "PlantDeadTreehouse",
+      "SmallCouchBackTreehouse",
+      "SmallCouchFrontTreehouse",
+      "SmallCouchLeftTreehouse",
+      "SmallCouchRightTreehouse",
+      "SquareCarpetHorizontalTreehouse",
+      "SquareCarpetVerticalTreehouse",
+      "Stool1DownTreehouse",
+      "Stool1LeftTreehouse",
+      "Stool1RightTreehouse",
+      "Stool1UpTreehouse",
+      "Stool2DownTreehouse",
+      "Stool2LeftTreehouse",
+      "Stool2RightTreehouse",
+      "Stool2UpTreehouse",
+      "StudyTableFrontTreehouse",
+      "StudyTableLeftTreehouse",
+      "StudyTableRightTreehouse",
+      "TVTableOffBackTreehouse",
+      "TVTableOffFrontTreehouse",
+      "TVTableOffLeftTreehouse",
+      "TVTableOffRightTreehouse",
+      "TVTableOnBackTreehouse",
+      "TVTableOnFrontTreehouse",
+      "TVTableOnLeftTreehouse",
+      "TVTableOnRightTreehouse",
+      "TableTreehouse",
+      "TallChairBackTreehouse",
+      "TallChairFrontTreehouse",
+      "TallChairLeftTreehouse",
+      "TallChairRightTreehouse",
+      "TallLampTreehouse",
+      "TallVaseTreehouse",
+      "ToiletTreehouse"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2277068
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "room-treehouse",
+      "ui-core"
+    ],
+    "objects": [
+      "LightsTreehouse"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2278723
+  },
+  {
+    "groups": [
+      "furniture-painter"
+    ],
+    "objects": [
+      "BathroomSinkPainter",
+      "BathtubPainter",
+      "BedPainter",
+      "BookShelfFrontPainter",
+      "BookShelfLeftPainter",
+      "BookShelfRightPainter",
+      "CabinetFrontPainter",
+      "CabinetLeftPainter",
+      "CabinetRightPainter",
+      "ComputerTableFrontPainter",
+      "ComputerTableLeftPainter",
+      "ComputerTableRightPainter",
+      "Counter1Painter",
+      "Counter2Painter",
+      "FlowerCarpet",
+      "ItemShelfFrontPainter",
+      "ItemShelfLeftPainter",
+      "ItemShelfRightPainter",
+      "LCounter1Painter",
+      "LCounter2Painter",
+      "LongCouchBackPainter",
+      "LongCouchFrontPainter",
+      "LongCouchLeftPainter",
+      "LongCouchRightPainter",
+      "NightstandPainter",
+      "PianoPainter",
+      "SmallCouchBackPainter",
+      "SmallCouchFrontPainter",
+      "SmallCouchLeftPainter",
+      "SmallCouchRightPainter",
+      "SquareCarpetHorizontalPainter",
+      "SquareCarpetVerticalPainter",
+      "Stool1DownPainter",
+      "Stool1LeftPainter",
+      "Stool1RightPainter",
+      "Stool1UpPainter",
+      "Stool2DownPainter",
+      "Stool2LeftPainter",
+      "Stool2RightPainter",
+      "Stool2UpPainter",
+      "StudyTableFrontPainter",
+      "StudyTableLeftPainter",
+      "StudyTableRightPainter",
+      "SunFlower",
+      "TVTableOffBackPainter",
+      "TVTableOffFrontPainter",
+      "TVTableOffLeftPainter",
+      "TVTableOffRightPainter",
+      "TVTableOnBackPainter",
+      "TVTableOnFrontPainter",
+      "TVTableOnLeftPainter",
+      "TVTableOnRightPainter",
+      "TablePainter",
+      "TallChairBackPainter",
+      "TallChairFrontPainter",
+      "TallChairLeftPainter",
+      "TallChairRightPainter",
+      "TallLampPainter",
+      "TallVasePainter",
+      "ToiletPainter"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2278801
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "room-painter-studio",
+      "ui-core"
+    ],
+    "objects": [
+      "LightsPainter"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2280159
+  },
+  {
+    "groups": [
+      "furniture-royal"
+    ],
+    "objects": [
+      "BathroomSinkRoyal",
+      "BathtubRoyal",
+      "BedRoyal",
+      "BookShelfFrontRoyal",
+      "BookShelfLeftRoyal",
+      "BookShelfRightRoyal",
+      "CabinetFrontRoyal",
+      "CabinetLeftRoyal",
+      "CabinetRightRoyal",
+      "CarpetHorizontalRoyal",
+      "CarpetVerticalRoyal",
+      "ComputerTableFrontRoyal",
+      "ComputerTableLeftRoyal",
+      "ComputerTableRightRoyal",
+      "Counter1Royal",
+      "Counter2Royal",
+      "DresserFrontRoyal",
+      "DresserLeftRoyal",
+      "DresserRightRoyal",
+      "LCounter1Royal",
+      "LCounter2Royal",
+      "LongCouchBackRoyal",
+      "LongCouchFrontRoyal",
+      "LongCouchLeftRoyal",
+      "LongCouchRightRoyal",
+      "NightstandRoyal",
+      "PianoRoyal",
+      "PottedRosesRoyal",
+      "RoyalBannerRoyal",
+      "RoyalStandCurtainFrontRoyal",
+      "RoyalStandCurtainLeftRoyal",
+      "RoyalStandCurtainOpenRoyal",
+      "RoyalStandCurtainRightRoyal",
+      "SmallCouchBackRoyal",
+      "SmallCouchFrontRoyal",
+      "SmallCouchLeftRoyal",
+      "SmallCouchRightRoyal",
+      "SquareCarpetHorizontalRoyal",
+      "SquareCarpetVerticalRoyal",
+      "Stool1DownRoyal",
+      "Stool1LeftRoyal",
+      "Stool1RightRoyal",
+      "Stool1UpRoyal",
+      "Stool2DownRoyal",
+      "Stool2LeftRoyal",
+      "Stool2RightRoyal",
+      "Stool2UpRoyal",
+      "StudyTableFrontRoyal",
+      "StudyTableLeftRoyal",
+      "StudyTableRightRoyal",
+      "TVTableOffBackRoyal",
+      "TVTableOffFrontRoyal",
+      "TVTableOffLeftRoyal",
+      "TVTableOffRightRoyal",
+      "TVTableOnBackRoyal",
+      "TVTableOnFrontRoyal",
+      "TVTableOnLeftRoyal",
+      "TVTableOnRightRoyal",
+      "TableRoyal",
+      "TallChairBackRoyal",
+      "TallChairFrontRoyal",
+      "TallChairLeftRoyal",
+      "TallChairRightRoyal",
+      "TallLampRoyal",
+      "TallVaseRoyal",
+      "ToiletRoyal"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2280240
+  },
+  {
+    "groups": [
+      "fish-swamp"
+    ],
+    "objects": [
+      "BillyBass",
+      "ShinyBillyBass"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2281649
+  },
+  {
+    "groups": [
+      "fish-volcanic"
+    ],
+    "objects": [
+      "GreenCoral",
+      "PinkCoral",
+      "ShinyGreenCoral",
+      "ShinyPinkCoral"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2281712
+  },
+  {
+    "groups": [
+      "event-aprilfools",
+      "main-town"
+    ],
+    "objects": [
+      "GoldenTrashCan",
+      "WaterLoggedTrashCan"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2281809
+  },
+  {
+    "groups": [
+      "furniture-halloween"
+    ],
+    "objects": [
+      "ArcanebookWitchHut",
+      "BatTrophyHalloween2026",
+      "BathroomSinkHalloween",
+      "BathtubHalloween",
+      "BathtubHalloween2026",
+      "BedHalloween",
+      "BedHalloween2026",
+      "BedSideHalloween2026",
+      "BlueBottleWitchHut",
+      "BluePotionWitchHut",
+      "BookShelfFrontHalloween",
+      "BookShelfLeftHalloween",
+      "BookShelfRightHalloween",
+      "BookStandWitchHut",
+      "BookshelfSideWitchHut",
+      "BookshelfWitchHut",
+      "CabinetFrontHalloween",
+      "CabinetFrontHalloween2026",
+      "CabinetLeftHalloween",
+      "CabinetLeftHalloween2026",
+      "CabinetRightHalloween",
+      "CabinetRightHalloween2026",
+      "CandelabrumHalloween2026",
+      "CarpetHorizontalHalloween",
+      "CarpetVerticalHalloween",
+      "CelingPlantHalloween",
+      "ComputerTableFrontHalloween",
+      "ComputerTableLeftHalloween",
+      "ComputerTableRightHalloween",
+      "Counter1Halloween",
+      "Counter2Halloween",
+      "CounterWitchHut",
+      "CrystalBallWitchHut",
+      "CursedFridgeHalloween2026",
+      "CursedPianoHalloween2026",
+      "CursedStoolHalloween2026",
+      "CursedVaseHalloween2026",
+      "DungeonChainsHalloween2026",
+      "FairyJarWitchHut",
+      "FurnaceWitchHut",
+      "GiantCarpetWitchHut",
+      "HerbsHolderWitchHut",
+      "ItemShelfFrontHalloween",
+      "ItemShelfLeftHalloween",
+      "ItemShelfRightHalloween",
+      "LCounter1Halloween",
+      "LCounter2Halloween",
+      "LongCouchBackHalloween",
+      "LongCouchBackHalloween2026",
+      "LongCouchFrontHalloween",
+      "LongCouchFrontHalloween2026",
+      "LongCouchLeftHalloween",
+      "LongCouchLeftHalloween2026",
+      "LongCouchRightHalloween",
+      "LongCouchRightHalloween2026",
+      "LunarDraperyWitchHut",
+      "LunarLongCarpetWitchHut",
+      "LunarLongDraperyWitchHut",
+      "LunarStoolWitchHut",
+      "MagicBookWitchHut",
+      "NightstandHalloween",
+      "PetiteBlueBottleWitchHut",
+      "PetiteBottleWitchHut",
+      "PetiteHerbBottleWitchHut",
+      "PianoHalloween",
+      "Plant1Halloween",
+      "Plant2Halloween",
+      "Plant3Halloween",
+      "Plant4Halloween",
+      "Plant5Halloween",
+      "Plant6Halloween",
+      "PlantDeadHalloween",
+      "PottedPlantWitchHut",
+      "RedPotionWitchHut",
+      "SinkHalloween2026",
+      "SkullSideWitchHut",
+      "SkullWitchHut",
+      "SmallCouchBackHalloween",
+      "SmallCouchFrontHalloween",
+      "SmallCouchLeftHalloween",
+      "SmallCouchRightHalloween",
+      "SquareCarpetHorizontalHalloween",
+      "SquareCarpetVerticalHalloween",
+      "Stool1DownHalloween",
+      "Stool1LeftHalloween",
+      "Stool1RightHalloween",
+      "Stool1UpHalloween",
+      "Stool2DownHalloween",
+      "Stool2LeftHalloween",
+      "Stool2RightHalloween",
+      "Stool2UpHalloween",
+      "StudyTableFrontHalloween",
+      "StudyTableLeftHalloween",
+      "StudyTableRightHalloween",
+      "TVTableOffBackHalloween",
+      "TVTableOffBackHalloween2026",
+      "TVTableOffFrontHalloween",
+      "TVTableOffFrontHalloween2026",
+      "TVTableOffLeftHalloween",
+      "TVTableOffLeftHalloween2026",
+      "TVTableOffRightHalloween",
+      "TVTableOffRightHalloween2026",
+      "TVTableOnBackHalloween",
+      "TVTableOnFrontHalloween",
+      "TVTableOnLeftHalloween",
+      "TVTableOnRightHalloween",
+      "TableHalloween",
+      "TableHalloween2026",
+      "TallChairBackHalloween",
+      "TallChairBackHalloween2026",
+      "TallChairFrontHalloween",
+      "TallChairFrontHalloween2026",
+      "TallChairLeftHalloween",
+      "TallChairLeftHalloween2026",
+      "TallChairRightHalloween",
+      "TallChairRightHalloween2026",
+      "TallLampHalloween",
+      "TallVaseHalloween",
+      "TinyBluePotionWitchHut",
+      "TinyGreenPotionWitchHut",
+      "TinyRedPotionWitchHut",
+      "ToiletHalloween",
+      "ToiletHalloween2026",
+      "VineArrangement2WitchHut",
+      "VineArrangement3WitchHut",
+      "VineArrangementWitchHut"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2281900
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "EasterEgg",
+      "HalloweenPumpkin",
+      "HalloweenTVTable",
+      "TableFurniture",
+      "ToggleFurniture"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2284988
+  },
+  {
+    "groups": [
+      "witch-interior"
+    ],
+    "objects": [
+      "LongTableWitchHut",
+      "LongTableHorizontalWitchHut",
+      "StudyTableWitchHut",
+      "StudyTableHorizontalWitchHut"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2285116
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-halloween",
+      "ui-core"
+    ],
+    "objects": [
+      "CauldronWitchHut"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2285256
+  },
+  {
+    "groups": [
+      "main-town"
+    ],
+    "objects": [
+      "HalloweenPumpkinBA",
+      "HalloweenPumpkinClueless",
+      "HalloweenPumpkinCrystal",
+      "HalloweenPumpkinCursed",
+      "HalloweenPumpkinDumbukin",
+      "HalloweenPumpkinFunny",
+      "HalloweenPumpkinGUuuh",
+      "HalloweenPumpkinJackOLantern",
+      "HalloweenPumpkinMischievousLola",
+      "HalloweenPumpkinShy",
+      "HalloweenPumpkinSmile",
+      "HalloweenPumpkinSpookyCat",
+      "HalloweenPumpkinTired"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2285340
+  },
+  {
+    "groups": [
+      "furniture-igloo"
+    ],
+    "objects": [
+      "IglooBedHorizontal",
+      "IglooBedVertical",
+      "IglooCabinetFront",
+      "IglooCabinetSide",
+      "IglooCarpetHorizontal",
+      "IglooCarpetVertical",
+      "IglooCounterBack",
+      "IglooCounterFront",
+      "IglooFireplace",
+      "IglooFridge",
+      "IglooLongCouchFront",
+      "IglooPiano",
+      "IglooShelf",
+      "IglooSink",
+      "IglooTable",
+      "IglooToilet",
+      "IglooVase"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2285710
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "furniture-igloo",
+      "ui-core"
+    ],
+    "objects": [
+      "IglooBathtubHorizontal",
+      "IglooBathtubVertical",
+      "IglooLongCouchBack",
+      "IglooLongCouchLeft",
+      "IglooLongCouchRight",
+      "IglooStool"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2286043
+  },
+  {
+    "groups": [],
+    "objects": [
+      "EasterEggFurniture",
+      "IglooStoolLeft",
+      "IglooStoolRight",
+      "IglooStoolUp"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2286229
+  },
+  {
+    "groups": [
+      "event-easter"
+    ],
+    "objects": [
+      "EasterBasket",
+      "EggBig1",
+      "EggBig1Furniture",
+      "EggBig2",
+      "EggBig2Furniture",
+      "EggMedium1",
+      "EggMedium1Furniture",
+      "EggMedium2",
+      "EggMedium2Furniture",
+      "EggMedium3",
+      "EggMedium3Furniture",
+      "EggMedium4",
+      "EggMedium4Furniture",
+      "EggSmall1",
+      "EggSmall1Furniture",
+      "EggSmall2",
+      "EggSmall2Furniture",
+      "EggSmall3",
+      "EggSmall3Furniture",
+      "EggSmall4",
+      "EggSmall4Furniture",
+      "EggSmall5",
+      "EggSmall5Furniture",
+      "EggSmallRare",
+      "EggSmallRareFurniture"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2286322
+  },
+  {
+    "groups": [
+      "evernight-props"
+    ],
+    "objects": [
+      "Backpack",
+      "EvernightTelescope",
+      "LogSeat",
+      "LogSeatLeft",
+      "LogSeatRight",
+      "LogSeatUp",
+      "Tent"
+    ],
+    "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+    "offset": 2286775
+  },
+  {
+    "groups": [],
+    "objects": [
+      "AquariumCamera",
+      "AquariumExit",
+      "Camera",
+      "DetachedObjectLayers",
+      "FishingShadows",
+      "FocusButtonManager",
+      "GameObject",
+      "Input",
+      "ObjectLabLabels",
+      "SceneColliders",
+      "SceneEditorManager",
+      "ShallowWaterPlayerEffect",
+      "VolcanicObjectLabLabels",
+      "VolcanicSpaPoolFrontLayer"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 371378
+  },
+  {
+    "groups": [
+      "cosmetics"
+    ],
+    "objects": [
+      "Character"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 371660
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core"
+    ],
+    "objects": [
+      "PhysicalGameObject",
+      "Player",
+      "SellFishInteractable"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 371705
+  },
+  {
+    "groups": [
+      "arctic"
+    ],
+    "objects": [
+      "ArcticWaterAnimationManager"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 371801
+  },
+  {
+    "groups": [
+      "aquarium",
+      "ui-fishing"
+    ],
+    "objects": [
+      "AquariumLab",
+      "AquariumViewingArea"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 371861
+  },
+  {
+    "groups": [
+      "evernight-peak"
+    ],
+    "objects": [
+      "EvernightPeakOverlay"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 371942
+  },
+  {
+    "groups": [
+      "evernight-peak",
+      "evernight-props"
+    ],
+    "objects": [
+      "Parallax"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372003
+  },
+  {
+    "groups": [
+      "evernight-props"
+    ],
+    "objects": [
+      "EvernightPeakFireflyManager",
+      "EvernightPeakStarManager",
+      "EvernightPeakWaterfallAnimationManager"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372070
+  },
+  {
+    "groups": [
+      "main-town"
+    ],
+    "objects": [
+      "WindManager"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372207
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "ui-core",
+      "ui-economy",
+      "ui-fishing"
+    ],
+    "objects": [
+      "FishingManager"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372254
+  },
+  {
+    "groups": [
+      "fishing-pier"
+    ],
+    "objects": [
+      "WaterAnimationManager"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372340
+  },
+  {
+    "groups": [
+      "beach-island",
+      "cosmetics"
+    ],
+    "objects": [
+      "BeachHouseWaterAnimationManager"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372400
+  },
+  {
+    "groups": [
+      "beach-island",
+      "coffee-shop",
+      "volcanic-beach",
+      "volcanic-props",
+      "volcanic-spa-props"
+    ],
+    "objects": [
+      "VolcanicBeachAnimationManager"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372482
+  },
+  {
+    "groups": [
+      "cosmetics",
+      "fishing-shop",
+      "ui-core"
+    ],
+    "objects": [
+      "FishStoreWalls"
+    ],
+    "bundle": "b11bff64-1228-15102c28690a545a.js",
+    "offset": 372619
+  }
+]

@@ -1,0 +1,1495 @@
+{
+   "objects": {
+      "d3bcfd87f279": {
+         "name": "SwTreeInteriorFloorDecor",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": -1
+         }
+      },
+      "library-table-details": {
+         "name": "SwTreeInteriorTableDetails",
+         "params": {
+            "spawnPosition": { "x": 151, "y": 225 },
+            "attachment": {
+               "parentId": "cb41942033af",
+               "layer": 2,
+               "offset": { "x": 2, "y": -51 }
+            }
+         }
+      },
+      "composition-underlay": {
+         "name": "SwTreeInteriorCompositionUnderlay",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": 9000
+         }
+      },
+      "composition-overlay": {
+         "name": "SwTreeInteriorCompositionOverlay",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": 9000
+         }
+      },
+      "composition-floor": {
+         "name": "SwTreeInteriorCompositionFloor",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": 9000
+         }
+      },
+      "composition-mezzanine": {
+         "name": "SwTreeInteriorCompositionMezzanine",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": 9000
+         }
+      },
+      "composition-lower-furniture": {
+         "name": "SwTreeInteriorCompositionLowerFurniture",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": 9000
+         }
+      },
+      "composition-dining": {
+         "name": "SwTreeInteriorCompositionDining",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": 9000
+         }
+      },
+      "composition-entrance": {
+         "name": "SwTreeInteriorCompositionEntrance",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "flipped": false,
+            "sceneDressOrder": 9000
+         }
+      },
+      "fc13e86502de": {
+         "name": "SwTreeInteriorHangingLantern",
+         "params": {
+            "spawnPosition": {
+               "x": 94,
+               "y": 83
+            },
+            "flipped": false,
+            "sceneDressOrder": 0
+         }
+      },
+      "57cb9b1aded1": {
+         "name": "SwTreeInteriorHangingLantern",
+         "params": {
+            "spawnPosition": {
+               "x": 346,
+               "y": 83
+            },
+            "flipped": false,
+            "sceneDressOrder": 1
+         }
+      },
+      "fab6092b3d0b": {
+         "name": "SwTreeInteriorUpperWallDecor",
+         "params": {
+            "spawnPosition": {
+               "x": 206,
+               "y": 51
+            },
+            "flipped": true,
+            "sceneDressOrder": 2
+         }
+      },
+      "4cf1fa42129c": {
+         "name": "SwTreeInteriorUpperWallDecor",
+         "params": {
+            "spawnPosition": {
+               "x": 234,
+               "y": 51
+            },
+            "flipped": false,
+            "sceneDressOrder": 3
+         }
+      },
+      "eb0cb30b34af": {
+         "name": "SwTreeInteriorHangingLantern",
+         "params": {
+            "spawnPosition": {
+               "x": 221,
+               "y": 95
+            },
+            "flipped": false,
+            "sceneDressOrder": 4
+         }
+      },
+      "54a9265799d1": {
+         "name": "SwTreeInteriorRightWall1",
+         "params": {
+            "spawnPosition": {
+               "x": 38,
+               "y": 63
+            },
+            "flipped": false,
+            "sceneDressOrder": 0
+         }
+      },
+      "a1ce00ae86b1": {
+         "name": "SwTreeInteriorLeftWall1",
+         "params": {
+            "spawnPosition": {
+               "x": 389,
+               "y": 63
+            },
+            "flipped": false,
+            "sceneDressOrder": 1
+         }
+      },
+      "cd390927e4c1": {
+         "name": "SwTreeInteriorTableMezzanineLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 98,
+               "y": 173
+            },
+            "flipped": false,
+            "sceneDressOrder": 7
+         }
+      },
+      "52d015a0893f": {
+         "name": "SwTreeInteriorTableMezzanineRight",
+         "params": {
+            "spawnPosition": {
+               "x": 343,
+               "y": 173
+            },
+            "flipped": false,
+            "sceneDressOrder": 8
+         }
+      },
+      "6f3b4fb09abb": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 72,
+               "y": 154
+            },
+            "flipped": true,
+            "sceneDressOrder": 9,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "cd390927e4c1",
+               "offset": {
+                  "x": -26,
+                  "y": -19
+               }
+            }
+         }
+      },
+      "86d0bc65c509": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 122,
+               "y": 154
+            },
+            "flipped": true,
+            "sceneDressOrder": 10,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "cd390927e4c1",
+               "offset": {
+                  "x": 24,
+                  "y": -19
+               }
+            }
+         }
+      },
+      "a5d246b80bd5": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 317,
+               "y": 154
+            },
+            "flipped": true,
+            "sceneDressOrder": 11,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "52d015a0893f",
+               "offset": {
+                  "x": -26,
+                  "y": -19
+               }
+            }
+         }
+      },
+      "165d1f295c37": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 367,
+               "y": 154
+            },
+            "flipped": true,
+            "sceneDressOrder": 12,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "52d015a0893f",
+               "offset": {
+                  "x": 24,
+                  "y": -19
+               }
+            }
+         }
+      },
+      "21cf580a144f": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 72,
+               "y": 176
+            },
+            "flipped": true,
+            "skipShadows": true,
+            "sceneDressOrder": 13,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "cd390927e4c1",
+               "offset": {
+                  "x": -26,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "ae2e2d586e16": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 122,
+               "y": 176
+            },
+            "flipped": true,
+            "skipShadows": true,
+            "sceneDressOrder": 14,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "cd390927e4c1",
+               "offset": {
+                  "x": 24,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "3d4fe1dd8b6c": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 317,
+               "y": 176
+            },
+            "flipped": true,
+            "skipShadows": true,
+            "sceneDressOrder": 15,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "52d015a0893f",
+               "offset": {
+                  "x": -26,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "c146f664935b": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 367,
+               "y": 176
+            },
+            "flipped": true,
+            "skipShadows": true,
+            "sceneDressOrder": 16,
+            "interactionLevel": 2,
+            "seatHost": {
+               "parentId": "52d015a0893f",
+               "offset": {
+                  "x": 24,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "84f537008490": {
+         "name": "SwTreeInteriorHangingLanternBehindMezzanine",
+         "params": {
+            "spawnPosition": {
+               "x": 150,
+               "y": 202
+            },
+            "flipped": false,
+            "sceneDressOrder": -7
+         }
+      },
+      "4566103f95b3": {
+         "name": "SwTreeInteriorHangingLanternBehindMezzanine",
+         "params": {
+            "spawnPosition": {
+               "x": 290,
+               "y": 202
+            },
+            "flipped": false,
+            "sceneDressOrder": -6
+         }
+      },
+      "7c6a14a04479": {
+         "name": "SwTreeInteriorSecondFloorCut",
+         "params": {
+            "spawnPosition": {
+               "x": 51,
+               "y": 160
+            },
+            "flipped": false,
+            "sceneDressOrder": -3
+         }
+      },
+      "6e8ea52f7d48": {
+         "name": "SwTreeInteriorSecondFloorMiddleCut",
+         "params": {
+            "spawnPosition": {
+               "x": 187,
+               "y": 167
+            },
+            "flipped": false,
+            "sceneDressOrder": 16
+         }
+      },
+      "7a952ade046c": {
+         "name": "SwTreeInteriorSecondFloorCut",
+         "params": {
+            "spawnPosition": {
+               "x": 389,
+               "y": 160
+            },
+            "flipped": true,
+            "sceneDressOrder": -2
+         }
+      },
+      "27728658ed09": {
+         "name": "SwTreeInteriorSecondFloorHandrail",
+         "params": {
+            "spawnPosition": {
+               "x": 189,
+               "y": 169
+            },
+            "flipped": true,
+            "sceneDressOrder": 18
+         }
+      },
+      "0896d2ecb046": {
+         "name": "SwTreeInteriorSecondFloorHandrail",
+         "params": {
+            "spawnPosition": {
+               "x": 251,
+               "y": 169
+            },
+            "flipped": false,
+            "sceneDressOrder": 19
+         }
+      },
+      "0498fd1cabbe": {
+         "name": "SwTreeInteriorBookshelfSide1",
+         "params": {
+            "spawnPosition": {
+               "x": 58,
+               "y": 264
+            },
+            "flipped": false,
+            "sceneDressOrder": 20
+         }
+      },
+      "3987c145b710": {
+         "name": "SwTreeInteriorSecondFloorSupport",
+         "params": {
+            "spawnPosition": {
+               "x": 113,
+               "y": 188
+            },
+            "flipped": false,
+            "sceneDressOrder": -5
+         }
+      },
+      "6e874cfc7770": {
+         "name": "SwTreeInteriorSecondFloorSupport",
+         "params": {
+            "spawnPosition": {
+               "x": 307,
+               "y": 188
+            },
+            "flipped": false,
+            "sceneDressOrder": -4
+         }
+      },
+      "fce581410bdf": {
+         "name": "SwTreeInteriorRedBook",
+         "params": {
+            "spawnPosition": {
+               "x": 261,
+               "y": 210
+            },
+            "flipped": false,
+            "sceneDressOrder": 103,
+            "attachment": {
+               "parentId": "6250c90915bd",
+               "layer": 5,
+               "offset": {
+                  "x": -1,
+                  "y": -11
+               }
+            }
+         }
+      },
+      "131042afe7bf": {
+         "name": "SwTreeInteriorMetalStairs",
+         "params": {
+            "spawnPosition": {
+               "x": 188,
+               "y": 202
+            },
+            "flipped": false,
+            "sceneDressOrder": 24
+         }
+      },
+      "c9838de7ada9": {
+         "name": "SwTreeInteriorBlueBook",
+         "params": {
+            "spawnPosition": {
+               "x": 271,
+               "y": 215
+            },
+            "flipped": false,
+            "sceneDressOrder": 104,
+            "attachment": {
+               "parentId": "6250c90915bd",
+               "layer": 6,
+               "offset": {
+                  "x": 9,
+                  "y": -6
+               }
+            }
+         }
+      },
+      "6f12a7ef0ef2": {
+         "name": "SwTreeInteriorBookshelfFront1",
+         "params": {
+            "spawnPosition": {
+               "x": 84,
+               "y": 264
+            },
+            "flipped": false,
+            "sceneDressOrder": 26
+         }
+      },
+      "7122e8a2c50b": {
+         "name": "SwTreeInteriorGreenBook",
+         "params": {
+            "spawnPosition": {
+               "x": 155,
+               "y": 224
+            },
+            "flipped": false,
+            "sceneDressOrder": 111,
+            "attachment": {
+               "parentId": "b9fd1c4accc7",
+               "layer": 1,
+               "offset": {
+                  "x": 2,
+                  "y": -5
+               }
+            }
+         }
+      },
+      "b8adf87d2946": {
+         "name": "SwTreeInteriorBookshelfFront2",
+         "params": {
+            "spawnPosition": {
+               "x": 372,
+               "y": 269
+            },
+            "flipped": false,
+            "sceneDressOrder": 28
+         }
+      },
+      "cb41942033af": {
+         "name": "SwTreeInteriorTable",
+         "params": {
+            "spawnPosition": {
+               "x": 149,
+               "y": 276
+            },
+            "flipped": false,
+            "sceneDressOrder": 29
+         }
+      },
+      "1daa4a86455e": {
+         "name": "SwTreeInteriorTable",
+         "params": {
+            "spawnPosition": {
+               "x": 292,
+               "y": 276
+            },
+            "flipped": false,
+            "sceneDressOrder": 30
+         }
+      },
+      "e635c2bb9364": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 123,
+               "y": 255
+            },
+            "flipped": true,
+            "sceneDressOrder": 31,
+            "seatHost": {
+               "parentId": "cb41942033af",
+               "offset": {
+                  "x": -26,
+                  "y": -21
+               }
+            }
+         }
+      },
+      "7d1867773579": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 173,
+               "y": 255
+            },
+            "flipped": true,
+            "sceneDressOrder": 32,
+            "seatHost": {
+               "parentId": "cb41942033af",
+               "offset": {
+                  "x": 24,
+                  "y": -21
+               }
+            }
+         }
+      },
+      "a61fa376df3b": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 266,
+               "y": 255
+            },
+            "flipped": true,
+            "sceneDressOrder": 33,
+            "seatHost": {
+               "parentId": "1daa4a86455e",
+               "offset": {
+                  "x": -26,
+                  "y": -21
+               }
+            }
+         }
+      },
+      "24314d641be2": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 316,
+               "y": 255
+            },
+            "flipped": true,
+            "sceneDressOrder": 34,
+            "seatHost": {
+               "parentId": "1daa4a86455e",
+               "offset": {
+                  "x": 24,
+                  "y": -21
+               }
+            }
+         }
+      },
+      "3b9ab0f8ff51": {
+         "name": "SwTreeInteriorLeftWall2",
+         "params": {
+            "spawnPosition": {
+               "x": 51,
+               "y": 246
+            },
+            "flipped": true,
+            "sceneDressOrder": 35
+         }
+      },
+      "6e3efadff992": {
+         "name": "SwTreeInteriorLeftWall2",
+         "params": {
+            "spawnPosition": {
+               "x": 389,
+               "y": 246
+            },
+            "flipped": false,
+            "sceneDressOrder": 36
+         }
+      },
+      "fc9897a89557": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 123,
+               "y": 279
+            },
+            "flipped": true,
+            "sceneDressOrder": 37,
+            "seatHost": {
+               "parentId": "cb41942033af",
+               "offset": {
+                  "x": -26,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "e5bc15ce20f9": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 173,
+               "y": 279
+            },
+            "flipped": true,
+            "sceneDressOrder": 38,
+            "seatHost": {
+               "parentId": "cb41942033af",
+               "offset": {
+                  "x": 24,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "9afbd84e6455": {
+         "name": "SwTreeInteriorStoolLeft",
+         "params": {
+            "spawnPosition": {
+               "x": 266,
+               "y": 279
+            },
+            "flipped": true,
+            "sceneDressOrder": 39,
+            "seatHost": {
+               "parentId": "1daa4a86455e",
+               "offset": {
+                  "x": -26,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "3299f0e972bc": {
+         "name": "SwTreeInteriorStoolRight",
+         "params": {
+            "spawnPosition": {
+               "x": 316,
+               "y": 279
+            },
+            "flipped": true,
+            "sceneDressOrder": 40,
+            "seatHost": {
+               "parentId": "1daa4a86455e",
+               "offset": {
+                  "x": 24,
+                  "y": 3
+               }
+            }
+         }
+      },
+      "b31c5324228c": {
+         "name": "SwTreeInteriorHangingLantern",
+         "params": {
+            "spawnPosition": {
+               "x": 76,
+               "y": 322
+            },
+            "flipped": false,
+            "sceneDressOrder": 41
+         }
+      },
+      "0805b28d0864": {
+         "name": "SwTreeInteriorHangingLantern",
+         "params": {
+            "spawnPosition": {
+               "x": 150,
+               "y": 322
+            },
+            "flipped": false,
+            "sceneDressOrder": 42
+         }
+      },
+      "12966b059a99": {
+         "name": "SwTreeInteriorHangingLantern",
+         "params": {
+            "spawnPosition": {
+               "x": 290,
+               "y": 322
+            },
+            "flipped": false,
+            "sceneDressOrder": 43
+         }
+      },
+      "495285d37156": {
+         "name": "SwTreeInteriorHangingLantern",
+         "params": {
+            "spawnPosition": {
+               "x": 362,
+               "y": 322
+            },
+            "flipped": false,
+            "sceneDressOrder": 44
+         }
+      },
+      "1ef85f2d530c": {
+         "name": "SwTreeInteriorDesk",
+         "params": {
+            "spawnPosition": {
+               "x": 107,
+               "y": 339
+            },
+            "flipped": false,
+            "sceneDressOrder": 45
+         }
+      },
+      "54e67a4500a7": {
+         "name": "SwTreeInteriorDesk",
+         "params": {
+            "spawnPosition": {
+               "x": 333,
+               "y": 339
+            },
+            "flipped": false,
+            "sceneDressOrder": 46
+         }
+      },
+      "de46f8c60bbf": {
+         "name": "SwTreeInteriorPottedBushyPlant",
+         "params": {
+            "spawnPosition": {
+               "x": 166,
+               "y": 376
+            },
+            "flipped": true,
+            "sceneDressOrder": 47
+         }
+      },
+      "85a25de48162": {
+         "name": "SwTreeInteriorPottedBushyPlant",
+         "params": {
+            "spawnPosition": {
+               "x": 270,
+               "y": 376
+            },
+            "flipped": false,
+            "sceneDressOrder": 48
+         }
+      },
+      "d5e8f8fac024": {
+         "name": "SwTreeInteriorStoolUp",
+         "params": {
+            "spawnPosition": {
+               "x": 94,
+               "y": 357
+            },
+            "flipped": false,
+            "sceneDressOrder": 49,
+            "seatHost": {
+               "parentId": "1ef85f2d530c",
+               "offset": {
+                  "x": -13,
+                  "y": 18
+               }
+            }
+         }
+      },
+      "f3ee90760444": {
+         "name": "SwTreeInteriorStoolUp",
+         "params": {
+            "spawnPosition": {
+               "x": 120,
+               "y": 357
+            },
+            "flipped": false,
+            "sceneDressOrder": 50,
+            "seatHost": {
+               "parentId": "1ef85f2d530c",
+               "offset": {
+                  "x": 13,
+                  "y": 18
+               }
+            }
+         }
+      },
+      "b5c08dbba414": {
+         "name": "SwTreeInteriorStoolUp",
+         "params": {
+            "spawnPosition": {
+               "x": 320,
+               "y": 357
+            },
+            "flipped": false,
+            "sceneDressOrder": 51,
+            "seatHost": {
+               "parentId": "54e67a4500a7",
+               "offset": {
+                  "x": -13,
+                  "y": 18
+               }
+            }
+         }
+      },
+      "bb3e51d0d22a": {
+         "name": "SwTreeInteriorStoolUp",
+         "params": {
+            "spawnPosition": {
+               "x": 346,
+               "y": 357
+            },
+            "flipped": false,
+            "sceneDressOrder": 52,
+            "seatHost": {
+               "parentId": "54e67a4500a7",
+               "offset": {
+                  "x": 13,
+                  "y": 18
+               }
+            }
+         }
+      },
+      "604adccf2529": {
+         "name": "SwTreeInteriorPottedRose",
+         "params": {
+            "spawnPosition": {
+               "x": 59,
+               "y": 356
+            },
+            "flipped": false,
+            "sceneDressOrder": 123,
+            "attachment": {
+               "parentId": "12d68c266d63",
+               "layer": 5,
+               "offset": {
+                  "x": 0,
+                  "y": -18
+               }
+            }
+         }
+      },
+      "4852027f2902": {
+         "name": "SwTreeInteriorYellowBook",
+         "params": {
+            "spawnPosition": {
+               "x": 382,
+               "y": 367
+            },
+            "flipped": false,
+            "sceneDressOrder": 131,
+            "attachment": {
+               "parentId": "f9cc0d12d3cb",
+               "layer": 3,
+               "offset": {
+                  "x": 2,
+                  "y": -6
+               }
+            }
+         }
+      },
+      "25973fa54327": {
+         "name": "SwTreeInteriorPlantsEntrance",
+         "params": {
+            "spawnPosition": {
+               "x": 70,
+               "y": 360
+            },
+            "flipped": false,
+            "sceneDressOrder": 55
+         }
+      },
+      "ba52c1b07758": {
+         "name": "SwTreeInteriorPlantsEntrance",
+         "params": {
+            "spawnPosition": {
+               "x": 370,
+               "y": 360
+            },
+            "flipped": true,
+            "sceneDressOrder": 56
+         }
+      },
+      "0e8d79690f4a": {
+         "name": "SwTreeInteriorStool",
+         "params": {
+            "spawnPosition": {
+               "x": 93,
+               "y": 319
+            },
+            "flipped": true,
+            "sceneDressOrder": 57,
+            "attachment": {
+               "parentId": "1ef85f2d530c",
+               "layer": -1,
+               "offset": {
+                  "x": -14,
+                  "y": -20
+               }
+            },
+            "seatHost": {
+               "parentId": "1ef85f2d530c",
+               "offset": {
+                  "x": -14,
+                  "y": -20
+               }
+            }
+         }
+      },
+      "9f0996b5195e": {
+         "name": "SwTreeInteriorStool",
+         "params": {
+            "spawnPosition": {
+               "x": 119,
+               "y": 319
+            },
+            "flipped": true,
+            "sceneDressOrder": 58,
+            "attachment": {
+               "parentId": "1ef85f2d530c",
+               "layer": -1,
+               "offset": {
+                  "x": 12,
+                  "y": -20
+               }
+            },
+            "seatHost": {
+               "parentId": "1ef85f2d530c",
+               "offset": {
+                  "x": 12,
+                  "y": -20
+               }
+            }
+         }
+      },
+      "e4377dfe988e": {
+         "name": "SwTreeInteriorStool",
+         "params": {
+            "spawnPosition": {
+               "x": 319,
+               "y": 319
+            },
+            "flipped": true,
+            "sceneDressOrder": 59,
+            "attachment": {
+               "parentId": "54e67a4500a7",
+               "layer": -1,
+               "offset": {
+                  "x": -14,
+                  "y": -20
+               }
+            },
+            "seatHost": {
+               "parentId": "54e67a4500a7",
+               "offset": {
+                  "x": -14,
+                  "y": -20
+               }
+            }
+         }
+      },
+      "62cce154cde7": {
+         "name": "SwTreeInteriorStool",
+         "params": {
+            "spawnPosition": {
+               "x": 345,
+               "y": 319
+            },
+            "flipped": true,
+            "sceneDressOrder": 60,
+            "attachment": {
+               "parentId": "54e67a4500a7",
+               "layer": -1,
+               "offset": {
+                  "x": 12,
+                  "y": -20
+               }
+            },
+            "seatHost": {
+               "parentId": "54e67a4500a7",
+               "offset": {
+                  "x": 12,
+                  "y": -20
+               }
+            }
+         }
+      },
+      "07830e7d7d82": {
+         "name": "SwTreeInteriorGreenBook",
+         "params": {
+            "spawnPosition": {
+               "x": 259,
+               "y": 215
+            },
+            "flipped": false,
+            "sceneDressOrder": 102,
+            "attachment": {
+               "parentId": "6250c90915bd",
+               "layer": 4,
+               "offset": {
+                  "x": -3,
+                  "y": -6
+               }
+            }
+         }
+      },
+      "6250c90915bd": {
+         "name": "SwTreeInteriorYellowBook",
+         "params": {
+            "spawnPosition": {
+               "x": 262,
+               "y": 221
+            },
+            "flipped": false,
+            "sceneDressOrder": 100
+         }
+      },
+      "090cfa76a60b": {
+         "name": "SwTreeInteriorRedBook",
+         "params": {
+            "spawnPosition": {
+               "x": 273,
+               "y": 221
+            },
+            "flipped": false,
+            "sceneDressOrder": 101,
+            "attachment": {
+               "parentId": "6250c90915bd",
+               "layer": 3,
+               "offset": {
+                  "x": 11,
+                  "y": 0
+               }
+            }
+         }
+      },
+      "ee222dad27ed": {
+         "name": "SwTreeInteriorRedBook",
+         "params": {
+            "spawnPosition": {
+               "x": 159,
+               "y": 231
+            },
+            "flipped": false,
+            "sceneDressOrder": 112,
+            "attachment": {
+               "parentId": "b9fd1c4accc7",
+               "layer": 2,
+               "offset": {
+                  "x": 6,
+                  "y": 2
+               }
+            }
+         }
+      },
+      "e0e419aef94f": {
+         "name": "SwTreeInteriorYellowBook",
+         "params": {
+            "spawnPosition": {
+               "x": 58,
+               "y": 362
+            },
+            "flipped": false,
+            "sceneDressOrder": 122,
+            "attachment": {
+               "parentId": "12d68c266d63",
+               "layer": 4,
+               "offset": {
+                  "x": -1,
+                  "y": -12
+               }
+            }
+         }
+      },
+      "3fc8c0898f1a": {
+         "name": "SwTreeInteriorBlueBook",
+         "params": {
+            "spawnPosition": {
+               "x": 60,
+               "y": 368
+            },
+            "flipped": false,
+            "sceneDressOrder": 121,
+            "attachment": {
+               "parentId": "12d68c266d63",
+               "layer": 3,
+               "offset": {
+                  "x": 1,
+                  "y": -6
+               }
+            }
+         }
+      },
+      "12d68c266d63": {
+         "name": "SwTreeInteriorBlueBook",
+         "params": {
+            "spawnPosition": {
+               "x": 59,
+               "y": 374
+            },
+            "flipped": false,
+            "sceneDressOrder": 120
+         }
+      },
+      "b9fd1c4accc7": {
+         "name": "SwTreeInteriorYellowBook",
+         "params": {
+            "spawnPosition": {
+               "x": 153,
+               "y": 229
+            },
+            "flipped": false,
+            "sceneDressOrder": 110,
+            "attachment": {
+               "parentId": "cb41942033af",
+               "layer": 1,
+               "offset": {
+                  "x": 4,
+                  "y": -47
+               }
+            }
+         }
+      },
+      "f9cc0d12d3cb": {
+         "name": "SwTreeInteriorYellowBook",
+         "params": {
+            "spawnPosition": {
+               "x": 380,
+               "y": 373
+            },
+            "flipped": false,
+            "sceneDressOrder": 130
+         }
+      },
+      "scene-colliders": {
+         "name": "SceneColliders",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "colliders": [
+               {
+                  "x": 38,
+                  "y": 63,
+                  "width": 7,
+                  "height": 326
+               },
+               {
+                  "x": 395,
+                  "y": 63,
+                  "width": 7,
+                  "height": 326
+               },
+               {
+                  "x": 38,
+                  "y": 63,
+                  "width": 155,
+                  "height": 12
+               },
+               {
+                  "x": 247,
+                  "y": 63,
+                  "width": 155,
+                  "height": 12
+               },
+               {
+                  "x": 38,
+                  "y": 389,
+                  "width": 136,
+                  "height": 14
+               },
+               {
+                  "x": 263,
+                  "y": 389,
+                  "width": 139,
+                  "height": 14
+               },
+               {
+                  "x": 51,
+                  "y": 194,
+                  "width": 137,
+                  "height": 8,
+                  "level": 1
+               },
+               {
+                  "x": 252,
+                  "y": 194,
+                  "width": 137,
+                  "height": 8,
+                  "level": 1
+               },
+               {
+                  "x": 51,
+                  "y": 194,
+                  "width": 137,
+                  "height": 8,
+                  "level": 2
+               },
+               {
+                  "x": 252,
+                  "y": 194,
+                  "width": 137,
+                  "height": 8,
+                  "level": 2
+               },
+               {
+                  "x": 180,
+                  "y": 202,
+                  "width": 8,
+                  "height": 64
+               },
+               {
+                  "x": 252,
+                  "y": 202,
+                  "width": 8,
+                  "height": 64
+               },
+               {
+                  "x": 51,
+                  "y": 179,
+                  "width": 125,
+                  "height": 6
+               },
+               {
+                  "x": 177,
+                  "y": 188,
+                  "width": 14,
+                  "height": 5
+               },
+               {
+                  "x": 250,
+                  "y": 189,
+                  "width": 14,
+                  "height": 4
+               },
+               {
+                  "x": 264,
+                  "y": 179,
+                  "width": 125,
+                  "height": 6
+               },
+               {
+                  "x": 167,
+                  "y": 390,
+                  "width": 8,
+                  "height": 88
+               },
+               {
+                  "x": 263,
+                  "y": 400,
+                  "width": 16,
+                  "height": 78
+               },
+               {
+                  "x": 172,
+                  "y": 454,
+                  "width": 138,
+                  "height": 28
+               },
+               {
+                  "x": 174,
+                  "y": 450,
+                  "width": 102,
+                  "height": 25
+               },
+               {
+                  "x": 51,
+                  "y": 107,
+                  "width": 126,
+                  "height": 11
+               },
+               {
+                  "x": 264,
+                  "y": 104,
+                  "width": 126,
+                  "height": 14
+               },
+               {
+                  "x": 177,
+                  "y": 118,
+                  "width": 14,
+                  "height": 8
+               },
+               {
+                  "x": 181,
+                  "y": 69,
+                  "width": 12,
+                  "height": 57
+               },
+               {
+                  "x": 247,
+                  "y": 71,
+                  "width": 13,
+                  "height": 54
+               },
+               {
+                  "x": 247,
+                  "y": 114,
+                  "width": 16,
+                  "height": 11
+               },
+               {
+                  "x": 182,
+                  "y": 37,
+                  "width": 11,
+                  "height": 34
+               },
+               {
+                  "x": 182,
+                  "y": 37,
+                  "width": 75,
+                  "height": 6
+               },
+               {
+                  "x": 245,
+                  "y": 37,
+                  "width": 2,
+                  "height": 2
+               },
+               {
+                  "x": 247,
+                  "y": 37,
+                  "width": 10,
+                  "height": 27
+               },
+               {
+                  "x": 64,
+                  "y": 202,
+                  "width": 117,
+                  "height": 4
+               },
+               {
+                  "x": 259,
+                  "y": 202,
+                  "width": 130,
+                  "height": 5
+               },
+               {
+                  "x": 253,
+                  "y": 203,
+                  "width": 22,
+                  "height": 14
+               },
+               {
+                  "x": 44,
+                  "y": 374,
+                  "width": 132,
+                  "height": 22
+               },
+               {
+                  "x": 264,
+                  "y": 373,
+                  "width": 135,
+                  "height": 28
+               },
+               {
+                  "x": 40,
+                  "y": 202,
+                  "width": 10,
+                  "height": 170
+               },
+               {
+                  "x": 390,
+                  "y": 202,
+                  "width": 8,
+                  "height": 185
+               }
+            ],
+            "levelTriggers": [
+               {
+                  "x": 188,
+                  "y": 202,
+                  "width": 64,
+                  "height": 12,
+                  "targetLevel": 2
+               },
+               {
+                  "x": 188,
+                  "y": 266,
+                  "width": 64,
+                  "height": 14,
+                  "targetLevel": 1
+               },
+               {
+                  "x": 190,
+                  "y": 204,
+                  "width": 62,
+                  "height": 28,
+                  "targetLevel": 2
+               }
+            ],
+            "levelRenderZones": [
+               {
+                  "x": 51,
+                  "y": 167,
+                  "width": 338,
+                  "height": 35,
+                  "level": 2,
+                  "targetObjectId": "6e8ea52f7d48"
+               },
+               {
+                  "x": 51,
+                  "y": 167,
+                  "width": 338,
+                  "height": 35,
+                  "level": 1,
+                  "targetObjectId": "27728658ed09"
+               }
+            ]
+         }
+      }
+   }
+}

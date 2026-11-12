@@ -8,20 +8,37 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  width: 136px;
-  height: 136px;
+  gap: 4px;
   padding: 0;
   color: var(--ui-text);
-  background: var(--ui-danger);
-  border: 4px solid var(--ui-border);
-  border-radius: 50%;
-  box-shadow: 0 4px 0 rgb(0 0 0 / 35%);
+  /* Hình nút là ảnh Button Hook.png (feedback 2026-11-11), nên bỏ nền, viền và bóng của nút cũ. */
+  background: none;
+  border: 0;
   cursor: pointer;
-  pointer-events: auto;
   touch-action: manipulation;
   /* Nhịp mạnh và dày hơn để giục người chơi bấm (feedback 2026-11-11). */
   animation: fish-button-pulse 0.36s ease-in-out infinite;
+  /* Ẩn: mờ dần và thu nhỏ (feedback 2026-11-12). Dùng `scale` riêng để không đè nhịp `transform`. */
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  scale: 0.6;
+  transition:
+    opacity 160ms ease-in,
+    scale 160ms ease-in,
+    visibility 0s linear 160ms;
+}
+
+/* Hiện: mờ dần vào và phóng có nảy. */
+.fish-button--shown {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+  scale: 1;
+  transition:
+    opacity 200ms ease-out,
+    scale 280ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    visibility 0s;
 }
 
 @keyframes fish-button-pulse {
@@ -35,24 +52,20 @@
   }
 }
 
-.fish-button[hidden] {
-  display: none;
-}
-
-.fish-button__icon {
-  width: 60px;
-  height: 60px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2.4;
-  stroke-linecap: round;
+.fish-button__image {
+  /* Ảnh gốc 208×216, hiện bằng 2/3 cho vừa chỗ nút cũ. */
+  width: 139px;
+  height: 144px;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 4px 0 rgb(0 0 0 / 35%));
+  pointer-events: none;
 }
 
 .fish-button__key {
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
-  opacity: 0.9;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 70%);
 }
 
 .fish-button__bar {
@@ -79,36 +92,64 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(92%, 300px);
-  transform: translate(-50%, -50%);
-}
-
-.result-card__hint {
-  margin-top: 6px;
-  color: var(--ui-muted);
-}
-
-.result-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  text-align: center;
+  gap: 10px;
+  transform: translate(-50%, -50%);
 }
 
-.result-card__fish {
-  width: 96px;
-  height: 48px;
-  margin-bottom: 6px;
+.result-popup__hint {
+  font-size: 14px;
+  font-weight: bold;
+  color: #3a1d0e;
+  text-decoration: underline;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 45%);
+}
+
+/* Thẻ nhận cá: ảnh Catch Fish.png 536×684 (feedback 2026-11-11), chữ đặt theo % để co giãn cùng ảnh. */
+.catch-card {
+  --card-image: none;
+  position: relative;
+  width: min(456px, 86vw, calc(76vh * 536 / 684));
+  aspect-ratio: 536 / 684;
+  container-type: inline-size;
+  background: var(--card-image) center / 100% 100% no-repeat;
   image-rendering: pixelated;
-  filter: drop-shadow(0 0 6px var(--rarity-color, transparent));
+  filter: drop-shadow(0 6px 0 rgb(0 0 0 / 30%));
+  cursor: default;
 }
 
-.result-card__name {
-  font-weight: bold;
+.catch-card__fish {
+  position: absolute;
+  width: 46%;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
 }
 
-.result-card__badge {
+.catch-card__value {
+  position: absolute;
+  max-width: 44%;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  font-size: 4.6cqw;
   font-weight: bold;
-  color: var(--ui-gold);
+  line-height: 1;
+  color: #3a1d0e;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform: translate(-50%, -50%);
+}
+
+.catch-card__value--left {
+  transform: translate(0, -50%);
+}
+
+.catch-card__badge {
+  max-width: 14%;
+  font-size: 2.8cqw;
+  line-height: 1.1;
+  color: #d8322a;
+  text-align: center;
+  white-space: normal;
 }

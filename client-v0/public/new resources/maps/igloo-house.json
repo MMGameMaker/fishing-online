@@ -1,0 +1,55 @@
+{
+   "objects": {
+      "scene-colliders": {
+         "name": "SceneColliders",
+         "params": {
+            "spawnPosition": { "x": 0, "y": 0 },
+            "colliders": [
+               { "x": 3, "y": 23, "width": 364, "height": 59 },
+               { "x": 1, "y": 24, "width": 15, "height": 202 },
+               { "x": 3, "y": 188, "width": 75, "height": 25 },
+               { "x": 22, "y": 188, "width": 14, "height": 125 },
+               { "x": 23, "y": 287, "width": 153, "height": 27 },
+               { "x": 351, "y": 23, "width": 117, "height": 190 },
+               { "x": 323, "y": 189, "width": 34, "height": 24 },
+               { "x": 450, "y": 210, "width": 27, "height": 113 },
+               { "x": 240, "y": 286, "width": 215, "height": 17 },
+               { "x": 153, "y": 306, "width": 23, "height": 44 },
+               { "x": 240, "y": 298, "width": 26, "height": 63 },
+               { "x": 165, "y": 331, "width": 117, "height": 21 },
+               { "x": 171, "y": 325, "width": 77, "height": 8 },
+               {
+                  "x": 49,
+                  "y": 230,
+                  "width": 40,
+                  "height": 31,
+                  "kind": "water"
+               },
+               {
+                  "x": 60,
+                  "y": 226,
+                  "width": 20,
+                  "height": 41,
+                  "kind": "water"
+               },
+               { "x": 56, "y": 259, "width": 29, "height": 6, "kind": "water" },
+               {
+                  "x": 45,
+                  "y": 239,
+                  "width": 48,
+                  "height": 16,
+                  "kind": "water"
+               },
+               {
+                  "x": 46,
+                  "y": 234,
+                  "width": 46,
+                  "height": 25,
+                  "kind": "water"
+               },
+               { "x": 54, "y": 227, "width": 29, "height": 3, "kind": "water" }
+            ]
+         }
+      }
+   }
+}

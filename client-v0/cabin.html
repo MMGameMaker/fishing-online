@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fishing Cabin – xem trước</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: #10141f;
+        overflow: hidden;
+        font: 12px/1.4 system-ui, sans-serif;
+      }
+      #game {
+        position: fixed;
+        inset: 0;
+      }
+      #tabs {
+        position: fixed;
+        top: 8px;
+        left: 8px;
+        display: flex;
+        gap: 4px;
+        z-index: 1;
+      }
+      #tabs button {
+        font: inherit;
+        color: #e8e2c8;
+        background: rgb(0 0 0 / 0.5);
+        border: 1px solid rgb(232 226 200 / 0.35);
+        border-radius: 4px;
+        padding: 4px 10px;
+        cursor: pointer;
+        transition: background 160ms ease;
+      }
+      #tabs button[aria-pressed='true'] {
+        background: #8a5a3c;
+      }
+      #hint {
+        position: fixed;
+        left: 8px;
+        bottom: 8px;
+        color: #e8e2c8;
+        background: rgb(0 0 0 / 0.45);
+        padding: 4px 8px;
+        border-radius: 4px;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <nav id="tabs">
+      <button data-map="lg">Cabin lớn</button>
+      <button data-map="md">Cabin vừa</button>
+      <button data-map="backyard">Sân sau</button>
+    </nav>
+    <div id="hint">
+      Kéo chuột / phím mũi tên: di chuyển · Z: xem toàn map · C: hiện va chạm · Bấm cửa để qua lại sân
+      sau
+    </div>
+    <script type="module" src="/src/online/scenes/cabin/preview.ts"></script>
+  </body>
+</html>

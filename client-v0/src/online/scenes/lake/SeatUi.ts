@@ -1,21 +1,9 @@
 // HUD vé câu cá và hộp thoại mua vé. Vé không gắn với ghế; giá và Gold luôn lấy theo Server.
 import type { Services } from '../../core/services';
-import {
-  createButton,
-  createGoldLabel,
-  createPanel,
-  showError,
-  showToast,
-} from '../../ui/kit/components';
-import { formatGold } from '../../ui/kit/format';
-import { MAX_UI_DURATION_UNITS, formatClock, priceSummary, sessionEndText } from './seatLogic';
+import { createButton, createGoldLabel, showError, showToast } from '../../ui/kit/components';
+import { MAX_UI_DURATION_UNITS, formatClock, sessionEndText } from './seatLogic';
+import { openTicketDialog, preloadTicketDialog } from './TicketDialog';
 import type { LakeSeat } from './walkable';
-
-const line = (text: string): HTMLElement => {
-  const el = document.createElement('div');
-  el.textContent = text;
-  return el;
-};
 
 export class SeatUi {
   private readonly hud = document.createElement('div');
@@ -46,6 +34,7 @@ export class SeatUi {
     );
     this.hud.append(this.goldLabel.el, this.sessionRow);
     root.append(this.hud);
+    preloadTicketDialog();
 
     this.goldLabel.set(store.getState().session.gold ?? '0');
     this.unsubscribes.push(
@@ -110,76 +99,15 @@ export class SeatUi {
     }
   }
 
-  /** true nếu đã mua vé thành công (hoặc đã sẵn vé), false nếu hủy/thất bại. */
+  /** true nếu đã mua vé thành công, false nếu đóng hoặc mua thất bại. Popup theo hình mẫu (TicketDialog). */
   private openBuyTicket(): Promise<boolean> {
     const pricing = this.services.store.getState().catalog?.ticketPricing;
     if (!pricing) return Promise.resolve(false);
-
-    return new Promise((resolve) => {
-      let units = 1;
-      const overlay = document.createElement('div');
-      overlay.className = 'ui-dialog';
-      overlay.setAttribute('role', 'dialog');
-      overlay.setAttribute('aria-modal', 'true');
-      let resolved = false;
-      const close = (result: boolean) => {
-        if (!resolved) {
-          resolved = true;
-          resolve(result);
-        }
-        overlay.remove();
-      };
-
-      const summary = document.createElement('div');
-      summary.className = 'seat-dialog__total';
-      const stepperValue = document.createElement('span');
-      const pay = createButton({ label: 'Thanh toán', variant: 'primary' });
-      const minus = createButton({ label: '−' });
-      const plus = createButton({ label: '+' });
-      const maxUnits = Math.min(MAX_UI_DURATION_UNITS, pricing.maxUnitsPerPurchase);
-
-      const render = () => {
-        const { minutes, total } = priceSummary(pricing, units);
-        stepperValue.textContent = `${minutes} phút`;
-        summary.textContent = `Tổng: ${formatGold(total)} Gold`;
-        minus.disabled = units <= 1;
-        plus.disabled = units >= maxUnits;
-      };
-      minus.addEventListener('click', () => {
-        units -= 1;
-        render();
-      });
-      plus.addEventListener('click', () => {
-        units += 1;
-        render();
-      });
-      pay.addEventListener('click', () => {
-        pay.disabled = true;
-        void this.submitBuyTicket(units, pricing.priceVersion)
-          .then((ok) => close(ok))
-          .catch(() => close(false));
-      });
-
-      const stepper = document.createElement('div');
-      stepper.className = 'seat-dialog__stepper';
-      stepper.append(minus, stepperValue, plus);
-
-      const actions = document.createElement('div');
-      actions.className = 'ui-dialog__actions';
-      actions.append(createButton({ label: 'Đóng', onClick: () => close(false) }), pay);
-
-      const body = document.createElement('div');
-      body.append(
-        line(
-          `Đơn giá: ${formatGold(pricing.unitPriceGold)} Gold / ${pricing.billingUnitMinutes} phút`,
-        ),
-        stepper,
-        summary,
-        actions,
-      );
-      overlay.append(createPanel('Mua vé câu cá', body));
-      this.root.append(overlay);
-      render();
+    return openTicketDialog({
+      root: this.root,
+      pricing,
+      maxUnits: Math.min(MAX_UI_DURATION_UNITS, pricing.maxUnitsPerPurchase),
+      buy: (units) => this.submitBuyTicket(units, pricing.priceVersion),
     });
   }
 

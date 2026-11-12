@@ -1,7 +1,10 @@
 // Shared by server (validation) and client (rendering). Pure data + pure functions only.
 
 export const TILE = 30;
-export const START_ROOM = 'safeArea';
+// Vừa đăng nhập là vào thẳng bến câu cá Coral Cove (yêu cầu 2026-11-12). Map Coral Cove không có
+// spawn riêng nên đứng ngay lối vào bên trái bến (chỗ cổng từ safeArea dịch vào), mặt hướng vào bến.
+export const START_ROOM = 'coralCove';
+export const START_SPAWN = { x: 1710, y: 1770, dir: 'right' };
 export const ROOM_KEYS = ['safeArea', 'store', 'cafe', 'nightclub', 'pvpArea', 'apartmentLobby', 'coralCove', 'hugglehenFarms'];
 export const FEET = { halfW: 7, h: 6 };
 

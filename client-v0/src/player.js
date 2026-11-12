@@ -14,9 +14,8 @@ const FONT = 'Trebuchet MS, Verdana, sans-serif';
 // ROD_GRIP: where the rod is held inside each rod frame (from the handle pixels of the rod sheet;
 // the same for every rod level). The rod frame is placed so ROD_GRIP lands on FISH_HAND.
 const FISH_HAND = { down: [24, 34], left: [16, 34], right: [31, 34], up: [24, 18] };
-// Fishing from a stool (the only way to fish now): the body stays in the sit pose and the rod is
-// held at the lap. Facing up, the rod pokes out above the head.
-const SIT_HAND = { down: [24, 37], left: [16, 37], right: [31, 37], up: [24, 14] };
+// Câu khi ngồi ghế cũng dùng tư thế câu (quăng cần, kéo cần) và vị trí tay FISH_HAND, không giữ
+// tư thế ngồi với cần đặt trên đùi nữa (feedback 2026-11-11: cần sai chỗ, nhân vật không diễn động tác câu).
 const ROD_GRIP = {
   cast: { down: [17, 40], left: [49, 37], right: [41, 37], up: [22, 51] },
   bob: { down: [7, 0], left: [31, 3], right: [0, 3], up: [7, 15] },
@@ -178,23 +177,11 @@ export class PlayerEntity {
     });
   }
 
-  // The rod, line and float are sprite frames (see updateRealFrames); only the "!" and the
-  // shrinking hook timer above the hands are drawn here.
-  drawFishing(time) {
-    const { line, fishPhase: phase } = this;
-    line.clear();
-    // Dấu ! và thanh thời gian chỉ dành cho người đang câu; máy khác chỉ thấy anim cầm cần (feedback 2026-11-12).
-    const showAlert = phase === 'hooked' && this.isMe;
-    this.alert.setVisible(showAlert);
-    if (!showAlert) return;
-    const [hx, hy] = (this.sitting ? SIT_HAND : FISH_HAND)[this.dir];
-    const handX = this.x + hx - FRAME_W / 2, handY = this.y + hy - FRAME_H * FOOT_ORIGIN_Y;
-    const left = Math.max(0, 1 - (time - this.fishPhaseAt) / REEL.hookedMs);
-    const baseX = handX + (this.dir === 'left' ? -22 : 22);
-    // Dấu ! lắc trái phải khi cá cắn (feedback 2026-11-11); thanh thời gian bên dưới đứng yên.
-    this.alert.setPosition(baseX + Math.sin(time / 35) * 3, handY - 8);
-    line.fillStyle(0xffffff).fillRect(baseX - 16, this.alert.y + 3, 32, 6);
-    line.fillStyle(0xe74c3c).fillRect(baseX - 15, this.alert.y + 4, 30 * left, 4);
+  // Cần, dây và phao là sprite (xem updateRealFrames).
+  // Bỏ hẳn dấu ! và thanh thời gian đỏ trên đầu ở mọi máy: nút móc câu (Space) đã có vòng đếm giờ (feedback 2026-11-12).
+  drawFishing() {
+    this.line.clear();
+    this.alert.setVisible(false);
   }
 
   // Frame names for the fishing pose. Cast plays the throw once (body 3 frames, rod 16 frames over
@@ -244,7 +231,7 @@ export class PlayerEntity {
     this.shadow.setPosition(this.x, this.y - 1).setDepth(this.y - 1);
     this.label.setPosition(this.x, this.y - 50);
     this.bubble?.setPosition(this.x, this.y - 66);
-    this.drawFishing(time);
+    this.drawFishing();
   }
 
   // Picks real frame names across the 4 layered sprites. See ASSETS.md section 1 for the naming
@@ -257,7 +244,7 @@ export class PlayerEntity {
     if (this.sitting) pose = 'sit';
     else if (this.dancing && !this.fishPhase) n = Math.floor(this.danceTime / 160) % 4;
     const fishing = this.fishPhase ? this.fishingFrames(time) : null;
-    if (fishing && !this.sitting) {
+    if (fishing) {
       // The fishing sheets keep the head where the idle frame has it, so the idle hair fits.
       this.layerBody.setTexture(`ref_fishbody_${this.look.skin}`, fishing.body);
       this.layerTop.setTexture('ref_fishtops', `fishing-top-${this.look.top + 1}-${fishing.clothes}`);
@@ -271,7 +258,7 @@ export class PlayerEntity {
       this.layerHair.setTexture(hairTextureKey(this.look.hairStyle), `${bodyFrame}-hair-${this.look.hairStyle + 1}`);
     }
     if (fishing) {
-      const [hx, hy] = (this.sitting ? SIT_HAND : FISH_HAND)[dir];
+      const [hx, hy] = FISH_HAND[dir];
       const [gx, gy] = fishing.grip;
       this.layerRod.setFrame(fishing.rod).setPosition(hx - gx - FRAME_W / 2, hy - gy - FRAME_H * FOOT_ORIGIN_Y).setVisible(true);
       // Facing away, the hands (and the rod's handle) are hidden behind the body.

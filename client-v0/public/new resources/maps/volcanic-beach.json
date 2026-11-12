@@ -1,0 +1,2678 @@
+{
+  "objects": {
+    "marlins-kombini": {
+      "name": "MarlinsKombini",
+      "params": {
+        "spawnPosition": { "x": 279, "y": 769 },
+        "interactionLevel": 1
+      }
+    },
+    "0affdad97b0b": {
+      "name": "VbDriedGrassPatch2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 305,
+          "y": 554
+        },
+        "sceneDressOrder": 14
+      }
+    },
+    "0dd15e65b093": {
+      "name": "VbGrassPatch2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 766,
+          "y": 726
+        },
+        "sceneDressOrder": 20
+      }
+    },
+    "0ea23e77ea75": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 1
+          },
+          "parentId": "176fc7cf95b5"
+        },
+        "spawnPosition": {
+          "x": 613,
+          "y": 1019
+        },
+        "sceneDressOrder": 84
+      }
+    },
+    "10b2a2ce4cf8": {
+      "name": "VbUmbrellaRed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 742,
+          "y": 868
+        },
+        "sceneDressOrder": 75
+      }
+    },
+    "13a5fd2cbbe8": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 682,
+          "y": 773
+        },
+        "sceneDressOrder": 39
+      }
+    },
+    "176fc7cf95b5": {
+      "name": "VbBeachTableBack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 645,
+          "y": 1018
+        },
+        "sceneDressOrder": 86
+      }
+    },
+    "17b91a72ea07": {
+      "name": "VbLavaRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 840,
+          "y": 287
+        },
+        "sceneDressOrder": 4
+      }
+    },
+    "18b387b6db73": {
+      "name": "VbBigHeadLavaFlow",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 615,
+          "y": 636
+        },
+        "sceneDressOrder": 7
+      }
+    },
+    "1dd0c4d32804": {
+      "name": "VbGrass4",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 164,
+          "y": 440
+        },
+        "sceneDressOrder": 107
+      }
+    },
+    "205019373824": {
+      "name": "VbWaterRock2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 67,
+          "y": 450
+        },
+        "sceneDressOrder": 104
+      }
+    },
+    "205f0cd62255": {
+      "name": "VbBurntRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 250,
+          "y": 929
+        },
+        "sceneDressOrder": 141
+      }
+    },
+    "234a4705e4fe": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 2
+          },
+          "parentId": "35de6b176797"
+        },
+        "spawnPosition": {
+          "x": 651,
+          "y": 1141
+        },
+        "sceneDressOrder": 95
+      }
+    },
+    "23b3ed6cebb5": {
+      "name": "VbWaterRock3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 109,
+          "y": 693
+        },
+        "sceneDressOrder": 123
+      }
+    },
+    "250c84ef945c": {
+      "name": "VbBurntRock2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 472,
+          "y": 1014
+        },
+        "sceneDressOrder": 145
+      }
+    },
+    "25e45e856abe": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 820,
+          "y": 749
+        },
+        "sceneDressOrder": 35
+      }
+    },
+    "277b50987c3a": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 2
+          },
+          "parentId": "b261dff37a1c"
+        },
+        "spawnPosition": {
+          "x": 813,
+          "y": 796
+        },
+        "sceneDressOrder": 68
+      }
+    },
+    "2b98b083efa2": {
+      "name": "VbDriedGrassPatch3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 468,
+          "y": 100
+        },
+        "sceneDressOrder": 8
+      }
+    },
+    "2d6a05430193": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 343,
+          "y": 730
+        },
+        "sceneDressOrder": 129
+      }
+    },
+    "2fcbf4fee1f3": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 2
+          },
+          "parentId": "a72391da4190"
+        },
+        "spawnPosition": {
+          "x": 643,
+          "y": 796
+        },
+        "sceneDressOrder": 72
+      }
+    },
+    "30abb5225373": {
+      "name": "VbWaterRock3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 100,
+          "y": 567
+        },
+        "sceneDressOrder": 109
+      }
+    },
+    "347fab9c07c8": {
+      "name": "VbGrass1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 443,
+          "y": 783
+        },
+        "sceneDressOrder": 41
+      }
+    },
+    "34fd10252ce1": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 320,
+          "y": 666
+        },
+        "sceneDressOrder": 25
+      }
+    },
+    "35549d067f89": {
+      "name": "VbLavaRock3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 236,
+          "y": 357
+        },
+        "sceneDressOrder": 5
+      }
+    },
+    "35de6b176797": {
+      "name": "VbBeachTableFront",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 619,
+          "y": 1139
+        },
+        "sceneDressOrder": 93
+      }
+    },
+    "387beefe4a56": {
+      "name": "VbFarBackLavaFlow",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 527,
+          "y": 454
+        },
+        "sceneDressOrder": 0
+      }
+    },
+    "3bb5f221aaea": {
+      "name": "VbBeachPalmTree",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 848,
+          "y": 946
+        },
+        "sceneDressOrder": 38
+      }
+    },
+    "3c3883a4aac0": {
+      "name": "VbTallBigHeadLavaFlow",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 439,
+          "y": 636
+        },
+        "sceneDressOrder": 6
+      }
+    },
+    "3e963ca6b506": {
+      "name": "VbCameliaBush",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 472,
+          "y": 758
+        },
+        "sceneDressOrder": 28
+      }
+    },
+    "3ea6c997ee32": {
+      "name": "VbGrass2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 254,
+          "y": 830
+        },
+        "sceneDressOrder": 46
+      }
+    },
+    "3f562ad36cfa": {
+      "name": "VbBeachTableFront",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 502,
+          "y": 1139
+        },
+        "sceneDressOrder": 98
+      }
+    },
+    "3f828515e020": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": -22
+          },
+          "parentId": "3f562ad36cfa"
+        },
+        "spawnPosition": {
+          "x": 534,
+          "y": 1117
+        },
+        "sceneDressOrder": 97
+      }
+    },
+    "3f92bc399435": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 176,
+          "y": 600
+        },
+        "sceneDressOrder": 117
+      }
+    },
+    "42f8e0736cdc": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 255,
+          "y": 1014
+        },
+        "sceneDressOrder": 149
+      }
+    },
+    "44bed24a7490": {
+      "name": "VbGrass4",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 166,
+          "y": 536
+        },
+        "sceneDressOrder": 110
+      }
+    },
+    "45bb1e6b15e9": {
+      "name": "VbBeachTableFront",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 815,
+          "y": 417
+        },
+        "sceneDressOrder": 51
+      }
+    },
+    "4606d28ee0d8": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 332,
+          "y": 744
+        },
+        "sceneDressOrder": 34
+      }
+    },
+    "47d5586b260a": {
+      "name": "VbUnlitTorch",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 662,
+          "y": 590
+        },
+        "sceneDressOrder": 17
+      }
+    },
+    "495fad0e4aa4": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 338,
+          "y": 1068
+        },
+        "sceneDressOrder": 154
+      }
+    },
+    "4b2ff3d0c5ee": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 607,
+          "y": 774
+        },
+        "sceneDressOrder": 40
+      }
+    },
+    "4d9ba6074779": {
+      "name": "VbBeachPalmTree",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 947,
+          "y": 934
+        },
+        "sceneDressOrder": 36
+      }
+    },
+    "4fc9b4de7c7d": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 1
+          },
+          "parentId": "176fc7cf95b5"
+        },
+        "spawnPosition": {
+          "x": 677,
+          "y": 1019
+        },
+        "sceneDressOrder": 85
+      }
+    },
+    "506f83e3be4d": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 554,
+          "y": 743
+        },
+        "sceneDressOrder": 131
+      }
+    },
+    "50a6ba3a416a": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 292,
+          "y": 1025
+        },
+        "sceneDressOrder": 150
+      }
+    },
+    "529be14e8ffa": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 494,
+          "y": 765
+        },
+        "sceneDressOrder": 132
+      }
+    },
+    "53367903f38e": {
+      "name": "VbLavaRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 273,
+          "y": 286
+        },
+        "sceneDressOrder": 3
+      }
+    },
+    "541e49a892e9": {
+      "name": "VbGrass1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 268,
+          "y": 726
+        },
+        "sceneDressOrder": 30
+      }
+    },
+    "59493b3f1974": {
+      "name": "VbBigHead",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 527,
+          "y": 606
+        },
+        "sceneDressOrder": 101
+      }
+    },
+    "596615140f91": {
+      "name": "VbUmbrellaBlue",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 648,
+          "y": 1005
+        },
+        "sceneDressOrder": 80
+      }
+    },
+    "5af830ba80de": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 210,
+          "y": 995
+        },
+        "sceneDressOrder": 146
+      }
+    },
+    "60f4f5bc1236": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 2
+          },
+          "parentId": "3f562ad36cfa"
+        },
+        "spawnPosition": {
+          "x": 470,
+          "y": 1141
+        },
+        "sceneDressOrder": 99
+      }
+    },
+    "61fc5a5e4e93": {
+      "name": "VbWaterRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 110,
+          "y": 486
+        },
+        "sceneDressOrder": 105
+      }
+    },
+    "627e03e3c0dc": {
+      "name": "VbUnlitTorch",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 392,
+          "y": 590
+        },
+        "sceneDressOrder": 16
+      }
+    },
+    "63875ae4352b": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 727,
+          "y": 666
+        },
+        "sceneDressOrder": 26
+      }
+    },
+    "63fd770d856e": {
+      "name": "VbCameliaBush",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 587,
+          "y": 758
+        },
+        "sceneDressOrder": 29
+      }
+    },
+    "649d22c514eb": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 559,
+          "y": 1009
+        },
+        "sceneDressOrder": 148
+      }
+    },
+    "67744bfcede8": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": -22
+          },
+          "parentId": "35de6b176797"
+        },
+        "spawnPosition": {
+          "x": 587,
+          "y": 1117
+        },
+        "sceneDressOrder": 91
+      }
+    },
+    "6d61c6603430": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 549,
+          "y": 684
+        },
+        "sceneDressOrder": 124
+      }
+    },
+    "6d9c3a9fe907": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 2
+          },
+          "parentId": "a72391da4190"
+        },
+        "spawnPosition": {
+          "x": 707,
+          "y": 796
+        },
+        "sceneDressOrder": 73
+      }
+    },
+    "6dd588d33b3f": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": -22
+          },
+          "parentId": "a72391da4190"
+        },
+        "spawnPosition": {
+          "x": 707,
+          "y": 772
+        },
+        "sceneDressOrder": 70
+      }
+    },
+    "6fa663f283dc": {
+      "name": "VbUnlitTorch",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 331,
+          "y": 468
+        },
+        "sceneDressOrder": 12
+      }
+    },
+    "702403ba1cc2": {
+      "name": "VbBeachPalmTree",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 904,
+          "y": 1192
+        },
+        "sceneDressOrder": 47
+      }
+    },
+    "761e8b4e54f6": {
+      "name": "VbUmbrellaYellow",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 969,
+          "y": 867
+        },
+        "sceneDressOrder": 74
+      }
+    },
+    "7898b64a3927": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": -22
+          },
+          "parentId": "45bb1e6b15e9"
+        },
+        "spawnPosition": {
+          "x": 847,
+          "y": 395
+        },
+        "sceneDressOrder": 50
+      }
+    },
+    "79d4caaa7eb8": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 230,
+          "y": 713
+        },
+        "sceneDressOrder": 126
+      }
+    },
+    "7c54c379fd98": {
+      "name": "VbGrass4",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 529,
+          "y": 108
+        },
+        "sceneDressOrder": 102
+      }
+    },
+    "7cbc12d13d0b": {
+      "name": "VbLavaRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 578,
+          "y": 214
+        },
+        "sceneDressOrder": 1
+      }
+    },
+    "7e6e3241cca1": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 504,
+          "y": 709
+        },
+        "sceneDressOrder": 125
+      }
+    },
+    "7f039fcc071e": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 220,
+          "y": 729
+        },
+        "sceneDressOrder": 33
+      }
+    },
+    "80397f84bc99": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 1
+          },
+          "parentId": "bd92eab0274b"
+        },
+        "spawnPosition": {
+          "x": 816,
+          "y": 1120
+        },
+        "sceneDressOrder": 89
+      }
+    },
+    "81a635a0d81e": {
+      "name": "VbGrass1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 306,
+          "y": 808
+        },
+        "sceneDressOrder": 45
+      }
+    },
+    "830d61401adc": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 548,
+          "y": 717
+        },
+        "sceneDressOrder": 127
+      }
+    },
+    "879921023334": {
+      "name": "VbSurfboard2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 800,
+          "y": 980
+        },
+        "sceneDressOrder": 144
+      }
+    },
+    "8807fd368b59": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 221,
+          "y": 1156
+        },
+        "sceneDressOrder": 156
+      }
+    },
+    "88443162e10d": {
+      "name": "VbGrass4",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 184,
+          "y": 594
+        },
+        "sceneDressOrder": 115
+      }
+    },
+    "89e0e919c325": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": -22
+          },
+          "parentId": "b261dff37a1c"
+        },
+        "spawnPosition": {
+          "x": 749,
+          "y": 772
+        },
+        "sceneDressOrder": 61
+      }
+    },
+    "8c4fbf3fe04d": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": -22
+          },
+          "parentId": "45bb1e6b15e9"
+        },
+        "spawnPosition": {
+          "x": 783,
+          "y": 395
+        },
+        "sceneDressOrder": 49
+      }
+    },
+    "8e34bfbb16fb": {
+      "name": "VbWaterRock3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 1003,
+          "y": 660
+        },
+        "sceneDressOrder": 119
+      }
+    },
+    "900fbe9f9f82": {
+      "name": "VbBeachTableFront",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 229,
+          "y": 435
+        },
+        "sceneDressOrder": 56
+      }
+    },
+    "930a86290687": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 406,
+          "y": 855
+        },
+        "sceneDressOrder": 134
+      }
+    },
+    "93158cd8428b": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 802,
+          "y": 657
+        },
+        "sceneDressOrder": 121
+      }
+    },
+    "93c44f932a9d": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 2
+          },
+          "parentId": "35de6b176797"
+        },
+        "spawnPosition": {
+          "x": 587,
+          "y": 1141
+        },
+        "sceneDressOrder": 94
+      }
+    },
+    "946b29385f4b": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 2
+          },
+          "parentId": "3f562ad36cfa"
+        },
+        "spawnPosition": {
+          "x": 534,
+          "y": 1141
+        },
+        "sceneDressOrder": 100
+      }
+    },
+    "954592fd929f": {
+      "name": "VbGrass2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 414,
+          "y": 755
+        },
+        "sceneDressOrder": 37
+      }
+    },
+    "9929010f2310": {
+      "name": "VbDriedGrassPatch3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 634,
+          "y": 313
+        },
+        "sceneDressOrder": 10
+      }
+    },
+    "9992e33d11d0": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 444,
+          "y": 1063
+        },
+        "sceneDressOrder": 153
+      }
+    },
+    "9ab1339534ae": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 140,
+          "y": 919
+        },
+        "sceneDressOrder": 142
+      }
+    },
+    "9ab796930a16": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 164,
+          "y": 885
+        },
+        "sceneDressOrder": 139
+      }
+    },
+    "9c77f3b41569": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 517,
+          "y": 864
+        },
+        "sceneDressOrder": 137
+      }
+    },
+    "9dd8b15530da": {
+      "name": "VbGrass4",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 873,
+          "y": 583
+        },
+        "sceneDressOrder": 114
+      }
+    },
+    "9fbdbe7a577e": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 1
+          },
+          "parentId": "bd92eab0274b"
+        },
+        "spawnPosition": {
+          "x": 752,
+          "y": 1120
+        },
+        "sceneDressOrder": 88
+      }
+    },
+    "a72391da4190": {
+      "name": "VbBeachTableFront",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 675,
+          "y": 794
+        },
+        "sceneDressOrder": 71
+      }
+    },
+    "a816940b2147": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 248,
+          "y": 872
+        },
+        "sceneDressOrder": 138
+      }
+    },
+    "a92fc21c7774": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 171,
+          "y": 856
+        },
+        "sceneDressOrder": 135
+      }
+    },
+    "abb820e81f13": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": -22
+          },
+          "parentId": "35de6b176797"
+        },
+        "spawnPosition": {
+          "x": 651,
+          "y": 1117
+        },
+        "sceneDressOrder": 92
+      }
+    },
+    "aca4aad22cc4": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 312,
+          "y": 658
+        },
+        "sceneDressOrder": 122
+      }
+    },
+    "acb9134e72b5": {
+      "name": "VbBurntRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 315,
+          "y": 1165
+        },
+        "sceneDressOrder": 155
+      }
+    },
+    "acea13cc222b": {
+      "name": "VbWaterRock3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 961,
+          "y": 546
+        },
+        "sceneDressOrder": 108
+      }
+    },
+    "aefbbd8362b3": {
+      "name": "VbBeachTableBack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 739,
+          "y": 881
+        },
+        "sceneDressOrder": 78
+      }
+    },
+    "b261dff37a1c": {
+      "name": "VbBeachTableFront",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 781,
+          "y": 794
+        },
+        "sceneDressOrder": 64
+      }
+    },
+    "b5fcc0384d62": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 2
+          },
+          "parentId": "900fbe9f9f82"
+        },
+        "spawnPosition": {
+          "x": 261,
+          "y": 437
+        },
+        "sceneDressOrder": 58
+      }
+    },
+    "b66d7214b425": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 2
+          },
+          "parentId": "45bb1e6b15e9"
+        },
+        "spawnPosition": {
+          "x": 783,
+          "y": 419
+        },
+        "sceneDressOrder": 54
+      }
+    },
+    "b7f4d7e5fc42": {
+      "name": "VbBeachTableBack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 911,
+          "y": 989
+        },
+        "sceneDressOrder": 83
+      }
+    },
+    "b86a7b7c370b": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 1
+          },
+          "parentId": "aefbbd8362b3"
+        },
+        "spawnPosition": {
+          "x": 707,
+          "y": 882
+        },
+        "sceneDressOrder": 76
+      }
+    },
+    "ba1041ff34e6": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 729,
+          "y": 726
+        },
+        "sceneDressOrder": 128
+      }
+    },
+    "bd92eab0274b": {
+      "name": "VbBeachTableBack",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 784,
+          "y": 1119
+        },
+        "sceneDressOrder": 90
+      }
+    },
+    "beeb80a8294c": {
+      "name": "VbDriedGrassPatch2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 604,
+          "y": 168
+        },
+        "sceneDressOrder": 9
+      }
+    },
+    "c08296e81dac": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 2
+          },
+          "parentId": "45bb1e6b15e9"
+        },
+        "spawnPosition": {
+          "x": 847,
+          "y": 419
+        },
+        "sceneDressOrder": 55
+      }
+    },
+    "c0ccfa6d987e": {
+      "name": "VbGrass2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 518,
+          "y": 802
+        },
+        "sceneDressOrder": 44
+      }
+    },
+    "c3005a3029f9": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 342,
+          "y": 555
+        },
+        "sceneDressOrder": 18
+      }
+    },
+    "c779a0cfdca6": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": -22
+          },
+          "parentId": "900fbe9f9f82"
+        },
+        "spawnPosition": {
+          "x": 197,
+          "y": 413
+        },
+        "sceneDressOrder": 52
+      }
+    },
+    "c7ee5d3c4a14": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 2
+          },
+          "parentId": "b261dff37a1c"
+        },
+        "spawnPosition": {
+          "x": 749,
+          "y": 796
+        },
+        "sceneDressOrder": 67
+      }
+    },
+    "c8193b16fcd1": {
+      "name": "VbBeachPalmTree",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 176,
+          "y": 1218
+        },
+        "sceneDressOrder": 48
+      }
+    },
+    "c9731d794b55": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 888,
+          "y": 790
+        },
+        "sceneDressOrder": 42
+      }
+    },
+    "c9bdd7bf9f61": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 736,
+          "y": 634
+        },
+        "sceneDressOrder": 120
+      }
+    },
+    "ca53d6ff0eb9": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": -22
+          },
+          "parentId": "3f562ad36cfa"
+        },
+        "spawnPosition": {
+          "x": 470,
+          "y": 1117
+        },
+        "sceneDressOrder": 96
+      }
+    },
+    "cae0c60d8c91": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 237,
+          "y": 1002
+        },
+        "sceneDressOrder": 147
+      }
+    },
+    "cbdc32532bb6": {
+      "name": "VbGrass1",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 803,
+          "y": 726
+        },
+        "sceneDressOrder": 31
+      }
+    },
+    "cd73e1f327ae": {
+      "name": "VbDriedGrassPatch1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 198,
+          "y": 403
+        },
+        "sceneDressOrder": 11
+      }
+    },
+    "d022796ad3d5": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 1
+          },
+          "parentId": "b7f4d7e5fc42"
+        },
+        "spawnPosition": {
+          "x": 943,
+          "y": 990
+        },
+        "sceneDressOrder": 82
+      }
+    },
+    "d10391d2a6af": {
+      "name": "VbWaterRock2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 85,
+          "y": 629
+        },
+        "sceneDressOrder": 118
+      }
+    },
+    "d1d13a08404a": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 334,
+          "y": 549
+        },
+        "sceneDressOrder": 112
+      }
+    },
+    "d33c5f3f675f": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 1
+          },
+          "parentId": "b7f4d7e5fc42"
+        },
+        "spawnPosition": {
+          "x": 879,
+          "y": 990
+        },
+        "sceneDressOrder": 81
+      }
+    },
+    "d57274c914ec": {
+      "name": "VbGrass2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 249,
+          "y": 799
+        },
+        "sceneDressOrder": 43
+      }
+    },
+    "d63370f73221": {
+      "name": "VbUmbrellaRed",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 787,
+          "y": 1106
+        },
+        "sceneDressOrder": 87
+      }
+    },
+    "d68996704d69": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": -22
+          },
+          "parentId": "b261dff37a1c"
+        },
+        "spawnPosition": {
+          "x": 813,
+          "y": 772
+        },
+        "sceneDressOrder": 62
+      }
+    },
+    "da44a2c6c8b0": {
+      "name": "VbBeachChairBlue",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": -22
+          },
+          "parentId": "a72391da4190"
+        },
+        "spawnPosition": {
+          "x": 643,
+          "y": 772
+        },
+        "sceneDressOrder": 69
+      }
+    },
+    "db4d35e7c41f": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 569,
+          "y": 887
+        },
+        "sceneDressOrder": 140
+      }
+    },
+    "dd42b562192f": {
+      "name": "VbSurfboard1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 765,
+          "y": 980
+        },
+        "sceneDressOrder": 143
+      }
+    },
+    "de7d095f8e43": {
+      "name": "VbWaterRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 70,
+          "y": 589
+        },
+        "sceneDressOrder": 111
+      }
+    },
+    "df3ab3c9b432": {
+      "name": "VbBeachPalmTree",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 170,
+          "y": 844
+        },
+        "sceneDressOrder": 24
+      }
+    },
+    "dfd357fc7eea": {
+      "name": "VbGrass4",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 180,
+          "y": 583
+        },
+        "sceneDressOrder": 113
+      }
+    },
+    "e022846c9bb2": {
+      "name": "VbWaterRock1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 946,
+          "y": 486
+        },
+        "sceneDressOrder": 106
+      }
+    },
+    "e1d17781020d": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 890,
+          "y": 658
+        },
+        "sceneDressOrder": 23
+      }
+    },
+    "e41de7062706": {
+      "name": "VbGrassPatch1",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 290,
+          "y": 726
+        },
+        "sceneDressOrder": 22
+      }
+    },
+    "e5378e743cab": {
+      "name": "VbUnlitTorch",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 715,
+          "y": 471
+        },
+        "sceneDressOrder": 13
+      }
+    },
+    "e7e03cf7e6a7": {
+      "name": "VbGrass4",
+      "params": {
+        "flipped": true,
+        "spawnPosition": {
+          "x": 869,
+          "y": 594
+        },
+        "sceneDressOrder": 116
+      }
+    },
+    "e8cebd990dfd": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 454,
+          "y": 1028
+        },
+        "sceneDressOrder": 151
+      }
+    },
+    "eca8e36218fb": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 777,
+          "y": 726
+        },
+        "sceneDressOrder": 32
+      }
+    },
+    "ed1f2e950cd6": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": -22
+          },
+          "parentId": "900fbe9f9f82"
+        },
+        "spawnPosition": {
+          "x": 261,
+          "y": 413
+        },
+        "sceneDressOrder": 53
+      }
+    },
+    "eefc1f07ecc2": {
+      "name": "VbDriedGrassPatch2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 334,
+          "y": 573
+        },
+        "sceneDressOrder": 15
+      }
+    },
+    "f04e6778455a": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": false,
+        "seatHost": {
+          "offset": {
+            "x": 32,
+            "y": 1
+          },
+          "parentId": "aefbbd8362b3"
+        },
+        "spawnPosition": {
+          "x": 771,
+          "y": 882
+        },
+        "sceneDressOrder": 77
+      }
+    },
+    "f15d71339971": {
+      "name": "VbBeachPalmTree",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 910,
+          "y": 850
+        },
+        "sceneDressOrder": 27
+      }
+    },
+    "f16495bfac28": {
+      "name": "VbGrass3",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 786,
+          "y": 618
+        },
+        "sceneDressOrder": 21
+      }
+    },
+    "f1fd11be78ca": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 570,
+          "y": 767
+        },
+        "sceneDressOrder": 133
+      }
+    },
+    "f3b51e3d8b59": {
+      "name": "VbWaterRock2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 938,
+          "y": 385
+        },
+        "sceneDressOrder": 103
+      }
+    },
+    "f4ac32fd696e": {
+      "name": "VbBeachChairRed",
+      "params": {
+        "flipped": true,
+        "seatHost": {
+          "offset": {
+            "x": -32,
+            "y": 2
+          },
+          "parentId": "900fbe9f9f82"
+        },
+        "spawnPosition": {
+          "x": 197,
+          "y": 437
+        },
+        "sceneDressOrder": 57
+      }
+    },
+    "f604f84c6675": {
+      "name": "VbVolcanicTulip",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 504,
+          "y": 743
+        },
+        "sceneDressOrder": 130
+      }
+    },
+    "f94df572d7bf": {
+      "name": "VbUmbrellaYellow",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 914,
+          "y": 976
+        },
+        "sceneDressOrder": 79
+      }
+    },
+    "f999f4b11e96": {
+      "name": "VbFireBlossomAnimation",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 387,
+          "y": 863
+        },
+        "sceneDressOrder": 136
+      }
+    },
+    "fa106de49e4a": {
+      "name": "VbLavaRock2",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 465,
+          "y": 203
+        },
+        "sceneDressOrder": 2
+      }
+    },
+    "fc8f2b92ef53": {
+      "name": "VbBurntSmallRocks",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 233,
+          "y": 1029
+        },
+        "sceneDressOrder": 152
+      }
+    },
+    "fd46d9dc838e": {
+      "name": "VbCameliaBush",
+      "params": {
+        "flipped": false,
+        "spawnPosition": {
+          "x": 485,
+          "y": 652
+        },
+        "sceneDressOrder": 19
+      }
+    },
+    "scene-colliders": {
+      "name": "SceneColliders",
+      "params": {
+        "colliders": [
+          {
+            "x": 289,
+            "y": 544,
+            "width": 28,
+            "height": 29
+          },
+          {
+            "x": 318,
+            "y": 561,
+            "width": 100,
+            "height": 36
+          },
+          {
+            "x": 177,
+            "y": 462,
+            "width": 66,
+            "height": 81
+          },
+          {
+            "x": 292,
+            "y": 423,
+            "width": 121,
+            "height": 55
+          },
+          {
+            "x": 171,
+            "y": 356,
+            "width": 6,
+            "height": 93
+          },
+          {
+            "x": 339,
+            "y": 347,
+            "width": 80,
+            "height": 37
+          },
+          {
+            "x": 423,
+            "y": 319,
+            "width": 89,
+            "height": 70
+          },
+          {
+            "x": 657,
+            "y": 422,
+            "width": 75,
+            "height": 57
+          },
+          {
+            "x": 733,
+            "y": 447,
+            "width": 28,
+            "height": 30
+          },
+          {
+            "x": 641,
+            "y": 566,
+            "width": 92,
+            "height": 30
+          },
+          {
+            "x": 732,
+            "y": 535,
+            "width": 32,
+            "height": 35
+          },
+          {
+            "x": 808,
+            "y": 463,
+            "width": 67,
+            "height": 83
+          },
+          {
+            "x": 796,
+            "y": 475,
+            "width": 10,
+            "height": 38
+          },
+          {
+            "x": 797,
+            "y": 514,
+            "width": 10,
+            "height": 31
+          },
+          {
+            "x": 493,
+            "y": 635,
+            "width": 4,
+            "height": 102
+          },
+          {
+            "x": 555,
+            "y": 634,
+            "width": 6,
+            "height": 103
+          },
+          {
+            "x": 247,
+            "y": 680,
+            "width": 119,
+            "height": 42
+          },
+          {
+            "x": 679,
+            "y": 679,
+            "width": 127,
+            "height": 42
+          },
+          {
+            "x": 563,
+            "y": 701,
+            "width": 18,
+            "height": 33
+          },
+          {
+            "x": 475,
+            "y": 698,
+            "width": 17,
+            "height": 39
+          },
+          {
+            "x": 366,
+            "y": 680,
+            "width": 11,
+            "height": 21
+          },
+          {
+            "x": 415,
+            "y": 596,
+            "width": 4,
+            "height": 42
+          },
+          {
+            "x": 417,
+            "y": 637,
+            "width": 75,
+            "height": 3
+          },
+          {
+            "x": 559,
+            "y": 635,
+            "width": 77,
+            "height": 6
+          },
+          {
+            "x": 635,
+            "y": 598,
+            "width": 4,
+            "height": 43
+          },
+          {
+            "x": 173,
+            "y": 540,
+            "width": 4,
+            "height": 34
+          },
+          {
+            "x": 180,
+            "y": 542,
+            "width": 10,
+            "height": 38
+          },
+          {
+            "x": 191,
+            "y": 540,
+            "width": 21,
+            "height": 18
+          },
+          {
+            "x": 192,
+            "y": 558,
+            "width": 8,
+            "height": 7
+          },
+          {
+            "x": 184,
+            "y": 623,
+            "width": 16,
+            "height": 33
+          },
+          {
+            "x": 216,
+            "y": 669,
+            "width": 28,
+            "height": 17
+          },
+          {
+            "x": 202,
+            "y": 624,
+            "width": 3,
+            "height": 51
+          },
+          {
+            "x": 206,
+            "y": 633,
+            "width": 7,
+            "height": 45
+          },
+          {
+            "x": 212,
+            "y": 644,
+            "width": 10,
+            "height": 23
+          },
+          {
+            "x": 221,
+            "y": 656,
+            "width": 10,
+            "height": 11
+          },
+          {
+            "x": 227,
+            "y": 686,
+            "width": 17,
+            "height": 12
+          },
+          {
+            "x": 238,
+            "y": 698,
+            "width": 8,
+            "height": 10
+          },
+          {
+            "x": 231,
+            "y": 661,
+            "width": 4,
+            "height": 6
+          },
+          {
+            "x": 365,
+            "y": 700,
+            "width": 6,
+            "height": 9
+          },
+          {
+            "x": 190,
+            "y": 579,
+            "width": 3,
+            "height": 43
+          },
+          {
+            "x": 245,
+            "y": 473,
+            "width": 11,
+            "height": 72
+          },
+          {
+            "x": 242,
+            "y": 466,
+            "width": 8,
+            "height": 5
+          },
+          {
+            "x": 376,
+            "y": 478,
+            "width": 33,
+            "height": 12
+          },
+          {
+            "x": 834,
+            "y": 547,
+            "width": 47,
+            "height": 11
+          },
+          {
+            "x": 863,
+            "y": 559,
+            "width": 12,
+            "height": 22
+          },
+          {
+            "x": 811,
+            "y": 667,
+            "width": 26,
+            "height": 20
+          },
+          {
+            "x": 831,
+            "y": 644,
+            "width": 37,
+            "height": 11
+          },
+          {
+            "x": 847,
+            "y": 629,
+            "width": 21,
+            "height": 13
+          },
+          {
+            "x": 831,
+            "y": 656,
+            "width": 25,
+            "height": 11
+          },
+          {
+            "x": 837,
+            "y": 668,
+            "width": 10,
+            "height": 10
+          },
+          {
+            "x": 813,
+            "y": 688,
+            "width": 10,
+            "height": 12
+          },
+          {
+            "x": 863,
+            "y": 618,
+            "width": 5,
+            "height": 10
+          },
+          {
+            "x": 856,
+            "y": 655,
+            "width": 6,
+            "height": 7
+          },
+          {
+            "x": 825,
+            "y": 689,
+            "width": 4,
+            "height": 4
+          },
+          {
+            "x": 820,
+            "y": 659,
+            "width": 10,
+            "height": 7
+          },
+          {
+            "x": 839,
+            "y": 636,
+            "width": 8,
+            "height": 7
+          },
+          {
+            "x": 855,
+            "y": 621,
+            "width": 7,
+            "height": 7
+          },
+          {
+            "x": 876,
+            "y": 451,
+            "width": 5,
+            "height": 122
+          },
+          {
+            "x": 876,
+            "y": 356,
+            "width": 5,
+            "height": 95
+          },
+          {
+            "x": 759,
+            "y": 359,
+            "width": 3,
+            "height": 89
+          },
+          {
+            "x": 544,
+            "y": 348,
+            "width": 170,
+            "height": 38
+          },
+          {
+            "x": 714,
+            "y": 359,
+            "width": 5,
+            "height": 26
+          },
+          {
+            "x": 411,
+            "y": 423,
+            "width": 207,
+            "height": 43
+          },
+          {
+            "x": 657,
+            "y": 477,
+            "width": 20,
+            "height": 12
+          },
+          {
+            "x": 810,
+            "y": 700,
+            "width": 6,
+            "height": 9
+          },
+          {
+            "x": 515,
+            "y": 346,
+            "width": 27,
+            "height": 36
+          },
+          {
+            "x": 291,
+            "y": 357,
+            "width": 3,
+            "height": 69
+          },
+          {
+            "x": 172,
+            "y": 448,
+            "width": 4,
+            "height": 97
+          },
+          {
+            "x": 287,
+            "y": 508,
+            "width": 4,
+            "height": 37
+          },
+          {
+            "x": 760,
+            "y": 509,
+            "width": 5,
+            "height": 26
+          },
+          {
+            "x": -6,
+            "y": 605,
+            "kind": "water",
+            "width": 155,
+            "height": 282
+          },
+          {
+            "x": 1,
+            "y": 888,
+            "kind": "water",
+            "width": 114,
+            "height": 126
+          },
+          {
+            "x": 116,
+            "y": 938,
+            "kind": "water",
+            "width": 86,
+            "height": 47
+          },
+          {
+            "x": 2,
+            "y": 1015,
+            "kind": "water",
+            "width": 81,
+            "height": 297
+          },
+          {
+            "x": 84,
+            "y": 1065,
+            "kind": "water",
+            "width": 32,
+            "height": 46
+          },
+          {
+            "x": 84,
+            "y": 1162,
+            "kind": "water",
+            "width": 30,
+            "height": 148
+          },
+          {
+            "x": 115,
+            "y": 1193,
+            "kind": "water",
+            "width": 31,
+            "height": 124
+          },
+          {
+            "x": 146,
+            "y": 1225,
+            "kind": "water",
+            "width": 225,
+            "height": 109
+          },
+          {
+            "x": 559,
+            "y": 1227,
+            "kind": "water",
+            "width": 498,
+            "height": 121
+          },
+          {
+            "x": 371,
+            "y": 1256,
+            "kind": "water",
+            "width": 187,
+            "height": 62
+          },
+          {
+            "x": 1006,
+            "y": 960,
+            "kind": "water",
+            "width": 82,
+            "height": 365
+          },
+          {
+            "x": 941,
+            "y": 1162,
+            "kind": "water",
+            "width": 64,
+            "height": 65
+          },
+          {
+            "x": 907,
+            "y": 1194,
+            "kind": "water",
+            "width": 33,
+            "height": 32
+          },
+          {
+            "x": 974,
+            "y": 1129,
+            "kind": "water",
+            "width": 30,
+            "height": 33
+          },
+          {
+            "x": 973,
+            "y": 1034,
+            "kind": "water",
+            "width": 33,
+            "height": 45
+          },
+          {
+            "x": 946,
+            "y": 658,
+            "kind": "water",
+            "width": 142,
+            "height": 229
+          },
+          {
+            "x": 973,
+            "y": 888,
+            "kind": "water",
+            "width": 115,
+            "height": 32
+          },
+          {
+            "x": 1006,
+            "y": 920,
+            "kind": "water",
+            "width": 82,
+            "height": 40
+          },
+          {
+            "x": 913,
+            "y": 606,
+            "kind": "water",
+            "width": 175,
+            "height": 49
+          },
+          {
+            "x": 945,
+            "y": 644,
+            "kind": "water",
+            "width": 143,
+            "height": 17
+          },
+          {
+            "x": 928,
+            "y": 291,
+            "kind": "water",
+            "width": 160,
+            "height": 201
+          },
+          {
+            "x": 935,
+            "y": 493,
+            "kind": "water",
+            "width": 153,
+            "height": 113
+          },
+          {
+            "x": 898,
+            "y": 288,
+            "kind": "water",
+            "width": 30,
+            "height": 78
+          },
+          {
+            "x": 910,
+            "y": 365,
+            "kind": "water",
+            "width": 19,
+            "height": 89
+          },
+          {
+            "x": 922,
+            "y": 454,
+            "kind": "water",
+            "width": 6,
+            "height": 34
+          },
+          {
+            "x": 2,
+            "y": 1,
+            "kind": "water",
+            "width": 756,
+            "height": 270
+          },
+          {
+            "x": 759,
+            "y": 1,
+            "kind": "water",
+            "width": 329,
+            "height": 269
+          },
+          {
+            "x": 897,
+            "y": 271,
+            "kind": "water",
+            "width": 191,
+            "height": 20
+          },
+          {
+            "x": 2,
+            "y": 270,
+            "kind": "water",
+            "width": 126,
+            "height": 221
+          },
+          {
+            "x": 128,
+            "y": 270,
+            "kind": "water",
+            "width": 24,
+            "height": 96
+          },
+          {
+            "x": 129,
+            "y": 365,
+            "kind": "water",
+            "width": 9,
+            "height": 89
+          },
+          {
+            "x": 2,
+            "y": 492,
+            "kind": "water",
+            "width": 116,
+            "height": 113
+          },
+          {
+            "x": 501,
+            "y": 604,
+            "width": 54,
+            "height": 23
+          },
+          {
+            "x": 266,
+            "y": 840,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 108,
+            "height": 79
+          },
+          {
+            "x": 206,
+            "y": 935,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 327,
+            "height": 48
+          },
+          {
+            "x": 428,
+            "y": 838,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 74,
+            "height": 97
+          },
+          {
+            "x": 377,
+            "y": 869,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 156,
+            "height": 66
+          },
+          {
+            "x": 295,
+            "y": 919,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 91,
+            "height": 17
+          },
+          {
+            "x": 265,
+            "y": 983,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 172,
+            "height": 31
+          },
+          {
+            "x": 328,
+            "y": 1015,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 109,
+            "height": 31
+          },
+          {
+            "x": 368,
+            "y": 871,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 10,
+            "height": 11
+          },
+          {
+            "x": 368,
+            "y": 869,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 18,
+            "height": 50
+          },
+          {
+            "x": 234,
+            "y": 1067,
+            "kind": "water",
+            "fishingWater": "lava",
+            "width": 75,
+            "height": 75
+          },
+          {
+            "x": 860,
+            "y": 575,
+            "width": 5,
+            "height": 47
+          },
+          {
+            "x": 643,
+            "y": 560,
+            "width": 89,
+            "height": 14
+          },
+          {
+            "x": 212,
+            "y": 543,
+            "width": 13,
+            "height": 6
+          },
+          {
+            "x": 173,
+            "y": 349,
+            "width": 120,
+            "height": 9
+          },
+          {
+            "x": 742,
+            "y": 351,
+            "width": 138,
+            "height": 7
+          }
+        ],
+        "spawnPosition": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    }
+  }
+}

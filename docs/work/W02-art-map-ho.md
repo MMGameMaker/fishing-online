@@ -45,3 +45,21 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
 - **Kiểm tra:** Đối chiếu mọi pixel RGBA của hai atlas với bản trước, kiểm tra 892 cặp ô liền kề theo Wang và xem preview. Còn kiểm tra animation và hiển thị trong Cocos.
 
 - **Biến thể bờ:** Cập nhật TMX và preview 64 × 64 tại chỗ bằng 31 ô thuộc 13 biến thể cạnh/góc sẵn có của Fan-tasy. Mỗi ô thay thế có cùng Wang ID với ô trước. Đã xem preview, bờ dài có thêm đoạn lồi/lõm nhẹ và các góc bo đa dạng hơn. Kiểm tra animation trong engine vẫn mở.
+
+## Web Client — Map bến cá (fishing pier) xem trước
+
+- **Phạm vi Claude:** [PierScene](../../client-v0/src/online/scenes/pier/PierScene.ts) và trang `client-v0/pier.html`. Chưa nối LakeScene, walkable, seat hay Server.
+- **Nguồn:** Dựng lại theo ảnh map gốc `public/new resources/art/ac50186c-…png` (1088 × 800) do người dùng cung cấp. Bản bố cục tự sắp trước đó đã bị thay thế.
+- **Cách dựng:** Đối chiếu điểm ảnh từng ô 16px với 1.149 ô nền của atlas fishing-pier, rồi dò vị trí sprite (atlas fishing-pier và main-town) bằng template matching, có xử lý vật bị che và tràn mép. Đồng thời giải ô nền + 171 ô bóng dưới mép cầu. Bóng map trong ảnh gốc có alpha hiệu dụng 144/255, khác 102/255 trong atlas, nên scene tạo texture bóng riêng. Kết quả nằm trong [fishingPierMap.json](../../client-v0/src/online/scenes/pier/fishingPierMap.json): 68 × 50 ô nền, 171 ô bóng, 325 object (bờ nước, cây có animation, hải đăng, tiệm cá, tàu lớn, thuyền, thùng, cọc, bàn ghế, máy bán nước, biển chỉ đường, bóng object). Ghép thử bằng script lệch 1,5% điểm ảnh so với ảnh gốc, chủ yếu ở viền bóng và máy hồng.
+- **Thiếu asset:** Máy bán nước màu hồng cạnh máy cam không có trong atlas, art hay gif. Theo quyết định của người dùng, tạm đặt máy cam vào chỗ đó.
+- **Kiểm tra:** 5 test map pier đạt, typecheck/eslint/prettier sạch. Đã chạy trên trình duyệt, không có lỗi tải tài nguyên. FPS animation (cây, tàu, bờ) là giá trị tự chọn.
+- **Animation nước:** Ảnh gốc là một khung tĩnh, gợn nước trong game gốc do WaterAnimationManager sinh lúc chạy. Đã thêm `pillarRiverFlow` ở 31 chân cọc dưới cầu (dò theo màu chân cọc trên ảnh gốc). Thêm 18 gợn sóng (`riverFlowLong/Short`, `riverLine`, `riverCurve`) hiện ngẫu nhiên trên 526 ô nước trống (không bóng, không bị thuyền che), chạy một lượt rồi chuyển chỗ. Số lượng, nhịp và FPS là giá trị tự chọn. 8 test pier đạt, đã xem trên trình duyệt.
+- **Tiếp theo:** Khi có sprite máy hồng thì thay vào. Nếu dùng làm map câu thật cần thống nhất walkable/seat với Server.
+
+## Web Client — Khu fishing-cabin xem trước
+
+- **Phạm vi Claude:** [CabinScene](../../client-v0/src/online/scenes/cabin/CabinScene.ts) và trang `client-v0/cabin.html`, gồm 3 map: cabin lớn, cabin vừa, sân sau. Bấm cửa để đi giữa phòng và sân sau. Chưa nối LakeScene, walkable hay Server. Camera xem trước dùng chung với pier ở `scenes/preview/previewCamera.ts`.
+- **Phòng lg/md:** Ghép lại nguyên bản từ `embedded-metadata-0.json` (sàn, tường trước) và atlas `sheet-room-fishing-cabin-0`. Vị trí tường trước, vách giữa, cửa, cửa sổ và chim dò bằng so khớp điểm ảnh với sàn (tường/vách khớp 100%). Va chạm trong `maps/fishing-cabin-{lg,md}.json` trùng khớp tường khi bật lớp kiểm tra (phím C). Có animation cửa sổ và chim ở bệ cửa sổ.
+- **Sân sau:** Tự dựng vì atlas `fishing-cabin-yard` chỉ có 163 ô 16 × 16, không có vị trí ghép. Bố cục bám theo va chạm của `fishing-cabin-backyard.json`. Nền cỏ/lối cát lọc theo màu góc ô. Ao 3 × 3 dùng ô bờ có animation của atlas fishing-pier, phần cát được làm trong suốt lúc chạy. Vách sau nhà và cọc rào cắt từ khúc gỗ của tường trước phòng lg, vì không có art vách ngoài riêng.
+- **Kiểm tra:** 7 test cabin + 4 test pier đạt, typecheck/eslint/prettier sạch. Đã chạy cả 3 map trên trình duyệt, tài nguyên tải đủ, cửa chuyển map hai chiều, animation chim/cửa sổ chạy (bước vòng lặp thủ công vì pane bị ẩn).
+- **Tiếp theo:** Người dùng duyệt sân sau. FPS animation là giá trị tự chọn. Nếu có art vách ngoài/hàng rào thật của sân sau thì thay phần cắt từ phòng lg.

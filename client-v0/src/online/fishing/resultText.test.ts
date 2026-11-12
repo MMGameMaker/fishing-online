@@ -36,6 +36,12 @@ describe('buildResultCard', () => {
 
   it('chưa có catalog thì dùng speciesId', () => {
     expect(buildResultCard(base, null).name).toBe('perch');
+    expect(buildResultCard(base, null).price).toBeNull();
+  });
+
+  it('giá bán lấy sellGold của loài trong catalog', () => {
+    const perch = catalog.fish.find((f) => f.speciesId === 'perch');
+    expect(buildResultCard(base, catalog).price).toBe(perch?.sellGold);
   });
 });
 

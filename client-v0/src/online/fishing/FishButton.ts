@@ -1,21 +1,14 @@
 // Nút móc câu gần giữa màn hình, kèm thanh đếm ngược; chỉ hiện khi cá cắn.
-// Thu cần bằng cách bấm nút hoặc phím Space (feedback 2026-11-11).
-const SVG_NS = 'http://www.w3.org/2000/svg';
-const HOOK_PATH = 'M15 3v15a5 5 0 1 1-10 0v-2';
+// Thu cần bằng cách bấm nút hoặc phím Space (feedback 2026-11-11). Hình nút là ảnh Button Hook.png.
+const HOOK_IMAGE = encodeURI('/mini game/Button Hook.png');
 
-function hookIcon(): SVGSVGElement {
-  const svg = document.createElementNS(SVG_NS, 'svg');
-  svg.setAttribute('viewBox', '0 0 24 24');
-  svg.setAttribute('aria-hidden', 'true');
-  svg.classList.add('fish-button__icon');
-  const path = document.createElementNS(SVG_NS, 'path');
-  path.setAttribute('d', HOOK_PATH);
-  const eye = document.createElementNS(SVG_NS, 'circle');
-  eye.setAttribute('cx', '15');
-  eye.setAttribute('cy', '3');
-  eye.setAttribute('r', '1.6');
-  svg.append(path, eye);
-  return svg;
+function hookImage(): HTMLImageElement {
+  const image = document.createElement('img');
+  image.src = HOOK_IMAGE;
+  image.alt = '';
+  image.draggable = false;
+  image.className = 'fish-button__image';
+  return image;
 }
 
 function isTyping(): boolean {
@@ -26,13 +19,16 @@ export class FishButton {
   private readonly button = document.createElement('button');
   private readonly bar = document.createElement('div');
   private readonly onKeyDown: (event: KeyboardEvent) => void;
+  private visible = false;
 
   constructor(root: HTMLElement, onPress: () => void) {
     this.button.type = 'button';
     this.button.className = 'fish-button';
-    this.button.hidden = true;
+    this.button.setAttribute('aria-hidden', 'true');
+    this.button.tabIndex = -1;
     this.button.setAttribute('aria-label', 'Thu cần (Space)');
     this.button.addEventListener('pointerdown', (event) => {
+      if (!this.visible) return;
       event.stopPropagation();
       onPress();
     });
@@ -40,12 +36,12 @@ export class FishButton {
     key.className = 'fish-button__key';
     key.textContent = 'SPACE';
     this.bar.className = 'fish-button__bar';
-    this.button.append(hookIcon(), key, this.bar);
+    this.button.append(hookImage(), key, this.bar);
     root.append(this.button);
 
     // Nghe trên window vì scene Coral Cove tắt bàn phím của Phaser.
     this.onKeyDown = (event) => {
-      if (event.code !== 'Space' || event.repeat || this.button.hidden || isTyping()) return;
+      if (event.code !== 'Space' || event.repeat || !this.visible || isTyping()) return;
       event.preventDefault();
       onPress();
     };
@@ -53,7 +49,13 @@ export class FishButton {
   }
 
   render(visible: boolean, progress: number): void {
-    this.button.hidden = !visible;
+    // Hiện/ẩn bằng class để có hiệu ứng mờ dần và phóng nhẹ (feedback 2026-11-12), không bật/tắt tức thì.
+    if (visible !== this.visible) {
+      this.visible = visible;
+      this.button.classList.toggle('fish-button--shown', visible);
+      this.button.setAttribute('aria-hidden', String(!visible));
+      this.button.tabIndex = visible ? 0 : -1;
+    }
     if (visible) this.bar.style.setProperty('--bite-progress', String(progress));
   }
 

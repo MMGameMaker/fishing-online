@@ -1,0 +1,909 @@
+[
+  {
+    "name": "Swing",
+    "path": "sound/Swing--78cab703.wav",
+    "usage": "Fishing / Quest",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1569011,
+        "context": "eSitAnimation\",\"fishing\"),or()&&rH.A.socket.emit(\"requestFtueFishingBite\",{}),this.fishingUI.x=tN.App.instance.localPlayer.parent.x,this.fishingUI.y=tN.App.instance.localPlayer.parent.y-40,this.trackTimeout(()=>{(0,rQ.U)(\"Swing\"),this.trackTimeout(()=>{(0,rQ.U)(\"Cast\"),this.trackTimeout(()=>{(0,rQ.U)(\"Cast-Impact\")},350)},25)},350),oo()&&this.mountIdleFishingIndicator())},this.onFocusSessionActiveUpdated=()=>{if(!oo())return void this.unmountFishingIndicator();if(this.isFis"
+      }
+    ]
+  },
+  {
+    "name": "Cast",
+    "path": "sound/Cast--a92ec6dc.wav",
+    "usage": "Fishing / Quest",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1569052,
+        "context": "et.emit(\"requestFtueFishingBite\",{}),this.fishingUI.x=tN.App.instance.localPlayer.parent.x,this.fishingUI.y=tN.App.instance.localPlayer.parent.y-40,this.trackTimeout(()=>{(0,rQ.U)(\"Swing\"),this.trackTimeout(()=>{(0,rQ.U)(\"Cast\"),this.trackTimeout(()=>{(0,rQ.U)(\"Cast-Impact\")},350)},25)},350),oo()&&this.mountIdleFishingIndicator())},this.onFocusSessionActiveUpdated=()=>{if(!oo())return void this.unmountFishingIndicator();if(this.isFishing&&!this.fishingUI.visible){if(!or()&"
+      }
+    ]
+  },
+  {
+    "name": "Cast-Impact",
+    "path": "sound/1wl25rNkRS7peI3s6817H6uIbrSLApeh25DvEOdYUcwZfn1m--b5d1efcf.wav",
+    "usage": "Fishing / Fishing frenzy / UI/button",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1569092,
+        "context": "s.fishingUI.x=tN.App.instance.localPlayer.parent.x,this.fishingUI.y=tN.App.instance.localPlayer.parent.y-40,this.trackTimeout(()=>{(0,rQ.U)(\"Swing\"),this.trackTimeout(()=>{(0,rQ.U)(\"Cast\"),this.trackTimeout(()=>{(0,rQ.U)(\"Cast-Impact\")},350)},25)},350),oo()&&this.mountIdleFishingIndicator())},this.onFocusSessionActiveUpdated=()=>{if(!oo())return void this.unmountFishingIndicator();if(this.isFishing&&!this.fishingUI.visible){if(!or()&&this.reelButton.sprite.visible&&this.currentCh"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1184816,
+        "context": "n F.A.on(\"fishingFrenzyUpdate\",e),()=>F.A.off(\"fishingFrenzyUpdate\",e)},[t]),(0,s.useEffect)(()=>{let e=()=>{d(!1),i(!0)},t=n(),a=x.current;t?null===a?e():a||(l?e():((0,lW.U)(\"Frenzy1\"),(0,lW.U)(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1184851,
+        "context": ")=>F.A.off(\"fishingFrenzyUpdate\",e)},[t]),(0,s.useEffect)(()=>{let e=()=>{d(!1),i(!0)},t=n(),a=x.current;t?null===a?e():a||(l?e():((0,lW.U)(\"Frenzy1\"),(0,lW.U)(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i(!0))):a&&(()=>{var e;if((0,lW.U)(\""
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1184890,
+        "context": "]),(0,s.useEffect)(()=>{let e=()=>{d(!1),i(!0)},t=n(),a=x.current;t?null===a?e():a||(l?e():((0,lW.U)(\"Frenzy1\"),(0,lW.U)(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i(!0))):a&&(()=>{var e;if((0,lW.U)(\"Whoosh-Thick-1\"),!u.current){i(!1),d(!1"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1184930,
+        "context": ",i(!0)},t=n(),a=x.current;t?null===a?e():a||(l?e():((0,lW.U)(\"Frenzy1\"),(0,lW.U)(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i(!0))):a&&(()=>{var e;if((0,lW.U)(\"Whoosh-Thick-1\"),!u.current){i(!1),d(!1);return}null==(e=m.current)||e.add(()=>"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1184969,
+        "context": "):a||(l?e():((0,lW.U)(\"Frenzy1\"),(0,lW.U)(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i(!0))):a&&(()=>{var e;if((0,lW.U)(\"Whoosh-Thick-1\"),!u.current){i(!1),d(!1);return}null==(e=m.current)||e.add(()=>{fq.os.to(u.current,{scale:0,alpha:0,du"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1185009,
+        "context": ")(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i(!0))):a&&(()=>{var e;if((0,lW.U)(\"Whoosh-Thick-1\"),!u.current){i(!1),d(!1);return}null==(e=m.current)||e.add(()=>{fq.os.to(u.current,{scale:0,alpha:0,duration:.3,ease:\"back.in(1.7)\",onComplete"
+      }
+    ]
+  },
+  {
+    "name": "Transition",
+    "path": "sound/Transition--a6bbf862.wav",
+    "usage": "Call sites found; specific feature unresolved",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 2200472,
+        "context": "e,t){var a,i,o,d,h,u,m,x,v,P,k,C,L,O,F,D,I,E,j,M,R,W,_,H,G,z,U,V,K;let J,Y=++this.sceneTransitionSequence;if(p.A.signal.emit(\"scene-load\"),p.A.signal.emit(\"stopAcceptingInput\",\"scene-loading\"),!this.isFirstLoad&&((0,B.U)(\"Transition\"),await this.transitionOut(eN),Y!==this.sceneTransitionSequence)||(await (null==(a=e.onTransitionOutComplete)?void 0:a.call(e)),Y!==this.sceneTransitionSequence))return;let X=!e.doNotGetMapData&&(!!e.burrow||!!e.sharedBurrow||void 0!==e.scene.mapData"
+      },
+      {
+        "bundle": "867778f6-87c73c54-09e1ba5c70e60a51.js",
+        "offset": 28009,
+        "context": "),t[\"Webkit\"+e]=\"webkit\"+n,t[\"Moz\"+e]=\"moz\"+n,t}var t$={animationend:tU(\"Animation\",\"AnimationEnd\"),animationiteration:tU(\"Animation\",\"AnimationIteration\"),animationstart:tU(\"Animation\",\"AnimationStart\"),transitionrun:tU(\"Transition\",\"TransitionRun\"),transitionstart:tU(\"Transition\",\"TransitionStart\"),transitioncancel:tU(\"Transition\",\"TransitionCancel\"),transitionend:tU(\"Transition\",\"TransitionEnd\")},tj={},tV={};function tH(e){if(tj[e])return tj[e];if(!t$[e])return e;var n,t=t$[e"
+      },
+      {
+        "bundle": "867778f6-87c73c54-09e1ba5c70e60a51.js",
+        "offset": 28058,
+        "context": "ar t$={animationend:tU(\"Animation\",\"AnimationEnd\"),animationiteration:tU(\"Animation\",\"AnimationIteration\"),animationstart:tU(\"Animation\",\"AnimationStart\"),transitionrun:tU(\"Transition\",\"TransitionRun\"),transitionstart:tU(\"Transition\",\"TransitionStart\"),transitioncancel:tU(\"Transition\",\"TransitionCancel\"),transitionend:tU(\"Transition\",\"TransitionEnd\")},tj={},tV={};function tH(e){if(tj[e])return tj[e];if(!t$[e])return e;var n,t=t$[e];for(n in t)if(t.hasOwnProperty(n)&&n in tV)retu"
+      },
+      {
+        "bundle": "867778f6-87c73c54-09e1ba5c70e60a51.js",
+        "offset": 28110,
+        "context": "nimationiteration:tU(\"Animation\",\"AnimationIteration\"),animationstart:tU(\"Animation\",\"AnimationStart\"),transitionrun:tU(\"Transition\",\"TransitionRun\"),transitionstart:tU(\"Transition\",\"TransitionStart\"),transitioncancel:tU(\"Transition\",\"TransitionCancel\"),transitionend:tU(\"Transition\",\"TransitionEnd\")},tj={},tV={};function tH(e){if(tj[e])return tj[e];if(!t$[e])return e;var n,t=t$[e];for(n in t)if(t.hasOwnProperty(n)&&n in tV)return tj[e]=t[n];return e}nP&&(tV=document.createElemen"
+      },
+      {
+        "bundle": "867778f6-87c73c54-09e1ba5c70e60a51.js",
+        "offset": 28160,
+        "context": "on\"),animationstart:tU(\"Animation\",\"AnimationStart\"),transitionrun:tU(\"Transition\",\"TransitionRun\"),transitionstart:tU(\"Transition\",\"TransitionStart\"),transitioncancel:tU(\"Transition\",\"TransitionCancel\"),transitionend:tU(\"Transition\",\"TransitionEnd\")},tj={},tV={};function tH(e){if(tj[e])return tj[e];if(!t$[e])return e;var n,t=t$[e];for(n in t)if(t.hasOwnProperty(n)&&n in tV)return tj[e]=t[n];return e}nP&&(tV=document.createElement(\"div\").style,\"AnimationEvent\"in window||(delete "
+      }
+    ]
+  },
+  {
+    "name": "Sell",
+    "path": "sound/Sell--718b21ce.wav",
+    "usage": "Fishing",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 823026,
+        "context": "\"/api/sellFish\",{body:{fishIds:t}});if(l)return void console.log(\"Error selling fish\",l);(0,tz.KN)(s,t,{isSold:!0}),a(n.remainingPoints),r(n.remainingGems),T.A.progressMission(\"sell-fish-for-coins\",n.goldToGain),(0,lW.U)(\"Sell\")}var xC=a(44186);let xS=\"lofi.fishInventorySortMode\",x_=\"lofi.fishInventorySortDirection\",xz=[\"normal\",\"swamp\",\"volcano\",\"arctic\"],xE=[\"none\",\"bronze\",\"silver\",\"gold\",\"platinum\"],xM=[{id:\"pier\",label:\"Fishing Pier\",fishingRod:\"normal\",stampSpriteNam"
+      }
+    ]
+  },
+  {
+    "name": "Reel",
+    "path": "sound/Reel--01887e31.wav",
+    "usage": "Call sites found; specific feature unresolved",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1553636,
+        "context": "ickable.on(\"tap\",e=>{e.stopPropagation(),this.miniGame()})}successfulPress(){(0,rQ.U)(\"Wooden-Click\",.8*Math.pow(2,this.consecutiveSuccesses/12)),(0,rQ.U)(\"Minigame-Hit\",Math.pow(2,this.consecutiveSuccesses/12)),(0,rQ.U)(\"Reel\",Math.pow(2,this.consecutiveSuccesses/15)),this.consecutiveSuccesses++,this.totalSuccesses++,this.playFrameAnimation(\"success\"),this.changeFishLevelDarkColor(0xa4bb00);let e=this.getFishLevelGainRange(),t=Math.floor(Math.random()*(e.max-e.min+1))+e.m"
+      }
+    ]
+  },
+  {
+    "name": "Wooden-Click",
+    "path": "sound/1wl25rNkRS7pyXZ2UaHopZs0FBWl1jYkqSbXLgm4VUEK3A52--a59b00ba.wav",
+    "usage": "Fishing / UI/button",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1553501,
+        "context": "tartFishing()})}reelButtonListeners(){this.reelButton.clickable.on(\"click\",e=>{e.stopPropagation(),this.miniGame()}),this.reelButton.clickable.on(\"tap\",e=>{e.stopPropagation(),this.miniGame()})}successfulPress(){(0,rQ.U)(\"Wooden-Click\",.8*Math.pow(2,this.consecutiveSuccesses/12)),(0,rQ.U)(\"Minigame-Hit\",Math.pow(2,this.consecutiveSuccesses/12)),(0,rQ.U)(\"Reel\",Math.pow(2,this.consecutiveSuccesses/15)),this.consecutiveSuccesses++,this.totalSuccesses++,this.playFrameAnimation(\"succe"
+      }
+    ]
+  },
+  {
+    "name": "Reel-Notification",
+    "path": "sound/1wl25rNkRS7pPqxZ19VogitnYq4I2hy93NfSel7mbTV6czEZ--c336b2bb.wav",
+    "usage": "Fishing / UI/button / Notification",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1571708,
+        "context": "this.canCatchFish&&(this.canCatchFish=!1,this.currentFish=t,this.currentChallenge=a,this.autoResolvingFocusCatch=!1,this.caughtInFocusMode=oo()&&!or(),this.caughtInFocusMode?this.submitCurrentFishAsFocusCatch():((0,rQ.U)(\"Reel-Notification\"),this.showReelButton()))},this.onFishingUnsit=()=>{this.autoResolvingFocusCatch=!1,this.hideReelButton(),this.castUI.hide(),this.stopFishing()},this.onFocusFishingResult=e=>{this.isFishing&&oo()&&e.focusSessionId===r0.Ck.getState().currentSessionId&"
+      }
+    ]
+  },
+  {
+    "name": "Halloween-Fish",
+    "path": "sound/1wl25rNkRS7pOFeMvyThOqxT3F6LslpzktSevmbw50QcEJPA--a0c8bb23.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Epic-Fish",
+    "path": "sound/1wl25rNkRS7pOFeMvyThOqxT3F6LslpzktSevmbw50QcEJPA--a0c8bb23.wav",
+    "usage": "Quest",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1487869,
+        "context": "ct)(()=>{if(\"ready\"!==i||t)return void f(!1);let e=window.requestAnimationFrame(()=>f(!0));return()=>window.cancelAnimationFrame(e)},[t,i]);let w=(0,s.useCallback)(()=>{g.current||(g.current=!0,u(!0),y.current(),(0,lW.U)(\"Epic-Fish\",1))},[]);(0,s.useEffect)(()=>{if(\"opening\"!==i)return;if(b){w(),c(\"revealed\");return}let e=window.setTimeout(w,yA.dP);return()=>window.clearTimeout(e)},[i,b,w]);let j=t&&\"opening\"!==i?\"revealed\":i,N=\"opening\"===j?yA.Wl:\"revealed\"===j?yA.f$:yA.V0,k=!"
+      }
+    ]
+  },
+  {
+    "name": "Common-Fish",
+    "path": "sound/1wl25rNkRS7pFvvMnYbuGd9oAvHIXL3s5hyqQpTrOwt4cnie--4df5365a.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Uncommon-Fish",
+    "path": "sound/1wl25rNkRS7pyXh43YHopZs0FBWl1jYkqSbXLgm4VUEK3A52--91fda04b.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Rare-Fish",
+    "path": "sound/1wl25rNkRS7pH1QMhYtQRvSTaFZ5cEbfely2Kw3pOLoMxPds--a423910f.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Legendary-Fish",
+    "path": "sound/1wl25rNkRS7pYtmLGoQhUBolVcAHaW7ft5QTYKIur9v4ONxs--f2d03484.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Secret-Fish",
+    "path": "sound/1wl25rNkRS7pYtmLGoQhUBolVcAHaW7ft5QTYKIur9v4ONxs--f2d03484.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Reel-Click",
+    "path": "sound/1wl25rNkRS7pInaZdOvUQGA4ZurxYRmLtEpi59egKWqSNk61--89b8bdc2.wav",
+    "usage": "UI/button",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1376149,
+        "context": "rom(g.rb),this.openButton.visible=!0,this.openButton.alpha=0,o.os.to(this.openButton,{alpha:1,duration:.2,ease:\"power2.out\"})},this.onOpenButtonDown=e=>{e.stopPropagation(),this.canOpen&&!this.hasStartedOpening&&((0,m.U)(\"Reel-Click\"),this.openButton.texture=i.Texture.from(g.tB))},this.onOpenButtonUp=e=>{e.stopPropagation(),this.canOpen&&!this.hasStartedOpening&&(this.canOpen=!1,this.hasStartedOpening=!0,this.hasRevealedReward=!1,this.showRewardDisplay(),this.lootbox.textures=(0"
+      },
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1548062,
+        "context": "t=t.parent)if(!t.visible)return!1;return!0};class r4{constructor({pressedTexture:e,normalTexture:t,parentContainer:a=rZ.s.uiContainer,animateOnShow:i=!0,xOffset:s=0,yOffset:o=42}){this.pressed=!1,this.press=()=>{(0,rQ.U)(\"Reel-Click\"),this.pressed=!0,this.sprite.texture=this.pressedTexture},this.release=()=>{this.pressed=!1,this.sprite.texture=this.normalTexture},this.show=()=>{this.pressed=!1,this.sprite.texture=this.normalTexture,this.sprite.visible=!0,this.sprite.scale.set(1,"
+      },
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 2169177,
+        "context": "Page&&!!(null==(t=this.pages[e])?void 0:t.fish.some(e=>e.pos.x>=194))}goToPage(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0;e<0||e>=this.pages.length||e===this.pageNumber&&t===this.pageSide||((0,B.U)(\"Reel-Click\",.4),this.pageNumber=e,this.pageSide=t,this.showPageAtIndex(e))}getJournalScale(){let e=eO.instance.app.screen.width,t=eO.instance.app.screen.height,a=this.parent.getLocalBounds(),i=T.s.uiContainer.getGlobalTransform();return Math.min(1,Math.max(1,e-"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1489074,
+        "context": "=i&&c(\"revealed\")},play:k,startFrame:\"opening\"===i?yA.SF:0,staticFrame:\"ready\"===j?\"last\":\"first\"})}),\"ready\"===j&&(0,r.jsx)(\"button\",{type:\"button\",\"aria-label\":l(\"giftBoxModal.open\"),onClick:()=>{\"ready\"===i&&((0,lW.U)(\"Reel-Click\"),p(!1),c(\"opening\"))},onPointerCancel:()=>p(!1),onPointerDown:()=>p(!0),onPointerLeave:()=>p(!1),onPointerUp:()=>p(!1),className:\"jsx-1fb674e7f653daa8 ftue-open-button absolute z-20 rounded-md outline-none transition-transform focus-visible:ring-4 f"
+      }
+    ]
+  },
+  {
+    "name": "Minigame-Hit",
+    "path": "sound/1wl25rNkRS7pGFL5HAyX0auzyTS8t6ohd1xqmlL2JwU3gHkZ--6762418a.wav",
+    "usage": "UI/button",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1553570,
+        "context": "lick\",e=>{e.stopPropagation(),this.miniGame()}),this.reelButton.clickable.on(\"tap\",e=>{e.stopPropagation(),this.miniGame()})}successfulPress(){(0,rQ.U)(\"Wooden-Click\",.8*Math.pow(2,this.consecutiveSuccesses/12)),(0,rQ.U)(\"Minigame-Hit\",Math.pow(2,this.consecutiveSuccesses/12)),(0,rQ.U)(\"Reel\",Math.pow(2,this.consecutiveSuccesses/15)),this.consecutiveSuccesses++,this.totalSuccesses++,this.playFrameAnimation(\"success\"),this.changeFishLevelDarkColor(0xa4bb00);let e=this.getFishLevelG"
+      }
+    ]
+  },
+  {
+    "name": "Oof",
+    "path": "sound/Oof--07dc3829.wav",
+    "usage": "Call sites found; specific feature unresolved",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1554562,
+        "context": "is.disableMinigameInput=!0,this.triangleContainer.removeChildren(),this.timerTimeout&&clearTimeout(this.timerTimeout),this.trackTimeout(()=>{this.win()},1e3)):this.spawnTriangle()}failedPress(){.03>Math.random()?(0,rQ.U)(\"Oof\"):((0,rQ.U)(\"Fail-Press-2\"),this.trackTimeout(()=>{(0,rQ.U)(\"Fail-Press\")},100)),this.consecutiveSuccesses=0,this.playFrameAnimation(\"fail\"),this.updateFishLevel(-this.lastLevelGained),this.changeFishLevelDarkColor(0xe57653);let e=this.getTargetScale"
+      }
+    ]
+  },
+  {
+    "name": "Fail-Press",
+    "path": "sound/1wl25rNkRS7pDwnavpcVfqke5NjRmozsB3UQ0SaDXnlFucGd--e7072825.wav",
+    "usage": "Call sites found; specific feature unresolved",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1554627,
+        "context": "),this.timerTimeout&&clearTimeout(this.timerTimeout),this.trackTimeout(()=>{this.win()},1e3)):this.spawnTriangle()}failedPress(){.03>Math.random()?(0,rQ.U)(\"Oof\"):((0,rQ.U)(\"Fail-Press-2\"),this.trackTimeout(()=>{(0,rQ.U)(\"Fail-Press\")},100)),this.consecutiveSuccesses=0,this.playFrameAnimation(\"fail\"),this.updateFishLevel(-this.lastLevelGained),this.changeFishLevelDarkColor(0xe57653);let e=this.getTargetScale();this.fishLevelBar.scale.x=e,rG.os.to(this.fishLevelBarDark.scale,{x:e"
+      }
+    ]
+  },
+  {
+    "name": "Minigame-Fail",
+    "path": "sound/1wl25rNkRS7p3lO6hgawZ96jafHtmABdyz0JUMo8DRkcWV7T--0ef5e5d0.wav",
+    "usage": "Fishing / UI/button",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1573941,
+        "context": "Win\"),rH.A.socket.emit(\"getFishingResult\",{result:\"success\",response:(0,tB.solveFishingChallenge)(this.currentChallenge)}),this.resetFishingAttempt(),this.input.stopInput(!0,\"waiting-for-result\")},this.lose=()=>{(0,rQ.U)(\"Minigame-Fail\"),this.resetFishingAttempt(),tN.App.instance.shakeScreen(),rH.A.socket.emit(\"getFishingResult\",{result:\"fail\"}),this.trackTimeout(()=>{tO.A.signal.emit(\"showCastButton\")},250)},this.onFishingResult=e=>{var t,a;if(this.autoResolvingFocusCatch=!1,!e){t"
+      }
+    ]
+  },
+  {
+    "name": "Fail-Press-2",
+    "path": "sound/1wl25rNkRS7pZF5IiOeYbzx7AXMJropQRZmyfn3elw2WUvLj--677b8155.wav",
+    "usage": "Call sites found; specific feature unresolved",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1554579,
+        "context": "eInput=!0,this.triangleContainer.removeChildren(),this.timerTimeout&&clearTimeout(this.timerTimeout),this.trackTimeout(()=>{this.win()},1e3)):this.spawnTriangle()}failedPress(){.03>Math.random()?(0,rQ.U)(\"Oof\"):((0,rQ.U)(\"Fail-Press-2\"),this.trackTimeout(()=>{(0,rQ.U)(\"Fail-Press\")},100)),this.consecutiveSuccesses=0,this.playFrameAnimation(\"fail\"),this.updateFishLevel(-this.lastLevelGained),this.changeFishLevelDarkColor(0xe57653);let e=this.getTargetScale();this.fishLevelBar.scale"
+      }
+    ]
+  },
+  {
+    "name": "Win",
+    "path": "sound/Win--1dc7f8fd.wav",
+    "usage": "Fishing / UI/button",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1573719,
+        "context": "(\"keydown\"===e.type){if(this.isReelKeyPressed)return;this.isReelKeyPressed=!0,this.reelButton.press();return}\"keyup\"===e.type&&(this.isReelKeyPressed=!1,this.reelButton.release(),this.miniGame())}},this.win=()=>{(0,rQ.U)(\"Win\"),rH.A.socket.emit(\"getFishingResult\",{result:\"success\",response:(0,tB.solveFishingChallenge)(this.currentChallenge)}),this.resetFishingAttempt(),this.input.stopInput(!0,\"waiting-for-result\")},this.lose=()=>{(0,rQ.U)(\"Minigame-Fail\"),this.resetFishin"
+      }
+    ]
+  },
+  {
+    "name": "Whoosh-Thick-1",
+    "path": "sound/1wl25rNkRS7psrNfTgE9i3zxjVcd1bqPSDYRhrUW2yXN0JF4--821eefdc.wav",
+    "usage": "Fishing",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1270767,
+        "context": "e=t.onComplete)||e.call(t)}function T(){if(P)return;P=!0,k(),S&&(window.removeEventListener(\"keydown\",S),S=null);let e=g,t=0===w.length,a=x,i=A;a&&(0,l.s)(a,()=>{var s;i===A&&(a.destroy({children:!0}),x=null,P=!1,(0,p.U)(\"Whoosh-Thick-1\"),null==e||null==(s=e.onDismissEach)||s.call(e),i===A&&(t?C():B()))})}function B(){let e=w.shift();if(!e)return;(x=(0,c.b)(e,!0)).zIndex=11,x.cursor=\"pointer\";let t=(0,h.O)(d.s.uiContainer);x.x=t.x,x.y=t.y,x.scale.set(0,0),x.alpha=0,(0,l.h)(x),x.on(\""
+      },
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 2153684,
+        "context": "Clicked\",this.hide),p.A.signal.on(\"scene-load\",this.onSceneLoad),p.A.signal.on(\"layout_update\",this.onLayoutUpdate),c.yR&&(this.setupEditorSignals(),p.A.signal.emit(\"egg-journal-editor-show\")),this.centerParent(),(0,B.U)(\"Whoosh-Thick-1\"),(0,F.h)(this.parent),T.s.uiContainer.addChild(this.parent))},this.hide=()=>{eO.instance.blockPixiMenuEvents.delete(R.blockKey),eO.instance.hideBlackOverlay(),p.A.signal.off(\"blackOverlayClicked\",this.hide),p.A.signal.off(\"scene-load\",this.onSceneLo"
+      },
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 2154146,
+        "context": "cene-load\",this.onSceneLoad),p.A.signal.off(\"layout_update\",this.onLayoutUpdate),c.yR&&(this.cleanupEditorSignals(),p.A.signal.emit(\"egg-journal-editor-hide\"),this.editorEggSprites=[],this.editorActiveIndex=null),(0,B.U)(\"Whoosh-Thick-1\"),(0,F.s)(this.parent,()=>{this.parent.destroy(),eO.instance.input.stopInput(!1,R.inputKey)})},this.onLayoutUpdate=()=>{this.centerParent()},this.onSceneLoad=()=>{eO.instance.input.stopInput(!1,R.inputKey),this.hide()},this.parent=new d.Container,thi"
+      },
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 2181033,
+        "context": "),this.shinyCaughtSet=K(),this.showPageAtIndex(this.pageNumber),this.opened)return;this.opened=!0,c.yR&&(this.setupEditorSignals(),p.A.signal.emit(\"journal-editor-show\",this.fishingRod));let a=this.centerParent();(0,B.U)(\"Whoosh-Thick-1\"),(0,F.h)(this.parent,void 0,a),T.s.uiContainer.addChild(this.parent)};this.unsubscribeJournal=e.subscribe(t),t()},this.hide=()=>{var e;if(!this.closed){if(this.closed=!0,this.clearLoadingIndicator(),null==(e=this.unsubscribeJournal)||e.call(this),th"
+      },
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 2181963,
+        "context": "emit(\"journal-editor-hide\"),this.editorFishSprites=[],this.editorActiveIndex=null),this.keyPressed.clear(),!this.opened){this.parent.destroy({children:!0}),eO.instance.input.stopInput(!1,\"fishing-journal\");return}(0,B.U)(\"Whoosh-Thick-1\"),(0,F.s)(this.parent,()=>{this.parent.destroy({children:!0}),eO.instance.input.stopInput(!1,\"fishing-journal\")})}},this.onLayoutUpdate=()=>{this.centerLoadingIndicator();let e=eO.instance.app.screen.width<640;this.singlePage!==e?(this.singlePage=e,t"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1185048,
+        "context": "t\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i(!0))):a&&(()=>{var e;if((0,lW.U)(\"Whoosh-Thick-1\"),!u.current){i(!1),d(!1);return}null==(e=m.current)||e.add(()=>{fq.os.to(u.current,{scale:0,alpha:0,duration:.3,ease:\"back.in(1.7)\",onComplete:()=>{i(!1),d(!1)}})})})(),x.current=t},[l"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1185113,
+        "context": "ast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\"Whoosh-Thick-1\"),5900),d(!0),i(!0))):a&&(()=>{var e;if((0,lW.U)(\"Whoosh-Thick-1\"),!u.current){i(!1),d(!1);return}null==(e=m.current)||e.add(()=>{fq.os.to(u.current,{scale:0,alpha:0,duration:.3,ease:\"back.in(1.7)\",onComplete:()=>{i(!1),d(!1)}})})})(),x.current=t},[l,n,a,h,e]),(0,s.useEffect)(()=>{var e,t;if(o&&u.current){if(c){nu"
+      }
+    ]
+  },
+  {
+    "name": "Drum-Roll",
+    "path": "sound/1wl25rNkRS7pKyzNdRqxOLnuy1rUvpWSITXbqkJaH3mszPh8--ed7df6e8.wav",
+    "usage": "Fishing",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1575308,
+        "context": "if(this.caughtInFocusMode){console.log(\"[Focus Fishing] Fish caught:\",s),r0.Ck.getState().addSessionFish(s),(0,r_.Nd)(n),o.forEach(oi.w4),this.input.stopInput(!1,\"waiting-for-result\"),this.canCatchFish=!0;return}(0,rQ.U)(\"Drum-Roll\");let c=()=>{this.input.stopInput(!1,\"waiting-for-result\"),this.showCastUI(),this.ignoreCastUntilSpaceUp=!0,or()&&tO.A.signal.emit(\"ftue-action\",\"fishing-collected\")};(0,rz.zf)({fish:[s],blockKey:\"fishingResult\",onComplete:()=>{(0,oi.Ti)(o,()=>{(0,r_"
+      }
+    ]
+  },
+  {
+    "name": "Cartoon-Plop",
+    "path": "sound/1wl25rNkRS7pyBAg4kHopZs0FBWl1jYkqSbXLgm4VUEK3A52--0ff25f3d.wav",
+    "usage": "Fishing / UI/button / Chat/message",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "7e6e48eb-9292-2a2aebd6d56ebdd4.js",
+        "offset": 1570510,
+        "context": "ndow.removeEventListener(\"keyup\",this.handleReelKeybind)},this.miniGame=()=>{tN.App.instance.blockPixiMenuEvents.add(\"minigame\"),this.hideReelButton(),this.input.stopInput(!0,\"fishing\"),this.fishingUI.visible=!0,(0,rQ.U)(\"Cartoon-Plop\"),(0,rq.h)(this.fishingUI,()=>{this.startMinigameLogic()})},this.stopMiniGame=()=>{tN.App.instance.blockPixiMenuEvents.delete(\"minigame\"),tO.A.signal.emit(\"pixiUiClicksEvent\",{event:\"fishing-minigame\",enabled:!1}),(0,rq.s)(this.fishingUI,()=>{this.fi"
+      },
+      {
+        "bundle": "b96af81c-6507-14c35f61535a6872.js",
+        "offset": 608084,
+        "context": "},reset:()=>{e({remainingMs:d()})},fire:()=>{let t=o[Math.floor(Math.random()*o.length)],{notifSounds:a,hydrationReminderVolume:r}=i.useSettings.getState().settings;e({reminder:{messageKey:t},remainingMs:d()}),a&&(0,n.U)(\"Cartoon-Plop\",1,r)},dismiss:()=>{e({reminder:null,remainingMs:d()})}})),u=()=>{let{enabled:e,intervalMinutes:t}=(0,i.useSettings)((0,s.k)(e=>({enabled:e.settings.hydrationReminderEnabled,intervalMinutes:e.settings.hydrationReminderIntervalMinutes}))),a=(0,r.useRe"
+      }
+    ]
+  },
+  {
+    "name": "Frenzy1",
+    "path": "sound/Frenzy1--09c2853c.wav",
+    "usage": "Fishing / Fishing frenzy",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1184770,
+        "context": "r]),(0,s.useEffect)(()=>{let e=e=>{t(e)};return F.A.on(\"fishingFrenzyUpdate\",e),()=>F.A.off(\"fishingFrenzyUpdate\",e)},[t]),(0,s.useEffect)(()=>{let e=()=>{d(!1),i(!0)},t=n(),a=x.current;t?null===a?e():a||(l?e():((0,lW.U)(\"Frenzy1\"),(0,lW.U)(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),55"
+      }
+    ]
+  },
+  {
+    "name": "Frenzy2",
+    "path": "sound/Frenzy2--d6d341ee.wav",
+    "usage": "Fishing / Fishing frenzy",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1184790,
+        "context": "()=>{let e=e=>{t(e)};return F.A.on(\"fishingFrenzyUpdate\",e),()=>F.A.off(\"fishingFrenzyUpdate\",e)},[t]),(0,s.useEffect)(()=>{let e=()=>{d(!1),i(!0)},t=n(),a=x.current;t?null===a?e():a||(l?e():((0,lW.U)(\"Frenzy1\"),(0,lW.U)(\"Frenzy2\"),h(()=>(0,lW.U)(\"Cast-Impact\"),300),h(()=>(0,lW.U)(\"Cast-Impact\",.8),1300),h(()=>(0,lW.U)(\"Cast-Impact\",1.2),2400),h(()=>(0,lW.U)(\"Cast-Impact\",.7),3400),h(()=>(0,lW.U)(\"Cast-Impact\",1.4),4500),h(()=>(0,lW.U)(\"Cast-Impact\",.5),5500),h(()=>(0,lW.U)(\""
+      }
+    ]
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p9fp3RXsGN7O8mjnFaTcwWJxU2BZsIHPb6RAt--898752df.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pInG6rp5UQGA4ZurxYRmLtEpi59egKWqSNk61--db2ecb13.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pzasmwuqV09yXj4tLI8lPrJSmBFYOV3viwCk7--382ff459.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7ppzm7gRBiSW5OeBbPLjwvkRY7nAfQV3FdUor1--6f18ce88.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pXhdDC80kdZ8cwloTuPnfDRaJNGt3W2MIhUHj--d0604fa6.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pfUBgwjdjaGbKVWTu7IQm64UCr8Xydp9Y1xNi--f89d0a06.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pGeIqBFyX0auzyTS8t6ohd1xqmlL2JwU3gHkZ--65d6bd7c.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pur7MKEjnkm95HEpDKqYr0ZiTVsM1426hXUax--ccf3992b.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pVRx7ZI3TwcsSgnXpflDrzam2vtWhuKYx7Zd9--e8aab7b5.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7plWWhA6NXNofELjXpvbS7KQh8yq3dHwa1MiVT--3b528705.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p14hHJCNkRS7pPjGvEUucbAgQw89hNinxJCdK--0b9be538.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p8cCFEzcxdJmWTrw96BVNHkxYfG3cPDo5Opa1--3aa66ed4.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pHURYgMtQRvSTaFZ5cEbfely2Kw3pOLoMxPds--9b9c2a0d.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pOQrSO6ThOqxT3F6LslpzktSevmbw50QcEJPA--435a59d5.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7puxruiJjnkm95HEpDKqYr0ZiTVsM1426hXUax--8b47ceba.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pYM0xrHQhUBolVcAHaW7ft5QTYKIur9v4ONxs--c2925726.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pH32zxftQRvSTaFZ5cEbfely2Kw3pOLoMxPds--a5c84ae7.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7plTGOJ7XNofELjXpvbS7KQh8yq3dHwa1MiVTe--1f51c217.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7ppsiJCCBiSW5OeBbPLjwvkRY7nAfQV3FdUor1--c9234036.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pK7LXpuqxOLnuy1rUvpWSITXbqkJaH3mszPh8--653fc926.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7ppvIWMXBiSW5OeBbPLjwvkRY7nAfQV3FdUor1--6e931a8c.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p7odt6fFuX01pSq2aWQTMYiIOAwjtEK48eb5f--e330eb75.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pGhWot4yX0auzyTS8t6ohd1xqmlL2JwU3gHkZ--6bff62e7.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pM0nZQzS0PngzLy5CtmJUQbGqhd73BkuN2l1Y--9bd4547b.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pvUCyfr2dC18Hja3Xlg9tKiNmbpWY06QfBeVc--1e9e1d90.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pFcMzBAuGd9oAvHIXL3s5hyqQpTrOwt4cnie8--e4918e04.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pyNKCkzHopZs0FBWl1jYkqSbXLgm4VUEK3A52--46865cdd.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pzwdy92V09yXj4tLI8lPrJSmBFYOV3viwCk7n--8147a3ef.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pzkSyDfV09yXj4tLI8lPrJSmBFYOV3viwCk7n--a074307f.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p64AsIuOCaFEpStTxDzwIlbQ4qemA8vNukB2g--3a2e971a.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pbEcCmMACNlnQvcjI6aH0Sg4YpfOTFx2W8DiB--143be398.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pFhrG1NuGd9oAvHIXL3s5hyqQpTrOwt4cnie8--7d4382f4.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7puGllSvjnkm95HEpDKqYr0ZiTVsM1426hXUax--5ec02b36.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pYVBInyUQhUBolVcAHaW7ft5QTYKIur9v4ONx--f3470625.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pHhrwSStQRvSTaFZ5cEbfely2Kw3pOLoMxPds--ba82c176.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pQ3iQGMyz3UqRjiv1oX5OgKCnlGafEZ87ShDI--51ee0489.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p67zfGAOCaFEpStTxDzwIlbQ4qemA8vNukB2g--d250b741.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pHbkjwetQRvSTaFZ5cEbfely2Kw3pOLoMxPds--d2040c04.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p91vgbHsGN7O8mjnFaTcwWJxU2BZsIHPb6RAt--a399b80d.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p3PDEQKawZ96jafHtmABdyz0JUMo8DRkcWV7T--3719a51a.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pK15mJVqxOLnuy1rUvpWSITXbqkJaH3mszPh8--c958412c.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p8CqBTbxdJmWTrw96BVNHkxYfG3cPDo5Opa1F--5bba5e27.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pa05rRuincpgwTUeXhPNbxdrvAIYB6f08ODkQ--1466bdaf.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pRHYup1PTAf2veFM3GmYbPVtownjq4KWE0B8Z--e49f742f.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pegJCkGJ17H6uIbrSLApeh25DvEOdYUcwZfn1--2f62a1d1.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pHfH1PxtQRvSTaFZ5cEbfely2Kw3pOLoMxPds--855669b1.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7p8IHVGtxdJmWTrw96BVNHkxYfG3cPDo5Opa1F--922c1efb.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pl7fd2pXNofELjXpvbS7KQh8yq3dHwa1MiVTe--8aaab850.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pu2z5xECjnkm95HEpDKqYr0ZiTVsM1426hXUa--7ab84276.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pYpD8C2QhUBolVcAHaW7ft5QTYKIur9v4ONxs--aaf94e26.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pxeIZwdD7ndbIDTMzwm1B5iFtV9cKqeAWEhLR--4ea1198b.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "UNKNOWN",
+    "path": "sound/1wl25rNkRS7pAPKusXeJUKkux1QeMARCJSgP60ZmOfhiBIwr--919bd1bd.wav",
+    "usage": "Catalog only; no literal call site found (dynamic use remains possible)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Rain",
+    "path": "sound/Rain--9fe7a69c.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Keyboard",
+    "path": "sound/Keyboard--37c6f235.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Ocean",
+    "path": "sound/Ocean--b842a429.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Library",
+    "path": "sound/Library--24b13b95.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Cafe",
+    "path": "sound/Cafe--34e0945e.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Brown-Noise",
+    "path": "sound/1wl25rNkRS7psKuPaoE9i3zxjVcd1bqPSDYRhrUW2yXN0JF4--15611990.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Fireplace",
+    "path": "sound/Fireplace--795583a5.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Forest",
+    "path": "sound/Forest--bcef711c.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Winter-Snowfall",
+    "path": "sound/1wl25rNkRS7pQbkAD7z3UqRjiv1oX5OgKCnlGafEZ87ShDIp--607bb45b.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Rain-And-Thunder",
+    "path": "sound/1wl25rNkRS7pzsKj4jV09yXj4tLI8lPrJSmBFYOV3viwCk7n--f1696c8e.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "River",
+    "path": "sound/River--e22a3f3b.mp3",
+    "usage": "Ambient mixer / sound presets (catalog declaration; selection is dynamic)",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": []
+  },
+  {
+    "name": "Alarm",
+    "path": "sound/1wl25rNkRS7pHHM0P1tQRvSTaFZ5cEbfely2Kw3pOLoMxPds--c06eec3b.mp3",
+    "usage": "Alarm player; exact caller contexts attached",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1400026,
+        "context": "t){z.current=!0,_.current=null,S.current&&(clearInterval(S.current),S.current=void 0),b(0),C(!0),gP(c,{version:1,mode:u,isActive:p,time:0,workDuration:v,breakDuration:y,cycles:j,endsAt:null,sessionCompleted:!0}),(0,mM.A)(\"Alarm\",1);{let e=Date.now();\"work\"===u?(window.dispatchEvent(new CustomEvent(\"pomodoroWorkCompleted\",{detail:{timestamp:e,source:\"manual\"}})),T.A.progressMission(\"pomodoro-complete\")):window.dispatchEvent(new CustomEvent(\"pomodoroBreakCompleted\",{detail:{t"
+      },
+      {
+        "bundle": "fd5f3ad9-4338-97c996b3ed56e570.js",
+        "offset": 35856,
+        "context": "s.suppressNextBreakToFocusAlarm;if(!r&&(\"focus\"===e&&\"break\"===t||\"break\"===e&&\"focus\"===t||\"focus\"===e&&\"none\"===t&&!this.voluntaryLeave)){let e=(0,l.i)(n.useSettings.getState().settings.timerNotificationVolume);(0,i.A)(\"Alarm\",e)}(r||\"break\"!==e||\"focus\"!==t)&&(this.suppressNextBreakToFocusAlarm=!1),this.voluntaryLeave=!1,\"focus\"===t?(this.onEnterFocus(),o.A.signal.emit(\"focusPeriodStarted\")):\"break\"===t?(this.onEnterBreak(),s||o.A.progressMission(\"pomodoro-complete\")):\"n"
+      },
+      {
+        "bundle": "fd5f3ad9-4338-97c996b3ed56e570.js",
+        "offset": 37384,
+        "context": " g=n.useSettings.getState().timeDifference,p=Date.now()+(null!=g?g:0);if((0,u.tF)(d,c,p)>0)return;if(this.flowmodoroBreakEndedFor=f,!1!==o){let e=(0,l.i)(n.useSettings.getState().settings.timerNotificationVolume);(0,i.A)(\"Alarm\",e)}let w=r.useUserData.getState().uid;s&&S===w&&(this.suppressNextBreakToFocusAlarm=!0,(0,a.MX)())}getCurrentPhase(){return this.previousPhase}constructor(){this.previousPhase=\"none\",this.voluntaryLeave=!1,this.flowmodoroBreakEndedFor=null,this.supp"
+      }
+    ]
+  },
+  {
+    "name": "Notification",
+    "path": "sound/1wl25rNkRS7peh2NiO17H6uIbrSLApeh25DvEOdYUcwZfn1m--a738d327.mp3",
+    "usage": "Notification player; exact caller contexts attached",
+    "usage_basis": "Static call-site context; feature labels are inferred, not runtime verified",
+    "calls": [
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1529417,
+        "context": "tartTimerEndsAt),[o,i]=(0,s.useState)(null),[c,d]=(0,s.useState)(\"\"),[u,x]=(0,s.useState)(!1),p=(0,s.useRef)(null);if((0,s.useEffect)(()=>{l&&i(l)},[l]),(0,s.useEffect)(()=>{let e=e=>{i(e.endsAt),x(!1),e.endsAt&&(0,mM.A)(\"Notification\",n.current/100)};return F.A.on(\"serverRestartTimer\",e),()=>{F.A.off(\"serverRestartTimer\",e)}},[]),(0,s.useEffect)(()=>{if(!o)return;let t=()=>{let t=o-Date.now();if(t<=0){d(e(\"serverRestart.restartingNow\")),p.current&&clearInterval(p.current);return}"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1560690,
+        "context": ">t),S=C.length>0||\"awaiting_check\"===o.status;return(0,s.useEffect)(()=>{if(\"running\"===o.status)return f(Date.now()),(0,wA.Y)(()=>f(Date.now()))},[o.status]),(0,s.useEffect)(()=>{\"running\"!==o.status||g>0||(c(),(0,mM.A)(\"Notification\",.4))},[o.status,g,c]),(0,r.jsxs)(\"div\",{className:\"flex w-full flex-col gap-3\",children:[(0,r.jsxs)(\"div\",{className:\"flex min-h-0 w-full items-center justify-between gap-4\",children:[(0,r.jsxs)(\"div\",{className:\"flex min-w-0 flex-1 flex-col justify"
+      },
+      {
+        "bundle": "e29bd898-page-73e68a6f28c9bbe6.js",
+        "offset": 1669618,
+        "context": "local\"===r.channel&&(0,mE.L)(r.rawMessage||r.content,a.profile.username);!d||(null==l?void 0:l.isChatOpen)&&\"local\"===l.channel||n.setShowLocalNotif(!(null==l?void 0:l.isMuted)),t&&(d||o&&r.authorId!==a.id&&!c)&&(0,mM.A)(\"Notification\",1),o?(n.appendDm(r),r.authorId!==a.id&&i&&!(c&&(null==l?void 0:l.isScrolledToBottom))&&n.setUnreadDmIds(e=>new Set(e).add(i))):\"local\"===r.channel?n.appendLocal(r):\"global\"===r.channel&&n.appendDm(r)}),(0,no.Ne)(\"consoleMessage\",e=>{mz.getState().ap"
+      },
+      {
+        "bundle": "fd5f3ad9-4338-97c996b3ed56e570.js",
+        "offset": 35019,
+        "context": "Data.getState().uid;if(!s||e.authorId===s)return;let o=null==(t=n.useUsers.getState().users[s])?void 0:t.profile.username;if(!o)return;let{notifSounds:a}=i.useSettings.getState().settings;a&&(0,l.L)(e.content,o)&&(0,u.A)(\"Notification\",1)})},79331:(e,t,s)=>{s.d(t,{J:()=>c});var o=s(20993),a=s(7430),r=s(92764),n=s(29546),i=s(73686),l=s(1989),u=s(96377);class d{markAsVoluntaryLeave(){this.voluntaryLeave=!0}sync(e){var t;let{currentSessionId:s,sessionState:o,isFtueDemo:r}=a.Ck.getSta"
+      }
+    ]
+  }
+]

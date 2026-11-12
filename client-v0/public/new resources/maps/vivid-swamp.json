@@ -1,0 +1,5732 @@
+{
+  "objects": {
+    "marlins-kombini": {
+      "name": "MarlinsKombini",
+      "params": {
+        "spawnPosition": {
+          "x": 300,
+          "y": 982
+        },
+        "interactionLevel": 2
+      }
+    },
+    "scene-colliders": {
+      "name": "SceneColliders",
+      "params": {
+        "spawnPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "colliders": [
+          {
+            "x": 153,
+            "y": 817,
+            "width": 145,
+            "height": 100,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 153,
+            "y": 817,
+            "width": 145,
+            "height": 100,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 0,
+            "y": 941,
+            "width": 513,
+            "height": 107,
+            "level": 1
+          },
+          {
+            "x": 970,
+            "y": 125,
+            "width": 5,
+            "height": 40,
+            "kind": "movement-only",
+            "level": 1
+          },
+          {
+            "x": 877,
+            "y": 160,
+            "width": 98,
+            "height": 5,
+            "kind": "movement-only",
+            "level": 1
+          },
+          {
+            "x": 875,
+            "y": 164,
+            "width": 5,
+            "height": 30,
+            "kind": "movement-only",
+            "level": 1
+          },
+          {
+            "x": 880,
+            "y": 189,
+            "width": 93,
+            "height": 5,
+            "kind": "movement-only",
+            "level": 1
+          },
+          {
+            "x": 968,
+            "y": 189,
+            "width": 5,
+            "height": 44,
+            "kind": "movement-only",
+            "level": 1
+          },
+          {
+            "x": 970,
+            "y": 228,
+            "width": 66,
+            "height": 5,
+            "kind": "movement-only",
+            "level": 1
+          },
+          {
+            "x": 1031,
+            "y": 231,
+            "width": 5,
+            "height": 66,
+            "kind": "movement-only",
+            "level": 1
+          },
+          {
+            "x": 970,
+            "y": 125,
+            "width": 5,
+            "height": 40,
+            "kind": "movement-only",
+            "level": 2
+          },
+          {
+            "x": 877,
+            "y": 160,
+            "width": 98,
+            "height": 5,
+            "kind": "movement-only",
+            "level": 2
+          },
+          {
+            "x": 875,
+            "y": 164,
+            "width": 5,
+            "height": 30,
+            "kind": "movement-only",
+            "level": 2
+          },
+          {
+            "x": 880,
+            "y": 189,
+            "width": 93,
+            "height": 5,
+            "kind": "movement-only",
+            "level": 2
+          },
+          {
+            "x": 968,
+            "y": 189,
+            "width": 5,
+            "height": 44,
+            "kind": "movement-only",
+            "level": 2
+          },
+          {
+            "x": 970,
+            "y": 228,
+            "width": 66,
+            "height": 5,
+            "kind": "movement-only",
+            "level": 2
+          },
+          {
+            "x": 1031,
+            "y": 231,
+            "width": 5,
+            "height": 66,
+            "kind": "movement-only",
+            "level": 2
+          },
+          {
+            "x": 137,
+            "y": 422,
+            "width": 34,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 102,
+            "y": 447,
+            "width": 32,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 169,
+            "y": 445,
+            "width": 62,
+            "height": 8,
+            "kind": "movement-only"
+          },
+          {
+            "x": 138,
+            "y": 430,
+            "width": 5,
+            "height": 22,
+            "kind": "movement-only"
+          },
+          {
+            "x": 166,
+            "y": 429,
+            "width": 4,
+            "height": 19,
+            "kind": "movement-only"
+          },
+          {
+            "x": 83,
+            "y": 269,
+            "width": 12,
+            "height": 15,
+            "kind": "movement-only"
+          },
+          {
+            "x": 89,
+            "y": 284,
+            "width": 10,
+            "height": 160,
+            "kind": "movement-only"
+          },
+          {
+            "x": 98,
+            "y": 279,
+            "width": 13,
+            "height": 23,
+            "kind": "movement-only"
+          },
+          {
+            "x": 113,
+            "y": 293,
+            "width": 21,
+            "height": 9,
+            "kind": "movement-only"
+          },
+          {
+            "x": 220,
+            "y": 196,
+            "width": 9,
+            "height": 17,
+            "kind": "movement-only"
+          },
+          {
+            "x": 230,
+            "y": 204,
+            "width": 10,
+            "height": 9,
+            "kind": "movement-only"
+          },
+          {
+            "x": 242,
+            "y": 211,
+            "width": 12,
+            "height": 10,
+            "kind": "movement-only"
+          },
+          {
+            "x": 254,
+            "y": 216,
+            "width": 10,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 268,
+            "y": 222,
+            "width": 9,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 281,
+            "y": 226,
+            "width": 42,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 86,
+            "y": 120,
+            "width": 2,
+            "height": 88,
+            "kind": "movement-only"
+          },
+          {
+            "x": 89,
+            "y": 212,
+            "width": 8,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 100,
+            "y": 217,
+            "width": 12,
+            "height": 8,
+            "kind": "movement-only"
+          },
+          {
+            "x": 117,
+            "y": 225,
+            "width": 9,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 130,
+            "y": 230,
+            "width": 7,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 4,
+            "y": 144,
+            "width": 73,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 93,
+            "y": 98,
+            "width": 129,
+            "height": 18,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1026,
+            "y": 728,
+            "width": 88,
+            "height": 9,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1026,
+            "y": 738,
+            "width": 38,
+            "height": 23,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1066,
+            "y": 736,
+            "width": 17,
+            "height": 15,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1084,
+            "y": 738,
+            "width": 11,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1125,
+            "y": 788,
+            "width": 53,
+            "height": 39,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1022,
+            "y": 818,
+            "width": 103,
+            "height": 10,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1080,
+            "y": 809,
+            "width": 43,
+            "height": 8,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1101,
+            "y": 799,
+            "width": 23,
+            "height": 9,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1115,
+            "y": 792,
+            "width": 7,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1091,
+            "y": 804,
+            "width": 9,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1071,
+            "y": 813,
+            "width": 6,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1066,
+            "y": 752,
+            "width": 7,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1096,
+            "y": 738,
+            "width": 6,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1080,
+            "y": 667,
+            "width": 55,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1101,
+            "y": 658,
+            "width": 31,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1137,
+            "y": 658,
+            "width": 11,
+            "height": 29,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1151,
+            "y": 685,
+            "width": 4,
+            "height": 22,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1156,
+            "y": 699,
+            "width": 4,
+            "height": 13,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1162,
+            "y": 702,
+            "width": 4,
+            "height": 14,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1167,
+            "y": 709,
+            "width": 5,
+            "height": 15,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1173,
+            "y": 718,
+            "width": 6,
+            "height": 68,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1094,
+            "y": 661,
+            "width": 5,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1073,
+            "y": 671,
+            "width": 7,
+            "height": 2,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1072,
+            "y": 607,
+            "width": 9,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1083,
+            "y": 605,
+            "width": 9,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1092,
+            "y": 601,
+            "width": 9,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1101,
+            "y": 596,
+            "width": 7,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1109,
+            "y": 593,
+            "width": 6,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1117,
+            "y": 590,
+            "width": 7,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1124,
+            "y": 586,
+            "width": 6,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1129,
+            "y": 583,
+            "width": 6,
+            "height": 3,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1151,
+            "y": 417,
+            "width": 4,
+            "height": 156,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1153,
+            "y": 199,
+            "width": 7,
+            "height": 71,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1158,
+            "y": 272,
+            "width": 6,
+            "height": 17,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1162,
+            "y": 292,
+            "width": 8,
+            "height": 19,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1168,
+            "y": 310,
+            "width": 6,
+            "height": 18,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1170,
+            "y": 327,
+            "width": 4,
+            "height": 18,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1162,
+            "y": 345,
+            "width": 5,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1159,
+            "y": 351,
+            "width": 3,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1154,
+            "y": 356,
+            "width": 3,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1152,
+            "y": 360,
+            "width": 3,
+            "height": 9,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1149,
+            "y": 370,
+            "width": 4,
+            "height": 10,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1146,
+            "y": 381,
+            "width": 4,
+            "height": 26,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1147,
+            "y": 406,
+            "width": 8,
+            "height": 12,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1049,
+            "y": 105,
+            "width": 87,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1132,
+            "y": 51,
+            "width": 5,
+            "height": 55,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1135,
+            "y": 50,
+            "width": 90,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1156,
+            "y": 141,
+            "width": 68,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1139,
+            "y": 143,
+            "width": 16,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1125,
+            "y": 151,
+            "width": 13,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1137,
+            "y": 146,
+            "width": 7,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 885,
+            "y": 25,
+            "width": 246,
+            "height": 50,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1067,
+            "y": 75,
+            "width": 62,
+            "height": 23,
+            "kind": "movement-only"
+          },
+          {
+            "x": 898,
+            "y": 75,
+            "width": 71,
+            "height": 21,
+            "kind": "movement-only"
+          },
+          {
+            "x": 170,
+            "y": 453,
+            "width": 59,
+            "height": 33,
+            "kind": "movement-only"
+          },
+          {
+            "x": 89,
+            "y": 442,
+            "width": 4,
+            "height": 26,
+            "kind": "movement-only"
+          },
+          {
+            "x": 84,
+            "y": 466,
+            "width": 5,
+            "height": 8,
+            "kind": "movement-only"
+          },
+          {
+            "x": 81,
+            "y": 475,
+            "width": 6,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 77,
+            "y": 482,
+            "width": 6,
+            "height": 8,
+            "kind": "movement-only"
+          },
+          {
+            "x": 71,
+            "y": 492,
+            "width": 8,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 64,
+            "y": 500,
+            "width": 8,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 62,
+            "y": 508,
+            "width": 5,
+            "height": 13,
+            "kind": "movement-only"
+          },
+          {
+            "x": 63,
+            "y": 521,
+            "width": 4,
+            "height": 14,
+            "kind": "movement-only"
+          },
+          {
+            "x": 65,
+            "y": 536,
+            "width": 3,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 68,
+            "y": 543,
+            "width": 4,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 71,
+            "y": 549,
+            "width": 5,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 76,
+            "y": 554,
+            "width": 6,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 82,
+            "y": 559,
+            "width": 5,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 87,
+            "y": 564,
+            "width": 4,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 92,
+            "y": 573,
+            "width": 4,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 94,
+            "y": 581,
+            "width": 7,
+            "height": 38,
+            "kind": "movement-only"
+          },
+          {
+            "x": 89,
+            "y": 623,
+            "width": 5,
+            "height": 23,
+            "kind": "movement-only"
+          },
+          {
+            "x": 88,
+            "y": 646,
+            "width": 10,
+            "height": 169,
+            "kind": "movement-only"
+          },
+          {
+            "x": 94,
+            "y": 816,
+            "width": 4,
+            "height": 26,
+            "kind": "movement-only"
+          },
+          {
+            "x": 98,
+            "y": 842,
+            "width": 23,
+            "height": 1,
+            "kind": "movement-only"
+          },
+          {
+            "x": 114,
+            "y": 863,
+            "width": 9,
+            "height": 12,
+            "kind": "movement-only"
+          },
+          {
+            "x": 290,
+            "y": 772,
+            "width": 72,
+            "height": 14,
+            "kind": "movement-only"
+          },
+          {
+            "x": 359,
+            "y": 808,
+            "width": 79,
+            "height": 13,
+            "kind": "movement-only"
+          },
+          {
+            "x": 443,
+            "y": 792,
+            "width": 52,
+            "height": 10,
+            "kind": "movement-only"
+          },
+          {
+            "x": 324,
+            "y": 1,
+            "width": 101,
+            "height": 167,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 226,
+            "y": 98,
+            "width": 98,
+            "height": 71,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 397,
+            "y": 96,
+            "width": 29,
+            "height": 34,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 326,
+            "y": 98,
+            "width": 493,
+            "height": 70,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 505,
+            "y": 79,
+            "width": 168,
+            "height": 207,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 621,
+            "y": 62,
+            "width": 256,
+            "height": 292,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 678,
+            "y": 1,
+            "width": 149,
+            "height": 76,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 819,
+            "y": 47,
+            "width": 41,
+            "height": 30,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 872,
+            "y": 100,
+            "width": 96,
+            "height": 61,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 866,
+            "y": 200,
+            "width": 99,
+            "height": 250,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 960,
+            "y": 241,
+            "width": 73,
+            "height": 304,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 523,
+            "y": 288,
+            "width": 505,
+            "height": 377,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1028,
+            "y": 499,
+            "width": 13,
+            "height": 48,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1017,
+            "y": 537,
+            "width": 19,
+            "height": 24,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 540,
+            "y": 654,
+            "width": 365,
+            "height": 219,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 880,
+            "y": 654,
+            "width": 142,
+            "height": 82,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 938,
+            "y": 734,
+            "width": 76,
+            "height": 251,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 902,
+            "y": 757,
+            "width": 47,
+            "height": 228,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 332,
+            "y": 162,
+            "width": 183,
+            "height": 124,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 234,
+            "y": 239,
+            "width": 149,
+            "height": 117,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 375,
+            "y": 277,
+            "width": 64,
+            "height": 27,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 234,
+            "y": 342,
+            "width": 149,
+            "height": 175,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 374,
+            "y": 396,
+            "width": 174,
+            "height": 88,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 468,
+            "y": 380,
+            "width": 63,
+            "height": 26,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 366,
+            "y": 465,
+            "width": 71,
+            "height": 211,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 424,
+            "y": 514,
+            "width": 140,
+            "height": 162,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 481,
+            "y": 475,
+            "width": 61,
+            "height": 71,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 281,
+            "y": 507,
+            "width": 104,
+            "height": 153,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 498,
+            "y": 667,
+            "width": 64,
+            "height": 24,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 501,
+            "y": 717,
+            "width": 89,
+            "height": 136,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1007,
+            "y": 834,
+            "width": 104,
+            "height": 155,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1103,
+            "y": 837,
+            "width": 37,
+            "height": 42,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1102,
+            "y": 871,
+            "width": 23,
+            "height": 30,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1105,
+            "y": 894,
+            "width": 13,
+            "height": 22,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1139,
+            "y": 839,
+            "width": 9,
+            "height": 23,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1094,
+            "y": 983,
+            "width": 17,
+            "height": 64,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1107,
+            "y": 985,
+            "width": 11,
+            "height": 36,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 917,
+            "y": 971,
+            "width": 92,
+            "height": 37,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 597,
+            "y": 860,
+            "width": 321,
+            "height": 188,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 899,
+            "y": 993,
+            "width": 54,
+            "height": 60,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 513,
+            "y": 912,
+            "width": 96,
+            "height": 173,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 571,
+            "y": 866,
+            "width": 63,
+            "height": 104,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 442,
+            "y": 800,
+            "width": 67,
+            "height": 52,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 441,
+            "y": 851,
+            "width": 30,
+            "height": 88,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 359,
+            "y": 821,
+            "width": 87,
+            "height": 118,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 143,
+            "y": 465,
+            "width": 21,
+            "height": 53,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 158,
+            "y": 492,
+            "width": 83,
+            "height": 25,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 95,
+            "y": 518,
+            "width": 57,
+            "height": 61,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 105,
+            "y": 502,
+            "width": 44,
+            "height": 22,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 103,
+            "y": 592,
+            "width": 204,
+            "height": 102,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 122,
+            "y": 571,
+            "width": 32,
+            "height": 32,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 299,
+            "y": 646,
+            "width": 41,
+            "height": 50,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 332,
+            "y": 646,
+            "width": 47,
+            "height": 31,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 153,
+            "y": 689,
+            "width": 134,
+            "height": 128,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 103,
+            "y": 675,
+            "width": 66,
+            "height": 114,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 103,
+            "y": 820,
+            "width": 59,
+            "height": 23,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 128,
+            "y": 836,
+            "width": 34,
+            "height": 42,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 276,
+            "y": 788,
+            "width": 82,
+            "height": 55,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 206,
+            "y": 811,
+            "width": 48,
+            "height": 106,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 161,
+            "y": 870,
+            "width": 50,
+            "height": 17,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 181,
+            "y": 883,
+            "width": 38,
+            "height": 25,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 193,
+            "y": 901,
+            "width": 26,
+            "height": 16,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 213,
+            "y": 908,
+            "width": 107,
+            "height": 30,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 250,
+            "y": 877,
+            "width": 67,
+            "height": 37,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 294,
+            "y": 834,
+            "width": 74,
+            "height": 52,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 347,
+            "y": 819,
+            "width": 18,
+            "height": 23,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 236,
+            "y": 799,
+            "width": 62,
+            "height": 44,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 312,
+            "y": 878,
+            "width": 58,
+            "height": 23,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 317,
+            "y": 927,
+            "width": 50,
+            "height": 12,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 351,
+            "y": 893,
+            "width": 34,
+            "height": 47,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 458,
+            "y": 911,
+            "width": 80,
+            "height": 30,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 515,
+            "y": 838,
+            "width": 30,
+            "height": 34,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 515,
+            "y": 869,
+            "width": 12,
+            "height": 58,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1005,
+            "y": 721,
+            "width": 17,
+            "height": 40,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1013,
+            "y": 645,
+            "width": 13,
+            "height": 56,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1038,
+            "y": 518,
+            "width": 9,
+            "height": 20,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 1022,
+            "y": 556,
+            "width": 10,
+            "height": 12,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 520,
+            "y": 363,
+            "width": 11,
+            "height": 25,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 464,
+            "y": 384,
+            "width": 12,
+            "height": 24,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 375,
+            "y": 376,
+            "width": 11,
+            "height": 24,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 279,
+            "y": 576,
+            "width": 7,
+            "height": 19,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 535,
+            "y": 686,
+            "width": 10,
+            "height": 11,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 499,
+            "y": 687,
+            "width": 5,
+            "height": 40,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 434,
+            "y": 480,
+            "width": 7,
+            "height": 9,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 477,
+            "y": 481,
+            "width": 7,
+            "height": 9,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 421,
+            "y": 81,
+            "width": 7,
+            "height": 25,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 675,
+            "y": 44,
+            "width": 11,
+            "height": 25,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 859,
+            "y": 55,
+            "width": 20,
+            "height": 12,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 960,
+            "y": 223,
+            "width": 8,
+            "height": 22,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 515,
+            "y": 249,
+            "width": 180,
+            "height": 25,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 524,
+            "y": 277,
+            "width": 146,
+            "height": 53,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 464,
+            "y": 905,
+            "width": 53,
+            "height": 19,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 524,
+            "y": 864,
+            "width": 55,
+            "height": 13,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 566,
+            "y": 871,
+            "width": 9,
+            "height": 14,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 99,
+            "y": 753,
+            "width": 13,
+            "height": 85,
+            "kind": "water",
+            "sensor": false,
+            "level": 1
+          },
+          {
+            "x": 230,
+            "y": 942,
+            "width": 273,
+            "height": 3,
+            "kind": "movement-only"
+          },
+          {
+            "x": 120,
+            "y": 845,
+            "width": 5,
+            "height": 16,
+            "kind": "movement-only"
+          },
+          {
+            "x": 116,
+            "y": 877,
+            "width": 43,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 155,
+            "y": 882,
+            "width": 4,
+            "height": 28,
+            "kind": "movement-only"
+          },
+          {
+            "x": 159,
+            "y": 910,
+            "width": 24,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 176,
+            "y": 913,
+            "width": 15,
+            "height": 18,
+            "kind": "movement-only"
+          },
+          {
+            "x": 185,
+            "y": 931,
+            "width": 24,
+            "height": 14,
+            "kind": "movement-only"
+          },
+          {
+            "x": 201,
+            "y": 939,
+            "width": 34,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 94,
+            "y": 617,
+            "width": 8,
+            "height": 10,
+            "kind": "movement-only"
+          },
+          {
+            "x": 219,
+            "y": 211,
+            "width": 8,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 223,
+            "y": 213,
+            "width": 8,
+            "height": 233,
+            "kind": "movement-only"
+          },
+          {
+            "x": 221,
+            "y": 81,
+            "width": 5,
+            "height": 62,
+            "kind": "movement-only"
+          },
+          {
+            "x": 329,
+            "y": 169,
+            "width": 4,
+            "height": 62,
+            "kind": "movement-only"
+          },
+          {
+            "x": 323,
+            "y": 225,
+            "width": 6,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 282,
+            "y": 164,
+            "width": 50,
+            "height": 8,
+            "kind": "movement-only"
+          },
+          {
+            "x": 226,
+            "y": 138,
+            "width": 14,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 238,
+            "y": 145,
+            "width": 14,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 251,
+            "y": 150,
+            "width": 8,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 259,
+            "y": 155,
+            "width": 9,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 265,
+            "y": 159,
+            "width": 10,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 273,
+            "y": 163,
+            "width": 11,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 424,
+            "y": 5,
+            "width": 6,
+            "height": 77,
+            "kind": "movement-only"
+          },
+          {
+            "x": 430,
+            "y": 82,
+            "width": 71,
+            "height": 8,
+            "kind": "movement-only"
+          },
+          {
+            "x": 504,
+            "y": 66,
+            "width": 114,
+            "height": 11,
+            "kind": "movement-only"
+          },
+          {
+            "x": 501,
+            "y": 68,
+            "width": 5,
+            "height": 23,
+            "kind": "movement-only"
+          },
+          {
+            "x": 618,
+            "y": 47,
+            "width": 57,
+            "height": 16,
+            "kind": "movement-only"
+          },
+          {
+            "x": 673,
+            "y": 0,
+            "width": 5,
+            "height": 46,
+            "kind": "movement-only"
+          },
+          {
+            "x": 425,
+            "y": 2,
+            "width": 60,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 875,
+            "y": 0,
+            "width": 11,
+            "height": 52,
+            "kind": "movement-only"
+          },
+          {
+            "x": 341,
+            "y": 677,
+            "width": 156,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 493,
+            "y": 679,
+            "width": 6,
+            "height": 116,
+            "kind": "movement-only"
+          },
+          {
+            "x": 358,
+            "y": 773,
+            "width": 7,
+            "height": 39,
+            "kind": "movement-only"
+          },
+          {
+            "x": 287,
+            "y": 695,
+            "width": 8,
+            "height": 81,
+            "kind": "movement-only"
+          },
+          {
+            "x": 293,
+            "y": 696,
+            "width": 57,
+            "height": 3,
+            "kind": "movement-only"
+          },
+          {
+            "x": 340,
+            "y": 680,
+            "width": 10,
+            "height": 19,
+            "kind": "movement-only"
+          },
+          {
+            "x": 437,
+            "y": 789,
+            "width": 5,
+            "height": 28,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1012,
+            "y": 761,
+            "width": 8,
+            "height": 68,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1024,
+            "y": 660,
+            "width": 9,
+            "height": 75,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1027,
+            "y": 596,
+            "width": 8,
+            "height": 65,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1032,
+            "y": 554,
+            "width": 3,
+            "height": 44,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1038,
+            "y": 542,
+            "width": 5,
+            "height": 18,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1041,
+            "y": 539,
+            "width": 14,
+            "height": 7,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1052,
+            "y": 526,
+            "width": 9,
+            "height": 10,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1058,
+            "y": 520,
+            "width": 12,
+            "height": 9,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1066,
+            "y": 505,
+            "width": 8,
+            "height": 15,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1071,
+            "y": 494,
+            "width": 6,
+            "height": 11,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1034,
+            "y": 555,
+            "width": 5,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1031,
+            "y": 297,
+            "width": 5,
+            "height": 119,
+            "kind": "movement-only"
+          },
+          {
+            "x": 970,
+            "y": 93,
+            "width": 5,
+            "height": 23,
+            "kind": "movement-only"
+          },
+          {
+            "x": 975,
+            "y": 116,
+            "width": 15,
+            "height": 9,
+            "kind": "movement-only"
+          },
+          {
+            "x": 385,
+            "y": 304,
+            "width": 58,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 440,
+            "y": 287,
+            "width": 5,
+            "height": 19,
+            "kind": "movement-only"
+          },
+          {
+            "x": 444,
+            "y": 287,
+            "width": 52,
+            "height": 4,
+            "kind": "movement-only"
+          },
+          {
+            "x": 384,
+            "y": 306,
+            "width": 6,
+            "height": 84,
+            "kind": "movement-only"
+          },
+          {
+            "x": 389,
+            "y": 380,
+            "width": 74,
+            "height": 15,
+            "kind": "movement-only"
+          },
+          {
+            "x": 459,
+            "y": 362,
+            "width": 6,
+            "height": 23,
+            "kind": "movement-only"
+          },
+          {
+            "x": 462,
+            "y": 362,
+            "width": 31,
+            "height": 12,
+            "kind": "movement-only"
+          },
+          {
+            "x": 491,
+            "y": 286,
+            "width": 24,
+            "height": 5,
+            "kind": "movement-only"
+          },
+          {
+            "x": 152,
+            "y": 517,
+            "width": 129,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 273,
+            "y": 519,
+            "width": 7,
+            "height": 66,
+            "kind": "movement-only"
+          },
+          {
+            "x": 154,
+            "y": 574,
+            "width": 123,
+            "height": 14,
+            "kind": "movement-only"
+          },
+          {
+            "x": 151,
+            "y": 519,
+            "width": 6,
+            "height": 61,
+            "kind": "movement-only"
+          },
+          {
+            "x": 324,
+            "y": 1,
+            "width": 101,
+            "height": 167,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 226,
+            "y": 98,
+            "width": 98,
+            "height": 71,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 397,
+            "y": 96,
+            "width": 29,
+            "height": 34,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 326,
+            "y": 98,
+            "width": 493,
+            "height": 70,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 505,
+            "y": 79,
+            "width": 168,
+            "height": 207,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 621,
+            "y": 62,
+            "width": 256,
+            "height": 292,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 678,
+            "y": 1,
+            "width": 149,
+            "height": 76,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 819,
+            "y": 47,
+            "width": 41,
+            "height": 30,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 872,
+            "y": 100,
+            "width": 96,
+            "height": 61,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 866,
+            "y": 200,
+            "width": 99,
+            "height": 250,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 960,
+            "y": 241,
+            "width": 73,
+            "height": 304,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 523,
+            "y": 288,
+            "width": 505,
+            "height": 377,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1028,
+            "y": 499,
+            "width": 13,
+            "height": 48,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1017,
+            "y": 537,
+            "width": 19,
+            "height": 24,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 540,
+            "y": 654,
+            "width": 365,
+            "height": 219,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 880,
+            "y": 654,
+            "width": 142,
+            "height": 82,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 938,
+            "y": 734,
+            "width": 76,
+            "height": 251,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 902,
+            "y": 757,
+            "width": 47,
+            "height": 228,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 332,
+            "y": 162,
+            "width": 183,
+            "height": 124,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 234,
+            "y": 239,
+            "width": 149,
+            "height": 117,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 375,
+            "y": 277,
+            "width": 64,
+            "height": 27,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 234,
+            "y": 342,
+            "width": 149,
+            "height": 175,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 374,
+            "y": 396,
+            "width": 174,
+            "height": 88,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 468,
+            "y": 380,
+            "width": 63,
+            "height": 26,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 366,
+            "y": 465,
+            "width": 71,
+            "height": 211,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 424,
+            "y": 514,
+            "width": 140,
+            "height": 162,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 481,
+            "y": 475,
+            "width": 61,
+            "height": 71,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 281,
+            "y": 507,
+            "width": 104,
+            "height": 153,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 498,
+            "y": 667,
+            "width": 64,
+            "height": 24,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 501,
+            "y": 717,
+            "width": 89,
+            "height": 136,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1007,
+            "y": 834,
+            "width": 104,
+            "height": 155,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1103,
+            "y": 837,
+            "width": 37,
+            "height": 42,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1102,
+            "y": 871,
+            "width": 23,
+            "height": 30,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1105,
+            "y": 894,
+            "width": 13,
+            "height": 22,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1139,
+            "y": 839,
+            "width": 9,
+            "height": 23,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1094,
+            "y": 983,
+            "width": 17,
+            "height": 64,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1107,
+            "y": 985,
+            "width": 11,
+            "height": 36,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 917,
+            "y": 971,
+            "width": 92,
+            "height": 37,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 597,
+            "y": 860,
+            "width": 321,
+            "height": 188,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 899,
+            "y": 993,
+            "width": 54,
+            "height": 60,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 513,
+            "y": 912,
+            "width": 96,
+            "height": 173,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 571,
+            "y": 866,
+            "width": 63,
+            "height": 104,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 442,
+            "y": 800,
+            "width": 67,
+            "height": 52,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 441,
+            "y": 851,
+            "width": 30,
+            "height": 88,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 359,
+            "y": 821,
+            "width": 87,
+            "height": 118,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 143,
+            "y": 465,
+            "width": 21,
+            "height": 53,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 158,
+            "y": 492,
+            "width": 83,
+            "height": 25,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 95,
+            "y": 518,
+            "width": 57,
+            "height": 61,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 105,
+            "y": 502,
+            "width": 44,
+            "height": 22,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 103,
+            "y": 592,
+            "width": 204,
+            "height": 102,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 122,
+            "y": 571,
+            "width": 32,
+            "height": 32,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 299,
+            "y": 646,
+            "width": 41,
+            "height": 50,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 332,
+            "y": 646,
+            "width": 47,
+            "height": 31,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 153,
+            "y": 689,
+            "width": 134,
+            "height": 128,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 103,
+            "y": 675,
+            "width": 66,
+            "height": 114,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 103,
+            "y": 820,
+            "width": 59,
+            "height": 23,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 128,
+            "y": 836,
+            "width": 34,
+            "height": 42,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 276,
+            "y": 788,
+            "width": 82,
+            "height": 55,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 206,
+            "y": 811,
+            "width": 48,
+            "height": 106,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 161,
+            "y": 870,
+            "width": 50,
+            "height": 17,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 181,
+            "y": 883,
+            "width": 38,
+            "height": 25,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 193,
+            "y": 901,
+            "width": 26,
+            "height": 16,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 213,
+            "y": 908,
+            "width": 107,
+            "height": 30,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 250,
+            "y": 877,
+            "width": 67,
+            "height": 37,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 294,
+            "y": 834,
+            "width": 74,
+            "height": 52,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 347,
+            "y": 819,
+            "width": 18,
+            "height": 23,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 236,
+            "y": 799,
+            "width": 62,
+            "height": 44,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 312,
+            "y": 878,
+            "width": 58,
+            "height": 23,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 317,
+            "y": 927,
+            "width": 50,
+            "height": 12,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 351,
+            "y": 893,
+            "width": 34,
+            "height": 47,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 458,
+            "y": 911,
+            "width": 80,
+            "height": 30,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 515,
+            "y": 838,
+            "width": 30,
+            "height": 34,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 515,
+            "y": 869,
+            "width": 12,
+            "height": 58,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1005,
+            "y": 721,
+            "width": 17,
+            "height": 40,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1013,
+            "y": 645,
+            "width": 13,
+            "height": 56,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1038,
+            "y": 518,
+            "width": 9,
+            "height": 20,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 1022,
+            "y": 556,
+            "width": 10,
+            "height": 12,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 520,
+            "y": 363,
+            "width": 11,
+            "height": 25,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 464,
+            "y": 384,
+            "width": 12,
+            "height": 24,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 375,
+            "y": 376,
+            "width": 11,
+            "height": 24,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 279,
+            "y": 576,
+            "width": 7,
+            "height": 19,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 535,
+            "y": 686,
+            "width": 10,
+            "height": 11,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 499,
+            "y": 687,
+            "width": 5,
+            "height": 40,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 434,
+            "y": 480,
+            "width": 7,
+            "height": 9,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 477,
+            "y": 481,
+            "width": 7,
+            "height": 9,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 421,
+            "y": 81,
+            "width": 7,
+            "height": 25,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 675,
+            "y": 44,
+            "width": 11,
+            "height": 25,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 859,
+            "y": 55,
+            "width": 20,
+            "height": 12,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 960,
+            "y": 223,
+            "width": 8,
+            "height": 22,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 515,
+            "y": 249,
+            "width": 180,
+            "height": 25,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 524,
+            "y": 277,
+            "width": 146,
+            "height": 53,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 464,
+            "y": 905,
+            "width": 53,
+            "height": 19,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 524,
+            "y": 864,
+            "width": 55,
+            "height": 13,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 566,
+            "y": 871,
+            "width": 9,
+            "height": 14,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 99,
+            "y": 753,
+            "width": 13,
+            "height": 85,
+            "kind": "water",
+            "sensor": true,
+            "level": 2
+          },
+          {
+            "x": 2,
+            "y": 0,
+            "width": 320,
+            "height": 73
+          },
+          {
+            "x": 226,
+            "y": 73,
+            "width": 97,
+            "height": 24
+          },
+          {
+            "x": 6,
+            "y": 75,
+            "width": 220,
+            "height": 22
+          },
+          {
+            "x": 1,
+            "y": 91,
+            "width": 84,
+            "height": 57
+          },
+          {
+            "x": 953,
+            "y": 1010,
+            "width": 5,
+            "height": 38,
+            "kind": "movement-only"
+          },
+          {
+            "x": 955,
+            "y": 1005,
+            "width": 56,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1003,
+            "y": 988,
+            "width": 8,
+            "height": 21,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1008,
+            "y": 986,
+            "width": 82,
+            "height": 6,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1088,
+            "y": 991,
+            "width": 5,
+            "height": 57,
+            "kind": "movement-only"
+          },
+          {
+            "x": 1111,
+            "y": 916,
+            "width": 8,
+            "height": 131,
+            "kind": "movement-only"
+          }
+        ],
+        "levelTriggers": [
+          {
+            "height": 186,
+            "targetLevel": 2,
+            "width": 82,
+            "x": 6,
+            "y": 154
+          },
+          {
+            "height": 233,
+            "targetLevel": 1,
+            "width": 69,
+            "x": 154,
+            "y": 121
+          },
+          {
+            "height": 113,
+            "targetLevel": 2,
+            "width": 58,
+            "x": 1116,
+            "y": 675
+          },
+          {
+            "height": 189,
+            "targetLevel": 2,
+            "width": 625,
+            "x": 492,
+            "y": 365
+          },
+          {
+            "height": 81,
+            "targetLevel": 2,
+            "width": 115,
+            "x": 752,
+            "y": 555
+          },
+          {
+            "x": 290,
+            "y": 679,
+            "width": 209,
+            "height": 133,
+            "targetLevel": 1
+          },
+          {
+            "x": 153,
+            "y": 520,
+            "width": 126,
+            "height": 59,
+            "targetLevel": 1
+          },
+          {
+            "x": 387,
+            "y": 306,
+            "width": 71,
+            "height": 74,
+            "targetLevel": 1
+          },
+          {
+            "x": 447,
+            "y": 290,
+            "width": 50,
+            "height": 74,
+            "targetLevel": 1
+          },
+          {
+            "x": 283,
+            "y": 169,
+            "width": 47,
+            "height": 57,
+            "targetLevel": 1
+          },
+          {
+            "x": 71,
+            "y": 211,
+            "width": 17,
+            "height": 55,
+            "targetLevel": 2
+          },
+          {
+            "x": 1013,
+            "y": 764,
+            "width": 47,
+            "height": 53,
+            "targetLevel": 1
+          },
+          {
+            "x": 959,
+            "y": 1011,
+            "width": 132,
+            "height": 37,
+            "targetLevel": 1
+          },
+          {
+            "x": 1012,
+            "y": 994,
+            "width": 76,
+            "height": 17,
+            "targetLevel": 1
+          }
+        ],
+        "levelRenderZones": [
+          {
+            "x": 501,
+            "y": 962,
+            "width": 357,
+            "height": 86,
+            "level": 2,
+            "targetObjectId": "90a97564f1f0"
+          },
+          {
+            "x": 750,
+            "y": 591,
+            "width": 118,
+            "height": 371,
+            "level": 2,
+            "targetObjectId": "5da2ba906f2a"
+          },
+          {
+            "x": 858,
+            "y": 431,
+            "width": 241,
+            "height": 55,
+            "level": 2,
+            "targetObjectId": "3af13255bc75"
+          },
+          {
+            "x": 454.5,
+            "y": 8,
+            "width": 707,
+            "height": 425,
+            "level": 3,
+            "targetObjectId": "8023d3937298"
+          },
+          {
+            "x": 492,
+            "y": 434,
+            "width": 365,
+            "height": 330,
+            "level": 2,
+            "targetObjectId": "8023d3937298"
+          },
+          {
+            "x": 858,
+            "y": 434,
+            "width": 259,
+            "height": 52,
+            "level": 3,
+            "targetObjectId": "8023d3937298"
+          },
+          {
+            "x": 858,
+            "y": 487,
+            "width": 259,
+            "height": 277,
+            "level": 2,
+            "targetObjectId": "8023d3937298"
+          }
+        ]
+      }
+    },
+    "f92753e7ee98": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 961,
+          "y": 16
+        },
+        "flipped": false,
+        "sceneDressOrder": 0
+      }
+    },
+    "2837e2d8280d": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 145,
+          "y": 18
+        },
+        "flipped": false,
+        "sceneDressOrder": 1
+      }
+    },
+    "8d7bfff3b4cd": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 907,
+          "y": 22
+        },
+        "flipped": false,
+        "sceneDressOrder": 2
+      }
+    },
+    "3016f2c8d4cb": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 196,
+          "y": 24
+        },
+        "flipped": false,
+        "sceneDressOrder": 3
+      }
+    },
+    "f9a968911d9c": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 294,
+          "y": 24
+        },
+        "flipped": false,
+        "sceneDressOrder": 4
+      }
+    },
+    "3e44dd0223d7": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 103,
+          "y": 25
+        },
+        "flipped": false,
+        "sceneDressOrder": 5
+      }
+    },
+    "9f4dd15c2c94": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1024,
+          "y": 25
+        },
+        "flipped": false,
+        "sceneDressOrder": 6
+      }
+    },
+    "d33c744a182b": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 607,
+          "y": 34
+        },
+        "flipped": false,
+        "sceneDressOrder": 7
+      }
+    },
+    "03b9b517a1ee": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 558,
+          "y": 36
+        },
+        "flipped": false,
+        "sceneDressOrder": 8
+      }
+    },
+    "1af7d93121be": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 371,
+          "y": 140
+        },
+        "flipped": false,
+        "sceneDressOrder": 9
+      }
+    },
+    "f9abdbb6ac80": {
+      "name": "SwLand5",
+      "params": {
+        "spawnPosition": {
+          "x": 551,
+          "y": 115
+        },
+        "flipped": false,
+        "sceneDressOrder": 10
+      }
+    },
+    "b2adba125711": {
+      "name": "SwTreeClusterLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 1093,
+          "y": 142
+        },
+        "flipped": true,
+        "sceneDressOrder": 11,
+        "skipShadows": true
+      }
+    },
+    "2fc1dbb0d950": {
+      "name": "SwTreeClusterLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 46,
+          "y": 142
+        },
+        "flipped": false,
+        "sceneDressOrder": 12
+      }
+    },
+    "ca1181159a01": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1181,
+          "y": 159
+        },
+        "flipped": false,
+        "sceneDressOrder": 13
+      }
+    },
+    "6500b1eba6d0": {
+      "name": "SwTreeClusterRight",
+      "params": {
+        "spawnPosition": {
+          "x": 1173,
+          "y": 170
+        },
+        "flipped": false,
+        "sceneDressOrder": 14
+      }
+    },
+    "8023d3937298": {
+      "name": "SwBigTree",
+      "params": {
+        "interactionLevel": 3,
+        "spawnPosition": {
+          "x": 808,
+          "y": 764
+        },
+        "flipped": false,
+        "sceneDressOrder": 15
+      }
+    },
+    "f81ca444ddba": {
+      "name": "SwBigTreeDesk2",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 500,
+          "y": 61
+        },
+        "flipped": true,
+        "sceneDressOrder": 16
+      }
+    },
+    "c2aeb5c58e14": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 476,
+          "y": 31
+        },
+        "flipped": false,
+        "sceneDressOrder": 17,
+        "seatHost": {
+          "parentId": "f81ca444ddba",
+          "offset": {
+            "x": -24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "ea7d5c292919": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 524,
+          "y": 31
+        },
+        "flipped": false,
+        "sceneDressOrder": 18,
+        "seatHost": {
+          "parentId": "f81ca444ddba",
+          "offset": {
+            "x": 24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "a8128d18d7db": {
+      "name": "SwRootToWater2",
+      "params": {
+        "spawnPosition": {
+          "x": 350,
+          "y": 115
+        },
+        "flipped": true,
+        "sceneDressOrder": 19
+      }
+    },
+    "23d06861ad62": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1057,
+          "y": 92
+        },
+        "flipped": false,
+        "sceneDressOrder": 20
+      }
+    },
+    "8435d6545816": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1020,
+          "y": 101
+        },
+        "flipped": false,
+        "sceneDressOrder": 21
+      }
+    },
+    "89ca92caea66": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 476,
+          "y": 59
+        },
+        "flipped": false,
+        "sceneDressOrder": 22,
+        "seatHost": {
+          "parentId": "f81ca444ddba",
+          "offset": {
+            "x": -24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "87038813a42c": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 524,
+          "y": 59
+        },
+        "flipped": false,
+        "sceneDressOrder": 23,
+        "seatHost": {
+          "parentId": "f81ca444ddba",
+          "offset": {
+            "x": 24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "019658ffd5fe": {
+      "name": "SwBigTreeBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 107,
+          "y": 162
+        },
+        "flipped": false,
+        "sceneDressOrder": 24
+      }
+    },
+    "a0badaf4c7a4": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 252,
+          "y": 142
+        },
+        "flipped": false,
+        "sceneDressOrder": 25
+      }
+    },
+    "7cae42a8cddc": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 65,
+          "y": 140
+        },
+        "flipped": false,
+        "sceneDressOrder": 26
+      }
+    },
+    "e25137078e1a": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 191,
+          "y": 144
+        },
+        "flipped": false,
+        "sceneDressOrder": 27
+      }
+    },
+    "f29a1563057e": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 163,
+          "y": 173
+        },
+        "flipped": false,
+        "sceneDressOrder": 28
+      }
+    },
+    "a170e5f31dd2": {
+      "name": "SwTypha1",
+      "params": {
+        "spawnPosition": {
+          "x": 384,
+          "y": 164
+        },
+        "flipped": false,
+        "sceneDressOrder": 29
+      }
+    },
+    "00612255d481": {
+      "name": "SwBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 344,
+          "y": 169
+        },
+        "flipped": false,
+        "sceneDressOrder": 30
+      }
+    },
+    "aef78425c636": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 198,
+          "y": 157
+        },
+        "flipped": false,
+        "sceneDressOrder": 31
+      }
+    },
+    "48b543a3cff9": {
+      "name": "SwFern1",
+      "params": {
+        "spawnPosition": {
+          "x": 48,
+          "y": 181
+        },
+        "flipped": true,
+        "sceneDressOrder": 32
+      }
+    },
+    "a6736c9f468e": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 173,
+          "y": 202
+        },
+        "flipped": false,
+        "sceneDressOrder": 33
+      }
+    },
+    "2c94232c7fea": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 226,
+          "y": 331
+        },
+        "flipped": false,
+        "sceneDressOrder": 34
+      }
+    },
+    "820d008569b8": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 187,
+          "y": 215
+        },
+        "flipped": false,
+        "sceneDressOrder": 35
+      }
+    },
+    "e32126f1dc57": {
+      "name": "SwRootToWater2",
+      "params": {
+        "spawnPosition": {
+          "x": 258,
+          "y": 310
+        },
+        "flipped": true,
+        "sceneDressOrder": 36
+      }
+    },
+    "fe60a340c1c3": {
+      "name": "SwBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 267,
+          "y": 268
+        },
+        "flipped": false,
+        "sceneDressOrder": 37
+      }
+    },
+    "046ebca064e2": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 1175,
+          "y": 254
+        },
+        "flipped": false,
+        "sceneDressOrder": 38
+      }
+    },
+    "d6df0b225bd0": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 326,
+          "y": 397
+        },
+        "flipped": true,
+        "sceneDressOrder": 39
+      }
+    },
+    "9a25b972f411": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 271,
+          "y": 401
+        },
+        "flipped": false,
+        "sceneDressOrder": 40
+      }
+    },
+    "b12aa8117783": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 407,
+          "y": 324
+        },
+        "flipped": false,
+        "sceneDressOrder": 41
+      }
+    },
+    "135acd8e9ca1": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 131,
+          "y": 327
+        },
+        "flipped": false,
+        "sceneDressOrder": 42
+      }
+    },
+    "9406688533a0": {
+      "name": "SwLand2",
+      "params": {
+        "spawnPosition": {
+          "x": 453,
+          "y": 414
+        },
+        "flipped": false,
+        "sceneDressOrder": 43
+      }
+    },
+    "2e2c4fa18bbf": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 449,
+          "y": 378
+        },
+        "flipped": false,
+        "sceneDressOrder": 44
+      }
+    },
+    "6ec713256c68": {
+      "name": "SwFern2",
+      "params": {
+        "spawnPosition": {
+          "x": 179,
+          "y": 326
+        },
+        "flipped": false,
+        "sceneDressOrder": 45
+      }
+    },
+    "3f19054a9aeb": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 187,
+          "y": 337
+        },
+        "flipped": false,
+        "sceneDressOrder": 46
+      }
+    },
+    "caf91349a5ce": {
+      "name": "SwFern1",
+      "params": {
+        "spawnPosition": {
+          "x": 205,
+          "y": 370
+        },
+        "flipped": false,
+        "sceneDressOrder": 47
+      }
+    },
+    "179c0c1b0d30": {
+      "name": "SwBigTreeChair",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 402,
+          "y": 374
+        },
+        "flipped": false,
+        "sceneDressOrder": 48
+      }
+    },
+    "91a6ff3e0572": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 60,
+          "y": 367
+        },
+        "flipped": false,
+        "sceneDressOrder": 49
+      }
+    },
+    "9f3ccb749957": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1200,
+          "y": 368
+        },
+        "flipped": false,
+        "sceneDressOrder": 50
+      }
+    },
+    "cd87c32e3e77": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 124,
+          "y": 423
+        },
+        "flipped": false,
+        "sceneDressOrder": 51
+      }
+    },
+    "8b216d13b871": {
+      "name": "SwFern1",
+      "params": {
+        "spawnPosition": {
+          "x": 1167,
+          "y": 383
+        },
+        "flipped": false,
+        "sceneDressOrder": 52
+      }
+    },
+    "f7f66d74475f": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 197,
+          "y": 432
+        },
+        "flipped": false,
+        "sceneDressOrder": 53
+      }
+    },
+    "14b4a7aa9de2": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 256,
+          "y": 440
+        },
+        "flipped": false,
+        "sceneDressOrder": 54
+      }
+    },
+    "3229cbd4518e": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 161,
+          "y": 398
+        },
+        "flipped": false,
+        "sceneDressOrder": 55
+      }
+    },
+    "51c223aa6f83": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 197,
+          "y": 400
+        },
+        "flipped": false,
+        "sceneDressOrder": 56
+      }
+    },
+    "79a57451897c": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 13,
+          "y": 411
+        },
+        "flipped": false,
+        "sceneDressOrder": 57
+      }
+    },
+    "c60fabe58205": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 152,
+          "y": 413
+        },
+        "flipped": false,
+        "sceneDressOrder": 58
+      }
+    },
+    "a51c0c1b9c44": {
+      "name": "SwFern1",
+      "params": {
+        "spawnPosition": {
+          "x": 117,
+          "y": 438
+        },
+        "flipped": false,
+        "sceneDressOrder": 59
+      }
+    },
+    "3af13255bc75": {
+      "name": "SwBridgeRight",
+      "params": {
+        "spawnPosition": {
+          "x": 978,
+          "y": 502
+        },
+        "flipped": false,
+        "sceneDressOrder": 60
+      }
+    },
+    "f161aca7d065": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1213,
+          "y": 445
+        },
+        "flipped": false,
+        "sceneDressOrder": 61
+      }
+    },
+    "5c74edb5a3f3": {
+      "name": "SwSwampLily",
+      "params": {
+        "spawnPosition": {
+          "x": 542,
+          "y": 491
+        },
+        "flipped": false,
+        "sceneDressOrder": 62
+      }
+    },
+    "defea654d70a": {
+      "name": "SwTypha3",
+      "params": {
+        "spawnPosition": {
+          "x": 239,
+          "y": 503
+        },
+        "flipped": false,
+        "sceneDressOrder": 63
+      }
+    },
+    "6be008cf0bd2": {
+      "name": "SwTypha1",
+      "params": {
+        "spawnPosition": {
+          "x": 225,
+          "y": 515
+        },
+        "flipped": false,
+        "sceneDressOrder": 64
+      }
+    },
+    "77b58aa152a5": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 70,
+          "y": 477
+        },
+        "flipped": false,
+        "sceneDressOrder": 65
+      }
+    },
+    "a4d8072675a8": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 176,
+          "y": 532
+        },
+        "flipped": false,
+        "sceneDressOrder": 66
+      }
+    },
+    "853d3f09700d": {
+      "name": "SwBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 122,
+          "y": 519
+        },
+        "flipped": false,
+        "sceneDressOrder": 67
+      }
+    },
+    "83fcd8fb85c1": {
+      "name": "SwLilypad1",
+      "params": {
+        "spawnPosition": {
+          "x": 459,
+          "y": 526
+        },
+        "flipped": false,
+        "sceneDressOrder": 68
+      }
+    },
+    "3b94f31fe753": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 349,
+          "y": 634
+        },
+        "flipped": false,
+        "sceneDressOrder": 69
+      }
+    },
+    "c08cdb54ba06": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 415,
+          "y": 642
+        },
+        "flipped": true,
+        "sceneDressOrder": 70
+      }
+    },
+    "f1433f6c7b62": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1176,
+          "y": 511
+        },
+        "flipped": false,
+        "sceneDressOrder": 71
+      }
+    },
+    "a2c49773fa7b": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 229,
+          "y": 573
+        },
+        "flipped": false,
+        "sceneDressOrder": 72
+      }
+    },
+    "916e49826393": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 957,
+          "y": 656
+        },
+        "flipped": false,
+        "sceneDressOrder": 73
+      }
+    },
+    "f439d2fa6740": {
+      "name": "SwLand3",
+      "params": {
+        "spawnPosition": {
+          "x": 217,
+          "y": 609
+        },
+        "flipped": false,
+        "sceneDressOrder": 74
+      }
+    },
+    "f50d0165f687": {
+      "name": "SwBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 1139,
+          "y": 575
+        },
+        "flipped": true,
+        "sceneDressOrder": 75
+      }
+    },
+    "6bcf04c8b0fc": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 1064,
+          "y": 559
+        },
+        "flipped": false,
+        "sceneDressOrder": 76
+      }
+    },
+    "0a733c94f365": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 55,
+          "y": 565
+        },
+        "flipped": false,
+        "sceneDressOrder": 77
+      }
+    },
+    "3d1db1fa7098": {
+      "name": "SwBigTreeChair",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 168,
+          "y": 569
+        },
+        "flipped": false,
+        "sceneDressOrder": 78
+      }
+    },
+    "699bd6f3be96": {
+      "name": "SwBigTreeChair",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 265,
+          "y": 569
+        },
+        "flipped": false,
+        "sceneDressOrder": 79
+      }
+    },
+    "c000ae964fc8": {
+      "name": "SwDriftwood",
+      "params": {
+        "spawnPosition": {
+          "x": 109,
+          "y": 597
+        },
+        "flipped": false,
+        "sceneDressOrder": 80
+      }
+    },
+    "fe0e5b604223": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1078,
+          "y": 572
+        },
+        "flipped": false,
+        "sceneDressOrder": 81
+      }
+    },
+    "7318bb66ec6a": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1211,
+          "y": 573
+        },
+        "flipped": false,
+        "sceneDressOrder": 82
+      }
+    },
+    "986e93ae997e": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 69,
+          "y": 578
+        },
+        "flipped": false,
+        "sceneDressOrder": 83
+      }
+    },
+    "d8a2d295ef90": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 560,
+          "y": 649
+        },
+        "flipped": false,
+        "sceneDressOrder": 84
+      }
+    },
+    "5da2ba906f2a": {
+      "name": "SwBridgeCenter",
+      "params": {
+        "spawnPosition": {
+          "x": 809,
+          "y": 964
+        },
+        "flipped": false,
+        "sceneDressOrder": 85
+      }
+    },
+    "28b46fbefe8c": {
+      "name": "SwSwampLily",
+      "params": {
+        "spawnPosition": {
+          "x": 165,
+          "y": 661
+        },
+        "flipped": false,
+        "sceneDressOrder": 86
+      }
+    },
+    "21d393f6418e": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 343,
+          "y": 677
+        },
+        "flipped": false,
+        "sceneDressOrder": 87
+      }
+    },
+    "028e6dcada38": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 624,
+          "y": 680
+        },
+        "flipped": false,
+        "sceneDressOrder": 88
+      }
+    },
+    "60bc6eacf21b": {
+      "name": "SwFern2",
+      "params": {
+        "spawnPosition": {
+          "x": 9,
+          "y": 628
+        },
+        "flipped": false,
+        "sceneDressOrder": 89
+      }
+    },
+    "25612f87b9f6": {
+      "name": "SwTypha3",
+      "params": {
+        "spawnPosition": {
+          "x": 443,
+          "y": 678
+        },
+        "flipped": false,
+        "sceneDressOrder": 90
+      }
+    },
+    "27b7da628817": {
+      "name": "SwBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 1123,
+          "y": 671
+        },
+        "flipped": true,
+        "sceneDressOrder": 91
+      }
+    },
+    "fdf52ae058fd": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 17,
+          "y": 639
+        },
+        "flipped": false,
+        "sceneDressOrder": 92
+      }
+    },
+    "b55e96aced2d": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 379,
+          "y": 695
+        },
+        "flipped": false,
+        "sceneDressOrder": 93
+      }
+    },
+    "8bd0b0b0359b": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 466,
+          "y": 699
+        },
+        "flipped": false,
+        "sceneDressOrder": 94
+      }
+    },
+    "8c1821e9b581": {
+      "name": "SwBigTreeBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 111,
+          "y": 749
+        },
+        "flipped": false,
+        "sceneDressOrder": 95
+      }
+    },
+    "3ef40ca386cc": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 317,
+          "y": 710
+        },
+        "flipped": false,
+        "sceneDressOrder": 96
+      }
+    },
+    "fc5f3735bcf3": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 1041,
+          "y": 680
+        },
+        "flipped": false,
+        "sceneDressOrder": 97
+      }
+    },
+    "043015fe5973": {
+      "name": "SwTreeRootCattail",
+      "params": {
+        "spawnPosition": {
+          "x": 931,
+          "y": 739
+        },
+        "flipped": false,
+        "sceneDressOrder": 98,
+        "attachment": {
+          "parentId": "8023d3937298",
+          "layer": 1,
+          "offset": {
+            "x": 123,
+            "y": -25
+          }
+        }
+      }
+    },
+    "28ac1498995f": {
+      "name": "SwLand1",
+      "params": {
+        "spawnPosition": {
+          "x": 393,
+          "y": 842
+        },
+        "flipped": false,
+        "sceneDressOrder": 99
+      }
+    },
+    "20e6f7c82008": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 1114,
+          "y": 693
+        },
+        "flipped": false,
+        "sceneDressOrder": 100
+      }
+    },
+    "d2dea4306f14": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 75,
+          "y": 690
+        },
+        "flipped": false,
+        "sceneDressOrder": 101
+      }
+    },
+    "1b0af34ba0a3": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1055,
+          "y": 693
+        },
+        "flipped": false,
+        "sceneDressOrder": 102
+      }
+    },
+    "980822e4e938": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 269,
+          "y": 755
+        },
+        "flipped": false,
+        "sceneDressOrder": 103
+      }
+    },
+    "767ff56106f8": {
+      "name": "SwTinyLand",
+      "params": {
+        "spawnPosition": {
+          "x": 521,
+          "y": 729
+        },
+        "flipped": false,
+        "sceneDressOrder": 104
+      }
+    },
+    "aee6f6318e12": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1128,
+          "y": 706
+        },
+        "flipped": false,
+        "sceneDressOrder": 105
+      }
+    },
+    "912c4448cbbc": {
+      "name": "SwBigTreeDesk2",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 358,
+          "y": 753
+        },
+        "flipped": true,
+        "sceneDressOrder": 106
+      }
+    },
+    "851d1168b000": {
+      "name": "SwBigTreeDesk2",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 452,
+          "y": 753
+        },
+        "flipped": true,
+        "sceneDressOrder": 107
+      }
+    },
+    "cdbe497eb5f0": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 334,
+          "y": 723
+        },
+        "flipped": false,
+        "sceneDressOrder": 108,
+        "seatHost": {
+          "parentId": "912c4448cbbc",
+          "offset": {
+            "x": -24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "356acd16e0fd": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 382,
+          "y": 723
+        },
+        "flipped": false,
+        "sceneDressOrder": 109,
+        "seatHost": {
+          "parentId": "912c4448cbbc",
+          "offset": {
+            "x": 24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "4c1efd840817": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 428,
+          "y": 723
+        },
+        "flipped": false,
+        "sceneDressOrder": 110,
+        "seatHost": {
+          "parentId": "851d1168b000",
+          "offset": {
+            "x": -24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "04e8611c9526": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 476,
+          "y": 723
+        },
+        "flipped": false,
+        "sceneDressOrder": 111,
+        "seatHost": {
+          "parentId": "851d1168b000",
+          "offset": {
+            "x": 24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "0e959b0e81ab": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 295,
+          "y": 849
+        },
+        "flipped": false,
+        "sceneDressOrder": 112
+      }
+    },
+    "8870ac835801": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 520,
+          "y": 857
+        },
+        "flipped": false,
+        "sceneDressOrder": 113
+      }
+    },
+    "802c9b720801": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 175,
+          "y": 788
+        },
+        "flipped": false,
+        "sceneDressOrder": 114
+      }
+    },
+    "8d638f296ce4": {
+      "name": "SwTypha1",
+      "params": {
+        "spawnPosition": {
+          "x": 255,
+          "y": 769
+        },
+        "flipped": false,
+        "sceneDressOrder": 115
+      }
+    },
+    "74b7dabbb97c": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1173,
+          "y": 782
+        },
+        "flipped": false,
+        "sceneDressOrder": 116
+      }
+    },
+    "511d1eab587e": {
+      "name": "SwTinyLand",
+      "params": {
+        "spawnPosition": {
+          "x": 922,
+          "y": 772
+        },
+        "flipped": false,
+        "sceneDressOrder": 117
+      }
+    },
+    "f1506b83efe7": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 412,
+          "y": 796
+        },
+        "flipped": false,
+        "sceneDressOrder": 118
+      }
+    },
+    "297967798ebb": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 334,
+          "y": 751
+        },
+        "flipped": false,
+        "sceneDressOrder": 119,
+        "seatHost": {
+          "parentId": "912c4448cbbc",
+          "offset": {
+            "x": -24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "198ab4faf367": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 382,
+          "y": 751
+        },
+        "flipped": false,
+        "sceneDressOrder": 120,
+        "seatHost": {
+          "parentId": "912c4448cbbc",
+          "offset": {
+            "x": 24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "6ca1373f643f": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 428,
+          "y": 751
+        },
+        "flipped": false,
+        "sceneDressOrder": 121,
+        "seatHost": {
+          "parentId": "851d1168b000",
+          "offset": {
+            "x": -24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "38b522536748": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 476,
+          "y": 751
+        },
+        "flipped": false,
+        "sceneDressOrder": 122,
+        "seatHost": {
+          "parentId": "851d1168b000",
+          "offset": {
+            "x": 24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "c256202b5b2e": {
+      "name": "SwRootToWater1",
+      "params": {
+        "spawnPosition": {
+          "x": 506,
+          "y": 801
+        },
+        "flipped": true,
+        "sceneDressOrder": 123
+      }
+    },
+    "da9c74a82c53": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 58,
+          "y": 765
+        },
+        "flipped": false,
+        "sceneDressOrder": 124
+      }
+    },
+    "aff70a8a0ab3": {
+      "name": "SwBigTreeChair",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 377,
+          "y": 804
+        },
+        "flipped": false,
+        "sceneDressOrder": 125
+      }
+    },
+    "a06e869f1ecf": {
+      "name": "SwBigTreeChair",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 428,
+          "y": 804
+        },
+        "flipped": false,
+        "sceneDressOrder": 126
+      }
+    },
+    "4ed383e985c3": {
+      "name": "SwBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 737,
+          "y": 830
+        },
+        "flipped": true,
+        "sceneDressOrder": 127
+      }
+    },
+    "b7ebb3dbcd0f": {
+      "name": "SwLilypad1",
+      "params": {
+        "spawnPosition": {
+          "x": 133,
+          "y": 832
+        },
+        "flipped": false,
+        "sceneDressOrder": 128
+      }
+    },
+    "e0b22a677d2c": {
+      "name": "SwBigTreeChair",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 1028,
+          "y": 814
+        },
+        "flipped": false,
+        "sceneDressOrder": 129
+      }
+    },
+    "1e08bd109683": {
+      "name": "SwBigTreeChair",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 1050,
+          "y": 814
+        },
+        "flipped": false,
+        "sceneDressOrder": 130
+      }
+    },
+    "ab2f98a0d7c4": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1171,
+          "y": 869
+        },
+        "flipped": false,
+        "sceneDressOrder": 131
+      }
+    },
+    "f80fa0b0a4a3": {
+      "name": "SwTypha3",
+      "params": {
+        "spawnPosition": {
+          "x": 1110,
+          "y": 866
+        },
+        "flipped": false,
+        "sceneDressOrder": 132
+      }
+    },
+    "1300b2cb2757": {
+      "name": "SwLilypadDesk",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 185,
+          "y": 858
+        },
+        "flipped": false,
+        "sceneDressOrder": 133
+      }
+    },
+    "e3cca306d005": {
+      "name": "SwLilypad2",
+      "params": {
+        "spawnPosition": {
+          "x": 276,
+          "y": 886
+        },
+        "flipped": false,
+        "sceneDressOrder": 134
+      }
+    },
+    "d8e9a85c53b9": {
+      "name": "SwLilypadChairUp",
+      "params": {
+        "spawnPosition": {
+          "x": 172,
+          "y": 870
+        },
+        "flipped": false,
+        "sceneDressOrder": 135,
+        "seatHost": {
+          "parentId": "1300b2cb2757",
+          "offset": {
+            "x": -13,
+            "y": 12
+          }
+        },
+        "interactionLevel": 1
+      }
+    },
+    "6d2a5a013dd2": {
+      "name": "SwLilypadChairUp",
+      "params": {
+        "spawnPosition": {
+          "x": 197,
+          "y": 870
+        },
+        "flipped": false,
+        "sceneDressOrder": 136,
+        "seatHost": {
+          "parentId": "1300b2cb2757",
+          "offset": {
+            "x": 12,
+            "y": 12
+          }
+        },
+        "interactionLevel": 1
+      }
+    },
+    "b9ba8a6dce76": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 715,
+          "y": 923
+        },
+        "flipped": false,
+        "sceneDressOrder": 137
+      }
+    },
+    "4f292cded013": {
+      "name": "SwLilypadDesk",
+      "params": {
+        "interactionLevel": 1,
+        "spawnPosition": {
+          "x": 493,
+          "y": 894
+        },
+        "flipped": false,
+        "sceneDressOrder": 138
+      }
+    },
+    "00c6e1485a65": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1132,
+          "y": 925
+        },
+        "flipped": false,
+        "sceneDressOrder": 139
+      }
+    },
+    "6c03c7cb9d06": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 945,
+          "y": 1006
+        },
+        "flipped": false,
+        "sceneDressOrder": 140
+      }
+    },
+    "e3f2247de320": {
+      "name": "SwSubtleLight",
+      "params": {
+        "spawnPosition": {
+          "x": 1006,
+          "y": 1009
+        },
+        "flipped": true,
+        "sceneDressOrder": 141
+      }
+    },
+    "4ce2e88d5c06": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 167,
+          "y": 938
+        },
+        "flipped": false,
+        "sceneDressOrder": 142
+      }
+    },
+    "6102b2be09c9": {
+      "name": "SwLilypad1",
+      "params": {
+        "spawnPosition": {
+          "x": 548,
+          "y": 920
+        },
+        "flipped": false,
+        "sceneDressOrder": 143
+      }
+    },
+    "9958cc8c7562": {
+      "name": "SwSwampLily",
+      "params": {
+        "spawnPosition": {
+          "x": 1082,
+          "y": 934
+        },
+        "flipped": false,
+        "sceneDressOrder": 144
+      }
+    },
+    "2bcbc45c6ce8": {
+      "name": "SwBigTreeDesk2",
+      "params": {
+        "spawnPosition": {
+          "x": 102,
+          "y": 935
+        },
+        "flipped": true,
+        "sceneDressOrder": 145
+      }
+    },
+    "efae8f06a783": {
+      "name": "SwLongGrass1",
+      "params": {
+        "spawnPosition": {
+          "x": 5,
+          "y": 901
+        },
+        "flipped": false,
+        "sceneDressOrder": 146
+      }
+    },
+    "3597463d57bc": {
+      "name": "SwLilypadChairUp",
+      "params": {
+        "spawnPosition": {
+          "x": 480,
+          "y": 906
+        },
+        "flipped": false,
+        "sceneDressOrder": 147,
+        "seatHost": {
+          "parentId": "4f292cded013",
+          "offset": {
+            "x": -13,
+            "y": 12
+          }
+        },
+        "interactionLevel": 1
+      }
+    },
+    "e0e80f80ae45": {
+      "name": "SwLilypadChairUp",
+      "params": {
+        "spawnPosition": {
+          "x": 505,
+          "y": 906
+        },
+        "flipped": false,
+        "sceneDressOrder": 148,
+        "seatHost": {
+          "parentId": "4f292cded013",
+          "offset": {
+            "x": 12,
+            "y": 12
+          }
+        },
+        "interactionLevel": 1
+      }
+    },
+    "63b16da07d4e": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "spawnPosition": {
+          "x": 78,
+          "y": 905
+        },
+        "flipped": false,
+        "sceneDressOrder": 149,
+        "seatHost": {
+          "parentId": "2bcbc45c6ce8",
+          "offset": {
+            "x": -24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "6e7be9f15da0": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 126,
+          "y": 905
+        },
+        "flipped": false,
+        "sceneDressOrder": 150,
+        "seatHost": {
+          "parentId": "2bcbc45c6ce8",
+          "offset": {
+            "x": 24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "bebdb14b61c9": {
+      "name": "SwTinyLand",
+      "params": {
+        "spawnPosition": {
+          "x": 335,
+          "y": 939
+        },
+        "flipped": false,
+        "sceneDressOrder": 151
+      }
+    },
+    "4c52f265ea05": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 475,
+          "y": 963
+        },
+        "flipped": false,
+        "sceneDressOrder": 152
+      }
+    },
+    "5e70578d7866": {
+      "name": "SwTypha2",
+      "params": {
+        "spawnPosition": {
+          "x": 963,
+          "y": 971
+        },
+        "flipped": false,
+        "sceneDressOrder": 153
+      }
+    },
+    "c160cdcd8b54": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 209,
+          "y": 967
+        },
+        "flipped": false,
+        "sceneDressOrder": 154
+      }
+    },
+    "9e5ac1a22135": {
+      "name": "SwFern2",
+      "params": {
+        "spawnPosition": {
+          "x": 1195,
+          "y": 918
+        },
+        "flipped": false,
+        "sceneDressOrder": 155
+      }
+    },
+    "1cb86d128b9e": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "spawnPosition": {
+          "x": 78,
+          "y": 933
+        },
+        "flipped": false,
+        "sceneDressOrder": 156,
+        "seatHost": {
+          "parentId": "2bcbc45c6ce8",
+          "offset": {
+            "x": -24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "9ab7da40a487": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 126,
+          "y": 933
+        },
+        "flipped": false,
+        "sceneDressOrder": 157,
+        "seatHost": {
+          "parentId": "2bcbc45c6ce8",
+          "offset": {
+            "x": 24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "66a9a993af28": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1203,
+          "y": 929
+        },
+        "flipped": false,
+        "sceneDressOrder": 158
+      }
+    },
+    "91968c2c7f2e": {
+      "name": "SwBranch",
+      "params": {
+        "spawnPosition": {
+          "x": 883,
+          "y": 965
+        },
+        "flipped": false,
+        "sceneDressOrder": 159
+      }
+    },
+    "a1219a322008": {
+      "name": "SwBigTreeDesk2",
+      "params": {
+        "spawnPosition": {
+          "x": 1177,
+          "y": 988
+        },
+        "flipped": true,
+        "sceneDressOrder": 160
+      }
+    },
+    "90a97564f1f0": {
+      "name": "SwBridgeLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 685,
+          "y": 1048
+        },
+        "flipped": false,
+        "sceneDressOrder": 161
+      }
+    },
+    "2d896d341f87": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "spawnPosition": {
+          "x": 1153,
+          "y": 958
+        },
+        "flipped": false,
+        "sceneDressOrder": 162,
+        "seatHost": {
+          "parentId": "a1219a322008",
+          "offset": {
+            "x": -24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "975de125f183": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 1201,
+          "y": 958
+        },
+        "flipped": false,
+        "sceneDressOrder": 163,
+        "seatHost": {
+          "parentId": "a1219a322008",
+          "offset": {
+            "x": 24,
+            "y": -30
+          }
+        }
+      }
+    },
+    "164697c2b781": {
+      "name": "SwBigTreeStoolRight",
+      "params": {
+        "spawnPosition": {
+          "x": 1153,
+          "y": 986
+        },
+        "flipped": false,
+        "sceneDressOrder": 164,
+        "seatHost": {
+          "parentId": "a1219a322008",
+          "offset": {
+            "x": -24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "1fdf1a6b27e5": {
+      "name": "SwBigTreeStoolLeft",
+      "params": {
+        "spawnPosition": {
+          "x": 1201,
+          "y": 986
+        },
+        "flipped": false,
+        "sceneDressOrder": 165,
+        "seatHost": {
+          "parentId": "a1219a322008",
+          "offset": {
+            "x": 24,
+            "y": -2
+          }
+        }
+      }
+    },
+    "aa1c28ef4e7c": {
+      "name": "SwSwampLily",
+      "params": {
+        "spawnPosition": {
+          "x": 916,
+          "y": 1040
+        },
+        "flipped": false,
+        "sceneDressOrder": 166
+      }
+    },
+    "46b588d87611": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1138,
+          "y": 1049
+        },
+        "flipped": false,
+        "sceneDressOrder": 167
+      }
+    },
+    "0b48141449b9": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 480,
+          "y": 1051
+        },
+        "flipped": false,
+        "sceneDressOrder": 168
+      }
+    },
+    "80317894cbec": {
+      "name": "SwLand4",
+      "params": {
+        "spawnPosition": {
+          "x": 1023,
+          "y": 1048
+        },
+        "flipped": false,
+        "sceneDressOrder": 169
+      }
+    },
+    "fb7906fbd4d1": {
+      "name": "SwBigTreeChairUp",
+      "params": {
+        "spawnPosition": {
+          "x": 1027,
+          "y": 1007
+        },
+        "interactionLevel": 1,
+        "flipped": false,
+        "sceneDressOrder": 170
+      }
+    },
+    "076f92844592": {
+      "name": "SwBigTreeChairUp",
+      "params": {
+        "spawnPosition": {
+          "x": 1051,
+          "y": 1007
+        },
+        "interactionLevel": 1,
+        "flipped": false,
+        "sceneDressOrder": 171
+      }
+    },
+    "99af8763056e": {
+      "name": "SwBigTreeChairUp",
+      "params": {
+        "spawnPosition": {
+          "x": 1075,
+          "y": 1007
+        },
+        "interactionLevel": 1,
+        "flipped": false,
+        "sceneDressOrder": 172
+      }
+    },
+    "f852a7f3a269": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1218,
+          "y": 1056
+        },
+        "flipped": false,
+        "sceneDressOrder": 173
+      }
+    },
+    "a660be5f7072": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 235,
+          "y": 1058
+        },
+        "flipped": false,
+        "sceneDressOrder": 174
+      }
+    },
+    "d5403b33a5ff": {
+      "name": "SwLongGrass2",
+      "params": {
+        "spawnPosition": {
+          "x": 1187,
+          "y": 1008
+        },
+        "flipped": false,
+        "sceneDressOrder": 175
+      }
+    },
+    "fa5b1090a36e": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 184,
+          "y": 1063
+        },
+        "flipped": false,
+        "sceneDressOrder": 176
+      }
+    },
+    "70a42cf89a73": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 435,
+          "y": 1065
+        },
+        "flipped": false,
+        "sceneDressOrder": 177
+      }
+    },
+    "354ce9daf963": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 1173,
+          "y": 1066
+        },
+        "flipped": false,
+        "sceneDressOrder": 178
+      }
+    },
+    "3a0cceeb9d3e": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 331,
+          "y": 1067
+        },
+        "flipped": false,
+        "sceneDressOrder": 179
+      }
+    },
+    "2bb4c1813458": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 378,
+          "y": 1074
+        },
+        "flipped": false,
+        "sceneDressOrder": 180
+      }
+    },
+    "3b71e773f827": {
+      "name": "SwCamelliaTree",
+      "params": {
+        "spawnPosition": {
+          "x": 282,
+          "y": 1077
+        },
+        "flipped": false,
+        "sceneDressOrder": 181
+      }
+    },
+    "5b5fc8133239": {
+      "name": "SwShoreLedge2",
+      "params": {
+        "spawnPosition": {
+          "x": 294,
+          "y": 121
+        },
+        "flipped": false,
+        "sceneDressOrder": 182
+      }
+    },
+    "905c9de1ebbe": {
+      "name": "SwShoreLedge2",
+      "params": {
+        "spawnPosition": {
+          "x": 908,
+          "y": 121
+        },
+        "flipped": true,
+        "sceneDressOrder": 183
+      }
+    },
+    "a685fe9d5fc4": {
+      "name": "SwShoreSlope1",
+      "params": {
+        "spawnPosition": {
+          "x": 283,
+          "y": 258
+        },
+        "flipped": false,
+        "sceneDressOrder": 184
+      }
+    },
+    "e0e6ba4ab5e0": {
+      "name": "SwShoreLedge1",
+      "params": {
+        "spawnPosition": {
+          "x": 154,
+          "y": 556
+        },
+        "flipped": false,
+        "sceneDressOrder": 185
+      }
+    },
+    "8023efc742c5": {
+      "name": "SwShoreSlope2",
+      "params": {
+        "spawnPosition": {
+          "x": 1093,
+          "y": 854
+        },
+        "flipped": false,
+        "sceneDressOrder": 186
+      }
+    },
+    "f7540562d9a6": {
+      "name": "SwLandLayerSlope",
+      "params": {
+        "spawnPosition": {
+          "x": 891,
+          "y": 174
+        },
+        "flipped": false,
+        "sceneDressOrder": 187
+      }
+    },
+    "2a48c18a805c": {
+      "name": "SwLandLayerSlope",
+      "params": {
+        "spawnPosition": {
+          "x": 318,
+          "y": 180
+        },
+        "flipped": true,
+        "sceneDressOrder": 188
+      }
+    },
+    "0a7e356dbf1e": {
+      "name": "SwLandLayerSlope",
+      "params": {
+        "spawnPosition": {
+          "x": 454,
+          "y": 299
+        },
+        "flipped": false,
+        "sceneDressOrder": 189
+      }
+    },
+    "cf1e5f29651e": {
+      "name": "SwLandLayerCenterLeftLedge",
+      "params": {
+        "spawnPosition": {
+          "x": 70,
+          "y": 654
+        },
+        "flipped": false,
+        "sceneDressOrder": 190
+      }
+    },
+    "9859d7ba6836": {
+      "name": "SwLandLayerNearLeftBridgeContinuation",
+      "params": {
+        "spawnPosition": {
+          "x": 100,
+          "y": 876
+        },
+        "flipped": false,
+        "sceneDressOrder": 191
+      }
+    },
+    "842d956abc25": {
+      "name": "SwLandLayerSlope",
+      "params": {
+        "spawnPosition": {
+          "x": 1026,
+          "y": 774
+        },
+        "flipped": false,
+        "sceneDressOrder": 192
+      }
+    },
+    "fdce8680e285": {
+      "name": "SwLandLayerRightDownLedge",
+      "params": {
+        "spawnPosition": {
+          "x": 1149,
+          "y": 965
+        },
+        "flipped": false,
+        "sceneDressOrder": 193
+      }
+    },
+    "32c34bc100c6": {
+      "name": "SwLandLayerNearLeftBridgeLedge",
+      "params": {
+        "spawnPosition": {
+          "x": 306,
+          "y": 1005
+        },
+        "flipped": false,
+        "sceneDressOrder": 194
+      }
+    },
+    "a6e3c691de82": {
+      "name": "SwUpperRightSceneLayer",
+      "params": {
+        "spawnPosition": {
+          "x": 1058,
+          "y": 216
+        },
+        "flipped": false,
+        "sceneDressOrder": 195
+      }
+    },
+    "80a3bb34b499": {
+      "name": "SwBridgeRightFrontLayer",
+      "params": {
+        "spawnPosition": {
+          "x": 978,
+          "y": 502
+        },
+        "flipped": false,
+        "sceneDressOrder": 196
+      }
+    },
+    "a918c72595d6": {
+      "name": "SwBridgeLeftFrontLayer",
+      "params": {
+        "spawnPosition": {
+          "x": 685,
+          "y": 1048
+        },
+        "flipped": false,
+        "sceneDressOrder": 197
+      }
+    },
+    "70b06f6dc7e9": {
+      "name": "SwLilypadChair",
+      "params": {
+        "spawnPosition": {
+          "x": 173,
+          "y": 836
+        },
+        "flipped": false,
+        "sceneDressOrder": 204,
+        "attachment": {
+          "parentId": "1300b2cb2757",
+          "layer": -1,
+          "offset": {
+            "x": -12,
+            "y": -22
+          }
+        },
+        "seatHost": {
+          "parentId": "1300b2cb2757",
+          "offset": {
+            "x": -12,
+            "y": -22
+          }
+        },
+        "interactionLevel": 1
+      }
+    },
+    "666668e6b219": {
+      "name": "SwLilypadChair",
+      "params": {
+        "spawnPosition": {
+          "x": 197,
+          "y": 836
+        },
+        "flipped": false,
+        "sceneDressOrder": 205,
+        "attachment": {
+          "parentId": "1300b2cb2757",
+          "layer": -1,
+          "offset": {
+            "x": 12,
+            "y": -22
+          }
+        },
+        "seatHost": {
+          "parentId": "1300b2cb2757",
+          "offset": {
+            "x": 12,
+            "y": -22
+          }
+        },
+        "interactionLevel": 1
+      }
+    },
+    "04c3654e8410": {
+      "name": "SwLilypadChair",
+      "params": {
+        "spawnPosition": {
+          "x": 481,
+          "y": 872
+        },
+        "flipped": false,
+        "sceneDressOrder": 206,
+        "attachment": {
+          "parentId": "4f292cded013",
+          "layer": -1,
+          "offset": {
+            "x": -12,
+            "y": -22
+          }
+        },
+        "seatHost": {
+          "parentId": "4f292cded013",
+          "offset": {
+            "x": -12,
+            "y": -22
+          }
+        },
+        "interactionLevel": 1
+      }
+    },
+    "6a568f502861": {
+      "name": "SwLilypadChair",
+      "params": {
+        "spawnPosition": {
+          "x": 505,
+          "y": 872
+        },
+        "flipped": false,
+        "sceneDressOrder": 207,
+        "attachment": {
+          "parentId": "4f292cded013",
+          "layer": -1,
+          "offset": {
+            "x": 12,
+            "y": -22
+          }
+        },
+        "seatHost": {
+          "parentId": "4f292cded013",
+          "offset": {
+            "x": 12,
+            "y": -22
+          }
+        },
+        "interactionLevel": 1
+      }
+    }
+  }
+}

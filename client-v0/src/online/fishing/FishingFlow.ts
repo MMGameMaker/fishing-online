@@ -5,7 +5,8 @@ import type { Services } from '../core/services';
 import type { HeadIcon } from '../entities/CharacterView';
 import type { CharacterAnim } from '../entities/placeholderArt';
 import type { AttemptView, FishingOutcome } from '../net/contract';
-import { createPanel, showError, showToast } from '../ui/kit/components';
+import { showError, showToast } from '../ui/kit/components';
+import { animateIn, animateOut } from '../ui/kit/motion';
 import { FishButton } from './FishButton';
 import {
   biteProgress,
@@ -15,7 +16,8 @@ import {
   isPullVisible,
   shouldAutoCast,
 } from './fishButtonState';
-import { MINIGAME_SCENE, type MinigameData } from './MinigameScene';
+import { MINIGAME_SCENE, type MinigameData, type MinigameScene } from './MinigameScene';
+import { buildCatchCard, preloadCatchCard } from './CatchCard';
 import { buildResultCard, cancelText } from './resultText';
 import { playBiteBeep } from './sound';
 import { submitFishingResult } from './submitResult';
@@ -63,8 +65,11 @@ export class FishingFlow {
     private readonly isSeatReady: () => boolean = () => true,
     /** Màu hình cá theo loài của scene; không có thì tô theo màu độ hiếm. */
     private readonly fishColor: (speciesId: string) => string | undefined = () => undefined,
+    /** Tên hồ ở dòng "Nơi sống" của thẻ nhận cá; mặc định là mapId Server gửi về. */
+    private readonly habitat: () => string = () => services.store.getState().lake.mapId ?? '—',
   ) {
     this.button = new FishButton(root, () => this.press());
+    preloadCatchCard();
     this.bobber = scene.add.circle(0, 0, BOBBER_RADIUS, 0xf25c54).setVisible(false);
     this.unsubscribe = services.store.select(
       (s) => s.attempt,
@@ -272,7 +277,10 @@ export class FishingFlow {
   }
 
   private finishRound(): void {
-    this.scene.scene.stop(MINIGAME_SCENE);
+    // Minigame mờ dần rồi mới dừng scene (feedback 2026-11-12).
+    const minigame = this.scene.scene.get(MINIGAME_SCENE) as MinigameScene | null;
+    if (minigame && this.scene.scene.isActive(MINIGAME_SCENE)) minigame.fadeOut();
+    else this.scene.scene.stop(MINIGAME_SCENE);
     this.bobber.setVisible(false);
     this.hookSentAtMs = null;
   }
@@ -281,48 +289,45 @@ export class FishingFlow {
     this.finishRound();
     this.me.play('success');
     const { catalog } = this.services.store.getState();
-    if (!attempt.result) return;
-    const color = this.fishColor(attempt.result.speciesId);
-    this.openPopup(buildResultCard(attempt.result, catalog), color);
+    const { result } = attempt;
+    if (!result) return;
+    const card = buildResultCard(result, catalog);
+    // Hình cá hiện ngay trong thẻ, không đợi đóng popup (feedback 2026-11-11).
+    const fish = drawFishIcon(this.fishColor(result.speciesId) ?? card.rarityColor);
+    this.openPopup(
+      buildCatchCard({
+        card,
+        rarity: result.rarity,
+        isNew: result.isNew,
+        isRecord: result.isRecord,
+        habitat: this.habitat(),
+        fish,
+      }),
+    );
   }
 
-  private openPopup(card: ReturnType<typeof buildResultCard>, fishColor?: string): void {
-    const body = document.createElement('div');
-    body.className = 'result-card';
-
-    // Hình cá hiện ngay trong popup, không đợi đóng popup (feedback 2026-11-11).
-    const icon = drawFishIcon(fishColor ?? card.rarityColor);
-    icon.className = 'result-card__fish';
-    icon.style.setProperty('--rarity-color', card.rarityColor);
-
-    const add = (text: string, className: string, color?: string) => {
-      const el = document.createElement('div');
-      el.className = className;
-      el.textContent = text;
-      if (color) el.style.color = color;
-      body.append(el);
-    };
-    body.append(icon);
-    add(card.name, 'result-card__name');
-    add(card.rarityLabel, 'result-card__rarity', card.rarityColor);
-    add(card.length, 'result-card__length');
-    if (card.badge) add(card.badge, 'result-card__badge');
-    add(card.exp, 'result-card__exp');
-    if (card.levelUp) add(card.levelUp, 'result-card__badge');
-    add('Chạm để câu tiếp', 'result-card__hint');
-
-    const panel = createPanel('Câu được cá!', body);
-    panel.classList.add('result-popup');
+  /** Thẻ nhận cá theo ảnh Catch Fish.png; chạm ra ngoài thẻ để đóng. */
+  private openPopup(card: HTMLElement): void {
+    const popup = document.createElement('div');
+    popup.className = 'result-popup';
+    const hint = document.createElement('div');
+    hint.className = 'result-popup__hint';
+    hint.textContent = 'Chạm ra ngoài để đóng';
+    popup.append(card, hint);
     const overlay = document.createElement('div');
     overlay.className = 'result-overlay';
-    overlay.append(panel);
+    overlay.append(popup);
+    animateIn(popup, 'pop');
     this.root.append(overlay);
     this.resultOpen = true;
 
     const openedAtMs = performance.now();
-    overlay.addEventListener('pointerdown', () => {
+    overlay.addEventListener('pointerdown', (event) => {
       if (performance.now() - openedAtMs < RESULT_TAP_GUARD_MS) return;
-      overlay.remove();
+      if (card.contains(event.target as Node)) return;
+      // Thẻ mờ dần và thu nhỏ rồi mới gỡ (feedback 2026-11-12).
+      overlay.style.pointerEvents = 'none';
+      void animateOut(popup, 'pop').then(() => overlay.remove());
       this.resultOpen = false;
       this.me.play('idle');
     });

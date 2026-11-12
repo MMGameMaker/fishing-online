@@ -174,6 +174,7 @@ export class CoralCoveOnline {
       () => this.serverNow(),
       () => this.seatReady,
       (speciesId) => (this.deps.fishById[speciesId] as { color?: string } | undefined)?.color,
+      () => 'Coral Cove',
     );
     this.seatUi = new SeatUi(overlay.root, services, () => this.flow?.canLeaveSeat() ?? false);
     this.markers = new SeatMarkers(

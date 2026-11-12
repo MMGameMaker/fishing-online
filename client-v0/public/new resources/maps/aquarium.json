@@ -1,0 +1,39 @@
+{
+   "objects": {
+      "scene-colliders": {
+         "name": "SceneColliders",
+         "params": {
+            "spawnPosition": {
+               "x": 0,
+               "y": 0
+            },
+            "colliders": [
+               {
+                  "x": 0,
+                  "y": 0,
+                  "width": 2199,
+                  "height": 377
+               },
+               {
+                  "x": 0,
+                  "y": 377,
+                  "width": 12,
+                  "height": 192
+               },
+               {
+                  "x": 2180,
+                  "y": 377,
+                  "width": 19,
+                  "height": 192
+               },
+               {
+                  "x": 12,
+                  "y": 551,
+                  "width": 2168,
+                  "height": 18
+               }
+            ]
+         }
+      }
+   }
+}

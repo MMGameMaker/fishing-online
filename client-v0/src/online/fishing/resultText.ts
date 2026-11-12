@@ -10,6 +10,8 @@ export interface ResultCard {
   badge: 'Mới' | 'Kỷ lục' | null;
   exp: string;
   levelUp: string | null;
+  /** Giá bán theo catalog Server (sellGold); null khi chưa có catalog. */
+  price: number | null;
 }
 
 export function buildResultCard(result: AttemptResult, catalog: Catalog | null): ResultCard {
@@ -25,6 +27,7 @@ export function buildResultCard(result: AttemptResult, catalog: Catalog | null):
     badge,
     exp: `+${result.expGained} EXP`,
     levelUp: result.levelUp ? `Lên cấp! Cấp ${result.level}` : null,
+    price: species?.sellGold ?? null,
   };
 }
 
