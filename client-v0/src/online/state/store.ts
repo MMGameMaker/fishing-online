@@ -38,9 +38,15 @@ export interface LakeState {
   catches: Record<string, ShownCatch>;
   /** Icon buồn khi thua minigame (FailShown): playerId → shownUntil. */
   fails: Record<string, string>;
-  chat: HubEvents['ChatReceived'][];
+  chat: ChatEntry[];
   emojis: Record<string, string>;
 }
+
+/**
+ * Một dòng trong khung chat: tin chữ, hoặc emoji (feedback 2026-11-13: emoji cũng hiện trong khung chat,
+ * `text` rỗng). Emoji không có messageId từ Server nên Client tự đặt; thiếu sentAt thì khung chat lấy giờ nhận.
+ */
+export type ChatEntry = HubEvents['ChatReceived'] & { emojiId?: string };
 
 export interface GameState {
   session: { profile: PlayerProfile | null; gold: string | null };
@@ -177,6 +183,16 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
     case 'EmojiReceived':
       return {
         ...lake,
+        chat: [
+          ...lake.chat,
+          {
+            messageId: `emoji:${action.payload.playerId}:${lake.chat.length}:${action.payload.emojiId}`,
+            playerId: action.payload.playerId,
+            text: '',
+            emojiId: action.payload.emojiId,
+            displayName: lake.players[action.payload.playerId]?.displayName,
+          },
+        ].slice(-CHAT_LOG_LIMIT),
         emojis: { ...lake.emojis, [action.payload.playerId]: action.payload.emojiId },
       };
     case 'lake/serverOffset':

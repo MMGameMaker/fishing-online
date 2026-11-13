@@ -90,6 +90,23 @@ describe('animation nước', () => {
     }
   });
 
+  it('không có dòng nước chân cọc trên cát (dưới hiên tiệm Marlin, mép bờ, dưới thuyền)', () => {
+    // Feedback 2026-11-13: các điểm này trong ảnh gốc là cát/bờ/thuyền, vẽ dòng nước thành vệt xanh trên cát.
+    const onSand = [
+      [816, 220],
+      [774, 221],
+      [459, 120],
+      [349, 745],
+    ];
+    for (const [x, y] of onSand) {
+      expect(MAP.pillarFlows.some(([fx, fy]) => fx === x && fy === y)).toBe(false);
+    }
+    const underShack = MAP.pillarFlows.filter(
+      ([x, y]) => x >= 750 && x <= 880 && y >= 200 && y <= 240,
+    );
+    expect(underShack).toEqual([]);
+  });
+
   it('gợn sóng luôn nằm gọn trong ô nước trống', () => {
     const open = new Set(MAP.openWater.map(([c, r]) => `${c},${r}`));
     let seed = 1;

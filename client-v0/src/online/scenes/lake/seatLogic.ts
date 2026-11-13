@@ -1,7 +1,8 @@
 // Logic hiển thị ghế/vé theo scope 2026-11-10 (vé theo thời gian, không gắn ghế), hàm thuần.
 import type { TicketPricingConfig } from '../../core/gameplayConfig';
 
-export const NEAR_SEAT_PX = 64;
+/** Tầm tương tác ghế: phải đứng sát ghế đẩu (feedback 2026-11-13, trước là 64). */
+export const NEAR_SEAT_PX = 24;
 /** Giới hạn của giao diện; Server kiểm tra lại theo ticketPricing.maxUnitsPerPurchase. */
 export const MAX_UI_DURATION_UNITS = 6;
 
@@ -47,14 +48,18 @@ export function formatClock(remainingMs: number): string {
   return `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
+/**
+ * Thông báo khi mất ghế. Người chơi tự rời ghế/rời hồ thì không báo (feedback 2026-11-13);
+ * chỉ báo khi mất ghế ngoài ý muốn để người chơi biết lý do.
+ */
+const SILENT_SEAT_END = new Set(['left_seat', 'left_lake']);
 const SEAT_END_TEXT: Record<string, string> = {
-  left_seat: 'Bạn đã rời ghế.',
-  left_lake: 'Bạn đã rời khu vực câu cá nên mất ghế.',
   missed_bite: 'Bạn không thu cần kịp nên đã tự đứng dậy.',
   ticket_expired: 'Vé câu cá đã hết hạn nên bạn tự đứng dậy.',
   disconnect_timeout: 'Bạn đã mất ghế do mất kết nối quá lâu.',
 };
 
-export function sessionEndText(reason: string): string {
+export function sessionEndText(reason: string): string | null {
+  if (SILENT_SEAT_END.has(reason)) return null;
   return SEAT_END_TEXT[reason] ?? 'Phiên giữ ghế đã kết thúc.';
 }

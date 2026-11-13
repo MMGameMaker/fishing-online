@@ -1,0 +1,347 @@
+/* Giao diện home của pier.html (HomeHud.ts). Toạ độ là pixel của ảnh trong public/new resources/ui
+   (vẽ cho màn 1920×1080); cả cụm thu phóng theo --hud-scale. */
+.home-hud {
+  --hud-ink: #3a1d0e;
+  --hud-brown: #6b4a2e;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.home-hud img,
+.home-menu img {
+  display: block;
+  image-rendering: pixelated;
+  user-select: none;
+}
+
+/* :where() để không lấn độ ưu tiên của cỡ chữ từng nút bên dưới. */
+:where(.home-hud, .home-menu) button {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.home-hud__left,
+.home-hud__right {
+  position: absolute;
+  top: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-family: var(--ui-font);
+  font-weight: bold;
+  color: var(--hud-ink);
+  transform: scale(var(--hud-scale, 1));
+}
+
+.home-hud__left {
+  left: 16px;
+  transform-origin: top left;
+}
+
+.home-hud__right {
+  right: 22px;
+  transform-origin: top right;
+}
+
+/* Khung người chơi (User Card.png 344×142): avatar vẽ sẵn, tên, thanh EXP 184×16 tại (140, 72). */
+.home-card {
+  position: relative;
+  width: 344px;
+  height: 142px;
+}
+
+.home-card__art {
+  position: absolute;
+  inset: 0;
+}
+
+.home-card__name {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  left: 138px;
+  overflow: hidden;
+  font-size: 32px;
+  line-height: 44px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-card__bar {
+  position: absolute;
+  top: 72px;
+  left: 140px;
+  width: 184px;
+  height: 16px;
+  overflow: hidden;
+  background: #5c4030;
+  box-shadow: inset 0 4px 0 #8a6a4a;
+}
+
+.home-card__exp-fill {
+  height: 100%;
+  background: #6cc46a;
+  box-shadow: inset 0 4px 0 #b8f08a;
+  transition: width 300ms ease-out;
+}
+
+.home-card__exp,
+.home-card__level {
+  position: absolute;
+  top: 96px;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--hud-brown);
+}
+
+.home-card__exp {
+  left: 140px;
+}
+
+.home-card__level {
+  right: 20px;
+}
+
+/* Ô vé (Ticket Timer.png 184×64) và popup "Vé câu cá" (Ticket Info.png 384×242, đuôi ở trên trái). */
+.home-ticket-wrap {
+  position: relative;
+}
+
+.home-ticket {
+  position: relative;
+  display: block;
+  width: 184px;
+  height: 64px;
+  pointer-events: auto;
+  transition: transform 120ms ease-out;
+}
+
+.home-ticket:active,
+.home-ticket--active {
+  transform: translateY(2px);
+}
+
+.home-ticket__art {
+  position: absolute;
+  inset: 0;
+}
+
+.home-ticket__icon {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  width: 72px;
+  height: 36px;
+}
+
+.home-ticket__time {
+  position: absolute;
+  top: 16px;
+  right: 14px;
+  left: 94px;
+  font-size: 26px;
+  line-height: 32px;
+  text-align: center;
+  letter-spacing: -1px;
+}
+
+.home-ticket-info {
+  position: absolute;
+  top: 68px;
+  left: 0;
+  width: 384px;
+  height: 242px;
+  pointer-events: auto;
+  transform-origin: 40px 0;
+}
+
+.home-ticket-info[hidden] {
+  display: none;
+}
+
+.home-ticket-info__art {
+  position: absolute;
+  inset: 0;
+}
+
+.home-ticket-info__title {
+  position: absolute;
+  top: 34px;
+  left: 36px;
+  margin: 0;
+  font-size: 34px;
+  line-height: 40px;
+}
+
+.home-ticket-info__row {
+  position: absolute;
+  top: 98px;
+  right: 40px;
+  left: 36px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--hud-brown);
+}
+
+.home-ticket-info__buy {
+  position: absolute;
+  top: 154px;
+  left: 80px;
+  width: 224px;
+  height: 52px;
+  font-size: 28px;
+  line-height: 52px;
+  text-align: center;
+}
+
+.home-ticket-info__buy:hover {
+  background: rgb(255 255 255 / 25%);
+}
+
+.home-ticket-info__buy:active {
+  transform: translateY(2px);
+}
+
+/* Khung Gold: chưa có ảnh riêng, vẽ khung gỗ cùng kiểu hộp mua vé; nút ☰ là Button.png 84×88. */
+.home-gold {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  height: 112px;
+  min-width: 390px;
+  padding: 0 4px 0 18px;
+  background: #fbe3ae;
+  border: 8px solid #c47a33;
+  outline: 6px solid var(--hud-ink);
+  box-shadow:
+    inset 0 0 0 6px #e9c684,
+    0 10px 0 4px rgb(26 14 32 / 35%);
+}
+
+.home-gold__coin {
+  width: 64px;
+  height: 64px;
+}
+
+.home-gold__amount {
+  flex: 1;
+  font-size: 40px;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.home-gold__menu {
+  pointer-events: auto;
+}
+
+.home-gold__menu img {
+  width: 84px;
+  height: 88px;
+}
+
+.home-gold__menu:active {
+  transform: translateY(2px);
+}
+
+/* Menu (Menu Panel.png 452×724, đầu xanh cao 116px): 6 ô Icon Button.png 128×134, 2 cột. */
+.home-menu {
+  position: absolute;
+  inset: 0;
+  z-index: 15;
+  font-family: var(--ui-font);
+  font-weight: bold;
+  color: #3a1d0e;
+  pointer-events: auto;
+  background: rgb(0 0 0 / 30%);
+}
+
+.home-menu[hidden] {
+  display: none;
+}
+
+.home-menu__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 452px;
+  height: 724px;
+  transform: translate(-50%, -50%) scale(var(--hud-scale, 1));
+}
+
+.home-menu__art {
+  position: absolute;
+  inset: 0;
+}
+
+.home-menu__close {
+  position: absolute;
+  top: 28px;
+  right: 22px;
+}
+
+.home-menu__close img {
+  width: 72px;
+  height: 76px;
+}
+
+.home-menu__label {
+  position: absolute;
+  top: 146px;
+  right: 0;
+  left: 0;
+  font-size: 30px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.home-menu__grid {
+  position: absolute;
+  top: 214px;
+  left: 81px;
+  display: grid;
+  grid-template-columns: 128px 128px;
+  gap: 28px 34px;
+}
+
+.home-menu__slot {
+  position: relative;
+  width: 128px;
+  height: 134px;
+  transition: transform 120ms ease-out;
+}
+
+.home-menu__slot:active {
+  transform: translateY(3px);
+}
+
+.home-menu__frame {
+  position: absolute;
+  inset: 0;
+}
+
+.home-menu__icon {
+  position: absolute;
+  top: 35px;
+  left: 36px;
+  width: 56px;
+  height: 56px;
+}
+
+/* Ô đang chọn: viền cam như ảnh demo (đè lên viền tối của khung). */
+.home-menu__slot--active::after {
+  position: absolute;
+  inset: 0 0 8px;
+  content: '';
+  border: 6px solid #f0932b;
+}
+
+.home-menu__slot:focus-visible {
+  outline: none;
+}

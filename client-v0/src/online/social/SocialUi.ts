@@ -2,18 +2,20 @@
 // Tin nhắn lấy từ store (ChatReceived của Server); gửi qua SendChat/SendEmoji, Server kiểm tra lại
 // độ dài, tần suất và danh sách emoji. Hiện/ẩn mọi khung qua ui/kit/motion.ts.
 import type { Services } from '../core/services';
-import type { HubEvents } from '../net/contract';
+import type { ChatEntry } from '../state/store';
 import { showError } from '../ui/kit/components';
 import { animateIn, animateOut } from '../ui/kit/motion';
 import { CHAT_MAX_LENGTH, chatCounter, formatChatTime, normalizeChat } from './chatFormat';
-import { EMOJIS, EMOTE_SHEET_URL, loadEmoteFrames, type FrameRect } from './emojis';
+import { EMOJIS, EMOTE_SHEET_URL, emojiById, loadEmoteFrames, type FrameRect } from './emojis';
 
 const CLOSE_ICON = encodeURI('/mini game/Button Close.png');
 const SKIN_DIR = '/assets/characters/';
 /** Vùng mặt thỏ trong frame idle_down_0 (khung bake 120×140, chân ở 60,76). */
 const FACE = { x: 44, y: 34, size: 34 };
 
-type ChatMessage = HubEvents['ChatReceived'];
+type ChatMessage = ChatEntry;
+/** Số tin chưa xem hiện tối đa, quá thì ghi "99+". */
+const UNREAD_MAX = 99;
 
 export interface SocialUiOptions {
   root: HTMLElement;
@@ -75,7 +77,9 @@ export class SocialUi {
   private readonly counter = el('div', 'chat-panel__count', chatCounter(''));
   private readonly emoji = el('section', 'social-panel emoji-panel');
   private readonly unsubscribes: (() => void)[] = [];
+  private readonly badge = el('span', 'social-toggle__badge');
   private shownCount = 0;
+  private unread = 0;
   private sending = false;
 
   constructor(private readonly options: SocialUiOptions) {
@@ -84,7 +88,8 @@ export class SocialUi {
     this.toggle.type = 'button';
     this.toggle.setAttribute('aria-label', 'Trò chuyện');
     this.toggle.title = 'Trò chuyện (Enter)';
-    this.toggle.append(el('span', 'social-toggle__icon'));
+    this.toggle.append(el('span', 'social-toggle__icon'), this.badge);
+    this.badge.hidden = true;
     this.toggle.addEventListener('click', () => void this.setChatOpen(this.chat.hidden));
 
     this.buildChat();
@@ -100,6 +105,8 @@ export class SocialUi {
       ),
     );
     this.renderLog(services.store.getState().lake.chat);
+    // Tin có sẵn lúc vào hồ không tính là chưa xem.
+    this.setUnread(0);
   }
 
   get isChatOpen(): boolean {
@@ -202,6 +209,7 @@ export class SocialUi {
     if (open === !this.chat.hidden) return;
     this.toggle.classList.toggle('social-toggle--active', open);
     if (open) {
+      this.setUnread(0);
       this.chat.hidden = false;
       animateIn(this.chat);
       this.log.scrollTop = this.log.scrollHeight;
@@ -230,8 +238,15 @@ export class SocialUi {
       this.shownCount = 0;
     }
     const atBottom = this.log.scrollHeight - this.log.scrollTop - this.log.clientHeight < 24;
-    for (const message of chat.slice(this.shownCount)) this.log.append(this.messageItem(message));
+    const fresh = chat.slice(this.shownCount);
+    for (const message of fresh) this.log.append(this.messageItem(message));
     this.shownCount = chat.length;
+    // Khung chat đang đóng: đếm tin mới của người khác để hiện số trên nút chat.
+    if (this.chat.hidden) {
+      const myId = this.options.services.store.getState().session.profile?.playerId;
+      const others = fresh.filter((message) => message.playerId !== myId).length;
+      if (others > 0) this.setUnread(this.unread + others);
+    }
     if (atBottom) this.log.scrollTop = this.log.scrollHeight;
   }
 
@@ -256,9 +271,40 @@ export class SocialUi {
       el('span', 'chat-msg__time', formatChatTime(message.sentAt, Date.now())),
     );
     const body = el('div', 'chat-msg__body');
-    body.append(meta, el('p', 'chat-msg__bubble', message.text));
+    body.append(meta, this.bubble(message));
     item.append(avatar, body);
     return item;
+  }
+
+  /** Bong bóng chữ, hoặc bong bóng chứa icon emoji khi người chơi gửi biểu cảm. */
+  private bubble(message: ChatMessage): HTMLElement {
+    const emoji = message.emojiId ? emojiById(message.emojiId) : undefined;
+    if (!message.emojiId) return el('p', 'chat-msg__bubble', message.text);
+    const bubble = el('p', 'chat-msg__bubble chat-msg__bubble--emoji');
+    bubble.setAttribute('aria-label', emoji?.art ?? message.emojiId);
+    void loadEmoteFrames().then((frames) => {
+      const frame = emoji ? frames[`${emoji.art}Static`] : undefined;
+      if (frame) bubble.append(this.emoteIcon(frame));
+      else bubble.textContent = message.emojiId ?? '';
+    });
+    return bubble;
+  }
+
+  /** Số tin chưa xem dưới nút chat; hiện/ẩn có hiệu ứng qua motion.ts. */
+  private setUnread(count: number): void {
+    const was = this.unread;
+    this.unread = count;
+    this.badge.textContent = count > UNREAD_MAX ? `${UNREAD_MAX}+` : String(count);
+    if (count > 0 && was === 0) {
+      this.badge.hidden = false;
+      animateIn(this.badge, 'pop');
+    } else if (count === 0 && was > 0) {
+      void animateOut(this.badge, 'pop').then(() => {
+        if (this.unread === 0) this.badge.hidden = true;
+      });
+    } else if (count === 0) {
+      this.badge.hidden = true;
+    }
   }
 
   private async sendChat(): Promise<void> {

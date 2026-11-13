@@ -18,6 +18,8 @@ export class SeatUi {
     private readonly root: HTMLElement,
     private readonly services: Services,
     private readonly canLeave: () => boolean,
+    /** false: trang có HUD riêng (pier.html dùng HomeHud) nên không dựng dải Gold/vé/Rời ghế này. */
+    showHud = true,
   ) {
     const { store } = services;
     this.hud.className = 'seat-hud';
@@ -33,7 +35,7 @@ export class SeatUi {
       this.leaveButton,
     );
     this.hud.append(this.goldLabel.el, this.sessionRow);
-    root.append(this.hud);
+    if (showHud) root.append(this.hud);
     preloadTicketDialog();
 
     this.goldLabel.set(store.getState().session.gold ?? '0');
@@ -45,7 +47,8 @@ export class SeatUi {
       store.select(
         (s) => s.lake.lastSeatEnd,
         (end) => {
-          if (end) showToast(root, sessionEndText(end.reason));
+          const text = end ? sessionEndText(end.reason) : null;
+          if (text) showToast(root, text);
         },
       ),
     );
@@ -100,7 +103,7 @@ export class SeatUi {
   }
 
   /** true nếu đã mua vé thành công, false nếu đóng hoặc mua thất bại. Popup theo hình mẫu (TicketDialog). */
-  private openBuyTicket(): Promise<boolean> {
+  openBuyTicket(): Promise<boolean> {
     const pricing = this.services.store.getState().catalog?.ticketPricing;
     if (!pricing) return Promise.resolve(false);
     return openTicketDialog({

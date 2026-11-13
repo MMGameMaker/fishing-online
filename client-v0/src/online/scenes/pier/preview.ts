@@ -6,9 +6,11 @@ import '../../ui/kit/kit.css';
 import '../lake/lake.css';
 import '../../fishing/fishing.css';
 import '../../social/social.css';
+import '../../ui/home/home.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';
+import { enableHomeHud } from '../../ui/home/HomeHud';
 import { LakeScene } from '../lake/LakeScene';
 import { setLakeMapArt } from '../lake/mapArt';
 import { PIER_LAKE_MAP, PierArt } from './PierArt';
@@ -33,6 +35,8 @@ async function start(): Promise<void> {
   // Dữ liệu game vẫn mock, nhưng đăng nhập Google thật để lấy tên tài khoản làm tên người chơi.
   setBootOptions(game, { googleInMock: true });
   setLakeMapArt(game, new PierArt());
+  // Giao diện home theo ảnh demo (khung người chơi, vé, Gold, menu) chỉ có ở trang này.
+  enableHomeHud(game);
   // Đảm bảo canvas bám theo cửa sổ cả khi đổi cỡ/xoay màn hình.
   window.addEventListener('resize', () => game.scale.refresh());
 

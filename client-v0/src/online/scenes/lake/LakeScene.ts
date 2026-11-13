@@ -5,6 +5,7 @@ import { CharacterView } from '../../entities/CharacterView';
 import { FishingFlow } from '../../fishing/FishingFlow';
 import type { Direction, PlayerView } from '../../net/contract';
 import { mountUiOverlay, showError, showToast } from '../../ui/kit/components';
+import { HomeHud, isHomeHudEnabled } from '../../ui/home/HomeHud';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
@@ -56,6 +57,8 @@ export class LakeScene extends Phaser.Scene {
   private me!: CharacterView;
   private flow!: FishingFlow;
   private seatUi!: SeatUi;
+  /** Giao diện home (khung người chơi, vé, Gold, menu); chỉ trang bật enableHomeHud mới có. */
+  private homeHud: HomeHud | null = null;
   private seatMarkers!: SeatMarkers;
   private seatPrompt!: SeatPrompt;
   private roamCircle!: Phaser.GameObjects.Arc;
@@ -115,6 +118,8 @@ export class LakeScene extends Phaser.Scene {
     this.cleanups.length = 0;
     this.flow.destroy();
     this.seatUi.destroy();
+    this.homeHud?.destroy();
+    this.homeHud = null;
   }
 
   private serverNow(): number {
@@ -208,7 +213,16 @@ export class LakeScene extends Phaser.Scene {
       (seat) => this.onSeatPressed(seat),
       { hidden: Boolean(getLakeMapArt(this)?.drawsSeats) },
     );
-    this.seatUi = new SeatUi(this.root, this.services, () => this.flow.canLeaveSeat());
+    const homeHud = isHomeHudEnabled(this);
+    this.seatUi = new SeatUi(this.root, this.services, () => this.flow.canLeaveSeat(), !homeHud);
+    if (homeHud) {
+      this.homeHud = new HomeHud({
+        root: this.root,
+        services: this.services,
+        serverNow: () => this.serverNow(),
+        openBuyTicket: () => this.seatUi.openBuyTicket(),
+      });
+    }
   }
 
   /** Server tắt/rớt mạng lâu: báo "Mất kết nối" và tự thử vào lại hồ thay vì đứng im. */
@@ -505,6 +519,7 @@ export class LakeScene extends Phaser.Scene {
     this.seatMarkers.update();
     this.updateSeatPrompt();
     this.seatUi.update(serverNowMs);
+    this.homeHud?.update();
     this.updateRemotes(nowMs, serverNowMs);
   }
 }

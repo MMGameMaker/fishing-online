@@ -121,3 +121,22 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
 - **Kiểm tra:** 240 test client đạt. tsc/eslint/prettier sạch. Server Domain 156 và API 196 test đạt. Trên trình duyệt với Server thật local (`?dev=Anh`): ngồi `seat-03`, cần nằm trong tay, dây tới phao dưới nước. HookFish nhận `rarity: "uncommon"`. Tap điểm yếu thấy "Điểm yếu!", "−22cm", lóe sáng ở phao, vùng đổi chỗ. Tap trượt thấy "Trượt" và thanh đỏ. Thắng 3 tap ra thẻ cá và 56 mảnh pháo giấy. Icon buồn là sprite `emote:sad`. Màu cá epic/legendary kiểm tra bằng texture.
 - **Chưa kiểm chứng:** Khung trình duyệt của Claude bị ẩn nên animation chỉ xem từng khung chụp, chưa xem chuyển động liên tục (rung, sóng, pháo giấy). Cần người dùng xem lại cảm giác. Chưa thấy cá epic/legendary thật trong ván.
 
+## Web Client — Feedback 2026-11-13 (pier)
+
+- **Lỗi nước dưới hiên tiệm Marlin:** 4 dòng nước chân cọc đặt trên cát hoặc mép bờ trong ảnh gốc: (816,220), (774,221) dưới hiên tiệm, (459,120) mép bờ, (349,745) dưới thuyền. Đã xoá khỏi `pillarFlows` (31 → 27) và thêm test. Đã so toàn map với ảnh gốc theo khối 8px: bóng tím nhạt cạnh biển chữ A là có trong ảnh gốc, giữ nguyên.
+- **Tầm tương tác ghế:** `NEAR_SEAT_PX` 64 → 24px. Phải đứng sát ghế đẩu mới hiện phím F/ngồi được. Test vẫn xác nhận mọi ghế đều có chỗ đứng trong tầm.
+- **Thông báo:** Không báo khi người chơi tự rời ghế (`left_seat`) hoặc rời hồ (`left_lake`). Vẫn báo khi mất ghế ngoài ý muốn: hết vé, mất kết nối, không thu cần.
+- **Dấu ! khi cá cắn:** Bỏ lắc trái phải, đổi sang hiện rõ rồi mờ đi liên tục (280ms, alpha 0,15 ↔ 1).
+- **Cần câu nhìn ngang:** Theo người dùng, đưa cần ra xa người, cuộn dây ở tay như tư thế nhìn xuống. `SIT_ROD_OFFSET['right']` (11,−9) → (16,−7), hướng trái lật theo. Đã bake lại; phao ngang cách chân 46px.
+- **Kiểm tra:** 241 test client đạt, tsc/eslint/prettier sạch. Trên trình duyệt (mock, bỏ qua đăng nhập Google chỉ trong phiên kiểm tra): dưới hiên tiệm không còn vệt nước. Ghế `seat-03` nhận ở 8/16px, không nhận ở 24px trở lên (lệch dọc 4px). Rời ghế không có toast. Dấu ! đứng yên và đổi độ mờ. Thỏ ngồi nhìn trái cầm cuộn dây trước người, dây xuống nước.
+
+## Web Client — UI home cho pier.html (2026-11-13)
+
+- **Phạm vi (người dùng duyệt):** Chỉ làm trên `pier.html`. Có khung người chơi, ô vé + popup "Vé câu cá", khung Gold, menu. Không làm thanh thông báo "Chúc mừng…", nút lưỡi câu giữa màn và nút túi đồ x3. `fishing.html` giữ HUD cũ.
+- **Cách làm:** [HomeHud.ts](../../client-v0/src/online/ui/home/HomeHud.ts) và home.css dùng ảnh trong `public/new resources/ui` (User Card, Ticket Timer, Icon Ticket, Ticket Info, Button, Menu Panel, Icon Button, 6 icon). Ảnh vẽ cho màn 1920×1080 nên cả cụm thu theo cửa sổ (`--hud-scale`, tối thiểu 0,4). `preview.ts` bật bằng `enableHomeHud(game)`. Khi bật, SeatUi không dựng dải Gold/vé/Rời ghế cũ (người chơi đi là tự rời ghế như trước).
+- **Khung người chơi:** Tên, thanh EXP, "EXP x/y", "Lv. n" lấy từ hồ sơ thật (`session.profile`) và bảng level trong catalog (`levelProgress.ts`, có test, EXP tích luỹ theo SPEC). Câu được cá thì tải lại `GET /me` để EXP/level đúng số Server.
+- **Vé:** Ô vé luôn hiện icon. Số thời gian chỉ hiện khi vé còn hạn, đếm lùi theo giờ Server. Bấm ô vé luôn mở popup "Vé câu cá" ("Hiệu lực trong: mm:ss", hết vé ghi "Chưa có vé"). "Mua thêm" mở hộp mua vé cũ (TicketDialog). Bấm ra ngoài thì popup đóng.
+- **Gold và menu:** Gold dùng định dạng chung của game (`135.000`). Chưa có ảnh khung Gold nên vẽ khung gỗ bằng CSS cùng kiểu hộp mua vé. Nút ☰ mở MENU với 6 ô theo thứ tự người dùng chốt: Cửa hàng, Hồ sơ, Bảng xếp hạng, Túi đồ, Tắt popup (icon nhà), Cài đặt. Trỏ/chọn ô thì viền cam và tên ô hiện ở trên. Ô nhà đóng menu; 4 ô còn lại báo "Sắp ra mắt". Esc, nút X, chạm nền mờ cũng đóng menu. Mọi popup hiện/ẩn qua `motion.ts`.
+- **Kiểm tra:** 245 test client đạt, tsc/eslint/prettier sạch. Trên trình duyệt (mock, 1024×768, bỏ qua đăng nhập Google chỉ trong phiên kiểm tra): khung người chơi hiện đúng tên/EXP 25/100/Lv. 3 với dữ liệu thử. Ô vé đếm lùi 14:29 → 14:11. Popup vé mở/đóng được. "Mua thêm" mở hộp mua vé. Menu đủ 6 ô, ô Hồ sơ báo "Sắp ra mắt", ô nhà đóng menu.
+- **Chưa kiểm:** Màn điện thoại hẹp (dưới ~420px) có thể làm khung người chơi + ô vé chạm khung Gold. Chưa có ảnh riêng cho khung Gold.
+

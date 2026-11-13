@@ -58,9 +58,10 @@ DIRS = {
 }
 
 # Khung cần (28×110 trước, 64×72 ngang) khác khung thân 48×64 nên đặt trùng góc trái trên thì tay cầm
-# rơi xuống cạnh chân. Khi ngồi câu, dời cần để cuộn dây/tay cầm nằm trong tay thỏ (feedback 2026-11-12).
+# rơi xuống cạnh chân. Khi ngồi câu, dời cần để cuộn dây/tay cầm nằm trong tay thỏ (feedback 2026-11-12);
+# nhìn ngang đưa cần ra trước người thêm (feedback 2026-11-13: giống tư thế nhìn xuống).
 # Giá trị cho hướng 'right'; 'left' là ảnh lật nên dùng dx ngược dấu.
-SIT_ROD_OFFSET = {'down': (6, -8), 'right': (11, -9), 'up': (10, -10)}
+SIT_ROD_OFFSET = {'down': (6, -8), 'right': (16, -7), 'up': (10, -10)}
 
 
 def rod_offset(dir_name: str, body_index: int | str) -> tuple[int, int]:

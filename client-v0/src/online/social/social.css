@@ -36,6 +36,27 @@
   background: var(--cream-2);
 }
 
+/* Số tin chưa xem khi khung chat đóng, gắn ở góc dưới bên phải nút chat. */
+.social-toggle__badge {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  font: bold 12px/16px var(--ui-font);
+  color: #fff;
+  text-align: center;
+  background: var(--ui-danger);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  pointer-events: none;
+}
+
+.social-toggle__badge[hidden] {
+  display: none;
+}
+
 /* Bong bóng chat vẽ bằng khối pixel. */
 .social-toggle__icon {
   position: relative;
@@ -171,6 +192,13 @@
   background: #fff;
   border: 2px solid var(--ink);
   border-radius: 4px;
+}
+
+/* Tin là emoji: bong bóng ôm vừa icon, không dùng chữ. */
+.chat-msg__bubble--emoji {
+  display: inline-block;
+  padding: 2px 4px;
+  line-height: 0;
 }
 
 .chat-panel__form {

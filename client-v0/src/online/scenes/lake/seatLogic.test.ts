@@ -6,9 +6,9 @@ import { formatClock, isNearSeat, nearestSeat, priceSummary, sessionEndText } fr
 const { ticketPricing } = configJson as unknown as GameplayConfig;
 
 describe('seatLogic', () => {
-  it('ở gần tối đa 64 px', () => {
-    expect(isNearSeat(64, 0, { x: 0, y: 0 })).toBe(true);
-    expect(isNearSeat(65, 0, { x: 0, y: 0 })).toBe(false);
+  it('ở gần tối đa 24 px', () => {
+    expect(isNearSeat(24, 0, { x: 0, y: 0 })).toBe(true);
+    expect(isNearSeat(25, 0, { x: 0, y: 0 })).toBe(false);
   });
 
   it('tổng tiền theo đơn giá vé và số lượng', () => {
@@ -24,22 +24,24 @@ describe('seatLogic', () => {
   it('thông báo theo lý do kết thúc phiên', () => {
     expect(sessionEndText('missed_bite')).toBe('Bạn không thu cần kịp nên đã tự đứng dậy.');
     expect(sessionEndText('xyz')).toBe('Phiên giữ ghế đã kết thúc.');
+    expect(sessionEndText('left_seat')).toBeNull();
+    expect(sessionEndText('left_lake')).toBeNull();
   });
 });
 
 describe('nearestSeat', () => {
   const seats = [
     { id: 'a', x: 100, y: 100 },
-    { id: 'b', x: 140, y: 100 },
+    { id: 'b', x: 125, y: 100 },
     { id: 'c', x: 400, y: 400 },
   ];
 
   it('chọn ghế gần nhất trong tầm ngồi', () => {
-    expect(nearestSeat(130, 100, seats)?.id).toBe('b');
+    expect(nearestSeat(116, 100, seats)?.id).toBe('b');
   });
 
   it('bỏ qua ghế đã có người', () => {
-    expect(nearestSeat(130, 100, seats, (seat) => seat.id !== 'b')?.id).toBe('a');
+    expect(nearestSeat(116, 100, seats, (seat) => seat.id !== 'b')?.id).toBe('a');
   });
 
   it('không có ghế nào trong tầm thì trả null', () => {

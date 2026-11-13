@@ -45,9 +45,9 @@ const SAY_WRAP_PX = 110;
 const SAY_GAP = 12;
 const POP_IN_MS = 200;
 const FADE_OUT_MS = 160;
-/** Dấu ! khi cá cắn lắc trái phải (feedback 2026-11-11). */
-const BITE_SHAKE_PX = 3;
-const BITE_SHAKE_MS = 70;
+/** Dấu ! khi cá cắn hiện rõ rồi mờ đi liên tục (feedback 2026-11-13, thay kiểu lắc trái phải). */
+const BITE_FADE_MS = 280;
+const BITE_MIN_ALPHA = 0.15;
 
 /** Nhân vật gồm thân, lớp cần câu, nhãn tên và chỗ gắn icon trên đầu. Gốc tọa độ ở chân. */
 export class CharacterView {
@@ -202,11 +202,11 @@ export class CharacterView {
       .setOrigin(0.5);
     this.iconSlot.add(label);
     if (icon.type === 'bite') {
-      label.x = -BITE_SHAKE_PX;
+      label.setAlpha(BITE_MIN_ALPHA);
       this.scene.tweens.add({
         targets: label,
-        x: BITE_SHAKE_PX,
-        duration: BITE_SHAKE_MS,
+        alpha: 1,
+        duration: BITE_FADE_MS,
         yoyo: true,
         repeat: -1,
         ease: 'Sine.easeInOut',

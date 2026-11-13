@@ -47,3 +47,10 @@
 - **Người/agent thực hiện:** Claude, 2026-11-12.
 - **Kịch bản / kết quả / bằng chứng:** BE thật local (`start-api-portable.ps1`, cổng 5080, `Auth__DevBypass=true`), client `VITE_USE_MOCK=false`. Hai tab `pier.html?dev=Anh` và `?dev=Binh`: hai bên thấy nhau. Tab Anh mở chat, gõ "Xin chào Binh! wasd f", Enter: tin hiện trong khung với tên/giờ của Server, thỏ không di chuyển khi gõ. Tab Binh nhận tin và bong bóng trên đầu Anh. Anh chọn emoji trái tim: tab Binh thấy emoji động trên đầu Anh, tự ẩn sau 3 giây.
 - **Đối chiếu tiêu chí GD / việc còn lại:** Đạt nghiệm thu SOC-05. Còn chờ người dùng duyệt giao diện. Chưa thử đăng nhập Google thật với 2 tài khoản.
+
+## Web Client — Feedback 2026-11-13
+
+- **Emoji trong khung chat:** `EmojiReceived` vừa hiện emoji trên đầu nhân vật, vừa thêm một dòng vào log chat (store `ChatEntry` có `emojiId`, `text` rỗng). Khung chat vẽ bong bóng chứa icon emoji tĩnh, có tên và giờ như tin chữ. Server không đổi.
+- **Số tin chưa xem:** Khung chat đang đóng thì đếm tin mới của người khác (không tính tin của mình, không tính tin có sẵn lúc vào hồ). Số đỏ hiện ở góc dưới bên phải nút chat, quá 99 thì ghi `99+`. Mở khung chat thì về 0. Hiện/ẩn qua `motion.ts`.
+- **Kiểm tra:** 241 test client đạt (có test emoji vào log), tsc/eslint/prettier sạch. Trên trình duyệt (mock): 1 tin chữ và 1 emoji của bot, cùng 1 tin của mình, khi khung đóng thì số hiện là 2. Mở khung thì số ẩn. Dòng emoji có icon trong bong bóng.
+

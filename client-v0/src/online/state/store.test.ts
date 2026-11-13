@@ -108,6 +108,8 @@ describe('reducer', () => {
     expect(s.lake.correction).toEqual({ x: 5, y: 6, seq: 7 });
     s = reduce(s, { type: 'EmojiReceived', payload: { playerId: 'p', emojiId: 'smile' } });
     expect(s.lake.emojis.p).toBe('smile');
+    // Emoji cũng vào log chat như một tin.
+    expect(s.lake.chat.at(-1)).toMatchObject({ playerId: 'p', emojiId: 'smile', text: '' });
   });
 
   it('log chat bị giới hạn', () => {
