@@ -10,6 +10,9 @@ import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
 import { isNearSeat, nearestSeat } from './seatLogic';
 import { SeatPrompt } from './SeatPrompt';
+import { ConnectionWatch } from './ConnectionWatch';
+import { SocialUi } from '../../social/SocialUi';
+import { ensureEmoteAnims, preloadEmotes } from '../../social/emojis';
 import { SeatMarkers } from './SeatMarkers';
 import { SeatUi } from './SeatUi';
 import { nearestStandable, startPosition, stepMove, type LakeMap, type LakeSeat } from './walkable';
@@ -21,6 +24,7 @@ const TREE_TEXTURE = 'placeholder-tree';
 const GROUND_DEPTH = -1000;
 const ROAM_DEPTH = -600;
 const MAX_FRAME_MS = 50;
+const EMOJI_SHOW_MS = 3000;
 const WATER_TILE = 0;
 const GRASS_TILE = 1;
 const BOBBER_DISTANCE_PX = 48;
@@ -62,6 +66,9 @@ export class LakeScene extends Phaser.Scene {
   private root!: HTMLElement;
   private myId = '';
   private readonly remotes = new Map<string, RemotePlayer>();
+  private social!: SocialUi;
+  /** Emoji trên đầu tự ẩn sau EMOJI_SHOW_MS; mỗi người chơi một hẹn giờ. */
+  private readonly emojiTimers = new Map<string, Phaser.Time.TimerEvent>();
   private readonly cleanups: (() => void)[] = [];
 
   constructor() {
@@ -70,6 +77,7 @@ export class LakeScene extends Phaser.Scene {
 
   preload(): void {
     getLakeMapArt(this)?.preload(this);
+    preloadEmotes(this);
   }
 
   create(): void {
@@ -94,6 +102,8 @@ export class LakeScene extends Phaser.Scene {
     this.createFishing();
     this.createSeats();
     this.createInput();
+    this.createSocial();
+    this.watchConnection();
     this.bindStore();
     this.syncRemotes();
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.shutdown());
@@ -191,10 +201,68 @@ export class LakeScene extends Phaser.Scene {
   }
 
   private createSeats(): void {
-    this.seatMarkers = new SeatMarkers(this, this.map.seats, this.services.store, (seat) =>
-      this.onSeatPressed(seat),
+    this.seatMarkers = new SeatMarkers(
+      this,
+      this.map.seats,
+      this.services.store,
+      (seat) => this.onSeatPressed(seat),
+      { hidden: Boolean(getLakeMapArt(this)?.drawsSeats) },
     );
     this.seatUi = new SeatUi(this.root, this.services, () => this.flow.canLeaveSeat());
+  }
+
+  /** Server tắt/rớt mạng lâu: báo "Mất kết nối" và tự thử vào lại hồ thay vì đứng im. */
+  private watchConnection(): void {
+    const watch = new ConnectionWatch({ root: this.root, hub: this.services.hub });
+    this.cleanups.push(() => watch.destroy());
+  }
+
+  /** Khung trò chuyện + biểu cảm; tin và emoji hiện thêm trên đầu nhân vật của người gửi. */
+  private createSocial(): void {
+    ensureEmoteAnims(this);
+    this.social = new SocialUi({
+      root: this.root,
+      services: this.services,
+      onTyping: (typing) => this.setTyping(typing),
+    });
+    this.input.keyboard?.addKey('ENTER').on('down', () => this.social.focusInput());
+    const { hub } = this.services;
+    this.cleanups.push(
+      hub.on('ChatReceived', (message) => this.viewOf(message.playerId)?.say(message.text)),
+      hub.on('EmojiReceived', ({ playerId, emojiId }) => this.showEmoji(playerId, emojiId)),
+      () => this.social.destroy(),
+    );
+  }
+
+  /** Đang gõ chat: tắt phím game và trả phím cho ô nhập (WASD/F/Space không điều khiển nhân vật). */
+  private setTyping(typing: boolean): void {
+    const keyboard = this.input.keyboard;
+    if (!keyboard) return;
+    keyboard.enabled = !typing;
+    if (typing) {
+      keyboard.disableGlobalCapture();
+      keyboard.resetKeys();
+    } else {
+      keyboard.enableGlobalCapture();
+    }
+  }
+
+  private viewOf(playerId: string): CharacterView | undefined {
+    return playerId === this.myId ? this.me : this.remotes.get(playerId)?.view;
+  }
+
+  private showEmoji(playerId: string, emojiId: string): void {
+    const view = this.viewOf(playerId);
+    if (!view) return;
+    view.setHeadIcon({ type: 'emoji', emojiId });
+    this.emojiTimers.get(playerId)?.remove();
+    this.emojiTimers.set(
+      playerId,
+      this.time.delayedCall(EMOJI_SHOW_MS, () => {
+        this.emojiTimers.delete(playerId);
+        this.viewOf(playerId)?.clearEmote();
+      }),
+    );
   }
 
   private createInput(): void {
@@ -279,8 +347,10 @@ export class LakeScene extends Phaser.Scene {
   /** Hiện phím F khi đang đứng (chưa giữ ghế), không bận câu và có ghế trống trong tầm. */
   private updateSeatPrompt(): void {
     const { lake } = this.services.store.getState();
-    const visible = !lake.mySeat && !this.flow.isLocked() && this.freeSeatNearMe() !== null;
-    this.seatPrompt.update(this.me.x, this.me.headY, visible);
+    const seat = !lake.mySeat && !this.flow.isLocked() ? this.freeSeatNearMe() : null;
+    this.seatPrompt.update(this.me.x, this.me.headY, seat !== null);
+    // Viền trắng đúng chiếc ghế sẽ ngồi khi bấm F (feedback 2026-11-12).
+    getLakeMapArt(this)?.highlightSeat?.(seat?.seatId ?? null);
   }
 
   /** Ghế là vật cản (map pier): rời ghế thì bước sang chỗ đứng được gần nhất để không kẹt. */

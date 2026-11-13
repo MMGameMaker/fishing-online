@@ -67,7 +67,11 @@ public class MinigameFixtureTests
         var expected = sample.Params;
         Assert.Equal(expected.GreenWidth, actual.GreenWidth, WidthTolerance);
         Assert.Equal(expected.YellowWidth, actual.YellowWidth, WidthTolerance);
-        Assert.Equal(expected with { GreenWidth = actual.GreenWidth, YellowWidth = actual.YellowWidth }, actual);
+        // Fixture chưa có rarity (thêm 2026-11-12 để Client tô màu cá); tên mẫu bắt đầu bằng độ hiếm.
+        Assert.StartsWith(actual.Rarity + "-", name);
+        Assert.Equal(
+            expected with { GreenWidth = actual.GreenWidth, YellowWidth = actual.YellowWidth, Rarity = actual.Rarity },
+            actual);
     }
 
     [Theory]

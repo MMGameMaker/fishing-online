@@ -5,6 +5,7 @@ import Phaser from 'phaser';
 import '../../ui/kit/kit.css';
 import '../lake/lake.css';
 import '../../fishing/fishing.css';
+import '../../social/social.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';

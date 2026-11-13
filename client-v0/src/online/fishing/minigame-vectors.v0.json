@@ -1,1391 +1,1411 @@
 {
- "version": "v0",
- "source": "Sinh từ client-web/src/fishing/minigameCore.ts và gameplay-config; test hồi quy cho lõi TS.",
- "cases": [
-  {
-   "name": "common-123456789",
-   "params": {
-    "seed": 123456789,
-    "durationMs": 12000,
-    "needlePassMs": 900,
-    "greenWidth": 0.2,
-    "yellowWidth": 0.06,
-    "shiftMin": 0.05,
-    "shiftMax": 0.15,
-    "missPenaltyMs": 2000,
-    "fishHp": 55,
-    "atk": 11
-   },
-   "initial": {
-    "greenStart": 0.20623259507119657,
-    "yellowStart": 0.3421406906889752,
-    "hp": 55
-   },
-   "taps": [
+  "version": "v0",
+  "source": "Sinh từ client-web/src/fishing/minigameCore.ts và gameplay-config; test hồi quy cho lõi TS.",
+  "cases": [
     {
-     "seq": 1,
-     "tMs": 576,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 55,
-     "remainingMs": 9424,
-     "greenStart": 0.07769979364238683,
-     "yellowStart": 0.12012985788751397,
-     "won": false
+      "name": "common-123456789",
+      "params": {
+        "seed": 123456789,
+        "durationMs": 12000,
+        "needlePassMs": 900,
+        "greenWidth": 0.2,
+        "yellowWidth": 0.06,
+        "shiftMin": 0.05,
+        "shiftMax": 0.15,
+        "missPenaltyMs": 2000,
+        "fishHp": 55,
+        "atk": 11
+      },
+      "initial": {
+        "greenStart": 0.20623259507119657,
+        "yellowStart": 0.3421406906889752,
+        "hp": 55
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 576,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 9424,
+          "greenStart": 0.6282624114304781,
+          "yellowStart": 0.6571254526078701,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 737,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 44,
+          "remainingMs": 9263,
+          "greenStart": 0.2424575099721551,
+          "yellowStart": 0.34704675655812023,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1212,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 44,
+          "remainingMs": 6788,
+          "greenStart": 0.6229869216680527,
+          "yellowStart": 0.6628182697296143,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1537,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 44,
+          "remainingMs": 4463,
+          "greenStart": 0.013229547999799252,
+          "yellowStart": 0.03583460492547602,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1986,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 33,
+          "remainingMs": 4014,
+          "greenStart": 0.29272073265165094,
+          "yellowStart": 0.35304079025518154,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2509,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 33,
+          "remainingMs": 1491,
+          "greenStart": 0.45399110149592165,
+          "yellowStart": 0.47878239707555625,
+          "won": false
+        },
+        {
+          "seq": 7,
+          "tMs": 2539,
+          "accepted": false,
+          "reason": "too_fast"
+        },
+        {
+          "seq": 7,
+          "tMs": 2802,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 33,
+          "remainingMs": -802,
+          "greenStart": 0.3956920113414526,
+          "yellowStart": 0.5101988484011963,
+          "won": false
+        }
+      ]
     },
     {
-     "seq": 2,
-     "tMs": 737,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 55,
-     "remainingMs": 7263,
-     "greenStart": 0.20240639834664764,
-     "yellowStart": 0.24223774640820922,
-     "won": false
+      "name": "common-987654321",
+      "params": {
+        "seed": 987654321,
+        "durationMs": 12000,
+        "needlePassMs": 900,
+        "greenWidth": 0.2,
+        "yellowWidth": 0.06,
+        "shiftMin": 0.05,
+        "shiftMax": 0.15,
+        "missPenaltyMs": 2000,
+        "fishHp": 55,
+        "atk": 18
+      },
+      "initial": {
+        "greenStart": 0.7611522432416677,
+        "yellowStart": 0.7800377293862403,
+        "hp": 55
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 570,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 9430,
+          "greenStart": 0.012244858965277673,
+          "yellowStart": 0.14019573863595725,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 1077,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 6923,
+          "greenStart": 0.5032830961048603,
+          "yellowStart": 0.556079108719714,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1666,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 4334,
+          "greenStart": 0.3488996697589755,
+          "yellowStart": 0.40451790212653577,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 2252,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 37,
+          "remainingMs": 3748,
+          "greenStart": 0.20870610270649195,
+          "yellowStart": 0.28767061586026105,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 2571,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 37,
+          "remainingMs": 1429,
+          "greenStart": 0.7827627258375287,
+          "yellowStart": 0.8840216848580167,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 3106,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 37,
+          "remainingMs": -1106,
+          "greenStart": 0.7719325175508858,
+          "yellowStart": 0.8135450885817409,
+          "won": false
+        },
+        {
+          "seq": 7,
+          "tMs": 3136,
+          "accepted": false,
+          "reason": "too_fast"
+        },
+        {
+          "seq": 7,
+          "tMs": 3250,
+          "accepted": false,
+          "reason": "out_of_time"
+        },
+        {
+          "seq": 8,
+          "tMs": 3441,
+          "accepted": false,
+          "reason": "bad_seq"
+        }
+      ]
     },
     {
-     "seq": 3,
-     "tMs": 1212,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 55,
-     "remainingMs": 4788,
-     "greenStart": 0.15075270484667275,
-     "yellowStart": 0.20197883306071165,
-     "won": false
+      "name": "common-4294967295",
+      "params": {
+        "seed": 4294967295,
+        "durationMs": 12000,
+        "needlePassMs": 900,
+        "greenWidth": 0.2,
+        "yellowWidth": 0.06,
+        "shiftMin": 0.05,
+        "shiftMax": 0.15,
+        "missPenaltyMs": 2000,
+        "fishHp": 55,
+        "atk": 25
+      },
+      "initial": {
+        "greenStart": 0.717138091288507,
+        "yellowStart": 0.7436650472320616,
+        "hp": 55
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 468,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 9532,
+          "greenStart": 0.5725221425294876,
+          "yellowStart": 0.7046905298344791,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 734,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 7266,
+          "greenStart": 0.6761891452595592,
+          "yellowStart": 0.7516687450977043,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 870,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 5130,
+          "greenStart": 0.5443981910124421,
+          "yellowStart": 0.6109782845107838,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1371,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 55,
+          "remainingMs": 2629,
+          "greenStart": 0.1086861914023757,
+          "yellowStart": 0.24706843507941814,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1628,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 30,
+          "remainingMs": 2372,
+          "greenStart": 0.6971739614382386,
+          "yellowStart": 0.7236827456671745,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2073,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 30,
+          "remainingMs": -73,
+          "greenStart": 0.27494930773973464,
+          "yellowStart": 0.3783651900058612,
+          "won": false
+        },
+        {
+          "seq": 7,
+          "tMs": 2103,
+          "accepted": false,
+          "reason": "too_fast"
+        },
+        {
+          "seq": 7,
+          "tMs": 2492,
+          "accepted": false,
+          "reason": "out_of_time"
+        }
+      ]
     },
     {
-     "seq": 4,
-     "tMs": 1537,
-     "accepted": true,
-     "kind": "normal",
-     "hp": 44,
-     "remainingMs": 4463,
-     "greenStart": 0.243838460277766,
-     "yellowStart": 0.2686297558574006,
-     "won": false
+      "name": "uncommon-123456789",
+      "params": {
+        "seed": 123456789,
+        "durationMs": 13000,
+        "needlePassMs": 800,
+        "greenWidth": 0.16,
+        "yellowWidth": 0.05,
+        "shiftMin": 0.1,
+        "shiftMax": 0.25,
+        "missPenaltyMs": 2000,
+        "fishHp": 70,
+        "atk": 11
+      },
+      "initial": {
+        "greenStart": 0.21654422482475638,
+        "yellowStart": 0.3233291570958681,
+        "hp": 70
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 576,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 10424,
+          "greenStart": 0.659675532002002,
+          "yellowStart": 0.6823536357842386,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 737,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 8263,
+          "greenStart": 0.25458038547076284,
+          "yellowStart": 0.3367576506454497,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1212,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 5788,
+          "greenStart": 0.6541362677514553,
+          "yellowStart": 0.6854323269426822,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1537,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 3463,
+          "greenStart": 0.013891025399789213,
+          "yellowStart": 0.031652141555678096,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1986,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 1014,
+          "greenStart": 0.30735676928423344,
+          "yellowStart": 0.35475110025843604,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2509,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": -1509,
+          "greenStart": 0.4766906565707177,
+          "yellowStart": 0.496169531669002,
+          "won": false
+        },
+        {
+          "seq": 7,
+          "tMs": 2539,
+          "accepted": false,
+          "reason": "too_fast"
+        },
+        {
+          "seq": 7,
+          "tMs": 2802,
+          "accepted": false,
+          "reason": "out_of_time"
+        }
+      ]
     },
     {
-     "seq": 5,
-     "tMs": 1986,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 44,
-     "remainingMs": 2014,
-     "greenStart": 0.3432999616954476,
-     "yellowStart": 0.4266612068610266,
-     "won": false
+      "name": "uncommon-987654321",
+      "params": {
+        "seed": 987654321,
+        "durationMs": 13000,
+        "needlePassMs": 800,
+        "greenWidth": 0.16,
+        "yellowWidth": 0.05,
+        "shiftMin": 0.1,
+        "shiftMax": 0.25,
+        "missPenaltyMs": 2000,
+        "fishHp": 70,
+        "atk": 18
+      },
+      "initial": {
+        "greenStart": 0.7992098554037511,
+        "yellowStart": 0.8140484516602009,
+        "hp": 70
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 570,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 10430,
+          "greenStart": 0.012857101913541554,
+          "yellowStart": 0.11338993594050407,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 1077,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 7923,
+          "greenStart": 0.5284472509101033,
+          "yellowStart": 0.5699298322503454,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1666,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 5334,
+          "greenStart": 0.3663446532469243,
+          "yellowStart": 0.4100446929642931,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 2252,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 2748,
+          "greenStart": 0.21914140784181654,
+          "yellowStart": 0.2811849538912065,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 2571,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 429,
+          "greenStart": 0.8219008621294052,
+          "yellowStart": 0.90146147278836,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 3106,
+          "accepted": false,
+          "reason": "out_of_time"
+        }
+      ]
     },
     {
-     "seq": 6,
-     "tMs": 2509,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 44,
-     "remainingMs": -509,
-     "greenStart": 0.43532976843416693,
-     "yellowStart": 0.5526598357968032,
-     "won": false
+      "name": "uncommon-4294967295",
+      "params": {
+        "seed": 4294967295,
+        "durationMs": 13000,
+        "needlePassMs": 800,
+        "greenWidth": 0.16,
+        "yellowWidth": 0.05,
+        "shiftMin": 0.1,
+        "shiftMax": 0.25,
+        "missPenaltyMs": 2000,
+        "fishHp": 70,
+        "atk": 25
+      },
+      "initial": {
+        "greenStart": 0.7529949958529323,
+        "yellowStart": 0.7738376040942967,
+        "hp": 70
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 468,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 10532,
+          "greenStart": 0.6011482496559619,
+          "yellowStart": 0.7049948396813124,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 734,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 8266,
+          "greenStart": 0.7099986025225371,
+          "yellowStart": 0.7693040023953653,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 870,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 70,
+          "remainingMs": 6130,
+          "greenStart": 0.5716181005630642,
+          "yellowStart": 0.6239310311689041,
+          "won": false
+        }
+      ]
     },
     {
-     "seq": 7,
-     "tMs": 2539,
-     "accepted": false,
-     "reason": "too_fast"
+      "name": "rare-123456789",
+      "params": {
+        "seed": 123456789,
+        "durationMs": 15000,
+        "needlePassMs": 700,
+        "greenWidth": 0.13,
+        "yellowWidth": 0.045,
+        "shiftMin": 0.15,
+        "shiftMax": 0.35,
+        "missPenaltyMs": 2500,
+        "fishHp": 85,
+        "atk": 11
+      },
+      "initial": {
+        "greenStart": 0.22427794713992624,
+        "yellowStart": 0.30679357662214896,
+        "hp": 85
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 576,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 11924,
+          "greenStart": 0.6832353724306449,
+          "yellowStart": 0.7007593617169187,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 737,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 9263,
+          "greenStart": 0.2636725420947187,
+          "yellowStart": 0.3271731560933404,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1212,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 74,
+          "remainingMs": 8788,
+          "greenStart": 0.6774982773140072,
+          "yellowStart": 0.7016815957799554,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1537,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 74,
+          "remainingMs": 5963,
+          "greenStart": 0.014387133449781686,
+          "yellowStart": 0.028111632297514007,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1986,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 74,
+          "remainingMs": 3014,
+          "greenStart": 0.31833379675867035,
+          "yellowStart": 0.3549566888750996,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2509,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 63,
+          "remainingMs": 2491,
+          "greenStart": 0.49371532287681474,
+          "yellowStart": 0.5087671809073072,
+          "won": false
+        },
+        {
+          "seq": 7,
+          "tMs": 2539,
+          "accepted": false,
+          "reason": "too_fast"
+        },
+        {
+          "seq": 7,
+          "tMs": 2802,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 63,
+          "remainingMs": -302,
+          "greenStart": 0.4303150623338297,
+          "yellowStart": 0.4998370705486741,
+          "won": false
+        }
+      ]
     },
     {
-     "seq": 7,
-     "tMs": 2802,
-     "accepted": false,
-     "reason": "out_of_time"
+      "name": "rare-987654321",
+      "params": {
+        "seed": 987654321,
+        "durationMs": 15000,
+        "needlePassMs": 700,
+        "greenWidth": 0.13,
+        "yellowWidth": 0.045,
+        "shiftMin": 0.15,
+        "shiftMax": 0.35,
+        "missPenaltyMs": 2500,
+        "fishHp": 85,
+        "atk": 18
+      },
+      "initial": {
+        "greenStart": 0.8277530645253137,
+        "yellowStart": 0.8392192525416613,
+        "hp": 85
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 570,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 11930,
+          "greenStart": 0.013316284124739468,
+          "yellowStart": 0.09100074678193779,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 1077,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 8923,
+          "greenStart": 0.5473203670140355,
+          "yellowStart": 0.5793750889587681,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1666,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 5834,
+          "greenStart": 0.3794283908628859,
+          "yellowStart": 0.4131966033717618,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 2252,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 2748,
+          "greenStart": 0.22696788669331,
+          "yellowStart": 0.2749106268223841,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 2571,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 67,
+          "remainingMs": 2429,
+          "greenStart": 0.8512544643483124,
+          "yellowStart": 0.912733118039323,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 3106,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 67,
+          "remainingMs": -606,
+          "greenStart": 0.8394766128365881,
+          "yellowStart": 0.8647413881053216,
+          "won": false
+        }
+      ]
+    },
+    {
+      "name": "rare-4294967295",
+      "params": {
+        "seed": 4294967295,
+        "durationMs": 15000,
+        "needlePassMs": 700,
+        "greenWidth": 0.13,
+        "yellowWidth": 0.045,
+        "shiftMin": 0.15,
+        "shiftMax": 0.35,
+        "missPenaltyMs": 2500,
+        "fishHp": 85,
+        "atk": 25
+      },
+      "initial": {
+        "greenStart": 0.7798876742762514,
+        "yellowStart": 0.7959933260991239,
+        "hp": 85
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 468,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 12032,
+          "greenStart": 0.6226178300008177,
+          "yellowStart": 0.702862922293134,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 734,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 9266,
+          "greenStart": 0.7353556954697705,
+          "yellowStart": 0.7811825953715015,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 870,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 60,
+          "remainingMs": 9130,
+          "greenStart": 0.5920330327260308,
+          "yellowStart": 0.6324566609214526,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1371,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 60,
+          "remainingMs": 6129,
+          "greenStart": 0.11819623315008357,
+          "yellowStart": 0.20221402395400218,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1628,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 60,
+          "remainingMs": 3372,
+          "greenStart": 0.7581766830640845,
+          "yellowStart": 0.7742713020602241,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2073,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 60,
+          "remainingMs": 427,
+          "greenStart": 0.29900737216696144,
+          "yellowStart": 0.3617955863999669,
+          "won": false
+        }
+      ]
+    },
+    {
+      "name": "epic-123456789",
+      "params": {
+        "seed": 123456789,
+        "durationMs": 17000,
+        "needlePassMs": 600,
+        "greenWidth": 0.11,
+        "yellowWidth": 0.04,
+        "shiftMin": 0.2,
+        "shiftMax": 0.5,
+        "missPenaltyMs": 3000,
+        "fishHp": 100,
+        "atk": 11
+      },
+      "initial": {
+        "greenStart": 0.22943376201670618,
+        "yellowStart": 0.2973878098255955,
+        "hp": 100
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 576,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 100,
+          "remainingMs": 13424,
+          "greenStart": 0.6989419327164069,
+          "yellowStart": 0.7133734533051029,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 737,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 89,
+          "remainingMs": 13263,
+          "greenStart": 0.26973397984402253,
+          "yellowStart": 0.3220286031370051,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1212,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 89,
+          "remainingMs": 9788,
+          "greenStart": 0.6930729503557086,
+          "yellowStart": 0.7129886243864894,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1537,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 89,
+          "remainingMs": 6463,
+          "greenStart": 0.014717872149776668,
+          "yellowStart": 0.02602040061261505,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1986,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 89,
+          "remainingMs": 3014,
+          "greenStart": 0.32565181507496166,
+          "yellowStart": 0.35581184387672693,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2509,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 89,
+          "remainingMs": -509,
+          "greenStart": 0.5050651004142128,
+          "yellowStart": 0.5174607482040301,
+          "won": false
+        }
+      ]
+    },
+    {
+      "name": "epic-987654321",
+      "params": {
+        "seed": 987654321,
+        "durationMs": 17000,
+        "needlePassMs": 600,
+        "greenWidth": 0.11,
+        "yellowWidth": 0.04,
+        "shiftMin": 0.2,
+        "shiftMax": 0.5,
+        "missPenaltyMs": 3000,
+        "fishHp": 100,
+        "atk": 18
+      },
+      "initial": {
+        "greenStart": 0.8467818706063553,
+        "yellowStart": 0.8562246136786416,
+        "hp": 100
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 570,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 82,
+          "remainingMs": 16430,
+          "greenStart": 0.01362240559887141,
+          "yellowStart": 0.07759784543421121,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 1077,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 82,
+          "remainingMs": 12923,
+          "greenStart": 0.5599024444166572,
+          "yellowStart": 0.586300450724084,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1666,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 82,
+          "remainingMs": 9334,
+          "greenStart": 0.38815088260686026,
+          "yellowStart": 0.4159599987906404,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 2252,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 82,
+          "remainingMs": 5748,
+          "greenStart": 0.2321855392609723,
+          "yellowStart": 0.27166779583785683,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 2571,
+          "accepted": true,
+          "kind": "weak",
+          "hp": 46,
+          "remainingMs": 5429,
+          "greenStart": 0.8708235324942507,
+          "yellowStart": 0.9214530120044947,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 3106,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 46,
+          "remainingMs": 1894,
+          "greenStart": 0.8587749257753603,
+          "yellowStart": 0.8795812112907879,
+          "won": false
+        },
+        {
+          "seq": 7,
+          "tMs": 3136,
+          "accepted": false,
+          "reason": "too_fast"
+        },
+        {
+          "seq": 7,
+          "tMs": 3250,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 46,
+          "remainingMs": -1250,
+          "greenStart": 0.06376167113892735,
+          "yellowStart": 0.07774938665330411,
+          "won": false
+        }
+      ]
+    },
+    {
+      "name": "epic-4294967295",
+      "params": {
+        "seed": 4294967295,
+        "durationMs": 17000,
+        "needlePassMs": 600,
+        "greenWidth": 0.11,
+        "yellowWidth": 0.04,
+        "shiftMin": 0.2,
+        "shiftMax": 0.5,
+        "missPenaltyMs": 3000,
+        "fishHp": 100,
+        "atk": 25
+      },
+      "initial": {
+        "greenStart": 0.797816126558464,
+        "yellowStart": 0.8110796045302413,
+        "hp": 100
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 468,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 100,
+          "remainingMs": 13532,
+          "greenStart": 0.636930883564055,
+          "yellowStart": 0.7030150772165508,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 734,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 100,
+          "remainingMs": 10266,
+          "greenStart": 0.7522604241012596,
+          "yellowStart": 0.7900002240203321,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 870,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 100,
+          "remainingMs": 7130,
+          "greenStart": 0.6056429875013418,
+          "yellowStart": 0.6389330342505127,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1371,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 100,
+          "remainingMs": 3629,
+          "greenStart": 0.12091338793514296,
+          "yellowStart": 0.19010450977366417,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1628,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 100,
+          "remainingMs": 372,
+          "greenStart": 0.7756060321000405,
+          "yellowStart": 0.7888604242145084,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2073,
+          "accepted": false,
+          "reason": "out_of_time"
+        },
+        {
+          "seq": 7,
+          "tMs": 2103,
+          "accepted": false,
+          "reason": "bad_seq"
+        },
+        {
+          "seq": 7,
+          "tMs": 2492,
+          "accepted": false,
+          "reason": "bad_seq"
+        }
+      ]
+    },
+    {
+      "name": "legendary-123456789",
+      "params": {
+        "seed": 123456789,
+        "durationMs": 20000,
+        "needlePassMs": 550,
+        "greenWidth": 0.09,
+        "yellowWidth": 0.04,
+        "shiftMin": 0.3,
+        "shiftMax": 0.7,
+        "missPenaltyMs": 3500,
+        "fishHp": 160,
+        "atk": 11
+      },
+      "initial": {
+        "greenStart": 0.23458957689348608,
+        "yellowStart": 0.28312818247126414,
+        "hp": 160
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 576,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 160,
+          "remainingMs": 15924,
+          "greenStart": 0.7146484930021688,
+          "yellowStart": 0.7249567219940946,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 737,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 160,
+          "remainingMs": 12263,
+          "greenStart": 0.27579541759332643,
+          "yellowStart": 0.31314871994545684,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1212,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 160,
+          "remainingMs": 8288,
+          "greenStart": 0.7086476233974099,
+          "yellowStart": 0.7228731048479676,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1537,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 149,
+          "remainingMs": 7963,
+          "greenStart": 0.01504861084977165,
+          "yellowStart": 0.023121845466084777,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1986,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 149,
+          "remainingMs": 4014,
+          "greenStart": 0.3329698333912529,
+          "yellowStart": 0.35451271110679955,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2509,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 149,
+          "remainingMs": -9,
+          "greenStart": 0.5164148779516109,
+          "yellowStart": 0.5252689120871947,
+          "won": false
+        }
+      ]
+    },
+    {
+      "name": "legendary-987654321",
+      "params": {
+        "seed": 987654321,
+        "durationMs": 20000,
+        "needlePassMs": 550,
+        "greenWidth": 0.09,
+        "yellowWidth": 0.04,
+        "shiftMin": 0.3,
+        "shiftMax": 0.7,
+        "missPenaltyMs": 3500,
+        "fishHp": 160,
+        "atk": 18
+      },
+      "initial": {
+        "greenStart": 0.8658106766873971,
+        "yellowStart": 0.8725554931676015,
+        "hp": 160
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 570,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 160,
+          "remainingMs": 15930,
+          "greenStart": 0.013928527073003353,
+          "yellowStart": 0.05962526981253177,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 1077,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 142,
+          "remainingMs": 15423,
+          "greenStart": 0.5724845218192787,
+          "yellowStart": 0.5913402406102979,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 1666,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 142,
+          "remainingMs": 11334,
+          "greenStart": 0.39687337435083464,
+          "yellowStart": 0.4167370287678204,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 2252,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 142,
+          "remainingMs": 7248,
+          "greenStart": 0.2374031918286346,
+          "yellowStart": 0.2656048036692664,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 2571,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 142,
+          "remainingMs": 3429,
+          "greenStart": 0.8903926006401889,
+          "yellowStart": 0.9265565145760775,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 3106,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 142,
+          "remainingMs": -606,
+          "greenStart": 0.8780732387141325,
+          "yellowStart": 0.8929348712251521,
+          "won": false
+        }
+      ]
+    },
+    {
+      "name": "legendary-4294967295",
+      "params": {
+        "seed": 4294967295,
+        "durationMs": 20000,
+        "needlePassMs": 550,
+        "greenWidth": 0.09,
+        "yellowWidth": 0.04,
+        "shiftMin": 0.3,
+        "shiftMax": 0.7,
+        "missPenaltyMs": 3500,
+        "fishHp": 160,
+        "atk": 25
+      },
+      "initial": {
+        "greenStart": 0.8157445788406767,
+        "yellowStart": 0.8252184916776606,
+        "hp": 160
+      },
+      "taps": [
+        {
+          "seq": 1,
+          "tMs": 468,
+          "accepted": true,
+          "kind": "weak",
+          "hp": 110,
+          "remainingMs": 19532,
+          "greenStart": 0.6512439371272922,
+          "yellowStart": 0.6984469325933607,
+          "won": false
+        },
+        {
+          "seq": 2,
+          "tMs": 734,
+          "accepted": true,
+          "kind": "normal",
+          "hp": 85,
+          "remainingMs": 19266,
+          "greenStart": 0.7691651527327485,
+          "yellowStart": 0.7961221526749432,
+          "won": false
+        },
+        {
+          "seq": 3,
+          "tMs": 870,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 15630,
+          "greenStart": 0.619252942276653,
+          "yellowStart": 0.6430315470974893,
+          "won": false
+        },
+        {
+          "seq": 4,
+          "tMs": 1371,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 11629,
+          "greenStart": 0.12363054272020237,
+          "yellowStart": 0.17305277260486038,
+          "won": false
+        },
+        {
+          "seq": 5,
+          "tMs": 1628,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 7872,
+          "greenStart": 0.7930353811359965,
+          "yellowStart": 0.8025028040749022,
+          "won": false
+        },
+        {
+          "seq": 6,
+          "tMs": 2073,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 3927,
+          "greenStart": 0.3127548375539482,
+          "yellowStart": 0.34968908122042197,
+          "won": false
+        },
+        {
+          "seq": 7,
+          "tMs": 2103,
+          "accepted": false,
+          "reason": "too_fast"
+        },
+        {
+          "seq": 7,
+          "tMs": 2492,
+          "accepted": true,
+          "kind": "miss",
+          "hp": 85,
+          "remainingMs": 8,
+          "greenStart": 0.43315271064406263,
+          "yellowStart": 0.4709882946661674,
+          "won": false
+        },
+        {
+          "seq": 8,
+          "tMs": 2975,
+          "accepted": false,
+          "reason": "out_of_time"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "name": "common-987654321",
-   "params": {
-    "seed": 987654321,
-    "durationMs": 12000,
-    "needlePassMs": 900,
-    "greenWidth": 0.2,
-    "yellowWidth": 0.06,
-    "shiftMin": 0.05,
-    "shiftMax": 0.15,
-    "missPenaltyMs": 2000,
-    "fishHp": 55,
-    "atk": 18
-   },
-   "initial": {
-    "greenStart": 0.7611522432416677,
-    "yellowStart": 0.7800377293862403,
-    "hp": 55
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 570,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 55,
-     "remainingMs": 9430,
-     "greenStart": 0.8,
-     "yellowStart": 0.8880745418183507,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 1077,
-     "accepted": true,
-     "kind": "normal",
-     "hp": 37,
-     "remainingMs": 8923,
-     "greenStart": 0.7122885624179617,
-     "yellowStart": 0.7679067947855219,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1666,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 37,
-     "remainingMs": 6334,
-     "greenStart": 0.7883768252562732,
-     "yellowStart": 0.9253603022778407,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 2252,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 37,
-     "remainingMs": 3748,
-     "greenStart": 0.8,
-     "yellowStart": 0.8416125710308552,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 2571,
-     "accepted": true,
-     "kind": "weak",
-     "hp": 1,
-     "remainingMs": 3429,
-     "greenStart": 0.742835767287761,
-     "yellowStart": 0.861011461657472,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 3106,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 1,
-     "remainingMs": 894,
-     "greenStart": 0.5947973580798135,
-     "yellowStart": 0.6605057968571783,
-     "won": false
-    },
-    {
-     "seq": 7,
-     "tMs": 3136,
-     "accepted": false,
-     "reason": "too_fast"
-    },
-    {
-     "seq": 7,
-     "tMs": 3250,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 1,
-     "remainingMs": -1250,
-     "greenStart": 0.5423045376315714,
-     "yellowStart": 0.678303556982428,
-     "won": false
-    },
-    {
-     "seq": 8,
-     "tMs": 3441,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "common-4294967295",
-   "params": {
-    "seed": 4294967295,
-    "durationMs": 12000,
-    "needlePassMs": 900,
-    "greenWidth": 0.2,
-    "yellowWidth": 0.06,
-    "shiftMin": 0.05,
-    "shiftMax": 0.15,
-    "missPenaltyMs": 2000,
-    "fishHp": 55,
-    "atk": 25
-   },
-   "initial": {
-    "greenStart": 0.717138091288507,
-    "yellowStart": 0.7436650472320616,
-    "hp": 55
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 468,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 55,
-     "remainingMs": 9532,
-     "greenStart": 0.8,
-     "yellowStart": 0.9183331004204229,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 734,
-     "accepted": true,
-     "kind": "normal",
-     "hp": 30,
-     "remainingMs": 9266,
-     "greenStart": 0.8,
-     "yellowStart": 0.8665800934983418,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 870,
-     "accepted": true,
-     "kind": "normal",
-     "hp": 5,
-     "remainingMs": 9130,
-     "greenStart": 0.8,
-     "yellowStart": 0.9220054432516918,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1371,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 5,
-     "remainingMs": 6629,
-     "greenStart": 0.7310651541221888,
-     "yellowStart": 0.8344810363883153,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1628,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 5,
-     "remainingMs": 4372,
-     "greenStart": 0.8,
-     "yellowStart": 0.9282292928313837,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2073,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 5,
-     "remainingMs": 1927,
-     "greenStart": 0.7397923039039598,
-     "yellowStart": 0.794696187269874,
-     "won": false
-    },
-    {
-     "seq": 7,
-     "tMs": 2103,
-     "accepted": false,
-     "reason": "too_fast"
-    },
-    {
-     "seq": 7,
-     "tMs": 2492,
-     "accepted": true,
-     "kind": "normal",
-     "hp": -20,
-     "remainingMs": 1508,
-     "greenStart": 0.8,
-     "yellowStart": 0.9108294975105674,
-     "won": true
-    }
-   ]
-  },
-  {
-   "name": "uncommon-123456789",
-   "params": {
-    "seed": 123456789,
-    "durationMs": 13000,
-    "needlePassMs": 800,
-    "greenWidth": 0.16,
-    "yellowWidth": 0.05,
-    "shiftMin": 0.1,
-    "shiftMax": 0.25,
-    "missPenaltyMs": 2000,
-    "fishHp": 70,
-    "atk": 11
-   },
-   "initial": {
-    "greenStart": 0.21654422482475638,
-    "yellowStart": 0.3233291570958681,
-    "hp": 70
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 576,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 10424,
-     "greenStart": 0,
-     "yellowStart": 0.03333790762117132,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 737,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 8263,
-     "greenStart": 0.21205990705639124,
-     "yellowStart": 0.2433559662476182,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1212,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 5788,
-     "greenStart": 0.10957936680642888,
-     "yellowStart": 0.14982846754603088,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1537,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 3463,
-     "greenStart": 0.27420799995306877,
-     "yellowStart": 0.2936868750513531,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1986,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 1014,
-     "greenStart": 0.4484002520795911,
-     "yellowStart": 0.5138983732811175,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2509,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": -1509,
-     "greenStart": 0.6114449621876701,
-     "yellowStart": 0.703632872258313,
-     "won": false
-    },
-    {
-     "seq": 7,
-     "tMs": 2539,
-     "accepted": false,
-     "reason": "too_fast"
-    },
-    {
-     "seq": 7,
-     "tMs": 2802,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "uncommon-987654321",
-   "params": {
-    "seed": 987654321,
-    "durationMs": 13000,
-    "needlePassMs": 800,
-    "greenWidth": 0.16,
-    "yellowWidth": 0.05,
-    "shiftMin": 0.1,
-    "shiftMax": 0.25,
-    "missPenaltyMs": 2000,
-    "fishHp": 70,
-    "atk": 18
-   },
-   "initial": {
-    "greenStart": 0.7992098554037511,
-    "yellowStart": 0.8140484516602009,
-    "hp": 70
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 570,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 10430,
-     "greenStart": 0.84,
-     "yellowStart": 0.9092014257144183,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 1077,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 7923,
-     "greenStart": 0.6834328436269425,
-     "yellowStart": 0.7271328833443113,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1666,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 5334,
-     "greenStart": 0.8225652378844097,
-     "yellowStart": 0.9301951126870699,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 2252,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 2748,
-     "greenStart": 0.84,
-     "yellowStart": 0.8726955915242434,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 2571,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 429,
-     "greenStart": 0.7292536509316414,
-     "yellowStart": 0.8221059822221286,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 3106,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "uncommon-4294967295",
-   "params": {
-    "seed": 4294967295,
-    "durationMs": 13000,
-    "needlePassMs": 800,
-    "greenWidth": 0.16,
-    "yellowWidth": 0.05,
-    "shiftMin": 0.1,
-    "shiftMax": 0.25,
-    "missPenaltyMs": 2000,
-    "fishHp": 70,
-    "atk": 25
-   },
-   "initial": {
-    "greenStart": 0.7529949958529323,
-    "yellowStart": 0.7738376040942967,
-    "hp": 70
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 468,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 70,
-     "remainingMs": 10532,
-     "greenStart": 0.84,
-     "yellowStart": 0.9329760074731893,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 734,
-     "accepted": true,
-     "kind": "normal",
-     "hp": 45,
-     "remainingMs": 10266,
-     "greenStart": 0.84,
-     "yellowStart": 0.8923129306058399,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 870,
-     "accepted": true,
-     "kind": "weak",
-     "hp": -5,
-     "remainingMs": 10130,
-     "greenStart": 0.84,
-     "yellowStart": 0.9358614196977578,
-     "won": true
-    }
-   ]
-  },
-  {
-   "name": "rare-123456789",
-   "params": {
-    "seed": 123456789,
-    "durationMs": 15000,
-    "needlePassMs": 700,
-    "greenWidth": 0.13,
-    "yellowWidth": 0.045,
-    "shiftMin": 0.15,
-    "shiftMax": 0.35,
-    "missPenaltyMs": 2500,
-    "fishHp": 85,
-    "atk": 11
-   },
-   "initial": {
-    "greenStart": 0.22427794713992624,
-    "yellowStart": 0.30679357662214896,
-    "hp": 85
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 576,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 11924,
-     "greenStart": 0,
-     "yellowStart": 0.02576111043454148,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 737,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 9263,
-     "greenStart": 0.2994132094085217,
-     "yellowStart": 0.3235965278744698,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1212,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 6288,
-     "greenStart": 0.14610582240857187,
-     "yellowStart": 0.1772074002528098,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1537,
-     "accepted": true,
-     "kind": "weak",
-     "hp": 63,
-     "remainingMs": 5963,
-     "greenStart": 0.3822773332707584,
-     "yellowStart": 0.39732919130125083,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1986,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 63,
-     "remainingMs": 3014,
-     "greenStart": 0.6312003361061216,
-     "yellowStart": 0.6818125206709374,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2509,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 63,
-     "remainingMs": -9,
-     "greenStart": 0.8652599495835602,
-     "yellowStart": 0.9364960619108751,
-     "won": false
-    },
-    {
-     "seq": 7,
-     "tMs": 2539,
-     "accepted": false,
-     "reason": "too_fast"
-    },
-    {
-     "seq": 7,
-     "tMs": 2802,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "rare-987654321",
-   "params": {
-    "seed": 987654321,
-    "durationMs": 15000,
-    "needlePassMs": 700,
-    "greenWidth": 0.13,
-    "yellowWidth": 0.045,
-    "shiftMin": 0.15,
-    "shiftMax": 0.35,
-    "missPenaltyMs": 2500,
-    "fishHp": 85,
-    "atk": 18
-   },
-   "initial": {
-    "greenStart": 0.8277530645253137,
-    "yellowStart": 0.8392192525416613,
-    "hp": 85
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 570,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 11930,
-     "greenStart": 0.87,
-     "yellowStart": 0.9234738289611414,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 1077,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 8923,
-     "greenStart": 0.6445771248359233,
-     "yellowStart": 0.6783453373447992,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1666,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 5834,
-     "greenStart": 0.8467536505125464,
-     "yellowStart": 0.9299221901327838,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 2252,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 2748,
-     "greenStart": 0.87,
-     "yellowStart": 0.8952647752687335,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 2571,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": -71,
-     "greenStart": 0.705671534575522,
-     "yellowStart": 0.7774210632999894,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 3106,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "rare-4294967295",
-   "params": {
-    "seed": 4294967295,
-    "durationMs": 15000,
-    "needlePassMs": 700,
-    "greenWidth": 0.13,
-    "yellowWidth": 0.045,
-    "shiftMin": 0.15,
-    "shiftMax": 0.35,
-    "missPenaltyMs": 2500,
-    "fishHp": 85,
-    "atk": 25
-   },
-   "initial": {
-    "greenStart": 0.7798876742762514,
-    "yellowStart": 0.7959933260991239,
-    "hp": 85
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 468,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 85,
-     "remainingMs": 12032,
-     "greenStart": 0.87,
-     "yellowStart": 0.9418450966838282,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 734,
-     "accepted": true,
-     "kind": "weak",
-     "hp": 35,
-     "remainingMs": 11766,
-     "greenStart": 0.87,
-     "yellowStart": 0.9104236281954218,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 870,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 35,
-     "remainingMs": 9130,
-     "greenStart": 0.87,
-     "yellowStart": 0.9440747334028129,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1371,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 35,
-     "remainingMs": 6129,
-     "greenStart": 0.6821303082443774,
-     "yellowStart": 0.7449185224773828,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1628,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 35,
-     "remainingMs": 3372,
-     "greenStart": 0.87,
-     "yellowStart": 0.9478534992190544,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2073,
-     "accepted": true,
-     "kind": "weak",
-     "hp": -15,
-     "remainingMs": 2927,
-     "greenStart": 0.6995846078079194,
-     "yellowStart": 0.7329191084229387,
-     "won": true
-    }
-   ]
-  },
-  {
-   "name": "epic-123456789",
-   "params": {
-    "seed": 123456789,
-    "durationMs": 17000,
-    "needlePassMs": 600,
-    "greenWidth": 0.11,
-    "yellowWidth": 0.04,
-    "shiftMin": 0.2,
-    "shiftMax": 0.5,
-    "missPenaltyMs": 3000,
-    "fishHp": 100,
-    "atk": 11
-   },
-   "initial": {
-    "greenStart": 0.22943376201670618,
-    "yellowStart": 0.2973878098255955,
-    "hp": 100
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 576,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 13424,
-     "greenStart": 0,
-     "yellowStart": 0.021215032122563572,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 737,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 10263,
-     "greenStart": 0.4241198141127825,
-     "yellowStart": 0.4440354881435633,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1212,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 6788,
-     "greenStart": 0.21915873361285776,
-     "yellowStart": 0.24477179771987723,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1537,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 3463,
-     "greenStart": 0.5484159999061375,
-     "yellowStart": 0.5608116476959548,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1986,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 14,
-     "greenStart": 0.89,
-     "yellowStart": 0.9316806225827895,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2509,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "epic-987654321",
-   "params": {
-    "seed": 987654321,
-    "durationMs": 17000,
-    "needlePassMs": 600,
-    "greenWidth": 0.11,
-    "yellowWidth": 0.04,
-    "shiftMin": 0.2,
-    "shiftMax": 0.5,
-    "missPenaltyMs": 3000,
-    "fishHp": 100,
-    "atk": 18
-   },
-   "initial": {
-    "greenStart": 0.8467818706063553,
-    "yellowStart": 0.8562246136786416,
-    "hp": 100
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 570,
-     "accepted": true,
-     "kind": "normal",
-     "hp": 82,
-     "remainingMs": 16430,
-     "greenStart": 0.89,
-     "yellowStart": 0.9340372709091753,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 1077,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 82,
-     "remainingMs": 12923,
-     "greenStart": 0.576865687253885,
-     "yellowStart": 0.6046748034376651,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1666,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 82,
-     "remainingMs": 9334,
-     "greenStart": 0.8551304757688194,
-     "yellowStart": 0.9236222142796031,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 2252,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 82,
-     "remainingMs": 5748,
-     "greenStart": 0.89,
-     "yellowStart": 0.9108062855154276,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 2571,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 82,
-     "remainingMs": 2429,
-     "greenStart": 0.6685073018632829,
-     "yellowStart": 0.7275951490481384,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 3106,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 82,
-     "remainingMs": -1106,
-     "greenStart": 0.17439207423944025,
-     "yellowStart": 0.20724629362812264,
-     "won": false
-    },
-    {
-     "seq": 7,
-     "tMs": 3136,
-     "accepted": false,
-     "reason": "too_fast"
-    },
-    {
-     "seq": 7,
-     "tMs": 3250,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "epic-4294967295",
-   "params": {
-    "seed": 4294967295,
-    "durationMs": 17000,
-    "needlePassMs": 600,
-    "greenWidth": 0.11,
-    "yellowWidth": 0.04,
-    "shiftMin": 0.2,
-    "shiftMax": 0.5,
-    "missPenaltyMs": 3000,
-    "fishHp": 100,
-    "atk": 25
-   },
-   "initial": {
-    "greenStart": 0.797816126558464,
-    "yellowStart": 0.8110796045302413,
-    "hp": 100
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 468,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 13532,
-     "greenStart": 0.89,
-     "yellowStart": 0.9491665502102115,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 734,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 10266,
-     "greenStart": 0.89,
-     "yellowStart": 0.9232900467491709,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 870,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 7130,
-     "greenStart": 0.89,
-     "yellowStart": 0.9510027216258459,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1371,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 100,
-     "remainingMs": 3629,
-     "greenStart": 0.6331954623665661,
-     "yellowStart": 0.6849034034996294,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1628,
-     "accepted": true,
-     "kind": "weak",
-     "hp": 50,
-     "remainingMs": 3372,
-     "greenStart": 0.89,
-     "yellowStart": 0.9541146464156919,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2073,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 50,
-     "remainingMs": -73,
-     "greenStart": 0.6593769117118791,
-     "yellowStart": 0.6868288533948361,
-     "won": false
-    },
-    {
-     "seq": 7,
-     "tMs": 2103,
-     "accepted": false,
-     "reason": "too_fast"
-    },
-    {
-     "seq": 7,
-     "tMs": 2492,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "legendary-123456789",
-   "params": {
-    "seed": 123456789,
-    "durationMs": 20000,
-    "needlePassMs": 550,
-    "greenWidth": 0.09,
-    "yellowWidth": 0.04,
-    "shiftMin": 0.3,
-    "shiftMax": 0.7,
-    "missPenaltyMs": 3500,
-    "fishHp": 160,
-    "atk": 11
-   },
-   "initial": {
-    "greenStart": 0.23458957689348608,
-    "yellowStart": 0.28312818247126414,
-    "hp": 160
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 576,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 15924,
-     "greenStart": 0,
-     "yellowStart": 0.015153594373259692,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 737,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 12263,
-     "greenStart": 0.5988264188170433,
-     "yellowStart": 0.613051900267601,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1212,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 8288,
-     "greenStart": 0.29221164481714373,
-     "yellowStart": 0.3105066906078719,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1537,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 4463,
-     "greenStart": 0.7645546665415168,
-     "yellowStart": 0.7734087006771007,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1986,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 514,
-     "greenStart": 0.91,
-     "yellowStart": 0.9397718732734212,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2509,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "legendary-987654321",
-   "params": {
-    "seed": 987654321,
-    "durationMs": 20000,
-    "needlePassMs": 550,
-    "greenWidth": 0.09,
-    "yellowWidth": 0.04,
-    "shiftMin": 0.3,
-    "shiftMax": 0.7,
-    "missPenaltyMs": 3500,
-    "fishHp": 160,
-    "atk": 18
-   },
-   "initial": {
-    "greenStart": 0.8658106766873971,
-    "yellowStart": 0.8725554931676015,
-    "hp": 160
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 570,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 15930,
-     "greenStart": 0.91,
-     "yellowStart": 0.9414551935065538,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 1077,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 11923,
-     "greenStart": 0.4591542496718467,
-     "yellowStart": 0.4790179040888325,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 1666,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 7834,
-     "greenStart": 0.8635073010250927,
-     "yellowStart": 0.9124299713899382,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 2252,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": 3748,
-     "greenStart": 0.91,
-     "yellowStart": 0.9248616325110197,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 2571,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 160,
-     "remainingMs": -71,
-     "greenStart": 0.581343069151044,
-     "yellowStart": 0.6235486742830836,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 3106,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  },
-  {
-   "name": "legendary-4294967295",
-   "params": {
-    "seed": 4294967295,
-    "durationMs": 20000,
-    "needlePassMs": 550,
-    "greenWidth": 0.09,
-    "yellowWidth": 0.04,
-    "shiftMin": 0.3,
-    "shiftMax": 0.7,
-    "missPenaltyMs": 3500,
-    "fishHp": 160,
-    "atk": 25
-   },
-   "initial": {
-    "greenStart": 0.8157445788406767,
-    "yellowStart": 0.8252184916776606,
-    "hp": 160
-   },
-   "taps": [
-    {
-     "seq": 1,
-     "tMs": 468,
-     "accepted": true,
-     "kind": "weak",
-     "hp": 110,
-     "remainingMs": 19532,
-     "greenStart": 0.91,
-     "yellowStart": 0.9522618215787225,
-     "won": false
-    },
-    {
-     "seq": 2,
-     "tMs": 734,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 110,
-     "remainingMs": 15766,
-     "greenStart": 0.91,
-     "yellowStart": 0.9337786048208364,
-     "won": false
-    },
-    {
-     "seq": 3,
-     "tMs": 870,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 110,
-     "remainingMs": 12130,
-     "greenStart": 0.91,
-     "yellowStart": 0.95357337258989,
-     "won": false
-    },
-    {
-     "seq": 4,
-     "tMs": 1371,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 110,
-     "remainingMs": 8129,
-     "greenStart": 0.5342606164887548,
-     "yellowStart": 0.5711948601552286,
-     "won": false
-    },
-    {
-     "seq": 5,
-     "tMs": 1628,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 110,
-     "remainingMs": 4372,
-     "greenStart": 0.91,
-     "yellowStart": 0.9557961760112085,
-     "won": false
-    },
-    {
-     "seq": 6,
-     "tMs": 2073,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 110,
-     "remainingMs": 427,
-     "greenStart": 0.5691692156158388,
-     "yellowStart": 0.5887777453893795,
-     "won": false
-    },
-    {
-     "seq": 7,
-     "tMs": 2103,
-     "accepted": false,
-     "reason": "too_fast"
-    },
-    {
-     "seq": 7,
-     "tMs": 2492,
-     "accepted": true,
-     "kind": "miss",
-     "hp": 110,
-     "remainingMs": -3492,
-     "greenStart": 0.91,
-     "yellowStart": 0.9495819633966313,
-     "won": false
-    },
-    {
-     "seq": 8,
-     "tMs": 2975,
-     "accepted": false,
-     "reason": "out_of_time"
-    }
-   ]
-  }
- ]
+  ]
 }

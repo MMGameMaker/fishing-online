@@ -114,10 +114,11 @@ public class MinigameParamsTests
         string[] expected =
         [
             "atk", "deadlineAt", "durationMs", "fishHp", "greenWidth", "missPenaltyMs",
-            "needlePassMs", "seed", "shiftMax", "shiftMin", "startedAt", "yellowWidth",
+            "needlePassMs", "rarity", "seed", "shiftMax", "shiftMin", "startedAt", "yellowWidth",
         ];
         Assert.Equal(expected, json.RootElement.EnumerateObject().Select(field => field.Name).Order(StringComparer.Ordinal));
         Assert.Equal(uint.MaxValue, json.RootElement.GetProperty("seed").GetUInt32());
+        Assert.Equal("common", json.RootElement.GetProperty("rarity").GetString());
     }
 
     [Fact]

@@ -108,14 +108,11 @@ export function applyTap(state: MinigameState, seq: number, tMs: number): TapOut
   const hp = state.hp - damageOf(kind, params.atk);
   const penaltyMs = state.penaltyMs + (kind === 'miss' ? params.missPenaltyMs : 0);
 
-  // Dịch vùng sau mọi loại tap, đúng thứ tự tiêu RNG: shift, hướng, vị trí vàng.
-  const shiftStep = rngStep(state.rngState);
-  const dirStep = rngStep(shiftStep.state);
-  const yellowStep = rngStep(dirStep.state);
-  const shift = params.shiftMin + shiftStep.value * (params.shiftMax - params.shiftMin);
-  const dir = dirStep.value < 0.5 ? -1 : 1;
-  const maxStart = 1 - params.greenWidth;
-  const greenStart = Math.min(maxStart, Math.max(0, state.greenStart + dir * shift));
+  // Sau mọi loại tap, vùng xanh nhảy hẳn sang vị trí ngẫu nhiên mới trên thanh (feedback 2026-11-12,
+  // thay luật dịch shiftMin..shiftMax). Thứ tự tiêu RNG: vị trí xanh, rồi vị trí vàng trong xanh.
+  const greenStep = rngStep(state.rngState);
+  const yellowStep = rngStep(greenStep.state);
+  const greenStart = greenStep.value * (1 - params.greenWidth);
 
   return {
     accepted: true,

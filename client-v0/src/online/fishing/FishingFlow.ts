@@ -1,10 +1,10 @@
 // Điều phối giao diện một lần câu theo AttemptUpdate từ Server.
-import type Phaser from 'phaser';
+import Phaser from 'phaser';
 import { drawFishIcon } from '../../art.js';
 import type { Services } from '../core/services';
 import type { HeadIcon } from '../entities/CharacterView';
 import type { CharacterAnim } from '../entities/placeholderArt';
-import type { AttemptView, FishingOutcome } from '../net/contract';
+import type { AttemptView, FishingOutcome, TapResult } from '../net/contract';
 import { showError, showToast } from '../ui/kit/components';
 import { animateIn, animateOut } from '../ui/kit/motion';
 import { FishButton } from './FishButton';
@@ -18,6 +18,7 @@ import {
 } from './fishButtonState';
 import { MINIGAME_SCENE, type MinigameData, type MinigameScene } from './MinigameScene';
 import { buildCatchCard, preloadCatchCard } from './CatchCard';
+import { burstConfetti } from './confetti';
 import { buildResultCard, cancelText } from './resultText';
 import { playBiteBeep } from './sound';
 import { submitFishingResult } from './submitResult';
@@ -34,11 +35,22 @@ const CAST_RETRY_MS = 5000;
 /** Bỏ qua cú chạm dư của minigame để popup không bị đóng nhầm. */
 const RESULT_TAP_GUARD_MS = 400;
 const BOBBER_RADIUS = 3;
+/** Lóe sáng chỗ dây câu mỗi lần tap trúng: trúng thường nhẹ, điểm yếu mạnh và rung màn. */
+const LINE_FLASH = {
+  normal: { scale: 3, alpha: 0.7, ms: 220 },
+  weak: { scale: 5.5, alpha: 1, ms: 320 },
+} as const;
+const WEAK_SHAKE_MS = 150;
+const WEAK_SHAKE_INTENSITY = 0.002;
 
 /** Nhân vật của người chơi trong lần câu, dùng được cho mọi scene. */
 export interface FishingActor {
   play(anim: CharacterAnim): void;
   setHeadIcon(icon: HeadIcon): void;
+  /** Giật cần khi tap trúng minigame (strong = điểm yếu). */
+  tugRod?(strong: boolean): void;
+  /** Phao vẽ sẵn trong art cần; có thì không vẽ phao tròn đỏ riêng nữa. */
+  bobberPoint?(): { x: number; y: number } | null;
 }
 
 export class FishingFlow {
@@ -218,7 +230,8 @@ export class FishingFlow {
     this.castTimer = this.scene.time.delayedCall(CAST_ANIM_MS, () => {
       this.me.play('wait');
       const point = this.bobberPoint();
-      if (point) {
+      // Art cần đã vẽ dây và phao: không thêm phao tròn trùng chỗ.
+      if (point && !this.me.bobberPoint?.()) {
         this.bobber
           .setPosition(point.x, point.y)
           .setDepth(point.y)
@@ -243,6 +256,7 @@ export class FishingFlow {
       params: attempt.minigame,
       t0,
       onFinish: (outcome) => void this.submit(attempt.attemptId, outcome),
+      onTap: (kind) => this.onMinigameTap(kind),
     };
     this.introTimer = window.setTimeout(
       () => {
@@ -251,6 +265,30 @@ export class FishingFlow {
       },
       Math.max(0, t0 - performance.now()),
     );
+  }
+
+  /** Tap trúng: nhân vật giật cần, lóe sáng ở phao/dây câu; điểm yếu thì sáng mạnh hơn và rung màn. */
+  private onMinigameTap(kind: TapResult): void {
+    if (kind === 'miss') return;
+    const strong = kind === 'weak';
+    this.me.tugRod?.(strong);
+    if (strong) this.scene.cameras.main.shake(WEAK_SHAKE_MS, WEAK_SHAKE_INTENSITY);
+    const point = this.me.bobberPoint?.() ?? this.bobberPoint();
+    if (!point) return;
+    const look = LINE_FLASH[kind];
+    const flash = this.scene.add
+      .circle(point.x, point.y, BOBBER_RADIUS, 0xffffff)
+      .setBlendMode(Phaser.BlendModes.ADD)
+      .setDepth(point.y + 1)
+      .setAlpha(look.alpha);
+    this.scene.tweens.add({
+      targets: flash,
+      scale: look.scale,
+      alpha: 0,
+      duration: look.ms,
+      ease: 'Cubic.easeOut',
+      onComplete: () => flash.destroy(),
+    });
   }
 
   private clearIntro(): void {
@@ -319,6 +357,7 @@ export class FishingFlow {
     overlay.append(popup);
     animateIn(popup, 'pop');
     this.root.append(overlay);
+    burstConfetti(overlay);
     this.resultOpen = true;
 
     const openedAtMs = performance.now();

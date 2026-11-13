@@ -7,6 +7,7 @@ Mỗi việc phối hợp dùng một file trong work/, có phần GD, Web Clien
 | S01 / Scope & kế hoạch v1 | Luật còn mở | `client-v0/src/online/` đã đồng bộ lại theo contract vé-theo-thời-gian (không Tier ghế); typecheck/test/build sạch; chưa tích hợp Server thật, chưa Client review | Persistence/migration/readiness + outage test đạt; contract draft | Có plan/API draft; chưa React | [Chi tiết](work/S01-cap-nhat-scope-ke-hoach-v1.md) |
 | S02 / Login & tài khoản | Chờ review phiên chơi | Chờ review auth contract (BE C#); riêng app `client-v0/index.html` đã có đăng nhập Google thật chạy được, nhưng dùng server Node độc lập, không phải hệ BE C#/PostgreSQL mô tả ở đây | Đã chọn Firebase/Google; Facebook sau; session đề xuất, chưa code | Đề xuất quyền/MFA/lookup, chưa code | [Chi tiết](work/S02-login-quan-ly-tai-khoan.md) |
 | W02 / Art và map hồ | Chờ tiêu chí map thật | Prototype hồ có 10 chòi và 30 anchor; chờ kiểm tra scene Cocos và tích hợp | — | — | [Chi tiết](work/W02-art-map-ho.md) |
+| SOC-05 / Chat và emoji: Client | 16 emoji theo ảnh mẫu (đề xuất cũ 8) | Khung "Trò chuyện" + "Biểu cảm" theo ảnh mẫu, bong bóng/emoji trên đầu; đã test 2 tab với BE thật local (đăng nhập dev); chờ người dùng duyệt giao diện | DevBypass nhận query hub; `Social:Emojis` 16 | Không áp dụng | [Chi tiết](work/SOC-05-chat-emoji-client.md) |
 
 S01 đã nhận phần BE nền tảng/contract/môi trường; S02 chỉ nhận phần đề xuất login/tài khoản, chưa bắt đầu code. Các ID khác không mặc định đã được giao.
 

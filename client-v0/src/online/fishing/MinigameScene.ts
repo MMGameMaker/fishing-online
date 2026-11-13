@@ -4,7 +4,8 @@
 // Ảnh nguồn vẽ ở tỉ lệ 4 (mỗi điểm ảnh pixel art = 4×4 px), nên mọi toạ độ ảnh dưới đây chia hết cho 4.
 import Phaser from 'phaser';
 import { GAME_HEIGHT, GAME_WIDTH } from '../core/env';
-import type { FishingOutcome, MinigameParams } from '../net/contract';
+import type { Rarity } from '../core/gameplayConfig';
+import type { FishingOutcome, MinigameParams, TapResult } from '../net/contract';
 import {
   applyTap,
   createState,
@@ -21,6 +22,8 @@ export interface MinigameData {
   /** Mốc performance.now() tương ứng t = 0, đã bù nửa RTT. */
   t0: number;
   onFinish: (outcome: FishingOutcome) => void;
+  /** Mỗi tap được nhận: scene hồ kéo cần, lóe sáng chỗ dây câu (damage = số cm bị trừ). */
+  onTap?: (kind: TapResult, damage: number) => void;
 }
 
 const ASSET_DIR = '/mini game/';
@@ -68,7 +71,6 @@ const DOT_FIRST_X = 24;
 const DOT_STEP = 48;
 const DOT_Y = 28;
 const DOT_SIZE = 8;
-const PATH_COLOR = 'rgb(43,143,181)';
 
 // Đồng hồ (Timer.png 128×134): tâm vòng tròn ở (64, 64).
 const TIMER_CENTER = 64;
@@ -96,15 +98,41 @@ const DIGITS: Record<string, string[]> = {
 };
 
 const FLASH_MS = 250;
+/** Chữ bay lên sau mỗi tap: quãng bay (px khung 480×270) và thời gian. */
+const FLOAT_RISE_PX = 16;
+const FLOAT_MS = 750;
+/** Trượt: thanh đo nháy đỏ và rung ngang. */
+const MISS_SHAKE_MS = 300;
+const MISS_SHAKE_PX = 2;
+const MISS_RED = 0xff3b30;
+/** Điểm yếu: rung nhẹ cả màn minigame. */
+const WEAK_SHAKE_MS = 160;
+const WEAK_SHAKE_INTENSITY = 0.006;
+/** Cá trên thanh đường đi đung đưa như đang bơi. */
+const FISH_SWAY_DEG = 7;
+const FISH_SWAY_MS = 520;
+const FISH_BOB_PX = 1;
+/** Sóng nước trên thanh đường đi: vẽ lại mỗi WAVE_FRAME_MS, chạy hết một chu kỳ trong WAVE_PERIOD_MS. */
+const WAVE_FRAME_MS = 90;
+const WAVE_PERIOD_MS = 1600;
+const WATER_RGB = [43, 143, 181] as const;
+const WAVE_LIGHT = [72, 172, 206] as const;
+const WAVE_DARK = [34, 124, 162] as const;
+/** Đồng hồ nháy đỏ khi còn dưới mốc này. */
+const TIMER_WARN_MS = 3000;
+const TIMER_BLINK_MS = 220;
+const TIMER_WARN_TINT = 0xff7a70;
+/** Màu thân cá theo độ hiếm (thay màu kem của ảnh gốc); độ hiếm khác giữ nguyên ảnh. */
+const FISH_BODY_RGB = [255, 246, 204] as const;
+const RARITY_FISH_RGB: Partial<Record<Rarity, readonly [number, number, number]>> = {
+  epic: [196, 128, 255],
+  legendary: [255, 206, 64],
+};
 const FADE_IN_MS = 220;
 const FADE_OUT_MS = 180;
 /** Khi hiện, cụm minigame trồi lên từ thấp hơn bao nhiêu px (khung 480×270). */
 const FADE_RISE_PX = 6;
-const EFFECTS = {
-  normal: { text: 'Trúng!', color: '#7fe3ff' },
-  weak: { text: 'x2', color: '#f2c84b' },
-  miss: { text: 'Trượt!', color: '#ff6b5e' },
-} as const;
+const COLORS = { normal: '#ffffff', weak: '#ffd84a', miss: '#ff6b5e' } as const;
 
 const snap4 = (value: number) => Math.round(value / 4) * 4;
 
@@ -181,6 +209,14 @@ export class MinigameScene extends Phaser.Scene {
   private finished = false;
   private closing = false;
   private penaltyFlashUntil = 0;
+  private onTap: MinigameData['onTap'];
+  private rarity: Rarity | undefined;
+  private missShakeUntil = 0;
+  private waveDrawnAt = -Infinity;
+  private pathSrc!: ImageData;
+  private hitBar!: Phaser.GameObjects.Image;
+  private hitBarRed!: Phaser.GameObjects.Rectangle;
+  private timerImage!: Phaser.GameObjects.Image;
 
   private timerParts!: { full: ImageData; empty: ImageData };
   private hitBarSrc!: ImageData;
@@ -201,6 +237,10 @@ export class MinigameScene extends Phaser.Scene {
     this.round = createState(data.params);
     this.t0 = data.t0;
     this.onFinish = data.onFinish;
+    this.onTap = data.onTap;
+    this.rarity = data.params.rarity;
+    this.missShakeUntil = 0;
+    this.waveDrawnAt = -Infinity;
     this.finished = false;
     this.penaltyFlashUntil = 0;
     this.drawnTimer = '';
@@ -226,6 +266,7 @@ export class MinigameScene extends Phaser.Scene {
 
     this.timerParts = splitTimer(readPixels(this, SRC.timer.key));
     this.hitBarSrc = readPixels(this, SRC.hitBar.key);
+    this.pathSrc = readPixels(this, SRC.path.key);
     const timerSrc = sourceImage(this, SRC.timer.key) as HTMLImageElement;
     const pathSrc = sourceImage(this, SRC.path.key) as HTMLImageElement;
     canvasTexture(this, TEX.timer, timerSrc.width, timerSrc.height);
@@ -238,10 +279,11 @@ export class MinigameScene extends Phaser.Scene {
         .image(...at(x, y), key)
         .setOrigin(0)
         .setScale(SCALE);
-    place(TEX.timer, LAYOUT.timerX, LAYOUT.timerY);
+    this.timerImage = place(TEX.timer, LAYOUT.timerX, LAYOUT.timerY);
     place(TEX.path, 0, 0);
-    place(TEX.hitBar, 0, LAYOUT.hitBarY);
-    this.fish = place(SRC.fish.key, 0, LAYOUT.fishY);
+    this.hitBar = place(TEX.hitBar, 0, LAYOUT.hitBarY);
+    // Gốc giữa để cá xoay đung đưa quanh thân; update() đặt lại toạ độ theo HP.
+    this.fish = place(this.fishTexture(), 0, LAYOUT.fishY).setOrigin(0.5);
     this.needle = this.add
       .image(...at(0, LAYOUT.hitBarY + this.hitBarSrc.height / 2), SRC.needle.key)
       .setScale(SCALE);
@@ -257,6 +299,17 @@ export class MinigameScene extends Phaser.Scene {
       .text(...at(LAYOUT.fishRight, -2), '', { ...font, fontSize: '8px', color: '#ffffff' })
       .setOrigin(1, 1);
     this.effectText = this.add.text(...at(0, -2), '', { ...font, fontSize: '8px' }).setOrigin(0, 1);
+
+    // Thân cá lắc qua lại như đang bơi (feedback 2026-11-12).
+    this.fish.angle = -FISH_SWAY_DEG;
+    this.tweens.add({
+      targets: this.fish,
+      angle: FISH_SWAY_DEG,
+      duration: FISH_SWAY_MS,
+      yoyo: true,
+      repeat: -1,
+      ease: 'Sine.easeInOut',
+    });
 
     this.input.on('pointerdown', () => this.handleTap());
     // Nghe trên window vì game trong scene hồ cũ tắt bàn phím của Phaser.
@@ -278,7 +331,8 @@ export class MinigameScene extends Phaser.Scene {
     // Đặt alpha 0 ngay, không đợi tween chạy ở khung sau, để không chớp một khung hiện đủ.
     for (const child of this.children.list) (child as Phaser.GameObjects.Image).setAlpha(0);
     this.tweens.add({
-      targets: this.children.list,
+      // Chép danh sách: tween không được dính vật tạo sau (lớp đỏ khi trượt phải giữ alpha 0).
+      targets: [...this.children.list],
       alpha: 1,
       duration: FADE_IN_MS,
       ease: 'Cubic.easeOut',
@@ -289,6 +343,96 @@ export class MinigameScene extends Phaser.Scene {
       duration: FADE_IN_MS + 60,
       ease: 'Back.easeOut',
     });
+
+    // Lớp đỏ phủ lòng thanh đo khi trượt; tạo sau tween hiện dần để giữ alpha 0.
+    this.hitBarRed = this.add
+      .rectangle(
+        0,
+        ORIGIN_Y + (LAYOUT.hitBarY + HIT_INNER_TOP) * SCALE,
+        HIT_INNER_WIDTH * SCALE,
+        (HIT_INNER_BOTTOM - HIT_INNER_TOP) * SCALE,
+        MISS_RED,
+      )
+      .setOrigin(0)
+      .setAlpha(0);
+    this.needle.setDepth(1);
+  }
+
+  /** Ảnh cá theo độ hiếm: epic tím, legendary vàng (thay màu thân kem, giữ viền). */
+  private fishTexture(): string {
+    const rgb = this.rarity ? RARITY_FISH_RGB[this.rarity] : undefined;
+    if (!rgb) return SRC.fish.key;
+    const key = `${SRC.fish.key}-${this.rarity}`;
+    if (this.textures.exists(key)) return key;
+    const pixels = readPixels(this, SRC.fish.key);
+    for (let i = 0; i < pixels.data.length; i += 4) {
+      if (same(pixels.data, i, FISH_BODY_RGB)) pixels.data.set(rgb, i);
+    }
+    const texture = canvasTexture(this, key, pixels.width, pixels.height);
+    texture.putData(pixels, 0, 0);
+    texture.refresh();
+    return key;
+  }
+
+  /** Chữ nảy lên rồi bay lên và mờ dần tại (x, y) trong khung 480×270. */
+  private floatText(text: string, color: string, x: number, y: number, size = 8): void {
+    const label = this.add
+      .text(x, y, text, {
+        fontFamily: 'Courier New, monospace',
+        fontStyle: 'bold',
+        fontSize: `${size}px`,
+        color,
+        stroke: '#14364a',
+        strokeThickness: 2,
+        resolution: Math.max(2, Math.ceil(this.cameras.main.zoom)),
+      })
+      .setOrigin(0.5, 1)
+      .setDepth(2)
+      .setScale(0.4);
+    this.tweens.add({ targets: label, scale: 1, duration: 160, ease: 'Back.easeOut' });
+    this.tweens.add({
+      targets: label,
+      y: y - FLOAT_RISE_PX,
+      duration: FLOAT_MS,
+      ease: 'Cubic.easeOut',
+    });
+    this.tweens.add({
+      targets: label,
+      alpha: 0,
+      delay: FLOAT_MS * 0.55,
+      duration: FLOAT_MS * 0.45,
+      ease: 'Sine.easeIn',
+      onComplete: () => label.destroy(),
+    });
+  }
+
+  /** Hiệu ứng theo loại tap (feedback 2026-11-12). */
+  private playTapFx(kind: TapResult, damage: number): void {
+    const fishTop = this.fish.y - (this.fish.height * SCALE) / 2;
+    const barY = ORIGIN_Y + LAYOUT.hitBarY * SCALE;
+    if (kind === 'miss') {
+      const barCenter = ORIGIN_X + (HIT_INNER_LEFT + HIT_INNER_WIDTH / 2) * SCALE;
+      this.floatText('Trượt', COLORS.miss, barCenter, barY - 1);
+      this.missShakeUntil = performance.now() + MISS_SHAKE_MS;
+      this.tweens.killTweensOf(this.hitBarRed);
+      this.hitBarRed.setAlpha(0);
+      // Nháy đỏ hai lần.
+      this.tweens.add({
+        targets: this.hitBarRed,
+        alpha: 0.55,
+        duration: MISS_SHAKE_MS / 4,
+        yoyo: true,
+        repeat: 1,
+        ease: 'Sine.easeInOut',
+      });
+      return;
+    }
+    // Đặt cao hơn nhãn quãng đường còn lại (ngay trên đầu thanh) để không đè chữ.
+    this.floatText(`-${damage}cm`, COLORS[kind], this.fish.x, fishTop - 8);
+    if (kind === 'weak') {
+      this.floatText('Điểm yếu!', COLORS.weak, this.fish.x, fishTop - 18, 10);
+      this.cameras.main.shake(WEAK_SHAKE_MS, WEAK_SHAKE_INTENSITY);
+    }
   }
 
   /** Mờ dần rồi dừng scene; nếu ván mới bắt đầu trước khi xong (scene khởi động lại) thì bỏ qua. */
@@ -315,10 +459,11 @@ export class MinigameScene extends Phaser.Scene {
     const state = this.round;
     const outcome = applyTap(state, state.tapSeq + 1, this.elapsed());
     if (!outcome.accepted) return;
+    const damage = Math.max(0, state.hp - outcome.state.hp);
     this.round = outcome.state;
-    const effect = EFFECTS[outcome.kind];
-    this.effectText.setText(effect.text).setColor(effect.color);
     if (outcome.kind === 'miss') this.penaltyFlashUntil = performance.now() + FLASH_MS;
+    this.playTapFx(outcome.kind, damage);
+    this.onTap?.(outcome.kind, damage);
     if (outcome.state.won) this.finish('success');
   }
 
@@ -334,8 +479,16 @@ export class MinigameScene extends Phaser.Scene {
     const t = this.elapsed();
     if (!this.finished && isLost(state, t)) this.finish('failed');
 
+    const now = performance.now();
     const remaining = Math.max(0, remainingMs(state, t));
-    const flashing = performance.now() < this.penaltyFlashUntil;
+    // Sắp hết giờ: số và mặt đồng hồ nháy đỏ (feedback 2026-11-12).
+    const warning =
+      !this.finished && remaining > 0 && remaining <= TIMER_WARN_MS
+        ? Math.floor(now / TIMER_BLINK_MS) % 2 === 0
+        : false;
+    const flashing = now < this.penaltyFlashUntil || warning;
+    if (warning) this.timerImage.setTint(TIMER_WARN_TINT);
+    else this.timerImage.clearTint();
     const hp = Math.max(0, state.hp);
     const hpRatio = Phaser.Math.Clamp(hp / params.fishHp, 0, 1);
     this.distanceText.setText(`${hp}cm`);
@@ -348,11 +501,23 @@ export class MinigameScene extends Phaser.Scene {
     const fishLeft = snap4(
       HIT_INNER_LEFT + (LAYOUT.fishRight - fishWidth - HIT_INNER_LEFT) * hpRatio,
     );
-    this.fish.x = ORIGIN_X + fishLeft * SCALE;
-    this.drawPath(Math.min(DOT_COUNT, Math.floor((fishLeft - DOT_FIRST_X) / DOT_STEP) + 1));
+    this.fish.x = ORIGIN_X + (fishLeft + fishWidth / 2) * SCALE;
+    this.fish.y =
+      ORIGIN_Y +
+      (LAYOUT.fishY + this.fish.height / 2) * SCALE +
+      Math.round(Math.sin((now / FISH_SWAY_MS) * Math.PI) * FISH_BOB_PX);
+    this.drawPath(Math.min(DOT_COUNT, Math.floor((fishLeft - DOT_FIRST_X) / DOT_STEP) + 1), now);
 
+    // Trượt: cả thanh đo và kim rung ngang, nhỏ dần.
+    const shakeLeft = this.missShakeUntil - now;
+    const shake =
+      shakeLeft > 0
+        ? Math.round(Math.sin(now / 18) * MISS_SHAKE_PX * (shakeLeft / MISS_SHAKE_MS))
+        : 0;
+    this.hitBar.x = ORIGIN_X + shake;
+    this.hitBarRed.x = ORIGIN_X + HIT_INNER_LEFT * SCALE + shake;
     const needleX = HIT_INNER_LEFT + needlePos(t, params.needlePassMs) * HIT_INNER_WIDTH;
-    this.needle.x = ORIGIN_X + needleX * SCALE;
+    this.needle.x = ORIGIN_X + needleX * SCALE + shake;
   }
 
   /** Đồng hồ: phần xanh là thời gian còn lại, phần xám là đã trôi (tính từ đỉnh, theo chiều kim đồng hồ). */
@@ -434,18 +599,47 @@ export class MinigameScene extends Phaser.Scene {
     texture.refresh();
   }
 
-  /** Thanh đường đi: giữ visible chấm đầu tiên, che các chấm còn lại bằng màu nền thanh. */
-  private drawPath(visible: number): void {
-    if (visible === this.drawnDots) return;
+  /**
+   * Thanh đường đi: nền nước có sóng chạy (vẽ lại theo nhịp WAVE_FRAME_MS), giữ visible chấm đầu tiên,
+   * các chấm còn lại thành nước. Tô theo ô 4×4 để giữ nét pixel art.
+   */
+  private drawPath(visible: number, now: number): void {
+    const due = now - this.waveDrawnAt >= WAVE_FRAME_MS;
+    if (visible === this.drawnDots && !due) return;
     this.drawnDots = visible;
-    const texture = this.textures.get(TEX.path) as Phaser.Textures.CanvasTexture;
-    const ctx = texture.getContext();
-    ctx.clearRect(0, 0, texture.width, texture.height);
-    ctx.drawImage(sourceImage(this, SRC.path.key), 0, 0);
-    ctx.fillStyle = PATH_COLOR;
-    for (let i = Math.max(0, visible); i < DOT_COUNT; i++) {
-      ctx.fillRect(DOT_FIRST_X + i * DOT_STEP, DOT_Y, DOT_SIZE, DOT_SIZE);
+    if (due) this.waveDrawnAt = now;
+
+    const src = this.pathSrc;
+    const { width, height } = src;
+    const out = new ImageData(new Uint8ClampedArray(src.data), width, height);
+    const hidden = (x: number, y: number): boolean => {
+      if (y < DOT_Y || y >= DOT_Y + DOT_SIZE || x < DOT_FIRST_X) return false;
+      const i = Math.floor((x - DOT_FIRST_X) / DOT_STEP);
+      return (
+        i >= Math.max(0, visible) && i < DOT_COUNT && x - DOT_FIRST_X - i * DOT_STEP < DOT_SIZE
+      );
+    };
+    const phase = ((now % WAVE_PERIOD_MS) / WAVE_PERIOD_MS) * Math.PI * 2;
+    for (let by = 0; by < height; by += 4) {
+      for (let bx = 0; bx < width; bx += 4) {
+        const i = (by * width + bx) * 4;
+        if (!same(src.data, i, WATER_RGB) && !hidden(bx, by)) continue;
+        // Hai lớp gợn ngược pha: gợn sáng phía trên, gợn tối phía dưới, cùng trôi ngang.
+        const crest = 20 + 6 * Math.sin(bx / 36 + phase);
+        const trough = 48 + 5 * Math.sin(bx / 52 - phase * 1.3 + 1.7);
+        let rgb: readonly number[] = WATER_RGB;
+        if (Math.abs(by - crest) < 4) rgb = WAVE_LIGHT;
+        else if (Math.abs(by - trough) < 4) rgb = WAVE_DARK;
+        for (let y = by; y < Math.min(by + 4, height); y++) {
+          for (let x = bx; x < Math.min(bx + 4, width); x++) {
+            const j = (y * width + x) * 4;
+            if (same(src.data, j, WATER_RGB) || hidden(x, y)) out.data.set([...rgb, 255], j);
+          }
+        }
+      }
     }
+    const texture = this.textures.get(TEX.path) as Phaser.Textures.CanvasTexture;
+    texture.putData(out, 0, 0);
     texture.refresh();
   }
 }

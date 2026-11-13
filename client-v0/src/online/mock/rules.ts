@@ -129,5 +129,6 @@ export function minigameParams(
     missPenaltyMs: row.missPenaltyMs,
     fishHp: fish.hp,
     atk: stats.strength,
+    rarity: fish.rarity,
   };
 }

@@ -42,6 +42,16 @@ const ANIM_FPS: Record<string, number> = {
   'water-animations/riverCurve': 7,
 };
 const DEFAULT_FPS = 6;
+/** Viền trắng quanh ghế ngồi được: 4 bản sao trắng lệch 1px phía sau ghế. */
+const OUTLINE_OFFSETS: readonly [number, number][] = [
+  [-1, 0],
+  [1, 0],
+  [0, -1],
+  [0, 1],
+];
+const OUTLINE_FADE_MS = 140;
+/** Điểm ngồi nằm ngay dưới đáy ghế đẩu (lakemap: y = đáy + 2). */
+const SEAT_BELOW_STOOL_PX = 4;
 
 interface AtlasJson {
   animations?: Record<string, string[]>;
@@ -51,6 +61,11 @@ interface AtlasJson {
 export const PIER_LAKE_MAP: LakeMap = MAP.lake;
 
 export class PierArt implements LakeMapArt {
+  readonly drawsSeats = true;
+  private scene: Phaser.Scene | null = null;
+  private readonly outlines = new Map<string, Phaser.GameObjects.Image[]>();
+  private highlighted: string | null = null;
+
   preload(scene: Phaser.Scene): void {
     for (const [key, file] of Object.entries(PIER_SHEETS)) {
       if (scene.textures.exists(key)) continue;
@@ -60,13 +75,63 @@ export class PierArt implements LakeMapArt {
   }
 
   create(scene: Phaser.Scene): void {
+    this.scene = scene;
+    this.outlines.clear();
+    this.highlighted = null;
     this.createAnims(scene);
     this.createGround(scene);
     this.createMapShadows(scene);
     this.createPillarFlows(scene);
     this.createRipples(scene);
     this.createObjects(scene);
+    this.createSeatOutlines(scene);
     this.fitCamera(scene);
+  }
+
+  /** Viền trắng ghế đang ngồi được; đổi ghế thì viền cũ mờ đi, viền mới hiện dần. */
+  highlightSeat(seatId: string | null): void {
+    if (seatId === this.highlighted || !this.scene) return;
+    const fade = (seat: string | null, alpha: number): void => {
+      const parts = seat ? this.outlines.get(seat) : undefined;
+      if (!parts) return;
+      this.scene!.tweens.killTweensOf(parts);
+      this.scene!.tweens.add({
+        targets: parts,
+        alpha,
+        duration: OUTLINE_FADE_MS,
+        ease: 'Sine.easeOut',
+      });
+    };
+    fade(this.highlighted, 0);
+    fade(seatId, 1);
+    this.highlighted = seatId;
+  }
+
+  /** Mỗi ghế câu gắn với ghế đẩu chứa điểm ngồi; dựng sẵn viền ẩn (alpha 0). */
+  private createSeatOutlines(scene: Phaser.Scene): void {
+    const stools = MAP.objects.filter((o) => o.frame === 'main-objects/stool');
+    for (const seat of MAP.lake.seats) {
+      const stool = stools.find(
+        (o) =>
+          seat.x >= o.x &&
+          seat.x <= o.x + o.w &&
+          seat.y >= o.y &&
+          seat.y <= (o.by ?? o.y + o.h) + SEAT_BELOW_STOOL_PX,
+      );
+      if (!stool) continue;
+      const depth = depthOf(stool) - 0.5;
+      this.outlines.set(
+        seat.seatId,
+        OUTLINE_OFFSETS.map(([dx, dy]) =>
+          scene.add
+            .image(stool.x + dx, stool.y + dy, stool.sheet, stool.frame)
+            .setOrigin(0)
+            .setTintFill(0xffffff)
+            .setDepth(depth)
+            .setAlpha(0),
+        ),
+      );
+    }
   }
 
   /** Canvas phủ kín cửa sổ: phóng camera để thấy khoảng VIEW_HEIGHT px map, không lộ ngoài map. */

@@ -45,8 +45,8 @@ SILHOUETTE_BODY = 'brown'  # dùng để che phần cần nằm sau lưng khi qu
 
 FEET = (23, 53)  # toạ độ chân trong khung gốc
 # Khung ghép: chân ở giữa theo chiều ngang; đủ chỗ cho dây câu dài nhất phía trước mặt.
-W, H = 80, 112
-PIVOT = (W // 2, 48)
+W, H = 120, 140
+PIVOT = (W // 2, 76)
 OFFSET = (PIVOT[0] - FEET[0], PIVOT[1] - FEET[1])
 
 DIRS = {
@@ -56,6 +56,21 @@ DIRS = {
     'right': ('side', 2, False),
     'left': ('side', 2, True),
 }
+
+# Khung cần (28×110 trước, 64×72 ngang) khác khung thân 48×64 nên đặt trùng góc trái trên thì tay cầm
+# rơi xuống cạnh chân. Khi ngồi câu, dời cần để cuộn dây/tay cầm nằm trong tay thỏ (feedback 2026-11-12).
+# Giá trị cho hướng 'right'; 'left' là ảnh lật nên dùng dx ngược dấu.
+SIT_ROD_OFFSET = {'down': (6, -8), 'right': (11, -9), 'up': (10, -10)}
+
+
+def rod_offset(dir_name: str, body_index: int | str) -> tuple[int, int]:
+    if body_index != SIT:
+        return 0, 0
+    if dir_name == 'left':
+        dx, dy = SIT_ROD_OFFSET['right']
+        return -dx, dy
+    return SIT_ROD_OFFSET[dir_name]
+
 
 # Mỗi animation: danh sách (frame thân, frame cần 1-20 hoặc None, dx, dy), fps, lặp.
 # Frame thân: số 0-9 là chu kỳ đi bộ (0 = đứng), SIT là tư thế ngồi ghế (sit_down/side/up).
@@ -167,6 +182,19 @@ def write_sheet(path: Path, frames: dict[str, np.ndarray], extra: dict) -> None:
     print(path.relative_to(ROOT), f'{len(frames)} frame, {len(tiles)} ô riêng, {sheet.shape[1]}×{sheet.shape[0]}')
 
 
+def bobber_offsets(frames: dict[str, np.ndarray]) -> dict[str, dict[str, int]] | None:
+    """Vị trí phao (điểm hồng/đỏ) so với chân trong frame chờ cá, theo từng hướng; dùng cho FX dây câu."""
+    out = {}
+    for dir_name in DIRS:
+        t = frames[f'wait_{dir_name}_0'].astype(int)
+        mask = (t[:, :, 3] > 0) & (t[:, :, 0] > 200) & (t[:, :, 1] < 150)
+        ys, xs = np.nonzero(mask)
+        if len(xs) == 0:
+            return None
+        out[dir_name] = {'x': int(round(xs.mean())) - PIVOT[0], 'y': int(round(ys.mean())) - PIVOT[1]}
+    return out
+
+
 def main() -> None:
     atlas = Atlas()
     anim_meta = {name: {'frames': len(seq), 'rate': rate, 'loop': loop} for name, (seq, rate, loop) in ANIMS.items()}
@@ -187,6 +215,7 @@ def main() -> None:
                     frames[f'{anim}_{dir_name}_{i}'] = canvas
         write_sheet(OUT_SKIN / skin_id, frames, extra)
 
+    first_bobber = None
     for rod_id, (prefix, *dir_names) in RODS.items():
         frames = {}
         for dir_name, (body_dir, rod_index, flip) in DIRS.items():
@@ -195,14 +224,18 @@ def main() -> None:
                 for i, (bi, ri, dx, dy) in enumerate(seq):
                     canvas = blank()
                     if ri is not None:
-                        place(canvas, atlas.get(names[ri - 1]), dx, dy, flip)
+                        rdx, rdy = rod_offset(dir_name, bi)
+                        place(canvas, atlas.get(names[ri - 1]), dx + rdx, dy + rdy, flip)
                         if dir_name == 'up':
                             # Quay lưng: cần nằm sau thân, xoá phần bị thân che.
                             mask = blank()
                             place(mask, atlas.get(body_frame(SILHOUETTE_BODY, 'up', bi)), dx, dy, flip)
                             canvas[mask[:, :, 3] > 0] = 0
                     frames[f'{anim}_{dir_name}_{i}'] = canvas
-        write_sheet(OUT_ROD / rod_id, frames, extra)
+        # Cần có phao khác màu thì dùng vị trí phao của cần đầu tiên (cùng dáng dây).
+        bobber = bobber_offsets(frames) or first_bobber
+        first_bobber = first_bobber or bobber
+        write_sheet(OUT_ROD / rod_id, frames, {**extra, 'bobber': bobber} if bobber else extra)
 
 
 if __name__ == '__main__':

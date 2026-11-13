@@ -19,6 +19,8 @@ export interface ApiClientOptions {
   retryDelayMs?: number;
   uuid?: () => string;
   sleep?: (ms: number) => Promise<void>;
+  /** Chỉ dev local: player id test gửi qua header X-Dev-Player (Server Development + Auth:DevBypass). */
+  devPlayerId?: string;
 }
 
 export class ApiError extends Error {
@@ -64,6 +66,11 @@ export class ApiClient {
 
   getAccessToken(): string | null {
     return this.accessToken;
+  }
+
+  /** Đang đăng nhập dev (không qua Google/Firebase). */
+  get devPlayerId(): string | null {
+    return this.options.devPlayerId ?? null;
   }
 
   get<T>(path: string): Promise<T> {
@@ -125,6 +132,7 @@ export class ApiClient {
     const headers: Record<string, string> = { Accept: 'application/json' };
     if (body !== undefined) headers['Content-Type'] = 'application/json';
     if (this.accessToken) headers.Authorization = `Bearer ${this.accessToken}`;
+    if (this.options.devPlayerId) headers['X-Dev-Player'] = this.options.devPlayerId;
     if (idempotencyKey) headers['Idempotency-Key'] = idempotencyKey;
 
     const response = await this.fetchWithTimeout(`${this.options.baseUrl}${API_PREFIX}${path}`, {

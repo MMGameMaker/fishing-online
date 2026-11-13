@@ -18,6 +18,8 @@ public static class IdentityModule
     public const string SelectorScheme = "PlayerAuth";
     private const string DevScheme = "DevBypass";
     private const string DevHeader = "X-Dev-Player";
+    /// <summary>WebSocket trên trình duyệt không gửi được header tuỳ ý nên hub nhận thêm query này (chỉ khi DevBypass).</summary>
+    private const string DevQuery = "dev_player";
     private const string RefreshCookie = "fo_refresh";
     private const string RefreshCookiePath = "/api/v1/auth";
     private const string HubPath = "/hubs/game";
@@ -40,7 +42,7 @@ public static class IdentityModule
                 var bypass = context.RequestServices.GetRequiredService<IOptions<AuthOptions>>().Value.DevBypass;
                 return bypass
                     && context.RequestServices.GetRequiredService<IHostEnvironment>().IsDevelopment()
-                    && context.Request.Headers.ContainsKey(DevHeader)
+                    && DevPlayerValue(context.Request) is not null
                     ? DevScheme
                     : JwtBearerDefaults.AuthenticationScheme;
             })
@@ -123,6 +125,16 @@ public static class IdentityModule
         Expires = expires,
     };
 
+    /// <summary>Player id test từ header X-Dev-Player, hoặc query dev_player cho hub (Development + DevBypass).</summary>
+    private static string? DevPlayerValue(HttpRequest request)
+    {
+        if (request.Headers.TryGetValue(DevHeader, out var header) && !string.IsNullOrEmpty(header)) return header.ToString();
+        if (request.Path.StartsWithSegments(HubPath)
+            && request.Query.TryGetValue(DevQuery, out var query)
+            && !string.IsNullOrEmpty(query)) return query.ToString();
+        return null;
+    }
+
     /// <summary>Chỉ dùng cho test tự động trong Development khi bật <c>Auth:DevBypass</c>.</summary>
     private sealed class DevBypassHandler(
         IOptionsMonitor<AuthenticationSchemeOptions> options,
@@ -133,7 +145,7 @@ public static class IdentityModule
     {
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-            if (!Guid.TryParse(Request.Headers[DevHeader], out var playerId)) return AuthenticateResult.Fail("Invalid dev player.");
+            if (!Guid.TryParse(DevPlayerValue(Request), out var playerId)) return AuthenticateResult.Fail("Invalid dev player.");
 
             var service = Context.RequestServices.GetService<AuthService>();
             var accountId = service is null ? playerId : await cache.GetOrCreateAsync(playerId, service, Context.RequestAborted);

@@ -27,6 +27,8 @@ export interface BakedCharacterData {
   animations?: Record<string, BakedAnimation>;
   /** Khoảng cách từ chân tới đỉnh tai, pixel. */
   headTop?: number;
+  /** Chỉ có ở sheet cần: vị trí phao so với chân khi chờ cá, theo hướng. */
+  bobber?: Record<string, { x: number; y: number }>;
 }
 
 /** Gọi trong preload của scene khởi động. */

@@ -21,6 +21,12 @@ public sealed record MinigameParams(
     DateTimeOffset DeadlineAt)
 {
     /// <summary>
+    /// Độ hiếm của cá đã cắn câu (chữ thường, vd. "epic"). Client chỉ dùng để tô màu icon cá trên
+    /// thanh đường đi (feedback 2026-11-12); Server đã chọn loài lúc thu cần nên không lộ thêm gì.
+    /// </summary>
+    public string Rarity { get; init; } = "";
+
+    /// <summary>
     /// Kích thước vùng = gốc × (1 + Hit Zone Increase / 100); vùng vàng không rộng hơn vùng xanh.
     /// Minigame bắt đầu sau <see cref="MinigameConfig.IntroMs"/> kể từ lúc thu cần, nên hạn cũng lùi theo.
     /// </summary>
@@ -46,6 +52,9 @@ public sealed record MinigameParams(
             row.MissPenaltyMs,
             fish.Hp,
             stats.Strength,
-            startedAt.AddMilliseconds(row.DurationMs + config.ResultGraceMs));
+            startedAt.AddMilliseconds(row.DurationMs + config.ResultGraceMs))
+        {
+            Rarity = fish.Rarity.ToString().ToLowerInvariant(),
+        };
     }
 }

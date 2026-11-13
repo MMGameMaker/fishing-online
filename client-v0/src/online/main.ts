@@ -5,6 +5,7 @@ import { GAME_HEIGHT, GAME_WIDTH } from './core/env';
 import { createServices, setServices } from './core/services';
 import './scenes/lake/lake.css';
 import './fishing/fishing.css';
+import './social/social.css';
 import { CharacterDebugScene } from './entities/CharacterDebugScene';
 import { MinigameScene } from './fishing/MinigameScene';
 import { LakeScene } from './scenes/lake/LakeScene';

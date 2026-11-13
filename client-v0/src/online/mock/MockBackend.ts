@@ -578,7 +578,9 @@ export class MockBackend {
         this.emit('ChatReceived', {
           messageId: this.nextId('msg'),
           playerId: MY_ID,
-          text: String(args.text ?? ''),
+          displayName: this.displayName,
+          text: String(args.text ?? '').trim(),
+          sentAt: this.iso(this.nowMs),
         });
         return null;
       case 'SendEmoji':

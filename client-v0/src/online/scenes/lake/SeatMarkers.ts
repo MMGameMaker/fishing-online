@@ -24,7 +24,7 @@ export class SeatMarkers {
     seats: LakeSeat[],
     private readonly store: Store,
     onSeatPressed: (seat: LakeSeat) => void,
-    options: { depth?: number; offsetY?: number; hitSize?: number } = {},
+    options: { depth?: number; offsetY?: number; hitSize?: number; hidden?: boolean } = {},
   ) {
     const depth = options.depth ?? MARKER_DEPTH;
     const offsetY = options.offsetY ?? DEFAULT_OFFSET_Y;
@@ -37,6 +37,11 @@ export class SeatMarkers {
       // Không vẽ tên người ngồi dưới số ghế: nhân vật đã có tên trên đầu (feedback 2026-11-12).
       rect.setDepth(depth);
       number.setDepth(depth + 1);
+      // Map đã vẽ ghế thật (pier): không vẽ ô màu dưới ghế, chỉ giữ vùng chạm (feedback 2026-11-12).
+      if (options.hidden) {
+        rect.setVisible(false);
+        number.setVisible(false);
+      }
       const zone = scene.add
         .zone(seat.x, y, hitSize, hitSize)
         .setInteractive({ cursor: 'pointer' });

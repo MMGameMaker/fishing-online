@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import type { Rarity } from '../core/gameplayConfig';
 import type { Direction } from '../net/contract';
+import { EMOTE_TEXTURE, emojiById, emoteAnimKey } from '../social/emojis';
 import { RARITY_COLORS } from '../ui/kit/format';
 import { bakedData } from './characterArt';
 import { animKey, ensureRod, ensureSkin, frameName, type CharacterAnim } from './placeholderArt';
@@ -30,6 +31,20 @@ const NAME_COLOR = '#ffffff';
 const MY_NAME_COLOR = '#ffd84a';
 const ICON_GAP = 21;
 const TEXT_ICONS = { bite: '!', sad: ':(' } as const;
+/** Icon buồn khi câu hụt dùng emoji động "sad" (feedback 2026-11-12); thiếu sheet thì hiện ":(". */
+const SAD_EMOTE_ART = 'sad';
+/** Kéo cần mỗi lần tap trúng trong minigame: nhấc lớp cần lên vài px rồi hạ lại. */
+const TUG_PX = 2;
+const TUG_STRONG_PX = 3;
+const TUG_MS = 70;
+/** Emoji động trên đầu (frame 39px) thu về cỡ đầu thỏ. */
+const EMOTE_SCALE = 0.6;
+/** Bong bóng lời nói khi chat: hiện bao lâu, rộng tối đa, khoảng cách trên nhãn tên. */
+const SAY_MS = 4000;
+const SAY_WRAP_PX = 110;
+const SAY_GAP = 12;
+const POP_IN_MS = 200;
+const FADE_OUT_MS = 160;
 /** Dấu ! khi cá cắn lắc trái phải (feedback 2026-11-11). */
 const BITE_SHAKE_PX = 3;
 const BITE_SHAKE_MS = 70;
@@ -41,6 +56,8 @@ export class CharacterView {
   private readonly rod: Phaser.GameObjects.Sprite;
   private readonly iconSlot: Phaser.GameObjects.Container;
   private readonly label: Phaser.GameObjects.Text;
+  private readonly bubble: Phaser.GameObjects.Text;
+  private bubbleTimer: Phaser.Time.TimerEvent | null = null;
   private skinId: string;
   private rodId: string;
   private dir: Direction;
@@ -70,10 +87,24 @@ export class CharacterView {
       })
       .setOrigin(0.5, 1);
     this.iconSlot = scene.add.container(0, 0);
+    this.bubble = scene.add
+      .text(0, 0, '', {
+        fontFamily: 'monospace',
+        fontSize: '8px',
+        color: '#3a1d0e',
+        backgroundColor: '#fffaf0',
+        padding: { x: 4, y: 3 },
+        align: 'center',
+        wordWrap: { width: SAY_WRAP_PX, useAdvancedWrap: true },
+      })
+      .setOrigin(0.5, 1)
+      .setAlpha(0)
+      .setVisible(false);
     this.container = scene.add.container(options.x, options.y, [
       this.body,
       this.rod,
       this.label,
+      this.bubble,
       this.iconSlot,
     ]);
     this.container.setDepth(options.y);
@@ -150,7 +181,15 @@ export class CharacterView {
       this.iconSlot.add(this.scene.add.ellipse(0, 0, 14, 8, color));
       return;
     }
-    const text = icon.type === 'emoji' ? icon.emojiId : TEXT_ICONS[icon.type];
+    if (icon.type === 'emoji') {
+      this.showEmote(icon.emojiId);
+      return;
+    }
+    if (icon.type === 'sad' && this.scene.anims.exists(emoteAnimKey(SAD_EMOTE_ART))) {
+      this.showEmoteArt(SAD_EMOTE_ART);
+      return;
+    }
+    const text = TEXT_ICONS[icon.type];
     const label = this.scene.add
       .text(0, 0, text, {
         fontFamily: 'monospace',
@@ -175,9 +214,103 @@ export class CharacterView {
     }
   }
 
+  /** Vị trí phao vẽ trong art cần (thế giới); null nếu cần chưa có art bake. */
+  bobberPoint(): { x: number; y: number } | null {
+    const offset = bakedData(this.scene, this.rodId).bobber?.[this.dir];
+    return offset ? { x: this.x + offset.x, y: this.y + offset.y } : null;
+  }
+
+  /** Giật cần lên một chút (tap trúng minigame); strong = điểm yếu, giật mạnh hơn. */
+  tugRod(strong = false): void {
+    this.scene.tweens.killTweensOf(this.rod);
+    this.rod.y = 0;
+    this.scene.tweens.add({
+      targets: this.rod,
+      y: -(strong ? TUG_STRONG_PX : TUG_PX),
+      duration: TUG_MS,
+      yoyo: true,
+      ease: 'Quad.easeOut',
+      onComplete: () => (this.rod.y = 0),
+    });
+  }
+
+  /** Bong bóng lời nói trên đầu khi người này chat: nảy lên, giữ SAY_MS rồi mờ dần. */
+  say(text: string): void {
+    this.bubbleTimer?.remove();
+    this.scene.tweens.killTweensOf(this.bubble);
+    this.bubble.setText(text).setVisible(true).setAlpha(0).setScale(0.5);
+    this.scene.tweens.add({
+      targets: this.bubble,
+      alpha: 1,
+      scale: 1,
+      duration: POP_IN_MS,
+      ease: 'Back.easeOut',
+    });
+    this.bubbleTimer = this.scene.time.delayedCall(SAY_MS, () => {
+      this.scene.tweens.add({
+        targets: this.bubble,
+        alpha: 0,
+        scale: 0.8,
+        duration: FADE_OUT_MS,
+        ease: 'Sine.easeIn',
+        onComplete: () => this.bubble.setVisible(false),
+      });
+    });
+  }
+
   destroy(): void {
+    this.bubbleTimer?.remove();
     this.scene.tweens.killTweensOf(this.iconSlot.list);
+    this.scene.tweens.killTweensOf(this.bubble);
+    this.scene.tweens.killTweensOf(this.rod);
     this.container.destroy(true);
+  }
+
+  /** Ẩn emoji trên đầu có hiệu ứng thu nhỏ; icon khác (cá, buồn, !) thì để nguyên. */
+  clearEmote(): void {
+    const sprites = this.iconSlot.list.filter(
+      (child): child is Phaser.GameObjects.Sprite =>
+        child instanceof Phaser.GameObjects.Sprite && child.texture.key === EMOTE_TEXTURE,
+    );
+    for (const sprite of sprites) {
+      this.scene.tweens.add({
+        targets: sprite,
+        scale: 0,
+        duration: FADE_OUT_MS,
+        ease: 'Sine.easeIn',
+        onComplete: () => sprite.destroy(),
+      });
+    }
+  }
+
+  /** Emoji động trên đầu; chưa nạp được sheet emoji thì hiện mã emoji bằng chữ. */
+  private showEmote(emojiId: string): void {
+    const emoji = emojiById(emojiId);
+    if (!emoji || !this.scene.anims.exists(emoteAnimKey(emoji.art))) {
+      this.iconSlot.add(
+        this.scene.add
+          .text(0, 0, emojiId, { fontFamily: 'monospace', fontSize: '8px', color: '#ffffff' })
+          .setOrigin(0.5),
+      );
+      return;
+    }
+    this.showEmoteArt(emoji.art);
+  }
+
+  /** Emoji động (đã có animation) nảy lên trên đầu. */
+  private showEmoteArt(art: string): void {
+    const sprite = this.scene.add
+      .sprite(0, 0, EMOTE_TEXTURE)
+      .setOrigin(0.5)
+      .setScale(0)
+      .play(emoteAnimKey(art));
+    this.iconSlot.add(sprite);
+    this.scene.tweens.add({
+      targets: sprite,
+      scale: EMOTE_SCALE,
+      duration: POP_IN_MS,
+      ease: 'Back.easeOut',
+    });
   }
 
   /** Nhãn tên và icon đặt theo chiều cao skin (thỏ có tai cao hơn sprite vẽ tạm). */
@@ -185,6 +318,7 @@ export class CharacterView {
     const headTop = bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP;
     this.label.y = -(headTop + LABEL_GAP);
     this.iconSlot.y = -(headTop + ICON_GAP);
+    this.bubble.y = -(headTop + LABEL_GAP + SAY_GAP);
   }
 
   private applyAnimation(): void {

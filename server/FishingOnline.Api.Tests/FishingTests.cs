@@ -134,7 +134,8 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
         var update = await player.WaitForAsync("AttemptUpdate", item => item.GetProperty("phase").GetString() == "minigame");
         Assert.Equal(attemptId, update.GetProperty("attemptId").GetGuid());
         var minigame = update.GetProperty("minigame");
-        Assert.Equal(12, minigame.EnumerateObject().Count());
+        Assert.Equal(13, minigame.EnumerateObject().Count());
+        Assert.False(string.IsNullOrEmpty(minigame.GetProperty("rarity").GetString()));
         Assert.DoesNotContain(watcher.Received, item => item.Name == "AttemptUpdate");
         Assert.NotNull((await RowAsync(attemptId)).Seed);
     }

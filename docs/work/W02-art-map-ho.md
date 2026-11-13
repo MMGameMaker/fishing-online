@@ -97,3 +97,27 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
   - BE chỉ có **một phòng hồ**: người chơi `fishing.html` (map hồ) và `pier.html` (map pier) chung phòng và chung `seat-xx`. Họ thấy nhau ở toạ độ của map kia, và ghế cùng số trên hai map chặn nhau. Muốn hai map chạy song song cần BE tách phòng theo mapId.
   - BE không kiểm tra vùng đi được (theo thiết kế hiện tại). Va chạm chỉ ở client.
   - Chưa chạy trình duyệt với BE thật vì cần người dùng đăng nhập Google. Luồng client giống mock đã kiểm tra.
+
+## Web Client — Chỉ ghế đẩu câu được, phím gợi ý F (pier.html)
+
+- **Quyết định người dùng 2026-11-12:** Chỉ ghế đẩu là ghế câu. Ghế băng chỉ trang trí, vẫn chặn đường. Map pier còn **16 ghế** (`seat-01..16`), không vượt 20 ghế mặc định của Server, nên chạy BE thật không cần `Lake__SeatCount` nữa.
+- **Phím gợi ý F:** [SeatPrompt.ts](../../client-v0/src/online/scenes/lake/SeatPrompt.ts) vẽ keycap "F" bên trái đầu nhân vật, ngang tai, dưới nhãn tên. Chỉ hiện khi đang đứng (chưa giữ ghế), không bận câu và có ghế trống trong tầm 64px. Hiện có easing nảy (`Back.easeOut` 220ms), ẩn thu nhỏ + mờ (`Sine.easeIn`, 160ms = `MOTION_OUT_MS`). Chạm vào phím (điện thoại) cũng ngồi. Phím F ngồi vào ghế trống gần nhất (`nearestSeat` trong seatLogic.ts, có test).
+- **Kiểm tra:** 230 test client đạt (có test mọi ghế câu nằm trên ghế đẩu, số ghế ≤ 20), typecheck/eslint sạch. Trên trình duyệt (mock): đứng cạnh ghế đẩu `seat-11` thì phím F nảy lên. Đi xa thì ẩn, quay lại thì hiện. Bấm F mở hộp mua vé để ngồi.
+
+## Web Client + Server — Feedback ghế, minigame và cần câu (2026-11-12)
+
+- **Ghế pier:** Bỏ ô màu đánh dấu ghế (`LakeMapArt.drawsSeats`, SeatMarkers `hidden`). Ghế đẩu ngồi được gần nhất có viền trắng 1px, hiện/ẩn mờ dần 140ms (`PierArt.highlightSeat`).
+- **Luật vùng minigame (người dùng chọn "Đổi chỗ ngẫu nhiên hẳn"):** Sau **mọi** tap, vùng xanh nhảy sang vị trí ngẫu nhiên mới trên thanh, vùng vàng ngẫu nhiên trong xanh, tiêu đúng 2 số RNG. Đổi ở `minigameCore.ts`, `minigame-vectors.v0.json` (sinh lại), `ClientMinigameModel.cs` (Sim). `shiftMin/shiftMax` không còn dùng. SPEC_CHUNG đã ghi chú.
+- **FX minigame** ([MinigameScene.ts](../../client-v0/src/online/fishing/MinigameScene.ts)):
+  - Trúng xanh: chữ `-Xcm` (quãng bị trừ) bay lên trên cá; thỏ giật cần (`CharacterView.tugRod`); lóe sáng nhẹ ở phao.
+  - Trúng vàng: thêm chữ "Điểm yếu!", lóe sáng to hơn, rung nhẹ màn minigame và màn hồ.
+  - Trượt: thanh đo nháy đỏ 2 lần và rung ngang, chữ "Trượt" bay lên.
+  - Cá trên thanh đường đi lắc qua lại và nhấp nhô. Nền nước thanh đường đi có 2 lớp gợn sóng chạy, tô theo ô 4×4.
+  - Còn ≤ 3 giây thì đồng hồ nháy đỏ.
+  - Màu cá theo độ hiếm: epic tím, legendary vàng (thay màu thân kem, giữ viền).
+- **Contract (Server + Client):** `MinigameParams` thêm `rarity` (chữ thường) để Client biết độ hiếm khi đang kéo. Server đã chọn loài lúc HookFish nên không lộ thêm gì. Test Domain/API đã cập nhật. Client cũ bỏ qua trường này. Mock cũng gửi.
+- **Kết quả câu:** Thắng: thẻ cá kèm pháo hoa giấy (`fishing/confetti.ts`, Web Animations, tự gỡ). Thua: emoji động "sad" trên đầu thay chữ ":(", thiếu sheet emoji thì vẫn hiện ":(".
+- **Cần câu trên tay:** Khung cần trong atlas (28×110, 64×72) khác khung thân 48×64. Trước đây đặt trùng góc trái trên nên tay cầm rơi xuống cạnh chân. `bake_characters.py` dời cần khi ngồi câu (`SIT_ROD_OFFSET`: xuống (6,−8), ngang (11,−9), lên (10,−10)). Khung bake nới thành 120×140, chân ở (60,76) để cần không bị cắt (avatar chat `SocialUi` FACE cập nhật theo). JSON cần ghi `bobber` theo hướng: FX lóe sáng đặt đúng phao vẽ trong art, và FishingFlow không vẽ thêm phao tròn đỏ trùng.
+- **Kiểm tra:** 240 test client đạt. tsc/eslint/prettier sạch. Server Domain 156 và API 196 test đạt. Trên trình duyệt với Server thật local (`?dev=Anh`): ngồi `seat-03`, cần nằm trong tay, dây tới phao dưới nước. HookFish nhận `rarity: "uncommon"`. Tap điểm yếu thấy "Điểm yếu!", "−22cm", lóe sáng ở phao, vùng đổi chỗ. Tap trượt thấy "Trượt" và thanh đỏ. Thắng 3 tap ra thẻ cá và 56 mảnh pháo giấy. Icon buồn là sprite `emote:sad`. Màu cá epic/legendary kiểm tra bằng texture.
+- **Chưa kiểm chứng:** Khung trình duyệt của Claude bị ẩn nên animation chỉ xem từng khung chụp, chưa xem chuyển động liên tục (rung, sóng, pháo giấy). Cần người dùng xem lại cảm giác. Chưa thấy cá epic/legendary thật trong ván.
+

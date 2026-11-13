@@ -7,6 +7,12 @@ export interface LakeMapArt {
   preload(scene: Phaser.Scene): void;
   /** Vẽ nền và vật thể (độ sâu theo đáy y, cùng quy ước với nhân vật). */
   create(scene: Phaser.Scene): void;
+  /**
+   * Map có vẽ ghế thật (vd. ghế đẩu của pier): LakeScene không vẽ ô màu đánh dấu ghế nữa
+   * và gọi highlightSeat để viền trắng ghế đang ngồi được (null = bỏ viền).
+   */
+  readonly drawsSeats?: boolean;
+  highlightSeat?(seatId: string | null): void;
 }
 
 const REGISTRY_KEY = 'lakeMapArt';

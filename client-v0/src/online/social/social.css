@@ -1,0 +1,304 @@
+/* Khung "Trò chuyện" và bảng "Biểu cảm" theo hình mẫu (feedback 2026-11-12):
+   nền kem, viền nâu kép như popup mua vé, ô biểu cảm nâu bo góc, nút gửi cam. */
+.social-panel,
+.social-toggle {
+  --ink: #3a1d0e;
+  --cream: #fbe3ae;
+  --cream-2: #f3d39a;
+  --wood: #c47a33;
+  --wood-dark: #7a4a26;
+  pointer-events: auto;
+  font-family: 'Courier New', monospace;
+  color: var(--ink);
+  image-rendering: pixelated;
+}
+
+.social-toggle {
+  position: absolute;
+  bottom: 44px;
+  left: 16px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  cursor: pointer;
+  background: var(--cream);
+  border: 4px solid var(--wood);
+  outline: 3px solid var(--ink);
+  box-shadow: 0 5px 0 2px rgb(26 14 32 / 35%);
+  transition: transform 120ms ease-out;
+}
+
+.social-toggle:active,
+.social-toggle--active {
+  transform: translateY(2px);
+  background: var(--cream-2);
+}
+
+/* Bong bóng chat vẽ bằng khối pixel. */
+.social-toggle__icon {
+  position: relative;
+  width: 24px;
+  height: 18px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: 4px;
+}
+
+.social-toggle__icon::after {
+  position: absolute;
+  bottom: -9px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  content: '';
+  background: #fff;
+  border-bottom: 3px solid var(--ink);
+  border-left: 3px solid var(--ink);
+}
+
+.social-panel {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: var(--cream);
+  border: 6px solid var(--wood);
+  outline: 4px solid var(--ink);
+  box-shadow:
+    inset 0 0 0 4px #e9c684,
+    0 10px 0 4px rgb(26 14 32 / 35%);
+}
+
+.social-panel[hidden] {
+  display: none;
+}
+
+.social-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 6px 14px;
+}
+
+.social-panel__title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.social-panel__close {
+  width: 36px;
+  height: 38px;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.social-panel__close img {
+  display: block;
+  width: 36px;
+  height: 38px;
+  image-rendering: pixelated;
+}
+
+/* Khung trò chuyện: góc dưới bên trái, trên nút mở. */
+.chat-panel {
+  bottom: 104px;
+  left: 16px;
+  width: min(320px, calc(100% - 32px));
+  height: min(460px, calc(100% - 136px));
+}
+
+.chat-panel__log {
+  flex: 1;
+  min-height: 0;
+  margin: 0 10px;
+  padding: 6px 4px;
+  overflow-y: auto;
+  list-style: none;
+  background: #fff3d6;
+  border: 3px solid var(--wood-dark);
+}
+
+.chat-msg {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+/* Mặt thỏ cắt từ sheet skin (34×34). */
+.chat-msg__avatar {
+  flex: none;
+  width: 34px;
+  height: 34px;
+  background-color: var(--cream-2);
+  background-repeat: no-repeat;
+  border: 2px solid var(--wood-dark);
+  image-rendering: pixelated;
+}
+
+.chat-msg__body {
+  min-width: 0;
+}
+
+.chat-msg__meta {
+  display: flex;
+  gap: 6px;
+  align-items: baseline;
+  font-size: 12px;
+}
+
+.chat-msg__name {
+  font-weight: bold;
+}
+
+.chat-msg--mine .chat-msg__name {
+  color: #a8630f;
+}
+
+.chat-msg__time {
+  color: #8a6a4a;
+}
+
+.chat-msg__bubble {
+  margin: 2px 0 0;
+  padding: 4px 8px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+}
+
+.chat-panel__form {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 8px 10px 0;
+}
+
+.chat-panel__input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  padding: 0 8px;
+  font:
+    13px 'Courier New',
+    monospace;
+  color: var(--ink);
+  background: #fff;
+  border: 3px solid var(--wood-dark);
+  outline: none;
+}
+
+.chat-panel__input:focus {
+  border-color: var(--wood);
+}
+
+.chat-panel__emoji,
+.chat-panel__send {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid var(--ink);
+  box-shadow: 0 3px 0 rgb(26 14 32 / 35%);
+}
+
+.chat-panel__emoji {
+  background: #f6d35b;
+}
+
+.chat-panel__emoji .emote-icon {
+  transform: scale(0.75);
+}
+
+/* Nút gửi cam, mũi tên trắng. */
+.chat-panel__send {
+  position: relative;
+  background: #f08a2c;
+}
+
+.chat-panel__send::before {
+  width: 0;
+  height: 0;
+  content: '';
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 13px solid #fff;
+}
+
+.chat-panel__emoji:active,
+.chat-panel__send:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+
+.chat-panel__count {
+  padding: 2px 12px 8px;
+  font-size: 11px;
+  color: #8a6a4a;
+  text-align: right;
+}
+
+/* Bảng biểu cảm: cạnh phải khung chat, lưới 5 cột. */
+.emoji-panel {
+  bottom: 104px;
+  left: calc(16px + min(320px, calc(100% - 32px)) + 18px);
+  width: 256px;
+}
+
+.emoji-panel__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 40px);
+  gap: 6px;
+  padding: 4px 14px 14px;
+}
+
+.emoji-panel__slot {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  background: #d9a868;
+  border: 3px solid var(--wood-dark);
+  border-radius: 6px;
+  transition: transform 120ms ease-out;
+}
+
+.emoji-panel__slot:hover {
+  transform: translateY(-2px);
+  background: #e6b97a;
+}
+
+.emoji-panel__slot:active {
+  transform: translateY(1px);
+}
+
+.emoji-panel__slot .emote-icon {
+  transform: scale(0.85);
+}
+
+.emote-icon {
+  display: block;
+  flex: none;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+/* Màn hẹp: bảng biểu cảm nằm trên khung chat thay vì bên phải. */
+@media (width < 640px) {
+  .emoji-panel {
+    bottom: calc(104px + min(460px, 100% - 136px) + 14px);
+    left: 16px;
+  }
+}

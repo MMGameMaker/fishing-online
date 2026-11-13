@@ -7,6 +7,7 @@ import { createSignalRConnection } from '../net/signalrConnection';
 import type { LakeMap } from '../scenes/lake/walkable';
 import { bindHubToStore } from '../state/bindHub';
 import { Store } from '../state/store';
+import { devIdentityFromUrl } from './devLogin';
 import { env } from './env';
 
 export interface Services {
@@ -35,8 +36,12 @@ export async function createServices(
     return { store, api, hub, map, isMock: true };
   }
 
-  const api = new ApiClient({ baseUrl: env.apiBase });
-  const hub = new GameHub(createSignalRConnection(env.apiBase, () => api.getAccessToken()));
+  // ?dev=Tên (chỉ bản dev): vào bằng người chơi test qua Auth:DevBypass của Server local.
+  const dev = devIdentityFromUrl();
+  const api = new ApiClient({ baseUrl: env.apiBase, devPlayerId: dev?.playerId });
+  const hub = new GameHub(
+    createSignalRConnection(env.apiBase, () => api.getAccessToken(), dev?.playerId ?? null),
+  );
   bindHubToStore(hub, store);
   return { store, api, hub, map, isMock: false };
 }

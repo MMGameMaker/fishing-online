@@ -84,14 +84,12 @@ describe('applyTap', () => {
     expect(remainingMs(out.state, t)).toBe(params.durationMs - t - params.missPenaltyMs);
   });
 
-  it('mọi loại tap đều dịch vùng và tiêu đúng 3 số RNG', () => {
+  it('mọi loại tap đều đổi vùng sang vị trí ngẫu nhiên mới, tiêu đúng 2 số RNG', () => {
     const next = mulberry32(params.seed);
     next();
     const s0 = createState(params);
     next();
-    const shift = params.shiftMin + next() * (params.shiftMax - params.shiftMin);
-    const dir = next() < 0.5 ? -1 : 1;
-    const expected = Math.min(1 - params.greenWidth, Math.max(0, s0.greenStart + dir * shift));
+    const expected = next() * (1 - params.greenWidth);
     const yellow = expected + next() * (params.greenWidth - params.yellowWidth);
     const out = applyTap(s0, 1, findT(s0, 'miss', 0));
     expect(out.state.greenStart).toBeCloseTo(expected, 9);

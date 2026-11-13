@@ -210,6 +210,11 @@ export interface MinigameParams {
   missPenaltyMs: number;
   fishHp: number;
   atk: number;
+  /**
+   * Độ hiếm của cá đã cắn câu, chỉ để tô màu icon cá (epic tím, legendary vàng; feedback 2026-11-12).
+   * Server cũ chưa gửi thì bỏ trống.
+   */
+  rarity?: Rarity;
 }
 
 export interface AttemptResult {
@@ -306,7 +311,14 @@ export interface HubEvents {
   CatchShown: { playerId: string; speciesId: string; rarity: Rarity; shownUntil: string };
   FailShown: { playerId: string; shownUntil: string };
   SkinChanged: { playerId: string; skinId: string };
-  ChatReceived: { messageId: string; playerId: string; text: string };
+  /** Server gửi kèm tên người gửi và thời điểm (ISO); mock cũ có thể thiếu. */
+  ChatReceived: {
+    messageId: string;
+    playerId: string;
+    text: string;
+    displayName?: string;
+    sentAt?: string;
+  };
   EmojiReceived: { playerId: string; emojiId: string };
 }
 

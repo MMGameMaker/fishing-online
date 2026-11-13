@@ -61,10 +61,11 @@ public sealed class ClientMinigameModel
         };
         if (kind == HitKind.Miss) PenaltyMs += parameters.MissPenaltyMs;
 
-        var shift = parameters.ShiftMin + NextRandom() * (parameters.ShiftMax - parameters.ShiftMin);
-        var direction = NextRandom() < 0.5 ? -1 : 1;
+        // Theo Client từ 2026-11-12: vùng xanh nhảy sang vị trí ngẫu nhiên mới sau mỗi tap
+        // (không còn dịch theo ShiftMin..ShiftMax); RNG: vị trí xanh rồi vị trí vàng.
+        var greenRoll = NextRandom();
         var yellowRoll = NextRandom();
-        GreenStart = Math.Min(1 - parameters.GreenWidth, Math.Max(0, GreenStart + direction * shift));
+        GreenStart = greenRoll * (1 - parameters.GreenWidth);
         YellowStart = GreenStart + yellowRoll * (parameters.GreenWidth - parameters.YellowWidth);
         return kind;
     }

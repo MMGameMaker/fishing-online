@@ -28,11 +28,11 @@ interface VectorCase {
 const cases = vectors.cases as VectorCase[];
 
 describe('minigame-vectors.v0.json', () => {
-  it('phủ đủ 5 rarity, cả tap trúng, trượt và bị từ chối', () => {
+  it('phủ đủ 5 rarity, cả tap trúng, trượt và bị từ chối (vùng nhảy ngẫu nhiên sau mỗi tap)', () => {
     const taps = cases.flatMap((c) => c.taps);
     expect(cases).toHaveLength(15);
     expect(new Set(taps.map((t) => t.kind ?? t.reason))).toEqual(
-      new Set(['normal', 'weak', 'miss', 'too_fast', 'out_of_time']),
+      new Set(['normal', 'weak', 'miss', 'too_fast', 'out_of_time', 'bad_seq']),
     );
   });
 

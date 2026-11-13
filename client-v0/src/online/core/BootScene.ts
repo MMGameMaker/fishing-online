@@ -59,6 +59,10 @@ export class BootScene extends Phaser.Scene {
 
   /** Mock đăng nhập ngay; cần Google mà chưa đăng nhập thì popup phải mở từ thao tác bấm. */
   private async enterLake(status: Phaser.GameObjects.Text): Promise<void> {
+    if (getServices(this).api.devPlayerId) {
+      await this.devLogin(status);
+      return;
+    }
     if (this.usesGoogle() && !(await getFirebaseIdToken(false, false))) {
       status.setText('Fishing Online\nBấm để đăng nhập Google');
       // Bấm vào đâu trên màn hình cũng được, canvas có thể rất lớn khi phủ kín cửa sổ.
@@ -89,6 +93,35 @@ export class BootScene extends Phaser.Scene {
     } catch (error) {
       console.error(error);
       status.setText('Fishing Online\nKhông vào được hồ');
+    }
+  }
+
+  /**
+   * Đăng nhập dev (?dev=Tên, chỉ bản dev + Server Development/DevBypass): Server tự tạo người chơi
+   * theo player id; đặt tên theo ?dev= để phân biệt các tab khi test nhiều người chơi.
+   */
+  private async devLogin(status: Phaser.GameObjects.Text): Promise<void> {
+    const { api, hub, store } = getServices(this);
+    try {
+      let player = await api.get<PlayerProfile>('/me');
+      const name = toDisplayName(new URLSearchParams(window.location.search).get('dev'));
+      if (name && name !== player.displayName) {
+        try {
+          player = await api.put<PlayerProfile>('/me/display-name', { displayName: name });
+        } catch (error) {
+          console.warn('Không đặt được tên dev', error);
+        }
+      }
+      store.dispatch({ type: 'session/profile', payload: player });
+      store.dispatch({ type: 'catalog/set', payload: await api.get<Catalog>('/catalog') });
+      await hub.start();
+      await hub.joinLake();
+      this.scene.start('Lake');
+    } catch (error) {
+      console.error(error);
+      status.setText(
+        'Fishing Online\nKhông vào được (đăng nhập dev cần Server Development + DevBypass)',
+      );
     }
   }
 
