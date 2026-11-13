@@ -211,6 +211,7 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
   - `tools/export_fish_art.py` xuất `public/assets/fish/<speciesId>.png` từ atlas `sheet-fish-*`.
   - 6 loài khớp tên: Minnow, Yellow Perch, Bass, Golden Goldfish (goldcarp), Puffer Fish, Koi Carp.
   - 3 loài không có ảnh cùng tên. Người dùng nói "làm" mà chưa chọn, nên tạm dùng: **carp = Bluegills, trout = Arctic Char, moonfin = Marlin**. Đổi trong bảng `FISH` của script rồi chạy lại.
+  - Người dùng đổi minnow sang **fish/Anchovy** (2026-11-13, sau đó). Máy đó không có Python nên `minnow.png` (18×9) xuất bằng PowerShell tương đương script; bảng `FISH` đã sửa, chạy script cũng ra cùng kết quả. Chưa xem trong game.
   - Client: `ui/fishArt.ts` (`fishImage`, tải sẵn khi vào hồ), ảnh vừa khung theo tỉ lệ.
   - Popup câu được cá: loài chưa có ảnh thì quay về hình cá vẽ tay tô màu như cũ (giữ cho Coral Cove).
   - Icon cá trên thanh minigame giữ nguyên.

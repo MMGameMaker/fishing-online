@@ -17,7 +17,7 @@ OUT = ROOT / 'public' / 'assets' / 'fish'
 # speciesId của game → frame trong atlas (người dùng duyệt 2026-11-13). 6 loài khớp tên; Carp, Trout,
 # Moonfin không có ảnh cùng tên nên tạm chọn Bluegills, Arctic Char, Marlin (đổi tại đây nếu GD chọn khác).
 FISH = {
-    'minnow': 'swamp-fish/Minnow',
+    'minnow': 'fish/Anchovy',
     'perch': 'swamp-fish/Yellow Perch',
     'carp': 'swamp-fish/Bluegills',
     'trout': 'arctic-fish/Arctic Char',
