@@ -11,7 +11,7 @@
 - **Thính đã bỏ khỏi bản đầu theo quyết định 2026-11-09**: không item/shop/nút dùng/effect hoặc tác động thời gian chờ.
 - Shop dùng Gold, có ledger: bán cần câu; user bán cá đã câu tại Shop. Gem không dùng trong bản đầu; chưa tự suy ra có shop Gem hoặc payment.
 - Khoảng 5–10 skin nhân vật, chọn và đồng bộ; quyền dùng/mở khóa chưa khóa.
-- Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1; GD mô tả sau.
+- Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1. Luật chat và khoe cá đã chốt 2026-11-13 (mục Chat và khoe cá); emoji (ưu tiên thấp), bảng xếp hạng, tài khoản/thành tích và chi tiết Idle GD mô tả sau.
 
 Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ dùng tiền để mua vé), hệ thống mồi câu, dây và lưỡi (GD bỏ khỏi bản đầu 2026-11-06; bổ sung sau nếu quyết định triển khai), kỹ năng riêng của từng loài cá, giải đấu và payment thật kể cả sandbox để sau. V1 được hiểu là bản đầu đang mang nhãn v0.1, chưa tự đổi version release. Không thêm stamina, nông trại hoặc hệ ngày/đêm từ ảnh tham khảo vào v0.1.
 
@@ -37,17 +37,15 @@ Cập nhật 2026-11-10 thay luật vé theo ghế (2026-11-05, 06 và 09). Vé 
 - Vé hết hạn khi đang chờ cá cắn (chưa thu cần): dừng câu, nhân vật tự đứng dậy ngay.
 - Mất kết nối khi đang ngồi: giữ ghế khoảng 2 phút; quá hạn thì ghế trống. Lần câu đang dở, kể cả đang minigame, bị hủy ngay khi mất kết nối.
 - Mua thêm khi còn vé luôn cộng đủ thời gian của số vé mua, kể cả khi tổng vượt 60 phút (ví dụ còn 55 phút, mua 1 vé thành 65 phút).
+- **Tổng thời gian vé còn lại tối đa 24 giờ** (GD chốt 2026-11-13). Nếu thời gian còn lại cộng thời gian của số vé định mua vượt 24 giờ thì chặn, không trừ Gold, không cộng giờ; hiện thông báo: "Không thể vượt quá 24h câu cá, xin thử lại sau!". Server là bên kiểm tra cuối cùng.
 
-**Số tạm để test** (GD 2026-11-10): 50 Gold cho mỗi vé 10 phút. Một lần mua tối đa 1 tiếng (6 vé).
+**Số tạm để test** (GD 2026-11-10): 50 Gold cho mỗi vé 10 phút. Một lần mua tối đa 1 tiếng (6 vé). Tổng tối đa 24 giờ là luật, không phải số tạm.
 
 **Giữ từ luật trước** (yêu cầu kỹ thuật, không đổi theo luật mới):
 
 - Server tính giá; trừ Gold + ledger + cập nhật hạn vé + receipt trong một transaction. Gửi lại cùng request không trừ tiền hay cộng thời gian lần hai. Client gửi phiên bản giá đang hiển thị; giá đổi thì Server trả PRICE_CHANGED trước khi thu tiền.
 - Rời ghế thì ghế trống ngay cho người khác, không cooldown.
 
-**Cần GD chốt:**
-
-- Có giới hạn tổng thời gian vé còn lại không. Hiện chỉ giới hạn 6 vé mỗi lần mua, nên mua nhiều lần liên tiếp có thể tích lũy thời gian không giới hạn.
 
 ## Quy trình câu cá
 
@@ -65,7 +63,7 @@ Cập nhật 2026-11-10 thay luật vé theo ghế (2026-11-05, 06 và 09). Vé 
    - Thắng khi khoảng cách tới cá về 0. Thua khi hết giờ.
    - Độ khó minigame thay đổi theo độ hiếm của cá, cấu hình theo bảng: khoảng cách tới cá, độ rộng vùng và tốc độ kim tăng độ khó dần theo độ hiếm. Vùng xanh và vùng vàng luôn đổi vị trí sau mỗi lần tap; cá bậc thấp xê dịch ít hơn. Số liệu ở mục Bảng độ khó minigame.
 5. **Kết quả:**
-   - Thành công: popup gồm hình ảnh cá (hiện ngay khi popup mở), tên, độ hiếm và chiều dài, **chỉ user đó thấy**. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. User **phải tự tắt popup** mới câu tiếp được; tắt xong nhân vật tự vung cần lần mới (bước 3). Người chơi khác chỉ thấy hình cá trên đầu nhân vật của user vừa câu được; hình biến mất sau khoảng 5 giây.
+   - Thành công: popup gồm hình ảnh cá (hiện ngay khi popup mở), tên, độ hiếm và chiều dài, **chỉ user đó thấy**. Hiện text "Mới" khi câu được loài lần đầu, "Kỷ lục" khi con cá dài hơn mọi con cùng loài user từng câu. User **phải tự tắt popup bằng cách chạm/bấm ra ngoài popup** mới câu tiếp được (GD chốt 2026-11-10, xác nhận lại 2026-11-13); bấm nút share bên cạnh popup không tính là bấm ra ngoài. Tắt xong nhân vật tự vung cần lần mới (bước 3). Người chơi khác chỉ thấy hình cá trên đầu nhân vật của user vừa câu được; hình biến mất sau khoảng 5 giây.
    - Thất bại: hiện icon buồn/thất vọng trên đầu nhân vật, người chơi khác cũng thấy; rồi nhân vật tự vung cần lần mới (bước 3). Không nhận EXP.
    - Vé đã hết hạn trong lúc minigame: hiện kết quả như trên rồi kết thúc câu, không vung cần tiếp.
 
@@ -95,6 +93,37 @@ Idle chỉ trúng vùng xanh nên mỗi lần trúng trừ HP bằng ATK, không
 - Có giới hạn thời gian Idle, chống treo máy farm Gold, hoặc giảm thưởng so với câu tay không.
 
 **Tham khảo:** clip `ref minigame.mp4` chỉ minh họa cơ chế minigame; art/UI tự làm. Số đo được trong clip (khoảng 12 giây; trúng thường trừ 10 cm, điểm yếu trừ 20 cm) không phải yêu cầu.
+
+## Chat và khoe cá
+
+**Đã chốt** (GD 2026-11-13):
+
+**Chat**
+
+- Bản đầu chỉ có chat chung (chat all) trong khung UI chat; chưa làm chat riêng (private).
+- Mỗi lần gửi tối đa 160 ký tự.
+- Gửi xong, nội dung hiện thành bong bóng trên đầu nhân vật của người gửi, tồn tại 10 giây.
+
+**Khoe cá kiểu 1 — hệ thống tự thông báo**
+
+- Trigger: user câu được một loài cá chưa từng có ai câu được.
+- Hiện cho tất cả user: thông báo text nhỏ chạy ngang ở nửa trên màn hình, chạy lặp 3 lần.
+- Đồng thời ghi lại một bản vào khung chat (tin hệ thống).
+- Nội dung: "Chúc mừng [username] là người đầu tiên câu được [tên cá]".
+- Server xác định "người đầu tiên"; nếu hai người bắt cùng loài gần như đồng thời thì chỉ người được Server ghi nhận trước được thông báo.
+
+**Khoe cá kiểu 2 — người chơi tự khoe trong chat**
+
+- Có nút share cạnh popup Catch Fish. User bấm nút thì thông tin con cá vừa câu được gửi vào khung chat.
+- Nội dung: "Tôi đã câu được [tên cá] [độ hiếm] [chiều dài]".
+- [tên cá] là liên kết: người khác bấm vào thì mở popup Catch Fish hiển thị đúng con cá được khoe (loài, độ hiếm, chiều dài).
+- Mỗi con cá chỉ được share 1 lần; share xong nút share không bấm được nữa.
+- Popup Catch Fish mở từ liên kết không hiện tên người câu, không hiện nhãn "Mới" hay "Kỷ lục".
+- Thông tin khoe lấy từ bản ghi con cá trên Server, Client không tự gửi tên/độ hiếm/chiều dài.
+
+- Bản đầu chưa lọc từ ngữ chat.
+- Chống spam: mỗi user gửi chat cách nhau ít nhất 2 giây; Server từ chối tin gửi sớm hơn.
+- Khung chat giữ 50 tin gần nhất, tính cả tin hệ thống và tin share. Server lưu 50 tin này; user vào sau hoặc kết nối lại thấy 50 tin đó, tin cũ hơn bị bỏ (Claude đề xuất, GD duyệt 2026-11-13).
 
 ## Chỉ số nhân vật
 
@@ -198,7 +227,7 @@ Số tạm để test (đề xuất 2026-11-06, chỉnh bằng mô phỏng, chư
 
 Luồng dự kiến để viết acceptance: login → vào phòng → mua vé → đi tới ghế trống, nhấn F → tự câu theo mục Quy trình câu cá (Manual hoặc Idle) → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
 
-GD cần khóa: các điểm còn mở ở mục Vé câu cá và ghế, Quy trình câu cá và Chế độ Idle; quyền skin, phạm vi/trigger/cooldown social, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
+GD cần khóa: các điểm còn mở ở mục Vé câu cá và ghế, Quy trình câu cá, Chế độ Idle và Chat và khoe cá; quyền skin, emoji, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
 
 Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
 
