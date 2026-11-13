@@ -10,6 +10,7 @@ import '../../ui/announce/announce.css';
 import '../../ui/home/home.css';
 import '../../ui/shop/shop.css';
 import '../../ui/inventory/inventory.css';
+import '../../ui/codex/codex.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';

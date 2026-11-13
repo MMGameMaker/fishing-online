@@ -224,10 +224,16 @@ public sealed class JournalService(GameDbContext db, IConfigProvider configs)
     public async Task<CodexView> CodexAsync(Guid playerId, CancellationToken ct)
     {
         var records = await db.Set<SpeciesRecordRow>().AsNoTracking().Where(row => row.PlayerId == playerId).ToDictionaryAsync(row => row.SpeciesId, ct);
+        // Con nhỏ nhất từng câu theo loài, gồm cả cá đã bán (bản ghi catch vẫn giữ sau khi bán).
+        var smallest = await db.Set<CatchRow>().AsNoTracking().Where(row => row.PlayerId == playerId)
+            .GroupBy(row => row.SpeciesId)
+            .Select(group => new { SpeciesId = group.Key, Length = group.Min(row => row.LengthTenthCm) })
+            .ToDictionaryAsync(row => row.SpeciesId, row => row.Length, ct);
         return new CodexView(configs.Current.Fish.Select(fish =>
             records.TryGetValue(fish.SpeciesId, out var record)
-                ? new CodexSpeciesView(fish.SpeciesId, true, record.TotalCaught, record.BestLengthTenthCm, record.FirstCaughtAt)
-                : new CodexSpeciesView(fish.SpeciesId, false, null, null, null)).ToArray());
+                ? new CodexSpeciesView(fish.SpeciesId, true, record.TotalCaught, record.BestLengthTenthCm, record.FirstCaughtAt,
+                    smallest.TryGetValue(fish.SpeciesId, out var min) ? min : record.BestLengthTenthCm)
+                : new CodexSpeciesView(fish.SpeciesId, false, null, null, null, null)).ToArray());
     }
 
     public async Task<HistoryView> HistoryAsync(Guid playerId, string? cursor, int? limit, CancellationToken ct)

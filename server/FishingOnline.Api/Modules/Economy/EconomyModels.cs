@@ -116,7 +116,9 @@ public sealed record ProgressView(int Level, int Exp, int ExpToNext, Stats Stats
 
 public sealed record ProgressBreakdown(Stats Level, Stats Rod);
 
-public sealed record CodexSpeciesView(string SpeciesId, bool Discovered, int? TotalCaught, int? BestLengthTenthCm, DateTimeOffset? FirstCaughtAt);
+/// <summary><c>SmallestLengthTenthCm</c> thêm 2026-11-13 cho popup Sổ tay cá ("Nhỏ nhất đã câu"), tính cả cá đã bán.</summary>
+public sealed record CodexSpeciesView(
+    string SpeciesId, bool Discovered, int? TotalCaught, int? BestLengthTenthCm, DateTimeOffset? FirstCaughtAt, int? SmallestLengthTenthCm);
 
 public sealed record CodexView(IReadOnlyList<CodexSpeciesView> Species);
 

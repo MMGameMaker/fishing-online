@@ -9,6 +9,7 @@ import { showToast } from '../kit/components';
 import { formatGold } from '../kit/format';
 import { animateIn, animateOut } from '../kit/motion';
 import { formatClock } from '../../scenes/lake/seatLogic';
+import { CodexPopup } from '../codex/CodexPopup';
 import { InventoryPopup } from '../inventory/InventoryPopup';
 import { ShopPopup } from '../shop/ShopPopup';
 import { expText, levelProgress } from './levelProgress';
@@ -27,7 +28,8 @@ const MENU_ITEMS = [
   { id: 'profile', label: 'Hồ sơ', icon: 'Icon Appearance.png' },
   { id: 'leaderboard', label: 'Bảng xếp hạng', icon: 'Icon Leaderboard.png' },
   { id: 'inventory', label: 'Túi đồ', icon: 'Icon Inventory.png' },
-  { id: 'close', label: 'Tắt popup', icon: 'Icon Home.png' },
+  // Icon nhà mở Sổ tay cá (người dùng đổi 2026-11-13, trước là "Tắt popup").
+  { id: 'codex', label: 'Sổ tay cá', icon: 'Icon Home.png' },
   { id: 'settings', label: 'Cài đặt', icon: 'Icon Settings.png' },
 ] as const;
 const COMING_SOON = 'Sắp ra mắt';
@@ -97,9 +99,11 @@ export class HomeHud {
   private lastAttemptId = '';
   private readonly shop: ShopPopup;
   private readonly inventory: InventoryPopup;
+  private readonly codex: CodexPopup;
 
   constructor(private readonly options: HomeHudOptions) {
     this.shop = new ShopPopup({ root: options.root, services: options.services });
+    this.codex = new CodexPopup({ root: options.root, services: options.services });
     this.inventory = new InventoryPopup({
       root: options.root,
       services: options.services,
@@ -182,6 +186,7 @@ export class HomeHud {
     this.unsubscribes.forEach((unsubscribe) => unsubscribe());
     this.shop.destroy();
     this.inventory.destroy();
+    this.codex.destroy();
     this.layer.remove();
     this.menu.remove();
   }
@@ -249,8 +254,10 @@ export class HomeHud {
       slot.addEventListener('focus', () => select(slot, item.label));
       slot.addEventListener('click', () => {
         select(slot, item.label);
-        if (item.id === 'close') void this.setMenuOpen(false);
-        else if (item.id === 'shop') {
+        if (item.id === 'codex') {
+          void this.setMenuOpen(false);
+          this.codex.open();
+        } else if (item.id === 'shop') {
           void this.setMenuOpen(false);
           this.shop.open('sell');
         } else if (item.id === 'inventory') {

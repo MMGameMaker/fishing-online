@@ -226,3 +226,22 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
     - Đổi cần qua API: nhân vật chuyển Bliss → Old ngay không cần tải lại, rồi đổi lại Bliss và ngồi `seat-05` câu được Trout. Thẻ cá hiện ảnh Trout (Arctic Char), ô cá ở cửa hàng và popup bán cũng hiện ảnh đó.
 - **Chưa kiểm:** cảm giác tốc độ đi mới (người dùng xem); ảnh 8 loài còn lại mới xem qua bảng ghép, chưa thấy trong popup thật.
 
+## Web Client + Server — Popup Sổ tay cá (2026-11-13)
+
+- **Yêu cầu (người dùng, ảnh mẫu):**
+  - Bấm icon nhà trong menu ☰ thì mở "Sổ tay cá". Ô này trước là "Tắt popup", nay đổi thành "Sổ tay cá".
+  - Hiện đủ mọi loài cá. Loài đã câu điền thông tin; loài chưa câu phủ đen và không điền "Nhỏ nhất/Lớn nhất đã câu".
+- **Client** ([CodexPopup.ts](../../client-v0/src/online/ui/codex/CodexPopup.ts), codex.css; ảnh `Codex Panel.png` người dùng thêm):
+  - Bên trái: ảnh cá và 6 dòng Tên, Độ hiếm (màu theo độ hiếm), Nơi sống, Kích thước (min–max theo catalog), Nhỏ nhất đã câu, Lớn nhất đã câu.
+  - Bên phải: lưới 6 cột (24 ô, nhiều loài hơn thì cuộn). Ô đang chọn viền cam; loài chưa câu là bóng đen (`brightness(0)`).
+  - Dữ liệu lấy từ `GET /me/codex`; `codexRows` có test.
+  - "Nơi sống" đang lấy `mapId` của hồ (pier là `fishing-pier`) vì chưa có tên hồ hiển thị.
+- **Server:**
+  - `GET /me/codex` thêm `smallestLengthTenthCm`: con nhỏ nhất từng câu theo loài, tính cả cá đã bán; loài chưa câu thì null.
+  - Test API mới: câu 3 Perch 9,5/16,0/12,0cm, bán con 9,5 thì vẫn ra nhỏ nhất 95, lớn nhất 160, tổng 3.
+  - Mock cập nhật tương ứng; contract client có `smallestLengthTenthCm?`.
+- **Kiểm tra:**
+  - Tự động: 257 test client, tsc/eslint/prettier sạch. Server API 200 test đạt.
+  - Trên trình duyệt (mock, vì `.env.local` đang `VITE_USE_MOCK=true`; bỏ qua đăng nhập Google chỉ trong phiên kiểm tra): câu 3 con Perch, Trout, Moonfin rồi mở sổ tay. Thấy 3 ô ảnh thật và 6 bóng đen; Perch hiện đủ 6 dòng (nhỏ nhất = lớn nhất 14,1cm). Chọn một bóng đen thì 2 dòng "đã câu" để trống.
+- **Lưu ý môi trường:** Cổng 5173 đang có thêm server Node cũ (`server/index.js`) nghe ở 0.0.0.0. Vào `http://localhost:5173` có thể trúng server đó (trang cũ, tiêu đề "xem trước"); Vite của client đang nghe ở `[::1]:5173`.
+

@@ -1,0 +1,113 @@
+/* Popup "Sổ tay cá" (CodexPopup.ts). Dùng chung nền mờ và nút của cửa hàng (.shop, shop.css). Toạ độ là
+   pixel ảnh Codex Panel.png 1640×844: đầu xanh y 0..88, khung ảnh (36..552, 120..388), 6 dòng chấm ở dưới
+   (đường kẻ y 474, 536, 598, 662, 726, 790), lưới ô cá bên phải. */
+.codex__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1640px;
+  height: 844px;
+  transform: translate(-50%, -50%) scale(var(--shop-scale, 1));
+}
+
+.codex__close {
+  position: absolute;
+  top: 6px;
+  right: 22px;
+}
+
+.codex__close img {
+  width: 72px;
+  height: 76px;
+}
+
+.codex__picture {
+  position: absolute;
+  top: 136px;
+  left: 52px;
+  display: grid;
+  place-items: center;
+  width: 484px;
+  height: 236px;
+}
+
+.codex__picture-fish {
+  width: 400px;
+  height: 200px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+/* Loài chưa câu được: phủ đen thành bóng cá như ảnh mẫu. */
+.codex__fish--unknown,
+.codex__slot--unknown .codex__slot-fish {
+  filter: brightness(0);
+  opacity: 0.75;
+}
+
+.codex__rows {
+  position: absolute;
+  top: 410px;
+  left: 40px;
+  width: 508px;
+  margin: 0;
+}
+
+.codex__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 63px;
+  padding: 0 8px 10px;
+  font-size: 26px;
+}
+
+.codex__row dt {
+  font-weight: bold;
+}
+
+.codex__row dd {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Lưới ô cá: 6 cột ô Slot - State Empty.png 152×152 (9 mảnh). */
+.codex__grid {
+  position: absolute;
+  top: 120px;
+  left: 600px;
+  display: grid;
+  grid-template-columns: repeat(6, 152px);
+  grid-auto-rows: 152px;
+  gap: 16px;
+  width: 1010px;
+  height: 668px;
+  padding-right: 6px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.codex__slot {
+  display: grid;
+  place-items: center;
+  width: 152px;
+  height: 152px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Slot%20-%20State%20Empty.png') 12 fill / 12px stretch;
+}
+
+button.codex__slot:hover {
+  filter: brightness(1.05);
+}
+
+.codex__slot--active {
+  outline: 6px solid #f0932b;
+  outline-offset: -6px;
+}
+
+.codex__slot-fish {
+  width: 116px;
+  height: 100px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}

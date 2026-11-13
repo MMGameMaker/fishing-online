@@ -290,6 +290,25 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
         var koi = species.Single(item => item.GetProperty("speciesId").GetString() == "koi");
         Assert.False(koi.GetProperty("discovered").GetBoolean());
         Assert.Equal(JsonValueKind.Null, koi.GetProperty("totalCaught").ValueKind);
+        Assert.Equal(JsonValueKind.Null, koi.GetProperty("smallestLengthTenthCm").ValueKind);
+    }
+
+    [Fact]
+    public async Task Codex_SmallestAndBiggest_IncludeSoldFish()
+    {
+        var playerId = await App.NewPlayerAsync();
+        var small = await RecordAsync(playerId, "perch", 95);
+        await RecordAsync(playerId, "perch", 160);
+        await RecordAsync(playerId, "perch", 120);
+        var client = App.Http(playerId);
+        await ReadDataAsync(await client.SendAsync(Post("/api/v1/shop/sell-fish", new { catchIds = new[] { small.CatchId } })));
+
+        var perch = (await ReadDataAsync(await client.GetAsync("/api/v1/me/codex"))).GetProperty("species").EnumerateArray()
+            .Single(item => item.GetProperty("speciesId").GetString() == "perch");
+
+        Assert.Equal(95, perch.GetProperty("smallestLengthTenthCm").GetInt32());
+        Assert.Equal(160, perch.GetProperty("bestLengthTenthCm").GetInt32());
+        Assert.Equal(3, perch.GetProperty("totalCaught").GetInt32());
     }
 
     [Fact]

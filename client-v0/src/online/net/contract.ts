@@ -131,6 +131,8 @@ export interface CodexEntry {
   totalCaught: number;
   bestLengthTenthCm: number | null;
   firstCaughtAt: string | null;
+  /** Con nhỏ nhất từng câu (kể cả đã bán), thêm 2026-11-13 cho Sổ tay cá; Server cũ có thể thiếu. */
+  smallestLengthTenthCm?: number | null;
 }
 
 export interface CodexResponse {

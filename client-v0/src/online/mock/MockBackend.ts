@@ -137,6 +137,7 @@ interface SettledAttempt {
 interface CodexRuntime {
   totalCaught: number;
   bestLengthTenthCm: number;
+  smallestLengthTenthCm: number;
   firstCaughtAt: string;
 }
 
@@ -838,6 +839,10 @@ export class MockBackend {
     this.codex.set(species.speciesId, {
       totalCaught: (previous?.totalCaught ?? 0) + 1,
       bestLengthTenthCm: Math.max(previous?.bestLengthTenthCm ?? 0, lengthTenthCm),
+      smallestLengthTenthCm: Math.min(
+        previous?.smallestLengthTenthCm ?? lengthTenthCm,
+        lengthTenthCm,
+      ),
       firstCaughtAt: previous?.firstCaughtAt ?? caughtAt,
     });
     this.fish.unshift({
@@ -1087,6 +1092,7 @@ export class MockBackend {
           totalCaught: entry?.totalCaught ?? 0,
           bestLengthTenthCm: entry?.bestLengthTenthCm ?? null,
           firstCaughtAt: entry?.firstCaughtAt ?? null,
+          smallestLengthTenthCm: entry?.smallestLengthTenthCm ?? null,
         };
       }),
     };
