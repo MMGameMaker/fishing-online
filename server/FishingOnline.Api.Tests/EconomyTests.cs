@@ -49,6 +49,26 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
+    public async Task EquipOwnedRod_SavesAndLakeSeesNewRod()
+    {
+        var playerId = await App.NewPlayerAsync(1000);
+        await using var player = await App.ConnectAsync(playerId);
+        await player.OkAsync("JoinLake");
+        await using var watcher = await App.ConnectAsync();
+        await watcher.OkAsync("JoinLake");
+        var client = App.Http(playerId);
+        await ReadDataAsync(await client.SendAsync(Post("/api/v1/shop/buy", new { offerId = "offer_rod_bliss", quantity = 1 })));
+
+        var equipped = await ReadDataAsync(await client.PutAsJsonAsync("/api/v1/me/equipped-rod", new { rodId = "rod_bliss" }));
+
+        Assert.Equal("rod_bliss", equipped.GetProperty("equippedRodId").GetString());
+        Assert.Equal("rod_bliss", (await InventoryAsync(playerId)).GetProperty("equippedRodId").GetString());
+        var changed = await watcher.WaitForAsync("RodChanged");
+        Assert.Equal(playerId, changed.GetProperty("playerId").GetGuid());
+        Assert.Equal("rod_bliss", changed.GetProperty("rodId").GetString());
+    }
+
+    [Fact]
     public async Task EquipRod_WhileFishing_IsBlocked()
     {
         var playerId = await App.NewPlayerAsync(1000);
@@ -157,6 +177,24 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
 
         Assert.Single((await InventoryAsync(playerId)).GetProperty("fish").EnumerateArray());
         Assert.Equal(100, await GoldOfAsync(playerId));
+    }
+
+    [Fact]
+    public async Task DevTopUp_AddsPackGold_ReplaySameKeyOnce_UnknownPackRejected()
+    {
+        var playerId = await App.NewPlayerAsync();
+        var client = App.Http(playerId);
+        var key = Guid.NewGuid().ToString();
+
+        var first = await ReadDataAsync(await client.SendAsync(Post("/api/v1/dev/topup", new { packId = "gold_5000" }, key)));
+        var replay = await ReadDataAsync(await client.SendAsync(Post("/api/v1/dev/topup", new { packId = "gold_5000" }, key)));
+
+        Assert.Equal("5000", first.GetProperty("goldAdded").GetString());
+        Assert.Equal("5100", first.GetProperty("gold").GetString());
+        Assert.Equal("5100", replay.GetProperty("gold").GetString());
+        Assert.Equal(5100, await GoldOfAsync(playerId));
+        Assert.Equal(1, await App.WithDbAsync(db => db.Set<LedgerEntry>().CountAsync(row => row.PlayerId == playerId && row.Reason == DevTopUp.Reason)));
+        await AssertErrorAsync(await client.SendAsync(Post("/api/v1/dev/topup", new { packId = "gold_999999" })), 400, "VALIDATION_FAILED");
     }
 
     [Fact]

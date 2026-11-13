@@ -161,7 +161,7 @@ public sealed class GameApp : WebApplicationFactory<Program>
     [
         "PlayerJoined", "PlayerLeft", "PlayerMoved", "SeatChanged", "MyTicket", "MySeat", "AttemptUpdate", "CatchShown",
         "FailShown",
-        "SkinChanged", "ChatReceived", "EmojiReceived",
+        "SkinChanged", "ChatReceived", "EmojiReceived", "CatchAnnounced", "RodChanged",
     ];
 
     public required string ConnectionString { get; init; }

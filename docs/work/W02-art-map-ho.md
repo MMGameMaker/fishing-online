@@ -140,3 +140,88 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
 - **Kiểm tra:** 245 test client đạt, tsc/eslint/prettier sạch. Trên trình duyệt (mock, 1024×768, bỏ qua đăng nhập Google chỉ trong phiên kiểm tra): khung người chơi hiện đúng tên/EXP 25/100/Lv. 3 với dữ liệu thử. Ô vé đếm lùi 14:29 → 14:11. Popup vé mở/đóng được. "Mua thêm" mở hộp mua vé. Menu đủ 6 ô, ô Hồ sơ báo "Sắp ra mắt", ô nhà đóng menu.
 - **Chưa kiểm:** Màn điện thoại hẹp (dưới ~420px) có thể làm khung người chơi + ô vé chạm khung Gold. Chưa có ảnh riêng cho khung Gold.
 
+## Web Client + Server — Cửa hàng trên pier.html (2026-11-13)
+
+- **Yêu cầu và quyết định của người dùng:**
+  - Popup "CỬA HÀNG" mở từ ô Cửa hàng trong menu ☰, có 3 tab: Bán cá, Trang bị, Nạp Gold. Bố cục theo 4 ảnh mẫu và ảnh popup bán.
+  - Giá cá và giá cần lấy theo Server.
+  - Gộp cá cùng loài + cùng kích thước vào một ô; số ở góc là số lượng.
+  - Cần đã có thì hiện "Đã có" và không bấm được.
+  - Nạp Gold bấm là cộng Gold (chưa có cổng thanh toán).
+  - Bán luôn, không hỏi lại.
+  - Màu độ hiếm cho chữ và nền ô cá: Thường xám, Khá xanh lục, Hiếm xanh lam, Sử thi tím, Huyền thoại vàng.
+- **Bán cá** ([ShopPopup.ts](../../client-v0/src/online/ui/shop/ShopPopup.ts), [shopModel.ts](../../client-v0/src/online/ui/shop/shopModel.ts) có test):
+  - Túi cá lấy từ `GET /me/inventory`.
+  - Bấm một ô khi chưa vào chế độ chọn: mở popup chi tiết (`Sell_Popup.png`) gồm tên, độ hiếm có màu, kích thước, số con, mô tả, thanh kéo số lượng (−/+, MIN/−10/+10/MAX, dùng lại ảnh thanh kéo của hộp mua vé) và nút Bán. Bán đúng số con đã chọn.
+  - Bấm "Chọn cá": vào chế độ chọn nhiều. Bấm ô thì ✓ và cộng tiền (chọn ô là chọn cả các con trong ô), bấm lại thì bỏ và trừ tiền. Có "Chọn tất cả", X để huỷ và bỏ chọn hết, V để bán ngay.
+  - Gọi `POST /shop/sell-fish`. Chọn cả túi thì gửi `all`, còn lại gửi theo lô 200 id.
+- **Mô tả cá:** Server chưa có mô tả nên tạm viết 1 câu cho mỗi loài ở `ui/shop/fishInfo.ts`. GD sửa tại đây.
+- **Trang bị:** 5 thẻ cần theo thứ tự catalog (rẻ → đắt), giá Server (300/300/800/2.000), `POST /shop/buy`. Cần mặc định và cần đã mua hiện "Đã có", không bấm được. Chưa có nút trang bị cần (người dùng chưa yêu cầu).
+- **Đổi hình 5 cần** (`tools/bake_characters.py`, đã bake lại; người dùng chọn 2026-11-13):
+  - `rod_old` = fishingRod
+  - `rod_steel_awl` = pier/swamp
+  - `rod_high_performer` = swampFishingRod
+  - `rod_bliss` = teal/arctic
+  - `rod_giant_caster` = lava/volcano
+
+  Bake thêm icon cửa hàng `public/assets/rods/<rodId>-icon.png`. Phao đo một lần cho mọi cần (nước bắn đỏ của cần lava làm lệch phép đo). Cần lava/teal có màu nước bắn quanh phao theo dòng gốc của nó (dung nham/xanh ngọc) dù map pier là nước xanh.
+- **Nạp Gold:** 3 gói 1.000/5.000/10.000 Gold, nhãn giá 10.000đ/40.000đ/70.000đ chỉ để hiển thị. Bấm gọi `POST /dev/topup`. Server thêm endpoint này **chỉ ở Development** (`Modules/Wallet/DevTopUp.cs`, idempotent, sổ cái lý do `dev_topup`); bản chạy thật không có. Mock có route tương ứng. Đã ghi vào bảng API của SPEC_CHUNG.
+- **Art dùng:** `Shop_Window`, `Sell_Popup`, `Slot - State Empty`, `Card Art`, `Small`, `Tab - State Default`, `Icon Sell/Equipment/Gold`; `mini game/Coin Small`, `Button Close`, `Slider`, `Amount Bar`. Khung ô và nút dùng border-image 9 mảnh nên viền giữ nét khi đổi cỡ.
+  - `Tab - State Active.png` là dải xanh thiếu cạnh dưới, khác ảnh mẫu, nên tab đang chọn dùng khung nâu `Tab - State Default.png` cho giống ảnh mẫu.
+  - Nút V (bán) và nút "Bán" chưa có ảnh nên vẽ màu cam bằng CSS.
+- **Kiểm tra:**
+  - Tự động: 252 test client đạt, tsc/eslint/prettier sạch. Server: Domain 156 test đạt; API 197 test đạt, có test mới cho nạp Gold (cộng đúng gói, gửi lại cùng key chỉ cộng 1 lần, gói lạ bị từ chối).
+  - Trên trình duyệt (mock, 1024×768, bỏ qua đăng nhập Google chỉ trong phiên kiểm tra), câu 3 con: Koi, Trout, Minnow.
+    - Lưới hiện đúng màu nền (tím, xanh lục, xám) và giá Server (50, 10, 5).
+    - Popup Koi bán được: +50 Gold, có thông báo.
+    - Chế độ chọn: 1 ▸ 10; bỏ chọn ▸ 0; Chọn tất cả ▸ 2 ▸ 15 với 2 dấu ✓; bấm V thì bán hết, túi trống.
+    - Mua cần thiếu Gold báo "Bạn không đủ Gold.". Nạp 1.000 rồi mua Steel Awl (−300): thẻ chuyển "Đã có".
+- **Server thật (2026-11-13, sau đó):** API chạy cổng 5080 có `Auth__DevBypass`. Client chuyển `VITE_USE_MOCK=false` trong `.env.local` để người dùng tự test. Mở `pier.html?dev=Anh`: túi cá thật (2 con) hiện trong cửa hàng; nạp gói 1.000 thì Server cộng 50 → 1.050 Gold.
+- **Chưa kiểm:**
+  - Bán cá và mua cần với Server thật trên trình duyệt (để người dùng tự test).
+  - Chưa thử túi có nhiều cá (cuộn lưới) và màn điện thoại hẹp.
+
+## Web Client — Popup Túi đồ trên pier.html (2026-11-13)
+
+- **Yêu cầu (người dùng, 2 ảnh mẫu):** Popup mở từ ô Túi đồ trong menu ☰, có 2 tab. Tab Đồ câu hiện các cần đang sở hữu; tab Túi cá hiện cá đang có. Bấm "Chọn cá" thì sang tab Bán cá của cửa hàng.
+- **Cách làm** ([InventoryPopup.ts](../../client-v0/src/online/ui/inventory/InventoryPopup.ts), inventory.css; nền mờ, ô cá, nút nhỏ dùng chung style với shop.css):
+  - Khung sổ tay `Notebook.png`. Tab đang chọn dùng `Tab - State Active.png` (dải xanh có chữ), tab còn lại dùng `Tab - State Default.png` (chỉ icon).
+  - **Đồ câu, bên trái** (`Panel Art.png`): thỏ theo skin đang dùng (cắt từ sheet đã bake) và 5 chỉ số tổng lấy từ `GET /me/progress`, gồm Sức mạnh, Vùng trúng thường, Vùng điểm yếu, May mắn cá hiếm, May mắn cá lớn, mỗi dòng có icon riêng.
+  - **Đồ câu, bên phải:** thẻ `Rod_Card.png` cho mỗi cần đang sở hữu (lấy từ `/me/inventory`), gồm icon cần, tên và 5 chỉ số của cần khớp đúng 5 hàng vẽ sẵn trên thẻ. Cần đang dùng có nhãn "Đang dùng" (`Equipped Tag.png`).
+  - **Bấm thẻ cần khác để trang bị:** gọi `PUT /me/equipped-rod`, Server đã có sẵn; đang câu thì Server từ chối và client hiện "Bạn đang trong một lần câu.". Phần này người dùng chưa yêu cầu rõ, mình thêm vì Server đã hỗ trợ.
+  - **Nút "Mua cần câu"** (`Primary M.png`): mở cửa hàng ở tab Trang bị.
+  - **Túi cá** (`Well Art.png`): lưới 4 cột, ô cá giống cửa hàng (gộp cùng loài + cùng kích thước, nền theo độ hiếm, số lượng, kích thước, giá Server). Nút "Chọn cá" đóng Túi đồ và mở cửa hàng ở tab Bán cá, đã ở sẵn chế độ chọn nhiều (`ShopPopup.open('sell', { selecting: true })`).
+- **Kiểm tra** (Server thật, `?dev=ClaudeTest` là người chơi thử riêng):
+  - Tự động: 252 test client đạt, tsc/eslint/prettier sạch.
+  - Đồ câu: nạp 1.000, mua Bliss, mở Túi đồ thì thấy 2 thẻ, Old Fishing Rod "Đang dùng", chỉ số tổng Sức mạnh 11. Bấm Bliss: toast "Đã trang bị Bliss.", nhãn chuyển sang Bliss, Sức mạnh thành 14 (Server tính lại). "Mua cần câu" mở cửa hàng ở tab Trang bị.
+  - Túi cá (xem trên `?dev=Anh`, không bán gì): 2 ô Carp 17,0cm và 13,3cm. "Chọn cá" mở cửa hàng ở tab Bán cá, đang ở chế độ chọn, chưa chọn con nào.
+- **Còn thiếu:**
+  - Đổi cần xong, người chơi khác chưa thấy cần mới cho tới khi mình vào lại hồ, vì Server chưa phát sự kiện báo đổi cần như `SkinChanged`.
+  - Chưa có test API cho trường hợp đổi cần thành công.
+  - Đang ngồi ghế thì hầu như không đổi được cần vì luôn đang trong một lần câu.
+  - Chưa kiểm màn điện thoại hẹp.
+
+## Web Client + Server — Tốc độ đi, ảnh cá theo loài, đổi cần hiện ngay (2026-11-13)
+
+- **Tốc độ đi** (người dùng: đi nhanh, trông như trôi):
+  - Pier `moveRules.maxSpeedPxPerSec` 160 → **90** (fishingPierMap.json).
+  - Animation đi bộ 14 → **12 fps** (`bake_characters.py`, đã bake lại).
+  - Map hồ cũ của `fishing.html` và fixture Server giữ 160. Server không kiểm tốc độ.
+- **Ảnh cá theo loài** (thay icon cá chung trong popup câu được cá, ô cá và popup bán của cửa hàng, ô cá túi đồ):
+  - `tools/export_fish_art.py` xuất `public/assets/fish/<speciesId>.png` từ atlas `sheet-fish-*`.
+  - 6 loài khớp tên: Minnow, Yellow Perch, Bass, Golden Goldfish (goldcarp), Puffer Fish, Koi Carp.
+  - 3 loài không có ảnh cùng tên. Người dùng nói "làm" mà chưa chọn, nên tạm dùng: **carp = Bluegills, trout = Arctic Char, moonfin = Marlin**. Đổi trong bảng `FISH` của script rồi chạy lại.
+  - Client: `ui/fishArt.ts` (`fishImage`, tải sẵn khi vào hồ), ảnh vừa khung theo tỉ lệ.
+  - Popup câu được cá: loài chưa có ảnh thì quay về hình cá vẽ tay tô màu như cũ (giữ cho Coral Cove).
+  - Icon cá trên thanh minigame giữ nguyên.
+- **Dùng cần nào thì câu bằng cần đó:**
+  - Server: `PUT /me/equipped-rod` thành công thì cập nhật cần của người đó trong hồ và phát hub **`RodChanged {playerId, rodId}`** cho cả hồ.
+  - Client: nhân vật đổi cần ngay, cả của mình lẫn người khác; hồ sơ và túi đồ cũng cập nhật. Mock phát sự kiện tương tự.
+  - Test API mới: mua Bliss, đổi cần, túi đồ ghi đúng, người khác nhận `RodChanged`. Thêm test store.
+- **Kiểm tra:**
+  - Tự động: 254 test client (thêm test store), tsc/eslint/prettier sạch. Server API 199 test đạt.
+  - Trên trình duyệt (Server thật, `?dev=ClaudeTest`):
+    - Tốc độ 90 và walk 12 fps đã nạp.
+    - Đổi cần qua API: nhân vật chuyển Bliss → Old ngay không cần tải lại, rồi đổi lại Bliss và ngồi `seat-05` câu được Trout. Thẻ cá hiện ảnh Trout (Arctic Char), ô cá ở cửa hàng và popup bán cũng hiện ảnh đó.
+- **Chưa kiểm:** cảm giác tốc độ đi mới (người dùng xem); ảnh 8 loài còn lại mới xem qua bảng ghép, chưa thấy trong popup thật.
+

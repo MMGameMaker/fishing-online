@@ -33,12 +33,14 @@ SKINS = {
     'skin_05': 'vienna-blue',
 }
 # Cần game → prefix animation cần trong atlas: <prefix>{front,side,back} (20 frame mỗi hướng).
+# Thứ tự rẻ → đắt theo 5 cần người dùng chọn 2026-11-13 (giá do Server quyết định).
+# Dòng pier/teal/lava chỉ khác màu nước bắn quanh phao khi chờ cá.
 RODS = {
     'rod_old': ('fishing-rod/fishingRod', 'Front', 'Side', 'Back'),
-    'rod_steel_awl': ('fishing-rods/pier/normal/', 'front', 'side', 'back'),
-    'rod_high_performer': ('fishing-rods/teal/normal/', 'front', 'side', 'back'),
-    'rod_bliss': ('fishing-rods/lava/normal/', 'front', 'side', 'back'),
-    'rod_giant_caster': ('swamp-fishing-rod/swampFishingRod', 'Front', 'Side', 'Back'),
+    'rod_steel_awl': ('fishing-rods/pier/swamp/', 'front', 'side', 'back'),
+    'rod_high_performer': ('swamp-fishing-rod/swampFishingRod', 'Front', 'Side', 'Back'),
+    'rod_bliss': ('fishing-rods/teal/arctic/', 'front', 'side', 'back'),
+    'rod_giant_caster': ('fishing-rods/lava/volcano/', 'front', 'side', 'back'),
 }
 SHADOW = 'general/bunny_shadow'
 SILHOUETTE_BODY = 'brown'  # dùng để che phần cần nằm sau lưng khi quay lên
@@ -79,7 +81,8 @@ def rod_offset(dir_name: str, body_index: int | str) -> tuple[int, int]:
 SIT = 'sit'
 ANIMS = {
     'idle': ([(0, None, 0, 0)] * 4, 4, True),
-    'walk': ([(i, None, 0, 0) for i in range(10)], 14, True),
+    # 12 fps khớp tốc độ đi 90 px/giây trên pier (feedback 2026-11-13: trước 160 px/giây + 14 fps nhìn như trôi).
+    'walk': ([(i, None, 0, 0) for i in range(10)], 12, True),
     'sit': ([(SIT, None, 0, 0)] * 2, 2, True),
     'cast': ([(SIT, i, 0, 0) for i in range(1, 11)], 14, False),
     'wait': ([(SIT, i, 0, 0) for i in range(11, 21)], 8, True),
@@ -233,10 +236,14 @@ def main() -> None:
                             place(mask, atlas.get(body_frame(SILHOUETTE_BODY, 'up', bi)), dx, dy, flip)
                             canvas[mask[:, :, 3] > 0] = 0
                     frames[f'{anim}_{dir_name}_{i}'] = canvas
-        # Cần có phao khác màu thì dùng vị trí phao của cần đầu tiên (cùng dáng dây).
-        bobber = bobber_offsets(frames) or first_bobber
-        first_bobber = first_bobber or bobber
+        # Mọi cần cùng dáng dây; đo phao một lần ở cần đầu tiên (cần lava có nước bắn đỏ làm lệch phép đo).
+        first_bobber = first_bobber or bobber_offsets(frames)
+        bobber = first_bobber
         write_sheet(OUT_ROD / rod_id, frames, {**extra, 'bobber': bobber} if bobber else extra)
+        # Icon cửa hàng: frame nhìn ngang đầu tiên (cần dựng đứng), cắt sát.
+        icon = atlas.get(atlas.anims[prefix + dir_names[1]][0])
+        ys, xs = np.nonzero(icon[:, :, 3])
+        Image.fromarray(icon[ys.min():ys.max() + 1, xs.min():xs.max() + 1]).save(OUT_ROD / f'{rod_id}-icon.png')
 
 
 if __name__ == '__main__':

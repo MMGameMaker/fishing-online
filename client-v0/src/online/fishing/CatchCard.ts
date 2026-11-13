@@ -88,8 +88,8 @@ export interface CatchCardData {
   isNew: boolean;
   isRecord: boolean;
   habitat: string;
-  /** Hình cá pixel (canvas) đặt giữa khung tranh. */
-  fish: HTMLCanvasElement;
+  /** Hình cá (ảnh theo loài, xem ui/fishArt.ts) đặt giữa khung tranh. */
+  fish: HTMLElement;
 }
 
 export function buildCatchCard(data: CatchCardData): HTMLElement {
@@ -101,9 +101,12 @@ export function buildCatchCard(data: CatchCardData): HTMLElement {
     .then((url) => root.style.setProperty('--card-image', `url("${url}")`))
     .catch((error: unknown) => console.warn(error));
 
-  data.fish.className = 'catch-card__fish';
+  data.fish.classList.add('catch-card__fish');
   data.fish.style.left = pct(PICTURE.x + PICTURE.w / 2, CARD_W);
   data.fish.style.top = pct(PICTURE.y + PICTURE.h / 2, CARD_H);
+  // Vừa khung tranh (chừa lề), giữ tỉ lệ ảnh: cá dài như Marlin hay cá nhỏ như Minnow đều cân.
+  data.fish.style.width = pct(PICTURE.w * 0.8, CARD_W);
+  data.fish.style.height = pct(PICTURE.h * 0.8, CARD_H);
   root.append(data.fish);
 
   const value = (

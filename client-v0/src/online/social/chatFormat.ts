@@ -1,7 +1,7 @@
 // Hàm thuần cho khung chat: giờ gửi, chuẩn hoá tin trước khi gửi.
 
 /** Khớp Social:ChatMaxLength của Server; Server kiểm tra lại. */
-export const CHAT_MAX_LENGTH = 100;
+export const CHAT_MAX_LENGTH = 160;
 
 /** Giờ hiển thị HH:MM:SS theo giờ máy; thiếu sentAt (mock cũ) thì dùng thời điểm nhận. */
 export function formatChatTime(sentAt: string | undefined, receivedAtMs: number): string {

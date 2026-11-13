@@ -101,6 +101,9 @@ public sealed record EquipRodRequest(string RodId);
 
 public sealed record EquipRodResponse(string EquippedRodId);
 
+/// <summary>Phát cho cả hồ khi một người đổi cần đang dùng.</summary>
+public sealed record RodChangedView(Guid PlayerId, string RodId);
+
 public sealed record BuyRequest(string OfferId, int Quantity) : IIdempotentBody;
 
 public sealed record BuyResponse(string Gold, InventoryView Inventory);

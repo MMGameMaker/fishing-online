@@ -9,6 +9,8 @@ import { showToast } from '../kit/components';
 import { formatGold } from '../kit/format';
 import { animateIn, animateOut } from '../kit/motion';
 import { formatClock } from '../../scenes/lake/seatLogic';
+import { InventoryPopup } from '../inventory/InventoryPopup';
+import { ShopPopup } from '../shop/ShopPopup';
 import { expText, levelProgress } from './levelProgress';
 
 const UI_DIR = '/new resources/ui/';
@@ -93,8 +95,16 @@ export class HomeHud {
   private readonly unsubscribes: (() => void)[] = [];
   private lastClock = '';
   private lastAttemptId = '';
+  private readonly shop: ShopPopup;
+  private readonly inventory: InventoryPopup;
 
   constructor(private readonly options: HomeHudOptions) {
+    this.shop = new ShopPopup({ root: options.root, services: options.services });
+    this.inventory = new InventoryPopup({
+      root: options.root,
+      services: options.services,
+      shop: this.shop,
+    });
     this.buildCard();
     this.buildTicket();
     this.buildGold();
@@ -170,6 +180,8 @@ export class HomeHud {
 
   destroy(): void {
     this.unsubscribes.forEach((unsubscribe) => unsubscribe());
+    this.shop.destroy();
+    this.inventory.destroy();
     this.layer.remove();
     this.menu.remove();
   }
@@ -238,7 +250,13 @@ export class HomeHud {
       slot.addEventListener('click', () => {
         select(slot, item.label);
         if (item.id === 'close') void this.setMenuOpen(false);
-        else showToast(this.options.root, COMING_SOON);
+        else if (item.id === 'shop') {
+          void this.setMenuOpen(false);
+          this.shop.open('sell');
+        } else if (item.id === 'inventory') {
+          void this.setMenuOpen(false);
+          this.inventory.open('rods');
+        } else showToast(this.options.root, COMING_SOON);
       });
       grid.append(slot);
     }

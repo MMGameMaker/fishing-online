@@ -40,7 +40,8 @@ const TUG_MS = 70;
 /** Emoji động trên đầu (frame 39px) thu về cỡ đầu thỏ. */
 const EMOTE_SCALE = 0.6;
 /** Bong bóng lời nói khi chat: hiện bao lâu, rộng tối đa, khoảng cách trên nhãn tên. */
-const SAY_MS = 4000;
+/** GD chốt 2026-11-13: bong bóng chat tồn tại 10 giây. */
+const SAY_MS = 10_000;
 const SAY_WRAP_PX = 110;
 const SAY_GAP = 12;
 const POP_IN_MS = 200;

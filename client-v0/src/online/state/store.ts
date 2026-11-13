@@ -46,7 +46,11 @@ export interface LakeState {
  * Một dòng trong khung chat: tin chữ, hoặc emoji (feedback 2026-11-13: emoji cũng hiện trong khung chat,
  * `text` rỗng). Emoji không có messageId từ Server nên Client tự đặt; thiếu sentAt thì khung chat lấy giờ nhận.
  */
-export type ChatEntry = HubEvents['ChatReceived'] & { emojiId?: string };
+export type ChatEntry = HubEvents['ChatReceived'] & {
+  emojiId?: string;
+  /** Tin hệ thống khoe cá (CatchAnnounced). */
+  announce?: HubEvents['CatchAnnounced'];
+};
 
 export interface GameState {
   session: { profile: PlayerProfile | null; gold: string | null };
@@ -178,8 +182,33 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
         },
       };
     }
+    case 'RodChanged': {
+      const player = lake.players[action.payload.playerId];
+      if (!player) return lake;
+      return {
+        ...lake,
+        players: {
+          ...lake.players,
+          [player.playerId]: { ...player, rodId: action.payload.rodId },
+        },
+      };
+    }
     case 'ChatReceived':
       return { ...lake, chat: [...lake.chat, action.payload].slice(-CHAT_LOG_LIMIT) };
+    case 'CatchAnnounced':
+      return {
+        ...lake,
+        chat: [
+          ...lake.chat,
+          {
+            messageId: `announce:${action.payload.playerId}:${action.payload.announcedAt}`,
+            playerId: 'system',
+            text: '',
+            sentAt: action.payload.announcedAt,
+            announce: action.payload,
+          },
+        ].slice(-CHAT_LOG_LIMIT),
+      };
     case 'EmojiReceived':
       return {
         ...lake,
@@ -212,6 +241,18 @@ export function reduce(state: GameState, action: GameAction): GameState {
       return { ...next, attempt: action.payload.myAttempt };
     case 'AttemptUpdate':
       return { ...next, attempt: action.payload };
+    case 'RodChanged': {
+      // Cần của mình: cập nhật hồ sơ và túi đồ để mọi chỗ hiển thị cùng cần.
+      const profile = next.session.profile;
+      if (!profile || profile.playerId !== action.payload.playerId) return next;
+      return {
+        ...next,
+        session: { ...next.session, profile: { ...profile, equippedRodId: action.payload.rodId } },
+        inventory: next.inventory
+          ? { ...next.inventory, equippedRodId: action.payload.rodId }
+          : next.inventory,
+      };
+    }
     case 'session/profile':
       return {
         ...next,

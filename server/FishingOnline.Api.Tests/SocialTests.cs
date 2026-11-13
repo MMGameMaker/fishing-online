@@ -39,6 +39,26 @@ public sealed class SocialTests(PostgresServer postgres) : GameTestBase(postgres
     }
 
     [Fact]
+    public async Task DevAnnounceCatch_ReachesEveryoneInLake_UnknownSpeciesRejected()
+    {
+        var playerId = await App.NewPlayerAsync();
+        await using var player = await App.ConnectAsync(playerId);
+        await player.OkAsync("JoinLake");
+        await using var watcher = await App.ConnectAsync();
+        await watcher.OkAsync("JoinLake");
+        var client = App.Http(playerId);
+
+        (await client.PostAsJsonAsync("/api/v1/dev/announce-catch", new { speciesId = "koi" })).EnsureSuccessStatusCode();
+
+        var announced = await watcher.WaitForAsync("CatchAnnounced");
+        Assert.Equal(playerId, announced.GetProperty("playerId").GetGuid());
+        Assert.Equal("koi", announced.GetProperty("speciesId").GetString());
+        Assert.Equal("epic", announced.GetProperty("rarity").GetString());
+        Assert.True(announced.GetProperty("first").GetBoolean());
+        await AssertErrorAsync(await client.PostAsJsonAsync("/api/v1/dev/announce-catch", new { speciesId = "nope" }), 400, "VALIDATION_FAILED");
+    }
+
+    [Fact]
     public async Task Chat_ReachesRoom_AndIsStored()
     {
         await using var player = await App.ConnectAsync();
@@ -55,7 +75,7 @@ public sealed class SocialTests(PostgresServer postgres) : GameTestBase(postgres
     }
 
     [Theory]
-    [InlineData(101)]
+    [InlineData(161)]
     [InlineData(0)]
     public async Task Chat_BadLength_IsRejected(int length)
     {
@@ -75,8 +95,11 @@ public sealed class SocialTests(PostgresServer postgres) : GameTestBase(postgres
         Assert.Equal("RATE_LIMITED", await player.ErrorAsync("SendChat", Chat("two")));
         Assert.Equal("RATE_LIMITED", await player.ErrorAsync("SendChat", Chat("three")));
 
+        // GD chốt 2026-11-13: gửi cách nhau ít nhất 2 giây.
         App.Clock.AdvanceMs(1000);
-        await player.OkAsync("SendChat", Chat("four"));
+        Assert.Equal("RATE_LIMITED", await player.ErrorAsync("SendChat", Chat("four")));
+        App.Clock.AdvanceMs(1000);
+        await player.OkAsync("SendChat", Chat("five"));
     }
 
     [Fact]
@@ -87,7 +110,7 @@ public sealed class SocialTests(PostgresServer postgres) : GameTestBase(postgres
         for (var i = 0; i < 10; i++)
         {
             await player.OkAsync("SendChat", Chat($"m{i}"));
-            App.Clock.AdvanceMs(1000);
+            App.Clock.AdvanceMs(2000);
         }
 
         Assert.Equal("RATE_LIMITED", await player.ErrorAsync("SendChat", Chat("m10")));

@@ -6,6 +6,7 @@ import { createServices, setServices } from './core/services';
 import './scenes/lake/lake.css';
 import './fishing/fishing.css';
 import './social/social.css';
+import './ui/announce/announce.css';
 import { CharacterDebugScene } from './entities/CharacterDebugScene';
 import { MinigameScene } from './fishing/MinigameScene';
 import { LakeScene } from './scenes/lake/LakeScene';

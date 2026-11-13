@@ -12,7 +12,7 @@ const DESIGN_W = 1120;
 const DESIGN_H = 564;
 
 // Slider.png 384×48: núm kéo ở x 0..40, thanh từ x 40 tới 384 (đầu phải bo tròn ở x 364..384).
-const SLIDER = { w: 384, h: 48, knobW: 40, capW: 20, fillCol: 200 };
+export const SLIDER = { w: 384, h: 48, knobW: 40, capW: 20, fillCol: 200 };
 // Art Ticket.png: chữ "10 phút" vẽ sẵn, xoá đi vì số phút đổi theo lượng vé chọn.
 const TICKET_TEXT_BOX = { x: 148, y: 84, w: 96, h: 28, color: 'rgb(232,96,76)' };
 
@@ -36,7 +36,7 @@ function canvas(w: number, h: number): [HTMLCanvasElement, CanvasRenderingContex
 }
 
 /** Tách Slider.png thành núm kéo và thanh trống (đầu trái lấy đối xứng từ đầu phải). */
-function loadSliderParts(): Promise<{ track: string; knob: string }> {
+export function loadSliderParts(): Promise<{ track: string; knob: string }> {
   sliderParts ??= loadImage(asset('Slider.png')).then((image) => {
     const { w, h, knobW, capW, fillCol } = SLIDER;
     const [knob, kctx] = canvas(knobW, h);

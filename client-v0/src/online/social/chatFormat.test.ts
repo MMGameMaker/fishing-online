@@ -12,12 +12,12 @@ describe('chatFormat', () => {
   it('chuẩn hoá tin: gộp khoảng trắng, rỗng thì không gửi, cắt độ dài', () => {
     expect(normalizeChat('  Xin   chào  ')).toBe('Xin chào');
     expect(normalizeChat('   ')).toBeNull();
-    expect([...normalizeChat('a'.repeat(150))!]).toHaveLength(CHAT_MAX_LENGTH);
+    expect([...normalizeChat('a'.repeat(200))!]).toHaveLength(CHAT_MAX_LENGTH);
   });
 
   it('bộ đếm ký tự', () => {
-    expect(chatCounter('')).toBe('0/100');
-    expect(chatCounter('Hi')).toBe('2/100');
+    expect(chatCounter('')).toBe('0/160');
+    expect(chatCounter('Hi')).toBe('2/160');
   });
 });
 

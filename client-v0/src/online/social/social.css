@@ -1,39 +1,53 @@
-/* Khung "Trò chuyện" và bảng "Biểu cảm" theo hình mẫu (feedback 2026-11-12):
-   nền kem, viền nâu kép như popup mua vé, ô biểu cảm nâu bo góc, nút gửi cam. */
+/* Khung "Trò chuyện" và bảng "Biểu cảm" theo ảnh demo (2026-11-13) với art trong
+   public/new resources/ui: Panel Art (khung), Bubble - Tail Left/Right (bong bóng), System Message,
+   Emote Slot, Button Emote, Button Send, Chat Button. Toạ độ là pixel ảnh (vẽ cho màn 1920×1080);
+   cả khung thu theo --chat-scale do SocialUi đặt. Khung và bong bóng dùng border-image 9 mảnh. */
 .social-panel,
 .social-toggle {
   --ink: #3a1d0e;
-  --cream: #fbe3ae;
-  --cream-2: #f3d39a;
-  --wood: #c47a33;
-  --wood-dark: #7a4a26;
+  --brown: #8a6a4a;
   pointer-events: auto;
-  font-family: 'Courier New', monospace;
+  font-family: var(--ui-font, 'Courier New', monospace);
+  font-weight: bold;
   color: var(--ink);
   image-rendering: pixelated;
 }
 
+.social-panel img,
+.social-toggle img {
+  display: block;
+  image-rendering: pixelated;
+  user-select: none;
+}
+
+:where(.social-panel, .social-toggle) button,
+.social-toggle {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+/* Nút mở chat (Chat Button.png 72×76). */
 .social-toggle {
   position: absolute;
   bottom: 44px;
   left: 16px;
-  display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  padding: 0;
-  cursor: pointer;
-  background: var(--cream);
-  border: 4px solid var(--wood);
-  outline: 3px solid var(--ink);
-  box-shadow: 0 5px 0 2px rgb(26 14 32 / 35%);
+  width: 54px;
+  height: 57px;
   transition: transform 120ms ease-out;
+}
+
+.social-toggle > img {
+  width: 100%;
+  height: 100%;
 }
 
 .social-toggle:active,
 .social-toggle--active {
   transform: translateY(2px);
-  background: var(--cream-2);
 }
 
 /* Số tin chưa xem khi khung chat đóng, gắn ở góc dưới bên phải nút chat. */
@@ -57,38 +71,17 @@
   display: none;
 }
 
-/* Bong bóng chat vẽ bằng khối pixel. */
-.social-toggle__icon {
-  position: relative;
-  width: 24px;
-  height: 18px;
-  background: #fff;
-  border: 3px solid var(--ink);
-  border-radius: 4px;
-}
-
-.social-toggle__icon::after {
-  position: absolute;
-  bottom: -9px;
-  left: 3px;
-  width: 6px;
-  height: 6px;
-  content: '';
-  background: #fff;
-  border-bottom: 3px solid var(--ink);
-  border-left: 3px solid var(--ink);
-}
-
+/* Khung chung của hai bảng (Panel Art.png 492×964, viền 24px). Thu theo góc dưới bên trái. */
 .social-panel {
   position: absolute;
+  bottom: 112px;
   display: flex;
   flex-direction: column;
-  background: var(--cream);
-  border: 6px solid var(--wood);
-  outline: 4px solid var(--ink);
-  box-shadow:
-    inset 0 0 0 4px #e9c684,
-    0 10px 0 4px rgb(26 14 32 / 35%);
+  padding: 12px 18px 16px;
+  border: 24px solid transparent;
+  border-image: url('/new%20resources/ui/Panel%20Art.png') 24 fill / 24px stretch;
+  transform: scale(var(--chat-scale, 0.6));
+  transform-origin: bottom left;
 }
 
 .social-panel[hidden] {
@@ -99,213 +92,217 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 10px 6px 14px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 4px solid #d9a868;
 }
 
 .social-panel__title {
   margin: 0;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-.social-panel__close {
-  width: 36px;
-  height: 38px;
-  padding: 0;
-  cursor: pointer;
-  background: none;
-  border: 0;
+  font-size: 44px;
 }
 
 .social-panel__close img {
-  display: block;
-  width: 36px;
-  height: 38px;
-  image-rendering: pixelated;
+  width: 72px;
+  height: 76px;
 }
 
-/* Khung trò chuyện: góc dưới bên trái, trên nút mở. */
+.social-panel__close:active {
+  transform: translateY(2px);
+}
+
+/* Khung trò chuyện: góc dưới bên trái, trên nút mở; cao theo cửa sổ (--chat-h, pixel ảnh). */
 .chat-panel {
-  bottom: 104px;
   left: 16px;
-  width: min(320px, calc(100% - 32px));
-  height: min(460px, calc(100% - 136px));
+  width: 492px;
+  height: var(--chat-h, 952px);
 }
 
 .chat-panel__log {
   flex: 1;
   min-height: 0;
-  margin: 0 10px;
-  padding: 6px 4px;
+  padding: 0 4px 0 0;
+  margin: 0;
   overflow-y: auto;
   list-style: none;
-  background: #fff3d6;
-  border: 3px solid var(--wood-dark);
+  scrollbar-width: thin;
 }
 
 .chat-msg {
   display: flex;
-  gap: 6px;
+  gap: 12px;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 22px;
 }
 
-/* Mặt thỏ cắt từ sheet skin (34×34). */
+/* Tin của mình: nằm bên phải, không tên/avatar (người dùng chốt 2026-11-13). */
+.chat-msg--mine {
+  justify-content: flex-end;
+}
+
+/* Avatar: mặt thỏ theo skin (cắt 34×34 từ sheet) đặt trong khung Emote Slot.png. */
 .chat-msg__avatar {
+  display: grid;
   flex: none;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Emote%20Slot.png') 16 fill / 12px stretch;
+}
+
+.chat-msg__face {
   width: 34px;
   height: 34px;
-  background-color: var(--cream-2);
   background-repeat: no-repeat;
-  border: 2px solid var(--wood-dark);
-  image-rendering: pixelated;
+  transform: scale(1.1);
 }
 
 .chat-msg__body {
   min-width: 0;
+  max-width: 340px;
+}
+
+.chat-msg--mine .chat-msg__body {
+  max-width: 380px;
 }
 
 .chat-msg__meta {
   display: flex;
-  gap: 6px;
+  gap: 10px;
   align-items: baseline;
-  font-size: 12px;
+  margin-bottom: 6px;
 }
 
 .chat-msg__name {
-  font-weight: bold;
-}
-
-.chat-msg--mine .chat-msg__name {
-  color: #a8630f;
+  font-size: 24px;
 }
 
 .chat-msg__time {
-  color: #8a6a4a;
+  font-size: 18px;
+  color: var(--brown);
 }
 
+/* Bong bóng (Bubble - Tail Left.png 309×64: đuôi nhọn ở góc trên trái, rộng 12px). */
 .chat-msg__bubble {
-  margin: 2px 0 0;
-  padding: 4px 8px;
-  font-size: 13px;
+  display: inline-block;
+  max-width: 100%;
+  padding: 2px 10px 6px;
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
   overflow-wrap: anywhere;
-  background: #fff;
-  border: 2px solid var(--ink);
-  border-radius: 4px;
+  border-width: 16px 8px 12px 20px;
+  border-style: solid;
+  border-color: transparent;
+  border-image: url('/new%20resources/ui/Bubble%20-%20Tail%20Left.png') 16 8 12 20 fill / 16px 8px
+    12px 20px stretch;
 }
 
-/* Tin là emoji: bong bóng ôm vừa icon, không dùng chữ. */
+.chat-msg__bubble--mine {
+  border-width: 16px 20px 12px 8px;
+  border-image: url('/new%20resources/ui/Bubble%20-%20Tail%20Right.png') 16 20 12 8 fill / 16px 20px
+    12px 8px stretch;
+}
+
+/* Tin là emoji: bong bóng ôm vừa icon. */
 .chat-msg__bubble--emoji {
-  display: inline-block;
-  padding: 2px 4px;
+  padding: 0 4px 4px;
   line-height: 0;
+}
+
+.chat-msg__bubble--emoji .emote-icon {
+  margin: 10px;
+  transform: scale(1.8);
+}
+
+/* Tin hệ thống (System Message.png 440×124, viền vàng 4px), dùng cho thông báo khoe cá. */
+.chat-msg--system {
+  display: block;
+  padding: 10px 14px 12px;
+  font-size: 22px;
+  line-height: 30px;
+  border: 4px solid transparent;
+  border-image: url('/new%20resources/ui/System%20Message.png') 8 fill / 4px stretch;
+}
+
+.chat-msg--system .chat-msg__time {
+  display: block;
+  font-size: 18px;
+  color: #c0702a;
 }
 
 .chat-panel__form {
   display: flex;
-  gap: 6px;
+  gap: 10px;
   align-items: center;
-  margin: 8px 10px 0;
+  padding-top: 16px;
+  border-top: 4px solid #d9a868;
 }
 
 .chat-panel__input {
   flex: 1;
   min-width: 0;
-  height: 36px;
-  padding: 0 8px;
-  font:
-    13px 'Courier New',
-    monospace;
+  height: 60px;
+  padding: 0 12px;
+  font: 22px var(--ui-font, 'Courier New', monospace);
   color: var(--ink);
-  background: #fff;
-  border: 3px solid var(--wood-dark);
+  background: #fff6cc;
+  border: 4px solid #7a4a26;
   outline: none;
+  box-shadow: inset 0 4px 0 #e9cf96;
 }
 
 .chat-panel__input:focus {
-  border-color: var(--wood);
+  border-color: #c47a33;
 }
 
-.chat-panel__emoji,
-.chat-panel__send {
-  display: grid;
-  flex: none;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  overflow: hidden;
-  cursor: pointer;
-  border: 3px solid var(--ink);
-  box-shadow: 0 3px 0 rgb(26 14 32 / 35%);
+.chat-panel__emoji img {
+  width: 56px;
+  height: 60px;
 }
 
-.chat-panel__emoji {
-  background: #f6d35b;
-}
-
-.chat-panel__emoji .emote-icon {
-  transform: scale(0.75);
-}
-
-/* Nút gửi cam, mũi tên trắng. */
-.chat-panel__send {
-  position: relative;
-  background: #f08a2c;
-}
-
-.chat-panel__send::before {
-  width: 0;
-  height: 0;
-  content: '';
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 13px solid #fff;
+.chat-panel__send img {
+  width: 64px;
+  height: 60px;
 }
 
 .chat-panel__emoji:active,
 .chat-panel__send:active {
-  box-shadow: none;
   transform: translateY(2px);
 }
 
 .chat-panel__count {
-  padding: 2px 12px 8px;
-  font-size: 11px;
-  color: #8a6a4a;
+  padding-top: 6px;
+  font-size: 18px;
+  color: var(--brown);
   text-align: right;
 }
 
-/* Bảng biểu cảm: cạnh phải khung chat, lưới 5 cột. */
+/* Bảng biểu cảm: cạnh phải khung chat, lưới 5 cột ô Emote Slot.png 68×68. */
 .emoji-panel {
-  bottom: 104px;
-  left: calc(16px + min(320px, calc(100% - 32px)) + 18px);
-  width: 256px;
+  left: calc(16px + (492px + 24px) * var(--chat-scale, 0.6));
+  width: 452px;
 }
 
 .emoji-panel__grid {
   display: grid;
-  grid-template-columns: repeat(5, 40px);
-  gap: 6px;
-  padding: 4px 14px 14px;
+  grid-template-columns: repeat(5, 68px);
+  gap: 14px;
 }
 
 .emoji-panel__slot {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  cursor: pointer;
-  background: #d9a868;
-  border: 3px solid var(--wood-dark);
-  border-radius: 6px;
+  width: 68px;
+  height: 68px;
+  background: url('/new%20resources/ui/Emote%20Slot.png') no-repeat 0 0 / 100% 100% !important;
   transition: transform 120ms ease-out;
 }
 
 .emoji-panel__slot:hover {
-  transform: translateY(-2px);
-  background: #e6b97a;
+  filter: brightness(1.06);
+  transform: translateY(-3px);
 }
 
 .emoji-panel__slot:active {
@@ -313,7 +310,7 @@
 }
 
 .emoji-panel__slot .emote-icon {
-  transform: scale(0.85);
+  transform: scale(1.6);
 }
 
 .emote-icon {
@@ -326,7 +323,7 @@
 /* Màn hẹp: bảng biểu cảm nằm trên khung chat thay vì bên phải. */
 @media (width < 640px) {
   .emoji-panel {
-    bottom: calc(104px + min(460px, 100% - 136px) + 14px);
+    bottom: calc(112px + var(--chat-h, 952px) * var(--chat-scale, 0.6) + 12px);
     left: 16px;
   }
 }

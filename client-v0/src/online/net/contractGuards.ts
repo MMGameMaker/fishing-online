@@ -217,8 +217,18 @@ export const EVENT_GUARDS: { [K in HubEventName]: Guard<HubEvents[K]> } = {
     obj(v) && str(v.playerId) && str(v.speciesId) && isRarityValue(v.rarity) && iso(v.shownUntil),
   FailShown: (v): v is HubEvents['FailShown'] => obj(v) && str(v.playerId) && iso(v.shownUntil),
   SkinChanged: (v): v is HubEvents['SkinChanged'] => obj(v) && str(v.playerId) && str(v.skinId),
+  RodChanged: (v): v is HubEvents['RodChanged'] => obj(v) && str(v.playerId) && str(v.rodId),
   ChatReceived: (v): v is HubEvents['ChatReceived'] =>
     obj(v) && str(v.messageId) && str(v.playerId) && str(v.text),
   EmojiReceived: (v): v is HubEvents['EmojiReceived'] =>
     obj(v) && str(v.playerId) && str(v.emojiId),
+  CatchAnnounced: (v): v is HubEvents['CatchAnnounced'] =>
+    obj(v) &&
+    str(v.playerId) &&
+    str(v.displayName) &&
+    str(v.speciesId) &&
+    str(v.speciesName) &&
+    isRarityValue(v.rarity) &&
+    typeof v.first === 'boolean' &&
+    iso(v.announcedAt),
 };

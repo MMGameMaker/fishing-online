@@ -54,3 +54,42 @@
 - **Số tin chưa xem:** Khung chat đang đóng thì đếm tin mới của người khác (không tính tin của mình, không tính tin có sẵn lúc vào hồ). Số đỏ hiện ở góc dưới bên phải nút chat, quá 99 thì ghi `99+`. Mở khung chat thì về 0. Hiện/ẩn qua `motion.ts`.
 - **Kiểm tra:** 241 test client đạt (có test emoji vào log), tsc/eslint/prettier sạch. Trên trình duyệt (mock): 1 tin chữ và 1 emoji của bot, cùng 1 tin của mình, khi khung đóng thì số hiện là 2. Mở khung thì số ẩn. Dòng emoji có icon trong bong bóng.
 
+## Web Client + Server — Giao diện chat theo demo và luật chat GD (2026-11-13)
+
+- **Giao diện** (SocialUi.ts, social.css, art người dùng thêm trong `public/new resources/ui`):
+  - Khung `Panel Art.png` (9 mảnh), tiêu đề to có đường kẻ, bong bóng `Bubble - Tail Left/Right.png`, ô `Emote Slot.png`, nút `Button Emote`, `Button Send`, `Chat Button`.
+  - Tin người khác: mặt thỏ theo skin trong khung ô, tên và giờ, bong bóng đuôi trái.
+  - **Tin của mình (chữ và emoji): nằm bên phải, không tên, không avatar, bong bóng đuôi phải** (người dùng chốt). Giờ gửi xem được khi trỏ chuột.
+  - Bảng Biểu cảm tách bên phải, lưới 5 cột.
+  - Cả khung thu theo cửa sổ (tối đa 0,75 như màn 1080p); chiều cao khung chừa chỗ cho khung người chơi ở trên và nút chat ở dưới.
+  - `System Message.png` đã có style `.chat-msg--system` cho tin hệ thống khoe cá; chưa dùng vì phần khoe cá chưa làm.
+  - `Avatar.png` (icon người) không dùng, vì người dùng chọn mặt thỏ.
+- **Luật chat theo GD 2026-11-13 (doc/GAMEPLAY_SCOPE):**
+  - Server: `Social:ChatMaxLength` 100 → 160, `ChatMinIntervalMs` 1000 → 2000 (appsettings + mặc định). Test API cập nhật: 161 ký tự bị từ chối; gửi sau 1 giây vẫn bị chặn, sau 2 giây thì được.
+  - Client: ô nhập và bộ đếm 160; bong bóng trên đầu 4 → 10 giây.
+- **Kiểm tra:**
+  - Tự động: 252 test client đạt, tsc/eslint/prettier sạch. Server API 197 test đạt.
+  - Trên trình duyệt (Server thật, `?dev=ClaudeTest`): tin người khác bên trái có mặt thỏ; "Hi" và emoji của mình bên phải không tên. Gửi tin thứ hai trong vòng 2 giây thì Server từ chối ("Bạn thao tác quá nhanh…"). Bộ đếm 0/160.
+- **Chưa làm (theo doc/GAMEPLAY_SCOPE, chờ người dùng):**
+  - Server lưu 50 tin gần nhất cho người vào sau.
+  - Khoe cá kiểu 1 (thông báo loài đầu tiên + tin hệ thống) và kiểu 2 (nút share, liên kết mở chi tiết cá).
+
+## Web Client + Server — Thanh thông báo khoe cá và lệnh test (2026-11-13)
+
+- **Yêu cầu:** Người dùng muốn một lệnh tạo thông báo "có người chơi vừa câu được cá" để tự test. Giao diện và hiệu ứng theo doc/GAMEPLAY_SCOPE "Khoe cá kiểu 1" và mô tả của người dùng.
+- **Server:**
+  - Sự kiện hub `CatchAnnounced {playerId, displayName, speciesId, speciesName, rarity, first, announcedAt}` phát cho mọi người trong hồ.
+  - Lệnh test `POST /api/v1/dev/announce-catch {speciesId?, first?}` **chỉ có ở Development** (`Modules/Social/CatchAnnouncement.cs`). Server dùng tên người gọi, bỏ trống `speciesId` thì chọn loài ngẫu nhiên, loài lạ thì báo `VALIDATION_FAILED`.
+  - Test API: người khác trong hồ nhận đúng sự kiện; loài lạ bị từ chối.
+  - **Trigger thật (loài lần đầu được câu trên toàn hệ thống) chưa làm.**
+- **Client:**
+  - `ui/announce/CatchBanner.ts`: thanh xanh ở nửa trên màn hình, mở theo chiều dọc từ giữa (scaleY 0 → 1), chữ chạy phải → trái 3 lượt (doc), rồi khép về giữa (1 → 0). Nhiều thông báo thì xếp hàng, tối đa 5.
+  - Câu chữ: "Chúc mừng [tên] là người đầu tiên câu được [cá]!". Tên màu vàng, cá màu theo độ hiếm. Nếu `first=false` thì ghi "đã câu được". Có test.
+  - Store ghi một tin hệ thống vào khung chat (`System Message.png`, "[Hệ thống] giờ"), tính vào số tin chưa xem. Mock có route tương ứng.
+- **Lệnh test:**
+  - Console trình duyệt (bản dev): `__fishing.announceCatch('koi')`, bỏ trống thì loài ngẫu nhiên; `__fishing.announceCatch('koi', false)` cho câu "đã câu được".
+  - Server thật: mọi tab đang ở hồ đều thấy.
+- **Kiểm tra:**
+  - Tự động: 254 test client đạt. Test API mới và test chat đạt (9/9 theo bộ lọc).
+  - Trên trình duyệt (Server thật, `?dev=ClaudeTest`): `announceCatch('goldcarp')` hiện thanh, chữ chạy, "Golden Carp" màu xanh lam; chat có tin "[Hệ thống] …"; nút chat hiện 1 tin chưa xem.
+

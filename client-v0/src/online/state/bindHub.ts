@@ -14,8 +14,10 @@ const EVENTS: HubEventName[] = [
   'AttemptUpdate',
   'CatchShown',
   'SkinChanged',
+  'RodChanged',
   'ChatReceived',
   'EmojiReceived',
+  'CatchAnnounced',
 ];
 
 /** Nối event của hub vào store; trả hàm gỡ. */

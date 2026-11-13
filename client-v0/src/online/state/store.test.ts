@@ -112,6 +112,25 @@ describe('reducer', () => {
     expect(s.lake.chat.at(-1)).toMatchObject({ playerId: 'p', emojiId: 'smile', text: '' });
   });
 
+  it('RodChanged: đổi cần của người trong hồ và cả hồ sơ, túi đồ nếu là mình', () => {
+    let s = reduce(initialState, {
+      type: 'session/profile',
+      payload: {
+        playerId: 'me',
+        displayName: 'A',
+        level: 1,
+        exp: 0,
+        gold: '0',
+        selectedSkinId: 'skin_01',
+        equippedRodId: 'rod_old',
+      },
+    });
+    s = reduce(s, { type: 'RodChanged', payload: { playerId: 'me', rodId: 'rod_bliss' } });
+    expect(s.session.profile?.equippedRodId).toBe('rod_bliss');
+    s = reduce(s, { type: 'RodChanged', payload: { playerId: 'other', rodId: 'rod_bliss' } });
+    expect(s.session.profile?.equippedRodId).toBe('rod_bliss');
+  });
+
   it('log chat bị giới hạn', () => {
     let s = initialState;
     for (let i = 0; i < CHAT_LOG_LIMIT + 5; i += 1) {

@@ -1,6 +1,5 @@
 // Điều phối giao diện một lần câu theo AttemptUpdate từ Server.
 import Phaser from 'phaser';
-import { drawFishIcon } from '../../art.js';
 import type { Services } from '../core/services';
 import type { HeadIcon } from '../entities/CharacterView';
 import type { CharacterAnim } from '../entities/placeholderArt';
@@ -17,6 +16,8 @@ import {
   shouldAutoCast,
 } from './fishButtonState';
 import { MINIGAME_SCENE, type MinigameData, type MinigameScene } from './MinigameScene';
+import { drawFishIcon } from '../../art.js';
+import { fishImage, preloadFishArt } from '../ui/fishArt';
 import { buildCatchCard, preloadCatchCard } from './CatchCard';
 import { burstConfetti } from './confetti';
 import { buildResultCard, cancelText } from './resultText';
@@ -82,6 +83,7 @@ export class FishingFlow {
   ) {
     this.button = new FishButton(root, () => this.press());
     preloadCatchCard();
+    preloadFishArt(services.store.getState().catalog?.fish.map((f) => f.speciesId) ?? []);
     this.bobber = scene.add.circle(0, 0, BOBBER_RADIUS, 0xf25c54).setVisible(false);
     this.unsubscribe = services.store.select(
       (s) => s.attempt,
@@ -330,8 +332,19 @@ export class FishingFlow {
     const { result } = attempt;
     if (!result) return;
     const card = buildResultCard(result, catalog);
-    // Hình cá hiện ngay trong thẻ, không đợi đóng popup (feedback 2026-11-11).
-    const fish = drawFishIcon(this.fishColor(result.speciesId) ?? card.rarityColor);
+    // Hình cá theo loài (ảnh tải sẵn lúc vào hồ) hiện ngay trong thẻ (feedback 2026-11-11, 2026-11-13).
+    const fish = fishImage(result.speciesId, '', false);
+    // Loài chưa có ảnh: quay về hình cá vẽ tay tô màu theo loài/độ hiếm như trước.
+    fish.addEventListener(
+      'error',
+      () => {
+        const drawn = drawFishIcon(this.fishColor(result.speciesId) ?? card.rarityColor);
+        drawn.className = fish.className;
+        drawn.style.cssText = fish.style.cssText;
+        fish.replaceWith(drawn);
+      },
+      { once: true },
+    );
     this.openPopup(
       buildCatchCard({
         card,

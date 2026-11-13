@@ -31,9 +31,12 @@ public static class LedgerReasons
     public const string SellFish = "sell_fish";
     public const string AdminAdjust = "admin_adjust";
 
+    /// <summary>Nạp Gold thử của tab "Nạp Gold" (endpoint chỉ có ở Development, xem DevTopUp).</summary>
+    public const string DevTopUp = "dev_topup";
+
     public static readonly IReadOnlySet<string> All = new HashSet<string>
     {
-        GrantNewPlayer, TicketPurchase, SeatPurchase, SeatExtension, BuyRod, SellFish, AdminAdjust,
+        GrantNewPlayer, TicketPurchase, SeatPurchase, SeatExtension, BuyRod, SellFish, AdminAdjust, DevTopUp,
     };
 }
 

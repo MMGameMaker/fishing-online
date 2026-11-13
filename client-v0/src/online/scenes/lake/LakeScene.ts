@@ -5,6 +5,7 @@ import { CharacterView } from '../../entities/CharacterView';
 import { FishingFlow } from '../../fishing/FishingFlow';
 import type { Direction, PlayerView } from '../../net/contract';
 import { mountUiOverlay, showError, showToast } from '../../ui/kit/components';
+import { CatchBanner } from '../../ui/announce/CatchBanner';
 import { HomeHud, isHomeHudEnabled } from '../../ui/home/HomeHud';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
@@ -243,8 +244,16 @@ export class LakeScene extends Phaser.Scene {
     const { hub } = this.services;
     this.cleanups.push(
       hub.on('ChatReceived', (message) => this.viewOf(message.playerId)?.say(message.text)),
+      // Đổi cần (Túi đồ hoặc tab khác): nhân vật của mình và người khác cầm cần mới ngay.
+      hub.on('RodChanged', ({ playerId, rodId }) => this.viewOf(playerId)?.setRod(rodId)),
       hub.on('EmojiReceived', ({ playerId, emojiId }) => this.showEmoji(playerId, emojiId)),
       () => this.social.destroy(),
+    );
+    // Khoe cá kiểu 1: thanh chạy chữ nửa trên màn hình cho mọi người (tin hệ thống vào chat qua store).
+    const banner = new CatchBanner(this.root);
+    this.cleanups.push(
+      hub.on('CatchAnnounced', (announcement) => banner.show(announcement)),
+      () => banner.destroy(),
     );
   }
 

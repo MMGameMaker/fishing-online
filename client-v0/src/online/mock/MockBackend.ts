@@ -42,6 +42,7 @@ import {
   uniformInt,
   type Random,
 } from './rules';
+import { TOP_UP_PACKS } from '../ui/shop/topUpPacks';
 
 export interface MockOptions {
   config: GameplayConfig;
@@ -960,6 +961,10 @@ export class MockBackend {
         return this.shopBuy(String(body.offerId), body.quantity);
       case 'POST /shop/sell-fish':
         return this.sellFish(body);
+      case 'POST /dev/topup':
+        return this.devTopUp(String(body.packId));
+      case 'POST /dev/announce-catch':
+        return this.devAnnounceCatch(body);
       case 'GET /me/codex':
         return this.codexResponse();
       case 'GET /me/history':
@@ -1012,6 +1017,7 @@ export class MockBackend {
     if (!this.rods.has(rodId)) throw new CommandError('ROD_NOT_OWNED');
     if (this.attempt) throw new CommandError('ATTEMPT_ACTIVE');
     this.equippedRodId = rodId;
+    this.emit('RodChanged', { playerId: MY_ID, rodId });
     return { equippedRodId: rodId };
   }
 
@@ -1024,6 +1030,34 @@ export class MockBackend {
     this.rods.add(offer.itemId);
     this.inventoryVersion += 1;
     return { gold: String(this.gold), inventory: this.inventory() };
+  }
+
+  /** Thông báo khoe cá thử, giống POST /dev/announce-catch của Server bản Development. */
+  private devAnnounceCatch(body: Record<string, unknown>) {
+    const fish =
+      typeof body.speciesId === 'string'
+        ? this.config.fish.find((f) => f.speciesId === body.speciesId)
+        : this.config.fish[Math.floor(this.random() * this.config.fish.length)];
+    if (!fish) throw new CommandError('VALIDATION_FAILED');
+    const view = {
+      playerId: MY_ID,
+      displayName: this.displayName,
+      speciesId: fish.speciesId,
+      speciesName: fish.name,
+      rarity: fish.rarity,
+      first: body.first !== false,
+      announcedAt: this.iso(this.nowMs),
+    };
+    this.emit('CatchAnnounced', view);
+    return view;
+  }
+
+  /** Nạp Gold thử, giống POST /dev/topup của Server bản Development. */
+  private devTopUp(packId: string) {
+    const pack = TOP_UP_PACKS.find((p) => p.packId === packId);
+    if (!pack) throw new CommandError('VALIDATION_FAILED');
+    this.gold += pack.gold;
+    return { goldAdded: String(pack.gold), gold: String(this.gold) };
   }
 
   private sellFish(body: Record<string, unknown>) {

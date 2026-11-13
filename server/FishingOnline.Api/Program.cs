@@ -88,6 +88,13 @@ if (hasDatabase)
     app.MapEconomy();
     app.MapSocial();
     app.MapAdmin();
+    // Nạp Gold thử cho tab "Nạp Gold" khi chưa có cổng thanh toán; không có ở môi trường khác.
+    if (isDevelopment)
+    {
+        app.MapDevTopUp();
+        // Lệnh test thanh thông báo khoe cá (POST /api/v1/dev/announce-catch).
+        app.MapDevCatchAnnouncement();
+    }
 }
 app.Run();
 

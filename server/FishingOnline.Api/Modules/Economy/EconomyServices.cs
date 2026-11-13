@@ -22,7 +22,8 @@ public sealed class NewPlayerGrant(GameDbContext db, IConfigProvider configs, Ti
     }
 }
 
-public sealed class InventoryService(GameDbContext db, IWallet wallet, IConfigProvider configs, IFishingState fishing, TimeProvider time)
+public sealed class InventoryService(
+    GameDbContext db, IWallet wallet, IConfigProvider configs, IFishingState fishing, TimeProvider time, LakeRoom room)
 {
     private const int MaxSellIds = 200;
 
@@ -46,6 +47,16 @@ public sealed class InventoryService(GameDbContext db, IWallet wallet, IConfigPr
         await db.Players.Where(row => row.Id == playerId).ExecuteUpdateAsync(setters => setters
             .SetProperty(row => row.EquippedRodId, rodId)
             .SetProperty(row => row.InventoryVersion, row => row.InventoryVersion + 1), ct);
+        // Cả hồ thấy cần mới ngay (feedback 2026-11-13), giống SkinChanged; người chưa ở hồ thì thôi.
+        await room.Queue.RunAsync(async () =>
+        {
+            if (room.Find(playerId) is { } member)
+            {
+                member.RodId = rodId;
+                await room.BroadcastAsync("RodChanged", new RodChangedView(playerId, rodId));
+            }
+            return true;
+        });
         return new EquipRodResponse(rodId);
     }
 

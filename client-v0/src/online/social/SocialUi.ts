@@ -1,4 +1,5 @@
-// Khung "Trò chuyện" và bảng "Biểu cảm" theo hình mẫu (feedback 2026-11-12), vẽ bằng DOM trên canvas.
+// Khung "Trò chuyện" và bảng "Biểu cảm" theo ảnh demo 2026-11-13 (art trong public/new resources/ui),
+// vẽ bằng DOM trên canvas. Tin của mình nằm bên phải, không tên; tin người khác có mặt thỏ theo skin.
 // Tin nhắn lấy từ store (ChatReceived của Server); gửi qua SendChat/SendEmoji, Server kiểm tra lại
 // độ dài, tần suất và danh sách emoji. Hiện/ẩn mọi khung qua ui/kit/motion.ts.
 import type { Services } from '../core/services';
@@ -6,9 +7,18 @@ import type { ChatEntry } from '../state/store';
 import { showError } from '../ui/kit/components';
 import { animateIn, animateOut } from '../ui/kit/motion';
 import { CHAT_MAX_LENGTH, chatCounter, formatChatTime, normalizeChat } from './chatFormat';
+import { renderAnnouncement } from '../ui/announce/CatchBanner';
 import { EMOJIS, EMOTE_SHEET_URL, emojiById, loadEmoteFrames, type FrameRect } from './emojis';
 
 const CLOSE_ICON = encodeURI('/mini game/Button Close.png');
+const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
+/** Khung chat vẽ cho màn 1080p (pixel ảnh); thu cả khung theo cửa sổ, chừa chỗ cho nút mở bên dưới. */
+const PANEL_W = 492;
+const PANEL_H = 952;
+const MIN_PANEL_H = 560;
+const RESERVED_BOTTOM_PX = 128;
+/** Chừa dải trên cho khung người chơi/vé của HomeHud để khung chat không đè lên. */
+const RESERVED_TOP_PX = 104;
 const SKIN_DIR = '/assets/characters/';
 /** Vùng mặt thỏ trong frame idle_down_0 (khung bake 120×140, chân ở 60,76). */
 const FACE = { x: 44, y: 34, size: 34 };
@@ -88,7 +98,10 @@ export class SocialUi {
     this.toggle.type = 'button';
     this.toggle.setAttribute('aria-label', 'Trò chuyện');
     this.toggle.title = 'Trò chuyện (Enter)';
-    this.toggle.append(el('span', 'social-toggle__icon'), this.badge);
+    const toggleIcon = el('img', '');
+    toggleIcon.src = UI('Chat Button.png');
+    toggleIcon.alt = '';
+    this.toggle.append(toggleIcon, this.badge);
     this.badge.hidden = true;
     this.toggle.addEventListener('click', () => void this.setChatOpen(this.chat.hidden));
 
@@ -107,6 +120,25 @@ export class SocialUi {
     this.renderLog(services.store.getState().lake.chat);
     // Tin có sẵn lúc vào hồ không tính là chưa xem.
     this.setUnread(0);
+
+    const fit = () => this.fit();
+    fit();
+    window.addEventListener('resize', fit);
+    this.unsubscribes.push(() => window.removeEventListener('resize', fit));
+  }
+
+  /** Tỉ lệ thu theo cửa sổ (tối đa 0,75 như màn 1080p) và chiều cao khung theo chỗ trống. */
+  private fit(): void {
+    const free = Math.max(200, window.innerHeight - RESERVED_BOTTOM_PX - RESERVED_TOP_PX);
+    const scale = Math.max(
+      0.35,
+      Math.min(0.75, free / PANEL_H, (window.innerWidth - 32) / PANEL_W),
+    );
+    const height = Math.max(MIN_PANEL_H, Math.min(PANEL_H, free / scale));
+    for (const panel of [this.chat, this.emoji]) {
+      panel.style.setProperty('--chat-scale', String(scale));
+      panel.style.setProperty('--chat-h', `${Math.round(height)}px`);
+    }
   }
 
   get isChatOpen(): boolean {
@@ -153,11 +185,13 @@ export class SocialUi {
     const emojiButton = el('button', 'chat-panel__emoji');
     emojiButton.type = 'button';
     emojiButton.setAttribute('aria-label', 'Biểu cảm');
+    emojiButton.append(this.image(UI('Button Emote.png')));
     emojiButton.addEventListener('click', () => void this.setEmojiOpen(this.emoji.hidden));
 
     const send = el('button', 'chat-panel__send');
     send.type = 'submit';
     send.setAttribute('aria-label', 'Gửi');
+    send.append(this.image(UI('Button Send.png')));
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       void this.sendChat();
@@ -165,10 +199,14 @@ export class SocialUi {
     form.append(this.input, emojiButton, send);
 
     this.chat.append(header, this.log, form, this.counter);
-    void loadEmoteFrames().then((frames) => {
-      const icon = frames['smileyStatic'];
-      if (icon) emojiButton.append(this.emoteIcon(icon));
-    });
+  }
+
+  private image(src: string): HTMLImageElement {
+    const node = el('img', '');
+    node.src = src;
+    node.alt = '';
+    node.draggable = false;
+    return node;
   }
 
   private buildEmoji(): void {
@@ -258,12 +296,37 @@ export class SocialUi {
     const skinId =
       player?.skinId ?? (mine ? session.profile?.selectedSkinId : undefined) ?? 'skin_01';
 
-    const item = el('li', mine ? 'chat-msg chat-msg--mine' : 'chat-msg');
+    if (message.announce) {
+      // Tin hệ thống khoe cá (System Message.png): "[Hệ thống] giờ" + câu chúc mừng có màu.
+      const item = el('li', 'chat-msg chat-msg--system');
+      const tag = el('span', 'chat-msg__time');
+      tag.append(
+        el('span', 'chat-msg__announce-tag', '[Hệ thống] '),
+        el('span', '', formatChatTime(message.sentAt, Date.now())),
+      );
+      const text = el('div', 'chat-msg__system-text');
+      renderAnnouncement(text, message.announce, true);
+      item.append(tag, text);
+      return item;
+    }
+    if (mine) {
+      // Tin của mình: chỉ bong bóng đuôi phải, nằm bên phải.
+      const item = el('li', 'chat-msg chat-msg--mine');
+      const body = el('div', 'chat-msg__body');
+      body.title = formatChatTime(message.sentAt, Date.now());
+      body.append(this.bubble(message, true));
+      item.append(body);
+      return item;
+    }
+
+    const item = el('li', 'chat-msg');
     const avatar = el('span', 'chat-msg__avatar');
-    void faceOf(skinId).then((face) => {
-      if (!face) return;
-      avatar.style.backgroundImage = `url("${face.url}")`;
-      avatar.style.backgroundPosition = `-${face.x}px -${face.y}px`;
+    const face = el('span', 'chat-msg__face');
+    avatar.append(face);
+    void faceOf(skinId).then((rect) => {
+      if (!rect) return;
+      face.style.backgroundImage = `url("${rect.url}")`;
+      face.style.backgroundPosition = `-${rect.x}px -${rect.y}px`;
     });
     const meta = el('div', 'chat-msg__meta');
     meta.append(
@@ -277,10 +340,11 @@ export class SocialUi {
   }
 
   /** Bong bóng chữ, hoặc bong bóng chứa icon emoji khi người chơi gửi biểu cảm. */
-  private bubble(message: ChatMessage): HTMLElement {
+  private bubble(message: ChatMessage, mine = false): HTMLElement {
+    const base = mine ? 'chat-msg__bubble chat-msg__bubble--mine' : 'chat-msg__bubble';
     const emoji = message.emojiId ? emojiById(message.emojiId) : undefined;
-    if (!message.emojiId) return el('p', 'chat-msg__bubble', message.text);
-    const bubble = el('p', 'chat-msg__bubble chat-msg__bubble--emoji');
+    if (!message.emojiId) return el('p', base, message.text);
+    const bubble = el('p', `${base} chat-msg__bubble--emoji`);
     bubble.setAttribute('aria-label', emoji?.art ?? message.emojiId);
     void loadEmoteFrames().then((frames) => {
       const frame = emoji ? frames[`${emoji.art}Static`] : undefined;

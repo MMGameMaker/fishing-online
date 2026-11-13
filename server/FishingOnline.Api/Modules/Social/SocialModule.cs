@@ -19,8 +19,9 @@ public sealed class SocialOptions
     public List<SkinOption> Skins { get; set; } = [];
     public List<string> Emojis { get; set; } = [];
     public List<string> BannedWords { get; set; } = [];
-    public int ChatMaxLength { get; set; } = 100;
-    public int ChatMinIntervalMs { get; set; } = 1000;
+    /// <summary>GD chốt 2026-11-13: tối đa 160 ký tự, mỗi người gửi cách nhau ít nhất 2 giây.</summary>
+    public int ChatMaxLength { get; set; } = 160;
+    public int ChatMinIntervalMs { get; set; } = 2000;
     public int ChatBurstCount { get; set; } = 10;
     public int ChatBurstWindowSeconds { get; set; } = 30;
     public int EmojiMinIntervalMs { get; set; } = 2000;

@@ -6,7 +6,10 @@ import '../../ui/kit/kit.css';
 import '../lake/lake.css';
 import '../../fishing/fishing.css';
 import '../../social/social.css';
+import '../../ui/announce/announce.css';
 import '../../ui/home/home.css';
+import '../../ui/shop/shop.css';
+import '../../ui/inventory/inventory.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';
@@ -42,7 +45,11 @@ async function start(): Promise<void> {
 
   if (import.meta.env.DEV) {
     // Chỉ để kiểm tra khi phát triển.
-    (window as unknown as { __fishing: unknown }).__fishing = { game, services };
+    // __fishing.announceCatch('koi') (bỏ trống = loài ngẫu nhiên): Server bản dev phát thông báo khoe cá
+    // cho mọi người trong hồ, để thử thanh thông báo trên nhiều tab.
+    const announceCatch = (speciesId?: string, first = true) =>
+      services.api.post('/dev/announce-catch', { speciesId, first });
+    (window as unknown as { __fishing: unknown }).__fishing = { game, services, announceCatch };
   }
 }
 

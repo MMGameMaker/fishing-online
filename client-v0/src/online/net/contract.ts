@@ -311,6 +311,8 @@ export interface HubEvents {
   CatchShown: { playerId: string; speciesId: string; rarity: Rarity; shownUntil: string };
   FailShown: { playerId: string; shownUntil: string };
   SkinChanged: { playerId: string; skinId: string };
+  /** Đổi cần đang dùng (PUT /me/equipped-rod): cả hồ thấy cần mới ngay. */
+  RodChanged: { playerId: string; rodId: string };
   /** Server gửi kèm tên người gửi và thời điểm (ISO); mock cũ có thể thiếu. */
   ChatReceived: {
     messageId: string;
@@ -320,6 +322,19 @@ export interface HubEvents {
     sentAt?: string;
   };
   EmojiReceived: { playerId: string; emojiId: string };
+  /**
+   * Khoe cá kiểu 1 (doc/GAMEPLAY_SCOPE): thanh "Chúc mừng [tên] là người đầu tiên câu được [cá]" cho mọi người
+   * và một tin hệ thống trong khung chat. Hiện chỉ Server bản dev phát qua POST /dev/announce-catch.
+   */
+  CatchAnnounced: {
+    playerId: string;
+    displayName: string;
+    speciesId: string;
+    speciesName: string;
+    rarity: Rarity;
+    first: boolean;
+    announcedAt: string;
+  };
 }
 
 export type HubEventName = keyof HubEvents;

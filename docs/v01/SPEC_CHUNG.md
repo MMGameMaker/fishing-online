@@ -168,6 +168,9 @@ Quy ước giữ từ 0.1-draft: JSON camelCase; Gold là chuỗi số nguyên (
 | PUT /me/equipped-rod | `{ rodId }` | `{ equippedRodId }` | BE-D |
 | POST /shop/buy | `{ offerId, quantity }` | `{ gold, inventory }` | BE-D |
 | POST /shop/sell-fish | `{ catchIds: [] }` hoặc `{ all: true }` | `{ soldCount, goldEarned, gold }` | BE-D |
+| POST /dev/topup (chỉ Development, thêm 2026-11-13) | `{ packId: gold_1000 \| gold_5000 \| gold_10000 }` + Idempotency-Key | `{ goldAdded, gold }`, sổ cái `dev_topup` | BE |
+| POST /dev/announce-catch (chỉ Development, thêm 2026-11-13) | `{ speciesId?, first? }` | phát hub `CatchAnnounced {playerId, displayName, speciesId, speciesName, rarity, first, announcedAt}` cho cả hồ | BE |
+| Hub `RodChanged` (thêm 2026-11-13) | sau `PUT /me/equipped-rod` thành công | `{ playerId, rodId }` cho cả hồ | BE |
 | GET /me/codex | — | `{ species: [{ speciesId, discovered, totalCaught, bestLengthTenthCm, firstCaughtAt }] }` | BE-D |
 | GET /me/history?cursor=&limit= | — | `{ items: [{ attemptId, outcome, reason, speciesId, lengthTenthCm, endedAt }], nextCursor }` | BE-D |
 | GET /skins, PUT /me/skin | `{ skinId }` | — | BE-F |
