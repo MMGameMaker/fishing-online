@@ -324,3 +324,15 @@ Người dùng gửi feedback 1–9 (không có số 6), nói "làm" sau khi g�
     - Ô nền dưới 2 ghế không còn nước.
 - **Chưa kiểm được:** chuyển động mượt của thông báo trượt và pháo giấy, vì khung trình duyệt của Claude bị ẩn nên trình duyệt chỉ vẽ lại vài giây một lần.
 
+
+## Bot câu cá (pier.html, 2026-11-14)
+- Bot mock đổi tên người Việt/nước ngoài (`mock/botFishing.ts`, `BOT_NAMES`), skin khác nhau; chỉ bật ở pier qua `createServices(map, { fishingBots: true })` → `createMock` → `MockBackend.fishingBots`. Các trang khác giữ bot cũ.
+- Hành vi: đi dạo 8–20s → ngồi ghế trống → 2–4 lượt câu (12–25s/lượt, 60% câu được). Câu được: `CatchShown` + `CatchAnnounced` (thanh thông báo + tin hệ thống trong chat, "người đầu tiên" theo loài). Trượt: `FailShown` (emoji buồn). Hết lượt thì đứng dậy ra chỗ đứng được gần ghế.
+- Sửa `state/store.ts`: `SeatChanged` cập nhật cả `players[].seatId` (người chơi khác ngồi/đứng dậy hiển thị đúng; áp dụng cả Server thật).
+- Kiểm tra: tsc, eslint, vitest 259 xanh (thêm `botFishing.test.ts`); trên trình duyệt mock thấy bot ngồi ghế, banner + chat hệ thống khi câu được, FailShown khi trượt. Là mock, chưa phải tích hợp thật.
+
+## Server phát khoe cá khi câu thật (2026-11-14)
+- `FishingService`: khi lần câu thành công, server phát `CatchAnnounced` cho cả hồ (cùng lúc `CatchShown`): tên người chơi, loài, độ hiếm, `first`. `first` = chưa có dòng `species_records` nào của loài đó trên toàn hệ thống (xét trước khi ghi lần câu này). Khoe mọi loài, mọi độ hiếm (khớp mock).
+- Lệnh dev `/api/v1/dev/announce-catch` giữ nguyên để test.
+- Test: `FishingTests.Success_AnnouncesToEveryone_FirstOnlyForSpeciesNobodyCaught`; toàn bộ 201 test API qua.
+- Kiểm chứng thật: API local + 2 tab `?dev=Watcher` / `?dev=Zen`; Zen mua vé, ngồi, câu, nộp thắng → cả hai tab hiện banner "Chúc mừng Zen đã câu được Minnow!" và tin hệ thống trong chat (`first=false` vì DB dev đã có minnow).

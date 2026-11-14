@@ -13,6 +13,10 @@ if (-not (Test-Path (Join-Path $DataDir 'PG_VERSION'))) {
     if ($LASTEXITCODE -ne 0) { throw 'initdb failed.' }
 }
 $ErrorActionPreference = 'Continue'
+# Cổng đã nghe thì coi như đang chạy: sau khi máy/tiến trình tắt đột ngột, postmaster.pid cũ làm
+# `pg_ctl start` báo "another server might be running" rồi treo. Không gọi start trong trường hợp này.
+$listening = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue
+if ($listening) { Write-Output 'PostgreSQL is already running.'; return }
 & $pgCtl -D $DataDir status | Out-Null
 if ($LASTEXITCODE -eq 0) { Write-Output 'PostgreSQL is already running.'; return }
 $options = "-p $Port -c listen_addresses=127.0.0.1 -c max_connections=300 -c fsync=off"
