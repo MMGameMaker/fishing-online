@@ -12,21 +12,23 @@ const ROW_BG = 'rgb(251,227,174)';
 /** Khung tranh cá: lòng khung từ (32, 36) tới (504, 264). */
 const PICTURE = { x: 32, y: 36, w: 472, h: 228 };
 /**
- * Lòng 5 hàng (x 20..512), chừa các đường kẻ chấm. Xoá cả nhãn lẫn giá trị vẽ sẵn vì chữ trong ảnh
+ * Lòng 5 hàng (x 20..515), chừa các đường kẻ chấm. Xoá cả nhãn lẫn giá trị vẽ sẵn vì chữ trong ảnh
  * bị méo khi thu phóng (feedback 2026-11-12); hàng Giá giữ đồng xu ở x 328..364.
  */
 const ROW_X0 = 20;
-const ROW_X1 = 512;
+const ROW_X1 = 515;
 const COIN_LEFT = 328;
 const LABEL_X = 36;
 const LABELS = ['Tên', 'Độ hiếm', 'Nơi sống', 'Kích thước', 'Giá'] as const;
 const ROWS = [
-  { y0: 280, y1: 360, center: 331 },
-  { y0: 372, y1: 428, center: 403 },
-  { y0: 440, y1: 496, center: 471 },
-  { y0: 508, y1: 564, center: 539 },
-  { y0: 576, y1: 632, center: 603 },
+  { y0: 276, y1: 332, center: 304 },
+  { y0: 337, y1: 400, center: 368 },
+  { y0: 405, y1: 468, center: 436 },
+  { y0: 473, y1: 536, center: 504 },
+  { y0: 541, y1: 604, center: 572 },
 ] as const;
+/** Dải trống dưới hàng Giá (y 609..651 trong ảnh) đặt dòng gợi ý phím. */
+const HINT_CENTER_Y = 630;
 const VALUE_CENTER_X = 367;
 const COIN_RIGHT = 364;
 const PRICE_X = 368;
@@ -98,6 +100,10 @@ export interface CatchCardData {
   fish: HTMLElement;
   /** Ảnh đồng xu thay đồng xu vẽ sẵn ở dòng Giá; bỏ trống thì giữ đồng xu của ảnh thẻ. */
   coinSrc?: string;
+  /** Vệt sáng quét qua con cá, cắt theo hình cá (pier.html, feedback 2026-11-14); mặc định tắt. */
+  lightSweep?: boolean;
+  /** Dòng gợi ý đặt trong thẻ, ở dải trống dưới hàng Giá (pier.html: phím đóng popup). */
+  hint?: string;
 }
 
 export function buildCatchCard(data: CatchCardData): HTMLElement {
@@ -116,6 +122,18 @@ export function buildCatchCard(data: CatchCardData): HTMLElement {
   data.fish.style.width = pct(PICTURE.w * 0.8, CARD_W);
   data.fish.style.height = pct(PICTURE.h * 0.8, CARD_H);
   root.append(data.fish);
+  const fishSrc = data.fish instanceof HTMLImageElement ? data.fish.src : '';
+  if (data.lightSweep && fishSrc) {
+    // Lớp phủ cùng khung với ảnh cá, chỉ hiện vệt sáng trong hình cá nhờ mask theo ảnh.
+    const sweep = document.createElement('div');
+    sweep.className = 'catch-card__sweep';
+    sweep.setAttribute('aria-hidden', 'true');
+    for (const property of ['left', 'top', 'width', 'height'] as const) {
+      sweep.style[property] = data.fish.style[property];
+    }
+    sweep.style.setProperty('--sweep-mask', `url("${fishSrc}")`);
+    root.append(sweep);
+  }
 
   const value = (
     row: number,
@@ -149,6 +167,14 @@ export function buildCatchCard(data: CatchCardData): HTMLElement {
     coin.style.top = pct(ROWS[4].center, CARD_H);
     coin.style.width = pct(COIN_RIGHT - COIN_LEFT, CARD_W);
     root.append(coin);
+  }
+
+  if (data.hint) {
+    const hint = document.createElement('div');
+    hint.className = 'catch-card__hint';
+    hint.textContent = data.hint;
+    hint.style.top = pct(HINT_CENTER_Y, CARD_H);
+    root.append(hint);
   }
 
   // Loài mới hoặc kỷ lục mới: chữ đỏ bên phải kích thước, như ảnh mẫu.

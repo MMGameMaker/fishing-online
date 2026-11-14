@@ -215,7 +215,13 @@ export class LakeScene extends Phaser.Scene {
       undefined,
       // Riêng pier.html (feedback 2026-11-14): đồng xu Coin Art ở thẻ cá, pháo giấy hai góc, bỏ qua minigame.
       isHomeHudEnabled(this)
-        ? { catchCardCoin: COIN_ART, sideConfetti: true, skipMinigame: true }
+        ? {
+            catchCardCoin: COIN_ART,
+            sideConfetti: true,
+            skipMinigame: true,
+            lightSweep: true,
+            closePopupByKey: true,
+          }
         : {},
     );
   }

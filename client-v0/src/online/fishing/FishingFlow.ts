@@ -35,6 +35,10 @@ const MISSED_RECAST_MS = 1000;
 const CAST_RETRY_MS = 5000;
 /** Bỏ qua cú chạm dư của minigame để popup không bị đóng nhầm. */
 const RESULT_TAP_GUARD_MS = 400;
+const CLOSE_KEY_HINT = 'Bấm F hoặc Space để tiếp tục';
+
+const isTyping = (): boolean =>
+  ['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName ?? '');
 const BOBBER_RADIUS = 3;
 /** Nhịp kéo cần khi bỏ qua minigame trước khi gửi "câu được". */
 const SKIP_MINIGAME_PULL_MS = 350;
@@ -61,6 +65,10 @@ export interface PierFishingOptions {
   catchCardCoin?: string;
   /** Pháo giấy bắn từ hai góc dưới, khoảng 0,6 giây sau mới hiện popup cá (feedback 2026-11-14). */
   sideConfetti?: boolean;
+  /** Vệt sáng quét qua con cá trong popup (feedback 2026-11-14). */
+  lightSweep?: boolean;
+  /** Popup cá đóng bằng F hoặc Space (hiện gợi ý trong thẻ), không đóng bằng chạm ra ngoài (feedback 2026-11-14). */
+  closePopupByKey?: boolean;
   /**
    * Tạm bỏ qua minigame (feedback 2026-11-14): thu cần là gửi "câu được" luôn. Code minigame giữ nguyên,
    * tắt cờ này là dùng lại.
@@ -377,6 +385,8 @@ export class FishingFlow {
         isRecord: result.isRecord,
         habitat: this.habitat(),
         coinSrc: this.pier.catchCardCoin,
+        lightSweep: this.pier.lightSweep,
+        hint: this.pier.closePopupByKey ? CLOSE_KEY_HINT : undefined,
         fish,
       });
     if (this.pier.sideConfetti) {
@@ -393,10 +403,14 @@ export class FishingFlow {
   private openPopup(card: HTMLElement, confetti = true): void {
     const popup = document.createElement('div');
     popup.className = 'result-popup';
-    const hint = document.createElement('div');
-    hint.className = 'result-popup__hint';
-    hint.textContent = 'Chạm ra ngoài để đóng';
-    popup.append(card, hint);
+    const byKey = Boolean(this.pier.closePopupByKey);
+    popup.append(card);
+    if (!byKey) {
+      const hint = document.createElement('div');
+      hint.className = 'result-popup__hint';
+      hint.textContent = 'Chạm ra ngoài để đóng';
+      popup.append(hint);
+    }
     const overlay = document.createElement('div');
     overlay.className = 'result-overlay';
     overlay.append(popup);
@@ -406,14 +420,31 @@ export class FishingFlow {
     this.resultOpen = true;
 
     const openedAtMs = performance.now();
-    overlay.addEventListener('pointerdown', (event) => {
-      if (performance.now() - openedAtMs < RESULT_TAP_GUARD_MS) return;
-      if (card.contains(event.target as Node)) return;
+    const close = () => {
       // Thẻ mờ dần và thu nhỏ rồi mới gỡ (feedback 2026-11-12).
       overlay.style.pointerEvents = 'none';
       void animateOut(popup, 'pop').then(() => overlay.remove());
       this.resultOpen = false;
       this.me.play('idle');
+    };
+    if (byKey) {
+      // F hoặc Space đóng thẻ; chặn phím để không ngồi/đứng dậy hay quăng cần thêm lần nữa.
+      const onKey = (event: KeyboardEvent) => {
+        if (event.code !== 'KeyF' && event.code !== 'Space') return;
+        if (isTyping()) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        if (event.repeat || performance.now() - openedAtMs < RESULT_TAP_GUARD_MS) return;
+        window.removeEventListener('keydown', onKey, true);
+        close();
+      };
+      window.addEventListener('keydown', onKey, true);
+      return;
+    }
+    overlay.addEventListener('pointerdown', (event) => {
+      if (performance.now() - openedAtMs < RESULT_TAP_GUARD_MS) return;
+      if (card.contains(event.target as Node)) return;
+      close();
     });
   }
 }

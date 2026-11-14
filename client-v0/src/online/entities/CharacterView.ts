@@ -92,8 +92,11 @@ export class CharacterView {
     this.rod = scene.add.sprite(0, 0, this.rodId, firstFrame).setOrigin(0.5, 1);
     this.label = scene.add
       .text(0, 0, options.name, {
-        fontFamily: 'monospace',
+        // Pier: cùng phông đậm với tên ở khung người chơi (Courier New), vẽ độ phân giải cao cho nét rõ.
+        // Vàng cho bản thân, trắng cho người khác và bot (feedback 2026-11-14).
+        fontFamily: hasHeadBubble(scene) ? 'Courier New, monospace' : 'monospace',
         fontSize: '8px',
+        ...(hasHeadBubble(scene) ? { fontStyle: 'bold', resolution: 4 } : {}),
         color: options.isMe ? MY_NAME_COLOR : NAME_COLOR,
         backgroundColor: '#00000066',
       })

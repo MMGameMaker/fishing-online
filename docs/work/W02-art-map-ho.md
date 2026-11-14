@@ -355,3 +355,22 @@ Tên hiển thị khớp bảng `FISH` trong `tools/export_fish_art.py`: minnow�
 - Sửa `docs/v01/fixtures/gameplay-config.v0.json` (nguồn seed Server, mock và test) và bảng trong `doc/GAMEPLAY_SCOPE.md`.
 - Server chỉ nạp fixture khi bảng `config_versions` trống, nên DB dev đang chạy đã được cập nhật tên trực tiếp bằng SQL (version `v0-test-2026-11-10-ticket-01`). DB ở máy khác cần cập nhật tương tự hoặc xuất bản phiên bản config mới trong Admin.
 - Test: Domain 156, API 201, client 259 qua (sửa 2 test client so tên cũ).
+
+## Light sweep cho cá trong popup (pier.html, 2026-11-14)
+- Vệt sáng trắng chéo quét từ trái sang phải qua con cá trong popup câu được cá, nghỉ một nhịp rồi **lặp liên tục** tới khi tắt popup (2,4 giây/lượt). **Chỉ trên con cá**: lớp phủ `.catch-card__sweep` cùng khung ảnh cá, cắt bằng `mask` theo ảnh cá (GD chọn 2026-11-14).
+- Bật bằng cờ `lightSweep` trong `PierFishingOptions` (LakeScene chỉ truyền ở pier); `CatchCardData.lightSweep` mặc định tắt nên trang khác không đổi. Code: `fishing/CatchCard.ts`, `fishing/fishing.css`.
+- Kiểm tra: tsc, eslint, vitest 259 qua; mock trên trình duyệt: lớp phủ có mask `trout.png`, ảnh cắt mốc 700ms thấy vệt sáng nằm trong hình cá.
+- Feedback 1 (font/màu tên nhân vật), 2 (chữ "Bấm F hoặc Space" trong popup và sửa doc GD) vẫn chờ "làm"; feedback 3 (tự thả emoji) đã huỷ theo GD.
+
+## Feedback 1 và 2 ngày 2026-11-14 (làm theo lệnh "làm đi")
+- **Tên trên đầu nhân vật (1.1–1.3):** pier dùng Courier New đậm, độ phân giải ×4 như tên ở khung người chơi và bong bóng chat (`CharacterView`, chỉ khi `hasHeadBubble`). Màu vàng cho bản thân, trắng cho người khác và bot (đã đúng từ trước, giữ nguyên); giữ nền xanh đậm. Áp dụng cho tất cả nhân vật.
+- **Popup cá (2.1–2.3):** dòng "Bấm F hoặc Space để tiếp tục" nằm trong thẻ, dải trống dưới hàng Giá, căn giữa (`CatchCardData.hint`). F hoặc Space đóng popup bằng listener bắt ở pha capture: chặn phím nên không ngồi/đứng dậy hay quăng cần thêm; bỏ qua phím giữ (repeat) và 0,4 giây đầu. Bỏ chạm ra ngoài để đóng. Bật bằng cờ `closePopupByKey` (chỉ pier); trang khác giữ luật cũ.
+- **2.2 doc GD:** sửa `doc/GAMEPLAY_SCOPE.md` (luật đóng popup) và thêm dòng ở `docs/work/S01-cap-nhat-scope-ke-hoach-v1.md`.
+- **2.4 chưa làm:** cảm ứng/điện thoại, đợi GD báo khi đưa lên điện thoại (hiện máy cảm ứng không đóng được popup này trên pier).
+- Kiểm tra: tsc, eslint, vitest 259 qua; mock trên trình duyệt: dòng gợi ý nằm trong thẻ, chạm ra ngoài không đóng, F đóng popup.
+
+## Căn lại popup cá theo ảnh Catch Fish.png mới (pier.html, 2026-11-14)
+- Người dùng thay `public/mini game/Catch Fish.png` (vẫn 536×684): các hàng dịch lên ~30px và hàng Giá không còn đồng xu vẽ sẵn, nên chữ mẫu cũ còn sót và chữ code viết lệch hàng.
+- Sửa `fishing/CatchCard.ts`: `ROWS` theo số đo ảnh mới (lòng hàng 276–332, 337–400, 405–468, 473–536, 541–604; tâm 304/368/436/504/572), `ROW_X1` 515, dòng gợi ý F/Space ở tâm dải trống `HINT_CENTER_Y` 630 (y 609–651). Khung tranh cá giữ nguyên (32,36, 472×228).
+- Ảnh mới áp dụng cho mọi trang dùng thẻ này; trang khác không còn đồng xu vẽ sẵn ở hàng Giá nếu không truyền `coinSrc`.
+- Kiểm tra: tsc, eslint, vitest 259 qua; mock trên trình duyệt: không còn chữ mẫu sót, chữ thẳng hàng, dòng gợi ý nằm gọn trong khung.

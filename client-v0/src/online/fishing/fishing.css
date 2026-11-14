@@ -128,6 +128,40 @@
   image-rendering: pixelated;
 }
 
+/* Vệt sáng chéo quét từ trái sang phải trong hình cá, nghỉ một nhịp rồi lặp (pier.html). */
+.catch-card__sweep {
+  position: absolute;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 42%, rgb(255 255 255 / 85%) 50%, transparent 58%)
+    0 0 / 250% 100% no-repeat;
+  transform: translate(-50%, -50%);
+  mask: var(--sweep-mask) center / contain no-repeat;
+  image-rendering: pixelated;
+  animation: catch-card-sweep 2.4s ease-in-out infinite;
+}
+
+@keyframes catch-card-sweep {
+  0% {
+    background-position: 100% 0;
+  }
+
+  55%,
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.catch-card__hint {
+  position: absolute;
+  left: 50%;
+  font-family: 'Courier New', monospace;
+  font-size: 3.6cqw;
+  font-weight: bold;
+  color: #3a1d0e;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+}
+
 .catch-card__coin {
   position: absolute;
   aspect-ratio: 1;
