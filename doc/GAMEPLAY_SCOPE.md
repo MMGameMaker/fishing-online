@@ -7,13 +7,13 @@
 - Một map hồ đi lại, 20 vị trí ngồi câu/phòng; phòng và Lake là một. Login, vào phòng, mua vé câu cá theo thời gian, đi tới ghế trống và nhấn F hoặc bấm icon chọn ghế để ngồi câu (GD cập nhật 2026-11-10; feedback người dùng 2026-11-11 đổi phím E thành F).
 - Bản đầu có câu Manual và chế độ Idle (GD bổ sung 2026-11-10, mục Chế độ Idle).
 - Chỉ cần có cần câu là câu được; mỗi người chơi mặc định có 1 cần cấp thấp. Bản đầu làm 5 loại cần (bảng Fishing Rod).
-- 9 loài cá mẫu thuộc 5 bậc rarity (bảng Fish Codex); inventory, lịch sử câu, thành tích cá nhân.
+- 9 loài cá mẫu thuộc 5 bậc rarity (bảng Fish Codex); inventory, lịch sử câu, thành tựu cá nhân (mục Thành tựu, GD 2026-11-13).
 - **Thính đã bỏ khỏi bản đầu theo quyết định 2026-11-09**: không item/shop/nút dùng/effect hoặc tác động thời gian chờ.
 - Shop dùng Gold, có ledger: bán cần câu; user bán cá đã câu tại Shop. Gem không dùng trong bản đầu; chưa tự suy ra có shop Gem hoặc payment.
 - Khoảng 5–10 skin nhân vật, chọn và đồng bộ; quyền dùng/mở khóa chưa khóa.
-- Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1. Luật chat và khoe cá đã chốt 2026-11-13 (mục Chat và khoe cá); emoji (ưu tiên thấp), bảng xếp hạng, tài khoản/thành tích và chi tiết Idle GD mô tả sau.
+- Chat, emoji, thông báo khoe cá và bảng xếp hạng bắt buộc trong v1. Luật chat và khoe cá đã chốt 2026-11-13 (mục Chat và khoe cá); luật bảng xếp hạng chốt 2026-11-14 (mục Bảng xếp hạng); emoji (ưu tiên thấp) và chi tiết Idle GD mô tả sau.
 
-Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ dùng tiền để mua vé), hệ thống mồi câu, dây và lưỡi (GD bỏ khỏi bản đầu 2026-11-06; bổ sung sau nếu quyết định triển khai), kỹ năng riêng của từng loài cá, giải đấu và payment thật kể cả sandbox để sau. V1 được hiểu là bản đầu đang mang nhãn v0.1, chưa tự đổi version release. Không thêm stamina, nông trại hoặc hệ ngày/đêm từ ảnh tham khảo vào v0.1.
+Loot/nhặt đồ trên map (GD bỏ khỏi bản đầu 2026-11-05; user chỉ dùng tiền để mua vé), hệ thống mồi câu, dây và lưỡi (GD bỏ khỏi bản đầu 2026-11-06; bổ sung sau nếu quyết định triển khai), kỹ năng riêng của từng loài cá, giải đấu lớn (ngoài Giải đấu cần thủ ở mục Bảng xếp hạng) và payment thật kể cả sandbox để sau. V1 được hiểu là bản đầu đang mang nhãn v0.1, chưa tự đổi version release. Không thêm stamina, nông trại hoặc hệ ngày/đêm từ ảnh tham khảo vào v0.1.
 
 ## Vé câu cá và ghế
 
@@ -125,6 +125,105 @@ Idle chỉ trúng vùng xanh nên mỗi lần trúng trừ HP bằng ATK, không
 - Chống spam: mỗi user gửi chat cách nhau ít nhất 2 giây; Server từ chối tin gửi sớm hơn.
 - Khung chat giữ 50 tin gần nhất, tính cả tin hệ thống và tin share. Server lưu 50 tin này; user vào sau hoặc kết nối lại thấy 50 tin đó, tin cũ hơn bị bỏ (Claude đề xuất, GD duyệt 2026-11-13).
 
+## Thành tựu
+
+**Đã chốt** (GD 2026-11-13; số liệu tạm để test):
+
+| # | Tên | Điều kiện đếm | Lv1 | Lv2 | Lv3 | Lv4 | Lv5 | Thưởng mỗi level |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Cần thủ chăm chỉ | Tổng số cá đã câu | 10 | 50 | 200 | 500 | 1.000 | 100 Gold |
+| 2 | Nhà sưu tầm | Số loài cá đã mở khóa | 3 | 6 | 9 | 12 | 15 | 100 Gold |
+| 3 | Săn cá hiếm | Số cá bậc Rare trở lên đã câu | 5 | 20 | 50 | 100 | 150 | 100 Gold |
+| 4 | Huyền thoại hồ câu | Số cá Legendary đã câu | 1 | 3 | 5 | 10 | 15 | 100 Gold |
+| 5 | Cá khủng | Số cá đạt kích thước tối đa | 1 | 3 | 5 | 7 | 10 | 100 Gold |
+| 6 | Người tiên phong | Số loài user là người đầu tiên câu được (khoe cá kiểu 1) | 1 | 3 | 5 | 7 | 10 | 100 Gold |
+| 7 | Thương nhân | Tổng Gold kiếm được từ bán cá | 500 | 2.000 | 10.000 | 50.000 | 70.000 | 100 Gold |
+| 8 | Người bền bỉ | Thời gian ngồi câu | 60 | 360 | 600 | 3.000 | 5.000 | 100 Gold |
+
+- Mỗi thành tựu có 5 level, điều kiện là mốc cộng dồn. Đạt mốc level nào thì nhận thưởng level đó một lần; đủ 5 level là nhận thưởng 5 lần.
+- Phần thưởng hiển thị dạng icon và số đè lên biểu tượng của thành tựu.
+- Đạt mốc mà chưa nhận thưởng: hiện chấm tròn đỏ ở góc trên bên phải thành tựu để user chú ý bấm vào.
+- Khi chưa nhận thưởng, thanh tiến độ giữ ở mức đầy của level đang chờ nhận (ví dụ Lv1 = 10 cá thì hiện 10/10), nhưng hệ thống vẫn đếm tiếp và cộng vào level sau. Nhận thưởng xong UI cập nhật theo số đếm thật (ví dụ đã câu 14 cá thì hiện Lv2 14/50).
+- Nếu số đếm đã vượt nhiều mốc, mỗi lần nhận chỉ nhận một level; chấm đỏ còn cho tới khi nhận hết các level đã đạt (Claude đề xuất cách hiểu, chờ GD xác nhận).
+- Server đếm tiến độ và trao thưởng; nhận thưởng ghi ledger, gửi lại cùng request không nhận hai lần.
+
+**Cần GD chốt:**
+
+- Nhà sưu tầm Lv4–Lv5 (12, 15 loài) và Người tiên phong Lv4–Lv5 (7, 10 loài) vượt hoặc sát số loài hiện có (9 loài): giữ để chờ thêm loài sau, hay chỉnh mốc.
+- Cá khủng: "kích thước tối đa" có phải bậc Tối đa (0,1%, đúng Max) trong bảng Random chiều dài không. Nếu đúng, Lv5 (10 con) cần khoảng 10.000 cá thắng, rất khó đạt.
+- Người bền bỉ: đơn vị là phút phải không (60 phút = 1 giờ); có tính thời gian ngồi ở chế độ Idle không.
+- Lần câu ở chế độ Idle có được tính cho các thành tựu khác không.
+- Thành tựu có mở danh hiệu (ô danh hiệu ở màn Tài khoản) không.
+
+## Bảng xếp hạng
+
+**Đã chốt** (GD 2026-11-14): bảng xếp hạng áp dụng cho toàn server, gồm 2 loại.
+
+**Loại 1 — Tổng số cá câu được trong tuần**
+
+- Điểm là tổng số cá câu thành công trong tuần. Tuần bắt đầu thứ Hai 00:00 giờ Việt Nam.
+- Đồng hạng: ai đạt số điểm đó trước xếp trên.
+- Chống gian lận: mỗi lần câu (attempt) chỉ được tính một lần; Client gửi lại kết quả không cộng điểm lần hai.
+- Hiển thị phân trang, có thời điểm cập nhật; dòng của user được tô nổi.
+- Nghiệm thu: dữ liệu mẫu 3 người cho ra thứ hạng đúng; gửi lặp kết quả một lần câu không cộng điểm 2 lần.
+
+**Loại 2 — Giải đấu cần thủ** (GD cập nhật 2026-11-14)
+
+- Tổ chức theo đợt, Admin kích hoạt thủ công vào một ngày trong tuần. Lịch có thể thay đổi linh hoạt về sau.
+- Giải mở từ 7:00 đến 22:00 cùng ngày. Tổng kết và trao thưởng lúc 7:00 sáng hôm sau.
+- Mỗi con cá câu được trong giờ giải cho một lượng điểm theo bảng điểm cá (GD gửi sau). User thi đua tổng điểm tích lũy.
+- Mỗi giải có một hoặc một số loài cá chỉ định do Admin chọn, đánh dấu vương miện trong UI; câu được cá chỉ định nhận x2 điểm (GD xác nhận 2026-11-14). User xem điểm từng loài, kể cả cá chỉ định, trong UI giải đấu.
+- Chỉ tính cá câu được trong giờ giải, theo thời điểm Server ghi nhận câu thành công. Lần câu thắng sau 22:00 không tính, kể cả khi bắt đầu trước đó. Cá có sẵn trong túi từ trước không được tính.
+- Đồng hạng và chống tính trùng làm như Loại 1.
+- Điểm mỗi con cá theo độ hiếm (GD 2026-11-14, số tạm để test). Cột "Cá chỉ định" là điểm x2 khi câu được loài cá chỉ định:
+
+| Độ hiếm | Điểm | Cá chỉ định |
+| --- | --- | --- |
+| Common | 1 | 2 |
+| Uncommon | 6 | 12 |
+| Rare | 10 | 20 |
+| Epic | 20 | 40 |
+| Legendary | 50 | 100 |
+
+- Phần thưởng Giải đấu cần thủ (top 20):
+
+| Hạng | Thưởng |
+| --- | --- |
+| 1 | 500 Gold + danh hiệu "Thiên tài câu cá" (hết hạn khi giải mới bắt đầu) |
+| 2 | 350 Gold |
+| 3 | 250 Gold |
+| 4–5 | 200 Gold |
+| 6–10 | 150 Gold |
+| 11–20 | 100 Gold |
+
+- Kết quả giải được xem lại cho tới khi có giải mới.
+
+**Chung cho cả hai bảng**
+
+- Hiển thị top 50 người, kèm dòng của user nếu ngoài top.
+- Phần thưởng bảng tuần (top 50, trao khi hết tuần):
+
+| Hạng | Thưởng |
+| --- | --- |
+| 1 | 400 Gold |
+| 2 | 300 Gold |
+| 3 | 250 Gold |
+| 4 | 200 Gold |
+| 5 | 150 Gold |
+| 6–10 | 100 Gold |
+| 11–20 | 75 Gold |
+| 21–50 | 50 Gold |
+
+- Thưởng trao theo thứ hạng cuối cùng, không yêu cầu điểm tối thiểu.
+- Điểm của chính user cập nhật ngay khi câu được cá; thứ hạng làm mới 30 phút một lần (GD duyệt đề xuất 2026-11-14). Từ 22:00 tới lúc tổng kết 7:00, bảng giải đấu vẫn tiếp tục cập nhật theo nhịp này để chốt thứ hạng; điểm chỉ tính cá câu trong 7:00–22:00.
+- Không làm hòm thư. Đề xuất (chờ GD xác nhận): thưởng tự cộng vào tài khoản lúc tổng kết, lần vào game tiếp theo hiện popup báo hạng và phần thưởng.
+
+**Cần GD chốt:**
+
+- UI trang bị danh hiệu (GD cập nhật sau).
+- Lần câu ở chế độ Idle có được tính điểm cho 2 bảng không.
+- Có loại khỏi phần thưởng các tài khoản bị cảnh báo nghi vấn gian lận (BE-E-09) không.
+
 ## Chỉ số nhân vật
 
 Nhân vật có tối đa 10 level. Số liệu trong 3 bảng dữ liệu (nhân vật, cần, cá) là bản tạm để test, GD cho phép chỉnh 2026-11-06. EXP Req là lượng EXP để lên level đó từ level trước; tổng 1.850 EXP để đạt Lv10.
@@ -227,7 +326,7 @@ Số tạm để test (đề xuất 2026-11-06, chỉnh bằng mô phỏng, chư
 
 Luồng dự kiến để viết acceptance: login → vào phòng → mua vé → đi tới ghế trống, nhấn F → tự câu theo mục Quy trình câu cá (Manual hoặc Idle) → inventory/lịch sử; có chọn skin, chat/emoji, khoe cá và xem bảng xếp hạng, không có nhánh nhặt loot trong v1. Đây là khung mô tả; các điểm chưa chốt nằm ở từng mục.
 
-GD cần khóa: các điểm còn mở ở mục Vé câu cá và ghế, Quy trình câu cá, Chế độ Idle và Chat và khoe cá; quyền skin, emoji, chỉ số/phạm vi/chu kỳ/đồng hạng ranking, túi đầy và thành tích.
+GD cần khóa: các điểm còn mở ở mục Vé câu cá và ghế, Quy trình câu cá, Chế độ Idle và Chat và khoe cá; quyền skin, emoji, các điểm còn mở ở mục Bảng xếp hạng, túi đầy và các điểm còn mở ở mục Thành tựu.
 
 Không dùng cấp/giá trang bị để tự bảo đảm cá hiếm. Mỗi bước câu cần entry/exit, input, thời gian, hủy/timeout/disconnect/retry và animation trước nghiệm thu. Công thức và số balance chưa khóa; không tự điền thành yêu cầu.
 
