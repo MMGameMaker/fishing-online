@@ -5,13 +5,15 @@ import { CharacterView } from '../../entities/CharacterView';
 import { FishingFlow } from '../../fishing/FishingFlow';
 import type { Direction, PlayerView } from '../../net/contract';
 import { mountUiOverlay, showError, showToast } from '../../ui/kit/components';
+import { preloadHeadBubble } from '../../entities/HeadBubble';
 import { CatchBanner } from '../../ui/announce/CatchBanner';
+import { COIN_ART } from '../../ui/coinArt';
 import { HomeHud, isHomeHudEnabled } from '../../ui/home/HomeHud';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
 import { isNearSeat, nearestSeat } from './seatLogic';
-import { SeatPrompt } from './SeatPrompt';
+import { SeatPrompt, preloadSitPrompt } from './SeatPrompt';
 import { ConnectionWatch } from './ConnectionWatch';
 import { SocialUi } from '../../social/SocialUi';
 import { ensureEmoteAnims, preloadEmotes } from '../../social/emojis';
@@ -82,6 +84,11 @@ export class LakeScene extends Phaser.Scene {
   preload(): void {
     getLakeMapArt(this)?.preload(this);
     preloadEmotes(this);
+    // Art riêng của pier.html: bong bóng Head Bubble.png và phím Sit Prompt F.png.
+    if (isHomeHudEnabled(this)) {
+      preloadHeadBubble(this);
+      preloadSitPrompt(this);
+    }
   }
 
   create(): void {
@@ -203,6 +210,13 @@ export class LakeScene extends Phaser.Scene {
       this.me,
       () => this.bobberPoint(),
       () => this.serverNow(),
+      undefined,
+      undefined,
+      undefined,
+      // Riêng pier.html (feedback 2026-11-14): đồng xu Coin Art ở thẻ cá, pháo giấy hai góc, bỏ qua minigame.
+      isHomeHudEnabled(this)
+        ? { catchCardCoin: COIN_ART, sideConfetti: true, skipMinigame: true }
+        : {},
     );
   }
 
@@ -239,6 +253,7 @@ export class LakeScene extends Phaser.Scene {
       root: this.root,
       services: this.services,
       onTyping: (typing) => this.setTyping(typing),
+      trimEmotes: isHomeHudEnabled(this),
     });
     this.input.keyboard?.addKey('ENTER').on('down', () => this.social.focusInput());
     const { hub } = this.services;

@@ -19,7 +19,7 @@ import { MINIGAME_SCENE, type MinigameData, type MinigameScene } from './Minigam
 import { drawFishIcon } from '../../art.js';
 import { fishImage, preloadFishArt } from '../ui/fishArt';
 import { buildCatchCard, preloadCatchCard } from './CatchCard';
-import { burstConfetti } from './confetti';
+import { SIDE_CONFETTI_PEAK_MS, burstConfetti, burstSideConfetti } from './confetti';
 import { buildResultCard, cancelText } from './resultText';
 import { playBiteBeep } from './sound';
 import { submitFishingResult } from './submitResult';
@@ -36,6 +36,8 @@ const CAST_RETRY_MS = 5000;
 /** Bỏ qua cú chạm dư của minigame để popup không bị đóng nhầm. */
 const RESULT_TAP_GUARD_MS = 400;
 const BOBBER_RADIUS = 3;
+/** Nhịp kéo cần khi bỏ qua minigame trước khi gửi "câu được". */
+const SKIP_MINIGAME_PULL_MS = 350;
 /** Lóe sáng chỗ dây câu mỗi lần tap trúng: trúng thường nhẹ, điểm yếu mạnh và rung màn. */
 const LINE_FLASH = {
   normal: { scale: 3, alpha: 0.7, ms: 220 },
@@ -52,6 +54,18 @@ export interface FishingActor {
   tugRod?(strong: boolean): void;
   /** Phao vẽ sẵn trong art cần; có thì không vẽ phao tròn đỏ riêng nữa. */
   bobberPoint?(): { x: number; y: number } | null;
+}
+
+export interface PierFishingOptions {
+  /** Ảnh đồng xu cho dòng Giá của thẻ câu được cá (Coin Art.png); bỏ trống giữ ảnh thẻ. */
+  catchCardCoin?: string;
+  /** Pháo giấy bắn từ hai góc dưới, khoảng 0,6 giây sau mới hiện popup cá (feedback 2026-11-14). */
+  sideConfetti?: boolean;
+  /**
+   * Tạm bỏ qua minigame (feedback 2026-11-14): thu cần là gửi "câu được" luôn. Code minigame giữ nguyên,
+   * tắt cờ này là dùng lại.
+   */
+  skipMinigame?: boolean;
 }
 
 export class FishingFlow {
@@ -80,6 +94,8 @@ export class FishingFlow {
     private readonly fishColor: (speciesId: string) => string | undefined = () => undefined,
     /** Tên hồ ở dòng "Nơi sống" của thẻ nhận cá; mặc định là mapId Server gửi về. */
     private readonly habitat: () => string = () => services.store.getState().lake.mapId ?? '—',
+    /** Tuỳ chọn riêng của pier.html; trang khác bỏ trống để giữ hành vi cũ. */
+    private readonly pier: PierFishingOptions = {},
   ) {
     this.button = new FishButton(root, () => this.press());
     preloadCatchCard();
@@ -249,6 +265,14 @@ export class FishingFlow {
     if (!attempt.minigame) return;
     this.me.play('reel');
     this.me.setHeadIcon(null);
+    if (this.pier.skipMinigame) {
+      // Server nhận kết quả ngay khi lần câu sang pha minigame; giữ một nhịp kéo cần ngắn cho có cảm giác.
+      this.introTimer = window.setTimeout(() => {
+        this.introTimer = null;
+        void this.submit(attempt.attemptId, 'success');
+      }, SKIP_MINIGAME_PULL_MS);
+      return;
+    }
     const receivedAt = performance.now();
     const rtt = this.hookSentAtMs === null ? 0 : receivedAt - this.hookSentAtMs;
     const introMs =
@@ -345,20 +369,28 @@ export class FishingFlow {
       },
       { once: true },
     );
-    this.openPopup(
+    const popup = () =>
       buildCatchCard({
         card,
         rarity: result.rarity,
         isNew: result.isNew,
         isRecord: result.isRecord,
         habitat: this.habitat(),
+        coinSrc: this.pier.catchCardCoin,
         fish,
-      }),
-    );
+      });
+    if (this.pier.sideConfetti) {
+      // Bắn pháo từ hai góc trước, pháo lên tới đỉnh thì mới hiện thẻ cá; chặn tự quăng cần trong lúc chờ.
+      this.resultOpen = true;
+      burstSideConfetti(this.root);
+      window.setTimeout(() => this.openPopup(popup(), false), SIDE_CONFETTI_PEAK_MS);
+      return;
+    }
+    this.openPopup(popup());
   }
 
   /** Thẻ nhận cá theo ảnh Catch Fish.png; chạm ra ngoài thẻ để đóng. */
-  private openPopup(card: HTMLElement): void {
+  private openPopup(card: HTMLElement, confetti = true): void {
     const popup = document.createElement('div');
     popup.className = 'result-popup';
     const hint = document.createElement('div');
@@ -370,7 +402,7 @@ export class FishingFlow {
     overlay.append(popup);
     animateIn(popup, 'pop');
     this.root.append(overlay);
-    burstConfetti(overlay);
+    if (confetti) burstConfetti(overlay);
     this.resultOpen = true;
 
     const openedAtMs = performance.now();

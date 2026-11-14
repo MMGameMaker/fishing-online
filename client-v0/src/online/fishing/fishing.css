@@ -127,6 +127,13 @@
   image-rendering: pixelated;
 }
 
+.catch-card__coin {
+  position: absolute;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  image-rendering: pixelated;
+}
+
 .catch-card__value {
   position: absolute;
   max-width: 44%;

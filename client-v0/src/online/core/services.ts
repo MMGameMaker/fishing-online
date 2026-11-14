@@ -22,14 +22,14 @@ const REGISTRY_KEY = 'services';
 
 export async function createServices(
   map: LakeMap = mapJson as LakeMap,
-  options: { botCount?: number } = {},
+  options: { botCount?: number; fishingBots?: boolean } = {},
 ): Promise<Services> {
   const store = new Store();
 
   if (env.useMock) {
     // Import động để bản build dùng Server thật không kèm mock.
     const { createMock } = await import('../mock/createMock');
-    const mock = createMock(map, options.botCount);
+    const mock = createMock(map, options.botCount, { fishingBots: options.fishingBots });
     const api = new ApiClient({ baseUrl: env.apiBase, fetchImpl: mock.fetch });
     const hub = new GameHub(mock.createConnection());
     bindHubToStore(hub, store, () => mock.now());

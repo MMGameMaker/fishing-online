@@ -1,0 +1,39 @@
+/* Style chỉ cho pier.html (body.page-pier); các trang khác giữ nguyên. */
+
+/* Feedback 2026-11-14: bỏ dòng gợi ý phím ở đáy nên nút chat và khung chat hạ xuống sát đáy,
+   chừa thêm chỗ để khung chat không sát khung người chơi. */
+body.page-pier .social-toggle {
+  bottom: 16px;
+}
+
+body.page-pier .social-panel {
+  bottom: 84px;
+}
+
+/* Feedback 2026-11-14: lưới emoji 5 cột vừa lòng khung (452 - viền 48 - lề 36 = 368px) và căn giữa;
+   trước 5×68 + 4×14 = 396px tràn mép phải nên lệch. Icon đã cắt sát nên nằm giữa ô. */
+body.page-pier .emoji-panel__grid {
+  grid-template-columns: repeat(5, 64px);
+  gap: 12px;
+  justify-content: center;
+}
+
+body.page-pier .emoji-panel__slot {
+  width: 64px;
+  height: 64px;
+}
+
+body.page-pier .emoji-panel__slot .emote-icon {
+  transform: scale(1.4);
+}
+
+@media (width < 640px) {
+  body.page-pier .emoji-panel {
+    bottom: calc(84px + var(--chat-h, 952px) * var(--chat-scale, 0.6) + 12px);
+  }
+}
+
+/* Feedback 2026-11-14: ẩn ô debug "MOCK / Thời gian ghế" của dữ liệu giả trên trang này. */
+body.page-pier .mock-overlay {
+  display: none;
+}

@@ -8,7 +8,14 @@ import { showError } from '../ui/kit/components';
 import { animateIn, animateOut } from '../ui/kit/motion';
 import { CHAT_MAX_LENGTH, chatCounter, formatChatTime, normalizeChat } from './chatFormat';
 import { renderAnnouncement } from '../ui/announce/CatchBanner';
-import { EMOJIS, EMOTE_SHEET_URL, emojiById, loadEmoteFrames, type FrameRect } from './emojis';
+import {
+  EMOJIS,
+  EMOTE_SHEET_URL,
+  emojiById,
+  loadEmoteFrames,
+  loadTrimmedEmoteFrames,
+  type FrameRect,
+} from './emojis';
 
 const CLOSE_ICON = encodeURI('/mini game/Button Close.png');
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
@@ -32,6 +39,8 @@ export interface SocialUiOptions {
   services: Services;
   /** Đang gõ chữ: scene tắt phím di chuyển để WASD/F không điều khiển nhân vật. */
   onTyping: (typing: boolean) => void;
+  /** Cắt sát khung emoji để icon nằm giữa ô (pier.html, feedback 2026-11-14). */
+  trimEmotes?: boolean;
 }
 
 function el<K extends keyof HTMLElementTagNameMap>(
@@ -129,7 +138,9 @@ export class SocialUi {
 
   /** Tỉ lệ thu theo cửa sổ (tối đa 0,75 như màn 1080p) và chiều cao khung theo chỗ trống. */
   private fit(): void {
-    const free = Math.max(200, window.innerHeight - RESERVED_BOTTOM_PX - RESERVED_TOP_PX);
+    // Chừa đúng phần dưới theo vị trí thật của khung (trang có thể đặt khác qua CSS, vd. pier.html).
+    const bottom = parseFloat(getComputedStyle(this.chat).bottom) || RESERVED_BOTTOM_PX - 16;
+    const free = Math.max(200, window.innerHeight - bottom - 16 - RESERVED_TOP_PX);
     const scale = Math.max(
       0.35,
       Math.min(0.75, free / PANEL_H, (window.innerWidth - 32) / PANEL_W),
@@ -226,12 +237,16 @@ export class SocialUi {
       return { slot, emoji };
     });
     this.emoji.append(header, grid);
-    void loadEmoteFrames().then((frames) => {
+    void this.emoteFrames().then((frames) => {
       for (const { slot, emoji } of slots) {
         const frame = frames[`${emoji.art}Static`];
         if (frame) slot.append(this.emoteIcon(frame));
       }
     });
+  }
+
+  private emoteFrames(): Promise<Record<string, FrameRect>> {
+    return this.options.trimEmotes ? loadTrimmedEmoteFrames() : loadEmoteFrames();
   }
 
   private emoteIcon(frame: FrameRect): HTMLElement {
@@ -249,6 +264,7 @@ export class SocialUi {
     if (open) {
       this.setUnread(0);
       this.chat.hidden = false;
+      this.fit();
       animateIn(this.chat);
       this.log.scrollTop = this.log.scrollHeight;
       return;
@@ -346,7 +362,7 @@ export class SocialUi {
     if (!message.emojiId) return el('p', base, message.text);
     const bubble = el('p', `${base} chat-msg__bubble--emoji`);
     bubble.setAttribute('aria-label', emoji?.art ?? message.emojiId);
-    void loadEmoteFrames().then((frames) => {
+    void this.emoteFrames().then((frames) => {
       const frame = emoji ? frames[`${emoji.art}Static`] : undefined;
       if (frame) bubble.append(this.emoteIcon(frame));
       else bubble.textContent = message.emojiId ?? '';

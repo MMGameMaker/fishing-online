@@ -11,12 +11,13 @@ import { animateIn, animateOut } from '../kit/motion';
 import { formatClock } from '../../scenes/lake/seatLogic';
 import { CodexPopup } from '../codex/CodexPopup';
 import { InventoryPopup } from '../inventory/InventoryPopup';
+import { COIN_ART } from '../coinArt';
 import { ShopPopup } from '../shop/ShopPopup';
 import { expText, levelProgress } from './levelProgress';
 
 const UI_DIR = '/new resources/ui/';
 const asset = (file: string) => encodeURI(UI_DIR + file);
-const COIN_ICON = encodeURI('/mini game/Coin Small.png');
+const COIN_ICON = COIN_ART;
 const CLOSE_ICON = encodeURI('/mini game/Button Close.png');
 /** Màn thiết kế của ảnh UI; nhỏ hơn thì thu cả cụm, không phóng to quá 1. */
 const DESIGN_W = 1920;

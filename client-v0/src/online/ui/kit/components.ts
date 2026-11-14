@@ -118,12 +118,24 @@ export function createGoldLabel(gold: string): { el: HTMLElement; set: (gold: st
 
 export type ToastKind = 'info' | 'error';
 
+type ToastRenderer = (message: string, kind: ToastKind) => void;
+let toastRenderer: ToastRenderer | null = null;
+
+/** Trang muốn kiểu thông báo riêng (pier.html: SlideToast) thì đăng ký; null trả về kiểu mặc định. */
+export function setToastRenderer(renderer: ToastRenderer | null): void {
+  toastRenderer = renderer;
+}
+
 export function showToast(
   root: HTMLElement,
   message: string,
   kind: ToastKind = 'info',
   durationMs = DEFAULT_TOAST_MS,
 ): void {
+  if (toastRenderer) {
+    toastRenderer(message, kind);
+    return;
+  }
   let host = root.querySelector<HTMLElement>('.ui-toasts');
   if (!host) {
     host = document.createElement('div');

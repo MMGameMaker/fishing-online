@@ -142,8 +142,19 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
     }
     case 'PositionCorrected':
       return { ...lake, correction: action.payload };
-    case 'SeatChanged':
-      return { ...lake, seats: { ...lake.seats, [action.payload.seatId]: action.payload } };
+    case 'SeatChanged': {
+      // Cập nhật luôn ghế của người chơi trong hồ để nhân vật người khác ngồi/đứng dậy đúng lúc
+      // (trước đây chỉ biết ghế lúc vào hồ). Người rời ghế này thì xoá seatId của họ.
+      const { seatId, occupantPlayerId } = action.payload;
+      const players = { ...lake.players };
+      for (const player of Object.values(players)) {
+        const sits = player.playerId === occupantPlayerId;
+        if (sits && player.seatId !== seatId) players[player.playerId] = { ...player, seatId };
+        if (!sits && player.seatId === seatId)
+          players[player.playerId] = { ...player, seatId: null };
+      }
+      return { ...lake, players, seats: { ...lake.seats, [seatId]: action.payload } };
+    }
     case 'MyTicket':
       return { ...lake, myTicket: action.payload };
     case 'MySeat': {

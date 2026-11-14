@@ -117,8 +117,11 @@
   background: rgb(255 255 255 / 30%);
 }
 
+/* Tab đang chọn: khung nút Small.png (232×68, viền đủ 4 cạnh + bóng dưới) như ảnh mẫu. Không dùng
+   Tab - State Default.png vì ảnh đó không có cạnh dưới (tab mở xuống panel) nên đứng riêng bị méo. */
 .shop__tab--active {
-  border-image: url('/new%20resources/ui/Tab%20-%20State%20Default.png') 12 fill / 12px stretch;
+  border-width: 16px 12px;
+  border-image: url('/new%20resources/ui/Small.png') 16 12 fill / 16px 12px stretch;
 }
 
 .shop__tab-icon {
@@ -394,13 +397,25 @@
 }
 
 .shop-card--rod .shop-card__slot {
-  width: 136px;
-  height: 136px;
+  /* 120px để 2 hàng thẻ vừa khung, không cuộn, sau khi dòng tên cố định 2 dòng (2026-11-14). */
+  width: 120px;
+  height: 120px;
 }
 
 .shop-card--rod .shop-card__price {
   min-width: 0;
   width: 100%;
+  /* Ghim nút xuống đáy thẻ để mọi nút mua/"Đã có" cùng một hàng (feedback 2026-11-14). */
+  margin-top: auto;
+}
+
+/* Tên cần luôn chiếm đúng 2 dòng: tên ngắn hay dài thì nút bên dưới vẫn cùng vị trí, tên dài không đè nút. */
+.shop-card--rod .shop-card__name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  line-height: 26px;
 }
 
 .shop-cards--topup {

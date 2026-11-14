@@ -40,11 +40,16 @@ const RARITY_INK: Record<Rarity, string> = {
   legendary: '#c8761a',
 };
 
-let cleanCard: Promise<string> | null = null;
+const cleanCards = new Map<boolean, Promise<string>>();
 
-/** Ảnh thẻ đã xoá cá và toàn bộ chữ vẽ sẵn, tạo một lần rồi dùng lại. */
-function loadCleanCard(): Promise<string> {
-  cleanCard ??= new Promise<string>((resolve, reject) => {
+/**
+ * Ảnh thẻ đã xoá cá và toàn bộ chữ vẽ sẵn, tạo một lần rồi dùng lại. `eraseCoin`: xoá luôn đồng xu vẽ
+ * sẵn ở dòng Giá để đặt ảnh đồng xu khác lên (pier.html dùng Coin Art.png, feedback 2026-11-14).
+ */
+function loadCleanCard(eraseCoin = false): Promise<string> {
+  const cached = cleanCards.get(eraseCoin);
+  if (cached) return cached;
+  const promise = new Promise<string>((resolve, reject) => {
     const image = new Image();
     image.onload = () => {
       const canvas = document.createElement('canvas');
@@ -57,7 +62,7 @@ function loadCleanCard(): Promise<string> {
       ctx.fillStyle = ROW_BG;
       ROWS.forEach((row, i) => {
         const h = row.y1 - row.y0;
-        if (i === ROWS.length - 1) {
+        if (i === ROWS.length - 1 && !eraseCoin) {
           ctx.fillRect(ROW_X0, row.y0, COIN_LEFT - ROW_X0, h);
           ctx.fillRect(COIN_RIGHT, row.y0, ROW_X1 - COIN_RIGHT, h);
         } else {
@@ -67,12 +72,13 @@ function loadCleanCard(): Promise<string> {
       resolve(canvas.toDataURL());
     };
     image.onerror = () => {
-      cleanCard = null;
+      cleanCards.delete(eraseCoin);
       reject(new Error(`Không tải được ${CARD_IMAGE}`));
     };
     image.src = CARD_IMAGE;
   });
-  return cleanCard;
+  cleanCards.set(eraseCoin, promise);
+  return promise;
 }
 
 /** Gọi khi vào hồ để ảnh thẻ sẵn sàng trước lần câu được cá đầu tiên. */
@@ -90,6 +96,8 @@ export interface CatchCardData {
   habitat: string;
   /** Hình cá (ảnh theo loài, xem ui/fishArt.ts) đặt giữa khung tranh. */
   fish: HTMLElement;
+  /** Ảnh đồng xu thay đồng xu vẽ sẵn ở dòng Giá; bỏ trống thì giữ đồng xu của ảnh thẻ. */
+  coinSrc?: string;
 }
 
 export function buildCatchCard(data: CatchCardData): HTMLElement {
@@ -97,7 +105,7 @@ export function buildCatchCard(data: CatchCardData): HTMLElement {
   const root = document.createElement('div');
   root.className = 'catch-card';
   // Chỉ hiện ảnh đã xoá chữ mẫu; ảnh được tải sẵn từ lúc vào hồ (preloadCatchCard) nên gần như tức thì.
-  void loadCleanCard()
+  void loadCleanCard(Boolean(data.coinSrc))
     .then((url) => root.style.setProperty('--card-image', `url("${url}")`))
     .catch((error: unknown) => console.warn(error));
 
@@ -132,6 +140,16 @@ export function buildCatchCard(data: CatchCardData): HTMLElement {
   value(2, data.habitat);
   value(3, card.length.replace(' ', ''));
   value(4, card.price === null ? '—' : String(card.price), PRICE_X, 'left');
+  if (data.coinSrc) {
+    const coin = document.createElement('img');
+    coin.className = 'catch-card__coin';
+    coin.src = data.coinSrc;
+    coin.alt = '';
+    coin.style.left = pct((COIN_LEFT + COIN_RIGHT) / 2, CARD_W);
+    coin.style.top = pct(ROWS[4].center, CARD_H);
+    coin.style.width = pct(COIN_RIGHT - COIN_LEFT, CARD_W);
+    root.append(coin);
+  }
 
   // Loài mới hoặc kỷ lục mới: chữ đỏ bên phải kích thước, như ảnh mẫu.
   const badge = data.isNew ? 'Loài mới' : data.isRecord ? 'Kỷ lục mới' : null;

@@ -5,6 +5,10 @@ import Phaser from 'phaser';
 import { MOTION_OUT_MS } from '../../ui/kit/motion';
 
 const TEXTURE = 'seat-prompt-key-f';
+/** Ảnh phím F của bộ UI (pier.html, feedback 2026-11-14), vẽ ở tỉ lệ 4 nên hiển thị ×0,25 (~12×15px). */
+export const SIT_PROMPT_ART = 'seat-prompt-art-f';
+const SIT_PROMPT_URL = encodeURI('/new resources/ui/Sit Prompt F.png');
+const ART_SCALE = 0.25;
 const KEY_W = 13;
 const KEY_H = 15;
 /** Đặt bên trái đầu nhân vật, ngang tai như ảnh mẫu, dưới nhãn tên để không đè chữ. */
@@ -13,6 +17,11 @@ const OFFSET_Y = 14;
 const IN_MS = 220;
 const HIDDEN_SCALE = 0.4;
 const DEPTH_BIAS = 2000;
+
+/** Nạp ảnh phím F (chỉ trang muốn dùng ảnh này gọi); không nạp thì dùng keycap vẽ bằng code. */
+export function preloadSitPrompt(scene: Phaser.Scene): void {
+  if (!scene.textures.exists(SIT_PROMPT_ART)) scene.load.image(SIT_PROMPT_ART, SIT_PROMPT_URL);
+}
 
 /** Vẽ keycap một lần: nền trắng, viền xám, đáy dày hơn tạo khối, chữ F tối. */
 function ensureTexture(scene: Phaser.Scene): void {
@@ -32,18 +41,21 @@ function ensureTexture(scene: Phaser.Scene): void {
 
 export class SeatPrompt {
   private readonly key: Phaser.GameObjects.Image;
+  private readonly baseScale: number;
   private shown = false;
 
   constructor(
     private readonly scene: Phaser.Scene,
     onPress: () => void,
   ) {
-    ensureTexture(scene);
+    const art = scene.textures.exists(SIT_PROMPT_ART);
+    if (!art) ensureTexture(scene);
+    this.baseScale = art ? ART_SCALE : 1;
     this.key = scene.add
-      .image(0, 0, TEXTURE)
+      .image(0, 0, art ? SIT_PROMPT_ART : TEXTURE)
       .setOrigin(0.5, 1)
       .setAlpha(0)
-      .setScale(HIDDEN_SCALE)
+      .setScale(HIDDEN_SCALE * this.baseScale)
       .setVisible(false);
     // Chạm vào phím (điện thoại) cũng ngồi như bấm F.
     this.key.setInteractive({ useHandCursor: true }).on('pointerdown', () => {
@@ -63,7 +75,7 @@ export class SeatPrompt {
       this.scene.tweens.add({
         targets: this.key,
         alpha: 1,
-        scale: 1,
+        scale: this.baseScale,
         duration: IN_MS,
         ease: 'Back.easeOut',
       });
@@ -71,7 +83,7 @@ export class SeatPrompt {
       this.scene.tweens.add({
         targets: this.key,
         alpha: 0,
-        scale: HIDDEN_SCALE,
+        scale: HIDDEN_SCALE * this.baseScale,
         duration: MOTION_OUT_MS,
         ease: 'Sine.easeIn',
         onComplete: () => this.key.setVisible(false),

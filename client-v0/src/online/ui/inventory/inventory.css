@@ -97,7 +97,7 @@
   display: flex;
   flex-direction: column;
   width: 440px;
-  height: 640px;
+  height: 648px;
   padding: 12px 20px 16px;
   border: 16px solid transparent;
   border-image: url('/new%20resources/ui/Panel%20Art.png') 16 fill / 16px stretch;
@@ -149,7 +149,7 @@
   left: 466px;
   display: flex;
   gap: 18px;
-  height: 590px;
+  height: 520px;
   padding-bottom: 8px;
   overflow: auto hidden;
   scrollbar-width: thin;
@@ -161,6 +161,8 @@
   width: 220px;
   height: 564px;
   transition: transform 120ms ease-out;
+  /* Thẻ 90% (cao ~508px) để nút "Mua cần câu" nằm dưới, cách đáy trang (feedback 2026-11-14). */
+  zoom: 0.9;
 }
 
 .inv-rod:hover:not(:disabled) {
@@ -205,11 +207,17 @@
 }
 
 .inv-rod__name {
+  /* Tên dài (vd. "Old Fishing Rod") xuống 2 dòng, gọn trong thẻ, không đè hàng chỉ số (feedback 2026-11-14). */
   position: absolute;
-  top: 214px;
-  right: 8px;
-  left: 8px;
-  font-size: 22px;
+  top: 206px;
+  right: 22px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  font-size: 20px;
+  line-height: 21px;
   text-align: center;
 }
 
@@ -231,7 +239,7 @@
 .inv-rods__buy {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 52px;
   width: 400px;
   height: 102px;
   padding-bottom: 8px;
@@ -260,7 +268,7 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 28px 16px;
   align-content: start;
-  height: 600px;
+  height: 560px;
   padding: 24px;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -271,5 +279,5 @@
 .inv-fish__choose {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 52px;
 }

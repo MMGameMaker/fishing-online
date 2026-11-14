@@ -245,3 +245,82 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
   - Trên trình duyệt (mock, vì `.env.local` đang `VITE_USE_MOCK=true`; bỏ qua đăng nhập Google chỉ trong phiên kiểm tra): câu 3 con Perch, Trout, Moonfin rồi mở sổ tay. Thấy 3 ô ảnh thật và 6 bóng đen; Perch hiện đủ 6 dòng (nhỏ nhất = lớn nhất 14,1cm). Chọn một bóng đen thì 2 dòng "đã câu" để trống.
 - **Lưu ý môi trường:** Cổng 5173 đang có thêm server Node cũ (`server/index.js`) nghe ở 0.0.0.0. Vào `http://localhost:5173` có thể trúng server đó (trang cũ, tiêu đề "xem trước"); Vite của client đang nghe ở `[::1]:5173`.
 
+## Web Client — Feedback 2026-11-14 (chỉ pier.html)
+
+Người dùng gửi feedback 1–9 (không có số 6), nói "làm" sau khi gửi hết. Quy tắc: chỉ sửa pier.html. Code dùng chung chỉ bật qua cờ của pier (`isHomeHudEnabled`, `body.page-pier`, tham số truyền từ pier).
+
+- **FB1 — tab "Trang bị" của cửa hàng bị méo:**
+  - Không có asset riêng cho tab đang chọn. `Tab - State Default.png` không có cạnh dưới (tab mở xuống panel) nên đứng riêng bị méo.
+  - Đổi sang khung `Small.png`, cắt 9 mảnh đúng viền 16/12px.
+- **FB2 — nút mua cần cùng hàng với "Đã có":**
+  - Dòng tên cần cố định 2 dòng, nút ghim đáy thẻ.
+  - Khung ảnh cần 136 → 120px để 2 hàng thẻ vừa khung, không cuộn.
+- **FB3 — bỏ dòng gợi ý phím, hạ nút và khung chat:**
+  - `pier.html` bỏ `#hint`; style riêng `scenes/pier/pier.css` (body `page-pier`): nút chat cách đáy 16px, khung chat 84px.
+  - `SocialUi.fit()` tính chiều cao theo vị trí thật của khung nên khung chat không còn sát khung người chơi.
+- **FB4 — căn đều lưới emoji:**
+  - Lưới 5 × 64px, gap 12, căn giữa (trước 5×68 + 4×14 = 396px tràn lòng khung 368px).
+  - Emoji cắt sát phần có hình (`loadTrimmedEmoteFrames`, chỉ pier qua `trimEmotes`) nên icon nằm chính giữa ô.
+  - Đo trên trình duyệt: lề trái/phải 21px bằng nhau, khoảng cách các ô bằng nhau, 16 icon lệch 0.
+- **FB5 — Túi đồ, nút "Mua cần câu" và "Chọn cá" bị sát đáy:**
+  - Thẻ cần thu 90% (`zoom`), nút cách đáy trang 52px; ô túi cá 600 → 560px.
+- **FB7 — bong bóng chat/emoji trên đầu theo demo:**
+  - `entities/HeadBubble.ts` ghép bong bóng từ `Head Bubble.png` (người dùng thêm): góc và đuôi giữa đáy giữ nguyên, cạnh kéo giãn, hiển thị ×0,25 cho khớp pixel nhân vật.
+  - Chat và emoji (emoji gửi trong chat) đều hiện trong bong bóng. **Ẩn tên khi đang có bong bóng** (người dùng chọn), hết bong bóng thì tên hiện lại. Có hiệu ứng nảy lên và mờ dần.
+  - Chỉ pier nạp ảnh này; trang khác giữ bong bóng chữ cũ.
+- **FB8 — mọi đồng xu dùng `Coin Art.png`** (`ui/coinArt.ts`):
+  - Đã đổi: khung Gold (HomeHud), cửa hàng (đầu khung, giá cá/cần/gói nạp, tổng tiền, popup bán), Túi đồ.
+  - Popup mua vé: `coinSrc` truyền từ SeatUi khi ở pier.
+  - Thẻ câu được cá: xoá đồng xu vẽ sẵn trong `Catch Fish.png` rồi đặt ảnh mới. Người dùng chọn "thay luôn"; FishingFlow nhận tham số mới, chỉ LakeScene của pier truyền.
+- **FB9 — phím F khi đứng gần ghế dùng `Sit Prompt F.png`:**
+  - Hiển thị ×0,25 (~12×15px), giữ hiệu ứng và vị trí cũ. Trang khác giữ keycap vẽ bằng code.
+- **Kiểm tra:**
+  - Tự động: 257 test client đạt, tsc/eslint/prettier sạch.
+  - Trên trình duyệt (mock, `http://[::1]:5173/pier.html`, khung trình duyệt của Claude bị ẩn nên chạy vòng lặp game bằng tay):
+    - Không còn `#hint`; nút chat cách đáy 16px.
+    - HUD, cửa hàng, popup vé, thẻ cá đều dùng Coin Art.
+    - Phím F dùng texture mới.
+    - Chat "Hi" và emoji hiện trong bong bóng mới, tên ẩn.
+    - Lưới emoji đều; Túi đồ có nút cách đáy và khoảng hở phía trên.
+    - Thẻ cần không cuộn, 4 nút hàng đầu cùng độ cao.
+- **Lưu ý:**
+  - Lần tải đầu trong khung trình duyệt ẩn đôi khi báo lỗi WebGL "Framebuffer Incomplete Attachment". Lỗi đó do khung ẩn, có cả trước các thay đổi này; tải lại là chạy.
+  - Cổng 5173 vẫn có server Node cũ ở 0.0.0.0.
+
+## Web Client — Feedback đợt 2 ngày 2026-11-14 (pier.html)
+
+- **Ghế băng dọc có vệt nước:**
+  - Nguyên nhân không phải ảnh ghế mà là **ô nền dưới ghế chọn sai** khi dựng lại map: ghế che kín ô trong ảnh gốc nên lúc đó đoán nhầm sang ô có nước.
+  - Ô (36,13) dưới ghế trên cầu đổi sang ô ván khớp ảnh gốc (sai số 74,7 → 0). 4 ô dưới ghế trên cát (27,21), (28,20), (28,21), (28,22) đổi sang ô cát trơn. Ở đó nước lộ qua bóng mờ của ghế, còn ảnh gốc là cát.
+  - Đo lại trên trình duyệt: không còn điểm ảnh nước ở cả 2 ghế.
+- **Túi đồ, tab Đồ câu:**
+  - Tên cần dài xuống 2 dòng trong thẻ ("Old Fishing / Rod").
+  - Chỉ số từng cần có dấu + (+1, +0%, +10%…); chỉ số tổng bên trái giữ nguyên.
+  - Ô debug "MOCK / Thời gian ghế" ẩn bằng `pier.css` (chỉ trang này).
+- **Thông báo kiểu mới** (`ui/toast/SlideToast.ts`, toast.css):
+  - Nền `Well Art.png` (9 mảnh), giữa phía dưới màn hình (người dùng chọn cách a), z-index 1000 nên nằm trên mọi popup.
+  - Trượt lên (ease OutQuad), giữ 1,5 giây, trượt xuống (ease OutQuad). Có thông báo mới thì cái đang hiện trượt xuống ngay, xong mới trượt cái mới lên; mỗi lúc chỉ một cái.
+  - Cắm vào `showToast` qua `setToastRenderer`, chỉ `preview.ts` của pier đăng ký; trang khác giữ toast cũ.
+- **Pháo giấy:**
+  - Bắn từ hai góc dưới, bay chéo lên giữa (`burstSideConfetti`).
+  - Khoảng 0,6 giây sau mới hiện popup cá (người dùng chọn cách a); giấy rơi phía sau thẻ.
+- **Bong bóng chat/emoji và icon trên đầu:**
+  - Bong bóng nằm ngay trên tên, **không ẩn tên nữa** (đổi theo người dùng).
+  - Dấu "!" khi cá cắn, emoji buồn, icon cá dời lên trên tên (cách mép trên tên ~4px).
+  - Chỉ áp ở trang có ảnh Head Bubble (pier).
+- **Tạm bỏ qua minigame (pier):**
+  - Bấm icon lưỡi câu hoặc Space khi cá cắn: nhân vật kéo cần 0,35 giây rồi gửi "câu được" (100%). Server nhận kết quả ngay khi lần câu sang pha minigame.
+  - Code minigame giữ nguyên; tắt `skipMinigame` trong `PierFishingOptions` (LakeScene) là dùng lại. FishingFlow gom tuỳ chọn riêng của pier vào `PierFishingOptions {catchCardCoin, sideConfetti, skipMinigame}`.
+- **Ngồi ghế không có bóng:**
+  - `bake_characters.py` không vẽ bóng cho các tư thế ngồi (sit, cast, wait, bite, reel, success, fail).
+  - Người dùng chọn cách b nên áp cho mọi trang dùng chung ảnh nhân vật, gồm cả `fishing.html`.
+- **Kiểm tra:**
+  - Tự động: 257 test client đạt, tsc/eslint/prettier sạch.
+  - Trên trình duyệt (mock, `[::1]:5173/pier.html`):
+    - Ô MOCK ẩn.
+    - Ngồi `seat-05`: dấu "!" cách tên 4px. Bấm thu cần thì không mở minigame, câu được ngay; pháo bắt đầu từ hai góc đáy (x≈0 và x≈1019), popup hiện sau ~0,6 giây.
+    - Thông báo mới dùng nền Well Art, nằm trên menu, mỗi lúc một cái.
+    - Tên cần 2 dòng, chỉ số có dấu +, bong bóng ngay trên tên.
+    - Ô nền dưới 2 ghế không còn nước.
+- **Chưa kiểm được:** chuyển động mượt của thông báo trượt và pháo giấy, vì khung trình duyệt của Claude bị ẩn nên trình duyệt chỉ vẽ lại vài giây một lần.
+
