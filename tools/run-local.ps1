@@ -69,9 +69,19 @@ function Wait-DockerEngine([int]$timeoutSec = 240) {
         Start-Process $exe
     }
     $deadline = (Get-Date).AddSeconds($timeoutSec)
+    # Sau thời gian chờ ban đầu, nếu không còn tiến trình Docker nào thì nó đã thoát giữa chừng: báo ngay, không chờ hết giờ.
+    $graceEnd = (Get-Date).AddSeconds(60)
     while ((Get-Date) -lt $deadline) {
         & docker info *> $null
         if ($LASTEXITCODE -eq 0) { return }
+        if ((Get-Date) -gt $graceEnd -and -not (Get-Process 'Docker Desktop', 'com.docker.backend' -ErrorAction SilentlyContinue)) {
+            $log = Join-Path $env:LOCALAPPDATA 'Docker\log\host\com.docker.backend.exe.log'
+            $reason = if (Test-Path $log) {
+                Get-Content $log -Tail 1500 | Where-Object { $_ -match 'backend cancelling with error' } | Select-Object -Last 1
+            }
+            if ($reason) { Write-Host ('Lỗi Docker: ' + $reason.Substring(0, [Math]::Min(300, $reason.Length))) -ForegroundColor Yellow }
+            throw 'Docker Desktop đã thoát giữa chừng. Mở nó từ Start menu để xem hộp thoại lỗi (đừng chọn "Reset to factory defaults"), khi engine chạy thì chạy lại.'
+        }
         Start-Sleep -Seconds 3
     }
     throw "Docker engine chưa sẵn sàng sau $timeoutSec giây. Mở Docker Desktop, đợi nó chạy rồi chạy lại."
