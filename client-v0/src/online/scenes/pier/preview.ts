@@ -11,16 +11,21 @@ import '../../ui/home/home.css';
 import '../../ui/shop/shop.css';
 import '../../ui/inventory/inventory.css';
 import '../../ui/codex/codex.css';
+// Sau cùng để ghi đè style chung (chỉ trang này).
+import '../../ui/toast/toast.css';
+import './pier.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';
 import { enableHomeHud } from '../../ui/home/HomeHud';
+import { setToastRenderer } from '../../ui/kit/components';
+import { SlideToast } from '../../ui/toast/SlideToast';
 import { LakeScene } from '../lake/LakeScene';
 import { setLakeMapArt } from '../lake/mapArt';
 import { PIER_LAKE_MAP, PierArt } from './PierArt';
 
 async function start(): Promise<void> {
-  const services = await createServices(PIER_LAKE_MAP);
+  const services = await createServices(PIER_LAKE_MAP, { fishingBots: true });
   const game = new Phaser.Game({
     type: Phaser.AUTO,
     parent: 'game',
@@ -41,8 +46,19 @@ async function start(): Promise<void> {
   setLakeMapArt(game, new PierArt());
   // Giao diện home theo ảnh demo (khung người chơi, vé, Gold, menu) chỉ có ở trang này.
   enableHomeHud(game);
-  // Đảm bảo canvas bám theo cửa sổ cả khi đổi cỡ/xoay màn hình.
-  window.addEventListener('resize', () => game.scale.refresh());
+  // Thông báo kiểu mới (nền Well Art, trượt lên/xuống) chỉ trên trang này.
+  const toast = new SlideToast(document.body, game);
+  setToastRenderer((message, kind) => toast.show(message, kind));
+  // Canvas bám theo khung #game cả khi đổi cỡ, xoay màn hình hoặc vào/thoát toàn màn hình.
+  // Phải cập nhật kích thước cha trước khi refresh: ở chế độ RESIZE, refresh() dùng kích thước cha đã lưu,
+  // nên gọi refresh() ngay trong sự kiện resize sẽ chậm một nhịp và Phaser không tự sửa lại (canvas kẹt cỡ cũ).
+  const frame = document.getElementById('game');
+  if (frame) {
+    new ResizeObserver(() => {
+      game.scale.getParentBounds();
+      game.scale.refresh();
+    }).observe(frame);
+  }
 
   if (import.meta.env.DEV) {
     // Chỉ để kiểm tra khi phát triển.

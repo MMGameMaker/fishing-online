@@ -9,6 +9,7 @@ import type { InventoryResponse, SellFishResponse, ShopBuyResponse } from '../..
 import { showError, showToast } from '../kit/components';
 import { animateIn, animateOut } from '../kit/motion';
 import { SLIDER, loadSliderParts } from '../../scenes/lake/TicketDialog';
+import { COIN_ART } from '../coinArt';
 import { fishImage } from '../fishArt';
 import { fishDescription } from './fishInfo';
 import {
@@ -24,7 +25,7 @@ import { TOP_UP_PACKS, type TopUpResponse } from './topUpPacks';
 
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
 const MINI = (file: string) => encodeURI(`/mini game/${file}`);
-const COIN = MINI('Coin Small.png');
+const COIN = COIN_ART;
 const CLOSE = MINI('Button Close.png');
 const rodIcon = (rodId: string) => `/assets/rods/${rodId}-icon.png`;
 

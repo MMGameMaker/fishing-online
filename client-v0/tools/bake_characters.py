@@ -214,7 +214,9 @@ def main() -> None:
             for anim, (seq, _, _) in ANIMS.items():
                 for i, (bi, _, dx, dy) in enumerate(seq):
                     canvas = blank()
-                    place(canvas, shadow, dx, 0, flip)
+                    # Ngồi ghế thì không vẽ bóng dưới chân (người dùng chọn 2026-11-14, áp cho mọi trang).
+                    if bi != SIT:
+                        place(canvas, shadow, dx, 0, flip)
                     place(canvas, atlas.get(body_frame(body, body_dir, bi)), dx, dy, flip)
                     frames[f'{anim}_{dir_name}_{i}'] = canvas
         write_sheet(OUT_SKIN / skin_id, frames, extra)

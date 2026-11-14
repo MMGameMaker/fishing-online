@@ -290,6 +290,38 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
+    public async Task Success_AnnouncesToEveryone_FirstOnlyForSpeciesNobodyCaught()
+    {
+        await using var watcher = await App.ConnectAsync();
+        await watcher.OkAsync("JoinLake");
+        await using var player = await SeatedAsync();
+        var attemptId = await ToMinigameAsync(player);
+        await player.OkAsync("SubmitFishingResult", Result(attemptId));
+
+        var announced = await watcher.WaitForAsync("CatchAnnounced");
+        var shown = await watcher.WaitForAsync("CatchShown");
+        Assert.Equal(player.PlayerId, announced.GetProperty("playerId").GetGuid());
+        Assert.Equal(shown.GetProperty("speciesId").GetString(), announced.GetProperty("speciesId").GetString());
+        Assert.False(string.IsNullOrWhiteSpace(announced.GetProperty("displayName").GetString()));
+        Assert.False(string.IsNullOrWhiteSpace(announced.GetProperty("speciesName").GetString()));
+        Assert.True(announced.GetProperty("first").GetBoolean());
+
+        // Người khác câu cùng loài sau đó thì không còn là "người đầu tiên".
+        var speciesId = announced.GetProperty("speciesId").GetString()!;
+        var other = await App.NewPlayerAsync();
+        await App.WithDbAsync(db =>
+        {
+            db.Add(new SpeciesRecordRow { PlayerId = other, SpeciesId = speciesId, FirstCaughtAt = App.Clock.GetUtcNow(), TotalCaught = 1 });
+            return db.SaveChangesAsync();
+        });
+        await using var second = await SeatedAsync("seat-12");
+        var secondAttempt = await ToMinigameAsync(second);
+        await second.OkAsync("SubmitFishingResult", Result(secondAttempt));
+        var again = await watcher.WaitForAsync("CatchAnnounced", item => item.GetProperty("playerId").GetGuid() == second.PlayerId);
+        if (again.GetProperty("speciesId").GetString() == speciesId) Assert.False(again.GetProperty("first").GetBoolean());
+    }
+
+    [Fact]
     public async Task Failed_GivesNothing_OwnerCanCastAgain()
     {
         await using var player = await SeatedAsync();

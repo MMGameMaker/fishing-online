@@ -6,7 +6,11 @@ import { mountDevOverlay } from './devOverlay';
 import { MockBackend } from './MockBackend';
 
 /** Dựng mock cho trình duyệt; `?mockError=SEAT_TAKEN` bật lỗi giả, `?mockPing=150` giả độ trễ. */
-export function createMock(map: LakeMap, botCount?: number): MockBackend {
+export function createMock(
+  map: LakeMap,
+  botCount?: number,
+  extra: { fishingBots?: boolean } = {},
+): MockBackend {
   if (!isGameplayConfig(configJson)) throw new Error('gameplay-config không đúng contract');
   const query = new URLSearchParams(window.location.search);
   const requested = query.get('mockError');
@@ -19,6 +23,7 @@ export function createMock(map: LakeMap, botCount?: number): MockBackend {
     forcedError,
     latencyMs,
     botCount,
+    fishingBots: extra.fishingBots,
   });
   mock.startRealtime();
   mountDevOverlay(mock, forcedError);

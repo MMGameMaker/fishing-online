@@ -15,18 +15,33 @@ export function mountUiOverlay(game: Phaser.Game): { root: HTMLElement; destroy:
   const root = document.createElement('div');
   root.className = 'ui-root';
   document.body.append(root);
+  const stopTracking = trackCanvasFrame(game, root);
+  return {
+    root,
+    destroy: () => {
+      stopTracking();
+      root.remove();
+    },
+  };
+}
 
+/**
+ * Đặt `el` (position: fixed, transform-origin: 0 0) trùng khung canvas và dựng ở cỡ màn thiết kế
+ * 1920×1080 rồi scale theo canvas, nên mọi lớp UI nằm trong khung chơi chứ không tràn ra dải đen.
+ * Trả về hàm ngừng theo dõi.
+ */
+export function trackCanvasFrame(game: Phaser.Game, el: HTMLElement): () => void {
   const sync = () => {
     const rect = game.canvas.getBoundingClientRect();
     const scale = rect.width / UI_DESIGN_WIDTH;
     if (!scale) return;
-    root.style.left = `${rect.left}px`;
-    root.style.top = `${rect.top}px`;
-    root.style.width = `${UI_DESIGN_WIDTH}px`;
+    el.style.left = `${rect.left}px`;
+    el.style.top = `${rect.top}px`;
+    el.style.width = `${UI_DESIGN_WIDTH}px`;
     // Canvas 16:9 thì cao 1080; canvas tỉ lệ khác (bridge cũ) vẫn được phủ kín.
-    root.style.height = `${rect.height / scale}px`;
-    root.style.transform = `scale(${scale})`;
-    root.style.setProperty('--ui-scale', String(UI_DESIGN_WIDTH / GAME_WIDTH));
+    el.style.height = `${rect.height / scale}px`;
+    el.style.transform = `scale(${scale})`;
+    el.style.setProperty('--ui-scale', String(UI_DESIGN_WIDTH / GAME_WIDTH));
   };
 
   const observer = new ResizeObserver(sync);
@@ -35,14 +50,10 @@ export function mountUiOverlay(game: Phaser.Game): { root: HTMLElement; destroy:
   window.addEventListener('resize', sync);
   sync();
 
-  return {
-    root,
-    destroy: () => {
-      observer.disconnect();
-      game.scale.off('resize', sync);
-      window.removeEventListener('resize', sync);
-      root.remove();
-    },
+  return () => {
+    observer.disconnect();
+    game.scale.off('resize', sync);
+    window.removeEventListener('resize', sync);
   };
 }
 
@@ -125,12 +136,24 @@ export function createGoldLabel(gold: string): { el: HTMLElement; set: (gold: st
 
 export type ToastKind = 'info' | 'error';
 
+type ToastRenderer = (message: string, kind: ToastKind) => void;
+let toastRenderer: ToastRenderer | null = null;
+
+/** Trang muốn kiểu thông báo riêng (pier.html: SlideToast) thì đăng ký; null trả về kiểu mặc định. */
+export function setToastRenderer(renderer: ToastRenderer | null): void {
+  toastRenderer = renderer;
+}
+
 export function showToast(
   root: HTMLElement,
   message: string,
   kind: ToastKind = 'info',
   durationMs = DEFAULT_TOAST_MS,
 ): void {
+  if (toastRenderer) {
+    toastRenderer(message, kind);
+    return;
+  }
   let host = root.querySelector<HTMLElement>('.ui-toasts');
   if (!host) {
     host = document.createElement('div');

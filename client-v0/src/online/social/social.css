@@ -319,11 +319,3 @@
   background-repeat: no-repeat;
   image-rendering: pixelated;
 }
-
-/* Màn hẹp: bảng biểu cảm nằm trên khung chat thay vì bên phải. */
-@media (width < 640px) {
-  .emoji-panel {
-    bottom: calc(112px + var(--chat-h, 952px) * var(--chat-scale, 0.6) + 12px);
-    left: 16px;
-  }
-}

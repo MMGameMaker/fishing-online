@@ -3,6 +3,7 @@ using FishingOnline.Api.Modules.Common;
 using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Economy;
 using FishingOnline.Api.Modules.Lake;
+using FishingOnline.Api.Modules.Social;
 using FishingOnline.Api.Persistence;
 using FishingOnline.Domain;
 using FishingOnline.Domain.Attempts;
@@ -30,7 +31,7 @@ public sealed class FishingService(
 {
     private int EmptyLakeRetryMs => configuration.GetValue("Fishing:EmptyLakeRetryMs", 1000);
 
-    private sealed record Applied(FishingAttemptRow Row, AttemptSnapshot Snapshot, AttemptStep Step, CatchShownView? Shown);
+    private sealed record Applied(FishingAttemptRow Row, AttemptSnapshot Snapshot, AttemptStep Step, CatchShownView? Shown, CatchAnnouncedView? Announced = null);
 
     private DateTimeOffset Now => time.GetUtcNow();
 
@@ -210,6 +211,7 @@ public sealed class FishingService(
         var step = command(attempt, before);
         var after = attempt.Snapshot();
         CatchShownView? shown = null;
+        CatchAnnouncedView? announced = null;
 
         // Hoãn cắn vì hồ hết cá không có event nhưng vẫn đổi snapshot, nên cũng phải lưu.
         if (step.Events.Count > 0 || after != before)
@@ -236,12 +238,19 @@ public sealed class FishingService(
 
             if (step.Events.OfType<Succeeded>().SingleOrDefault() is { } succeeded)
             {
+                // "Người đầu tiên": chưa ai trên hệ thống từng câu loài này; xét trước khi ghi lần câu này.
+                var first = !await db.Set<SpeciesRecordRow>().AnyAsync(record => record.SpeciesId == succeeded.SpeciesId, ct);
                 var recorded = await scope.ServiceProvider.GetRequiredService<ICatchRecorder>()
                     .RecordAsync(playerId, attemptId, succeeded.SpeciesId, succeeded.LengthTenthCm, succeeded.Exp, row.ConfigVersion, ct);
                 row.ResultJson = JsonSerializer.Serialize(new AttemptResultView(
                     succeeded.SpeciesId, row.Rarity!, succeeded.LengthTenthCm, recorded.IsNew, recorded.IsRecord,
                     recorded.ExpGained, recorded.Level, recorded.LevelUp), GameJson.Options);
                 shown = new CatchShownView(playerId, succeeded.SpeciesId, row.Rarity!, now.AddMilliseconds(config.Fishing.CatchShownMs));
+                var displayName = await db.Players.AsNoTracking()
+                    .Where(player => player.Id == playerId).Select(player => player.DisplayName).SingleAsync(ct);
+                announced = new CatchAnnouncedView(
+                    playerId, displayName, succeeded.SpeciesId,
+                    config.Fish.Single(fish => fish.SpeciesId == succeeded.SpeciesId).Name, row.Rarity!, first, now);
             }
 
             if (after is { Phase: FishingPhase.Success or FishingPhase.Failed, Minigame: { } minigame })
@@ -257,7 +266,7 @@ public sealed class FishingService(
             await db.SaveChangesAsync(ct);
         }
         await transaction.CommitAsync(ct);
-        return new Applied(row, after, step, shown);
+        return new Applied(row, after, step, shown, announced);
     }
 
     private async Task PublishAsync(Applied applied)
@@ -277,6 +286,8 @@ public sealed class FishingService(
 
         await room.SendToPlayerAsync(row.PlayerId, "AttemptUpdate", ViewOf(row, applied.Snapshot));
         if (applied.Shown is not null) await room.BroadcastAsync("CatchShown", applied.Shown);
+        // Khoe cá cho cả hồ: banner trên UI và tin hệ thống trong chat (doc/GAMEPLAY_SCOPE, kiểu 1).
+        if (applied.Announced is not null) await room.BroadcastAsync("CatchAnnounced", applied.Announced);
         if (terminal) await room.PublishPlayerAsync(row.PlayerId);
         if (applied.Snapshot.Phase != FishingPhase.Failed) return;
 

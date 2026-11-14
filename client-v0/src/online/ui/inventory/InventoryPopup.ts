@@ -7,6 +7,7 @@ import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
 import type { InventoryResponse, ProgressResponse, Stats } from '../../net/contract';
 import { showError, showToast } from '../kit/components';
+import { COIN_ART } from '../coinArt';
 import { fishImage } from '../fishArt';
 import { formatGold } from '../kit/format';
 import { animateIn, animateOut } from '../kit/motion';
@@ -14,7 +15,7 @@ import type { ShopPopup } from '../shop/ShopPopup';
 import { SHOP_RARITY_COLORS, groupFish, type FishGroup } from '../shop/shopModel';
 
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
-const COIN = encodeURI('/mini game/Coin Small.png');
+const COIN = COIN_ART;
 const CLOSE = encodeURI('/mini game/Button Close.png');
 const SKIN_DIR = '/assets/characters/';
 const rodIcon = (rodId: string) => `/assets/rods/${rodId}-icon.png`;
@@ -281,7 +282,8 @@ export class InventoryPopup {
     card.append(img(rodIcon(rod.rodId), 'inv-rod__icon'), el('span', 'inv-rod__name', rod.name));
     const values = el('span', 'inv-rod__values');
     for (const row of STAT_ROWS) {
-      values.append(el('span', 'inv-rod__value', `${rod[row.key]}${row.unit}`));
+      // Chỉ số cộng thêm của cần: luôn có dấu + (feedback 2026-11-14).
+      values.append(el('span', 'inv-rod__value', `+${rod[row.key]}${row.unit}`));
     }
     card.append(values);
     // Server đã có PUT /me/equipped-rod: bấm thẻ cần khác để trang bị (đang câu thì Server từ chối).

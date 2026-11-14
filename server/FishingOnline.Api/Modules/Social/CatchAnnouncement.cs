@@ -17,7 +17,7 @@ public sealed record CatchAnnouncedView(
 
 /// <summary>
 /// Lệnh test (người dùng yêu cầu 2026-11-13): phát thông báo khoe cá giả lập bằng tên người gọi, để thử
-/// thanh thông báo trên nhiều tab. Chỉ đăng ký ở Development; trigger thật "loài đầu tiên" chưa làm.
+/// thanh thông báo trên nhiều tab. Chỉ đăng ký ở Development; trigger thật nằm ở FishingService.
 /// </summary>
 public static class DevCatchAnnouncement
 {

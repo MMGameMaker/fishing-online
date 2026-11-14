@@ -20,22 +20,11 @@
         width: min(100vw, calc(100vh * 16 / 9));
         height: min(100vh, calc(100vw * 9 / 16));
       }
-      #hint {
-        position: fixed;
-        left: 8px;
-        bottom: 8px;
-        color: #e8e2c8;
-        font: 12px/1.4 system-ui, sans-serif;
-        background: rgb(0 0 0 / 0.45);
-        padding: 4px 8px;
-        border-radius: 4px;
-        pointer-events: none;
-      }
     </style>
   </head>
-  <body>
+  <!-- page-pier: style riêng của trang này (scenes/pier/pier.css). Bỏ dòng gợi ý phím (feedback 2026-11-14). -->
+  <body class="page-pier">
     <div id="game"></div>
-    <div id="hint">WASD / mũi tên: di chuyển · F cạnh ghế: ngồi câu cá</div>
     <script type="module" src="/src/online/scenes/pier/preview.ts"></script>
   </body>
 </html>

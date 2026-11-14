@@ -2,6 +2,7 @@
 import type { Services } from '../../core/services';
 import { createButton, createGoldLabel, showError, showToast } from '../../ui/kit/components';
 import { MAX_UI_DURATION_UNITS, formatClock, sessionEndText } from './seatLogic';
+import { COIN_ART } from '../../ui/coinArt';
 import { openTicketDialog, preloadTicketDialog } from './TicketDialog';
 import type { LakeSeat } from './walkable';
 
@@ -19,7 +20,7 @@ export class SeatUi {
     private readonly services: Services,
     private readonly canLeave: () => boolean,
     /** false: trang có HUD riêng (pier.html dùng HomeHud) nên không dựng dải Gold/vé/Rời ghế này. */
-    showHud = true,
+    private readonly showHud = true,
   ) {
     const { store } = services;
     this.hud.className = 'seat-hud';
@@ -111,6 +112,8 @@ export class SeatUi {
       pricing,
       maxUnits: Math.min(MAX_UI_DURATION_UNITS, pricing.maxUnitsPerPurchase),
       buy: (units) => this.submitBuyTicket(units, pricing.priceVersion),
+      // Trang có HUD riêng (pier.html) dùng đồng xu Coin Art.png (feedback 2026-11-14).
+      coinSrc: this.showHud ? undefined : COIN_ART,
     });
   }
 

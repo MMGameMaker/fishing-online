@@ -28,7 +28,13 @@ import type {
   TicketPurchaseResult,
 } from '../net/contract';
 import type { HubConnectionLike, HubHandler } from '../net/GameHub';
-import { canStand, inLakeArea, type LakeMap, type LakeSeat } from '../scenes/lake/walkable';
+import {
+  canStand,
+  inLakeArea,
+  nearestStandable,
+  type LakeMap,
+  type LakeSeat,
+} from '../scenes/lake/walkable';
 import {
   addStats,
   expToNext,
@@ -43,6 +49,7 @@ import {
   type Random,
 } from './rules';
 import { TOP_UP_PACKS } from '../ui/shop/topUpPacks';
+import { nextRound, pickBotNames, startFishing, startWander, type BotState } from './botFishing';
 
 export interface MockOptions {
   config: GameplayConfig;
@@ -54,6 +61,8 @@ export interface MockOptions {
   botCount?: number;
   /** Ping giả (ms) cho lệnh và event hub. */
   latencyMs?: number;
+  /** Bot có tên người, ngồi ghế câu cá và khoe cá (pier.html, feedback 2026-11-14). */
+  fishingBots?: boolean;
 }
 
 /** Bảng mã lỗi → HTTP theo BE-A-01 và SPEC mục 5. */
@@ -176,6 +185,10 @@ export class MockBackend {
   private attempt: AttemptRuntime | null = null;
   private readonly settled = new Map<string, SettledAttempt>();
   private readonly bots: PlayerView[] = [];
+  private readonly fishingBots: boolean;
+  private readonly botStates = new Map<string, BotState>();
+  /** Loài đã có ai câu được (để thông báo "người đầu tiên"). */
+  private readonly caughtSpecies = new Set<string>();
   private readonly handlers = new Map<string, Set<HubHandler>>();
   private connected = false;
   private readonly httpReceipts = new Map<string, IdempotentReceipt>();
@@ -199,6 +212,7 @@ export class MockBackend {
     for (const info of options.map.seats) {
       this.seats.set(info.seatId, { info, state: 'available', occupantPlayerId: null });
     }
+    this.fishingBots = options.fishingBots ?? false;
     this.createBots(options.botCount ?? 3);
   }
 
@@ -333,11 +347,14 @@ export class MockBackend {
 
   private createBots(count: number): void {
     const spots = this.map.seats.slice(0, count);
+    const names = this.fishingBots ? pickBotNames(count, this.random, [this.displayName]) : [];
     spots.forEach((seat, index) => {
+      if (this.fishingBots)
+        this.botStates.set(`bot-${index + 1}`, startWander(this.nowMs, this.random));
       this.bots.push({
         playerId: `bot-${index + 1}`,
-        displayName: `Bot ${index + 1}`,
-        skinId: 'skin_01',
+        displayName: names[index] ?? `Bot ${index + 1}`,
+        skinId: this.fishingBots ? `skin_0${(index % 5) + 1}` : 'skin_01',
         rodId: this.config.newPlayer.rodId,
         x: seat.x,
         y: seat.y - 32,
@@ -359,6 +376,7 @@ export class MockBackend {
       { dir: 'right', dx: BOT_STEP_PX, dy: 0 },
     ];
     for (const bot of this.bots) {
+      if (this.fishingBots && this.tickFishingBot(bot)) continue;
       const step = directions[Math.floor(this.random() * directions.length)]!;
       const x = bot.x + step.dx;
       const y = bot.y + step.dy;
@@ -375,6 +393,7 @@ export class MockBackend {
           seq: this.lastMoveSeq,
         });
       }
+      if (this.fishingBots) continue;
       if (this.random() < BOT_CATCH_CHANCE) {
         const fish = pickSpecies(this.config, 0, this.random);
         this.emit('CatchShown', {
@@ -391,6 +410,99 @@ export class MockBackend {
         });
       }
     }
+  }
+
+  /**
+   * Bot câu cá (pier): hết giờ dạo thì ngồi ghế trống; đang ngồi thì tới lượt có kết quả câu được/trượt,
+   * hết lượt thì đứng dậy dạo tiếp. Trả true khi bot đang ngồi (không đi bước ngẫu nhiên).
+   */
+  private tickFishingBot(bot: PlayerView): boolean {
+    const state = this.botStates.get(bot.playerId);
+    if (!state) return false;
+    if (state.mode === 'wander') {
+      if (this.nowMs < state.untilMs) return false;
+      const free = [...this.seats.values()].filter((seat) => seat.state === 'available');
+      const seat = free[Math.floor(this.random() * free.length)];
+      if (!seat) {
+        this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+        return false;
+      }
+      seat.state = 'occupied';
+      seat.occupantPlayerId = bot.playerId;
+      bot.x = seat.info.x;
+      bot.y = seat.info.y;
+      bot.dir = seat.info.facing as Direction;
+      bot.seatId = seat.info.seatId;
+      bot.fishing = true;
+      this.lastMoveSeq += 1;
+      this.emit('PlayerMoved', {
+        playerId: bot.playerId,
+        x: bot.x,
+        y: bot.y,
+        dir: bot.dir,
+        seq: this.lastMoveSeq,
+      });
+      this.emit('SeatChanged', this.seatView(seat));
+      this.botStates.set(bot.playerId, startFishing(seat.info.seatId, this.nowMs, this.random));
+      return true;
+    }
+    if (this.nowMs < state.nextResultMs) return true;
+    const { caught, next } = nextRound(state, this.nowMs, this.random);
+    if (caught) this.botCaught(bot);
+    else {
+      this.emit('FailShown', {
+        playerId: bot.playerId,
+        shownUntil: this.iso(this.nowMs + this.config.fishing.failShownMs),
+      });
+    }
+    this.botStates.set(bot.playerId, next);
+    if (next.mode === 'wander') this.botLeaveSeat(bot, state.seatId);
+    return true;
+  }
+
+  /** Bot câu được: cá trên đầu (CatchShown) và khoe cá cho cả hồ (CatchAnnounced → thanh + chat). */
+  private botCaught(bot: PlayerView): void {
+    const fish = pickSpecies(this.config, 0, this.random);
+    this.emit('CatchShown', {
+      playerId: bot.playerId,
+      speciesId: fish.speciesId,
+      rarity: fish.rarity,
+      shownUntil: this.iso(this.nowMs + this.config.fishing.catchShownMs),
+    });
+    const first = !this.caughtSpecies.has(fish.speciesId);
+    this.caughtSpecies.add(fish.speciesId);
+    this.emit('CatchAnnounced', {
+      playerId: bot.playerId,
+      displayName: bot.displayName,
+      speciesId: fish.speciesId,
+      speciesName: fish.name,
+      rarity: fish.rarity,
+      first,
+      announcedAt: this.iso(this.nowMs),
+    });
+  }
+
+  private botLeaveSeat(bot: PlayerView, seatId: string): void {
+    const seat = this.seats.get(seatId);
+    if (seat && seat.occupantPlayerId === bot.playerId) {
+      seat.state = 'available';
+      seat.occupantPlayerId = null;
+      this.emit('SeatChanged', this.seatView(seat));
+    }
+    bot.seatId = null;
+    bot.fishing = false;
+    // Đứng dậy ra chỗ đứng được gần ghế (ghế là vật cản).
+    const spot = nearestStandable(this.map, bot.x, bot.y) ?? this.map.spawn;
+    bot.x = spot.x;
+    bot.y = spot.y;
+    this.lastMoveSeq += 1;
+    this.emit('PlayerMoved', {
+      playerId: bot.playerId,
+      x: bot.x,
+      y: bot.y,
+      dir: bot.dir,
+      seq: this.lastMoveSeq,
+    });
   }
 
   // ---------- Dữ liệu trả về ----------

@@ -75,3 +75,76 @@ export function burstConfetti(root: HTMLElement): HTMLElement {
   }
   return layer;
 }
+
+/** Pháo bắn từ hai góc dưới lên kịp tới đỉnh trong khoảng này (ms); popup cá hiện sau mốc đó. */
+export const SIDE_CONFETTI_PEAK_MS = 600;
+
+/**
+ * Pháo giấy bắn từ hai góc dưới màn hình chéo lên phía giữa rồi rơi xuống (pier.html, feedback
+ * 2026-11-14). Lớp nằm dưới popup (không z-index) để mảnh giấy rơi phía sau thẻ cá. Tự gỡ khi xong.
+ */
+export function burstSideConfetti(root: HTMLElement): HTMLElement {
+  const layer = document.createElement('div');
+  layer.setAttribute('aria-hidden', 'true');
+  Object.assign(layer.style, {
+    position: 'absolute',
+    inset: '0',
+    overflow: 'hidden',
+    pointerEvents: 'none',
+  });
+  root.append(layer);
+  const width = root.clientWidth || window.innerWidth;
+  const height = root.clientHeight || window.innerHeight;
+
+  let running = PIECES;
+  for (let i = 0; i < PIECES; i++) {
+    const fromLeft = i % 2 === 0;
+    const piece = document.createElement('i');
+    const w = Math.round(between(5, 9));
+    Object.assign(piece.style, {
+      position: 'absolute',
+      left: fromLeft ? '0' : 'auto',
+      right: fromLeft ? 'auto' : '0',
+      bottom: '0',
+      width: `${w}px`,
+      height: `${Math.round(w * between(1.3, 2))}px`,
+      background: COLORS[i % COLORS.length]!,
+      imageRendering: 'pixelated',
+    });
+    layer.append(piece);
+    // Bay chéo vào giữa: ngang 25–55% bề rộng, lên 45–80% chiều cao; rồi rơi xuống thêm một đoạn.
+    const dir = fromLeft ? 1 : -1;
+    const dx = dir * between(0.25, 0.55) * width;
+    const rise = between(0.45, 0.8) * height;
+    const drift = dir * between(0.05, 0.15) * width;
+    const fall = between(0.25, 0.45) * height;
+    const spin = between(-720, 720);
+    const duration = between(1500, 2300);
+    const delay = between(0, 150);
+    const animation = piece.animate(
+      [
+        { transform: 'translate(0, 0) rotate(0deg)', offset: 0 },
+        {
+          transform: `translate(${dx}px, ${-rise}px) rotate(${spin * 0.4}deg)`,
+          offset: 0.32,
+          easing: 'cubic-bezier(0.3, 0, 0.7, 1)',
+        },
+        {
+          transform: `translate(${dx + drift}px, ${-rise + fall}px) rotate(${spin}deg)`,
+          offset: 1,
+        },
+      ],
+      { duration, delay, easing: 'cubic-bezier(0.15, 0.7, 0.4, 1)', fill: 'forwards' },
+    );
+    piece.animate([{ opacity: 1, offset: 0.7 }, { opacity: 0 }], {
+      duration,
+      delay,
+      fill: 'forwards',
+    });
+    animation.onfinish = () => {
+      running -= 1;
+      if (running === 0) layer.remove();
+    };
+  }
+  return layer;
+}

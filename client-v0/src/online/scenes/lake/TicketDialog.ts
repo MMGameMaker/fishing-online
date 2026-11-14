@@ -99,6 +99,8 @@ export interface TicketDialogOptions {
   maxUnits: number;
   /** Gửi lệnh mua; trả true khi mua thành công. */
   buy: (units: number) => Promise<boolean>;
+  /** Ảnh đồng xu ở dòng giá; bỏ trống dùng Coin Small.png (pier.html truyền Coin Art.png). */
+  coinSrc?: string;
 }
 
 /** Mở popup; trả true nếu đã mua vé, false nếu đóng hoặc mua thất bại. */
@@ -107,6 +109,7 @@ export function openTicketDialog({
   pricing,
   maxUnits,
   buy,
+  coinSrc,
 }: TicketDialogOptions): Promise<boolean> {
   return new Promise((resolve) => {
     let units = 1;
@@ -159,7 +162,11 @@ export function openTicketDialog({
     const price = el('div', 'ticket-dialog__price');
     const priceUnits = el('span', '');
     const priceTotal = el('span', '');
-    price.append(priceUnits, image(asset('Coin Small.png'), 'ticket-dialog__coin'), priceTotal);
+    price.append(
+      priceUnits,
+      image(coinSrc ?? asset('Coin Small.png'), 'ticket-dialog__coin'),
+      priceTotal,
+    );
 
     const slider = el('div', 'ticket-dialog__slider');
     const knob = el('div', 'ticket-dialog__knob');

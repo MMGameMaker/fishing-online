@@ -1,0 +1,33 @@
+/* Thông báo kiểu mới (SlideToast.ts), chỉ pier.html nạp. Nằm trên mọi UI (z-index cao hơn popup). */
+.slide-toast-host {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+
+  /* Cỡ, vị trí và scale do trackCanvasFrame đặt theo khung chơi (màn thiết kế 1920×1080). */
+  transform-origin: 0 0;
+}
+
+/* Nền Well Art.png 1224×560: viền 12px (trên 16px), cắt 9 mảnh, hiển thị viền bằng nửa để hợp cỡ HUD. */
+.slide-toast {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  max-width: 560px;
+  padding: 6px 18px 8px;
+  font: bold 16px/1.35 var(--ui-font, 'Courier New', monospace);
+  color: #3a1d0e;
+  text-align: center;
+  border-width: 8px 6px 6px;
+  border-style: solid;
+  border-color: transparent;
+  border-image: url('/new%20resources/ui/Well%20Art.png') 16 12 12 fill / 8px 6px 6px stretch;
+  filter: drop-shadow(0 4px 0 rgb(26 14 32 / 35%));
+  transform: translate(-50%, calc(100% + 32px));
+}
+
+.slide-toast--error {
+  color: #a3261b;
+}
