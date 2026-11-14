@@ -320,7 +320,10 @@ export class LakeScene extends Phaser.Scene {
       if (seat) this.onSeatPressed(seat);
     });
     // Không còn bấm chuột lên map để đi; chỉ phím di chuyển hoặc joystick.
-    if (this.sys.game.device.input.touch) this.joystick = new Joystick(this.root);
+    // pier.html không dùng joystick (feedback 2026-11-14), kể cả máy có màn hình cảm ứng.
+    if (this.sys.game.device.input.touch && !isHomeHudEnabled(this)) {
+      this.joystick = new Joystick(this.root);
+    }
   }
 
   private bindStore(): void {

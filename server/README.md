@@ -15,6 +15,17 @@ Bản portable ở `D:\Tools\postgres`, dữ liệu ở `D:\Tools\postgres-data`
 
 Ngoài Development bắt buộc đặt biến `Auth__JwtSigningKey` (tối thiểu 32 byte), không commit giá trị này.
 
+## Chạy nhanh bằng file .bat (client + server thật)
+
+Chạm đúp ở thư mục gốc repository (script thật là [tools/run-local.ps1](../tools/run-local.ps1)):
+
+| File | Làm gì |
+| --- | --- |
+| `run-mock.bat` | Chỉ chạy client với dữ liệu giả. Không cần Docker/server. Mở `pier.html`. |
+| `run-real.bat` | Tự mở Docker Desktop (nếu chưa chạy), bật Postgres + Redis, áp migration, chạy API thật cổng 5080 ở cửa sổ riêng (map `fishing-pier` 16 ghế, **không** dev-bypass), rồi chạy client nối server thật và mở `pier.html`. Vào trang bấm một lần để đăng nhập bằng tài khoản Google thật (Firebase project `fishing-online-c111f`, máy cần có mạng để server xác minh token). |
+
+Chế độ được đặt bằng biến `VITE_USE_MOCK` của tiến trình (ưu tiên hơn `client-v0/.env.local`), nên đổi chế độ chỉ cần chạy file kia; script tự tắt Vite cũ đang giữ cổng 5173. API đang chạy sẵn đúng chế độ đăng nhập thì được dùng lại, sai chế độ thì tự tắt và chạy lại. Chỉ khi cần test nhiều người chơi trên một máy mà không có nhiều tài khoản Google: chạy `powershell -File tools\run-local.ps1 -Mode real -DevLogin` (bật `Auth__DevBypass`, mở `pier.html?dev=Anh`, thêm người bằng `?dev=Tên` khác); lần chạy `run-real.bat` sau sẽ tự tắt bypass. Đóng cửa sổ "Fishing Online API" để tắt API; Postgres/Redis vẫn chạy trong Docker (dừng bằng lệnh `docker compose ... stop` ở dưới). Nếu số ghế hoặc `mapId` của map pier đổi, sửa `$pierMap` đầu `tools/run-local.ps1`.
+
 ## Chạy local
 
 Tại root repository, sau khi Docker Desktop đã chạy:
