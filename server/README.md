@@ -115,5 +115,6 @@ API lấy connection string từ `ConnectionStrings__Postgres` và `ConnectionSt
 - [Service và luồng chơi](../docs/be/ARCHITECTURE.md)
 - [API/SignalR dự thảo](../docs/contracts/v1-draft.md)
 - [Kết nối Cocos](../docs/be/CLIENT_CONNECTION.md)
+- [Phương án deploy chơi thử / production chi phí 0](../docs/be/DEPLOY_PLAYTEST.md) (đã chốt, chưa triển khai)
 
 .NET 10 là LTS: https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core. SignalR client: https://learn.microsoft.com/en-us/aspnet/core/signalr/javascript-client?view=aspnetcore-10.0. CORS phải cấu hình đúng origin preview thực tế; không thay bằng wildcard khi dùng credentials. HTTPS bắt buộc cho môi trường chia sẻ; URL HTTP trên chỉ để local.
