@@ -256,10 +256,17 @@ export class MinigameScene extends Phaser.Scene {
   }
 
   create(): void {
-    // Canvas lấp kín cửa sổ với tỉ lệ bất kỳ: phóng camera theo chiều hẹp hơn để khung 480×270 luôn vừa màn hình.
-    const zoom = Math.min(this.scale.width / GAME_WIDTH, this.scale.height / GAME_HEIGHT);
-    if (zoom !== 1) this.cameras.main.setZoom(zoom);
-    this.cameras.main.centerOn(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+    // Phóng camera theo chiều hẹp hơn để khung 480×270 luôn vừa canvas, kể cả khi kéo cửa sổ giữa chừng.
+    const fitCamera = () => {
+      const zoom = Math.min(this.scale.width / GAME_WIDTH, this.scale.height / GAME_HEIGHT);
+      this.cameras.main.setZoom(zoom);
+      this.cameras.main.centerOn(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+    };
+    fitCamera();
+    this.scale.on(Phaser.Scale.Events.RESIZE, fitCamera);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () =>
+      this.scale.off(Phaser.Scale.Events.RESIZE, fitCamera),
+    );
     for (const { key } of Object.values(SRC)) {
       this.textures.get(key).setFilter(Phaser.Textures.FilterMode.NEAREST);
     }
@@ -293,7 +300,7 @@ export class MinigameScene extends Phaser.Scene {
       fontStyle: 'bold',
       stroke: '#14364a',
       strokeThickness: 2,
-      resolution: Math.max(2, Math.ceil(zoom)),
+      resolution: Math.max(2, Math.ceil(this.cameras.main.zoom)),
     };
     this.distanceText = this.add
       .text(...at(LAYOUT.fishRight, -2), '', { ...font, fontSize: '8px', color: '#ffffff' })

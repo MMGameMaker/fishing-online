@@ -1,7 +1,7 @@
 // Giao diện home của pier.html theo ảnh demo (2026-11-13): khung người chơi (tên, EXP, cấp), ô vé câu
 // kèm popup "Vé câu cá", khung Gold và menu 6 ô. Vẽ bằng DOM trên canvas từ ảnh trong
-// public/new resources/ui. Ảnh vẽ ở tỉ lệ 4 cho màn 1920×1080, nên bố cục tính theo pixel ảnh rồi
-// thu phóng cả cụm theo cửa sổ (--hud-scale). Mọi popup hiện/ẩn qua ui/kit/motion.ts.
+// public/new resources/ui. Ảnh vẽ ở tỉ lệ 4 cho màn 1920×1080; bố cục tính theo pixel ảnh,
+// ui-root scale cả khung chơi theo canvas. Mọi popup hiện/ẩn qua ui/kit/motion.ts.
 import type Phaser from 'phaser';
 import type { Services } from '../../core/services';
 import type { PlayerProfile } from '../../net/contract';
@@ -18,10 +18,6 @@ const UI_DIR = '/new resources/ui/';
 const asset = (file: string) => encodeURI(UI_DIR + file);
 const COIN_ICON = encodeURI('/mini game/Coin Small.png');
 const CLOSE_ICON = encodeURI('/mini game/Button Close.png');
-/** Màn thiết kế của ảnh UI; nhỏ hơn thì thu cả cụm, không phóng to quá 1. */
-const DESIGN_W = 1920;
-const DESIGN_H = 1080;
-const MIN_SCALE = 0.4;
 
 const MENU_ITEMS = [
   { id: 'shop', label: 'Cửa hàng', icon: 'Icon Shop.png' },
@@ -143,17 +139,7 @@ export class HomeHud {
     this.renderProfile();
     this.gold.textContent = formatGold(store.getState().session.gold ?? '0');
 
-    const fit = () => {
-      const scale = Math.max(
-        MIN_SCALE,
-        Math.min(1, window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H),
-      );
-      this.layer.style.setProperty('--hud-scale', String(scale));
-      this.menu.style.setProperty('--hud-scale', String(scale));
-    };
-    fit();
-    window.addEventListener('resize', fit);
-    this.unsubscribes.push(() => window.removeEventListener('resize', fit));
+    // Bố cục tính theo màn thiết kế 1920×1080; ui-root scale cả khung chơi nên không cần fit riêng.
 
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && !this.menu.hidden) void this.setMenuOpen(false);

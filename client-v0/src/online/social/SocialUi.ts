@@ -2,6 +2,7 @@
 // vẽ bằng DOM trên canvas. Tin của mình nằm bên phải, không tên; tin người khác có mặt thỏ theo skin.
 // Tin nhắn lấy từ store (ChatReceived của Server); gửi qua SendChat/SendEmoji, Server kiểm tra lại
 // độ dài, tần suất và danh sách emoji. Hiện/ẩn mọi khung qua ui/kit/motion.ts.
+import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../core/env';
 import type { Services } from '../core/services';
 import type { ChatEntry } from '../state/store';
 import { showError } from '../ui/kit/components';
@@ -121,19 +122,13 @@ export class SocialUi {
     // Tin có sẵn lúc vào hồ không tính là chưa xem.
     this.setUnread(0);
 
-    const fit = () => this.fit();
-    fit();
-    window.addEventListener('resize', fit);
-    this.unsubscribes.push(() => window.removeEventListener('resize', fit));
+    this.fit();
   }
 
-  /** Tỉ lệ thu theo cửa sổ (tối đa 0,75 như màn 1080p) và chiều cao khung theo chỗ trống. */
+  /** Cỡ khung trong màn thiết kế 1920×1080 (ui-root scale cả khung chơi): thu 0,75 như màn 1080p. */
   private fit(): void {
-    const free = Math.max(200, window.innerHeight - RESERVED_BOTTOM_PX - RESERVED_TOP_PX);
-    const scale = Math.max(
-      0.35,
-      Math.min(0.75, free / PANEL_H, (window.innerWidth - 32) / PANEL_W),
-    );
+    const free = Math.max(200, UI_DESIGN_HEIGHT - RESERVED_BOTTOM_PX - RESERVED_TOP_PX);
+    const scale = Math.max(0.35, Math.min(0.75, free / PANEL_H, (UI_DESIGN_WIDTH - 32) / PANEL_W));
     const height = Math.max(MIN_PANEL_H, Math.min(PANEL_H, free / scale));
     for (const panel of [this.chat, this.emoji]) {
       panel.style.setProperty('--chat-scale', String(scale));

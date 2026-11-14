@@ -107,11 +107,12 @@
   text-shadow: 0 1px 0 rgb(255 255 255 / 45%);
 }
 
-/* Thẻ nhận cá: ảnh Catch Fish.png 536×684 (feedback 2026-11-11), chữ đặt theo % để co giãn cùng ảnh. */
+/* Thẻ nhận cá: ảnh Catch Fish.png 536×684 (feedback 2026-11-11), chữ đặt theo % để co giãn cùng ảnh.
+   Cỡ theo màn thiết kế 1920×1080; ui-root scale cả khung chơi theo cửa sổ. */
 .catch-card {
   --card-image: none;
   position: relative;
-  width: min(456px, 86vw, calc(76vh * 536 / 684));
+  width: 456px;
   aspect-ratio: 536 / 684;
   container-type: inline-size;
   background: var(--card-image) center / 100% 100% no-repeat;

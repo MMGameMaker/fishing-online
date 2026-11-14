@@ -9,12 +9,16 @@
       body {
         margin: 0;
         height: 100%;
-        background: #10141f;
+        background: #000;
         overflow: hidden;
       }
+      /* Khung chơi giữ tỉ lệ 16:9, to nhất có thể giữa cửa sổ; phần thừa là nền đen. */
       #game {
         position: fixed;
         inset: 0;
+        margin: auto;
+        width: min(100vw, calc(100vh * 16 / 9));
+        height: min(100vh, calc(100vw * 9 / 16));
       }
       #hint {
         position: fixed;

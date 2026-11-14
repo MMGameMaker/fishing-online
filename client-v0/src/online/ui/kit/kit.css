@@ -20,6 +20,9 @@
   font-family: var(--ui-font);
   font-size: max(13px, calc(var(--ui-scale, 1) * 7px));
   color: var(--ui-text);
+
+  /* Cả lớp UI dựng ở cỡ 1920×1080 rồi scale theo canvas (components.ts). */
+  transform-origin: 0 0;
 }
 
 .ui-root * {

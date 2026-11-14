@@ -39,8 +39,10 @@ export class Joystick {
 
   private track(event: PointerEvent): void {
     const rect = this.base.getBoundingClientRect();
-    const dx = event.clientX - (rect.left + rect.width / 2);
-    const dy = event.clientY - (rect.top + rect.height / 2);
+    // ui-root được scale theo canvas: quy đổi px chuột thật về px thiết kế của joystick.
+    const scale = rect.width / Math.max(1, this.base.offsetWidth);
+    const dx = (event.clientX - (rect.left + rect.width / 2)) / scale;
+    const dy = (event.clientY - (rect.top + rect.height / 2)) / scale;
     this.vector = joystickVector(dx, dy, RADIUS_PX);
     const limit = Math.min(1, RADIUS_PX / Math.max(1, Math.hypot(dx, dy)));
     this.knob.style.transform = `translate(${dx * limit}px, ${dy * limit}px)`;

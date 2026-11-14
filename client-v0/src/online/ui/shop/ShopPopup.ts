@@ -3,6 +3,7 @@
 // cần đã có thì "Đã có") và Nạp Gold (gói thử, Server bản dev cộng Gold). Ảnh trong
 // public/new resources/ui và public/mini game, vẽ cho màn 1920×1080; cả popup thu theo cửa sổ.
 import { RARITY_LABELS, formatGold } from '../kit/format';
+import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
 import type { InventoryResponse, SellFishResponse, ShopBuyResponse } from '../../net/contract';
 import { showError, showToast } from '../kit/components';
@@ -75,16 +76,13 @@ function goldTag(amount: number | string, className = 'shop-gold-tag'): HTMLElem
   return tag;
 }
 
-/** Thu cả khung theo cửa sổ, không phóng quá 1. */
+/** Thu khung lớn hơn màn thiết kế 1920×1080 cho vừa; ui-root đã scale cả khung chơi theo cửa sổ. */
 function fitScale(target: HTMLElement, w: number, h: number): () => void {
-  const fit = () =>
-    target.style.setProperty(
-      '--shop-scale',
-      String(Math.min(1, (window.innerWidth * 0.96) / w, (window.innerHeight * 0.92) / h)),
-    );
-  fit();
-  window.addEventListener('resize', fit);
-  return () => window.removeEventListener('resize', fit);
+  target.style.setProperty(
+    '--shop-scale',
+    String(Math.min(1, (UI_DESIGN_WIDTH * 0.96) / w, (UI_DESIGN_HEIGHT * 0.92) / h)),
+  );
+  return () => {};
 }
 
 export interface ShopPopupOptions {

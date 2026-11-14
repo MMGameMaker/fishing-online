@@ -1,12 +1,13 @@
-/* Thanh thông báo khoe cá (CatchBanner.ts): dải xanh đậm viền sáng như ảnh demo, nửa trên màn hình. */
+/* Thanh thông báo khoe cá (CatchBanner.ts): dải xanh đậm viền sáng như ảnh demo, nửa trên màn hình.
+   Kích thước theo màn thiết kế 1920×1080; ui-root scale cả khung chơi theo cửa sổ. */
 .catch-banner {
   position: absolute;
   top: 22%;
   left: 50%;
   z-index: 14;
-  width: min(720px, 86vw);
+  width: 720px;
   height: 40px;
-  margin-left: calc(min(720px, 86vw) / -2);
+  margin-left: -360px;
   pointer-events: none;
   background: #2c4b5c;
   border: 3px solid #1a2f3b;
@@ -31,7 +32,9 @@
   color: #fff6e0;
   white-space: nowrap;
   text-shadow: 0 2px 0 #13232c;
-  transform: translateX(100vw);
+
+  /* Nấp ngoài mép phải khung 1920 ảo cho tới khi animation chạy chữ bắt đầu. */
+  transform: translateX(1920px);
 }
 
 /* Tin hệ thống trong khung chat (System Message.png). */

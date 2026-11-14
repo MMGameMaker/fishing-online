@@ -2,6 +2,7 @@
 // bên trái ảnh cá + 6 dòng thông tin, bên phải lưới ô cá. Đủ mọi loài trong catalog: loài đã câu hiện ảnh
 // thật, loài chưa câu phủ đen (bóng cá) và không điền "Nhỏ nhất/Lớn nhất đã câu". Dữ liệu GET /me/codex.
 import type { Catalog } from '../../core/gameplayConfig';
+import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
 import type { CodexEntry, CodexResponse } from '../../net/contract';
 import { showError } from '../kit/components';
@@ -103,15 +104,11 @@ export class CodexPopup {
     panel.append(art, close, this.picture, this.rows, this.grid);
     overlay.append(panel);
 
-    const fit = () =>
-      overlay.style.setProperty(
-        '--shop-scale',
-        String(
-          Math.min(1, (window.innerWidth * 0.96) / PANEL_W, (window.innerHeight * 0.92) / PANEL_H),
-        ),
-      );
-    fit();
-    window.addEventListener('resize', fit);
+    // Khung vẽ cho màn thiết kế 1920×1080; ui-root đã scale cả khung chơi theo cửa sổ.
+    overlay.style.setProperty(
+      '--shop-scale',
+      String(Math.min(1, (UI_DESIGN_WIDTH * 0.96) / PANEL_W, (UI_DESIGN_HEIGHT * 0.92) / PANEL_H)),
+    );
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') this.close();
     };
@@ -119,10 +116,7 @@ export class CodexPopup {
     overlay.addEventListener('pointerdown', (event) => {
       if (event.target === overlay) this.close();
     });
-    this.cleanups.push(
-      () => window.removeEventListener('resize', fit),
-      () => window.removeEventListener('keydown', onKey),
-    );
+    this.cleanups.push(() => window.removeEventListener('keydown', onKey));
 
     this.overlay = overlay;
     this.options.root.append(overlay);

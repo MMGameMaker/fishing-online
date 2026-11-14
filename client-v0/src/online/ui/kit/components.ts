@@ -1,13 +1,16 @@
 // Thành phần UI dùng chung, vẽ bằng DOM trên canvas.
 import type Phaser from 'phaser';
-import { GAME_WIDTH } from '../../core/env';
+import { GAME_WIDTH, UI_DESIGN_WIDTH } from '../../core/env';
 import { ApiError } from '../../net/ApiClient';
 import { errorTextFor } from './errorText';
 import { formatGold } from './format';
 
 const DEFAULT_TOAST_MS = 3000;
 
-/** Tạo lớp UI phủ đúng lên canvas, luôn co giãn cùng Scale.FIT. */
+/**
+ * Tạo lớp UI phủ đúng lên canvas. Mọi phần tử bên trong tính px theo màn thiết kế 1920×1080;
+ * cả lớp được scale một lần theo cỡ canvas nên toàn bộ UI giữ tỉ lệ khi kéo cửa sổ.
+ */
 export function mountUiOverlay(game: Phaser.Game): { root: HTMLElement; destroy: () => void } {
   const root = document.createElement('div');
   root.className = 'ui-root';
@@ -15,11 +18,15 @@ export function mountUiOverlay(game: Phaser.Game): { root: HTMLElement; destroy:
 
   const sync = () => {
     const rect = game.canvas.getBoundingClientRect();
+    const scale = rect.width / UI_DESIGN_WIDTH;
+    if (!scale) return;
     root.style.left = `${rect.left}px`;
     root.style.top = `${rect.top}px`;
-    root.style.width = `${rect.width}px`;
-    root.style.height = `${rect.height}px`;
-    root.style.setProperty('--ui-scale', String(rect.width / GAME_WIDTH));
+    root.style.width = `${UI_DESIGN_WIDTH}px`;
+    // Canvas 16:9 thì cao 1080; canvas tỉ lệ khác (bridge cũ) vẫn được phủ kín.
+    root.style.height = `${rect.height / scale}px`;
+    root.style.transform = `scale(${scale})`;
+    root.style.setProperty('--ui-scale', String(UI_DESIGN_WIDTH / GAME_WIDTH));
   };
 
   const observer = new ResizeObserver(sync);

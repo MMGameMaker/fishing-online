@@ -38,6 +38,15 @@ export class BootScene extends Phaser.Scene {
         align: 'center',
       })
       .setOrigin(0.5);
+    // Kéo cửa sổ khi đang ở màn khởi động/đăng nhập: giữ chữ ở giữa canvas.
+    const recenter = () => {
+      status.setPosition(this.scale.width / 2, this.scale.height / 2);
+      status.setFontSize(Math.round(12 * Math.max(1, this.scale.height / 270)));
+    };
+    this.scale.on(Phaser.Scale.Events.RESIZE, recenter);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () =>
+      this.scale.off(Phaser.Scale.Events.RESIZE, recenter),
+    );
 
     const target = new URLSearchParams(window.location.search).get('scene');
     if (target === 'boot') return;

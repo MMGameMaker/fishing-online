@@ -245,3 +245,12 @@ GD, Server và Admin Tool chưa tham gia lát công cụ. Fixture đảo chạy 
   - Trên trình duyệt (mock, vì `.env.local` đang `VITE_USE_MOCK=true`; bỏ qua đăng nhập Google chỉ trong phiên kiểm tra): câu 3 con Perch, Trout, Moonfin rồi mở sổ tay. Thấy 3 ô ảnh thật và 6 bóng đen; Perch hiện đủ 6 dòng (nhỏ nhất = lớn nhất 14,1cm). Chọn một bóng đen thì 2 dòng "đã câu" để trống.
 - **Lưu ý môi trường:** Cổng 5173 đang có thêm server Node cũ (`server/index.js`) nghe ở 0.0.0.0. Vào `http://localhost:5173` có thể trúng server đó (trang cũ, tiêu đề "xem trước"); Vite của client đang nghe ở `[::1]:5173`.
 
+
+### Responsive khung chơi (2026-11-14)
+
+- **Client** ([pier.html](../../client-v0/pier.html), [components.ts](../../client-v0/src/online/ui/kit/components.ts), `env.ts`):
+  - Khung chơi giữ tỉ lệ 16:9, to nhất có thể giữa cửa sổ; phần thừa nền đen.
+  - Toàn bộ UI DOM dựng theo màn thiết kế 1920×1080 (`UI_DESIGN_WIDTH/HEIGHT`) và `ui-root` scale một lần theo canvas. Các popup (cửa hàng, túi đồ, sổ tay, vé), chat, HUD, banner khoe cá, thẻ nhận cá không còn tự tính scale theo `window.innerWidth/Height`. Joystick quy đổi toạ độ chuột theo scale; minigame và màn khởi động tự co khi kéo cửa sổ.
+- **Kiểm tra:** tsc, 257 test, eslint/prettier đạt. Trên trình duyệt (mock) ở 1200×500, 600×800, 1100×650: khung đúng 16:9, cửa hàng/popup vé/chat/HUD co đúng, slider vé kéo đúng.
+- **Minigame (kiểm 2026-11-14, mock):** vào được minigame, khung nằm giữa, chữ rõ; kéo cửa sổ 1100×650 → 700×800 khi đang chạy thì khung co theo; chạm trúng giảm khoảng cách 85 → 74cm; hết giờ thì đóng và camera hồ bình thường; thẻ cá hiện đúng và co theo khi kéo cửa sổ (kết quả thắng gọi `finish('success')` của scene, không canh vùng xanh bằng tay).
+- **Chưa kiểm:** `fishing.html` và `index.html` (cơ chế co giãn khác), màn cảm ứng thật, minigame với Server thật.

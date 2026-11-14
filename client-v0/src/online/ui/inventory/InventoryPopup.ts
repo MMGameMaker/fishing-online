@@ -3,6 +3,7 @@
 // trang bị) và Túi cá (cá trong túi, gộp cùng loài + cùng kích thước; "Chọn cá" mở tab Bán cá của
 // cửa hàng ở chế độ chọn nhiều). Dữ liệu thật từ Server: /me/inventory, /me/progress, catalog.
 import type { RodConfig } from '../../core/gameplayConfig';
+import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
 import type { InventoryResponse, ProgressResponse, Stats } from '../../net/contract';
 import { showError, showToast } from '../kit/components';
@@ -157,19 +158,13 @@ export class InventoryPopup {
     book.append(this.page);
     panel.append(tabRow, close, book);
 
-    const fit = () =>
-      overlay.style.setProperty(
-        '--shop-scale',
-        String(
-          Math.min(
-            1,
-            (window.innerWidth * 0.96) / DESIGN_W,
-            (window.innerHeight * 0.92) / DESIGN_H,
-          ),
-        ),
-      );
-    fit();
-    window.addEventListener('resize', fit);
+    // Khung vẽ cho màn thiết kế 1920×1080; ui-root đã scale cả khung chơi theo cửa sổ.
+    overlay.style.setProperty(
+      '--shop-scale',
+      String(
+        Math.min(1, (UI_DESIGN_WIDTH * 0.96) / DESIGN_W, (UI_DESIGN_HEIGHT * 0.92) / DESIGN_H),
+      ),
+    );
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') this.close();
     };
@@ -179,7 +174,6 @@ export class InventoryPopup {
     });
     const { store } = this.options.services;
     this.cleanups.push(
-      () => window.removeEventListener('resize', fit),
       () => window.removeEventListener('keydown', onKey),
       store.select(
         (s) => s.inventory,

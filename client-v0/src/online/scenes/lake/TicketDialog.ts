@@ -2,6 +2,7 @@
 // Khung thiết kế 1120×564 px, thu nhỏ theo cửa sổ. Giá, số phút và giới hạn số lượng lấy theo
 // ticketPricing của Server; Client chỉ tính để hiển thị, Server tính lại khi mua.
 import type { TicketPricingConfig } from '../../core/gameplayConfig';
+import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import { formatGold } from '../../ui/kit/format';
 import { animateIn, animateOut } from '../../ui/kit/motion';
 import { priceSummary } from './seatLogic';
@@ -116,14 +117,11 @@ export function openTicketDialog({
     const panel = el('div', 'ticket-dialog__panel');
     overlay.append(panel);
 
-    const fit = () => {
-      const scale = Math.min(
-        1,
-        (window.innerWidth * 0.94) / DESIGN_W,
-        (window.innerHeight * 0.9) / DESIGN_H,
-      );
-      panel.style.setProperty('--ticket-scale', String(scale));
-    };
+    // Khung vẽ cho màn thiết kế 1920×1080; ui-root đã scale cả khung chơi theo cửa sổ.
+    panel.style.setProperty(
+      '--ticket-scale',
+      String(Math.min(1, (UI_DESIGN_WIDTH * 0.94) / DESIGN_W, (UI_DESIGN_HEIGHT * 0.9) / DESIGN_H)),
+    );
     let resolved = false;
     let closing = false;
     const close = (result: boolean) => {
@@ -133,7 +131,6 @@ export function openTicketDialog({
       }
       if (closing) return;
       closing = true;
-      window.removeEventListener('resize', fit);
       window.removeEventListener('keydown', onKey);
       // Mờ dần nền tối, khung thu nhỏ rồi mới gỡ (feedback 2026-11-12).
       overlay.style.pointerEvents = 'none';
@@ -263,9 +260,7 @@ export function openTicketDialog({
       if (slider.hasPointerCapture(event.pointerId)) setUnits(unitsAt(event.clientX));
     });
 
-    window.addEventListener('resize', fit);
     window.addEventListener('keydown', onKey);
-    fit();
     setUnits(1);
     animateIn(overlay, 'fade');
     animateIn(panel, 'pop');
