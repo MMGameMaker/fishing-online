@@ -1,0 +1,6 @@
+﻿"rodId","name","priceGold","isDefault","strength","normalHitZonePct","weaknessHitZonePct","rareLuck","largeLuck","image","icon"
+"rod_old","Old Fishing Rod",,"True","1","0","0","0","0","client-v0/public/assets/rods/rod_old.png","client-v0/public/assets/rods/rod_old-icon.png"
+"rod_steel_awl","Steel Awl","300","False","3","10","0","1","0","client-v0/public/assets/rods/rod_steel_awl.png","client-v0/public/assets/rods/rod_steel_awl-icon.png"
+"rod_high_performer","High Performer","300","False","3","0","10","0","1","client-v0/public/assets/rods/rod_high_performer.png","client-v0/public/assets/rods/rod_high_performer-icon.png"
+"rod_bliss","Bliss","800","False","4","15","15","1","1","client-v0/public/assets/rods/rod_bliss.png","client-v0/public/assets/rods/rod_bliss-icon.png"
+"rod_giant_caster","Giant Caster","2000","False","5","20","20","2","2","client-v0/public/assets/rods/rod_giant_caster.png","client-v0/public/assets/rods/rod_giant_caster-icon.png"
