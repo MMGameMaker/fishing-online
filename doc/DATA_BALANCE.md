@@ -12,7 +12,7 @@ GD sở hữu luật và giá trị balance; BE sở hữu validation và thực
 | Vé/ghế/shop | Thời lượng mỗi vé, đơn giá vé chung, số vé tối đa mỗi lần mua và tổng thời gian tối đa; 20 vị trí ngồi (không Tier, không buff); hàng bán trong Shop, điều kiện mua/dùng, giới hạn |
 | Minigame | Theo rarity: thời gian, tốc độ kim, vùng xanh/vàng gốc, mức trừ giờ, độ xê dịch |
 | Skin | 5–10 ID và asset, quyền dùng/chọn; không tự thêm chỉ số/shop skin |
-| Social/ranking | Chat tối đa 160 ký tự, bong bóng 10 giây, thông báo loài mới chạy 3 lần cho tất cả user, mỗi con cá share 1 lần (GD 2026-11-13); lịch sử chat 50 tin, mỗi user gửi cách nhau tối thiểu 2 giây; emoji ID, phạm vi khoe cá, cooldown; bảng xếp hạng tuần (số cá, thưởng top 50 từ 400 tới 50 Gold) và Giải đấu cần thủ (điểm theo độ hiếm 1/6/10/20/50, cá chỉ định gấp đôi, thưởng top 20 từ 500 Gold + danh hiệu tới 100 Gold) (GD 2026-11-14, số tạm để test); làm mới 30 phút; thêm vào mô phỏng kinh tế |
+| Social/ranking | Chat tối đa 160 ký tự, bong bóng 10 giây, thông báo loài mới chạy 3 lần cho tất cả user, mỗi con cá share 1 lần (GD 2026-11-13); lịch sử chat 50 tin, mỗi user gửi cách nhau tối thiểu 2 giây; emoji ID, phạm vi khoe cá, cooldown; bảng xếp hạng tuần (số cá, thưởng top 50 từ 400 tới 50 Gold) và Giải đấu cần thủ (điểm theo độ hiếm 1/6/10/20/50, cá vương miện gấp đôi, tỷ lệ vương miện Admin đặt theo loài, thưởng top 20 từ 500 Gold + danh hiệu tới 100 Gold) (GD 2026-11-14, số tạm để test); làm mới 30 phút; thêm vào mô phỏng kinh tế |
 | Thành tựu | 8 thành tựu × 5 mốc, thưởng mỗi mốc 100 Gold (GD 2026-11-13, số tạm để test); thêm vào mô phỏng kinh tế vì là nguồn Gold mới |
 | Nguồn ban đầu | 100 Gold cho người chơi mới; không tự thêm quà ngày/nhiệm vụ |
 | Loot — để sau | Chưa cấu hình spawn/nhặt trong v1 |

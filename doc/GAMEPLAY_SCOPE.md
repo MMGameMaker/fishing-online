@@ -172,12 +172,13 @@ Idle chỉ trúng vùng xanh nên mỗi lần trúng trừ HP bằng ATK, không
 - Tổ chức theo đợt, Admin kích hoạt thủ công vào một ngày trong tuần. Lịch có thể thay đổi linh hoạt về sau.
 - Giải mở từ 7:00 đến 22:00 cùng ngày. Tổng kết và trao thưởng lúc 7:00 sáng hôm sau.
 - Mỗi con cá câu được trong giờ giải cho một lượng điểm theo bảng điểm cá (GD gửi sau). User thi đua tổng điểm tích lũy.
-- Mỗi giải có một hoặc một số loài cá chỉ định do Admin chọn, đánh dấu vương miện trong UI; câu được cá chỉ định nhận x2 điểm (GD xác nhận 2026-11-14). User xem điểm từng loài, kể cả cá chỉ định, trong UI giải đấu.
+- Mọi con cá câu được trong giờ giải đều có điểm theo độ hiếm (bảng dưới).
+- Cá vương miện (GD 2026-11-14): khi tạo giải, Admin chọn một hoặc một số loài có thể ra vương miện và đặt tỷ lệ ra vương miện cho từng loài. Tỷ lệ spawn loài/độ hiếm giữ nguyên; khi câu được con cá thuộc loài đã chọn, hệ thống random thêm theo tỷ lệ đó để quyết định con cá có vương miện hay không. Cá có vương miện nhận x2 điểm và được đánh dấu vương miện trong UI. User xem điểm từng loài, kể cả cá chỉ định, trong UI giải đấu.
 - Chỉ tính cá câu được trong giờ giải, theo thời điểm Server ghi nhận câu thành công. Lần câu thắng sau 22:00 không tính, kể cả khi bắt đầu trước đó. Cá có sẵn trong túi từ trước không được tính.
 - Đồng hạng và chống tính trùng làm như Loại 1.
-- Điểm mỗi con cá theo độ hiếm (GD 2026-11-14, số tạm để test). Cột "Cá chỉ định" là điểm x2 khi câu được loài cá chỉ định:
+- Điểm mỗi con cá theo độ hiếm (GD 2026-11-14, số tạm để test). Cột "Cá vương miện" là điểm x2 khi con cá có vương miện:
 
-| Độ hiếm | Điểm | Cá chỉ định |
+| Độ hiếm | Điểm | Cá vương miện |
 | --- | --- | --- |
 | Common | 1 | 2 |
 | Uncommon | 6 | 12 |
