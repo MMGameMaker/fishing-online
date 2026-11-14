@@ -1,7 +1,7 @@
 /* Thanh thông báo khoe cá (CatchBanner.ts): dải xanh đậm viền sáng như ảnh demo, nửa trên màn hình. */
 .catch-banner {
   position: absolute;
-  top: 22%;
+  top: 2.5%;
   left: 50%;
   z-index: 14;
   width: min(720px, 86vw);

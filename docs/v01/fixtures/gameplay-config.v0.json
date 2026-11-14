@@ -157,7 +157,7 @@
   "fish": [
     {
       "speciesId": "minnow",
-      "name": "Minnow",
+      "name": "Anchovy",
       "rarity": "common",
       "minTenthCm": 75,
       "maxTenthCm": 225,
@@ -167,7 +167,7 @@
     },
     {
       "speciesId": "perch",
-      "name": "Perch",
+      "name": "Yellow Perch",
       "rarity": "common",
       "minTenthCm": 75,
       "maxTenthCm": 225,
@@ -177,7 +177,7 @@
     },
     {
       "speciesId": "carp",
-      "name": "Carp",
+      "name": "Bluegills",
       "rarity": "common",
       "minTenthCm": 75,
       "maxTenthCm": 225,
@@ -187,7 +187,7 @@
     },
     {
       "speciesId": "trout",
-      "name": "Trout",
+      "name": "Arctic Char",
       "rarity": "uncommon",
       "minTenthCm": 100,
       "maxTenthCm": 300,
@@ -207,7 +207,7 @@
     },
     {
       "speciesId": "goldcarp",
-      "name": "Golden Carp",
+      "name": "Golden Goldfish",
       "rarity": "rare",
       "minTenthCm": 250,
       "maxTenthCm": 750,
@@ -217,7 +217,7 @@
     },
     {
       "speciesId": "puffer",
-      "name": "Pufferfish",
+      "name": "Puffer Fish",
       "rarity": "rare",
       "minTenthCm": 250,
       "maxTenthCm": 750,
@@ -227,7 +227,7 @@
     },
     {
       "speciesId": "koi",
-      "name": "Koi",
+      "name": "Koi Carp",
       "rarity": "epic",
       "minTenthCm": 300,
       "maxTenthCm": 1200,
@@ -237,7 +237,7 @@
     },
     {
       "speciesId": "moonfin",
-      "name": "Moonfin",
+      "name": "Marlin",
       "rarity": "legendary",
       "minTenthCm": 500,
       "maxTenthCm": 1500,

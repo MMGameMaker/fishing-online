@@ -166,15 +166,15 @@ Chốt 9 loài cá, 5 bậc rarity. Kích thước cá tính bằng chiều dài
 
 | # | id | Name | Rarity | Min. Length (cm) | Max. Length (cm) | HP | EXP | Giá bán (Gold) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | minnow | Minnow | common | 7.5 | 22.5 | 55 | 5 | 5 |
-| 2 | perch | Perch | common | 7.5 | 22.5 | 55 | 5 | 5 |
-| 3 | carp | Carp | common | 7.5 | 22.5 | 55 | 5 | 5 |
-| 4 | trout | Trout | uncommon | 10 | 30 | 70 | 8 | 10 |
+| 1 | minnow | Anchovy | common | 7.5 | 22.5 | 55 | 5 | 5 |
+| 2 | perch | Yellow Perch | common | 7.5 | 22.5 | 55 | 5 | 5 |
+| 3 | carp | Bluegills | common | 7.5 | 22.5 | 55 | 5 | 5 |
+| 4 | trout | Arctic Char | uncommon | 10 | 30 | 70 | 8 | 10 |
 | 5 | bass | Bass | uncommon | 10 | 30 | 70 | 8 | 10 |
-| 6 | goldcarp | Golden Carp | rare | 25 | 75 | 85 | 12 | 20 |
-| 7 | puffer | Pufferfish | rare | 25 | 75 | 85 | 12 | 20 |
-| 8 | koi | Koi | epic | 30 | 120 | 100 | 20 | 50 |
-| 9 | moonfin | Moonfin | legendary | 50 | 150 | 160 | 40 | 150 |
+| 6 | goldcarp | Golden Goldfish | rare | 25 | 75 | 85 | 12 | 20 |
+| 7 | puffer | Puffer Fish | rare | 25 | 75 | 85 | 12 | 20 |
+| 8 | koi | Koi Carp | epic | 30 | 120 | 100 | 20 | 50 |
+| 9 | moonfin | Marlin | legendary | 50 | 150 | 160 | 40 | 150 |
 
 **Spawn cá** (GD duyệt 2026-11-09; số tạm để test): tại thời điểm cá cắn, Server random độ hiếm theo bảng dưới, rồi chọn đều một loài trong độ hiếm đó.
 
