@@ -348,3 +348,9 @@ Người dùng gửi feedback 1–9 (không có số 6), nói "làm" sau khi g�
 - Lệnh dev `/api/v1/dev/announce-catch` giữ nguyên để test.
 - Test: `FishingTests.Success_AnnouncesToEveryone_FirstOnlyForSpeciesNobodyCaught`; toàn bộ 201 test API qua.
 - Kiểm chứng thật: API local + 2 tab `?dev=Watcher` / `?dev=Zen`; Zen mua vé, ngồi, câu, nộp thắng → cả hai tab hiện banner "Chúc mừng Zen đã câu được Minnow!" và tin hệ thống trong chat (`first=false` vì DB dev đã có minnow).
+
+## Đổi tên cá ở BE theo ảnh đã chọn (2026-11-14)
+Tên hiển thị khớp bảng `FISH` trong `tools/export_fish_art.py`: minnow→Anchovy, perch→Yellow Perch, carp→Bluegills, trout→Arctic Char, bass giữ Bass, goldcarp→Golden Goldfish, puffer→Puffer Fish, koi→Koi Carp, moonfin→Marlin. `speciesId` không đổi.
+- Sửa `docs/v01/fixtures/gameplay-config.v0.json` (nguồn seed Server, mock và test) và bảng trong `doc/GAMEPLAY_SCOPE.md`.
+- Server chỉ nạp fixture khi bảng `config_versions` trống, nên DB dev đang chạy đã được cập nhật tên trực tiếp bằng SQL (version `v0-test-2026-11-10-ticket-01`). DB ở máy khác cần cập nhật tương tự hoặc xuất bản phiên bản config mới trong Admin.
+- Test: Domain 156, API 201, client 259 qua (sửa 2 test client so tên cũ).

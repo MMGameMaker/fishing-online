@@ -19,7 +19,7 @@ const base: AttemptResult = {
 describe('buildResultCard', () => {
   it('tên, độ hiếm và chiều dài 405 hiện "40,5 cm"', () => {
     expect(buildResultCard(base, catalog)).toMatchObject({
-      name: 'Perch',
+      name: 'Yellow Perch',
       rarityLabel: 'Hiếm',
       length: '40,5 cm',
       badge: null,

@@ -2,7 +2,7 @@
    Kích thước theo màn thiết kế 1920×1080; ui-root scale cả khung chơi theo cửa sổ. */
 .catch-banner {
   position: absolute;
-  top: 22%;
+  top: 2.5%;
   left: 50%;
   z-index: 14;
   width: 720px;
