@@ -11,12 +11,18 @@ import '../../ui/home/home.css';
 import '../../ui/shop/shop.css';
 import '../../ui/inventory/inventory.css';
 import '../../ui/codex/codex.css';
+import '../../ui/leaderboard/leaderboard.css';
+import '../../ui/profile/profile.css';
+import '../../ui/skin/skin.css';
+import '../../ui/settings/settings.css';
+import '../../ui/boot/boot.css';
 // Sau cùng để ghi đè style chung (chỉ trang này).
 import '../../ui/toast/toast.css';
 import './pier.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';
+import { BootScreens } from '../../ui/boot/BootScreens';
 import { enableHomeHud } from '../../ui/home/HomeHud';
 import { setToastRenderer } from '../../ui/kit/components';
 import { SlideToast } from '../../ui/toast/SlideToast';
@@ -42,7 +48,7 @@ async function start(): Promise<void> {
   });
   setServices(game, services);
   // Dữ liệu game vẫn mock, nhưng đăng nhập Google thật để lấy tên tài khoản làm tên người chơi.
-  setBootOptions(game, { googleInMock: true });
+  setBootOptions(game, { googleInMock: true, screens: new BootScreens() });
   setLakeMapArt(game, new PierArt());
   // Giao diện home theo ảnh demo (khung người chơi, vé, Gold, menu) chỉ có ở trang này.
   enableHomeHud(game);

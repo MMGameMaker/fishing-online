@@ -2,7 +2,14 @@ import { describe, expect, it } from 'vitest';
 import configJson from '@fixtures/gameplay-config.v0.json';
 import type { Catalog } from '../../core/gameplayConfig';
 import type { FishItem } from '../../net/contract';
-import { catchIdsToSell, chunkIds, groupFish, rodOffers, selectionSummary } from './shopModel';
+import {
+  catchIdsToSell,
+  chunkIds,
+  groupFish,
+  rodOffers,
+  selectionSummary,
+  skinOffers,
+} from './shopModel';
 
 const catalog = configJson as unknown as Catalog;
 const fish = (catchId: string, speciesId: string, lengthTenthCm: number): FishItem => ({
@@ -82,5 +89,22 @@ describe('rodOffers', () => {
       owned: false,
     });
     expect(offers.filter((o) => o.owned).map((o) => o.rodId)).toEqual(['rod_old', 'rod_bliss']);
+  });
+});
+
+describe('skinOffers', () => {
+  it('5 skin shop giá 300 Gold, không lẫn offer cần; skin đã mua là đã có', () => {
+    const offers = skinOffers(catalog, ['skin_07']);
+    expect(offers.map((o) => o.skinId)).toEqual([
+      'skin_06',
+      'skin_07',
+      'skin_08',
+      'skin_09',
+      'skin_10',
+    ]);
+    expect(offers.every((o) => o.priceGold === 300)).toBe(true);
+    expect(offers[0]?.offerId).toBe('offer_skin_06');
+    expect(offers.filter((o) => o.owned).map((o) => o.skinId)).toEqual(['skin_07']);
+    expect(skinOffers(null, [])).toEqual([]);
   });
 });

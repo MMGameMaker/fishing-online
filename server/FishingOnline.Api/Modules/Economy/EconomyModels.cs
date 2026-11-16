@@ -12,6 +12,14 @@ public sealed class RodOwnedRow
     public DateTimeOffset AcquiredAt { get; set; }
 }
 
+/// <summary>Skin có Unlock "shop" mà người chơi đã mua; skin "free" không cần hàng ở đây.</summary>
+public sealed class SkinOwnedRow
+{
+    public Guid PlayerId { get; set; }
+    public string SkinId { get; set; } = string.Empty;
+    public DateTimeOffset AcquiredAt { get; set; }
+}
+
 public sealed class CatchRow
 {
     public Guid CatchId { get; set; }
@@ -28,6 +36,9 @@ public sealed class CatchRow
     public int ExpGained { get; set; }
     public int LevelAfter { get; set; }
     public bool LevelUp { get; set; }
+
+    /// <summary>Cá do bot câu (đánh dấu để Admin phân biệt với người thật). Không đưa vào bất kỳ gói gửi Client nào.</summary>
+    public bool IsBot { get; set; }
 }
 
 public sealed class SpeciesRecordRow
@@ -50,7 +61,17 @@ public sealed class RodOwnedRowConfig : IEntityTypeConfiguration<RodOwnedRow>
     }
 }
 
-public sealed class CatchRowConfig : IEntityTypeConfiguration<CatchRow>
+public sealed class SkinOwnedRowConfig : IEntityTypeConfiguration<SkinOwnedRow>
+{
+    public void Configure(EntityTypeBuilder<SkinOwnedRow> entity)
+    {
+        entity.ToTable("skins_owned");
+        entity.HasKey(skin => new { skin.PlayerId, skin.SkinId });
+        entity.Property(skin => skin.SkinId).HasMaxLength(64);
+    }
+}
+
+public sealed class CatchRowConfig :IEntityTypeConfiguration<CatchRow>
 {
     public void Configure(EntityTypeBuilder<CatchRow> entity)
     {
@@ -59,6 +80,7 @@ public sealed class CatchRowConfig : IEntityTypeConfiguration<CatchRow>
         entity.Property(row => row.SpeciesId).HasMaxLength(64);
         entity.Property(row => row.Rarity).HasMaxLength(16);
         entity.Property(row => row.ConfigVersion).HasMaxLength(128);
+        entity.Property(row => row.IsBot).HasDefaultValue(false);
         entity.HasIndex(row => row.AttemptId).IsUnique();
         entity.HasIndex(row => new { row.PlayerId, row.CaughtAt });
     }
@@ -95,7 +117,8 @@ public sealed record InventoryItemView(string ItemId, int Quantity);
 
 public sealed record InventoryView(
     int InventoryVersion, string Gold, string EquippedRodId, IReadOnlyList<string> Rods,
-    IReadOnlyList<InventoryItemView> Items, IReadOnlyList<InventoryFishView> Fish);
+    IReadOnlyList<InventoryItemView> Items, IReadOnlyList<InventoryFishView> Fish,
+    IReadOnlyList<string> Skins);
 
 public sealed record EquipRodRequest(string RodId);
 

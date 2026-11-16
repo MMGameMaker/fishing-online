@@ -61,23 +61,59 @@
   pointer-events: none;
 }
 
-.fish-button__key {
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 2px rgb(0 0 0 / 70%);
+/* Khung chứa ảnh nút, vòng đếm ngược và chữ SPACE đè lên nhau (feedback 2026-11-16). */
+.fish-button__face {
+  position: relative;
+  width: 139px;
+  height: 144px;
 }
 
-.fish-button__bar {
+/* Vòng tròn của ảnh nút: tâm (69.5, 69.5), bán kính ~68px; vòng đếm ngược ôm ngay ngoài viền. */
+.fish-button__ring {
   --bite-progress: 0;
-  width: 80px;
-  height: 8px;
-  background: linear-gradient(
-    to right,
-    var(--ui-gold) calc(var(--bite-progress) * 100%),
-    var(--ui-bg-2) 0
-  );
-  border-radius: 3px;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 155px;
+  height: 155px;
+  overflow: visible;
+  pointer-events: none;
+  /* Bắt đầu ở đỉnh nút. */
+  rotate: -90deg;
+}
+
+.fish-button__ring circle {
+  fill: none;
+  stroke-width: 4;
+}
+
+.fish-button__ring-track {
+  stroke: rgb(0 0 0 / 45%);
+}
+
+.fish-button__ring-fill {
+  stroke: var(--ui-gold);
+  stroke-linecap: round;
+  stroke-dasharray: calc(var(--bite-progress) * 100) 100;
+  filter: drop-shadow(0 0 3px rgb(255 216 74 / 80%));
+}
+
+.fish-button__key {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  translate: -50% 0;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 2px;
+  color: #fff;
+  white-space: nowrap;
+  pointer-events: none;
+  -webkit-text-stroke: 1px #1a1a1a;
+  text-shadow:
+    0 2px 0 #1a1a1a,
+    0 0 6px rgb(0 0 0 / 80%);
 }
 
 .result-overlay {

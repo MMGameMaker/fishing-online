@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 using FishingOnline.Api.Modules.Common;
+using FishingOnline.Api.Modules.Economy;
 using FishingOnline.Api.Modules.Identity;
 using FishingOnline.Api.Modules.Lake;
 using FishingOnline.Api.Persistence;
@@ -12,6 +13,16 @@ using Microsoft.Extensions.Options;
 namespace FishingOnline.Api.Modules.Social;
 
 public sealed record SkinOption(string SkinId, string Name, string Unlock);
+
+/// <summary>Giá trị của <see cref="SkinOption.Unlock"/>: free dùng ngay, shop phải mua bằng offer cùng itemId trong gameplay-config.</summary>
+public static class SkinUnlock
+{
+    public const string Free = "free";
+    public const string Shop = "shop";
+}
+
+/// <summary><c>Owned</c>: skin free hoặc skin shop người chơi đã mua.</summary>
+public sealed record SkinView(string SkinId, string Name, string Unlock, bool Owned);
 
 /// <summary>Toàn bộ là giá trị [Đề xuất] của SOC, đặt trong appsettings để GD đổi không cần sửa code.</summary>
 public sealed class SocialOptions
@@ -60,7 +71,7 @@ public sealed record EmojiReceivedView(Guid PlayerId, string EmojiId);
 
 public sealed record SkinChangedView(Guid PlayerId, string SkinId);
 
-public sealed record SkinListView(IReadOnlyList<SkinOption> Skins, string SelectedSkinId);
+public sealed record SkinListView(IReadOnlyList<SkinView> Skins, string SelectedSkinId);
 
 public sealed record SelectSkinRequest(string SkinId);
 
@@ -119,15 +130,22 @@ public sealed class SocialService(
         await using var scope = scopes.CreateAsyncScope();
         var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
         var selected = await db.Players.AsNoTracking().Where(row => row.Id == playerId).Select(row => row.SelectedSkinId).SingleAsync(ct);
-        return new SkinListView(Settings.Skins, selected);
+        var bought = await db.Set<SkinOwnedRow>().AsNoTracking().Where(row => row.PlayerId == playerId).Select(row => row.SkinId).ToListAsync(ct);
+        var skins = Settings.Skins
+            .Select(skin => new SkinView(skin.SkinId, skin.Name, skin.Unlock, skin.Unlock != SkinUnlock.Shop || bought.Contains(skin.SkinId)))
+            .ToList();
+        return new SkinListView(skins, selected);
     }
 
     public async Task<SelectSkinResponse> SelectSkinAsync(Guid playerId, string skinId, CancellationToken ct)
     {
-        if (Settings.Skins.All(skin => skin.SkinId != skinId)) throw new GameException(ErrorCatalog.ValidationFailed);
+        var option = Settings.Skins.SingleOrDefault(skin => skin.SkinId == skinId) ?? throw new GameException(ErrorCatalog.ValidationFailed);
         await using (var scope = scopes.CreateAsyncScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
+            if (option.Unlock == SkinUnlock.Shop
+                && !await db.Set<SkinOwnedRow>().AsNoTracking().AnyAsync(row => row.PlayerId == playerId && row.SkinId == skinId, ct))
+                throw new GameException("SKIN_NOT_OWNED");
             await db.Players.Where(row => row.Id == playerId).ExecuteUpdateAsync(setters => setters.SetProperty(row => row.SelectedSkinId, skinId), ct);
         }
         await room.Queue.RunAsync(async () =>

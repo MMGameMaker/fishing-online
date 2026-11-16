@@ -19,6 +19,8 @@ export const ERROR_CODES = [
   'RESULT_EXPIRED',
   'ROD_NOT_OWNED',
   'ROD_ALREADY_OWNED',
+  'SKIN_NOT_OWNED',
+  'SKIN_ALREADY_OWNED',
   'FISH_NOT_FOUND',
   'INVALID_QUANTITY',
   'PRICE_CHANGED',
@@ -56,6 +58,44 @@ export interface PlayerProfile {
   gold: string;
   selectedSkinId: string;
   equippedRodId: string;
+  /** Danh hiệu đang đeo (màn Tài khoản). Dự thảo, chỉ mock có; Server thật chưa hỗ trợ. */
+  titleId?: string;
+  /** Lời nhắn tối đa 100 ký tự (màn Tài khoản). Dự thảo, chỉ mock có. */
+  bio?: string;
+}
+
+/** Một thành tựu (GAMEPLAY_SCOPE mục Thành tựu). Dự thảo contract, chỉ mock có. */
+export interface AchievementEntry {
+  id: string;
+  name: string;
+  /** Số đếm thật Server đang giữ, vẫn tăng khi chưa nhận thưởng. */
+  counter: number;
+  /** Mốc cộng dồn của từng level (5 phần tử). */
+  thresholds: number[];
+  /** Số level đã nhận thưởng (0..5). */
+  claimedLevels: number;
+  rewardGold: number;
+}
+
+export interface AchievementsResponse {
+  achievements: AchievementEntry[];
+}
+
+export interface ClaimAchievementResponse {
+  achievement: AchievementEntry;
+  goldAdded: string;
+  gold: string;
+}
+
+/** Ô cá khoe trên màn Tài khoản: 3 ô, mỗi ô một loài đã câu, hiện con dài nhất. */
+export interface ShowcaseSlot {
+  slot: number;
+  speciesId: string | null;
+  lengthTenthCm: number | null;
+}
+
+export interface ShowcaseResponse {
+  slots: ShowcaseSlot[];
 }
 
 export interface Stats {
@@ -105,6 +145,27 @@ export interface InventoryResponse {
   rods: string[];
   items: { itemId: string; quantity: number }[];
   fish: FishItem[];
+  /** Skin bán ở cửa hàng đã mua (skin miễn phí không có ở đây; xem `GET /skins`). */
+  skins: string[];
+}
+
+/** `free` dùng ngay, `shop` phải mua bằng offer có `itemId` trùng `skinId` trong `Catalog.shopOffers`. */
+export type SkinUnlock = 'free' | 'shop';
+
+export interface SkinView {
+  skinId: string;
+  name: string;
+  unlock: SkinUnlock;
+  owned: boolean;
+}
+
+export interface SkinsResponse {
+  skins: SkinView[];
+  selectedSkinId: string;
+}
+
+export interface SelectSkinResponse {
+  selectedSkinId: string;
 }
 
 export interface ShopBuyRequest {
@@ -137,6 +198,30 @@ export interface CodexEntry {
 
 export interface CodexResponse {
   species: CodexEntry[];
+}
+
+/**
+ * GET /rankings/{boardId}?limit&cursor (Server: Modules/Ranking; bảng tuần theo doc/GAMEPLAY_SCOPE.md).
+ * Mục `me` luôn có tên; `reward` là Gold (chuỗi) theo bảng thưởng của GD, chỉ để hiển thị.
+ */
+export interface RankingEntry {
+  rank: number | null;
+  playerId: string;
+  displayName: string;
+  value: number | null;
+  reward: string | null;
+}
+
+export interface RankingResponse {
+  boardId: string;
+  updatedAt: string;
+  /** Mốc kết thúc chu kỳ (bảng tuần), ISO. */
+  periodEndsAt: string;
+  items: RankingEntry[];
+  /** Cursor trang kế; null khi hết (bảng tuần chỉ hiện top 50). */
+  nextCursor: string | null;
+  /** `value` là điểm hiện tại (cập nhật ngay); `rank`/`reward` theo bản chụp 30 phút, null nếu chưa/không trong top 50. */
+  me: RankingEntry;
 }
 
 export interface HistoryEntry {

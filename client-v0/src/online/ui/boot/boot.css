@@ -1,0 +1,180 @@
+/* Màn đăng nhập và màn tải (pier.html), cùng kiểu với index.html. */
+.boot-screens {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: none;
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  transition: opacity 0.3s ease;
+}
+.boot-screens.is-open {
+  display: block;
+}
+.boot-screens.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+.boot-screens .boot[hidden] {
+  display: none;
+}
+.boot {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.boot--login {
+  justify-content: center;
+  gap: 18px;
+  background: url('/login/background.png') center/cover no-repeat;
+}
+.boot--loading {
+  background: url('/login/loading-background.png') center/cover no-repeat;
+  padding-bottom: 5vh;
+}
+.boot__logo-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.boot__logo-zone--grow {
+  flex: 1;
+}
+.boot__logo {
+  width: min(640px, 85%);
+  image-rendering: pixelated;
+}
+.boot__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: min(460px, 100%);
+  padding: 28px 28px 24px;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, #f6e3ad 0%, #e9c57e 100%);
+  border: 6px solid #5c3a21;
+  border-radius: 18px;
+  box-shadow:
+    inset 0 0 0 2px #caa25c,
+    0 6px 0 #3d2614,
+    0 10px 18px rgb(0 0 0 / 45%);
+}
+.boot__card-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.boot__card-title h2 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 26px;
+  color: #5c3a21;
+}
+.boot__orn {
+  color: #b5842f;
+  font-size: 18px;
+}
+.boot__divider {
+  width: 85%;
+  border-top: 2px dashed #b5842f;
+}
+.boot__google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 18px;
+  font:
+    bold 15px 'Trebuchet MS',
+    'Segoe UI',
+    sans-serif;
+  color: #3c4043;
+  background: #fdf8ee;
+  border: 2px solid #5c3a21;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #3d2614;
+}
+.boot__google:hover:not(:disabled) {
+  filter: brightness(1.03);
+}
+.boot__google:active:not(:disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #3d2614;
+}
+.boot__google:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.boot__tagline {
+  margin: 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #6e4a28;
+  text-align: center;
+}
+.boot__error {
+  margin: 0;
+  color: #8c2f23;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+}
+.boot__error[hidden] {
+  display: none;
+}
+.boot__progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+.boot__status,
+.boot__tip {
+  margin: 0;
+  color: #f6e3ad;
+  -webkit-text-stroke: 2px #3d2614;
+  paint-order: stroke fill;
+  text-align: center;
+}
+.boot__status {
+  font-size: 22px;
+  font-weight: 900;
+}
+.boot__tip {
+  font-size: 15px;
+  font-weight: 700;
+}
+.boot__bar {
+  position: relative;
+  width: min(460px, 90%);
+  height: 28px;
+  box-sizing: border-box;
+  background: #3d2614;
+  border: 4px solid #5c3a21;
+  box-shadow: inset 0 0 0 2px #2a1a0f;
+  overflow: hidden;
+}
+.boot__fill {
+  position: relative;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(180deg, #8fe0f5 0%, #3fa0cf 100%);
+  transition: width 0.2s ease-out;
+}
+.boot__fish {
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}

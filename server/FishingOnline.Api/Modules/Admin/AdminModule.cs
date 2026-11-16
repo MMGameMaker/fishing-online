@@ -1,3 +1,4 @@
+using FishingOnline.Api.Modules.Bots;
 using FishingOnline.Api.Modules.Common;
 using FishingOnline.Api.Modules.Identity;
 using FishingOnline.Api.Persistence;
@@ -108,6 +109,13 @@ public static class AdminModule
             ApiResult.Ok(await lookup.ReviewSignalAsync(Actor(http), id, request, http.RequestAborted))).Require(AdminPermissions.SignalReview);
         admin.MapGet("/lake", async (AdminLookupService lookup, CancellationToken ct) => ApiResult.Ok(await lookup.LakeAsync(ct)))
             .Require(AdminPermissions.PlayerRead);
+        // Bot (yêu cầu 2026-11-16): cài đặt (ngưỡng người, chu kỳ kiểm tra, số bot tối đa, tỉ lệ thắng) và danh sách bot; chỉ Admin.
+        admin.MapGet("/bots/settings", async (BotSettingsService bots, CancellationToken ct) => ApiResult.Ok(await bots.GetAsync(ct)))
+            .Require(AdminPermissions.ConfigRead);
+        admin.MapPut("/bots/settings", async (BotSettingsRequest request, BotSettingsService bots, HttpContext http) =>
+            ApiResult.Ok(await bots.UpdateAsync(Actor(http), request, http.RequestAborted))).Require(AdminPermissions.ConfigWrite);
+        admin.MapGet("/bots", async (BotSettingsService bots, BotManager manager, CancellationToken ct) =>
+            ApiResult.Ok(await bots.ListBotsAsync(manager, ct))).Require(AdminPermissions.PlayerRead);
         admin.MapGet("/audit", async (string? target, string? cursor, int? limit, AdminLookupService lookup, CancellationToken ct) =>
             ApiResult.Ok(await lookup.AuditAsync(target, cursor, limit, ct))).Require(AdminPermissions.AuditRead);
 

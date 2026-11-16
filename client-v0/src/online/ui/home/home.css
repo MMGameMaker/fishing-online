@@ -210,8 +210,10 @@
 }
 
 /* Khung Gold: chưa có ảnh riêng, vẽ khung gỗ cùng kiểu hộp mua vé; nút ☰ là Button.png 84×88. */
+/* margin-top 6px bằng độ dày viền ngoài (outline) để cạnh trên nhìn thấy ngang với khung người chơi (feedback 2026-11-16). */
 .home-gold {
   display: flex;
+  margin-top: 6px;
   gap: 16px;
   align-items: center;
   height: 112px;

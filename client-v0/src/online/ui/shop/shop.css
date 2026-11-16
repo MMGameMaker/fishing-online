@@ -418,6 +418,11 @@
   line-height: 26px;
 }
 
+/* Thẻ skin: thỏ mặc đồ trong ô (thay cho cần xiên). */
+.shop-card__skin {
+  flex: none;
+}
+
 .shop-cards--topup {
   grid-template-columns: repeat(3, 304px);
 }

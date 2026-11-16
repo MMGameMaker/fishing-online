@@ -1,6 +1,32 @@
-// Nút móc câu gần giữa màn hình, kèm thanh đếm ngược; chỉ hiện khi cá cắn.
+// Nút móc câu gần giữa màn hình, kèm vòng đếm ngược quanh viền; chỉ hiện khi cá cắn.
 // Thu cần bằng cách bấm nút hoặc phím Space (feedback 2026-11-11). Hình nút là ảnh Button Hook.png.
+import { isModalOpen } from '../ui/kit/modal';
+
 const HOOK_IMAGE = encodeURI('/mini game/Button Hook.png');
+const SVG_NS = 'http://www.w3.org/2000/svg';
+/** Bán kính vòng đếm ngược (đơn vị viewBox 100), ôm ngay ngoài viền tròn của ảnh nút. */
+const RING_R = 46;
+
+/**
+ * Vòng vàng chạy quanh viền nút thay cho thanh dưới nút (feedback 2026-11-16): đầy khi cá vừa cắn,
+ * ngắn dần theo thời gian còn lại, bắt đầu từ đỉnh và chạy theo chiều kim đồng hồ.
+ */
+function ring(): SVGSVGElement {
+  const svg = document.createElementNS(SVG_NS, 'svg');
+  svg.setAttribute('class', 'fish-button__ring');
+  svg.setAttribute('viewBox', '0 0 100 100');
+  for (const part of ['track', 'fill']) {
+    const circle = document.createElementNS(SVG_NS, 'circle');
+    circle.setAttribute('class', `fish-button__ring-${part}`);
+    circle.setAttribute('cx', '50');
+    circle.setAttribute('cy', '50');
+    circle.setAttribute('r', String(RING_R));
+    // pathLength 100 để độ dài nét tính thẳng theo phần trăm.
+    circle.setAttribute('pathLength', '100');
+    svg.append(circle);
+  }
+  return svg;
+}
 
 function hookImage(): HTMLImageElement {
   const image = document.createElement('img');
@@ -17,7 +43,7 @@ function isTyping(): boolean {
 
 export class FishButton {
   private readonly button = document.createElement('button');
-  private readonly bar = document.createElement('div');
+  private readonly ring = ring();
   private readonly onKeyDown: (event: KeyboardEvent) => void;
   private visible = false;
 
@@ -35,13 +61,17 @@ export class FishButton {
     const key = document.createElement('div');
     key.className = 'fish-button__key';
     key.textContent = 'SPACE';
-    this.bar.className = 'fish-button__bar';
-    this.button.append(hookImage(), key, this.bar);
+    // Chữ SPACE đè lên nút, vòng đếm ngược ôm viền nút (feedback 2026-11-16).
+    const face = document.createElement('div');
+    face.className = 'fish-button__face';
+    face.append(hookImage(), this.ring, key);
+    this.button.append(face);
     root.append(this.button);
 
     // Nghe trên window vì scene Coral Cove tắt bàn phím của Phaser.
     this.onKeyDown = (event) => {
-      if (event.code !== 'Space' || event.repeat || !this.visible || isTyping()) return;
+      if (event.code !== 'Space' || event.repeat || !this.visible || isTyping() || isModalOpen())
+        return;
       event.preventDefault();
       onPress();
     };
@@ -56,7 +86,7 @@ export class FishButton {
       this.button.setAttribute('aria-hidden', String(!visible));
       this.button.tabIndex = visible ? 0 : -1;
     }
-    if (visible) this.bar.style.setProperty('--bite-progress', String(progress));
+    if (visible) this.ring.style.setProperty('--bite-progress', String(progress));
   }
 
   destroy(): void {

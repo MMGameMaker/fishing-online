@@ -276,6 +276,23 @@
   border-image: url('/new%20resources/ui/Well%20Art.png') 16 fill / 16px stretch;
 }
 
+/* Thanh chế độ "Chọn cá" (selectingBar dùng class .shop-sell__*) nằm dưới lưới, cạnh dưới như nút "Chọn cá". */
+.inv-fish--selecting .inv-fish__grid {
+  height: 480px;
+}
+
+.inv-fish__bar {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  left: 12px;
+  padding-top: 0;
+}
+
+.inv-fish__cell--pickable {
+  cursor: pointer;
+}
+
 .inv-fish__choose {
   position: absolute;
   right: 0;

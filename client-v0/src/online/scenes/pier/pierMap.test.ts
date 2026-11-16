@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { NEAR_SEAT_PX, isNearSeat } from '../lake/seatLogic';
-import { canStand, nearestStandable } from '../lake/walkable';
+import { canStand, nearestStandable, randomSpawn, reachablePoints } from '../lake/walkable';
 import mapData from './fishingPierMap.json';
 import {
   PIER_SHEETS,
@@ -148,8 +148,18 @@ describe('map chơi được của pier', () => {
     expect(canStand(lake, lake.spawn.x, lake.spawn.y)).toBe(true);
   });
 
+  it('điểm vào game ngẫu nhiên phủ phần lớn map và luôn đứng được', () => {
+    const points = reachablePoints(lake);
+    // Map pier rộng: số ô đi tới được từ spawn phải lớn (không bị kẹt trong một góc nhỏ).
+    expect(points.length).toBeGreaterThan(2000);
+    for (let i = 0; i < 50; i++) {
+      const p = randomSpawn(lake);
+      expect(canStand(lake, p.x, p.y)).toBe(true);
+    }
+  });
+
   it('mỗi ghế có chỗ đứng trong tầm ngồi và phao rơi xuống nước', () => {
-    expect(lake.seats).toHaveLength(16);
+    expect(lake.seats).toHaveLength(30);
     for (const seat of lake.seats) {
       // Ghế là vật cản: rời ghế thì bước sang chỗ đứng được gần nhất, không quá 24px.
       const stand = nearestStandable(lake, seat.x, seat.y, 24);
@@ -246,7 +256,8 @@ describe('ghế câu của pier', () => {
     }
   });
 
-  it('số ghế không vượt số ghế mặc định của Server (20)', () => {
-    expect(MAP.lake.seats.length).toBeLessThanOrEqual(20);
+  it('số ghế bằng số ghế Server chạy cho pier (Lake:SeatCount = 30)', () => {
+    expect(MAP.lake.seats.length).toBe(30);
+    expect(new Set(MAP.lake.seats.map((s) => s.seatId)).size).toBe(30);
   });
 });

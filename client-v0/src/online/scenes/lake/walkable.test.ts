@@ -4,6 +4,8 @@ import {
   canStand,
   inLakeArea,
   nearestStandable,
+  randomSpawn,
+  reachablePoints,
   startPosition,
   stepMove,
   type LakeMap,
@@ -82,6 +84,40 @@ describe('nearestStandable', () => {
 
   it('giữa hồ không có chỗ đứng trong bán kính thì trả null', () => {
     expect(nearestStandable(map, 768, 576, 16)).toBeNull();
+  });
+});
+
+describe('randomSpawn', () => {
+  it('luôn ra chỗ đứng được trong map, đổi theo random', () => {
+    const spots = new Set<string>();
+    for (const r of [0, 0.13, 0.5, 0.77, 0.999]) {
+      const p = randomSpawn(map, () => r);
+      expect(canStand(map, p.x, p.y)).toBe(true);
+      expect(inLakeArea(map, p.x, p.y)).toBe(true);
+      spots.add(`${p.x},${p.y}`);
+    }
+    expect(spots.size).toBeGreaterThan(1);
+  });
+
+  it('điểm ngẫu nhiên đều đi tới được từ spawn (không rơi vào ô cô lập)', () => {
+    const points = reachablePoints(map);
+    expect(points.length).toBeGreaterThan(0);
+    const island: LakeMap = {
+      ...map,
+      // Một ô đi được tách biệt ở góc trên trái, không nối với spawn.
+      walkableRows: map.walkableRows.map((row, r) =>
+        r < 3 ? '1' + '0'.repeat(row.length - 1) : row,
+      ),
+    };
+    for (const p of reachablePoints(island)) expect(p.x < 8 && p.y < 24).toBe(false);
+  });
+
+  it('không có chỗ đứng thì về spawn', () => {
+    const blocked: LakeMap = {
+      ...map,
+      walkableRows: map.walkableRows.map((row) => '0'.repeat(row.length)),
+    };
+    expect(randomSpawn(blocked, () => 0.5)).toEqual(map.spawn);
   });
 });
 

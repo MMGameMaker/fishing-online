@@ -9,15 +9,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FishingOnline.Api.Modules.Admin;
 
-public sealed record AdminPlayerSummary(Guid PlayerId, string DisplayName, int Level, DateTimeOffset CreatedAt);
+public sealed record AdminPlayerSummary(Guid PlayerId, string DisplayName, int Level, DateTimeOffset CreatedAt, bool IsBot);
 
 public sealed record AdminPlayerDetail(
     Guid PlayerId, string DisplayName, int Level, int Exp, string SelectedSkinId, string EquippedRodId,
-    string Gold, string LedgerTotal, IReadOnlyList<string> Rods, int OpenSignals);
+    string Gold, string LedgerTotal, IReadOnlyList<string> Rods, int OpenSignals, bool IsBot);
 
 public sealed record PopulationView(string SpeciesId, int Remaining, int Reserved, int Available, int Stocked, int Caught);
 
-public sealed record AdminLakeView(string LakeId, IReadOnlyList<SeatView> Seats, IReadOnlyList<PlayerView> OnlinePlayers, IReadOnlyList<PopulationView> Population);
+/// <summary><c>BotPlayerIds</c>: những người trong <c>OnlinePlayers</c> là bot (chỉ Admin thấy; PlayerView gửi Client không có cờ này).</summary>
+public sealed record AdminLakeView(
+    string LakeId, IReadOnlyList<SeatView> Seats, IReadOnlyList<PlayerView> OnlinePlayers, IReadOnlyList<PopulationView> Population,
+    IReadOnlyList<Guid> BotPlayerIds);
 
 public sealed record SignalReviewRequest(string Status, string? Note);
 
@@ -38,7 +41,7 @@ public sealed class AdminLookupService(GameDbContext db, SeatSessions seats, Lak
             ? players.Where(row => row.Id == playerId)
             : players.Where(row => row.DisplayNameKey.Contains(text.ToLowerInvariant()));
         return await players.OrderBy(row => row.DisplayNameKey).Take(MaxSearchResults)
-            .Select(row => new AdminPlayerSummary(row.Id, row.DisplayName, row.Level, row.CreatedAt)).ToListAsync(ct);
+            .Select(row => new AdminPlayerSummary(row.Id, row.DisplayName, row.Level, row.CreatedAt, row.IsBot)).ToListAsync(ct);
     }
 
     public async Task<AdminPlayerDetail> DetailAsync(Guid playerId, CancellationToken ct)
@@ -50,7 +53,7 @@ public sealed class AdminLookupService(GameDbContext db, SeatSessions seats, Lak
         var rods = await db.Set<RodOwnedRow>().AsNoTracking().Where(row => row.PlayerId == playerId).OrderBy(row => row.AcquiredAt).Select(row => row.RodId).ToListAsync(ct);
         var openSignals = await db.Set<PlayerSecuritySignal>().AsNoTracking().CountAsync(row => row.PlayerId == playerId && row.Status == "open", ct);
         return new AdminPlayerDetail(player.Id, player.DisplayName, player.Level, player.Exp, player.SelectedSkinId, player.EquippedRodId,
-            Text(gold), Text(ledgerTotal), rods, openSignals);
+            Text(gold), Text(ledgerTotal), rods, openSignals, player.IsBot);
     }
 
     public Task<Page<LedgerEntry>> LedgerAsync(Guid playerId, string? cursor, int? limit, CancellationToken ct) =>
@@ -98,9 +101,11 @@ public sealed class AdminLookupService(GameDbContext db, SeatSessions seats, Lak
             .ToListAsync(ct);
         int Sum(string species, params string[] kinds) => totals.Where(row => row.SpeciesId == species && kinds.Contains(row.Kind)).Sum(row => row.Total);
         var rows = await population.SnapshotAsync(ct);
+        var onlineIds = players.Select(player => player.PlayerId).ToArray();
+        var botIds = await db.Players.AsNoTracking().Where(player => player.IsBot && onlineIds.Contains(player.Id)).Select(player => player.Id).ToListAsync(ct);
         return new AdminLakeView(population.LakeId, seatViews, players, rows.Select(row => new PopulationView(
             row.SpeciesId, row.Remaining, row.Reserved, row.Remaining - row.Reserved,
-            Sum(row.SpeciesId, MovementKinds.Initial, MovementKinds.Stock), -Sum(row.SpeciesId, MovementKinds.Catch))).ToArray());
+            Sum(row.SpeciesId, MovementKinds.Initial, MovementKinds.Stock), -Sum(row.SpeciesId, MovementKinds.Catch))).ToArray(), botIds);
     }
 
     /// <summary>Phân trang theo id Guid v7 giảm dần (cũng là thứ tự thời gian tạo); cursor là id cuối của trang trước.</summary>

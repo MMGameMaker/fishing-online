@@ -18,6 +18,9 @@
     <PackageReference Include="StackExchange.Redis" Version="3.4.31" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Modules/Bots/pier-map.json" LogicalName="pier-map.json" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="../FishingOnline.Domain/FishingOnline.Domain.csproj" />
   </ItemGroup>
 </Project>

@@ -9,6 +9,8 @@ import type {
   HubEventName,
   InventoryResponse,
   LoginResponse,
+  PlayerProfile,
+  ShopBuyResponse,
   TicketPurchaseResult,
 } from '../net/contract';
 import { EVENT_GUARDS, isCommandAck, isInventory, isProgress } from '../net/contractGuards';
@@ -425,6 +427,39 @@ describe('MockBackend', () => {
     await rig.api.put('/me/equipped-rod', { rodId: 'rod_steel_awl' });
     const inventory = await rig.api.get<InventoryResponse>('/me/inventory');
     expect(inventory.equippedRodId).toBe('rod_steel_awl');
+  });
+
+  it('shop skin: chưa mua thì không mặc được, mua 300 Gold rồi mặc, mua lại bị chặn', async () => {
+    rig = await setup(null, 1000);
+    await expect(rig.api.put('/me/skin', { skinId: 'skin_06' })).rejects.toMatchObject({
+      code: 'SKIN_NOT_OWNED',
+    });
+    const before = await rig.api.get<{ skins: { skinId: string; owned: boolean }[] }>('/skins');
+    expect(before.skins.find((s) => s.skinId === 'skin_01')?.owned).toBe(true);
+    expect(before.skins.find((s) => s.skinId === 'skin_06')?.owned).toBe(false);
+
+    const bought = await rig.api.post<ShopBuyResponse>('/shop/buy', {
+      offerId: 'offer_skin_06',
+      quantity: 1,
+    });
+    expect(bought.inventory.skins).toEqual(['skin_06']);
+    expect(Number(bought.gold)).toBe(
+      Number((await rig.api.get<InventoryResponse>('/me/inventory')).gold),
+    );
+    await expect(
+      rig.api.post('/shop/buy', { offerId: 'offer_skin_06', quantity: 1 }),
+    ).rejects.toMatchObject({ code: 'SKIN_ALREADY_OWNED' });
+
+    await rig.api.put('/me/skin', { skinId: 'skin_06' });
+    const after = await rig.api.get<{ selectedSkinId: string }>('/skins');
+    expect(after.selectedSkinId).toBe('skin_06');
+    expect((await rig.api.get<PlayerProfile>('/me')).selectedSkinId).toBe('skin_06');
+  });
+
+  it('shop skin: thiếu Gold thì không mua', async () => {
+    await expect(
+      rig.api.post('/shop/buy', { offerId: 'offer_skin_07', quantity: 1 }),
+    ).rejects.toMatchObject({ code: 'INSUFFICIENT_GOLD' });
   });
 
   it('forcedError trả lỗi giả nhưng vẫn vào hồ được', async () => {

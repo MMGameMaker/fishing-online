@@ -18,7 +18,7 @@ $server = Join-Path $repo 'server'
 $clientPort = 5173
 $apiPort = 5080
 # Map pier: Server phải trả đúng mapId và số ghế như client-v0/src/online/scenes/pier/fishingPierMap.json.
-$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-1'; SeatCount = '16' }
+$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-2'; SeatCount = '30' }
 
 function Write-Step([string]$text) { Write-Host "`n==> $text" -ForegroundColor Cyan }
 

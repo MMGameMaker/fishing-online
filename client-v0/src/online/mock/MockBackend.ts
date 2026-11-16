@@ -22,8 +22,13 @@ import type {
   MyTicket,
   PlayerProfile,
   PlayerView,
+  RankingEntry,
+  RankingResponse,
   SeatView,
+  SelectSkinResponse,
+  ShowcaseSlot,
   SitDownResult,
+  SkinsResponse,
   Stats,
   TicketPurchaseResult,
 } from '../net/contract';
@@ -48,8 +53,30 @@ import {
   uniformInt,
   type Random,
 } from './rules';
+import { MOCK_SKINS } from './skinCatalog';
 import { TOP_UP_PACKS } from '../ui/shop/topUpPacks';
-import { nextRound, pickBotNames, startFishing, startWander, type BotState } from './botFishing';
+import { BIO_MAX, TITLES } from '../ui/profile/profileModel';
+import {
+  ACHIEVEMENT_DEFS,
+  achievementEntries,
+  nextClaim,
+  type AchievementCounters,
+} from './achievements';
+import {
+  BOT_TO_SEAT_MS,
+  nextRound,
+  pickBotNames,
+  startFishing,
+  startWander,
+  type BotState,
+} from './botFishing';
+import {
+  BOT_PAUSE_MS,
+  BOT_WALK_EVERY_MS,
+  BOT_WALK_SPEED,
+  pickWanderTarget,
+  walkStep,
+} from './botWalk';
 
 export interface MockOptions {
   config: GameplayConfig;
@@ -78,10 +105,12 @@ const HTTP_STATUS: Partial<Record<ErrorCode, number>> = {
   ATTEMPT_ACTIVE: 409,
   IDEMPOTENCY_CONFLICT: 409,
   ROD_ALREADY_OWNED: 409,
+  SKIN_ALREADY_OWNED: 409,
   PRICE_CHANGED: 409,
   STATE_CONFLICT: 409,
   INSUFFICIENT_GOLD: 422,
   ROD_NOT_OWNED: 422,
+  SKIN_NOT_OWNED: 422,
   NOT_IN_SEAT: 422,
   RATE_LIMITED: 429,
 };
@@ -169,10 +198,19 @@ export class MockBackend {
   private loggedIn = false;
   private created = false;
   private displayName = 'Người chơi';
+  private titleId = TITLES[0]!.id;
+  private bio = '';
+  private showcaseSlots: (string | null)[] = [null, null, null];
+  /** Số level thành tựu đã nhận, và bộ đếm riêng của mock (người tiên phong, cá khủng, thương nhân). */
+  private readonly achievementClaimed: Record<string, number> = {};
+  private readonly achievementExtra: AchievementCounters = {};
   private exp = 0;
   private gold: number;
   private equippedRodId: string;
   private readonly rods: Set<string>;
+  /** Skin shop đã mua và skin đang dùng (skin free luôn dùng được). */
+  private readonly skinsOwned = new Set<string>();
+  private selectedSkinId = 'skin_01';
   private fish: FishItem[] = [];
   private inventoryVersion = 1;
   private readonly codex = new Map<string, CodexRuntime>();
@@ -195,6 +233,11 @@ export class MockBackend {
   private readonly hubReceipts = new Map<string, { fingerprint: string; ack: unknown }>();
   private seatTimeScale = 1;
   private botTimerMs = 0;
+  /** Trạng thái đi bộ của bot pier: điểm đang tới, nghỉ tới khi nào, số nhịp bị kẹt. */
+  private readonly botWalks = new Map<
+    string,
+    { target: { x: number; y: number } | null; pauseUntilMs: number; stuck: number }
+  >();
   private broadcastTimerMs = 0;
   private realtimeHandle: ReturnType<typeof setInterval> | null = null;
 
@@ -367,7 +410,7 @@ export class MockBackend {
 
   private moveBots(dt: number): void {
     this.botTimerMs += dt;
-    if (this.botTimerMs < BOT_MOVE_EVERY_MS) return;
+    if (this.botTimerMs < (this.fishingBots ? BOT_WALK_EVERY_MS : BOT_MOVE_EVERY_MS)) return;
     this.botTimerMs = 0;
     const directions: { dir: Direction; dx: number; dy: number }[] = [
       { dir: 'up', dx: 0, dy: -BOT_STEP_PX },
@@ -376,7 +419,11 @@ export class MockBackend {
       { dir: 'right', dx: BOT_STEP_PX, dy: 0 },
     ];
     for (const bot of this.bots) {
-      if (this.fishingBots && this.tickFishingBot(bot)) continue;
+      if (this.fishingBots) {
+        // Bot pier: đi bộ mượt (bước ngắn mỗi 100 ms), không bước ngẫu nhiên 16 px.
+        if (!this.tickFishingBot(bot)) this.wanderBot(bot);
+        continue;
+      }
       const step = directions[Math.floor(this.random() * directions.length)]!;
       const x = bot.x + step.dx;
       const y = bot.y + step.dy;
@@ -393,7 +440,6 @@ export class MockBackend {
           seq: this.lastMoveSeq,
         });
       }
-      if (this.fishingBots) continue;
       if (this.random() < BOT_CATCH_CHANCE) {
         const fish = pickSpecies(this.config, 0, this.random);
         this.emit('CatchShown', {
@@ -412,6 +458,49 @@ export class MockBackend {
     }
   }
 
+  /** Một bước ngắn tới (tx, ty), phát PlayerMoved; true khi đã tới (hoặc kẹt quá 3 giây thì coi như tới). */
+  private stepBot(bot: PlayerView, tx: number, ty: number): boolean {
+    const walk = this.botWalks.get(bot.playerId) ?? { target: null, pauseUntilMs: 0, stuck: 0 };
+    this.botWalks.set(bot.playerId, walk);
+    const stepPx = (BOT_WALK_SPEED * BOT_WALK_EVERY_MS) / 1000;
+    const result = walkStep(this.map, bot.x, bot.y, tx, ty, stepPx, bot.dir);
+    walk.stuck = result.moved || result.arrived ? 0 : walk.stuck + 1;
+    if (result.moved) {
+      bot.x = result.x;
+      bot.y = result.y;
+      bot.dir = result.dir;
+      this.lastMoveSeq += 1;
+      this.emit('PlayerMoved', {
+        playerId: bot.playerId,
+        x: bot.x,
+        y: bot.y,
+        dir: bot.dir,
+        seq: this.lastMoveSeq,
+      });
+    }
+    return result.arrived || walk.stuck > 30;
+  }
+
+  /** Đi dạo: chọn điểm đứng được gần đó, đi bộ tới, nghỉ một lúc rồi chọn điểm khác. */
+  private wanderBot(bot: PlayerView): void {
+    const walk = this.botWalks.get(bot.playerId) ?? { target: null, pauseUntilMs: 0, stuck: 0 };
+    this.botWalks.set(bot.playerId, walk);
+    if (this.nowMs < walk.pauseUntilMs) return;
+    if (!walk.target) {
+      walk.target = pickWanderTarget(this.map, bot.x, bot.y, this.random);
+      walk.stuck = 0;
+      if (!walk.target) {
+        walk.pauseUntilMs = this.nowMs + 1000;
+        return;
+      }
+    }
+    if (this.stepBot(bot, walk.target.x, walk.target.y)) {
+      walk.target = null;
+      walk.pauseUntilMs =
+        this.nowMs + BOT_PAUSE_MS[0] + this.random() * (BOT_PAUSE_MS[1] - BOT_PAUSE_MS[0]);
+    }
+  }
+
   /**
    * Bot câu cá (pier): hết giờ dạo thì ngồi ghế trống; đang ngồi thì tới lượt có kết quả câu được/trượt,
    * hết lượt thì đứng dậy dạo tiếp. Trả true khi bot đang ngồi (không đi bước ngẫu nhiên).
@@ -421,12 +510,33 @@ export class MockBackend {
     if (!state) return false;
     if (state.mode === 'wander') {
       if (this.nowMs < state.untilMs) return false;
-      const free = [...this.seats.values()].filter((seat) => seat.state === 'available');
+      // Chọn ghế trống chưa bot nào đang đi tới, rồi đi bộ tới đó (không dịch chuyển lên ghế).
+      const taken = new Set(
+        [...this.botStates.values()].flatMap((s) => (s.mode === 'toSeat' ? [s.seatId] : [])),
+      );
+      const free = [...this.seats.values()].filter(
+        (seat) => seat.state === 'available' && !taken.has(seat.info.seatId),
+      );
       const seat = free[Math.floor(this.random() * free.length)];
       if (!seat) {
         this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
         return false;
       }
+      this.botStates.set(bot.playerId, {
+        mode: 'toSeat',
+        seatId: seat.info.seatId,
+        giveUpMs: this.nowMs + BOT_TO_SEAT_MS,
+      });
+      return true;
+    }
+    if (state.mode === 'toSeat') {
+      const seat = this.seats.get(state.seatId);
+      if (!seat || seat.state !== 'available' || this.nowMs > state.giveUpMs) {
+        this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+        return false;
+      }
+      const stand = nearestStandable(this.map, seat.info.x, seat.info.y) ?? this.map.spawn;
+      if (!this.stepBot(bot, stand.x, stand.y)) return true;
       seat.state = 'occupied';
       seat.occupantPlayerId = bot.playerId;
       bot.x = seat.info.x;
@@ -527,8 +637,10 @@ export class MockBackend {
       level: this.level,
       exp: this.exp,
       gold: String(this.gold),
-      selectedSkinId: 'skin_01',
+      selectedSkinId: this.selectedSkinId,
       equippedRodId: this.equippedRodId,
+      titleId: this.titleId,
+      bio: this.bio,
     };
   }
 
@@ -536,7 +648,7 @@ export class MockBackend {
     return {
       playerId: MY_ID,
       displayName: this.displayName,
-      skinId: 'skin_01',
+      skinId: this.selectedSkinId,
       rodId: this.equippedRodId,
       x: this.position.x,
       y: this.position.y,
@@ -612,6 +724,7 @@ export class MockBackend {
       rods: [...this.rods],
       items: [],
       fish: [...this.fish],
+      skins: [...this.skinsOwned],
     };
   }
 
@@ -948,6 +1061,11 @@ export class MockBackend {
     const previous = this.codex.get(species.speciesId);
     const isNew = previous === undefined;
     const isRecord = !isNew && lengthTenthCm > previous.bestLengthTenthCm;
+    if (lengthTenthCm >= species.maxTenthCm) this.bumpExtra('giant_fish', 1);
+    if (isNew && !this.caughtSpecies.has(species.speciesId)) {
+      this.caughtSpecies.add(species.speciesId);
+      this.bumpExtra('pioneer', 1);
+    }
     this.codex.set(species.speciesId, {
       totalCaught: (previous?.totalCaught ?? 0) + 1,
       bestLengthTenthCm: Math.max(previous?.bestLengthTenthCm ?? 0, lengthTenthCm),
@@ -1066,6 +1184,20 @@ export class MockBackend {
         return this.profile();
       case 'PUT /me/display-name':
         return this.setDisplayName(body.displayName);
+      case 'PUT /me/title':
+        return this.setTitle(body.titleId);
+      case 'PUT /me/bio':
+        return this.setBio(body.bio);
+      case 'GET /me/showcase':
+        return this.showcase();
+      case 'PUT /me/showcase':
+        return this.setShowcase(body);
+      case 'GET /me/achievements':
+        return { achievements: this.achievements() };
+      case 'POST /me/achievements/claim':
+        return this.claimAchievement(body.achievementId);
+      case 'POST /dev/achievement-progress':
+        return this.devAchievementProgress(body);
       case 'GET /catalog':
         return this.catalog();
       case 'GET /me/progress':
@@ -1074,6 +1206,10 @@ export class MockBackend {
         return this.inventory();
       case 'PUT /me/equipped-rod':
         return this.equipRod(String(body.rodId));
+      case 'GET /skins':
+        return this.skinList();
+      case 'PUT /me/skin':
+        return this.selectSkin(String(body.skinId));
       case 'POST /shop/buy':
         return this.shopBuy(String(body.offerId), body.quantity);
       case 'POST /shop/sell-fish':
@@ -1086,6 +1222,8 @@ export class MockBackend {
         return this.codexResponse();
       case 'GET /me/history':
         return this.historyPage(query);
+      case 'GET /rankings/total-catch-weekly':
+        return this.rankingResponse(query);
       default:
         throw new CommandError('VALIDATION_FAILED', `Mock chưa có ${method} ${path}`);
     }
@@ -1111,6 +1249,106 @@ export class MockBackend {
     if (taken) throw new CommandError('STATE_CONFLICT');
     this.displayName = value;
     return this.profile();
+  }
+
+  private setTitle(value: unknown): PlayerProfile {
+    if (typeof value !== 'string' || !TITLES.some((t) => t.id === value)) {
+      throw new CommandError('VALIDATION_FAILED');
+    }
+    this.titleId = value;
+    return this.profile();
+  }
+
+  private setBio(value: unknown): PlayerProfile {
+    if (typeof value !== 'string' || [...value].length > BIO_MAX) {
+      throw new CommandError('VALIDATION_FAILED');
+    }
+    this.bio = value;
+    return this.profile();
+  }
+
+  private showcase(): { slots: ShowcaseSlot[] } {
+    return {
+      slots: this.showcaseSlots.map((speciesId, slot) => ({
+        slot,
+        speciesId: speciesId !== null && this.codex.has(speciesId) ? speciesId : null,
+        lengthTenthCm:
+          speciesId !== null ? (this.codex.get(speciesId)?.bestLengthTenthCm ?? null) : null,
+      })),
+    };
+  }
+
+  /** Đặt loài đã câu vào ô (hiện con dài nhất); null để gỡ. Một loài chỉ ở một ô, giống Server. */
+  private setShowcase(body: Record<string, unknown>): { slots: ShowcaseSlot[] } {
+    const slot = Number(body.slot);
+    const speciesId = body.speciesId ?? null;
+    if (!Number.isInteger(slot) || slot < 0 || slot >= this.showcaseSlots.length) {
+      throw new CommandError('VALIDATION_FAILED');
+    }
+    if (speciesId !== null && (typeof speciesId !== 'string' || !this.codex.has(speciesId))) {
+      throw new CommandError('VALIDATION_FAILED');
+    }
+    this.showcaseSlots = this.showcaseSlots.map((id) => (id === speciesId ? null : id));
+    this.showcaseSlots[slot] = speciesId;
+    return this.showcase();
+  }
+
+  private bumpExtra(id: string, amount: number): void {
+    this.achievementExtra[id] = (this.achievementExtra[id] ?? 0) + amount;
+  }
+
+  /** Bộ đếm thành tựu suy ra từ codex; thời gian ngồi câu mock chưa đếm nên chỉ có qua dev endpoint. */
+  private achievementCounters(): AchievementCounters {
+    let total = 0;
+    let rare = 0;
+    let legendary = 0;
+    for (const [speciesId, entry] of this.codex) {
+      const rarity = this.config.fish.find((f) => f.speciesId === speciesId)?.rarity;
+      total += entry.totalCaught;
+      if (rarity === 'rare' || rarity === 'epic' || rarity === 'legendary') {
+        rare += entry.totalCaught;
+      }
+      if (rarity === 'legendary') legendary += entry.totalCaught;
+    }
+    const extra = this.achievementExtra;
+    return {
+      diligent: total + (extra.diligent ?? 0),
+      collector: this.codex.size + (extra.collector ?? 0),
+      rare_hunter: rare + (extra.rare_hunter ?? 0),
+      legend_lake: legendary + (extra.legend_lake ?? 0),
+      giant_fish: extra.giant_fish ?? 0,
+      pioneer: extra.pioneer ?? 0,
+      merchant: extra.merchant ?? 0,
+      persistent: extra.persistent ?? 0,
+    };
+  }
+
+  private achievements() {
+    return achievementEntries(this.achievementCounters(), this.achievementClaimed);
+  }
+
+  private claimAchievement(id: unknown) {
+    const entry = this.achievements().find((a) => a.id === id);
+    if (!entry) throw new CommandError('VALIDATION_FAILED');
+    if (nextClaim(entry) === null) throw new CommandError('STATE_CONFLICT');
+    this.achievementClaimed[entry.id] = entry.claimedLevels + 1;
+    this.gold += entry.rewardGold;
+    const updated = this.achievements().find((a) => a.id === id)!;
+    return {
+      achievement: updated,
+      goldAdded: String(entry.rewardGold),
+      gold: String(this.gold),
+    };
+  }
+
+  /** Chỉ để thử giao diện: cộng thẳng vào bộ đếm một thành tựu. */
+  private devAchievementProgress(body: Record<string, unknown>) {
+    const def = ACHIEVEMENT_DEFS.find((d) => d.id === body.achievementId);
+    const amount = Number(body.amount);
+    if (!def || !Number.isFinite(amount) || amount <= 0)
+      throw new CommandError('VALIDATION_FAILED');
+    this.bumpExtra(def.id, Math.floor(amount));
+    return { achievements: this.achievements() };
   }
 
   private catalog() {
@@ -1141,12 +1379,36 @@ export class MockBackend {
   private shopBuy(offerId: string, quantity: unknown) {
     const offer = this.config.shopOffers.find((o) => o.offerId === offerId);
     if (!offer || quantity !== 1) throw new CommandError('VALIDATION_FAILED');
-    if (this.rods.has(offer.itemId)) throw new CommandError('ROD_ALREADY_OWNED');
+    const skin = MOCK_SKINS.find((s) => s.skinId === offer.itemId && s.unlock === 'shop');
+    if (skin ? this.skinsOwned.has(skin.skinId) : this.rods.has(offer.itemId)) {
+      throw new CommandError(skin ? 'SKIN_ALREADY_OWNED' : 'ROD_ALREADY_OWNED');
+    }
     if (this.gold < offer.priceGold) throw new CommandError('INSUFFICIENT_GOLD');
     this.gold -= offer.priceGold;
-    this.rods.add(offer.itemId);
+    if (skin) this.skinsOwned.add(skin.skinId);
+    else this.rods.add(offer.itemId);
     this.inventoryVersion += 1;
     return { gold: String(this.gold), inventory: this.inventory() };
+  }
+
+  private skinList(): SkinsResponse {
+    return {
+      skins: MOCK_SKINS.map((skin) => ({
+        ...skin,
+        owned: skin.unlock === 'free' || this.skinsOwned.has(skin.skinId),
+      })),
+      selectedSkinId: this.selectedSkinId,
+    };
+  }
+
+  private selectSkin(skinId: string): SelectSkinResponse {
+    const skin = MOCK_SKINS.find((s) => s.skinId === skinId);
+    if (!skin) throw new CommandError('VALIDATION_FAILED');
+    if (skin.unlock === 'shop' && !this.skinsOwned.has(skinId))
+      throw new CommandError('SKIN_NOT_OWNED');
+    this.selectedSkinId = skinId;
+    this.emit('SkinChanged', { playerId: MY_ID, skinId });
+    return { selectedSkinId: skinId };
   }
 
   /** Thông báo khoe cá thử, giống POST /dev/announce-catch của Server bản Development. */
@@ -1190,6 +1452,7 @@ export class MockBackend {
     const sold = new Set(toSell.map((f) => f.catchId));
     this.fish = this.fish.filter((f) => !sold.has(f.catchId));
     this.gold += earned;
+    this.bumpExtra('merchant', earned);
     this.inventoryVersion += 1;
     return { soldCount: sold.size, goldEarned: String(earned), gold: String(this.gold) };
   }
@@ -1207,6 +1470,63 @@ export class MockBackend {
           smallestLengthTenthCm: entry?.smallestLengthTenthCm ?? null,
         };
       }),
+    };
+  }
+
+  /**
+   * Bảng "tổng số cá trong tuần" mock (contract dự thảo SOC-07): 20 bot giảm dần, người chơi xếp theo số cá
+   * đã câu thật (tổng codex). Chưa câu con nào thì chưa vào bảng (rank/value/reward = null).
+   */
+  private rankingResponse(query: URLSearchParams): RankingResponse {
+    const limit = Math.max(1, Math.min(50, Number(query.get('limit')) || 20));
+    const skip = Math.max(0, Number(query.get('cursor')) || 0);
+    // Thưởng bảng tuần theo doc/GAMEPLAY_SCOPE.md: 1..5 = 400/300/250/200/150, 6–10 = 100, 11–20 = 75, 21–50 = 50.
+    const rewards = [400, 300, 250, 200, 150, 100, 100, 100, 100, 100];
+    const rewardOf = (rank: number) =>
+      rank > 50 ? null : String(rewards[rank - 1] ?? (rank <= 20 ? 75 : 50));
+    const botNames = pickBotNames(55, () => 0.5, [this.displayName]);
+    const rows = botNames.map((name, index) => ({
+      playerId: `bot-rank-${index + 1}`,
+      displayName: name,
+      value: 1400 - index * 24,
+    }));
+    let mine = 0;
+    for (const entry of this.codex.values()) mine += entry.totalCaught;
+    if (mine > 0) rows.push({ playerId: MY_ID, displayName: this.displayName, value: mine });
+    rows.sort((a, b) => b.value - a.value);
+    const ranked: RankingEntry[] = rows.map((row, index) => ({
+      rank: index + 1,
+      playerId: row.playerId,
+      displayName: row.displayName,
+      value: row.value,
+      reward: rewardOf(index + 1),
+    }));
+    const mineRanked = ranked.find((entry) => entry.playerId === MY_ID);
+    // Ngoài top 50 thì không có hạng/thưởng nhưng điểm vẫn có (như Server thật).
+    const me: RankingEntry =
+      mineRanked && mineRanked.rank !== null && mineRanked.rank <= 50
+        ? mineRanked
+        : {
+            rank: null,
+            playerId: MY_ID,
+            displayName: this.displayName,
+            value: mine > 0 ? mine : null,
+            reward: null,
+          };
+    const maxPage = Math.min(limit, 50 - skip);
+    const items = ranked.slice(skip, skip + maxPage);
+    const nextCursor =
+      items.length === maxPage && skip + maxPage < 50 ? String(skip + maxPage) : null;
+    const vn = new Date(this.nowMs + 7 * 3_600_000);
+    const daysToMonday = 7 - ((vn.getUTCDay() + 6) % 7);
+    const endsVn = Date.UTC(vn.getUTCFullYear(), vn.getUTCMonth(), vn.getUTCDate() + daysToMonday);
+    return {
+      boardId: 'total-catch-weekly',
+      updatedAt: this.iso(this.nowMs),
+      periodEndsAt: this.iso(endsVn - 7 * 3_600_000),
+      items,
+      nextCursor,
+      me,
     };
   }
 

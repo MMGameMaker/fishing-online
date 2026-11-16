@@ -5,11 +5,13 @@ using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Fishing;
 using FishingOnline.Api.Modules.Identity;
 using FishingOnline.Api.Modules.Lake;
+using FishingOnline.Api.Modules.Social;
 using FishingOnline.Api.Modules.Wallet;
 using FishingOnline.Api.Persistence;
 using FishingOnline.Domain.Config;
 using FishingOnline.Domain.Rules;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 namespace FishingOnline.Api.Modules.Economy;
 
@@ -23,7 +25,8 @@ public sealed class NewPlayerGrant(GameDbContext db, IConfigProvider configs, Ti
 }
 
 public sealed class InventoryService(
-    GameDbContext db, IWallet wallet, IConfigProvider configs, IFishingState fishing, TimeProvider time, LakeRoom room)
+    GameDbContext db, IWallet wallet, IConfigProvider configs, IFishingState fishing, TimeProvider time, LakeRoom room,
+    IOptions<SocialOptions> social)
 {
     private const int MaxSellIds = 200;
 
@@ -36,7 +39,10 @@ public sealed class InventoryService(
             .OrderByDescending(row => row.CaughtAt)
             .Select(row => new InventoryFishView(row.CatchId, row.SpeciesId, row.LengthTenthCm, row.CaughtAt))
             .ToListAsync(ct);
-        return new InventoryView(player.InventoryVersion, Text(await wallet.GetBalanceAsync(playerId, ct)), player.EquippedRodId, rods, [], fish);
+        var skins = await db.Set<SkinOwnedRow>().AsNoTracking().Where(row => row.PlayerId == playerId)
+            .OrderBy(row => row.AcquiredAt).Select(row => row.SkinId).ToListAsync(ct);
+        return new InventoryView(
+            player.InventoryVersion, Text(await wallet.GetBalanceAsync(playerId, ct)), player.EquippedRodId, rods, [], fish, skins);
     }
 
     public async Task<EquipRodResponse> EquipAsync(Guid playerId, string rodId, CancellationToken ct)
@@ -65,7 +71,10 @@ public sealed class InventoryService(
         var config = configs.Current;
         var offer = config.ShopOffers.SingleOrDefault(row => row.OfferId == request.OfferId)
             ?? throw new GameException(ErrorCatalog.ValidationFailed);
-        if (config.Rods.All(rod => rod.RodId != offer.ItemId) || request.Quantity != 1)
+        if (request.Quantity != 1) throw new GameException(ErrorCatalog.ValidationFailed);
+        if (social.Value.Skins.Any(skin => skin.SkinId == offer.ItemId && skin.Unlock == SkinUnlock.Shop))
+            return await BuySkinAsync(playerId, offer, ct);
+        if (config.Rods.All(rod => rod.RodId != offer.ItemId))
             throw new GameException(ErrorCatalog.ValidationFailed);
         if (await db.Set<RodOwnedRow>().AsNoTracking().AnyAsync(row => row.PlayerId == playerId && row.RodId == offer.ItemId, ct))
             throw new GameException("ROD_ALREADY_OWNED");
@@ -79,6 +88,26 @@ public sealed class InventoryService(
         catch (DbUpdateException exception) when (exception.UniqueConstraint() is not null)
         {
             throw new GameException("ROD_ALREADY_OWNED");
+        }
+        await BumpInventoryAsync(playerId, ct);
+        return new BuyResponse(Text(gold), await GetAsync(playerId, ct));
+    }
+
+    /// <summary>Mua skin cùng luồng với mua cần: một offer, trừ Gold rồi thêm hàng sở hữu; mua lại → SKIN_ALREADY_OWNED.</summary>
+    private async Task<BuyResponse> BuySkinAsync(Guid playerId, ShopOffer offer, CancellationToken ct)
+    {
+        if (await db.Set<SkinOwnedRow>().AsNoTracking().AnyAsync(row => row.PlayerId == playerId && row.SkinId == offer.ItemId, ct))
+            throw new GameException("SKIN_ALREADY_OWNED");
+
+        var gold = await wallet.DebitAsync(playerId, offer.PriceGold, LedgerReasons.BuySkin, offer.OfferId, ct);
+        db.Add(new SkinOwnedRow { PlayerId = playerId, SkinId = offer.ItemId, AcquiredAt = time.GetUtcNow() });
+        try
+        {
+            await db.SaveChangesAsync(ct);
+        }
+        catch (DbUpdateException exception) when (exception.UniqueConstraint() is not null)
+        {
+            throw new GameException("SKIN_ALREADY_OWNED");
         }
         await BumpInventoryAsync(playerId, ct);
         return new BuyResponse(Text(gold), await GetAsync(playerId, ct));
@@ -166,6 +195,8 @@ public sealed class CatchRecorder(GameDbContext db, IConfigProvider configs, Tim
             ExpGained = exp,
             LevelAfter = player.Level,
             LevelUp = player.Level > previousLevel,
+            // Đánh dấu nguồn cá cho Admin: cá của bot và của người thật cùng bảng nhưng phân biệt được.
+            IsBot = player.IsBot,
         };
         db.Add(row);
 

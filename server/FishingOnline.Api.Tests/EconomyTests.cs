@@ -140,6 +140,43 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
+    public async Task BuySkin_Charges300_OwnsItAndCanSelectIt()
+    {
+        var playerId = await App.NewPlayerAsync(500);
+        var client = App.Http(playerId);
+
+        await AssertErrorAsync(await client.PutAsJsonAsync("/api/v1/me/skin", new { skinId = "skin_06" }), 422, "SKIN_NOT_OWNED");
+        var bought = await ReadDataAsync(await client.SendAsync(Post("/api/v1/shop/buy", new { offerId = "offer_skin_06", quantity = 1 })));
+
+        Assert.Equal("300", bought.GetProperty("gold").GetString());
+        Assert.Equal(300, await GoldOfAsync(playerId));
+        Assert.Equal(["skin_06"], bought.GetProperty("inventory").GetProperty("skins").EnumerateArray().Select(skin => skin.GetString()));
+        (await client.PutAsJsonAsync("/api/v1/me/skin", new { skinId = "skin_06" })).EnsureSuccessStatusCode();
+        var list = await ReadDataAsync(await client.GetAsync("/api/v1/skins"));
+        Assert.Equal("skin_06", list.GetProperty("selectedSkinId").GetString());
+        var owned = list.GetProperty("skins").EnumerateArray().ToDictionary(skin => skin.GetProperty("skinId").GetString()!, skin => skin.GetProperty("owned").GetBoolean());
+        Assert.True(owned["skin_01"]);
+        Assert.True(owned["skin_06"]);
+        Assert.False(owned["skin_07"]);
+    }
+
+    [Fact]
+    public async Task BuySkin_Twice_AlreadyOwned_NotChargedAgain_AndShortGoldFails()
+    {
+        var poor = await App.NewPlayerAsync(199);
+        await AssertErrorAsync(await App.Http(poor).SendAsync(Post("/api/v1/shop/buy", new { offerId = "offer_skin_07", quantity = 1 })), 422, "INSUFFICIENT_GOLD");
+        Assert.Equal(299, await GoldOfAsync(poor));
+        Assert.Empty((await InventoryAsync(poor)).GetProperty("skins").EnumerateArray());
+
+        var playerId = await App.NewPlayerAsync(250);
+        var client = App.Http(playerId);
+        (await client.SendAsync(Post("/api/v1/shop/buy", new { offerId = "offer_skin_08", quantity = 1 }))).EnsureSuccessStatusCode();
+        await AssertErrorAsync(await client.SendAsync(Post("/api/v1/shop/buy", new { offerId = "offer_skin_08", quantity = 1 })), 409, "SKIN_ALREADY_OWNED");
+
+        Assert.Equal(50, await GoldOfAsync(playerId));
+    }
+
+    [Fact]
     public async Task Buy_QuantityOtherThanOne_IsRejected()
     {
         var client = App.Http(await App.NewPlayerAsync(1000));

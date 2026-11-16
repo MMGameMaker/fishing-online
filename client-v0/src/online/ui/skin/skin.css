@@ -1,0 +1,167 @@
+/* Khung "Ngoại hình" (SkinPopup.ts). Dùng chung nền mờ và nút của cửa hàng (.shop, shop.css). Toạ độ là pixel ảnh
+   Skin/Appearance Panel.png 1124×712 (vẽ ở tỉ lệ 4): ô xem trước (66..302, 133..450), nút "Đã mặc" (56..314,
+   574..664), lưới thẻ (380..1050, 136..660) và thanh cuộn vẽ sẵn (1056..1068, 160..656). Thẻ 168×228 là
+   Skin/Skin 5.png (thường) và Skin/Skin 1.png (đang mặc, có dấu tích). */
+.skin__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1124px;
+  height: 712px;
+  transform: translate(-50%, -50%) scale(var(--shop-scale, 1.5));
+}
+
+.skin__close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+}
+
+.skin__close img {
+  width: 72px;
+  height: 76px;
+}
+
+.skin__preview {
+  position: absolute;
+  top: 133px;
+  left: 66px;
+  display: grid;
+  place-items: center;
+  width: 236px;
+  height: 317px;
+}
+
+.skin__name {
+  position: absolute;
+  top: 462px;
+  left: 40px;
+  width: 288px;
+  overflow: hidden;
+  font-size: 32px;
+  line-height: 40px;
+  color: #6b4a2e;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Che nút "Đã mặc" vẽ sẵn (màu nền cột trái) rồi đặt nút thật lên cùng chỗ. */
+.skin__action {
+  position: absolute;
+  top: 566px;
+  left: 48px;
+  display: grid;
+  place-items: center;
+  width: 274px;
+  height: 112px;
+  background: #fbe3ae;
+}
+
+.skin__action[hidden] {
+  display: none;
+}
+
+.skin__wear {
+  width: 258px;
+  height: 90px;
+  font-size: 36px !important;
+}
+
+.skin__grid {
+  position: absolute;
+  top: 136px;
+  left: 380px;
+  display: grid;
+  grid-template-columns: repeat(3, 168px);
+  gap: 28px 0;
+  align-content: start;
+  justify-content: space-evenly;
+  width: 670px;
+  height: 524px;
+  padding-top: 8px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.skin__grid::-webkit-scrollbar {
+  display: none;
+}
+
+.skin__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 168px;
+  height: 228px;
+  padding: 14px 8px;
+  background: url('/new%20resources/ui/Skin/Skin%205.png') center / 100% 100% no-repeat;
+  image-rendering: pixelated;
+}
+
+.skin__card--equipped {
+  background-image: url('/new%20resources/ui/Skin/Skin%201.png');
+}
+
+.skin__card:hover:not(.skin__card--viewing) {
+  filter: brightness(1.06);
+}
+
+.skin__card--viewing {
+  outline: 4px solid #ee7b2c;
+  outline-offset: -4px;
+}
+
+.skin__card--locked .skin__card-art {
+  filter: grayscale(1) brightness(0.9);
+  opacity: 0.7;
+}
+
+.skin__card-art {
+  flex: none;
+  margin: auto 0;
+}
+
+/* Tên tối đa 2 dòng, luôn chừa đúng 44px để thỏ không nhảy vị trí giữa các thẻ. */
+.skin__card-name {
+  display: -webkit-box;
+  flex: none;
+  width: 100%;
+  height: 44px;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 22px;
+  color: #3a1d0e;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* Thanh cuộn chạy theo nội dung, đè lên thanh tĩnh vẽ sẵn trong ảnh. */
+.skin__track,
+.skin__thumb {
+  position: absolute;
+  left: 1056px;
+  width: 12px;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.skin__track {
+  top: 160px;
+  height: 496px;
+  background: #e9c684;
+  border: 4px solid #7a4018;
+}
+
+.skin__thumb {
+  background: #d98e3f;
+  border: 4px solid #5c2e14;
+}
+
+.skin__track[hidden],
+.skin__thumb[hidden] {
+  display: none;
+}

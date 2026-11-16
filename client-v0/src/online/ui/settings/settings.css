@@ -1,0 +1,75 @@
+/* Cài đặt (SettingsPopup.ts). Toạ độ là pixel ảnh Settings Panel.png 697×340 (màn thiết kế 1920×1080),
+   cả khung thu theo --shop-scale. Thanh Track 344×48, núm 52×56, phần cam Fill 64×44. */
+.settings__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 697px;
+  height: 340px;
+  transform: translate(-50%, -50%) scale(var(--shop-scale, 1));
+}
+
+.settings__close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+}
+
+.settings__close img {
+  width: 60px;
+  height: 63px;
+}
+
+.settings__slider {
+  position: absolute;
+  left: 310px;
+  width: 344px;
+  height: 56px;
+  cursor: pointer;
+  touch-action: none;
+  outline: none;
+}
+
+.settings__slider:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+.settings__slider--sound {
+  top: 127px;
+}
+
+.settings__slider--music {
+  top: 231px;
+}
+
+.settings__track {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 344px;
+  height: 48px;
+}
+
+/* Phần màu cam: 9 mảnh để hai đầu bo tròn giữ nét khi co giãn. */
+.settings__fill {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 44px;
+  min-width: 44px;
+  box-sizing: border-box;
+  pointer-events: none;
+  border-style: solid;
+  border-width: 0 20px;
+  border-image-slice: 0 20 fill;
+  image-rendering: pixelated;
+}
+
+.settings__knob {
+  position: absolute;
+  top: 0;
+  width: 52px;
+  height: 56px;
+  pointer-events: none;
+}

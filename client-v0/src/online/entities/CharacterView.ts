@@ -47,6 +47,8 @@ const TUG_STRONG_PX = 3;
 const TUG_MS = 70;
 /** Emoji động trên đầu (frame 39px) thu về cỡ đầu thỏ. */
 const EMOTE_SCALE = 0.6;
+/** Emoji trong bong bóng trên đầu to lên 50% (feedback 2026-11-16); bong bóng ôm theo icon. */
+const HEAD_EMOTE_SCALE = EMOTE_SCALE * 1.5;
 /** Bong bóng lời nói khi chat: hiện bao lâu, rộng tối đa, khoảng cách trên nhãn tên. */
 /** GD chốt 2026-11-13: bong bóng chat tồn tại 10 giây. */
 const SAY_MS = 10_000;
@@ -57,6 +59,49 @@ const FADE_OUT_MS = 160;
 /** Dấu ! khi cá cắn hiện rõ rồi mờ đi liên tục (feedback 2026-11-13, thay kiểu lắc trái phải). */
 const BITE_FADE_MS = 280;
 const BITE_MIN_ALPHA = 0.15;
+/** Dấu ! khi cá cắn màu đỏ (feedback 2026-11-16, trước là vàng). */
+const BITE_COLOR = '#ff3b30';
+/**
+ * Khi cá cắn/kéo cá chỉ tay và cần rung, thân ngồi yên (feedback 2026-11-16). Tay thỏ vẽ chung lớp cần
+ * trong art, nên thân diễn tư thế ngồi đứng yên, lớp cần vẫn diễn animation rung.
+ */
+const BODY_STILL_ANIMS: ReadonlySet<CharacterAnim> = new Set(['bite', 'reel']);
+/**
+ * Mặt buồn khi câu thất bại (feedback 2026-11-16): atlas không có biểu cảm buồn nên vẽ thêm vài điểm ảnh
+ * (lông mày xếch lên ở giữa, miệng mếu, giọt nước mắt) lên mặt thỏ ở tư thế ngồi. Toạ độ tính từ chân (pivot),
+ * đo trên frame ngồi của tools/bake_characters.py; hướng trái là ảnh lật của hướng phải; quay lưng không thấy mặt.
+ */
+const SAD_FACE_PX: Partial<Record<Direction, { dark: number[][]; tear: number[][] }>> = {
+  down: {
+    dark: [
+      [-4, -25],
+      [-3, -26],
+      [5, -26],
+      [6, -25],
+      [0, -20],
+      [1, -21],
+      [2, -20],
+    ],
+    tear: [
+      [-4, -21],
+      [-4, -20],
+    ],
+  },
+  right: {
+    dark: [
+      [6, -27],
+      [7, -28],
+      [7, -21],
+      [8, -22],
+    ],
+    tear: [
+      [6, -22],
+      [6, -21],
+    ],
+  },
+};
+const SAD_FACE_DARK = 0x5a3a22;
+const SAD_FACE_TEAR = 0x7fd3ff;
 
 /** Nhân vật gồm thân, lớp cần câu, nhãn tên và chỗ gắn icon trên đầu. Gốc tọa độ ở chân. */
 export class CharacterView {
@@ -76,6 +121,11 @@ export class CharacterView {
   private anim: CharacterAnim = 'idle';
   /** Đang ngồi ghế: 'idle' hiển thị thành tư thế ngồi. */
   private seated = false;
+  /** Lớp điểm ảnh mặt buồn, nằm giữa thân và cần. */
+  private readonly sadFace: Phaser.GameObjects.Graphics;
+  private sad = false;
+  /** Emoji buồn hiện bằng bong bóng trên đầu (pier) thay vì icon nhỏ. */
+  private sadBubble: Phaser.GameObjects.Container | null = null;
 
   constructor(
     private readonly scene: Phaser.Scene,
@@ -89,6 +139,7 @@ export class CharacterView {
 
     const firstFrame = frameName('idle', this.dir, 0);
     this.body = scene.add.sprite(0, 0, this.skinId, firstFrame).setOrigin(0.5, 1);
+    this.sadFace = scene.add.graphics();
     this.rod = scene.add.sprite(0, 0, this.rodId, firstFrame).setOrigin(0.5, 1);
     this.label = scene.add
       .text(0, 0, options.name, {
@@ -117,6 +168,7 @@ export class CharacterView {
       .setVisible(false);
     this.container = scene.add.container(options.x, options.y, [
       this.body,
+      this.sadFace,
       this.rod,
       this.label,
       this.bubble,
@@ -125,6 +177,11 @@ export class CharacterView {
     this.container.setDepth(options.y);
     this.placeHeadItems();
     this.applyAnimation();
+  }
+
+  /** Đổi tên hiển thị trên đầu (người chơi vừa đổi tên ở màn Tài khoản). */
+  setName(name: string): void {
+    if (this.label.text !== name) this.label.setText(name);
   }
 
   get x(): number {
@@ -170,6 +227,7 @@ export class CharacterView {
       this.anim = 'idle';
       this.applyAnimation();
     }
+    this.drawSadFace();
   }
 
   setSkin(skinId: string): void {
@@ -190,6 +248,11 @@ export class CharacterView {
   setHeadIcon(icon: HeadIcon): void {
     this.scene.tweens.killTweensOf(this.iconSlot.list);
     this.iconSlot.removeAll(true);
+    // Emoji buồn đang nằm trong bong bóng (pier) thì gỡ cùng icon; bong bóng chat/emoji khác giữ nguyên.
+    if (this.sadBubble && this.headBubble === this.sadBubble) this.hideHeadBubble();
+    this.sadBubble = null;
+    this.sad = icon?.type === 'sad';
+    this.drawSadFace();
     if (!icon) return;
     if (icon.type === 'fish') {
       const color = Phaser.Display.Color.HexStringToColor(RARITY_COLORS[icon.rarity]).color;
@@ -201,7 +264,13 @@ export class CharacterView {
       return;
     }
     if (icon.type === 'sad' && this.scene.anims.exists(emoteAnimKey(SAD_EMOTE_ART))) {
-      this.showEmoteArt(SAD_EMOTE_ART);
+      // pier.html: emoji buồn trong bong bóng trên đầu, cùng cỡ emoji chat cho dễ thấy (feedback 2026-11-16).
+      if (hasHeadBubble(this.scene)) {
+        this.showEmoteBubble(SAD_EMOTE_ART);
+        this.sadBubble = this.headBubble;
+      } else {
+        this.showEmoteArt(SAD_EMOTE_ART);
+      }
       return;
     }
     const text = TEXT_ICONS[icon.type];
@@ -210,7 +279,7 @@ export class CharacterView {
         fontFamily: 'monospace',
         fontSize: '14px',
         fontStyle: 'bold',
-        color: icon.type === 'bite' ? '#ffdd33' : '#ffffff',
+        color: icon.type === 'bite' ? BITE_COLOR : '#ffffff',
         stroke: '#000000',
         strokeThickness: 2,
       })
@@ -330,16 +399,21 @@ export class CharacterView {
       return;
     }
     if (hasHeadBubble(this.scene)) {
-      const sprite = this.scene.add
-        .sprite(0, 0, EMOTE_TEXTURE)
-        .setOrigin(0.5)
-        .setScale(EMOTE_SCALE)
-        .play(emoteAnimKey(emoji.art));
-      const size = sprite.width * EMOTE_SCALE;
-      this.showHeadBubble(sprite, size, size, 'emote');
+      this.showEmoteBubble(emoji.art);
       return;
     }
     this.showEmoteArt(emoji.art);
+  }
+
+  /** Emoji động trong bong bóng Head Bubble trên đầu (pier.html). */
+  private showEmoteBubble(art: string): void {
+    const sprite = this.scene.add
+      .sprite(0, 0, EMOTE_TEXTURE)
+      .setOrigin(0.5)
+      .setScale(HEAD_EMOTE_SCALE)
+      .play(emoteAnimKey(art));
+    const size = sprite.width * HEAD_EMOTE_SCALE;
+    this.showHeadBubble(sprite, size, size, 'emote');
   }
 
   /**
@@ -432,8 +506,29 @@ export class CharacterView {
     if (hasHeadBubble(this.scene)) this.iconSlot.y = this.labelTop() - ICON_ABOVE_LABEL;
   }
 
+  /** Vẽ/xoá mặt buồn theo trạng thái hiện tại (icon buồn, hướng, tư thế ngồi). */
+  private drawSadFace(): void {
+    this.sadFace.clear();
+    const seatedPose = this.seated || (this.anim !== 'idle' && this.anim !== 'walk');
+    // Chỉ art thỏ đã bake mới khớp toạ độ mặt; sprite vẽ tạm bỏ qua.
+    if (!this.sad || !seatedPose || bakedData(this.scene, this.skinId).headTop === undefined)
+      return;
+    const mirror = this.dir === 'left';
+    const px = SAD_FACE_PX[mirror ? 'right' : this.dir];
+    if (!px) return;
+    const dot = (color: number, [dx, dy]: number[]) => {
+      this.sadFace.fillStyle(color);
+      this.sadFace.fillRect(mirror ? -dx! - 1 : dx!, dy!, 1, 1);
+    };
+    for (const p of px.dark) dot(SAD_FACE_DARK, p);
+    for (const p of px.tear) dot(SAD_FACE_TEAR, p);
+  }
+
   private applyAnimation(): void {
-    this.body.play(animKey(this.skinId, this.anim, this.dir));
+    // Cá cắn/kéo cá: thân giữ tư thế ngồi yên, chỉ lớp cần (có tay) rung.
+    const bodyAnim = BODY_STILL_ANIMS.has(this.anim) ? 'sit' : this.anim;
+    this.body.play(animKey(this.skinId, bodyAnim, this.dir));
+    this.drawSadFace();
     this.rod.play(animKey(this.rodId, this.anim, this.dir));
     // Art thật mang pivot chân trong frame (Phaser tự áp); sprite vẽ tạm neo đáy-giữa.
     for (const sprite of [this.body, this.rod]) {

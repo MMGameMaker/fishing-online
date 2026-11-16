@@ -1,0 +1,587 @@
+/* Popup "Tài khoản" (ProfilePopup.ts). Dùng chung nền mờ và nút của cửa hàng (.shop, shop.css). Toạ độ là
+   pixel ảnh Infomation/Frame.png 1080×572 (vẽ ở tỉ lệ 4): đầu xanh y 0..90, avatar (46,113,120×121), ô tên
+   (213..595, 112..207), ô danh hiệu (216..266), ô lời nhắn (278..405), cột Thành tựu từ x 614. Biểu tượng
+   bút/đổi đã vẽ sẵn trong ảnh; nút trong suốt .profile__hit nằm đè lên đó. */
+.profile__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1080px;
+  height: 572px;
+  transform: translate(-50%, -50%) scale(var(--shop-scale, 1.5));
+}
+
+.profile__close {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+}
+
+.profile__close img {
+  width: 72px;
+  height: 76px;
+}
+
+.profile__avatar {
+  position: absolute;
+  top: 113px;
+  left: 46px;
+  display: grid;
+  place-items: center;
+  width: 120px;
+  height: 121px;
+}
+
+.profile__avatar-img {
+  width: 96px;
+  height: 80px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.profile__uid {
+  position: absolute;
+  top: 262px;
+  left: 14px;
+  width: 184px;
+  font-size: 22px;
+  color: #6b4a2e;
+  text-align: center;
+}
+
+.profile__name {
+  position: absolute;
+  top: 122px;
+  left: 232px;
+  width: 300px;
+  overflow: hidden;
+  font-size: 40px;
+  line-height: 48px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.profile__level,
+.profile__exp {
+  position: absolute;
+  top: 168px;
+  font-size: 18px;
+  color: #6b4a2e;
+}
+
+.profile__level {
+  left: 232px;
+}
+
+.profile__exp {
+  left: 232px;
+  width: 346px;
+  text-align: right;
+}
+
+.profile__title {
+  position: absolute;
+  top: 216px;
+  left: 213px;
+  width: 382px;
+  height: 50px;
+  font-size: 26px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.profile__bio {
+  position: absolute;
+  top: 288px;
+  left: 236px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 336px;
+  height: 90px;
+  overflow: hidden;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.profile__bio--empty {
+  color: #a98a64;
+}
+
+.profile__hit {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+}
+
+.profile__hit:hover {
+  background: rgb(255 255 255 / 25%);
+}
+
+/* Bấm avatar để mở khung Ngoại hình; ô phủ cả avatar (46,113,120×121). */
+.profile__hit--avatar {
+  top: 113px;
+  left: 46px;
+  width: 120px;
+  height: 121px;
+}
+
+.profile__hit--name {
+  top: 120px;
+  left: 542px;
+}
+
+.profile__hit--title {
+  top: 217px;
+  left: 548px;
+}
+
+.profile__hit--bio {
+  top: 353px;
+  left: 542px;
+}
+
+/* 3 ô cá khoe, tạm để trống như ô dấu +. */
+.profile__slots {
+  position: absolute;
+  top: 424px;
+  left: 213px;
+  display: grid;
+  grid-template-columns: repeat(3, 112px);
+  gap: 23px;
+}
+
+.profile__slot {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 112px;
+  height: 112px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Infomation/Slot%20-%20State%20Empty.png') 12 fill / 12px
+    stretch;
+}
+
+.profile__slot {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+}
+
+.profile__slot:hover {
+  filter: brightness(1.06);
+}
+
+.profile__slot-fish {
+  width: 76px;
+  height: 56px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.profile__slot-length {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4a2a14;
+  text-align: center;
+}
+
+.profile__plus {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  opacity: 0.55;
+}
+
+.profile__plus::before,
+.profile__plus::after {
+  position: absolute;
+  background: #8a5a2b;
+  content: '';
+}
+
+.profile__plus::before {
+  top: 16px;
+  left: 0;
+  width: 40px;
+  height: 8px;
+}
+
+.profile__plus::after {
+  top: 0;
+  left: 16px;
+  width: 8px;
+  height: 40px;
+}
+
+/* Cột Thành tựu: cuộn dọc, 4 thẻ nhìn thấy cùng lúc. */
+.profile__ach {
+  position: absolute;
+  top: 166px;
+  left: 614px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  width: 420px;
+  height: 376px;
+  padding: 4px 10px 4px 0;
+  overflow-y: auto;
+  scrollbar-color: #8a5a2b #f3d9a3;
+  scrollbar-width: thin;
+}
+
+.profile__card {
+  position: relative;
+  display: flex;
+  flex: none;
+  gap: 8px;
+  align-items: stretch;
+  width: 100%;
+  height: 82px;
+  text-align: left;
+}
+
+.profile__card:disabled {
+  cursor: default;
+}
+
+.profile__card-icon {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  box-sizing: border-box;
+  width: 82px;
+  height: 82px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Infomation/Slot%20-%20State%20Empty.png') 12 fill / 12px
+    stretch;
+}
+
+.profile__card-art {
+  width: 46px;
+  height: 46px;
+  margin: -8px;
+  image-rendering: pixelated;
+}
+
+.profile__reward {
+  position: absolute;
+  right: -8px;
+  bottom: -9px;
+  left: -8px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 16px;
+  color: #fff6d6;
+  text-shadow:
+    0 2px 0 #4a2a14,
+    2px 0 0 #4a2a14,
+    -2px 0 0 #4a2a14;
+}
+
+.profile__reward img {
+  width: 16px;
+  height: 16px;
+}
+
+.profile__card-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 0;
+  height: 82px;
+  padding: 6px 10px;
+  border: 10px solid transparent;
+  border-image: url('/new%20resources/ui/Infomation/Secondary%20L.png') 10 fill / 10px stretch;
+}
+
+.profile__card-top {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  font-size: 17px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.profile__card-top span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile__card-top span:last-child {
+  color: #6b4a2e;
+}
+
+.profile__card-bottom {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.profile__bar {
+  flex: 1;
+  height: 14px;
+  overflow: hidden;
+  background: #4a2a14;
+  border: 2px solid #4a2a14;
+}
+
+.profile__bar-fill {
+  height: 100%;
+  background: #5cc85a;
+  transition: width 0.25s ease-out;
+}
+
+.profile__count {
+  min-width: 56px;
+  text-align: right;
+}
+
+.profile__done {
+  min-width: 56px;
+  font-size: 22px;
+  color: #2f9e44;
+  text-align: right;
+}
+
+.profile__dot {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  width: 24px;
+  height: 24px;
+  animation: profile-dot 1s ease-in-out infinite;
+}
+
+/* Đạt mốc chưa nhận: phủ đỏ nhấp nháy liên tục để người chơi chú ý bấm vào. */
+.profile__card--claim {
+  cursor: pointer;
+}
+
+.profile__card--claim::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  background: rgb(230 50 40 / 38%);
+  border-radius: 4px;
+  animation: profile-claim 1s ease-in-out infinite;
+}
+
+@keyframes profile-claim {
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes profile-dot {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile__card--claim::after,
+  .profile__dot {
+    animation: none;
+  }
+}
+
+/* Tab nhỏ đổi tên / danh hiệu / lời nhắn, đè lên khung. */
+.profile-dialog {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  background: rgb(0 0 0 / 35%);
+  border-radius: 6px;
+}
+
+.profile-dialog__box {
+  box-sizing: border-box;
+  width: 540px;
+  padding: 22px 26px 24px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Infomation/Secondary%20L.png') 10 fill / 12px stretch;
+}
+
+.profile-dialog__title {
+  margin: 0 0 10px;
+  font-size: 28px;
+  text-align: center;
+}
+
+.profile-dialog__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-dialog__note {
+  margin: 0;
+  font-size: 17px;
+  color: #6b4a2e;
+  text-align: center;
+}
+
+.profile-dialog__field {
+  position: relative;
+}
+
+.profile-dialog__input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 24px;
+  color: #3a1d0e;
+  background: #fff3d0;
+  border: 4px solid #8a5a2b;
+  border-radius: 0;
+  outline: none;
+}
+
+textarea.profile-dialog__input {
+  height: 130px;
+  resize: none;
+}
+
+.profile-dialog__input:focus {
+  border-color: #e8782a;
+}
+
+.profile-dialog__hint {
+  margin-top: 4px;
+  font-size: 15px;
+  color: #6b4a2e;
+  text-align: right;
+}
+
+.profile-dialog__error {
+  min-height: 20px;
+  font-size: 16px;
+  color: #c0392b;
+  text-align: center;
+}
+
+.profile-dialog__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.profile-dialog__btn {
+  width: 160px;
+  height: 52px;
+  font-size: 24px;
+  image-rendering: pixelated;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.profile-dialog__btn--cancel {
+  background-image: url('/new%20resources/ui/Small.png');
+}
+
+.profile-dialog__btn--save {
+  color: #fff6d6;
+  text-shadow: 0 2px 0 #7a3a0c;
+  background-image: url('/new%20resources/ui/Primary%20M.png');
+}
+
+.profile-dialog__btn:hover {
+  filter: brightness(1.06);
+}
+
+.profile-dialog__titles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.profile-dialog__title-option {
+  box-sizing: border-box;
+  height: 48px;
+  padding: 0 6px;
+  font-size: 18px;
+  white-space: nowrap;
+  background: #fff3d0;
+  border: 4px solid #8a5a2b;
+}
+
+.profile-dialog__title-option:hover {
+  background: #ffe9ad;
+}
+
+.profile-dialog__title-option--active {
+  background: #ffd98a;
+  border-color: #e8782a;
+}
+
+.profile-dialog__fish {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.profile-dialog__fish-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 6px 2px;
+  font-size: 15px;
+  background: #fff3d0;
+  border: 4px solid #8a5a2b;
+}
+
+.profile-dialog__fish-option:hover {
+  background: #ffe9ad;
+}
+
+.profile-dialog__fish-option.profile-dialog__title-option--active {
+  background: #ffd98a;
+  border-color: #e8782a;
+}
+
+.profile-dialog__fish-img {
+  width: 72px;
+  height: 52px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}

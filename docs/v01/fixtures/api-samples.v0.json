@@ -13,7 +13,9 @@
      "exp": 0,
      "gold": "100",
      "selectedSkinId": "skin_01",
-     "equippedRodId": "rod_old"
+     "equippedRodId": "rod_old",
+     "titleId": "master",
+     "bio": ""
     }
    },
    "traceId": "fx-login"
@@ -26,7 +28,9 @@
     "exp": 0,
     "gold": "100",
     "selectedSkinId": "skin_01",
-    "equippedRodId": "rod_old"
+    "equippedRodId": "rod_old",
+    "titleId": "master",
+    "bio": ""
    },
    "traceId": "fx-me"
   },
@@ -46,7 +50,8 @@
       "lengthTenthCm": 143,
       "caughtAt": "2026-11-09T10:02:00Z"
      }
-    ]
+    ],
+    "skins": []
    },
    "traceId": "fx-inv"
   },

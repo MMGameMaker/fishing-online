@@ -10,7 +10,10 @@ import { formatGold } from '../kit/format';
 import { animateIn, animateOut } from '../kit/motion';
 import { formatClock } from '../../scenes/lake/seatLogic';
 import { CodexPopup } from '../codex/CodexPopup';
+import { SettingsPopup } from '../settings/SettingsPopup';
 import { InventoryPopup } from '../inventory/InventoryPopup';
+import { LeaderboardPopup } from '../leaderboard/LeaderboardPopup';
+import { ProfilePopup } from '../profile/ProfilePopup';
 import { COIN_ART } from '../coinArt';
 import { ShopPopup } from '../shop/ShopPopup';
 import { expText, levelProgress } from './levelProgress';
@@ -86,6 +89,7 @@ export class HomeHud {
   private readonly levelText = el('div', 'home-card__level');
   private readonly chip = button('home-ticket', 'Vé câu cá');
   private readonly chipTime = el('span', 'home-ticket__time');
+  private readonly ticketWrap = el('div', 'home-ticket-wrap');
   private readonly popup = el('div', 'home-ticket-info');
   private readonly popupTime = el('span', 'home-ticket-info__time');
   private readonly gold = el('span', 'home-gold__amount');
@@ -97,10 +101,20 @@ export class HomeHud {
   private readonly shop: ShopPopup;
   private readonly inventory: InventoryPopup;
   private readonly codex: CodexPopup;
+  private readonly settings: SettingsPopup;
+  private readonly profile: ProfilePopup;
+  private readonly leaderboard: LeaderboardPopup;
 
   constructor(private readonly options: HomeHudOptions) {
     this.shop = new ShopPopup({ root: options.root, services: options.services });
+    this.profile = new ProfilePopup({ root: options.root, services: options.services });
     this.codex = new CodexPopup({ root: options.root, services: options.services });
+    this.settings = new SettingsPopup({ root: options.root });
+    this.leaderboard = new LeaderboardPopup({
+      root: options.root,
+      services: options.services,
+      now: options.serverNow,
+    });
     this.inventory = new InventoryPopup({
       root: options.root,
       services: options.services,
@@ -167,6 +181,10 @@ export class HomeHud {
     // Chỉ hiện số khi vé còn hạn; hết vé thì ô vé chỉ còn icon.
     this.chipTime.textContent = clock;
     this.popupTime.textContent = clock || 'Chưa có vé';
+    // Hết vé thì ẩn cả ô (kèm popup đang mở); có vé lại thì hiện.
+    const hasTicket = clock !== '';
+    if (!hasTicket) void this.setPopupOpen(false);
+    this.ticketWrap.hidden = !hasTicket;
   }
 
   destroy(): void {
@@ -174,6 +192,9 @@ export class HomeHud {
     this.shop.destroy();
     this.inventory.destroy();
     this.codex.destroy();
+    this.settings.destroy();
+    this.leaderboard.destroy();
+    this.profile.destroy();
     this.layer.remove();
     this.menu.remove();
   }
@@ -204,9 +225,10 @@ export class HomeHud {
     this.popup.append(el('h2', 'home-ticket-info__title', 'Vé câu cá'), row, buy);
     this.popup.hidden = true;
 
-    const wrap = el('div', 'home-ticket-wrap');
-    wrap.append(this.chip, this.popup);
-    this.left.append(wrap);
+    // Ô vé chỉ hiện khi vé còn hạn (feedback 2026-11-16); update() bật/tắt theo đồng hồ.
+    this.ticketWrap.append(this.chip, this.popup);
+    this.ticketWrap.hidden = true;
+    this.left.append(this.ticketWrap);
   }
 
   private buildGold(): void {
@@ -221,6 +243,8 @@ export class HomeHud {
   private buildMenu(): void {
     const panel = el('div', 'home-menu__panel');
     panel.setAttribute('role', 'dialog');
+    // Menu mở cũng chặn input vào map (feedback 2026-11-16); lớp `this.menu` có `hidden` khi đóng.
+    panel.setAttribute('aria-modal', 'true');
     panel.setAttribute('aria-label', 'Menu');
     panel.append(img(asset('Menu Panel.png'), 'home-menu__art'));
     const close = button('home-menu__close', 'Đóng menu');
@@ -244,6 +268,15 @@ export class HomeHud {
         if (item.id === 'codex') {
           void this.setMenuOpen(false);
           this.codex.open();
+        } else if (item.id === 'settings') {
+          void this.setMenuOpen(false);
+          this.settings.open();
+        } else if (item.id === 'leaderboard') {
+          void this.setMenuOpen(false);
+          this.leaderboard.open();
+        } else if (item.id === 'profile') {
+          void this.setMenuOpen(false);
+          this.profile.open();
         } else if (item.id === 'shop') {
           void this.setMenuOpen(false);
           this.shop.open('sell');

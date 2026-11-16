@@ -1,4 +1,4 @@
-# Server development
+﻿# Server development
 
 .NET SDK 10.0.401, ASP.NET Core/SignalR + EF Core/Npgsql + StackExchange.Redis. Đã có đăng nhập Firebase, ví, config, phòng hồ, ghế, kinh tế, vòng câu, cá hữu hạn, chat/emoji/skin và Admin API (`/api/v1/admin`); chưa có giao diện Admin. Tài khoản Admin tạo bằng biến môi trường `Admin__BootstrapUsers__0__Email` và `Admin__BootstrapUsers__0__Roles__0`... Chưa kiểm chứng để triển khai production.
 
@@ -22,7 +22,7 @@ Chạm đúp ở thư mục gốc repository (script thật là [tools/run-local
 | File | Làm gì |
 | --- | --- |
 | `run-mock.bat` | Chỉ chạy client với dữ liệu giả. Không cần Docker/server. Mở `pier.html`. |
-| `run-real.bat` | Tự mở Docker Desktop (nếu chưa chạy), bật Postgres + Redis, áp migration, chạy API thật cổng 5080 ở cửa sổ riêng (map `fishing-pier` 16 ghế, **không** dev-bypass), rồi chạy client nối server thật và mở `pier.html`. Vào trang bấm một lần để đăng nhập bằng tài khoản Google thật (Firebase project `fishing-online-c111f`, máy cần có mạng để server xác minh token). |
+| `run-real.bat` | Tự mở Docker Desktop (nếu chưa chạy), bật Postgres + Redis, áp migration, chạy API thật cổng 5080 ở cửa sổ riêng (map `fishing-pier` 30 ghế, **không** dev-bypass), rồi chạy client nối server thật và mở `pier.html`. Vào trang bấm một lần để đăng nhập bằng tài khoản Google thật (Firebase project `fishing-online-c111f`, máy cần có mạng để server xác minh token). |
 
 | `stop-all.bat` | Tắt client, API (cùng cửa sổ của nó), Postgres + Redis (giữ dữ liệu, không xoá volume), rồi thoát Docker Desktop nếu máy không còn container khác. Thêm `-KeepDocker` khi chạy `tools\stop-local.ps1` để giữ Docker Desktop. |
 

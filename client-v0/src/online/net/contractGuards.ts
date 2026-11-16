@@ -91,7 +91,9 @@ export const isInventory: Guard<InventoryResponse> = (v): v is InventoryResponse
   v.rods.every(str) &&
   Array.isArray(v.items) &&
   Array.isArray(v.fish) &&
-  v.fish.every(isFishItem);
+  v.fish.every(isFishItem) &&
+  Array.isArray(v.skins) &&
+  v.skins.every(str);
 
 export const isSellFish: Guard<SellFishResponse> = (v): v is SellFishResponse =>
   obj(v) && int(v.soldCount) && isGold(v.goldEarned) && isGold(v.gold);

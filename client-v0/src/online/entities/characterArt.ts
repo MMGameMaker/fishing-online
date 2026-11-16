@@ -3,8 +3,22 @@
 // id nào chưa có art thì vẫn rơi về sprite vẽ tạm.
 import type Phaser from 'phaser';
 
-/** Skin đã có art thỏ (tạm map 5 skin của Server sang 5 màu thỏ). */
-export const BAKED_SKINS = ['skin_01', 'skin_02', 'skin_03', 'skin_04', 'skin_05'] as const;
+/**
+ * Skin đã có art thỏ: skin_01–05 là 5 màu thân thỏ (tools/bake_characters.py), skin_06–10 là thỏ brown mặc
+ * trang phục (tools/bake_outfit_skins.mjs), bán ở tab "Ngoại hình" của cửa hàng.
+ */
+export const BAKED_SKINS = [
+  'skin_01',
+  'skin_02',
+  'skin_03',
+  'skin_04',
+  'skin_05',
+  'skin_06',
+  'skin_07',
+  'skin_08',
+  'skin_09',
+  'skin_10',
+] as const;
 /** Cần câu đã có art, trùng rodId trong gameplay-config. */
 export const BAKED_RODS = [
   'rod_old',

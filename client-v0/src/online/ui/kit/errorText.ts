@@ -19,6 +19,8 @@ export const ERROR_TEXT: Record<ErrorCode | ClientErrorCode, string> = {
   RESULT_EXPIRED: 'Đã quá hạn gửi kết quả, lần câu không được tính.',
   ROD_NOT_OWNED: 'Bạn chưa sở hữu cần câu này.',
   ROD_ALREADY_OWNED: 'Bạn đã sở hữu cần câu này.',
+  SKIN_NOT_OWNED: 'Bạn chưa sở hữu trang phục này.',
+  SKIN_ALREADY_OWNED: 'Bạn đã sở hữu trang phục này.',
   FISH_NOT_FOUND: 'Không tìm thấy con cá này trong túi.',
   INVALID_QUANTITY: 'Số lượng vé không hợp lệ.',
   PRICE_CHANGED: 'Giá vé vừa thay đổi, hãy xác nhận lại.',

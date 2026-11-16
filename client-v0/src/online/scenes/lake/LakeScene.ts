@@ -5,6 +5,7 @@ import { CharacterView } from '../../entities/CharacterView';
 import { FishingFlow } from '../../fishing/FishingFlow';
 import type { Direction, PlayerView } from '../../net/contract';
 import { mountUiOverlay, showError, showToast } from '../../ui/kit/components';
+import { isModalOpen } from '../../ui/kit/modal';
 import { preloadHeadBubble } from '../../entities/HeadBubble';
 import { CatchBanner } from '../../ui/announce/CatchBanner';
 import { COIN_ART } from '../../ui/coinArt';
@@ -19,7 +20,14 @@ import { SocialUi } from '../../social/SocialUi';
 import { ensureEmoteAnims, preloadEmotes } from '../../social/emojis';
 import { SeatMarkers } from './SeatMarkers';
 import { SeatUi } from './SeatUi';
-import { nearestStandable, startPosition, stepMove, type LakeMap, type LakeSeat } from './walkable';
+import {
+  nearestStandable,
+  randomSpawn,
+  startPosition,
+  stepMove,
+  type LakeMap,
+  type LakeSeat,
+} from './walkable';
 
 export const LAKE_SCENE = 'Lake';
 
@@ -67,6 +75,8 @@ export class LakeScene extends Phaser.Scene {
   private roamCircle!: Phaser.GameObjects.Arc;
   private joystick: Joystick | null = null;
   private moveSender!: MoveSender;
+  private typing = false;
+  private modalOpen = false;
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   private wasd!: Record<'W' | 'A' | 'S' | 'D', Phaser.Input.Keyboard.Key>;
   private root!: HTMLElement;
@@ -174,7 +184,11 @@ export class LakeScene extends Phaser.Scene {
     const { profile } = this.services.store.getState().session;
     this.myId = profile?.playerId ?? '';
     const mine = this.services.store.getState().lake.players[this.myId];
-    const start = startPosition(this.map, mine);
+    // pier.html: mỗi lần vào game xuất hiện ở một chỗ ngẫu nhiên đi được trên map (trừ khi đang giữ ghế,
+    // khi đó nhân vật được đặt vào ghế). Trang khác giữ luật cũ: vị trí lần trước hoặc spawn.
+    const seated = this.services.store.getState().lake.mySeat !== null;
+    const start =
+      isHomeHudEnabled(this) && !seated ? randomSpawn(this.map) : startPosition(this.map, mine);
     const corrected = !mine || start.x !== mine.x || start.y !== mine.y;
     this.me = new CharacterView(this, {
       x: start.x,
@@ -221,6 +235,7 @@ export class LakeScene extends Phaser.Scene {
             skipMinigame: true,
             lightSweep: true,
             closePopupByKey: true,
+            sadOnMissedBite: true,
           }
         : {},
     );
@@ -267,6 +282,10 @@ export class LakeScene extends Phaser.Scene {
       hub.on('ChatReceived', (message) => this.viewOf(message.playerId)?.say(message.text)),
       // Đổi cần (Túi đồ hoặc tab khác): nhân vật của mình và người khác cầm cần mới ngay.
       hub.on('RodChanged', ({ playerId, rodId }) => this.viewOf(playerId)?.setRod(rodId)),
+      // Đổi ngoại hình (khung Ngoại hình): nhân vật của mình thay skin ngay; người khác đã nhận qua danh sách players.
+      hub.on('SkinChanged', ({ playerId, skinId }) => {
+        if (playerId === this.myId) this.me.setSkin(skinId);
+      }),
       hub.on('EmojiReceived', ({ playerId, emojiId }) => this.showEmoji(playerId, emojiId)),
       () => this.social.destroy(),
     );
@@ -280,10 +299,28 @@ export class LakeScene extends Phaser.Scene {
 
   /** Đang gõ chat: tắt phím game và trả phím cho ô nhập (WASD/F/Space không điều khiển nhân vật). */
   private setTyping(typing: boolean): void {
+    this.typing = typing;
+    this.applyKeyboardGate();
+  }
+
+  /**
+   * Popup chính đang mở (feedback 2026-11-16): nhân vật đứng yên, chặn mọi phím và chuột vào map.
+   * Gọi mỗi khung; chỉ làm gì khi trạng thái đổi.
+   */
+  private syncModal(): void {
+    const open = isModalOpen() || this.flow.isResultOpen();
+    if (open === this.modalOpen) return;
+    this.modalOpen = open;
+    this.applyKeyboardGate();
+  }
+
+  /** Phím game tắt khi đang gõ chat hoặc có popup mở; trả phím cho ô nhập của popup. */
+  private applyKeyboardGate(): void {
     const keyboard = this.input.keyboard;
     if (!keyboard) return;
-    keyboard.enabled = !typing;
-    if (typing) {
+    const gated = this.typing || this.modalOpen;
+    keyboard.enabled = !gated;
+    if (gated) {
       keyboard.disableGlobalCapture();
       keyboard.resetKeys();
     } else {
@@ -335,6 +372,12 @@ export class LakeScene extends Phaser.Scene {
   private bindStore(): void {
     const { store } = this.services;
     this.cleanups.push(
+      store.select(
+        (s) => s.session.profile?.displayName,
+        (name) => {
+          if (name) this.me?.setName(name);
+        },
+      ),
       store.select(
         (s) => s.lake.correction,
         (correction) => {
@@ -420,7 +463,7 @@ export class LakeScene extends Phaser.Scene {
   }
 
   private onSeatPressed(seat: LakeSeat): void {
-    if (this.flow.isLocked()) return;
+    if (this.flow.isLocked() || this.modalOpen) return;
     const { lake } = this.services.store.getState();
     const view = lake.seats[seat.seatId];
     if (!view) return;
@@ -511,6 +554,7 @@ export class LakeScene extends Phaser.Scene {
   }
 
   private readAxis(): { x: number; y: number } {
+    if (this.modalOpen) return { x: 0, y: 0 };
     const right = this.cursors.right.isDown || this.wasd.D.isDown;
     const left = this.cursors.left.isDown || this.wasd.A.isDown;
     const down = this.cursors.down.isDown || this.wasd.S.isDown;
@@ -547,6 +591,7 @@ export class LakeScene extends Phaser.Scene {
   update(_time: number, delta: number): void {
     const nowMs = performance.now();
     const serverNowMs = this.serverNow();
+    this.syncModal();
     this.moveMe(delta, nowMs);
     this.flow.update();
     this.seatMarkers.update();

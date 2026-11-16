@@ -394,6 +394,31 @@
       "offerId": "offer_rod_giant_caster",
       "itemId": "rod_giant_caster",
       "priceGold": 2000
+    },
+    {
+      "offerId": "offer_skin_06",
+      "itemId": "skin_06",
+      "priceGold": 300
+    },
+    {
+      "offerId": "offer_skin_07",
+      "itemId": "skin_07",
+      "priceGold": 300
+    },
+    {
+      "offerId": "offer_skin_08",
+      "itemId": "skin_08",
+      "priceGold": 300
+    },
+    {
+      "offerId": "offer_skin_09",
+      "itemId": "skin_09",
+      "priceGold": 300
+    },
+    {
+      "offerId": "offer_skin_10",
+      "itemId": "skin_10",
+      "priceGold": 300
     }
   ],
   "ticketPricing": {

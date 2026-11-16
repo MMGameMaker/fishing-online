@@ -6,8 +6,16 @@ body.page-pier .social-toggle {
   bottom: 16px;
 }
 
+/* Feedback 2026-11-16: nút mở chat nâng lên, căn giữa theo chiều dọc ở mép trái (nút cao 57px). Khung chat
+   to gấp 1,2 (--chat-zoom, SocialUi.fit tính cỡ), hạ sát đáy và phủ lên nút khi mở (đóng bằng nút X). */
+body.page-pier .social-toggle {
+  top: calc(50% - 28px);
+  bottom: auto;
+}
+
 body.page-pier .social-panel {
-  bottom: 84px;
+  --chat-zoom: 1.2;
+  bottom: 16px;
 }
 
 /* Feedback 2026-11-14: lưới emoji 5 cột vừa lòng khung (452 - viền 48 - lề 36 = 368px) và căn giữa;

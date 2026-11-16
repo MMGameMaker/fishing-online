@@ -28,15 +28,24 @@ public static class LedgerReasons
     /// <summary>Lý do của luật thuê ghế trước SPEC 0.9; chỉ còn trong ledger cũ.</summary>
     public const string SeatExtension = "seat_extension";
     public const string BuyRod = "buy_rod";
+
+    /// <summary>Mua skin ở tab "Ngoại hình" của cửa hàng; RefId là offerId.</summary>
+    public const string BuySkin = "buy_skin";
     public const string SellFish = "sell_fish";
     public const string AdminAdjust = "admin_adjust";
 
     /// <summary>Nạp Gold thử của tab "Nạp Gold" (endpoint chỉ có ở Development, xem DevTopUp).</summary>
     public const string DevTopUp = "dev_topup";
 
+    /// <summary>Thưởng nhận thành tựu; RefId là "&lt;thành tựu&gt;:&lt;level&gt;".</summary>
+    public const string GrantAchievement = "grant_achievement";
+
+    /// <summary>Gold Server tự cấp cho tài khoản bot để mua vé (chỉ Admin thấy trong sổ cái).</summary>
+    public const string BotGrant = "bot_grant";
+
     public static readonly IReadOnlySet<string> All = new HashSet<string>
     {
-        GrantNewPlayer, TicketPurchase, SeatPurchase, SeatExtension, BuyRod, SellFish, AdminAdjust, DevTopUp,
+        GrantNewPlayer, TicketPurchase, SeatPurchase, SeatExtension, BuyRod, BuySkin, SellFish, AdminAdjust, DevTopUp, GrantAchievement, BotGrant,
     };
 }
 

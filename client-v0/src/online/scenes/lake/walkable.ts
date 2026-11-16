@@ -101,6 +101,73 @@ export function nearestStandable(
   return null;
 }
 
+/** Ô (cột, hàng) đi tới được từ spawn, tính một lần cho mỗi map (BFS theo ô, điểm thử ở giữa đáy ô). */
+const reachableCache = new WeakMap<LakeMap, { x: number; y: number }[]>();
+
+function cellPoint(map: LakeMap, col: number, row: number): { x: number; y: number } {
+  return { x: col * map.tileSize + map.tileSize / 2, y: (row + 1) * map.tileSize - 1 };
+}
+
+/**
+ * Các điểm đứng được và đi bộ tới được từ spawn. Loại nước, vật cản và cả những ô "đi được" bị cô lập
+ * (vd. nóc thùng, góc kẹt) để người chơi không bị sinh ra chỗ không ra được.
+ */
+export function reachablePoints(map: LakeMap): { x: number; y: number }[] {
+  const cached = reachableCache.get(map);
+  if (cached) return cached;
+  const cols = map.widthTiles;
+  const rows = map.heightTiles;
+  const seen = new Uint8Array(cols * rows);
+  const ok = (c: number, r: number): boolean => {
+    if (c < 0 || r < 0 || c >= cols || r >= rows) return false;
+    const p = cellPoint(map, c, r);
+    return canStand(map, p.x, p.y) && inLakeArea(map, p.x, p.y);
+  };
+  const startCol = Math.floor(map.spawn.x / map.tileSize);
+  const startRow = Math.floor(map.spawn.y / map.tileSize);
+  const out: { x: number; y: number }[] = [];
+  if (!ok(startCol, startRow)) {
+    reachableCache.set(map, out);
+    return out;
+  }
+  const queue: number[] = [startRow * cols + startCol];
+  seen[startRow * cols + startCol] = 1;
+  while (queue.length > 0) {
+    const index = queue.pop()!;
+    const c = index % cols;
+    const r = (index - c) / cols;
+    out.push(cellPoint(map, c, r));
+    for (const [dc, dr] of [
+      [1, 0],
+      [-1, 0],
+      [0, 1],
+      [0, -1],
+    ] as const) {
+      const nc = c + dc;
+      const nr = r + dr;
+      const next = nr * cols + nc;
+      if (nc < 0 || nr < 0 || nc >= cols || nr >= rows || seen[next]) continue;
+      seen[next] = 1;
+      if (ok(nc, nr)) queue.push(next);
+    }
+  }
+  reachableCache.set(map, out);
+  return out;
+}
+
+/**
+ * Điểm xuất phát ngẫu nhiên khi vào game (yêu cầu 2026-11-16): bất kỳ chỗ đứng được và đi tới được trên map,
+ * không phải nước hay vật cản. Map không có chỗ nào như vậy thì về spawn.
+ */
+export function randomSpawn(
+  map: LakeMap,
+  random: () => number = Math.random,
+): { x: number; y: number } {
+  const points = reachablePoints(map);
+  if (points.length === 0) return { ...map.spawn };
+  return { ...points[Math.floor(random() * points.length)]! };
+}
+
 /** Bán kính tìm chỗ đứng được quanh vị trí Server trả về lúc vào hồ. */
 const START_SEARCH_PX = 32;
 

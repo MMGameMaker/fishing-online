@@ -1,4 +1,4 @@
-# Phương án deploy bản chơi thử
+﻿# Phương án deploy bản chơi thử
 
 **Đã chốt (người dùng, 2026-11-14): máy nội bộ + Tailscale Funnel, chạy production, public, chi phí 0; máy đích là máy khác máy dev.** Các phương án còn lại bên dưới là đề xuất tham khảo, không chọn. Chưa triển khai, chưa kiểm chứng trên máy đích (đặc biệt WebSocket qua Funnel).
 
@@ -58,7 +58,7 @@ Máy đích cần Docker (hoặc Postgres 17 + Redis 7 cài sẵn), .NET SDK the
 1. `server/start-api.ps1` ép `ASPNETCORE_ENVIRONMENT=Development` và bind `http://localhost:5080` → không dùng được cho production. Cần lệnh chạy riêng: `dotnet publish`, môi trường Production, `--urls http://127.0.0.1:5080`.
 2. `AllowedHosts` trong `appsettings.json` là `localhost;127.0.0.1` → request qua `*.ts.net` bị host filtering từ chối (400). Đặt `AllowedHosts__0=<máy>.<tailnet>.ts.net` hoặc `*` (sau Caddy).
 3. `Gameplay:ConfigPath` là `../../docs/v01/fixtures/gameplay-config.v0.json` tính từ thư mục chạy API → khi publish ra thư mục khác sẽ không thấy file. Copy fixture theo và đặt `Gameplay__ConfigPath` bằng đường dẫn tuyệt đối.
-4. Map `pier`: mặc định server là `lake-01`/`1`/20 ghế; client `pier.html` cần `Lake__MapId=fishing-pier`, `Lake__MapVersion=pier-1`, `Lake__SeatCount=16` (chỉ `tools/run-local.ps1` đang đặt). Thiếu thì lệch map/ghế với client.
+4. Map `pier`: mặc định server là `lake-01`/`1`/20 ghế; client `pier.html` cần `Lake__MapId=fishing-pier`, `Lake__MapVersion=pier-2`, `Lake__SeatCount=30` (chỉ `tools/run-local.ps1` đang đặt). Thiếu thì lệch map/ghế với client.
 5. Migration: `migrate-local.ps1` chỉ dùng cấu hình Compose local. Máy đích cần chạy `dotnet ef database update` hoặc bundle với connection string của máy đó (API không tự migrate).
 6. `.env` không có trong git: `server/.env` (mật khẩu Postgres, do `start-infra.ps1` tạo) và `client-v0/.env.local`. Build client cần `VITE_USE_MOCK=false`, `VITE_API_BASE=https://<máy>.<tailnet>.ts.net`, `VITE_FIREBASE_API_KEY`, `VITE_FIREBASE_PROJECT_ID` (+ `AUTH_DOMAIN`, `APP_ID`); thiếu key thì `firebaseAuth.js` ném lỗi.
 7. `ClientOrigins` mặc định chỉ có localhost → đặt `ClientOrigins__0=https://<máy>.<tailnet>.ts.net`.

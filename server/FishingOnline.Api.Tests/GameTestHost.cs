@@ -173,6 +173,9 @@ public sealed class GameApp : WebApplicationFactory<Program>
         builder.UseEnvironment("Development");
         builder.UseSetting("ConnectionStrings:Postgres", ConnectionString);
         builder.UseSetting("Auth:DevBypass", "true");
+        // Bot không tự chạy theo giờ trong test; test gọi BotManager.CheckOnceAsync trực tiếp. Bot chờ ngắn lại 50 lần.
+        builder.UseSetting("Bots:PollMs", "0");
+        builder.UseSetting("Bots:TimeScale", "50");
         builder.UseSetting("Auth:JwtSigningKey", Convert.ToBase64String(RandomNumberGenerator.GetBytes(48)));
         if (!RealTimers)
         {

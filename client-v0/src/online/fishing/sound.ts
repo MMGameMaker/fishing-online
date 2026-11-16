@@ -1,5 +1,6 @@
 // Âm thanh câu cá, ghép từ public/new resources/reference/sounds.csv.
 // Phát bằng Web Audio; file nạp lười ở lần phát đầu và giữ lại để lần sau phát ngay.
+import { getAudioSettings } from '../core/audioSettings';
 import type { Rarity } from '../core/gameplayConfig';
 
 const SOUND_DIR = '/new resources/sound/';
@@ -71,6 +72,8 @@ function load(ctx: AudioContext, name: SoundName): Promise<AudioBuffer | null> {
 
 /** Phát một âm thanh; lỗi nạp/phát chỉ ghi cảnh báo, không làm hỏng lượt câu. */
 export function playSound(name: SoundName, volume = VOLUME): void {
+  const level = volume * getAudioSettings().sound;
+  if (level <= 0) return;
   const ctx = audioContext();
   if (!ctx) return;
   void load(ctx, name).then((buffer) => {
@@ -78,7 +81,7 @@ export function playSound(name: SoundName, volume = VOLUME): void {
     const source = ctx.createBufferSource();
     const gain = ctx.createGain();
     source.buffer = buffer;
-    gain.gain.value = volume;
+    gain.gain.value = level;
     source.connect(gain).connect(ctx.destination);
     source.start();
   });

@@ -42,6 +42,8 @@ public sealed class HttpEnvelopeTests(ApiFactory factory) : IClassFixture<ApiFac
     [InlineData("STATE_CONFLICT", 409, false)]
     [InlineData("INSUFFICIENT_GOLD", 422, false)]
     [InlineData("ROD_NOT_OWNED", 422, false)]
+    [InlineData("SKIN_ALREADY_OWNED", 409, false)]
+    [InlineData("SKIN_NOT_OWNED", 422, false)]
     [InlineData("NOT_IN_SEAT", 422, false)]
     [InlineData("RATE_LIMITED", 429, true)]
     public async Task ErrorCode_MapsToHttpStatus(string code, int status, bool retryable)

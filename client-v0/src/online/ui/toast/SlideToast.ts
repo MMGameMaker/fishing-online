@@ -2,6 +2,7 @@
 // trượt lên (ease OutQuad), giữ 1,5 giây rồi trượt xuống (ease OutQuad). Nằm trên mọi UI. Mỗi lúc chỉ một
 // thông báo: có thông báo mới thì cái đang hiện trượt xuống ngay, xong mới trượt cái tiếp theo lên.
 import type Phaser from 'phaser';
+import { COIN_ART } from '../coinArt';
 import { trackCanvasFrame, type ToastKind } from '../kit/components';
 
 const SLIDE_MS = 260;
@@ -56,17 +57,37 @@ export class SlideToast {
 
   private async play(item: Item): Promise<void> {
     const toast = document.createElement('div');
-    toast.className = `slide-toast slide-toast--${item.kind}`;
-    toast.textContent = item.message;
+    // Feedback 2026-11-16: icon theo loại (lỗi "!", Gold đồng xu, còn lại dấu ✓) và nảy nhẹ khi hiện.
+    const gold = item.kind === 'info' && /\bGold\b/i.test(item.message);
+    toast.className = `slide-toast slide-toast--${item.kind}${gold ? ' slide-toast--gold' : ''}`;
+    const icon = document.createElement('span');
+    icon.className = 'slide-toast__icon';
+    icon.setAttribute('aria-hidden', 'true');
+    if (gold) {
+      const coin = document.createElement('img');
+      coin.src = COIN_ART;
+      coin.alt = '';
+      icon.append(coin);
+    } else {
+      icon.textContent = item.kind === 'error' ? '!' : '✓';
+    }
+    const text = document.createElement('span');
+    text.className = 'slide-toast__text';
+    text.textContent = item.message;
+    toast.append(icon, text);
     this.host.append(toast);
     const hidden = `translate(-50%, calc(100% + ${BOTTOM_PX + 8}px))`;
     const shown = 'translate(-50%, 0)';
+    const overshoot = 'translate(-50%, -10px)';
     try {
-      await toast.animate([{ transform: hidden }, { transform: shown }], {
-        duration: SLIDE_MS,
-        easing: EASE_OUT_QUAD,
-        fill: 'forwards',
-      }).finished;
+      await toast.animate(
+        [
+          { transform: hidden, offset: 0 },
+          { transform: overshoot, offset: 0.7 },
+          { transform: shown, offset: 1 },
+        ],
+        { duration: SLIDE_MS + 120, easing: EASE_OUT_QUAD, fill: 'forwards' },
+      ).finished;
       // Giữ 1,5 giây, hoặc kết thúc sớm khi có thông báo mới.
       if (this.queue.length === 0) {
         await new Promise<void>((resolve) => {

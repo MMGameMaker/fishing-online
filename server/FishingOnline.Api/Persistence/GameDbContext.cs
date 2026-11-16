@@ -16,6 +16,15 @@ public sealed class PlayerProfile
     public string SelectedSkinId { get; set; } = string.Empty;
     public string EquippedRodId { get; set; } = string.Empty;
     public int InventoryVersion { get; set; }
+
+    /// <summary>Danh hiệu đang đeo; null là mặc định (Profile/ProfileModule.cs).</summary>
+    public string? TitleId { get; set; }
+
+    /// <summary>Lời nhắn tối đa 100 ký tự.</summary>
+    public string Bio { get; set; } = string.Empty;
+
+    /// <summary>Tài khoản bot do Server điều khiển (Modules/Bots). Chỉ Admin và nội bộ Server được biết, không gửi cho Client.</summary>
+    public bool IsBot { get; set; }
 }
 
 public sealed class GameDbContext(DbContextOptions<GameDbContext> options) : DbContext(options)
@@ -37,6 +46,9 @@ public sealed class GameDbContext(DbContextOptions<GameDbContext> options) : DbC
             entity.Property(player => player.Level).HasDefaultValue(1);
             entity.Property(player => player.SelectedSkinId).HasMaxLength(64);
             entity.Property(player => player.EquippedRodId).HasMaxLength(64);
+            entity.Property(player => player.TitleId).HasMaxLength(32);
+            entity.Property(player => player.Bio).HasMaxLength(400).HasDefaultValue(string.Empty);
+            entity.Property(player => player.IsBot).HasDefaultValue(false);
         });
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(GameDbContext).Assembly);
     }

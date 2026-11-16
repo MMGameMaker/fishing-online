@@ -374,3 +374,126 @@ Tên hiển thị khớp bảng `FISH` trong `tools/export_fish_art.py`: minnow�
 - Sửa `fishing/CatchCard.ts`: `ROWS` theo số đo ảnh mới (lòng hàng 276–332, 337–400, 405–468, 473–536, 541–604; tâm 304/368/436/504/572), `ROW_X1` 515, dòng gợi ý F/Space ở tâm dải trống `HINT_CENTER_Y` 630 (y 609–651). Khung tranh cá giữ nguyên (32,36, 472×228).
 - Ảnh mới áp dụng cho mọi trang dùng thẻ này; trang khác không còn đồng xu vẽ sẵn ở hàng Giá nếu không truyền `coinSrc`.
 - Kiểm tra: tsc, eslint, vitest 259 qua; mock trên trình duyệt: không còn chữ mẫu sót, chữ thẳng hàng, dòng gợi ý nằm gọn trong khung.
+
+
+## Web Client — Popup Tài khoản (pier.html, 2026-11-16)
+
+- **Phạm vi:** `client-v0/src/online/ui/profile/` (ProfilePopup, profileModel, profileArt, profile.css, test), nối ô "Hồ sơ" trong `HomeHud.ts`, `CharacterView.setName` + `LakeScene.bindStore` (tên trên đầu đổi theo hồ sơ), mock `mock/achievements.ts` + route trong `MockBackend.ts`, kiểu mới trong `net/contract.ts`.
+- **Đầu ra:** khung `ui/Infomation/Frame.png` (hiện ×1.5): avatar + UID tạm (suy từ playerId), ô tên → tab đổi tên (**3–16 ký tự**, người dùng chọn giữ luật hiện hành thay vì 18; đổi xong cập nhật khung home và tên trên đầu), ô danh hiệu → tab chọn 6 danh hiệu (Bậc thầy câu cá + 5 tên tạm: Tay câu mới nổi, Thợ săn cá hiếm, Vua hồ câu, Bạn của biển cả, Huyền thoại cần câu; chờ GD duyệt tên), ô lời nhắn → tab nhập tối đa 100 ký tự, 3 ô cá khoe để trống dấu +, cột Thành tựu 8 thành tựu theo GAMEPLAY_SCOPE: đạt mốc chưa nhận thì thẻ phủ đỏ nhấp nháy + chấm đỏ, bấm nhận 100 Gold một level mỗi lần rồi hiện lại theo số đếm thật, đủ 5 level thì thanh đầy + dấu ✓.
+- **Contract dự thảo (chỉ mock, Server thật chưa có):** `PlayerProfile.titleId?/bio?`; `PUT /me/title {titleId}`, `PUT /me/bio {bio}`, `GET /me/achievements` → `{achievements:[{id,name,counter,thresholds[5],claimedLevels,rewardGold}]}`, `POST /me/achievements/claim {achievementId}` → `{achievement,goldAdded,gold}`; `POST /dev/achievement-progress` chỉ để thử. BE cần quyết định chung khi làm thật (đếm ở server, ledger, idempotency).
+- **Art:** avatar thỏ và 8 icon thành tựu là placeholder pixel tự tạo (`profileArt.ts`), chưa phải art thật. Mock chưa đếm thời gian ngồi câu (Người bền bỉ) và chưa đếm "người tiên phong" từ server thật.
+- **Kiểm tra:** `tsc`, `vitest` (267 test), eslint sạch; chạy `pier.html` bằng mock: mở từ menu, đổi tên (khung home + tên đầu nhân vật cập nhật), đổi danh hiệu, lưu lời nhắn, nhận thưởng (Gold 100→200, 14/50 ở Lv.2), thành tựu đủ level hiện ✓. Chưa thử với Server thật, chưa kiểm màn hẹp.
+- **Tiếp theo:** người dùng đã duyệt giao diện popup Tài khoản (2026-11-16); còn ô cá khoe; GD chốt tên danh hiệu và câu hỏi mở về thành tựu.
+
+### Bổ sung 2026-11-16: ô cá khoe và Server thật (người dùng yêu cầu "làm tất cả việc còn lại")
+
+- **Server (`server/FishingOnline.Api/Modules/Profile/ProfileModule.cs`, migration `PRO_ProfileAchievements`):** `players.TitleId/Bio`, bảng `achievement_claims` (khóa chính player+thành tựu+level chặn nhận trùng) và `showcase_slots`. `PlayerProfileView` thêm `titleId` (mặc định `master`) và `bio`; fixture `docs/v01/fixtures/api-samples.v0.json` cập nhật theo (hai mẫu player).
+- **Contract (Server và mock giống nhau):** `PUT /me/title {titleId}` (6 id: master, rookie, hunter, lake_king, sea_friend, legend); `PUT /me/bio {bio}` (≤100 ký tự); `GET/PUT /me/showcase` (3 ô, `{slot, speciesId|null}`, hiện con dài nhất của loài đã mở khóa, một loài một ô); `GET /me/achievements`; `POST /me/achievements/claim {achievementId}` có `Idempotency-Key`, mỗi lần nhận một level, cộng 100 Gold qua ví với ledger `grant_achievement` ref `<id>:<level>`.
+- **Đếm thành tựu ở Server (suy ra từ dữ liệu có sẵn, không bộ đếm riêng):** cá từ `catches`, loài từ `species_records`, Gold bán cá từ ledger `sell_fish`, thời gian ngồi từ `seat_sessions` (phút, **tính cả Idle** vì GD chưa chốt), người tiên phong = loài mà lần đầu của người này sớm nhất toàn hệ thống, cá khủng = chiều dài ≥ tối đa của loài (GD chưa chốt nghĩa "kích thước tối đa").
+- **Client:** 3 ô cá khoe bấm chọn loài từ Sổ tay (`/me/codex`), hiện ảnh + chiều dài, có nút Gỡ cá. Client đã gọi đúng các route trên nên chạy được với Server thật (`run-real.bat`), chưa thử trên trình duyệt với Server thật.
+- **Kiểm tra:** `dotnet test server`: 203/205 qua; `Me_MatchesSampleShape` đã sửa theo fixture và qua; `Disconnect125s_LosesSeat_SeatFreeAtOnce` fail khi chạy cả bộ nhưng qua khi chạy riêng (không thuộc phạm vi này, có vẻ phụ thuộc thời gian). 4 test mới ở `AccountScreenTests.cs` qua. Client: `tsc`, vitest 267, eslint sạch; trên mock đã thử hộp "Chọn cá khoe" khi chưa có cá; chưa thử chọn cá thật trên trình duyệt (cần câu được cá).
+- **Còn mở:** tên 5 danh hiệu chờ GD; GD chốt Idle/cá khủng/tiên phong; chưa có UID riêng ở Server (UID hiện suy từ playerId).
+
+## Web Client — Feedback 2026-11-16 (pier.html) — CHỜ LỆNH "làm"
+
+Người dùng gửi 6 feedback; quy tắc: ghi lại, người dùng giải thích, Claude hỏi lại, **chưa làm cho tới khi có lệnh**. Nguyên văn ý:
+
+1. UI Login, loading theo design.
+2. Icon chat to lên 50%.
+3. Các popup UI chính khi hiện lên phải chặn input vào map (chuột và bàn phím), chỉ tương tác với popup đang mở: UI mua vé, cửa hàng (bán cá, trang bị), Sổ tay cá, popup thông tin cá câu được.
+4. UI bán cá, chọn cá: chọn 1 cá xong scroll bị reset về đầu; phần trang bị cũng phải kiểm tra. Chỉ reset về đầu khi mới mở.
+5. Bỏ UI nạp Gold.
+6. Floating toast nhìn chưa thu hút.
+
+Làm rõ (người dùng trả lời 2026-11-16):
+
+1. Khi vào `https://desktop-oohtpvv.tail21ba23.ts.net/` cũng phải có màn login như khi mở `http://localhost:5173/`. Còn cần xác nhận hiện tượng đang gặp ở URL ts.net.
+2. Chỉ phóng to icon chat 50% ở HUD và trong khung chat (không đổi ô bấm/vị trí).
+3. Popup mở thì nhân vật đứng yên, chặn toàn bộ chuột và phím vào map.
+4. Chỉ reset scroll khi mở popup (đúng ý).
+5. Chỉ ẩn UI nạp Gold ở client; giữ route dev ở Server.
+6. Toast: làm theo đề xuất (icon theo loại thành công/lỗi/Gold, hiệu ứng nảy khi hiện).
+
+Trạng thái: đã làm theo lệnh "làm đi" (2026-11-16), xem mục dưới.
+
+### Đã làm (pier.html, 2026-11-16)
+
+- **1. Login/loading theo design:** `ui/boot/BootScreens.ts` + `boot.css` (logo, thẻ "Đăng nhập" + nút Google, màn tải có thanh tiến độ và mẹo; cùng kiểu `index.html`, dùng ảnh `public/login/`). Bật qua `BootOptions.screens` chỉ ở `pier.html`; `BootScene` dùng nó thay chữ Phaser (đăng nhập Google, đăng nhập dev, báo lỗi quay về màn đăng nhập để bấm thử lại). URL ts.net chuyển `/` sang `pier.html` (Caddyfile) nên giờ cũng có màn này; cần build lại `dist` khi chạy playtest. Mẹo trong màn tải là chữ tạm tự viết, GD duyệt.
+- **2. Icon +50% (đã sửa lại cùng ngày):** ban đầu hiểu nhầm là nút chat; ý người dùng là **emoji trên đầu nhân vật** (trong bong bóng). Đã trả nút chat và hai nút trong khung chat về cỡ cũ; emoji trên đầu ×1.5 (`HEAD_EMOTE_SCALE` trong `CharacterView.ts`, bong bóng ôm theo icon, chỉ trang có bong bóng như pier).
+- **3b. Menu cũng chặn input:** panel menu HomeHud có `aria-modal`; `isModalOpen` bỏ qua lớp có `hidden`.
+- **3. Chặn input khi popup mở:** `ui/kit/modal.ts` (`isModalOpen`: có lớp `aria-modal="true"` chưa đóng); `LakeScene` mỗi khung kiểm tra (cộng thẻ cá câu được): nhân vật đứng yên, tắt phím Phaser, chặn bấm ghế; `FishButton` bỏ phím Space khi có popup. Áp cho mua vé, cửa hàng, túi đồ, Sổ tay, Tài khoản, Bảng xếp hạng, hộp thoại xác nhận, thẻ cá. Chuột đã bị lớp phủ popup chặn.
+- **4. Scroll:** `ui/kit/scroll.ts` (`snapshotScroll`); Cửa hàng và Túi đồ giữ vị trí cuộn khi dựng lại, chỉ về đầu khi mới mở hoặc đổi tab.
+- **5. Nạp Gold:** ẩn tab "Nạp Gold" ở client (`TABS` trong `ShopPopup.ts`); mã tab, mock và route dev `/dev/topup` giữ nguyên.
+- **6. Toast:** chữ 22px, icon tròn theo loại (✓ xanh, ! đỏ, đồng xu cho thông báo có "Gold"), nảy nhẹ khi hiện (`SlideToast.ts`, `toast.css`).
+- **Kiểm tra:** tsc, eslint, prettier sạch; vitest 267 qua. Trên trình duyệt (mock, `googleInMock` tắt tạm rồi bật lại): màn đăng nhập và màn tải hiển thị đúng; đang mở cửa hàng, giữ phím D nhân vật không nhúc nhích (đóng thì đi 45px); tab Nạp Gold biến mất; cuộn cửa hàng 150 giữ nguyên sau khi kho đổi, về 0 khi đổi tab; toast có icon đồng xu; nút chat 81×86.
+- **Chưa kiểm:** đăng nhập Google thật trên ts.net (cần build lại và thử), danh sách cá thật cuộn trong tab Bán cá, thẻ cá câu được chặn phím trên máy thật, hoạt ảnh toast mượt (khung trình duyệt bị ẩn).
+
+## Server — Bot giữ hồ không vắng (yêu cầu 2026-11-16)
+
+Yêu cầu: Server kiểm tra 3 phút một lần; tổng người trong hồ (cả bot) dưới 10 thì cho 1 bot vào (Admin chỉnh được config); bot đi lại trên map, thi thoảng câu cá như người chơi thật và được tính vào bảng xếp hạng; cá của bot và của người thật được đánh dấu cho Admin, không lộ trong gói gửi Client. GD/người dùng chốt thêm: config ở bảng riêng, bot rời khi dư người, Server tự cấp Gold cho bot mua vé.
+
+- **Cách chạy (`server/FishingOnline.Api/Modules/Bots/`):** `BotDirector` (BackgroundService) gọi `BotManager.CheckOnceAsync` theo `CheckIntervalSeconds` (đọc lại cài đặt mỗi lần, lần đầu sau 15 giây khởi động). Tổng người = `LakeRoom.Count` (cả bot). Dưới `MinTotalPlayers` và bot < `MaxBots` thì thêm 1 bot; trên ngưỡng thì cho 1 bot rời; `Enabled=false` thì cho hết bot rời. Bot nghỉ được dùng lại (giữ tên, điểm bảng xếp hạng), chưa có thì tạo mới (tên Việt/nước ngoài, skin_01..05, Gold và cần mặc định như người mới).
+- **Hành vi (`BotAgent`):** có mặt trong phòng, phát `PlayerJoined`/`PlayerMoved`/`PlayerLeft` như người thật; đi dạo trên chỗ đứng được (dùng bản sao map pier `pier-map.json` + luật va chạm giống `walkable.ts`), 70% vòng thì đi câu: mua vé nếu sắp hết (Gold thiếu thì Server cấp, ledger `bot_grant`), tới ghế trống, `SitDown`, 2–5 lượt `Cast → chờ cá cắn → Hook → Submit` qua đúng `FishingService`/`SeatSessions` mà Hub gọi, rồi đứng dậy. Cá lấy từ hồ thật, có EXP, khoe cá và bảng xếp hạng như người thật. Tỉ lệ báo thắng minigame = `SuccessRatePct` (mặc định 60).
+- **Đánh dấu cho Admin, không lộ Client:** cột `players.IsBot`, `catches.IsBot` (migration `BOT_BotsAndMarks`, chưa áp vào DB local của người dùng: chạy `run-local`/`dotnet ef database update`); Admin thấy `isBot` ở `/admin/players` (tìm kiếm + chi tiết), `/admin/players/{id}/catches`, `botPlayerIds` ở `/admin/lake`. Không thêm trường nào vào `PlayerView`, `RankingView`, `InventoryView`, `CatchShown/CatchAnnounced`, `/me`; có test kiểm tên trường của gói và tìm "isBot" trong phản hồi.
+- **Config Admin chỉnh (bảng `bot_settings`, không cần publish config gameplay):** `GET/PUT /api/v1/admin/bots/settings` (quyền `config.read`/`config.write`, có audit `bots.settings`): `enabled`, `minTotalPlayers` (0–50, mặc định 10), `checkIntervalSeconds` (10–3600, mặc định 180), `maxBots` (0–50, mặc định 10), `successRatePct` (0–100, mặc định 60). `GET /api/v1/admin/bots` (quyền `player.read`) liệt kê bot, đang ở hồ hay không, số cá. Cần Admin Tool làm màn hình gọi các API này (chưa làm).
+- **Kiểm tra:** `dotnet test server`: Domain 156/156; Api 218/219, 7 test mới ở `BotTests.cs` qua (ngưỡng thêm/bớt, MaxBots và tắt, dùng lại bot, gói không có cờ bot, cá đánh dấu và Admin thấy, API cài đặt + quyền + audit, một bot thật chạy 90 giây tối đa trên đồng hồ thật: mua vé, câu được cá, đánh dấu IsBot). Test còn fail là `SeatTests.Disconnect125s_LosesSeat_SeatFreeAtOnce` (đã flaky từ trước, qua khi chạy riêng). Chưa chạy bot trên Server dev với Client thật trong trình duyệt.
+- **Cần GD/người dùng quyết:** (1) `pier-map.json` là bản sao map pier: map đổi thì phải cập nhật (và `Lake:MapId`/`SeatCount` phải khớp pier); (2) bot hiện không bán cá nên túi cá bot đầy dần, không ảnh hưởng người thật; (3) bot vào bảng xếp hạng tuần chiếm hạng 1–50 và hiển thị thưởng như người thật; thưởng chưa tự cộng nên chưa có tiền chi cho bot, nhưng khi làm trả thưởng tự động phải loại bot; (4) Idle: bot câu hết lượt thì đứng dậy đi dạo nên không ngồi treo.
+
+## Map pier 30 ghế (yêu cầu 2026-11-16)
+
+Yêu cầu: bỏ thùng gỗ và ghế dài ở khu cầu phía dưới (hình 1) rồi thêm 8 ghế câu; ở mũi cầu phía trên (hình 2) bỏ ghế dài và thêm 6 ghế; Server chạy 30 ghế.
+
+- **Khu 1 (cầu dưới, y≈416–520):** bỏ chồng thùng gỗ (4 `boxClosed`) và 2 ghế dài ngang; thêm 5 ghế hàng trên quay lên (x 584, 616, 648, 680, 744; y 434) và 3 ghế hàng dưới quay xuống (x 552, 696, 744; y 514). Ghế cũ `seat-05..08` giữ nguyên.
+- **Khu 2 (mũi cầu, x≈568–696, y≈184–300):** bỏ ghế dài đứng và 2 ghế dài ngang (cọc gỗ giữa mũi cầu giữ lại); thêm 2 ghế mép trái quay trái (x 584; y 208, 240), 3 ghế mép dưới quay xuống (x 600, 632, 664; y 292), 1 ghế mép phải quay phải (688, 240).
+- **Dữ liệu:** `client-v0/src/online/scenes/pier/fishingPierMap.json`: bỏ 28 object (đủ lớp bóng), thêm 14 ghế đẩu (+ bóng) và 14 dòng `lake.seats` (`seat-17..30`; ghế đẩu nằm ở `(x-7, y-17)` so với điểm ngồi), sửa lưới đi được (trả đường đi chỗ thùng/ghế dài, chặn chân ghế đẩu mới), `mapVersion` `pier-2`. Bản sao cho bot `server/FishingOnline.Api/Modules/Bots/pier-map.json` sinh lại từ file này.
+- **Server:** số ghế do `Lake:SeatCount`; `tools/run-local.ps1` và `tools/run-playtest.ps1` đặt `Lake__SeatCount=30`, `Lake__MapVersion=pier-2`. Mặc định Server vẫn 20 ghế và `lake-01` (chạy tay phải tự đặt). Đã cập nhật `docs/be/DEPLOY_PLAYTEST.md`, `server/README.md`, `docs/HANDOFF.md`.
+- **Kiểm tra:** tsc, eslint, prettier sạch; vitest 267 qua (test ghế đổi 16→30: mỗi ghế có chỗ đứng khi rời, phao rơi xuống nước, ghế nằm trên ghế đẩu, không đứng được giữa vật cản); BotTests 7/7 với map mới; trên trình duyệt (mock) hai khu hiển thị đúng, ghế đẩu thẳng hàng.
+- **Chưa kiểm:** ngồi thật từng ghế mới trên Server thật (cần `run-real.bat`), màn hẹp. Ghế mép trái khu 2 đặt cách mép sàn khoảng 16 px; muốn sát mép hơn thì chỉnh toạ độ trong JSON.
+
+### Làm lại bố cục ghế và sửa bot đi giật (người dùng chê "chán", bot "teleport", 2026-11-16)
+
+- **Bố cục mới (14 ghế `seat-17..30`):** ghế sát mép sàn, chia cụm thay vì hai hàng đều tăm tắp. Khu 1: hàng trên quay lên gồm cụm 4 ghế (x 520, 552, 584, 616) | biển câu cá ở giữa (`fishing-objects/fishingSign` có sẵn trong atlas, đặt (624, 372), chặn chân) | cụm 3 ghế (680, 712, 744), tất cả y 434; hàng dưới quay xuống quanh cặp ghế cũ 600/648 (x 552, 696, 744; y 514). Khu 2 (mũi cầu): đối xứng quanh cọc gỗ, 2 ghế bên trái (x 584; y 214, 254), 2 ghế bên phải (x 676; y 240, 276), 2 ghế phía dưới (x 596 và 660; y 288); **thụt vào trong sàn** khoảng 16 px cách mép (lần đầu đặt sát mép, ghế dưới thò ra mặt nước nên người dùng chê, sửa lại 2026-11-16).
+- **Sửa tiếp (2026-11-16):** bỏ biển câu cá ở giữa mép trên khu 1 theo yêu cầu; hàng ghế trên xếp đều như hàng dưới: 7 ghế cách nhau 40 px (x 512, 552, 592, 632, 672, 712, 752; y 434), trong đó 552 và 712 là ghế cũ. Hàng dưới giữ cách nhau 48 px.
+- **Sửa lần 3 (người dùng chọn "5 ghế thẳng cột hàng dưới", 2 ghế bù tao tự chọn):** hàng trên cầu dưới còn 5 ghế cùng cột với hàng dưới (x 552, 600, 648, 696, 744), dời xuống y 447 cho nằm hẳn trên sàn (mép trên lởm chởm tới y≈431; ở y 447 phao cột 744 vẫn rơi xuống nước cạnh góc cầu). Ghế cũ `seat-05` dời tới (552, 447), `seat-06` từ (712, 434) tới (696, 447). 2 ghế bù đặt ở cầu dài phía dưới, lấp hai khoảng trống của hàng ghế có sẵn: (448, 738) và (584, 738), quay xuống. Trả lại sàn một dải chặn sót từ chân thùng gỗ (x 592–615, y 448–455); mép trên y 416–423 vẫn không đứng được như map gốc. Tổng vẫn 30 ghế.
+- **Sửa lần 4 (mép trên cầu dưới):** xoá các cọc gỗ mảnh lòi trên mặt nước phía trên cầu (ô nền 119/471 ở cột 38–39, hàng 24–26); làm mép trên đoạn giữa (cột 34–44, x 544–719) phẳng như mép dưới: hàng 24–25 (y 384–415) thành nước (ô 289, thêm vào `openWater`), hàng 26–27 (y 416–447) thay ô đầu ván lởm chởm bằng ô sàn đầy của hàng 28 cùng cột. Hai khối cầu hai đầu (trái/phải) giữ nguyên.
+- **Sửa lần 5 ("đừng thẳng, nhấp nhô 1 tí", "đẩy hàng trên lên gần mép"):** hàng 26 dùng lại ô đầu ván gốc của map cho mép hơi lởm chởm, bỏ các khe sâu (cột 37, 39, 40, 41 lấy ô đầu ván gốc ở hàng 27 của chính cột đẩy lên hàng 26; hàng 27 lấp sàn đầy; ô 388 ở hàng 27 cột 42 có lỗ nước nên cũng lấp). Hàng ghế trên dời lên y 441 (ghế đẩu y 424–439), sát mép như hàng dưới.
+- **Sửa lần 6 (mũi cầu, người dùng chọn "sát mép như cầu dưới"):** 6 ghế cách mép sàn đều khoảng 8 px: trái (577; y 214, 254), phải (682; y 240, 276), dưới (596, 280) ở phần mép trái y≈286 và (660, 287) ở phần mép phải y≈293.
+### Vào game ở điểm ngẫu nhiên (pier.html, 2026-11-16)
+
+- Mỗi lần vào game (LakeScene tạo nhân vật) nhân vật xuất hiện ở một điểm ngẫu nhiên đứng được trên map, trừ nước và vùng không đi được. `walkable.ts`: `reachablePoints` (BFS các ô 8 px đứng được và đi tới được từ spawn, cache theo map, loại cả ô "đi được" bị cô lập như nóc thùng) và `randomSpawn`. Đang giữ ghế (vào lại khi còn ghế) thì vẫn đặt vào ghế. Vị trí mới gửi Move ngay nên người khác/Server thấy đúng chỗ. Chỉ pier (cờ `isHomeHudEnabled`); trang khác giữ luật cũ (vị trí lần trước hoặc spawn). Nối lại sau rớt mạng không đổi chỗ (chỉ khi tạo scene). Bot Server vẫn xuất hiện quanh spawn.
+- Kiểm tra: test mới trong `walkable.test.ts` và `pierMap.test.ts` (điểm luôn đứng được, không rơi vào ô cô lập, map pier có hơn 2000 ô đi tới được); trên trình duyệt hai lần tải trang ra (964, 295) và (52, 239), đều trên đất.
+
+### (tiếp mục Làm lại bố cục ghế) Lỗi nước mũi cầu
+
+- **Lỗi nước giữa sàn mũi cầu:** dải xanh nhỏ (x≈586–591, y≈252–266) lộ ra khi bỏ ghế dài, do ô nền cột 36 hàng 16 của `ground` có phần nước; đã thay bằng ô sàn liền kề (cột 37). Ghế mép phải không đặt ở y 214 vì chỗ đó nối sang cầu chính.
+- **Bot đi như dịch chuyển, cả hai nơi:** (1) bot **mock** (client) trước đi bước ngẫu nhiên 16 px mỗi 0,6 giây rồi **nhảy thẳng lên ghế** khi hết giờ dạo; nay đi bước 5,5 px mỗi 100 ms (55 px/giây, đúng nhịp Move của người thật và nội suy 100 ms của Client), chọn điểm đi dạo đứng được, nghỉ 0,8–3 giây rồi đi tiếp, và **đi bộ tới chỗ đứng cạnh ghế** rồi mới ngồi (`mock/botWalk.ts`, trạng thái `toSeat` trong `botFishing.ts`, `MockBackend.moveBots`). (2) bot **Server** (C#) trước gửi bước 9,5 px mỗi 150 ms nên cứ đi rồi khựng mỗi bước; nay 100 ms/bước, tốc độ 45–63 px/giây, và đứng dậy cũng đi bộ ra chỗ đứng thay vì nhảy.
+- **Còn lại có thể thấy một cú nhảy nhỏ** (vài px) lúc bot/người chơi vào ghế: người thật cũng bị đặt thẳng vào điểm ngồi (Client tự làm), bot theo đúng cách đó. Bot mock khi đứng dậy vẫn dịch tới chỗ đứng gần ghế bằng một bước (chưa đi bộ).
+- **Kiểm tra:** tsc, eslint, prettier sạch; vitest 270 qua (thêm `botWalk.test.ts`, test ghế pier 30 vẫn đạt); `dotnet build` sạch. Trên trình duyệt (mock): hai khu hiển thị đúng bố cục mới, biển ở giữa mép trên khu 1; một bot đi liên tục bước ngắn (trung bình ~2 px mỗi lần lấy mẫu, không còn nhảy 16 px). Bot Server chưa chạy lại trên trình duyệt với Server thật; chỉ đổi nhịp/tốc độ và test `BotTests` kiểm tra lại.
+
+## Web Client — Feedback câu cá (pier.html, 2026-11-16)
+
+Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa commit.
+
+- **Dấu ! khi cá cắn màu đỏ** (`#ff3b30`, trước vàng), vẫn nhấp nháy mờ/rõ. Đổi chung mọi trang (`CharacterView.BITE_COLOR`).
+- **Vòng vàng chạy quanh viền nút móc câu** thay thanh dưới nút: SVG tròn ôm ngoài viền ảnh Button Hook, đầy khi cá vừa cắn, ngắn dần theo thời gian còn lại (cùng số `biteProgress` cũ), bắt đầu từ đỉnh theo chiều kim đồng hồ; có vệt nền tối mờ. `FishButton.ts`, `fishing.css`. Áp chung mọi trang dùng nút này.
+- **Chữ SPACE đè lên nút**, cỡ 24px (trước 12px nằm dưới nút), chữ trắng viền đen, nằm phần dưới mặt nút để không che lưỡi câu.
+- **Cá cắn/kéo cá chỉ tay và cần rung**: art thỏ có tay vẽ chung lớp cần, nên thân giữ tư thế ngồi đứng yên (animation `sit`) trong `bite` và `reel`, lớp cần (có tay) vẫn rung như cũ. Không cần bake lại art.
+- **Câu thất bại: mặt buồn + emoji buồn**:
+  - Atlas không có biểu cảm buồn cho thỏ. Vẽ thêm vài điểm ảnh lên mặt thỏ khi ngồi: lông mày xệ, miệng mếu, giọt nước mắt xanh. Nhìn xuống và nhìn ngang có; quay lưng không thấy mặt nên chỉ có emoji. Điểm ảnh đo trên frame ngồi của skin thỏ; sprite vẽ tạm không có.
+  - Emoji buồn trên pier hiện trong bong bóng trên đầu, cùng cỡ emoji chat (to hơn icon nhỏ cũ). Trang khác giữ icon nhỏ.
+  - Pier bỏ minigame nên thất bại duy nhất là **trượt cá** (không thu cần kịp). Trước đây trượt cá không buồn (feedback 2026-11-11); nay trên pier trượt cá cũng có mặt buồn và emoji buồn khoảng 2 giây rồi tự câu lại (cờ `sadOnMissedBite`). Trang khác giữ quy tắc cũ.
+  - Người chơi khác thấy mặt buồn khi Server báo họ thua (icon buồn sẵn có). Server chưa báo trượt cá của người khác nên họ không thấy mình buồn khi trượt cá.
+- **Kiểm tra:**
+  - tsc, eslint, prettier sạch; vitest 281 qua.
+  - Trên trình duyệt (mock, tạm tắt Google lúc thử rồi bật lại): khi cá cắn thấy vòng vàng quanh nút, chữ SPACE to trên nút, dấu ! đỏ. Trượt cá thì thấy mặt buồn và emoji buồn trong bong bóng (nhìn xuống và nhìn ngang). Khi cá cắn hoặc kéo cá, thân chạy `sit`, cần chạy `bite`/`reel`.
+  - Chưa xem trên Server thật.
+- **Cần người dùng xem:** dáng mặt buồn tự vẽ (pixel); vị trí, cỡ chữ SPACE và độ dày vòng vàng.
+
+## Skin trang phục + tab "Ngoại hình" (2026-11-16, người dùng yêu cầu)
+- **Yêu cầu đã duyệt:** chọn ngẫu nhiên 5 bộ trang phục, thêm tab bán trong cửa hàng giá 300 Gold, dựng khung "Ngoại hình" theo art `public/new resources/ui/Skin`. Skin_01–05 (5 màu thỏ) giữ miễn phí; 5 bộ mới là skin_06–10, thân thỏ brown. Lối mở khung Ngoại hình: bấm avatar trong popup Hồ sơ.
+- **5 bộ (bốc ngẫu nhiên từ 102 outfit trong atlas):** skin_06 `queen-dress` (Váy nữ hoàng), skin_07 `bunny-onesie-blue` (Onesie thỏ xanh), skin_08 `yellow-raincoat-purple` (Áo mưa tím), skin_09 `swimsuit-pink` (Đồ bơi hồng), skin_10 `santa-outfit` (Ông già Noel). Đổi bộ: sửa `OUTFIT_SKINS` trong `client-v0/tools/bake_outfit_skins.mjs` rồi chạy lại; tên hiển thị ở `Social.Skins` trong `server/FishingOnline.Api/appsettings.json` và `mock/skinCatalog.ts`.
+- **Art:** `tools/bake_outfit_skins.mjs` (Node, vì máy không có Python) ghép thân + lớp outfit cùng khung 120×140, cùng animation như `bake_characters.py`; `--check` ghép lại skin_01 và so với file Python đã bake: khớp từng byte. `headTop` tính trên frame đã mặc đồ (onesie có mũ cao hơn: 48).
+- **Server (C#):** bảng `skins_owned` (migration `SKIN_SkinsOwned`), `SkinOption.Unlock` "free"|"shop", `POST /shop/buy` mua skin qua offer `offer_skin_06..10` (cùng luồng mua cần, ledger `buy_skin`), `inventory.skins`, `GET /skins` thêm `owned`, `PUT /me/skin` chặn skin chưa mua (`SKIN_NOT_OWNED`), mua lại → `SKIN_ALREADY_OWNED`. Giá nằm trong `docs/v01/fixtures/gameplay-config.v0.json` (`shopOffers`).
+- **Client:** tab "Ngoại hình" trong `ShopPopup` (5 thẻ, "Đã có" khi đã mua), `ui/skin/SkinPopup.ts` + `skin.css` (khung Appearance Panel, thẻ Skin 1/Skin 5, nút Mặc, thanh cuộn chạy theo nội dung), `ui/skin/skinArt.ts` dùng chung, `LakeScene` đổi skin nhân vật mình khi nhận `SkinChanged`, mock có `/skins`, `PUT /me/skin`, mua skin.
+- **Kiểm tra:** server `dotnet test` 222/223 qua (1 test `Disconnect125s` timeout khi chạy cả bộ, chạy riêng qua; 2 test mua skin mới qua); client tsc, eslint, prettier sạch, vitest 284 qua; trên trình duyệt (trang thử tạm với mock, đã xoá): tab Ngoại hình hiện 5 thẻ, mua trừ Gold rồi "Đã có", khung Ngoại hình mặc được skin đã mua, skin chưa mua mờ + "Chưa sở hữu", thanh cuộn khớp, Esc chỉ đóng khung Ngoại hình.
+- **Chưa làm / chưa kiểm:** chưa chạy với Server thật trong trình duyệt (chỉ test API Server và mock riêng); chưa xem sprite skin mới khi đi/ngồi câu trong hồ; avatar trong Hồ sơ vẫn là art tạm, chưa đổi theo skin; không có nút mua trực tiếp trong khung Ngoại hình (mua ở cửa hàng). Admin chưa hiển thị skin đã mua.

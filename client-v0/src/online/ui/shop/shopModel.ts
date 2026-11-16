@@ -96,6 +96,27 @@ export interface RodOffer {
   owned: boolean;
 }
 
+export interface SkinOffer {
+  skinId: string;
+  offerId: string;
+  priceGold: number;
+  owned: boolean;
+}
+
+/** Skin bán ở tab "Ngoại hình": mọi offer có itemId không phải cần, theo thứ tự catalog. */
+export function skinOffers(catalog: Catalog | null, ownedSkins: readonly string[]): SkinOffer[] {
+  if (!catalog) return [];
+  const rodIds = new Set(catalog.rods.map((rod) => rod.rodId));
+  return catalog.shopOffers
+    .filter((offer) => !rodIds.has(offer.itemId))
+    .map((offer) => ({
+      skinId: offer.itemId,
+      offerId: offer.offerId,
+      priceGold: offer.priceGold,
+      owned: ownedSkins.includes(offer.itemId),
+    }));
+}
+
 /** 5 ô cần theo thứ tự catalog (rẻ → đắt); cần đã có thì "Đã có", không mua được. */
 export function rodOffers(catalog: Catalog | null, ownedRods: readonly string[]): RodOffer[] {
   if (!catalog) return [];

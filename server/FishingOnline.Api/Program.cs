@@ -1,11 +1,14 @@
 using FishingOnline.Api.Infrastructure;
 using FishingOnline.Api.Modules.Admin;
+using FishingOnline.Api.Modules.Bots;
 using FishingOnline.Api.Modules.Common;
 using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Economy;
 using FishingOnline.Api.Modules.Fishing;
 using FishingOnline.Api.Modules.Identity;
 using FishingOnline.Api.Modules.Lake;
+using FishingOnline.Api.Modules.Profile;
+using FishingOnline.Api.Modules.Ranking;
 using FishingOnline.Api.Modules.Social;
 using FishingOnline.Api.Modules.Wallet;
 using FishingOnline.Api.Persistence;
@@ -47,8 +50,12 @@ if (hasDatabase)
     builder.Services.AddWallet();
     builder.Services.AddLake();
     builder.Services.AddEconomy();
+    builder.Services.AddProfile();
+    builder.Services.AddRanking();
     builder.Services.AddFishing();
     builder.Services.AddSocial(builder.Configuration);
+    // Sau AddLake/AddFishing để khi tắt máy chủ, bot rời hồ trước khi hai dịch vụ đó dừng.
+    builder.Services.AddBots();
     builder.Services.AddAdmin(builder.Configuration);
 }
 var clientOrigins = builder.Configuration.GetSection("ClientOrigins").Get<string[]>() ?? [];
@@ -86,6 +93,8 @@ if (hasDatabase)
     app.MapIdentityModule();
     app.MapConfigModule();
     app.MapEconomy();
+    app.MapProfile();
+    app.MapRanking();
     app.MapSocial();
     app.MapAdmin();
     // Nạp Gold thử cho tab "Nạp Gold" khi chưa có cổng thanh toán; không có ở môi trường khác.

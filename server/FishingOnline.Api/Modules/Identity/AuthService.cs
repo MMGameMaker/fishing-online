@@ -182,7 +182,9 @@ public sealed class AuthService(
         player.Exp,
         (await wallet.GetBalanceAsync(player.Id, ct)).ToString(System.Globalization.CultureInfo.InvariantCulture),
         player.SelectedSkinId,
-        player.EquippedRodId);
+        player.EquippedRodId,
+        player.TitleId ?? Profile.ProfileRules.DefaultTitleId,
+        player.Bio);
 
     /// <summary>
     /// Tạo account, player, ví, cần mặc định trong một transaction. Unique (project, uid) chặn hai login song song

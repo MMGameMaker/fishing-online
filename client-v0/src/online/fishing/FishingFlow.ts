@@ -74,6 +74,11 @@ export interface PierFishingOptions {
    * tắt cờ này là dùng lại.
    */
   skipMinigame?: boolean;
+  /**
+   * Trượt cá (không thu cần kịp) cũng tính là câu thất bại: mặt buồn và emoji buồn trên đầu rồi mới tự câu lại
+   * (feedback 2026-11-16, thay quy tắc 2026-11-11 "trượt cá không icon buồn").
+   */
+  sadOnMissedBite?: boolean;
 }
 
 export class FishingFlow {
@@ -117,6 +122,11 @@ export class FishingFlow {
   }
 
   /** Khóa di chuyển và các thao tác khác trong lúc câu. */
+  /** Popup kết quả (thẻ cá câu được / cá thoát) đang mở. */
+  isResultOpen(): boolean {
+    return this.resultOpen;
+  }
+
   isLocked(): boolean {
     return isControlLocked(this.services.store.getState().attempt, this.resultOpen);
   }
@@ -231,7 +241,7 @@ export class FishingFlow {
         this.finishRound();
         playSound(attempt.reason === 'missed_bite' ? 'failPress2' : 'minigameFail');
         // Trượt cá: vẫn ngồi ghế, không icon buồn, khoảng 1 giây sau tự câu lại (feedback 2026-11-11).
-        if (attempt.reason === 'missed_bite') {
+        if (attempt.reason === 'missed_bite' && !this.pier.sadOnMissedBite) {
           this.nextCastAtMs = performance.now() + MISSED_RECAST_MS;
           this.me.play('idle');
           this.me.setHeadIcon(null);

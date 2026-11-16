@@ -164,7 +164,7 @@ Quy ước giữ từ 0.1-draft: JSON camelCase; Gold là chuỗi số nguyên (
 | PUT /me/display-name | `{ displayName }` (3-16 ký tự) | `PlayerProfile` | BE-A |
 | GET /catalog | — | Toàn bộ config trừ `spawn`, gồm `levels, rods, fish, seatSession, fishing, minigame, lengthTiers, shopOffers, ticketPricing` | BE-A |
 | GET /me/progress | — | `{ level, exp, expToNext, stats: Stats, breakdown: { level: Stats, rod: Stats } }` | BE-D |
-| GET /me/inventory | — | `{ inventoryVersion, gold, equippedRodId, rods: [rodId], items: [{ itemId, quantity }], fish: [{ catchId, speciesId, lengthTenthCm, caughtAt }] }` | BE-D |
+| GET /me/inventory | — | `{ inventoryVersion, gold, equippedRodId, rods: [rodId], items: [{ itemId, quantity }], fish: [{ catchId, speciesId, lengthTenthCm, caughtAt }], skins: [skinId] }` (`skins` = skin shop đã mua, thêm 2026-11-16) | BE-D |
 | PUT /me/equipped-rod | `{ rodId }` | `{ equippedRodId }` | BE-D |
 | POST /shop/buy | `{ offerId, quantity }` | `{ gold, inventory }` | BE-D |
 | POST /shop/sell-fish | `{ catchIds: [] }` hoặc `{ all: true }` | `{ soldCount, goldEarned, gold }` | BE-D |
@@ -173,8 +173,8 @@ Quy ước giữ từ 0.1-draft: JSON camelCase; Gold là chuỗi số nguyên (
 | Hub `RodChanged` (thêm 2026-11-13) | sau `PUT /me/equipped-rod` thành công | `{ playerId, rodId }` cho cả hồ | BE |
 | GET /me/codex | — | `{ species: [{ speciesId, discovered, totalCaught, bestLengthTenthCm, firstCaughtAt }] }` | BE-D |
 | GET /me/history?cursor=&limit= | — | `{ items: [{ attemptId, outcome, reason, speciesId, lengthTenthCm, endedAt }], nextCursor }` | BE-D |
-| GET /skins, PUT /me/skin | `{ skinId }` | — | BE-F |
-| GET /rankings/{boardId} | — | chờ GD | BE-F |
+| GET /skins, PUT /me/skin | `{ skinId }` | `{ skins: [{ skinId, name, unlock: "free"｜"shop", owned }], selectedSkinId }` / `{ selectedSkinId }`; skin `shop` chưa mua → `SKIN_NOT_OWNED`. Mua skin shop qua `POST /shop/buy` với offer có `itemId` = skinId (300 Gold cho skin_06–10), mua lại → `SKIN_ALREADY_OWNED` | BE-F |
+| GET /rankings/{boardId}?limit&cursor | — | Mới có board `total-catch-weekly` theo GAMEPLAY_SCOPE mục Bảng xếp hạng (loại 1): đếm catch từ thứ Hai 00:00 giờ VN (unique AttemptId nên không cộng trùng), đồng hạng: lần câu cuối sớm hơn xếp trên, top 50 phân trang (cursor = số hạng đã lấy), thứ hạng làm mới 30 phút (`updatedAt` = mốc bản chụp), điểm của `me` cập nhật ngay: `{boardId, updatedAt, periodStartsAt, periodEndsAt, items[{rank, playerId, displayName, value, reward}], nextCursor, me}`. `me` luôn có tên; rank/reward null nếu chưa vào bản chụp hoặc ngoài top 50. `reward` (Gold, chuỗi) theo bảng thưởng của GD, chỉ hiển thị. Chưa làm: tự cộng thưởng hết tuần (GD chưa xác nhận), Giải đấu cần thủ. Code: `Modules/Ranking`. | BE-F |
 
 `PlayerProfile = { playerId, displayName, level, exp, gold, selectedSkinId, equippedRodId }`.
 `Stats = { strength, normalHitZonePct, weaknessHitZonePct, rareLuck, largeLuck }`.
@@ -237,6 +237,7 @@ Kết nối kèm `access_token`. Mọi method nhận object có `requestId` (uui
 | BITE_EXPIRED | HookFish quá hạn |
 | RESULT_EXPIRED | Kết quả gửi sau deadline attempt; không thưởng |
 | ROD_NOT_OWNED, ROD_ALREADY_OWNED | Cần chưa có / đã có |
+| SKIN_NOT_OWNED (422), SKIN_ALREADY_OWNED (409) | Skin shop chưa mua / đã mua |
 | FISH_NOT_FOUND | catchId không thuộc user hoặc đã bán |
 | INVALID_QUANTITY, PRICE_CHANGED | Số vé ngoài khoảng cho phép (400), đơn giá đổi (409) |
 | STATE_CONFLICT | Trạng thái không cho phép (tên trùng, phòng đầy, sửa đồng thời, rời ghế khi đang minigame) |

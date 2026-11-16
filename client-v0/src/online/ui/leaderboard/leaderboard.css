@@ -1,0 +1,197 @@
+/* Popup "Bảng xếp hạng tuần" (LeaderboardPopup.ts). Dùng chung nền mờ của .shop. Toạ độ là pixel ảnh
+   Leaderboard Panel.png 1144×812: lòng khung x 20..1124, đường kẻ đầu y 118, dòng Row 1.png 1104×90. */
+.rank__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1144px;
+  height: 812px;
+  transform: translate(-50%, -50%) scale(var(--shop-scale, 1));
+}
+
+.rank__timer {
+  position: absolute;
+  top: 28px;
+  left: 40px;
+  padding: 10px 22px;
+  font-size: 24px;
+  line-height: 1.2;
+  background: #ffe9b8;
+  border: 4px solid #a8672a;
+  border-radius: 6px;
+}
+
+.rank__title {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  font-size: 48px;
+  text-align: center;
+}
+
+.rank__close {
+  position: absolute;
+  top: 24px;
+  right: 40px;
+}
+
+.rank__close img {
+  width: 72px;
+  height: 76px;
+}
+
+.rank__heads {
+  position: absolute;
+  top: 128px;
+  left: 20px;
+  width: 1104px;
+  height: 30px;
+  font-size: 24px;
+  color: #b8742f;
+}
+
+.rank__heads span,
+.rank__count,
+.rank__reward,
+.rank__name {
+  position: absolute;
+}
+
+.rank__head-name {
+  left: 190px;
+}
+
+.rank__head-count {
+  left: 600px;
+}
+
+.rank__head-reward {
+  right: 60px;
+}
+
+.rank__list {
+  position: absolute;
+  top: 168px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 1104px;
+  height: 474px;
+  overflow: hidden auto;
+  scrollbar-width: none;
+}
+
+.rank__list > .rank__row {
+  flex: none;
+}
+
+/* Bảng chưa có ai: lời mời nằm giữa vùng danh sách (y 168..642). */
+.rank__empty {
+  position: absolute;
+  top: 168px;
+  left: 120px;
+  display: grid;
+  place-items: center;
+  width: 904px;
+  height: 474px;
+  font-size: 40px;
+  line-height: 1.5;
+  text-align: center;
+  color: #b8742f;
+}
+
+.rank__empty[hidden] {
+  display: none;
+}
+
+.rank__gap {
+  position: absolute;
+  top: 638px;
+  left: 20px;
+  width: 1104px;
+  font-size: 30px;
+  line-height: 1;
+  text-align: center;
+  color: #b8742f;
+}
+
+.rank__me {
+  position: absolute;
+  top: 692px;
+  left: 20px;
+}
+
+.rank__row {
+  position: relative;
+  width: 1104px;
+  height: 90px;
+  font-size: 34px;
+}
+
+.rank__row-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.rank__row--me .rank__row-art {
+  filter: hue-rotate(165deg) saturate(0.8) brightness(1.08);
+}
+
+.rank__rank {
+  position: absolute;
+  top: 0;
+  left: 22px;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  height: 84px;
+}
+
+.rank__crown {
+  width: 56px;
+  height: 48px;
+}
+
+.rank__avatar {
+  position: absolute;
+  top: 17px;
+  left: 112px;
+  width: 52px;
+  height: 52px;
+}
+
+.rank__name,
+.rank__count,
+.rank__reward {
+  top: 0;
+  display: flex;
+  align-items: center;
+  height: 84px;
+}
+
+.rank__name {
+  left: 190px;
+}
+
+.rank__count {
+  left: 560px;
+  width: 200px;
+  justify-content: center;
+}
+
+.rank__reward {
+  right: 40px;
+  gap: 8px;
+  min-width: 140px;
+  justify-content: flex-start;
+}
+
+.rank__coin {
+  width: 36px;
+  height: 36px;
+}

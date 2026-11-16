@@ -1,7 +1,7 @@
 // Popup "Túi đồ" theo 2 ảnh mẫu 2026-11-13, mở từ ô Túi đồ trong menu (HomeHud). Khung sổ tay
 // (Notebook.png) với 2 tab: Đồ câu (nhân vật + chỉ số tổng, thẻ các cần đang sở hữu, bấm thẻ để
-// trang bị) và Túi cá (cá trong túi, gộp cùng loài + cùng kích thước; "Chọn cá" mở tab Bán cá của
-// cửa hàng ở chế độ chọn nhiều). Dữ liệu thật từ Server: /me/inventory, /me/progress, catalog.
+// trang bị) và Túi cá (cá trong túi, gộp cùng loài + cùng kích thước; "Chọn cá" chọn nhiều ô rồi bán ngay trong
+// Túi đồ, cùng luật với tab Bán cá của cửa hàng). Dữ liệu thật từ Server: /me/inventory, /me/progress, catalog.
 import type { RodConfig } from '../../core/gameplayConfig';
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
@@ -11,13 +11,19 @@ import { COIN_ART } from '../coinArt';
 import { fishImage } from '../fishArt';
 import { formatGold } from '../kit/format';
 import { animateIn, animateOut } from '../kit/motion';
+import { snapshotScroll } from '../kit/scroll';
+
+/** Vùng cuộn trong trang sổ: danh sách cần (ngang) và lưới túi cá. */
+const SCROLL_AREAS = '.inv-rods__list, .inv-fish__grid';
 import type { ShopPopup } from '../shop/ShopPopup';
+import { skinPortrait } from '../skin/skinArt';
+import { selectingBar } from '../shop/sellBar';
+import { sellFish } from '../shop/sellFish';
 import { SHOP_RARITY_COLORS, groupFish, type FishGroup } from '../shop/shopModel';
 
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
 const COIN = COIN_ART;
 const CLOSE = encodeURI('/mini game/Button Close.png');
-const SKIN_DIR = '/assets/characters/';
 const rodIcon = (rodId: string) => `/assets/rods/${rodId}-icon.png`;
 
 /** Khung thiết kế: hàng tab cao 76px nằm trên sổ tay 1392×804. */
@@ -63,54 +69,6 @@ function button(className: string, label: string, text?: string): HTMLButtonElem
 
 const lengthText = (tenthCm: number) => `${(tenthCm / 10).toFixed(1).replace('.', ',')}cm`;
 
-const skinCache = new Map<string, Promise<string | null>>();
-
-/** Thỏ đứng nhìn xuống cắt sát từ sheet skin đã bake; skin chưa có art thì null. */
-function skinPortrait(skinId: string): Promise<string | null> {
-  let portrait = skinCache.get(skinId);
-  if (!portrait) {
-    portrait = (async () => {
-      const response = await fetch(`${SKIN_DIR}${skinId}.json`);
-      if (!response.ok) return null;
-      const data = (await response.json()) as {
-        frames: Record<string, { frame: { x: number; y: number; w: number; h: number } }>;
-      };
-      const frame = data.frames['idle_down_0']?.frame;
-      if (!frame) return null;
-      const image = new Image();
-      image.src = `${SKIN_DIR}${skinId}.png`;
-      await image.decode();
-      const canvas = document.createElement('canvas');
-      canvas.width = frame.w;
-      canvas.height = frame.h;
-      const ctx = canvas.getContext('2d')!;
-      ctx.drawImage(image, frame.x, frame.y, frame.w, frame.h, 0, 0, frame.w, frame.h);
-      const { data: px } = ctx.getImageData(0, 0, frame.w, frame.h);
-      let x0 = frame.w;
-      let y0 = frame.h;
-      let x1 = -1;
-      let y1 = -1;
-      for (let y = 0; y < frame.h; y++) {
-        for (let x = 0; x < frame.w; x++) {
-          if (px[(y * frame.w + x) * 4 + 3] === 0) continue;
-          x0 = Math.min(x0, x);
-          y0 = Math.min(y0, y);
-          x1 = Math.max(x1, x);
-          y1 = Math.max(y1, y);
-        }
-      }
-      if (x1 < 0) return null;
-      const out = document.createElement('canvas');
-      out.width = x1 - x0 + 1;
-      out.height = y1 - y0 + 1;
-      out.getContext('2d')!.drawImage(canvas, -x0, -y0);
-      return out.toDataURL();
-    })().catch(() => null);
-    skinCache.set(skinId, portrait);
-  }
-  return portrait;
-}
-
 export interface InventoryPopupOptions {
   root: HTMLElement;
   services: Services;
@@ -124,12 +82,18 @@ export class InventoryPopup {
   private tab: TabId = 'rods';
   private progress: ProgressResponse | null = null;
   private busy = false;
+  /** Chế độ "Chọn cá" của tab Túi cá: ô đang chọn theo `FishGroup.key`. */
+  private selecting = false;
+  private readonly selected = new Set<string>();
+  /** Dựng lần kế thì kéo các vùng cuộn về đầu (mới mở popup hoặc đổi tab). */
+  private resetScroll = true;
   private cleanups: (() => void)[] = [];
 
   constructor(private readonly options: InventoryPopupOptions) {}
 
   open(tab: TabId = 'rods'): void {
     if (this.overlay) return;
+    this.resetScroll = true;
     const overlay = el('div', 'shop inv');
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
@@ -195,6 +159,8 @@ export class InventoryPopup {
     if (!overlay) return;
     this.overlay = null;
     this.page = null;
+    this.selecting = false;
+    this.selected.clear();
     this.tabs.clear();
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups = [];
@@ -214,6 +180,11 @@ export class InventoryPopup {
   }
 
   private showTab(tab: TabId): void {
+    if (tab !== this.tab) {
+      this.resetScroll = true;
+      this.selecting = false;
+      this.selected.clear();
+    }
     this.tab = tab;
     for (const [id, tabButton] of this.tabs) {
       tabButton.classList.toggle('inv__tab--active', id === tab);
@@ -223,7 +194,11 @@ export class InventoryPopup {
 
   private render(): void {
     if (!this.page) return;
+    // Giữ vị trí cuộn khi trang bị/chọn cá; chỉ về đầu khi mới mở hoặc đổi tab.
+    const restore = this.resetScroll ? null : snapshotScroll(this.page, SCROLL_AREAS);
     this.page.replaceChildren(this.tab === 'rods' ? this.rodsTab() : this.fishTab());
+    this.resetScroll = false;
+    restore?.();
   }
 
   // ---------- Đồ câu ----------
@@ -312,24 +287,68 @@ export class InventoryPopup {
   private fishTab(): HTMLElement {
     const { inventory, catalog } = this.options.services.store.getState();
     const groups = groupFish(inventory?.fish ?? [], catalog);
+    // Ô đã bán hết thì bỏ khỏi danh sách chọn.
+    for (const key of [...this.selected]) {
+      if (!groups.some((group) => group.key === key)) this.selected.delete(key);
+    }
     const wrap = el('div', 'inv-fish');
     const grid = el('div', 'inv-fish__grid');
     if (!inventory) grid.append(el('p', 'shop-empty', 'Đang tải túi cá...'));
     else if (groups.length === 0) grid.append(el('p', 'shop-empty', 'Túi chưa có cá nào.'));
     for (const group of groups) grid.append(this.fishCell(group));
+    wrap.append(grid);
 
-    const choose = button('shop-small inv-fish__choose', 'Chọn cá', 'Chọn cá');
-    choose.disabled = groups.length === 0;
-    choose.addEventListener('click', () => {
-      this.close();
-      this.options.shop.open('sell', { selecting: true });
+    // "Chọn cá" chạy ngay trong Túi đồ, cùng luật với tab Bán cá của cửa hàng (chọn ô = chọn cả các con trong ô).
+    if (!this.selecting) {
+      const choose = button('shop-small inv-fish__choose', 'Chọn cá', 'Chọn cá');
+      choose.disabled = groups.length === 0;
+      choose.addEventListener('click', () => {
+        this.selecting = true;
+        this.render();
+      });
+      wrap.append(choose);
+      return wrap;
+    }
+    const bar = selectingBar({
+      groups,
+      selected: this.selected,
+      busy: this.busy,
+      onToggleAll: (all) => {
+        if (all) this.selected.clear();
+        else groups.forEach((group) => this.selected.add(group.key));
+        this.render();
+      },
+      onCancel: () => {
+        this.selecting = false;
+        this.selected.clear();
+        this.render();
+      },
+      onConfirm: (catchIds, all) => void this.sell(catchIds, all),
     });
-    wrap.append(grid, choose);
+    bar.classList.add('inv-fish__bar');
+    // Thanh chọn cao 80px không vừa dải giấy dưới lưới, nên lưới thấp bớt khi đang chọn.
+    wrap.classList.add('inv-fish--selecting');
+    wrap.append(bar);
     return wrap;
   }
 
+  private async sell(catchIds: string[], all: boolean): Promise<void> {
+    if (this.busy || catchIds.length === 0) return;
+    this.busy = true;
+    try {
+      if (await sellFish(this.options.services, this.options.root, catchIds, all)) {
+        this.selecting = false;
+        this.selected.clear();
+      }
+    } finally {
+      this.busy = false;
+      await this.reload();
+    }
+  }
+
   private fishCell(group: FishGroup): HTMLElement {
-    const cell = el('div', 'shop-fish');
+    const checked = this.selected.has(group.key);
+    const cell = el('div', `shop-fish${checked ? ' shop-fish--checked' : ''}`);
     cell.setAttribute(
       'aria-label',
       `${group.name}, ${lengthText(group.lengthTenthCm)}, ${group.catchIds.length} con`,
@@ -341,14 +360,23 @@ export class InventoryPopup {
       el('span', 'shop-fish__count', String(group.catchIds.length)),
       el('span', 'shop-fish__length', lengthText(group.lengthTenthCm)),
     );
+    if (checked) slot.append(el('span', 'shop-fish__check', '✓'));
     const info = el('span', 'shop-fish__info');
     const price = el('span', 'shop-gold-tag');
     price.append(img(COIN, 'shop-coin'), el('span', '', formatGold(String(group.unitGold))));
     info.append(el('span', 'shop-fish__name', group.name), price);
     cell.append(slot, info);
+    if (this.selecting) {
+      cell.classList.add('inv-fish__cell--pickable');
+      cell.setAttribute('role', 'button');
+      cell.addEventListener('click', () => {
+        if (checked) this.selected.delete(group.key);
+        else this.selected.add(group.key);
+        this.render();
+      });
+    }
     return cell;
   }
-
   private async reload(): Promise<void> {
     const { api, store } = this.options.services;
     try {

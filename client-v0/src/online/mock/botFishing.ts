@@ -47,8 +47,12 @@ export const BOT_TIMING = {
   catchChance: 0.6,
 };
 
+/** Đi bộ tới ghế đã chọn (không dịch chuyển); quá hạn `giveUpMs` mà chưa tới thì bỏ cuộc và đi dạo tiếp. */
+export const BOT_TO_SEAT_MS = 30_000;
+
 export type BotState =
   | { mode: 'wander'; untilMs: number }
+  | { mode: 'toSeat'; seatId: string; giveUpMs: number }
   | { mode: 'fishing'; seatId: string; nextResultMs: number; roundsLeft: number };
 
 const between = (random: () => number, [min, max]: readonly [number, number]) =>

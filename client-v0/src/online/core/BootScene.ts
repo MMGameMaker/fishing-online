@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import { preloadCharacterArt } from '../entities/characterArt';
 import type { Catalog, PlayerProfile } from '../net/contract';
+import type { BootScreens } from '../ui/boot/BootScreens';
+import { startBackgroundMusic } from './backgroundMusic';
 import { shouldApplyGoogleName, toDisplayName } from './googleName';
 import { getFirebaseIdToken } from './idToken';
 import { getServices } from './services';
@@ -10,6 +12,8 @@ export const BOOT_SCENE = 'Boot';
 export interface BootOptions {
   /** Mock vẫn đăng nhập Google để lấy tên tài khoản làm tên người chơi (pier.html). */
   googleInMock?: boolean;
+  /** Màn đăng nhập/tải theo thiết kế (DOM); không có thì dùng chữ Phaser (pier.html bật). */
+  screens?: BootScreens;
 }
 
 const BOOT_OPTIONS_KEY = 'bootOptions';
@@ -54,7 +58,23 @@ export class BootScene extends Phaser.Scene {
       this.scene.start(target === 'ui-demo' ? 'UiDemo' : 'CharacterDebug');
       return;
     }
+    // Có màn đăng nhập/tải theo thiết kế thì ẩn chữ Phaser tạm.
+    if (this.options().screens) status.setVisible(false);
     void this.enterLake(status);
+  }
+
+  private screens(): BootScreens | undefined {
+    return this.options().screens;
+  }
+
+  /** Vào hồ: Lake phát sự kiện create thì tắt dần màn tải. */
+  private startLake(): void {
+    const screens = this.screens();
+    if (screens) {
+      this.scene.get('Lake').events.once(Phaser.Scenes.Events.CREATE, () => screens.hide());
+    }
+    startBackgroundMusic();
+    this.scene.start('Lake');
   }
 
   private options(): BootOptions {
@@ -68,11 +88,21 @@ export class BootScene extends Phaser.Scene {
 
   /** Mock đăng nhập ngay; cần Google mà chưa đăng nhập thì popup phải mở từ thao tác bấm. */
   private async enterLake(status: Phaser.GameObjects.Text): Promise<void> {
+    const screens = this.screens();
+    screens?.showLoading('Đang khởi động...', 10);
     if (getServices(this).api.devPlayerId) {
       await this.devLogin(status);
       return;
     }
     if (this.usesGoogle() && !(await getFirebaseIdToken(false, false))) {
+      if (screens) {
+        // Nút Google: popup phải mở ngay trong thao tác bấm.
+        screens.showLogin(() => {
+          screens.showLoading('Đang đăng nhập...', 20);
+          void this.login(status, true);
+        });
+        return;
+      }
       status.setText('Fishing Online\nBấm để đăng nhập Google');
       // Bấm vào đâu trên màn hình cũng được, canvas có thể rất lớn khi phủ kín cửa sổ.
       this.input.once('pointerdown', () => {
@@ -86,21 +116,33 @@ export class BootScene extends Phaser.Scene {
 
   private async login(status: Phaser.GameObjects.Text, interactive: boolean): Promise<void> {
     const { api, hub, store, isMock } = getServices(this);
+    const screens = this.screens();
     try {
       // Mock có bật Google: vẫn mở popup Google thật để lấy tên, Server mock không cần token.
       const google = this.usesGoogle() ? await getFirebaseIdToken(false, interactive) : null;
       if (this.usesGoogle() && !google) throw new Error('Chưa đăng nhập');
       const idToken = isMock ? 'mock' : google;
       if (!idToken) throw new Error('Chưa đăng nhập');
+      screens?.showLoading('Đang vào game...', 35);
       const login = await api.login(idToken);
       const player = this.usesGoogle() ? await this.applyGoogleName(login.player) : login.player;
       store.dispatch({ type: 'session/profile', payload: player });
+      screens?.setProgress(55, 'Đang tải dữ liệu...');
       store.dispatch({ type: 'catalog/set', payload: await api.get<Catalog>('/catalog') });
+      screens?.setProgress(75, 'Đang kết nối...');
       await hub.start();
       await hub.joinLake();
-      this.scene.start('Lake');
+      screens?.setProgress(90, 'Đang vào hồ...');
+      this.startLake();
     } catch (error) {
       console.error(error);
+      if (screens) {
+        screens.showError('Không đăng nhập được, vui lòng thử lại.', () => {
+          screens.showLoading('Đang đăng nhập...', 20);
+          void this.login(status, true);
+        });
+        return;
+      }
       status.setText('Fishing Online\nKhông vào được hồ');
     }
   }
@@ -125,9 +167,11 @@ export class BootScene extends Phaser.Scene {
       store.dispatch({ type: 'catalog/set', payload: await api.get<Catalog>('/catalog') });
       await hub.start();
       await hub.joinLake();
-      this.scene.start('Lake');
+      this.startLake();
     } catch (error) {
       console.error(error);
+      status.setVisible(true);
+      this.screens()?.hide();
       status.setText(
         'Fishing Online\nKhông vào được (đăng nhập dev cần Server Development + DevBypass)',
       );

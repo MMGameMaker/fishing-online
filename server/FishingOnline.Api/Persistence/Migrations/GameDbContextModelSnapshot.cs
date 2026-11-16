@@ -237,6 +237,38 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.ToTable("fish_stocking_batches", "game");
                 });
 
+            modelBuilder.Entity("FishingOnline.Api.Modules.Bots.BotSettingsRow", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("CheckIntervalSeconds")
+                        .HasColumnType("integer");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("MaxBots")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("MinTotalPlayers")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("SuccessRatePct")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTimeOffset?>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasMaxLength(254)
+                        .HasColumnType("character varying(254)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("bot_settings", "game");
+                });
+
             modelBuilder.Entity("FishingOnline.Api.Modules.Common.IdempotencyReceipt", b =>
                 {
                     b.Property<Guid>("PlayerId")
@@ -322,6 +354,11 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.Property<int>("ExpGained")
                         .HasColumnType("integer");
 
+                    b.Property<bool>("IsBot")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
+
                     b.Property<bool>("IsNew")
                         .HasColumnType("boolean");
 
@@ -378,6 +415,23 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.HasKey("PlayerId", "RodId");
 
                     b.ToTable("rods_owned", "game");
+                });
+
+            modelBuilder.Entity("FishingOnline.Api.Modules.Economy.SkinOwnedRow", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("SkinId")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+
+                    b.Property<DateTimeOffset>("AcquiredAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("PlayerId", "SkinId");
+
+                    b.ToTable("skins_owned", "game");
                 });
 
             modelBuilder.Entity("FishingOnline.Api.Modules.Economy.SpeciesRecordRow", b =>
@@ -911,6 +965,47 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.ToTable("tickets", "game");
                 });
 
+            modelBuilder.Entity("FishingOnline.Api.Modules.Profile.AchievementClaimRow", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("AchievementId")
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTimeOffset>("ClaimedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("PlayerId", "AchievementId", "Level");
+
+                    b.ToTable("achievement_claims", "game");
+                });
+
+            modelBuilder.Entity("FishingOnline.Api.Modules.Profile.ShowcaseSlotRow", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Slot")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("SpeciesId")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+
+                    b.HasKey("PlayerId", "Slot");
+
+                    b.HasIndex("PlayerId", "SpeciesId")
+                        .IsUnique();
+
+                    b.ToTable("showcase_slots", "game");
+                });
+
             modelBuilder.Entity("FishingOnline.Api.Modules.Social.ChatMessageRow", b =>
                 {
                     b.Property<Guid>("MessageId")
@@ -1002,6 +1097,13 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(400)
+                        .HasColumnType("character varying(400)")
+                        .HasDefaultValue("");
+
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
 
@@ -1026,6 +1128,11 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.Property<int>("InventoryVersion")
                         .HasColumnType("integer");
 
+                    b.Property<bool>("IsBot")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
+
                     b.Property<int>("Level")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer")
@@ -1035,6 +1142,10 @@ namespace FishingOnline.Api.Persistence.Migrations
                         .IsRequired()
                         .HasMaxLength(64)
                         .HasColumnType("character varying(64)");
+
+                    b.Property<string>("TitleId")
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
 
                     b.HasKey("Id");
 

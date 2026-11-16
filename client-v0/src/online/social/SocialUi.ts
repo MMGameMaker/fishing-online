@@ -139,7 +139,12 @@ export class SocialUi {
     // Chừa đúng phần dưới theo vị trí thật của khung (trang có thể đặt khác qua CSS, vd. pier.html).
     const bottom = parseFloat(getComputedStyle(this.chat).bottom) || RESERVED_BOTTOM_PX - 16;
     const free = Math.max(200, UI_DESIGN_HEIGHT - bottom - 16 - RESERVED_TOP_PX);
-    const scale = Math.max(0.35, Math.min(0.75, free / PANEL_H, (UI_DESIGN_WIDTH - 32) / PANEL_W));
+    // Trang có thể phóng khung chat qua biến CSS --chat-zoom (pier.html: 1,2).
+    const zoom = parseFloat(getComputedStyle(this.chat).getPropertyValue('--chat-zoom')) || 1;
+    const scale = Math.max(
+      0.35,
+      Math.min(0.75 * zoom, free / PANEL_H, (UI_DESIGN_WIDTH - 32) / PANEL_W),
+    );
     const height = Math.max(MIN_PANEL_H, Math.min(PANEL_H, free / scale));
     for (const panel of [this.chat, this.emoji]) {
       panel.style.setProperty('--chat-scale', String(scale));
