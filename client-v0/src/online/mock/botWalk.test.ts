@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import type { LakeMap } from '../scenes/lake/walkable';
-import { pickWanderTarget, walkStep } from './botWalk';
+import pierMap from '../scenes/pier/fishingPierMap.json';
+import { nearestStandable, type LakeMap } from '../scenes/lake/walkable';
+import { findRoute, pickWanderTarget, walkStep } from './botWalk';
 
 /** Sàn 10×10 ô 8 px, trừ một cột chặn ở x = 5. */
 const MAP: LakeMap = {
@@ -55,5 +56,53 @@ describe('botWalk', () => {
       Math.random,
     );
     expect(none).toBeNull();
+  });
+});
+
+describe('findRoute', () => {
+  // Cột chặn ở x = 5 nhưng chừa lối ở hàng cuối.
+  const WALL: LakeMap = {
+    ...MAP,
+    walkableRows: Array.from({ length: 10 }, (_, r) => (r === 9 ? '1111111111' : '1111101111')),
+  };
+
+  it('đi vòng qua vật cản và tới đúng đích, từng bước không bị kẹt', () => {
+    const route = findRoute(WALL, { x: 12, y: 40 }, { x: 68, y: 40 });
+    expect(route).not.toBeNull();
+    expect(route!.length).toBeGreaterThan(1);
+    expect(route![route!.length - 1]).toEqual({ x: 68, y: 40 });
+    let p = { x: 12, y: 40 };
+    let guard = 0;
+    for (const point of route!) {
+      for (; guard < 400; guard++) {
+        const r = walkStep(WALL, p.x, p.y, point.x, point.y, 5.5);
+        expect(r.moved || r.arrived).toBe(true);
+        p = { x: r.x, y: r.y };
+        if (r.arrived) break;
+      }
+    }
+    expect(Math.hypot(p.x - 68, p.y - 40)).toBeLessThanOrEqual(2);
+  });
+
+  it('đường thẳng thông thì đi thẳng một đoạn', () => {
+    expect(findRoute(MAP, { x: 12, y: 20 }, { x: 30, y: 20 })).toEqual([{ x: 30, y: 20 }]);
+  });
+
+  it('không có đường hoặc đích không đứng được thì null', () => {
+    const sealed: LakeMap = { ...MAP, walkableRows: MAP.walkableRows.map(() => '1111101111') };
+    expect(findRoute(sealed, { x: 12, y: 40 }, { x: 68, y: 40 })).toBeNull();
+    expect(findRoute(MAP, { x: 12, y: 40 }, { x: 44, y: 40 })).toBeNull();
+  });
+});
+
+const PIER_LAKE_MAP = pierMap.lake as unknown as LakeMap;
+
+describe('findRoute trên map pier', () => {
+  it('từ spawn tới được chỗ đứng cạnh mọi ghế (collider không cô lập ghế nào)', () => {
+    const unreachable = PIER_LAKE_MAP.seats.filter((seat) => {
+      const stand = nearestStandable(PIER_LAKE_MAP, seat.x, seat.y);
+      return !stand || !findRoute(PIER_LAKE_MAP, PIER_LAKE_MAP.spawn, stand);
+    });
+    expect(unreachable.map((s) => s.seatId)).toEqual([]);
   });
 });

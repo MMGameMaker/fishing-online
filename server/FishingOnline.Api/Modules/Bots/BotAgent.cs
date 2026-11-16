@@ -202,8 +202,12 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
         var seatSpot = deps.Map.Seats.GetValueOrDefault(seatId);
         if (seatSpot is not null)
         {
+            // Đi vòng qua vật cản tới chỗ đứng cạnh ghế; không có đường hoặc không tới được thì bỏ lượt này,
+            // không dịch chuyển lên ghế (feedback 2026-11-16).
             var stand = deps.Map.NearestStandable(seatSpot.X, seatSpot.Y) ?? deps.Map.Spawn;
-            await MoveToAsync(stand.X, stand.Y, ct);
+            if (deps.Map.FindRoute(new BotMap.MapPoint(x, y), stand) is not { } route) return;
+            foreach (var point in route) await MoveToAsync(point.X, point.Y, ct);
+            if (Math.Abs(stand.X - x) > 6 || Math.Abs(stand.Y - y) > 6) return;
         }
         await deps.Seats.SitDownAsync(playerId, seatId, ct);
         if (seatSpot is not null)

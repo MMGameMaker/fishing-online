@@ -497,3 +497,14 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 - **Client:** tab "Ngoại hình" trong `ShopPopup` (5 thẻ, "Đã có" khi đã mua), `ui/skin/SkinPopup.ts` + `skin.css` (khung Appearance Panel, thẻ Skin 1/Skin 5, nút Mặc, thanh cuộn chạy theo nội dung), `ui/skin/skinArt.ts` dùng chung, `LakeScene` đổi skin nhân vật mình khi nhận `SkinChanged`, mock có `/skins`, `PUT /me/skin`, mua skin.
 - **Kiểm tra:** server `dotnet test` 222/223 qua (1 test `Disconnect125s` timeout khi chạy cả bộ, chạy riêng qua; 2 test mua skin mới qua); client tsc, eslint, prettier sạch, vitest 284 qua; trên trình duyệt (trang thử tạm với mock, đã xoá): tab Ngoại hình hiện 5 thẻ, mua trừ Gold rồi "Đã có", khung Ngoại hình mặc được skin đã mua, skin chưa mua mờ + "Chưa sở hữu", thanh cuộn khớp, Esc chỉ đóng khung Ngoại hình.
 - **Chưa làm / chưa kiểm:** chưa chạy với Server thật trong trình duyệt (chỉ test API Server và mock riêng); chưa xem sprite skin mới khi đi/ngồi câu trong hồ; avatar trong Hồ sơ vẫn là art tạm, chưa đổi theo skin; không có nút mua trực tiếp trong khung Ngoại hình (mua ở cửa hàng). Admin chưa hiển thị skin đã mua.
+
+## Web Client — Thành tựu: chỉ chấm đỏ nhấp nháy (2026-11-16)
+- **Feedback:** thẻ thành tựu đạt mốc chưa nhận không phủ đỏ nhấp nháy cả thẻ nữa, chỉ chấm đỏ góc thẻ nhấp nháy.
+- **Đã sửa:** `ui/profile/profile.css` bỏ lớp phủ `.profile__card--claim::after` và keyframes `profile-claim`; chấm `profile__dot` giữ nhịp mờ/rõ 1 s; thẻ vẫn bấm được để nhận.
+- **Kiểm tra:** prettier sạch; dev server phục vụ CSS mới (không còn lớp phủ). Chưa mở popup Hồ sơ trong game để nhìn tận mắt.
+## Sửa pier và bot (2026-11-16, feedback)
+- **Nhà Marlin's:** khối mái + tường gỗ (cột 90–107, hàng 3–18 của lưới 8 px) chặn hẳn; hiên trước cửa chặn như cũ và thấp thêm 2 hàng (hàng 19–27, tới y=224) để thân người chơi không đè lên tường. Bảng menu và các ô khác không đổi.
+- **Dock giữa (ảnh 2):** bỏ 11 ô chặn thừa trên ván không có vật nào (cạnh ghế đẩu, trên đầu thùng) và mở thêm hàng 35 cột 81–83 để ghế 28 có chỗ đứng tới được (trước đó nằm trong túi kín).
+- **Bot ngồi ghế:** Client mock (`findRoute` trong `botWalk.ts`) và Server (`BotMap.FindRoute`) tìm đường vòng qua vật cản tới chỗ đứng cạnh ghế; không có đường hoặc kẹt thì bỏ ghế, không dịch chuyển lên ghế như trước. Map pier của bot ở `server/.../Bots/pier-map.json` phải sửa cùng `fishingPierMap.json`.
+- **UI:** ô Sổ tay trong menu dùng `Icon So tay.png`; con cá thanh loading lật ngang.
+- **Kiểm tra:** vitest 288 qua (thêm test đường đi, kể cả mọi ghế pier tới được từ spawn); Server test bot qua. Chưa xem trực tiếp trong game.

@@ -28,8 +28,8 @@ const MENU_ITEMS = [
   { id: 'profile', label: 'Hồ sơ', icon: 'Icon Appearance.png' },
   { id: 'leaderboard', label: 'Bảng xếp hạng', icon: 'Icon Leaderboard.png' },
   { id: 'inventory', label: 'Túi đồ', icon: 'Icon Inventory.png' },
-  // Icon nhà mở Sổ tay cá (người dùng đổi 2026-11-13, trước là "Tắt popup").
-  { id: 'codex', label: 'Sổ tay cá', icon: 'Icon Home.png' },
+  // Icon Sổ tay (người dùng thêm 2026-11-16, trước đó dùng icon nhà Icon Home.png).
+  { id: 'codex', label: 'Sổ tay cá', icon: 'Icon So tay.png' },
   { id: 'settings', label: 'Cài đặt', icon: 'Icon Settings.png' },
 ] as const;
 const COMING_SOON = 'Sắp ra mắt';

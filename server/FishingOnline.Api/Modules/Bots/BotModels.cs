@@ -157,6 +157,85 @@ public sealed class BotMap
         return null;
     }
 
+    private const int RouteCell = 8;
+
+    /// <summary>Đường thẳng giữa hai điểm không đụng vật cản (lấy mẫu mỗi 2 px bằng đúng hình chữ nhật chân).</summary>
+    private bool ClearLine(MapPoint a, MapPoint b)
+    {
+        var steps = (int)Math.Ceiling(Math.Sqrt((b.X - a.X) * (b.X - a.X) + (b.Y - a.Y) * (b.Y - a.Y)) / 2);
+        for (var i = 1; i <= steps; i++)
+        {
+            var t = (double)i / steps;
+            if (!CanStand(a.X + (b.X - a.X) * t, a.Y + (b.Y - a.Y) * t)) return false;
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// Đường đi bộ từ <paramref name="from"/> tới <paramref name="to"/> quanh vật cản (BFS trên lưới 8 px rồi nắn thẳng các đoạn
+    /// nhìn thấy nhau); điểm cuối đúng là <paramref name="to"/>. Null nếu không có đường. Cùng thuật toán với findRoute (botWalk.ts).
+    /// </summary>
+    public IReadOnlyList<MapPoint>? FindRoute(MapPoint from, MapPoint to)
+    {
+        if (!CanStand(to.X, to.Y)) return null;
+        if (ClearLine(from, to)) return [to];
+        var cols = (int)Math.Ceiling(Width / RouteCell) + 1;
+        var rowsCount = (int)Math.Ceiling(Height / RouteCell) + 1;
+        bool Ok(int c, int r) => c >= 0 && r >= 0 && c < cols && r < rowsCount && CanStand(c * RouteCell, r * RouteCell);
+        (int C, int R)? Nearest(MapPoint p)
+        {
+            var c0 = (int)Math.Round(p.X / RouteCell, MidpointRounding.AwayFromZero);
+            var r0 = (int)Math.Round(p.Y / RouteCell, MidpointRounding.AwayFromZero);
+            for (var d = 0; d <= 4; d++)
+                for (var dr = -d; dr <= d; dr++)
+                    for (var dc = -d; dc <= d; dc++)
+                        if (Math.Max(Math.Abs(dc), Math.Abs(dr)) == d && Ok(c0 + dc, r0 + dr)) return (c0 + dc, r0 + dr);
+            return null;
+        }
+        if (Nearest(from) is not { } start || Nearest(to) is not { } goal) return null;
+
+        int Key(int c, int r) => r * cols + c;
+        var prev = new Dictionary<int, int> { [Key(start.C, start.R)] = -1 };
+        var queue = new Queue<(int C, int R)>();
+        queue.Enqueue(start);
+        var found = Key(start.C, start.R) == Key(goal.C, goal.R);
+        (int Dc, int Dr)[] directions = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)];
+        while (queue.Count > 0 && !found)
+        {
+            var (c, r) = queue.Dequeue();
+            foreach (var (dc, dr) in directions)
+            {
+                var nc = c + dc;
+                var nr = r + dr;
+                if (prev.ContainsKey(Key(nc, nr)) || !Ok(nc, nr)) continue;
+                // Đi chéo chỉ khi hai ô kề cạnh cũng đứng được, để khỏi cắt góc vật cản.
+                if (dc != 0 && dr != 0 && (!Ok(c + dc, r) || !Ok(c, r + dr))) continue;
+                prev[Key(nc, nr)] = Key(c, r);
+                if (nc == goal.C && nr == goal.R) found = true;
+                queue.Enqueue((nc, nr));
+            }
+        }
+        if (!found) return null;
+
+        var cells = new List<MapPoint>();
+        for (var k = Key(goal.C, goal.R); k != -1; k = prev[k])
+            cells.Add(new MapPoint(k % cols * RouteCell, k / cols * RouteCell));
+        cells.Reverse();
+        cells.Add(to);
+        var route = new List<MapPoint>();
+        var at = from;
+        var i = 0;
+        while (i < cells.Count)
+        {
+            var j = cells.Count - 1;
+            while (j > i && !ClearLine(at, cells[j])) j--;
+            route.Add(cells[j]);
+            at = cells[j];
+            i = j + 1;
+        }
+        return route;
+    }
+
     /// <summary>Điểm đứng được ngẫu nhiên trong bán kính quanh (cx, cy); thử vài lần rồi lấy điểm bất kỳ trên map.</summary>
     public MapPoint RandomStandable(Random random, double cx, double cy, double radius)
     {

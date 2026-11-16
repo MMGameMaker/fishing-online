@@ -175,6 +175,7 @@
   position: absolute;
   right: -4px;
   top: 50%;
-  transform: translateY(-50%);
+  /* Emoji cá vẽ đầu quay trái; lật ngang để đầu hướng về phía thanh đang chạy tới (feedback 2026-11-16). */
+  transform: translateY(-50%) scaleX(-1);
   font-size: 16px;
 }

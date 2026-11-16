@@ -74,6 +74,7 @@ import {
   BOT_PAUSE_MS,
   BOT_WALK_EVERY_MS,
   BOT_WALK_SPEED,
+  findRoute,
   pickWanderTarget,
   walkStep,
 } from './botWalk';
@@ -236,7 +237,13 @@ export class MockBackend {
   /** Trạng thái đi bộ của bot pier: điểm đang tới, nghỉ tới khi nào, số nhịp bị kẹt. */
   private readonly botWalks = new Map<
     string,
-    { target: { x: number; y: number } | null; pauseUntilMs: number; stuck: number }
+    {
+      target: { x: number; y: number } | null;
+      pauseUntilMs: number;
+      stuck: number;
+      /** Đường đi tới ghế (điểm cần tới theo thứ tự); null khi chưa tính. */
+      route?: { x: number; y: number }[] | null;
+    }
   >();
   private broadcastTimerMs = 0;
   private realtimeHandle: ReturnType<typeof setInterval> | null = null;
@@ -536,7 +543,35 @@ export class MockBackend {
         return false;
       }
       const stand = nearestStandable(this.map, seat.info.x, seat.info.y) ?? this.map.spawn;
-      if (!this.stepBot(bot, stand.x, stand.y)) return true;
+      // Đi bộ tới chỗ đứng cạnh ghế theo đường vòng qua vật cản; không có đường hoặc kẹt thì bỏ ghế này,
+      // không dịch chuyển lên ghế (feedback 2026-11-16).
+      const walk = this.botWalks.get(bot.playerId) ?? {
+        target: null,
+        pauseUntilMs: 0,
+        stuck: 0,
+        route: null,
+      };
+      this.botWalks.set(bot.playerId, walk);
+      if (!walk.route) {
+        walk.route = findRoute(this.map, bot, stand);
+        walk.stuck = 0;
+        if (!walk.route) {
+          this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+          return false;
+        }
+      }
+      const waypoint = walk.route[0];
+      if (waypoint) {
+        if (this.stepBot(bot, waypoint.x, waypoint.y) && walk.stuck <= 30) walk.route.shift();
+        if (walk.stuck > 30) {
+          walk.route = null;
+          walk.stuck = 0;
+          this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+          return false;
+        }
+        if (walk.route.length > 0) return true;
+      }
+      walk.route = null;
       seat.state = 'occupied';
       seat.occupantPlayerId = bot.playerId;
       bot.x = seat.info.x;

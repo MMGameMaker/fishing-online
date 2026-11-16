@@ -371,30 +371,9 @@
   animation: profile-dot 1s ease-in-out infinite;
 }
 
-/* Đạt mốc chưa nhận: phủ đỏ nhấp nháy liên tục để người chơi chú ý bấm vào. */
+/* Đạt mốc chưa nhận: chỉ chấm đỏ góc thẻ nhấp nháy, không phủ đỏ cả thẻ (feedback 2026-11-16). */
 .profile__card--claim {
   cursor: pointer;
-}
-
-.profile__card--claim::after {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  content: '';
-  background: rgb(230 50 40 / 38%);
-  border-radius: 4px;
-  animation: profile-claim 1s ease-in-out infinite;
-}
-
-@keyframes profile-claim {
-  0%,
-  100% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 1;
-  }
 }
 
 @keyframes profile-dot {
@@ -409,7 +388,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .profile__card--claim::after,
   .profile__dot {
     animation: none;
   }
