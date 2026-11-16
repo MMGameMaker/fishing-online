@@ -21,7 +21,7 @@ import { fishImage, preloadFishArt } from '../ui/fishArt';
 import { buildCatchCard, preloadCatchCard } from './CatchCard';
 import { SIDE_CONFETTI_PEAK_MS, burstConfetti, burstSideConfetti } from './confetti';
 import { buildResultCard, cancelText } from './resultText';
-import { playBiteBeep } from './sound';
+import { playBiteBeep, playCatchSound, playSound, preloadFishingSounds } from './sound';
 import { submitFishingResult } from './submitResult';
 
 const DEFAULT_BITE_WINDOW_MS = 3000;
@@ -107,6 +107,7 @@ export class FishingFlow {
   ) {
     this.button = new FishButton(root, () => this.press());
     preloadCatchCard();
+    preloadFishingSounds();
     preloadFishArt(services.store.getState().catalog?.fish.map((f) => f.speciesId) ?? []);
     this.bobber = scene.add.circle(0, 0, BOBBER_RADIUS, 0xf25c54).setVisible(false);
     this.unsubscribe = services.store.select(
@@ -170,7 +171,9 @@ export class FishingFlow {
   private press(): void {
     if (this.commandPending) return;
     const attempt = this.services.store.getState().attempt;
-    if (attempt?.phase === 'bite') void this.hook(attempt.attemptId);
+    if (attempt?.phase !== 'bite') return;
+    playSound('swing');
+    void this.hook(attempt.attemptId);
   }
 
   private async run(command: () => Promise<{ ok: boolean; error: unknown }>): Promise<boolean> {
@@ -226,6 +229,7 @@ export class FishingFlow {
         break;
       case 'failed':
         this.finishRound();
+        playSound(attempt.reason === 'missed_bite' ? 'failPress2' : 'minigameFail');
         // Trượt cá: vẫn ngồi ghế, không icon buồn, khoảng 1 giây sau tự câu lại (feedback 2026-11-11).
         if (attempt.reason === 'missed_bite') {
           this.nextCastAtMs = performance.now() + MISSED_RECAST_MS;
@@ -251,6 +255,7 @@ export class FishingFlow {
 
   private showWaiting(): void {
     this.me.play('cast');
+    playSound('cast');
     this.me.setHeadIcon(null);
     this.characterBusyUntilMs = 0;
     this.castTimer = this.scene.time.delayedCall(CAST_ANIM_MS, () => {
@@ -272,6 +277,7 @@ export class FishingFlow {
   private startMinigame(attempt: AttemptView): void {
     if (!attempt.minigame) return;
     this.me.play('reel');
+    playSound('reel');
     this.me.setHeadIcon(null);
     if (this.pier.skipMinigame) {
       // Server nhận kết quả ngay khi lần câu sang pha minigame; giữ một nhịp kéo cần ngắn cho có cảm giác.
@@ -303,8 +309,12 @@ export class FishingFlow {
 
   /** Tap trúng: nhân vật giật cần, lóe sáng ở phao/dây câu; điểm yếu thì sáng mạnh hơn và rung màn. */
   private onMinigameTap(kind: TapResult): void {
-    if (kind === 'miss') return;
+    if (kind === 'miss') {
+      playSound('failPress');
+      return;
+    }
     const strong = kind === 'weak';
+    playSound(strong ? 'castImpact' : 'minigameHit');
     this.me.tugRod?.(strong);
     if (strong) this.scene.cameras.main.shake(WEAK_SHAKE_MS, WEAK_SHAKE_INTENSITY);
     const point = this.me.bobberPoint?.() ?? this.bobberPoint();
@@ -363,6 +373,7 @@ export class FishingFlow {
     const { catalog } = this.services.store.getState();
     const { result } = attempt;
     if (!result) return;
+    playCatchSound(result.rarity);
     const card = buildResultCard(result, catalog);
     // Hình cá theo loài (ảnh tải sẵn lúc vào hồ) hiện ngay trong thẻ (feedback 2026-11-11, 2026-11-13).
     const fish = fishImage(result.speciesId, '', false);
@@ -421,6 +432,7 @@ export class FishingFlow {
 
     const openedAtMs = performance.now();
     const close = () => {
+      playSound('woodenClick');
       // Thẻ mờ dần và thu nhỏ rồi mới gỡ (feedback 2026-11-12).
       overlay.style.pointerEvents = 'none';
       void animateOut(popup, 'pop').then(() => overlay.remove());

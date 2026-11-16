@@ -1,0 +1,29 @@
+# Reverse proxy mot origin cho ban choi thu (docs/be/DEPLOY_PLAYTEST.md, PA2).
+# Caddy chi nghe loopback; Tailscale Funnel phat HTTPS public va chuyen vao cong nay.
+# Bien moi truong PLAYTEST_DIST = thu muc client-v0/dist; PLAYTEST_API = host:port cua API (mac dinh 127.0.0.1:5080).
+{
+	admin off
+	auto_https off
+}
+
+:8080 {
+	bind 127.0.0.1
+	encode zstd gzip
+
+	# API, SignalR (WebSocket tu dong duoc chuyen tiep) va health di thang vao ASP.NET Core.
+	@backend path /api/* /hubs/* /health/*
+	handle @backend {
+		reverse_proxy {$PLAYTEST_API:127.0.0.1:5080} {
+			flush_interval -1
+		}
+	}
+
+	handle / {
+		redir * /pier.html 302
+	}
+
+	handle {
+		root * {$PLAYTEST_DIST}
+		file_server
+	}
+}

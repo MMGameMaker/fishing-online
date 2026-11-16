@@ -73,8 +73,17 @@ Máy đích cần Docker (hoặc Postgres 17 + Redis 7 cài sẵn), .NET SDK the
 
 ## Khuyến nghị và lộ trình
 
-1. **PA1 ngay** cho chơi thử nội bộ: không chạm Firebase, không phụ thuộc dịch vụ ngoài; làm được trong ~1 buổi (script + firewall + hướng dẫn tester).
-2. **PA2 khi mời tester ngoài mạng** hoặc cần Google login thật: thêm Caddy + Tailscale, checklist production ở trên. PA1 và PA2 dùng chung máy, không loại trừ nhau.
+Theo quyết định đã chốt đầu file: **chỉ làm PA2** (Production, public, Google login thật). PA1 (LAN + dev login) không dùng cho bản playtest; chỉ giữ làm tham khảo.
+
+## Script đã viết (2026-11-14) — chưa chạy end-to-end trên máy đích
+
+- `tools/run-playtest.ps1 -PublicHost <máy>.<tailnet>.ts.net`: kiểm tra điều kiện → Postgres/Redis (Docker, hoặc `-SkipInfra` với `ConnectionStrings__*` tự cấp) → migration → tạo/dùng lại `server/playtest-jwt.key` (ngoài git) → build client (`VITE_USE_MOCK=false`, `VITE_API_BASE=https://<host>`) → `dotnet publish` vào `.local/playtest/api` → chạy API Production, chỉ nghe `127.0.0.1:5080` → xác nhận DevBypass tắt → Caddy → `tailscale funnel --bg 8080`. Đã xử lý các điểm 1–7 của mục "việc đang cứng theo máy dev": môi trường/URL, `AllowedHosts`, `Gameplay__ConfigPath` tuyệt đối, `Lake__*` cho pier, migration, biến Firebase của client, `ClientOrigins`.
+- `tools/playtest/Caddyfile`: một origin cổng 8080 (loopback), `/api/*`, `/hubs/*`, `/health/*` proxy về API, còn lại phục vụ `client-v0/dist`, `/` chuyển tới `/pier.html`.
+- `tools/stop-playtest.ps1 [-StopInfra]`: tắt Funnel, Caddy, API theo `.local/playtest/pids.json`; không xoá volume.
+
+**Đã kiểm tra trên máy dev (không có Docker/Caddy/Tailscale):** cả hai script parse không lỗi; `vite build` ra `dist/pier.html` với API base đã nhúng; bản `dotnet publish` chạy Production với Postgres portable: `/health/live` 200, `X-Dev-Player` → 401, `/dev/topup` → 404, `Host: evil.com` → 400, `Host: *.ts.net` → 200. `/health/ready` 503 vì máy dev chưa có Redis.
+
+**Chưa kiểm tra:** Docker/Redis, Caddy, Tailscale Funnel, WebSocket/SignalR qua Funnel, Google login qua URL public, và việc thêm domain vào Firebase Authorized domains (người dùng làm tay).
 
 ## Checklist trước khi mở cho tester (PA2)
 
