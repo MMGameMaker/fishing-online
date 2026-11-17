@@ -16,6 +16,7 @@ import { LeaderboardPopup } from '../leaderboard/LeaderboardPopup';
 import { ProfilePopup } from '../profile/ProfilePopup';
 import { COIN_ART } from '../coinArt';
 import { ShopPopup } from '../shop/ShopPopup';
+import { playGoldGain } from './goldFx';
 import { expText, levelProgress } from './levelProgress';
 
 const UI_DIR = '/new resources/ui/';
@@ -93,6 +94,9 @@ export class HomeHud {
   private readonly popup = el('div', 'home-ticket-info');
   private readonly popupTime = el('span', 'home-ticket-info__time');
   private readonly gold = el('span', 'home-gold__amount');
+  private readonly goldCoin = img(COIN_ICON, 'home-gold__coin');
+  /** Số Gold đang hiện, để biết Gold tăng hay giảm khi Server gửi số mới. */
+  private shownGold = 0;
   private readonly menu = el('div', 'home-menu');
   private readonly menuLabel = el('div', 'home-menu__label');
   private readonly unsubscribes: (() => void)[] = [];
@@ -139,7 +143,7 @@ export class HomeHud {
       ),
       store.select(
         (s) => s.session.gold,
-        (gold) => (this.gold.textContent = formatGold(gold ?? '0')),
+        (gold) => this.renderGold(gold ?? '0'),
       ),
       store.select(
         (s) => s.attempt,
@@ -152,6 +156,7 @@ export class HomeHud {
       ),
     );
     this.renderProfile();
+    this.shownGold = Number(store.getState().session.gold ?? '0');
     this.gold.textContent = formatGold(store.getState().session.gold ?? '0');
 
     // Bố cục tính theo màn thiết kế 1920×1080; ui-root scale cả khung chơi nên không cần fit riêng.
@@ -236,8 +241,20 @@ export class HomeHud {
     const menuButton = button('home-gold__menu', 'Menu');
     menuButton.append(img(asset('Button.png')));
     menuButton.addEventListener('click', () => void this.setMenuOpen(this.menu.hidden));
-    box.append(img(COIN_ICON, 'home-gold__coin'), this.gold, menuButton);
+    box.append(this.goldCoin, this.gold, menuButton);
     this.right.append(box);
+  }
+
+  /** Gold tăng thì đồng xu bay vào ô Gold và số đếm lên; giảm (mua đồ) thì đổi số ngay. */
+  private renderGold(gold: string): void {
+    const next = Number(gold);
+    const previous = this.shownGold;
+    this.shownGold = next;
+    if (!Number.isFinite(next) || !Number.isFinite(previous) || next <= previous) {
+      this.gold.textContent = formatGold(gold);
+      return;
+    }
+    playGoldGain(this.goldCoin, this.gold, COIN_ICON, previous, next);
   }
 
   private buildMenu(): void {

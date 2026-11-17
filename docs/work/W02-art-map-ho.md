@@ -560,6 +560,17 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 - **Nút móc câu:** `LakeScene.anchorFishButton` đặt nút dưới chân nhân vật theo toạ độ màn hình mỗi khung (`FishButton.setAnchor`); camera ở giữa thì vị trí như cũ. Coral Cove không gọi nên giữ CSS cũ.
 - **Kiểm tra:** tsc, eslint, prettier sạch; vitest 292 qua (thêm test spawn không sát mép, không khuất). Trên Server thật (pier.html, tài khoản người dùng): Main Menu → CHƠI vào hồ, nhân vật xuất hiện chỗ thoáng; đặt nhân vật ở y=100 (sát mép trên) thì nút nằm ngay dưới chân; `habitat()` trả "Bến cá"; ô cá dựng thử với tên dài xuống 2 dòng, không tràn. Chưa nhìn thẻ cá thật với dòng "Bến cá" (vé hết giờ).
 
+## Web Client — 5 effect câu cá, chặn thuyền, khói tàu (pier.html, 2026-11-17)
+- **5 effect (theo mục "Gợi ý effect và FX" trong review, người dùng duyệt):** `fishing/fishingFx.ts` + cờ `PierFishingOptions.fishingFx` (chỉ pier).
+  - Phao rơi xuống: tõm nước (giọt 1–2px + vòng gợn) và tiếng `castImpact`; trong lúc chờ cứ 1,3 giây một vòng gợn nhỏ quanh phao.
+  - Cá cắn: bắn nước mạnh + 2 vòng gợn, thêm tiếng `castImpact` cạnh tiếng báo cũ. Phao vẽ sẵn trong art cần nên không tách ra cho chìm được; effect nước thay vào.
+  - Móc trúng (pha `minigame`): khựng hình 70ms (dừng tween, animation, đồng hồ scene; không dùng `scene.pause()` vì lệnh đó chỉ có hiệu lực ở khung sau) rồi rung màn nhẹ.
+  - Câu được: cá đúng loài bay từ phao lên đỉnh đầu (`CharacterView.catchPoint`), lắc mình, giữ ~0,65 giây rồi mờ; thẻ cá vẫn hiện sau pháo giấy như cũ. Ảnh cá dùng chung `entities/fishTexture.ts` với hình cá trên đầu.
+  - Gold tăng (bán cá, nhận thưởng…): `ui/home/goldFx.ts` — 8 đồng xu bung ra giữa màn hình rồi bay vào ô Gold, số đếm lên, đồng xu trong ô nảy; Gold giảm thì đổi số ngay.
+- **Chặn thuyền:** lưới đi được bỏ các ô có điểm ảnh màu của thân tàu (`fishing-objects/boat`) và 3 thuyền nhỏ (`smallRaft`) — 334 ô, tính từ atlas (script tạm trong scratchpad). Sửa cả `fishingPierMap.json` và bản sao cho bot `server/.../Bots/pier-map.json`. Spawn ngẫu nhiên tự loại vì thành ô không đi được. Không có ghế nào trên thuyền. **Server cần khởi động lại** để bot dùng map mới.
+- **Khói tàu:** map có 2 object chồng nhau là cả con tàu: `big-boat` (có khói, animation) và `fishing-objects/boat` (tĩnh, vẽ đè lên nên che chân khói). Thêm `"d": 744` cho `big-boat` để vẽ trên bản tĩnh.
+- **Kiểm tra:** tsc, eslint, prettier sạch; vitest 292 qua; `dotnet test --filter Bot` 16 qua. Trên Server thật: bán 7 cá → 8 đồng xu bay, Gold đếm 20 → 105; ngồi ghế, phao rơi có tõm nước; không đứng được trên 3 thuyền và thân tàu; khói nằm trên miệng ống khói. Cá cắn/móc/cá bay chỉ thử bằng cách gọi thẳng effect tại phao, vì hồ `fishing-pier` lại hết cá (2 giờ qua bot câu 890 con, người 8 con — bot vẫn đang trừ tồn trên Server đang chạy).
+
 ## Web Client — Chặn điện thoại (pier.html, 2026-11-17)
 - **Yêu cầu:** mở web trên điện thoại thì không vào game, không cho đăng nhập, hiện popup báo ứng dụng không tương thích với điện thoại.
 - **Đã làm:** `core/device.ts` `isPhone()` (ưu tiên `navigator.userAgentData.mobile`, rồi UA iPhone/iPod/Windows Phone/Android…Mobile/Mobi); `preview.ts` gặp điện thoại thì chỉ hiện `BootScreens.showBlocked()` rồi dừng: không tạo Phaser, không gọi services, không có nút Google. Popup dùng nền và thẻ của màn đăng nhập: "Thông báo", 📵, "Ứng dụng này không tương thích với điện thoại.", "Vui lòng truy cập bằng máy tính để chơi Fishing Online."

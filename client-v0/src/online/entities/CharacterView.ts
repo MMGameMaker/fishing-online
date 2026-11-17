@@ -2,8 +2,8 @@ import Phaser from 'phaser';
 import type { Rarity } from '../core/gameplayConfig';
 import type { Direction } from '../net/contract';
 import { EMOTE_TEXTURE, emojiById, emoteAnimKey } from '../social/emojis';
-import { fishArtUrl } from '../ui/fishArt';
 import { RARITY_COLORS } from '../ui/kit/format';
+import { fishTextureKey, loadFishTexture } from './fishTexture';
 import { bakedData } from './characterArt';
 import {
   HEAD_BUBBLE_ART_SCALE,
@@ -45,15 +45,6 @@ const SAD_EMOTE_ART = 'sad';
 /** Hình cá trên đầu thu vào khung tối đa này (px map), giữ tỉ lệ ảnh. */
 const FISH_ICON_MAX_W = 32;
 const FISH_ICON_MAX_H = 18;
-const fishTextureKey = (speciesId: string): string => `fish-icon-${speciesId}`;
-
-/** Nạp ảnh public/assets/fish/<speciesId>.png làm texture; `done` chạy khi xong (lỗi tải thì không gọi). */
-function loadFishTexture(scene: Phaser.Scene, speciesId: string, done: () => void): void {
-  const key = fishTextureKey(speciesId);
-  scene.load.once(`filecomplete-image-${key}`, done);
-  scene.load.image(key, fishArtUrl(speciesId));
-  if (!scene.load.isLoading()) scene.load.start();
-}
 
 /** Kéo cần mỗi lần tap trúng trong minigame: nhấc lớp cần lên vài px rồi hạ lại. */
 const TUG_PX = 2;
@@ -211,6 +202,11 @@ export class CharacterView {
   /** Toạ độ y của đỉnh đầu (tai) trong thế giới, để đặt gợi ý cạnh đầu nhân vật. */
   get headY(): number {
     return this.container.y - (bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP);
+  }
+
+  /** Chỗ cá vừa câu bay tới: ngay trên đỉnh đầu (FishingActor.catchPoint). */
+  catchPoint(): { x: number; y: number } {
+    return { x: this.x, y: this.headY - 6 };
   }
 
   get direction(): Direction {

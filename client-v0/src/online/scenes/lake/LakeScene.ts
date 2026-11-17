@@ -246,6 +246,7 @@ export class LakeScene extends Phaser.Scene {
             lightSweep: true,
             closePopupByKey: true,
             sadOnMissedBite: true,
+            fishingFx: true,
           }
         : {},
     );
