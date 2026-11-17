@@ -1,4 +1,5 @@
-// Màn đăng nhập và màn tải theo thiết kế (logo, thẻ "Đăng nhập", thanh tải), dạng lớp DOM phủ kín cửa sổ.
+// Màn đăng nhập, Main Menu và màn tải theo thiết kế, dạng lớp DOM phủ kín cửa sổ.
+// Art: public/new resources/ui/Login (khung Sign In Panel, nút Google, CHƠI, Đăng xuất) — feedback 2026-11-17.
 // Chỉ pier.html bật (qua BootOptions.screens); trang khác vẫn dùng chữ Phaser cũ.
 const TIPS = [
   'Mẹo: Ngồi vào ghế trống để bắt đầu câu cá.',
@@ -9,25 +10,26 @@ const TIPS = [
 ];
 
 const LOGO = '/login/logo.png';
-
-const GOOGLE_SVG = `<svg viewBox="0 0 18 18" width="18" height="18" aria-hidden="true">
-  <path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.9c1.7-1.57 2.7-3.88 2.7-6.62z"/>
-  <path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.9-2.26c-.8.54-1.84.86-3.06.86-2.35 0-4.34-1.59-5.05-3.72H.95v2.33A9 9 0 0 0 9 18z"/>
-  <path fill="#FBBC05" d="M3.95 10.7A5.4 5.4 0 0 1 3.67 9c0-.59.1-1.17.28-1.7V4.97H.95A9 9 0 0 0 0 9c0 1.45.35 2.83.95 4.03l3-2.33z"/>
-  <path fill="#EA4335" d="M9 3.58c1.32 0 2.51.46 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0A9 9 0 0 0 .95 4.97l3 2.33C4.66 5.17 6.65 3.58 9 3.58z"/>
-</svg>`;
+const ART = '/new%20resources/ui/Login';
 
 export class BootScreens {
   private readonly root: HTMLElement;
   private readonly login: HTMLElement;
+  private readonly menu: HTMLElement;
+  private readonly blocked: HTMLElement;
   private readonly loading: HTMLElement;
   private readonly googleBtn: HTMLButtonElement;
+  private readonly playBtn: HTMLButtonElement;
+  private readonly logoutBtn: HTMLButtonElement;
+  private readonly taglineEl: HTMLElement;
   private readonly errorEl: HTMLElement;
   private readonly statusEl: HTMLElement;
   private readonly percentEl: HTMLElement;
   private readonly fillEl: HTMLElement;
   private readonly tipEl: HTMLElement;
   private onGoogle: (() => void) | null = null;
+  private onPlay: (() => void) | null = null;
+  private onLogout: (() => void) | null = null;
 
   constructor(parent: HTMLElement = document.body) {
     this.root = document.createElement('div');
@@ -35,12 +37,32 @@ export class BootScreens {
     this.root.innerHTML = `
       <div class="boot boot--login" hidden>
         <div class="boot__logo-zone"><img class="boot__logo" src="${LOGO}" alt="Fishing Online" /></div>
-        <div class="boot__card">
-          <div class="boot__card-title"><span class="boot__orn">✦</span><h2>Đăng nhập</h2><span class="boot__orn">✦</span></div>
-          <div class="boot__divider"></div>
-          <button class="boot__google" type="button">${GOOGLE_SVG}<span>Đăng nhập bằng Google</span></button>
+        <div class="boot__panel">
+          <h2 class="boot__title">Đăng nhập</h2>
+          <div class="boot__divider"><span></span><i></i><span></span></div>
+          <button class="boot__google boot__art-btn" type="button" aria-label="Đăng nhập bằng Google">
+            <img src="${ART}/Google.png" alt="" draggable="false" />
+          </button>
           <p class="boot__tagline">Bạn có thể câu được cá lớn cỡ nào?</p>
           <p class="boot__error" hidden></p>
+        </div>
+      </div>
+      <div class="boot boot--menu" hidden>
+        <button class="boot__logout boot__art-btn" type="button" aria-label="Đăng xuất">
+          <img src="${ART}/Button%20Logout.png" alt="" draggable="false" />
+        </button>
+        <div class="boot__logo-zone"><img class="boot__logo" src="${LOGO}" alt="Fishing Online" /></div>
+        <button class="boot__play boot__art-btn" type="button" aria-label="Chơi">
+          <img src="${ART}/Button%20Play.png" alt="" draggable="false" />
+        </button>
+      </div>
+      <div class="boot boot--blocked" hidden role="alertdialog" aria-modal="true" aria-labelledby="boot-blocked-title">
+        <div class="boot__logo-zone"><img class="boot__logo" src="${LOGO}" alt="Fishing Online" /></div>
+        <div class="boot__panel">
+          <h2 class="boot__title" id="boot-blocked-title">Thông báo</h2>
+          <div class="boot__divider"><span></span><i></i><span></span></div>
+          <p class="boot__blocked-text">📵 Ứng dụng này không tương thích với điện thoại.</p>
+          <p class="boot__tagline">Vui lòng truy cập bằng máy tính để chơi Fishing Online.</p>
         </div>
       </div>
       <div class="boot boot--loading" hidden>
@@ -54,8 +76,13 @@ export class BootScreens {
     parent.appendChild(this.root);
     const q = <T extends HTMLElement>(sel: string): T => this.root.querySelector(sel) as T;
     this.login = q('.boot--login');
+    this.menu = q('.boot--menu');
+    this.blocked = q('.boot--blocked');
     this.loading = q('.boot--loading');
     this.googleBtn = q('.boot__google');
+    this.playBtn = q('.boot__play');
+    this.logoutBtn = q('.boot__logout');
+    this.taglineEl = q('.boot--login .boot__tagline');
     this.errorEl = q('.boot__error');
     this.statusEl = q('.boot__status-text');
     this.percentEl = q('.boot__percent');
@@ -66,19 +93,37 @@ export class BootScreens {
       if (this.googleBtn.disabled) return;
       this.onGoogle?.();
     });
+    this.playBtn.addEventListener('click', () => {
+      if (this.playBtn.disabled) return;
+      this.playBtn.disabled = true;
+      this.logoutBtn.disabled = true;
+      this.onPlay?.();
+    });
+    this.logoutBtn.addEventListener('click', () => {
+      if (this.logoutBtn.disabled) return;
+      this.playBtn.disabled = true;
+      this.logoutBtn.disabled = true;
+      this.onLogout?.();
+    });
     // Chặn phím/chuột lọt xuống game phía sau khi đang ở màn đăng nhập hoặc tải.
     this.root.addEventListener('keydown', (e) => e.stopPropagation());
   }
 
-  /** Hiện màn đăng nhập; `onClick` chạy trong thao tác bấm nút Google. */
+  /** Hiện màn đăng nhập (không có nút Đăng xuất); `onClick` chạy trong thao tác bấm nút Google. */
   showLogin(onClick: () => void, error?: string): void {
     this.onGoogle = onClick;
     this.googleBtn.disabled = false;
     this.setError(error);
-    this.loading.hidden = true;
-    this.login.hidden = false;
-    this.root.classList.add('is-open');
-    this.root.classList.remove('is-leaving');
+    this.show(this.login);
+  }
+
+  /** Đã đăng nhập từ lần trước: Main Menu với nút CHƠI và nút Đăng xuất. */
+  showMenu(onPlay: () => void, onLogout: () => void): void {
+    this.onPlay = onPlay;
+    this.onLogout = onLogout;
+    this.playBtn.disabled = false;
+    this.logoutBtn.disabled = false;
+    this.show(this.menu);
   }
 
   /** Hiện màn tải với dòng trạng thái và tiến độ 0–100. */
@@ -86,10 +131,7 @@ export class BootScreens {
     if (this.loading.hidden) {
       this.tipEl.textContent = TIPS[Math.floor(Math.random() * TIPS.length)] ?? '';
     }
-    this.login.hidden = true;
-    this.loading.hidden = false;
-    this.root.classList.add('is-open');
-    this.root.classList.remove('is-leaving');
+    this.show(this.loading);
     this.setProgress(percent, status);
   }
 
@@ -105,6 +147,11 @@ export class BootScreens {
     this.showLogin(retry, message);
   }
 
+  /** Chặn vào game (điện thoại): chỉ hiện thông báo, không có nút đăng nhập, không đóng được. */
+  showBlocked(): void {
+    this.show(this.blocked);
+  }
+
   /** Tắt dần màn phủ khi đã vào được hồ. */
   hide(): void {
     this.setProgress(100);
@@ -112,13 +159,21 @@ export class BootScreens {
     window.setTimeout(() => {
       if (!this.root.classList.contains('is-leaving')) return;
       this.root.classList.remove('is-open', 'is-leaving');
-      this.login.hidden = true;
-      this.loading.hidden = true;
+      for (const screen of [this.login, this.menu, this.blocked, this.loading])
+        screen.hidden = true;
     }, 350);
   }
 
+  private show(screen: HTMLElement): void {
+    for (const s of [this.login, this.menu, this.blocked, this.loading]) s.hidden = s !== screen;
+    this.root.classList.add('is-open');
+    this.root.classList.remove('is-leaving');
+  }
+
   private setError(message?: string): void {
+    // Lời báo lỗi thế chỗ dòng giới thiệu để khung không phình ra.
     this.errorEl.hidden = !message;
     this.errorEl.textContent = message ?? '';
+    this.taglineEl.hidden = Boolean(message);
   }
 }

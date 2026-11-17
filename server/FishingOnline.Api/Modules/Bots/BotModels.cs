@@ -65,6 +65,40 @@ public static class BotChecks
 }
 
 /// <summary>
+/// Nơi các bot đặt chỗ điểm dừng của mình, để hai bot không cùng chọn một chỗ (hoặc hai chỗ sát nhau). Chỗ của người chơi thật
+/// không nằm ở đây mà lấy từ vị trí trong phòng.
+/// </summary>
+public sealed class BotSpots
+{
+    private readonly object gate = new();
+    private readonly Dictionary<Guid, BotMap.MapPoint> reserved = [];
+
+    /// <summary>True và ghi nhận nếu điểm đủ xa mọi chỗ bot khác đã đặt; chỗ cũ của chính bot bị thay.</summary>
+    public bool TryReserve(Guid botId, BotMap.MapPoint point)
+    {
+        lock (gate)
+        {
+            if (!IsFreeCore(botId, point)) return false;
+            reserved[botId] = point;
+            return true;
+        }
+    }
+
+    public bool IsFree(Guid botId, BotMap.MapPoint point)
+    {
+        lock (gate) return IsFreeCore(botId, point);
+    }
+
+    public void Release(Guid botId)
+    {
+        lock (gate) reserved.Remove(botId);
+    }
+
+    private bool IsFreeCore(Guid botId, BotMap.MapPoint point) =>
+        reserved.All(pair => pair.Key == botId || !BotMap.TooClose(pair.Value.X, pair.Value.Y, point.X, point.Y));
+}
+
+/// <summary>
 /// Bản sao tối thiểu của map pier phía Client (client-v0/src/online/scenes/pier/fishingPierMap.json, mục "lake") để bot đi đúng chỗ
 /// đứng được và tới đúng ghế. Server thật không kiểm tra đi lại của người chơi; map này chỉ dùng cho bot. Phải cập nhật khi map đổi.
 /// </summary>
@@ -133,10 +167,71 @@ public sealed class BotMap
         return (nextX, nextY);
     }
 
-    /// <summary>Điểm đứng được gần (x, y) nhất trong bán kính cho trước; null nếu không có.</summary>
-    public MapPoint? NearestStandable(double x, double y, int maxRadius = 64, int step = 2)
+    /// <summary>Khoảng cách tối thiểu (px) giữa điểm dừng của một bot và bất kỳ người/bot nào khác (yêu cầu 2026-11-17).</summary>
+    public const double MinSpotGap = 24;
+
+    private bool CellOk(int c, int r) =>
+        c >= 0 && r >= 0 && c < Math.Ceiling(Width / RouteCell) + 1 && r < Math.Ceiling(Height / RouteCell) + 1 && CanStand(c * RouteCell, r * RouteCell);
+
+    private HashSet<int>? mainArea;
+
+    /// <summary>
+    /// Vùng đi lại liên thông với điểm spawn (lưới 8 px, cùng luật nối ô với <see cref="FindRoute"/>). Các ô đứng được nhưng
+    /// tách khỏi vùng này (cù lao nhỏ trên bến) là nơi bot sẽ kẹt mãi nếu lọt vào, nên bot không chọn chúng làm điểm dừng.
+    /// </summary>
+    private HashSet<int> MainArea()
     {
-        if (CanStand(x, y)) return new MapPoint(x, y);
+        if (mainArea is not null) return mainArea;
+        var cols = (int)Math.Ceiling(Width / RouteCell) + 1;
+        var set = new HashSet<int>();
+        var start = NearestCell(Spawn);
+        if (start is not { } first) return mainArea = set;
+        var queue = new Queue<(int C, int R)>();
+        queue.Enqueue(first);
+        set.Add(first.R * cols + first.C);
+        (int Dc, int Dr)[] directions = [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (1, -1), (-1, 1), (-1, -1)];
+        while (queue.Count > 0)
+        {
+            var (c, r) = queue.Dequeue();
+            foreach (var (dc, dr) in directions)
+            {
+                var nc = c + dc;
+                var nr = r + dr;
+                if (!CellOk(nc, nr) || set.Contains(nr * cols + nc)) continue;
+                if (dc != 0 && dr != 0 && (!CellOk(c + dc, r) || !CellOk(c, r + dr))) continue;
+                set.Add(nr * cols + nc);
+                queue.Enqueue((nc, nr));
+            }
+        }
+        return mainArea = set;
+    }
+
+    private (int C, int R)? NearestCell(MapPoint p)
+    {
+        var c0 = (int)Math.Round(p.X / RouteCell, MidpointRounding.AwayFromZero);
+        var r0 = (int)Math.Round(p.Y / RouteCell, MidpointRounding.AwayFromZero);
+        for (var d = 0; d <= 4; d++)
+            for (var dr = -d; dr <= d; dr++)
+                for (var dc = -d; dc <= d; dc++)
+                    if (Math.Max(Math.Abs(dc), Math.Abs(dr)) == d && CellOk(c0 + dc, r0 + dr)) return (c0 + dc, r0 + dr);
+        return null;
+    }
+
+    /// <summary>Điểm đứng được và nằm trong vùng đi lại chính (đi tới được từ spawn, và từ đó đi ra được).</summary>
+    public bool IsInMainArea(double x, double y)
+    {
+        if (!CanStand(x, y) || NearestCell(new MapPoint(x, y)) is not { } cell) return false;
+        return MainArea().Contains(cell.R * ((int)Math.Ceiling(Width / RouteCell) + 1) + cell.C);
+    }
+
+    /// <summary>Hai điểm có quá gần nhau để bot đứng chồng lên người khác không.</summary>
+    public static bool TooClose(double ax, double ay, double bx, double by) =>
+        (ax - bx) * (ax - bx) + (ay - by) * (ay - by) < MinSpotGap * MinSpotGap;
+
+    /// <summary>Điểm đứng được gần (x, y) nhất trong bán kính cho trước (và qua được <paramref name="accept"/>); null nếu không có.</summary>
+    public MapPoint? NearestStandable(double x, double y, int maxRadius = 64, int step = 2, Func<MapPoint, bool>? accept = null)
+    {
+        if (CanStand(x, y) && (accept is null || accept(new MapPoint(x, y)))) return new MapPoint(x, y);
         for (var radius = step; radius <= maxRadius; radius += step)
         {
             MapPoint? best = null;
@@ -148,6 +243,7 @@ public sealed class BotMap
                     if (Math.Max(Math.Abs(dx), Math.Abs(dy)) != radius) continue;
                     var distance = Math.Sqrt(dx * dx + dy * dy);
                     if (distance >= bestDistance || !CanStand(x + dx, y + dy)) continue;
+                    if (accept is not null && !accept(new MapPoint(x + dx, y + dy))) continue;
                     bestDistance = distance;
                     best = new MapPoint(x + dx, y + dy);
                 }
@@ -236,20 +332,25 @@ public sealed class BotMap
         return route;
     }
 
-    /// <summary>Điểm đứng được ngẫu nhiên trong bán kính quanh (cx, cy); thử vài lần rồi lấy điểm bất kỳ trên map.</summary>
-    public MapPoint RandomStandable(Random random, double cx, double cy, double radius)
+    /// <summary>
+    /// Điểm đứng được ngẫu nhiên trong bán kính quanh (cx, cy), luôn nằm trong vùng đi lại chính và qua được <paramref name="accept"/>;
+    /// thử vài lần rồi lấy điểm bất kỳ trên map. Trả Spawn nếu không có điểm nào hợp lệ.
+    /// </summary>
+    public MapPoint RandomStandable(Random random, double cx, double cy, double radius, Func<MapPoint, bool>? accept = null)
     {
+        bool Good(double x, double y) =>
+            x > 0 && y > 0 && x < Width && y < Height && IsInMainArea(x, y) && (accept is null || accept(new MapPoint(x, y)));
         for (var attempt = 0; attempt < 30; attempt++)
         {
             var x = cx + (random.NextDouble() * 2 - 1) * radius;
             var y = cy + (random.NextDouble() * 2 - 1) * radius;
-            if (x > 0 && y > 0 && x < Width && y < Height && CanStand(x, y)) return new MapPoint(x, y);
+            if (Good(x, y)) return new MapPoint(x, y);
         }
         for (var attempt = 0; attempt < 200; attempt++)
         {
             var x = random.NextDouble() * Width;
             var y = random.NextDouble() * Height;
-            if (CanStand(x, y)) return new MapPoint(x, y);
+            if (Good(x, y)) return new MapPoint(x, y);
         }
         return Spawn;
     }

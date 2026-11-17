@@ -1,4 +1,4 @@
-// Server giả chạy trong trình duyệt: cùng contract với Server thật nhưng chỉ làm luật đơn giản.
+﻿// Server giả chạy trong trình duyệt: cùng contract với Server thật nhưng chỉ làm luật đơn giản.
 // Hoàn tất với mock không đồng nghĩa đã tích hợp thật.
 import type { FishConfig, GameplayConfig } from '../core/gameplayConfig';
 import { mulberry32 } from '../fishing/minigameCore';
@@ -76,6 +76,7 @@ import {
   BOT_WALK_SPEED,
   findRoute,
   pickWanderTarget,
+  tooClose,
   walkStep,
 } from './botWalk';
 
@@ -120,6 +121,8 @@ const MY_ID = '11111111-1111-4111-8111-111111111111';
 const TICK_MS = 100;
 const BOT_MOVE_EVERY_MS = 600;
 const BOT_STEP_PX = 16;
+/** Số nhịp 100 ms liên tiếp không đổi vị trí (chưa tới đích) thì bot coi là bị chặn: 5 nhịp = 0,5 giây. */
+const BOT_STUCK_TICKS = 5;
 const BOT_CATCH_CHANCE = 0.02;
 const BOT_FAIL_CHANCE = 0.02;
 const SCALE_BROADCAST_EVERY_MS = 1000;
@@ -465,7 +468,7 @@ export class MockBackend {
     }
   }
 
-  /** Một bước ngắn tới (tx, ty), phát PlayerMoved; true khi đã tới (hoặc kẹt quá 3 giây thì coi như tới). */
+  /** Một bước ngắn tới (tx, ty), phát PlayerMoved; true khi đã tới (hoặc đứng yên quá 0,5 giây giữa đường thì coi như xong lượt đi này). */
   private stepBot(bot: PlayerView, tx: number, ty: number): boolean {
     const walk = this.botWalks.get(bot.playerId) ?? { target: null, pauseUntilMs: 0, stuck: 0 };
     this.botWalks.set(bot.playerId, walk);
@@ -485,16 +488,25 @@ export class MockBackend {
         seq: this.lastMoveSeq,
       });
     }
-    return result.arrived || walk.stuck > 30;
+    return result.arrived || walk.stuck >= BOT_STUCK_TICKS;
   }
 
   /** Đi dạo: chọn điểm đứng được gần đó, đi bộ tới, nghỉ một lúc rồi chọn điểm khác. */
   private wanderBot(bot: PlayerView): void {
     const walk = this.botWalks.get(bot.playerId) ?? { target: null, pauseUntilMs: 0, stuck: 0 };
     this.botWalks.set(bot.playerId, walk);
-    if (this.nowMs < walk.pauseUntilMs) return;
+    const others = this.otherPositions(bot);
+    const crowded = () => others.some((other) => tooClose(other, bot));
+    if (this.nowMs < walk.pauseUntilMs) {
+      // Có người/bot đứng đè lên chỗ này: không nghỉ nữa, đi sang chỗ khác ngay.
+      if (!crowded()) return;
+      walk.pauseUntilMs = 0;
+      walk.target = null;
+    }
     if (!walk.target) {
-      walk.target = pickWanderTarget(this.map, bot.x, bot.y, this.random);
+      walk.target = pickWanderTarget(this.map, bot.x, bot.y, this.random, 240, 30, (point) =>
+        others.every((other) => !tooClose(other, point)),
+      );
       walk.stuck = 0;
       if (!walk.target) {
         walk.pauseUntilMs = this.nowMs + 1000;
@@ -502,10 +514,24 @@ export class MockBackend {
       }
     }
     if (this.stepBot(bot, walk.target.x, walk.target.y)) {
+      const blocked = walk.stuck >= BOT_STUCK_TICKS;
       walk.target = null;
+      // Bị chặn giữa đường (vị trí không đổi quá 0,5 giây) hoặc tới nơi mà chỗ đó vừa bị chiếm: chọn chỗ khác luôn, không nghỉ.
       walk.pauseUntilMs =
-        this.nowMs + BOT_PAUSE_MS[0] + this.random() * (BOT_PAUSE_MS[1] - BOT_PAUSE_MS[0]);
+        blocked || crowded()
+          ? 0
+          : this.nowMs + BOT_PAUSE_MS[0] + this.random() * (BOT_PAUSE_MS[1] - BOT_PAUSE_MS[0]);
     }
+  }
+
+  /** Vị trí người chơi và các bot khác (không tính `bot`), để bot không dừng chồng lên ai. */
+  private otherPositions(bot: PlayerView): { x: number; y: number }[] {
+    return [
+      { x: this.position.x, y: this.position.y },
+      ...this.bots
+        .filter((other) => other.playerId !== bot.playerId)
+        .map((other) => ({ x: other.x, y: other.y })),
+    ];
   }
 
   /**
@@ -522,7 +548,11 @@ export class MockBackend {
         [...this.botStates.values()].flatMap((s) => (s.mode === 'toSeat' ? [s.seatId] : [])),
       );
       const free = [...this.seats.values()].filter(
-        (seat) => seat.state === 'available' && !taken.has(seat.info.seatId),
+        (seat) =>
+          seat.state === 'available' &&
+          !taken.has(seat.info.seatId) &&
+          // Không ngồi lên vị trí ghế đang có người/bot đứng.
+          !this.otherPositions(bot).some((other) => tooClose(other, seat.info)),
       );
       const seat = free[Math.floor(this.random() * free.length)];
       if (!seat) {
@@ -543,6 +573,11 @@ export class MockBackend {
         return false;
       }
       const stand = nearestStandable(this.map, seat.info.x, seat.info.y) ?? this.map.spawn;
+      // Chỗ đứng cạnh ghế đang có người/bot đứng: bỏ ghế này, không đứng đè lên họ.
+      if (this.otherPositions(bot).some((other) => tooClose(other, stand))) {
+        this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+        return false;
+      }
       // Đi bộ tới chỗ đứng cạnh ghế theo đường vòng qua vật cản; không có đường hoặc kẹt thì bỏ ghế này,
       // không dịch chuyển lên ghế (feedback 2026-11-16).
       const walk = this.botWalks.get(bot.playerId) ?? {
@@ -562,8 +597,9 @@ export class MockBackend {
       }
       const waypoint = walk.route[0];
       if (waypoint) {
-        if (this.stepBot(bot, waypoint.x, waypoint.y) && walk.stuck <= 30) walk.route.shift();
-        if (walk.stuck > 30) {
+        if (this.stepBot(bot, waypoint.x, waypoint.y) && walk.stuck < BOT_STUCK_TICKS)
+          walk.route.shift();
+        if (walk.stuck >= BOT_STUCK_TICKS) {
           walk.route = null;
           walk.stuck = 0;
           this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));

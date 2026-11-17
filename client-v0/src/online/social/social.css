@@ -121,11 +121,16 @@
 .chat-panel__log {
   flex: 1;
   min-height: 0;
-  padding: 0 4px 0 0;
+  padding: 0;
   margin: 0;
   overflow-y: auto;
   list-style: none;
-  scrollbar-width: thin;
+  /* Ẩn thanh cuộn, vẫn cuộn bằng chuột/vuốt (feedback 2026-11-17). */
+  scrollbar-width: none;
+}
+
+.chat-panel__log::-webkit-scrollbar {
+  display: none;
 }
 
 .chat-msg {

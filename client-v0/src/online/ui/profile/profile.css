@@ -368,7 +368,8 @@
   right: -6px;
   width: 24px;
   height: 24px;
-  animation: profile-dot 1s ease-in-out infinite;
+  /* Mờ hẳn rồi hiện hẳn, lặp liên tục (feedback 2026-11-17). */
+  animation: profile-dot 1.2s ease-in-out infinite;
 }
 
 /* Đạt mốc chưa nhận: chỉ chấm đỏ góc thẻ nhấp nháy, không phủ đỏ cả thẻ (feedback 2026-11-16). */
@@ -379,17 +380,11 @@
 @keyframes profile-dot {
   0%,
   100% {
-    opacity: 0.35;
+    opacity: 0;
   }
 
   50% {
     opacity: 1;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .profile__dot {
-    animation: none;
   }
 }
 

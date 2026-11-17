@@ -198,7 +198,9 @@ export class LakeScene extends Phaser.Scene {
       name: profile?.displayName ?? '',
       isMe: true,
     });
-    this.cameras.main.startFollow(this.me.container, true);
+    // Không làm tròn khi bám: zoom thường là số lẻ (vd 2.4) nên camera làm tròn scroll về nguyên px map
+    // chạy bước 1-2-1-2 trong khi nhân vật đi 1.5px/khung, nhân vật lắc ~1px màn hình mỗi khung (feedback 2026-11-17).
+    this.cameras.main.startFollow(this.me.container, false);
     this.roamCircle = this.add.circle(0, 0, 10, 0xffffff, 0.12).setVisible(false);
     this.roamCircle.setDepth(ROAM_DEPTH);
     this.moveSender = new MoveSender((message) => {

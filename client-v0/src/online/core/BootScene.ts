@@ -94,15 +94,14 @@ export class BootScene extends Phaser.Scene {
       await this.devLogin(status);
       return;
     }
-    if (this.usesGoogle() && !(await getFirebaseIdToken(false, false))) {
-      if (screens) {
-        // Nút Google: popup phải mở ngay trong thao tác bấm.
-        screens.showLogin(() => {
-          screens.showLoading('Đang đăng nhập...', 20);
-          void this.login(status, true);
-        });
-        return;
-      }
+    const signedIn = !this.usesGoogle() || Boolean(await getFirebaseIdToken(false, false));
+    if (screens && this.usesGoogle()) {
+      // Đã đăng nhập từ lần trước: Main Menu (CHƠI, Đăng xuất); chưa thì khung Đăng nhập (feedback 2026-11-17).
+      if (signedIn) this.showMenu(status, screens);
+      else this.showGoogleLogin(status, screens);
+      return;
+    }
+    if (!signedIn) {
       status.setText('Fishing Online\nBấm để đăng nhập Google');
       // Bấm vào đâu trên màn hình cũng được, canvas có thể rất lớn khi phủ kín cửa sổ.
       this.input.once('pointerdown', () => {
@@ -112,6 +111,42 @@ export class BootScene extends Phaser.Scene {
       return;
     }
     await this.login(status, false);
+  }
+
+  /** Khung Đăng nhập; bấm nút Google thì đăng nhập rồi vào thẳng hồ. Popup phải mở ngay trong thao tác bấm. */
+  private showGoogleLogin(status: Phaser.GameObjects.Text, screens: BootScreens): void {
+    screens.showLogin(() => {
+      screens.showLoading('Đang đăng nhập...', 20);
+      void this.login(status, true);
+    });
+  }
+
+  /** Main Menu: CHƠI thì vào hồ bằng tài khoản Google đã nhớ; Đăng xuất thì về khung Đăng nhập. */
+  private showMenu(status: Phaser.GameObjects.Text, screens: BootScreens): void {
+    screens.showMenu(
+      () => {
+        screens.showLoading('Đang vào game...', 20);
+        void this.login(status, false);
+      },
+      () => void this.logout(status, screens),
+    );
+  }
+
+  /** Thu hồi phiên trên Server (cookie refresh) và thoát Google; lỗi mạng vẫn thoát Google. */
+  private async logout(status: Phaser.GameObjects.Text, screens: BootScreens): Promise<void> {
+    const { api } = getServices(this);
+    try {
+      await api.post('/auth/logout');
+    } catch (error) {
+      console.warn('Không thu hồi được phiên trên Server', error);
+    }
+    try {
+      const { signOutGoogle } = await import('../../firebaseAuth.js');
+      await signOutGoogle();
+    } catch (error) {
+      console.error('Không đăng xuất được Google', error);
+    }
+    this.showGoogleLogin(status, screens);
   }
 
   private async login(status: Phaser.GameObjects.Text, interactive: boolean): Promise<void> {

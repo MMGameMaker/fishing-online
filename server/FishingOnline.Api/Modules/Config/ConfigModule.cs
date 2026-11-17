@@ -105,7 +105,11 @@ public sealed class ConfigProvider : IConfigProvider
     }
 }
 
-/// <summary>Chạy trước khi nhận request: bảng trống thì nạp fixture làm version đầu, rồi cache mọi version.</summary>
+/// <summary>
+/// Chạy trước khi nhận request: configVersion của fixture chưa có trong DB (DB trống, hoặc fixture vừa đổi phiên bản)
+/// thì nạp fixture làm version đang dùng, rồi cache mọi version. Muốn đẩy thay đổi trong fixture lên DB đã chạy:
+/// đổi configVersion. Lưu ý: version mới từ fixture thay luôn version Admin đang bật (feedback 2026-11-17).
+/// </summary>
 public sealed class ConfigBootstrapper(
     IServiceScopeFactory scopes, ConfigProvider provider, IConfiguration configuration, IHostEnvironment environment, TimeProvider time)
     : IHostedService
@@ -114,25 +118,35 @@ public sealed class ConfigBootstrapper(
     {
         await using var scope = scopes.CreateAsyncScope();
         var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
-        if (!await db.Set<ConfigVersionRow>().AnyAsync(cancellationToken))
+        var path = Path.GetFullPath(configuration["Gameplay:ConfigPath"]
+            ?? throw new InvalidOperationException("Gameplay:ConfigPath is not configured."), environment.ContentRootPath);
+        var config = GameplayConfigJson.Parse(await File.ReadAllTextAsync(path, cancellationToken));
+        var errors = GameplayConfigValidator.Validate(config);
+        if (errors.Count > 0) throw new InvalidGameplayConfigException(errors);
+
+        if (!await db.Set<ConfigVersionRow>().AnyAsync(row => row.Version == config.ConfigVersion, cancellationToken))
         {
-            var path = Path.GetFullPath(configuration["Gameplay:ConfigPath"]
-                ?? throw new InvalidOperationException("Gameplay:ConfigPath is not configured."), environment.ContentRootPath);
-            var json = await File.ReadAllTextAsync(path, cancellationToken);
-            var config = GameplayConfigJson.Parse(json);
-            var errors = GameplayConfigValidator.Validate(config);
-            if (errors.Count > 0) throw new InvalidGameplayConfigException(errors);
-            db.Add(new ConfigVersionRow
-            {
-                Version = config.ConfigVersion,
-                Json = GameplayConfigJson.Serialize(config),
-                PublishedAt = time.GetUtcNow(),
-                PublishedBy = "system:fixture",
-                IsActive = true,
-            });
             try
             {
+                await using var transaction = await db.Database.BeginTransactionAsync(cancellationToken);
+                var active = await db.Set<ConfigVersionRow>()
+                    .FromSqlInterpolated($"""select * from game.config_versions where "IsActive" for update""")
+                    .AsTracking().SingleOrDefaultAsync(cancellationToken);
+                if (active is not null)
+                {
+                    active.IsActive = false;
+                    await db.SaveChangesAsync(cancellationToken);
+                }
+                db.Add(new ConfigVersionRow
+                {
+                    Version = config.ConfigVersion,
+                    Json = GameplayConfigJson.Serialize(config),
+                    PublishedAt = time.GetUtcNow(),
+                    PublishedBy = "system:fixture",
+                    IsActive = true,
+                });
                 await db.SaveChangesAsync(cancellationToken);
+                await transaction.CommitAsync(cancellationToken);
             }
             catch (DbUpdateException exception) when (exception.UniqueConstraint() is not null)
             {

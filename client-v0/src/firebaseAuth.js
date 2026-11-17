@@ -1,11 +1,12 @@
 import { getApps, initializeApp } from 'firebase/app';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from 'firebase/auth';
 
 function config() {
   const env = import.meta.env;
   const apiKey = env.VITE_FIREBASE_API_KEY;
   const projectId = env.VITE_FIREBASE_PROJECT_ID;
-  if (!apiKey || !projectId) throw new Error('Missing Firebase config: create client-v0/.env.local (see .env.example).');
+  if (!apiKey || !projectId)
+    throw new Error('Missing Firebase config: create client-v0/.env.local (see .env.example).');
   return {
     apiKey,
     projectId,
@@ -29,6 +30,11 @@ export async function currentIdToken() {
   const instance = auth();
   await instance.authStateReady();
   return instance.currentUser ? instance.currentUser.getIdToken() : null;
+}
+
+// Signs the Google account out of Firebase, so the next visit shows the sign-in screen again.
+export async function signOutGoogle() {
+  await signOut(auth());
 }
 
 // Display name of the signed-in Google account, or null when nobody is signed in.

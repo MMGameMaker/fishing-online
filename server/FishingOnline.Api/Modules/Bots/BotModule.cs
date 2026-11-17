@@ -39,6 +39,38 @@ public sealed class BotManager(
     private readonly ConcurrentDictionary<Guid, BotAgent> active = new();
     private readonly SemaphoreSlim gate = new(1, 1);
     private readonly Random random = new();
+    private readonly BotSpots spots = new();
+
+    /// <summary>Bot đứng yên quá lâu (không bước, không bước nào của lượt câu) thì coi là kẹt và khởi động lại vòng đời.</summary>
+    public static readonly TimeSpan StallLimit = TimeSpan.FromSeconds(150);
+
+    /// <summary>Khởi động lại mọi bot kẹt quá <paramref name="limit"/>; trả số bot đã khởi động lại.</summary>
+    public async Task<int> RestartStalledAsync(TimeSpan limit, CancellationToken ct = default)
+    {
+        await gate.WaitAsync(ct);
+        try
+        {
+            var restarted = 0;
+            foreach (var agent in active.Values.Where(agent => agent.StalledFor >= limit).ToArray())
+            {
+                logger.LogWarning("Bot {Bot} stalled for {Seconds:0}s, restarting its loop", agent.DisplayName, agent.StalledFor.TotalSeconds);
+                try
+                {
+                    await agent.RestartAsync();
+                    restarted++;
+                }
+                catch (Exception exception) when (exception is not OperationCanceledException)
+                {
+                    logger.LogWarning(exception, "Bot {Bot} could not be restarted", agent.DisplayName);
+                }
+            }
+            return restarted;
+        }
+        finally
+        {
+            gate.Release();
+        }
+    }
 
     private double TimeScale => Math.Max(1.0, configuration.GetValue("Bots:TimeScale", 1.0));
 
@@ -106,7 +138,7 @@ public sealed class BotManager(
     private async Task SpawnCoreAsync(CancellationToken ct)
     {
         var profile = await PickOrCreateBotAsync(ct);
-        var deps = new BotDeps(scopes, room, layout, seats, fishing, configs, map, time, TimeScale, SuccessPctAsync, logger);
+        var deps = new BotDeps(scopes, room, layout, seats, fishing, configs, map, spots, time, TimeScale, SuccessPctAsync, logger);
         var agent = new BotAgent(profile.Id, profile.DisplayName, profile.SelectedSkinId, profile.EquippedRodId, deps);
         await agent.StartAsync();
         active[profile.Id] = agent;
@@ -197,6 +229,15 @@ public sealed class BotDirector(BotManager manager, IConfiguration configuration
         {
             while (await timer.WaitForNextTickAsync(stoppingToken))
             {
+                try
+                {
+                    // Mỗi nhịp (không chờ chu kỳ 3 phút): bot đứng yên quá lâu thì khởi động lại.
+                    await manager.RestartStalledAsync(BotManager.StallLimit, stoppingToken);
+                }
+                catch (Exception exception) when (exception is not OperationCanceledException)
+                {
+                    logger.LogError(exception, "Bot watchdog failed");
+                }
                 if (DateTimeOffset.UtcNow < next) continue;
                 var seconds = 180;
                 try

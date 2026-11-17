@@ -22,7 +22,7 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
     {
         await using var scope = App.Services.CreateAsyncScope();
         return await scope.ServiceProvider.GetRequiredService<ICatchRecorder>().RecordAsync(
-            playerId, attemptId ?? Guid.NewGuid(), species, length, exp, "v0-test-2026-11-10-ticket-01", default);
+            playerId, attemptId ?? Guid.NewGuid(), species, length, exp, "v0-test-2026-11-17-skins-01", default);
     }
 
     private Task<long> GoldOfAsync(Guid playerId) =>

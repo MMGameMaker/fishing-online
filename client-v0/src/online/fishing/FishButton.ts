@@ -2,7 +2,8 @@
 // Thu cần bằng cách bấm nút hoặc phím Space (feedback 2026-11-11). Hình nút là ảnh Button Hook.png.
 import { isModalOpen } from '../ui/kit/modal';
 
-const HOOK_IMAGE = encodeURI('/mini game/Button Hook.png');
+// ?v= đổi mỗi khi thay art để trình duyệt không dùng ảnh cũ đã lưu (art mới 2026-11-17).
+const HOOK_IMAGE = `${encodeURI('/mini game/Button Hook.png')}?v=20261117`;
 const SVG_NS = 'http://www.w3.org/2000/svg';
 /** Bán kính vòng đếm ngược (đơn vị viewBox 100), ôm ngay ngoài viền tròn của ảnh nút. */
 const RING_R = 46;

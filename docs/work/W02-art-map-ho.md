@@ -502,9 +502,63 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 - **Feedback:** thẻ thành tựu đạt mốc chưa nhận không phủ đỏ nhấp nháy cả thẻ nữa, chỉ chấm đỏ góc thẻ nhấp nháy.
 - **Đã sửa:** `ui/profile/profile.css` bỏ lớp phủ `.profile__card--claim::after` và keyframes `profile-claim`; chấm `profile__dot` giữ nhịp mờ/rõ 1 s; thẻ vẫn bấm được để nhận.
 - **Kiểm tra:** prettier sạch; dev server phục vụ CSS mới (không còn lớp phủ). Chưa mở popup Hồ sơ trong game để nhìn tận mắt.
+- **Bổ sung 2026-11-17:** chấm đỏ fade in/out hẳn (opacity 0 ↔ 1, chu kỳ 1.2 s) thay cho 0.35 ↔ 1; bỏ ngoại lệ `prefers-reduced-motion` để máy tắt hiệu ứng Windows vẫn thấy nhấp nháy. Kiểm tra trên trình duyệt: animation `profile-dot` cho opacity 0 → 0.5 → 1 → 0.5.
+
+## Web Client — Ẩn thanh cuộn khung Trò chuyện (2026-11-17)
+- **Feedback:** xoá thanh cuộn bên phải danh sách tin nhắn.
+- **Đã sửa:** `social/social.css` `.chat-panel__log`: `scrollbar-width: none` + ẩn `::-webkit-scrollbar`, bỏ padding phải 4px dành cho thanh cuộn; vẫn cuộn bằng chuột/vuốt. Áp dụng mọi trang có khung chat.
+- **Kiểm tra:** prettier sạch; trên trình duyệt danh sách vẫn `overflow-y: auto`, thanh cuộn rộng 0px. Chưa mở khung chat trong game để nhìn tận mắt.
+
+## Web Client — Cần câu vừa ô trong Cửa hàng (2026-11-17)
+- **Feedback:** ảnh cần ở tab Trang bị lòi ra ngoài ô, cho cần bé lại.
+- **Đã sửa:** `ui/shop/shop.css` `.shop-card__rod` cao 92px (trước tới 128px), rộng tối đa 44px, vẫn xoay nghiêng 18°.
+- **Kiểm tra:** prettier sạch; trên trình duyệt đo 5 cần (old, steel_awl, high_performer, bliss, giant_caster): khung sau khi xoay ~62×99px, nằm gọn trong lòng ô 120×120. Chưa mở cửa hàng trong game để nhìn tận mắt.
+
+## Web Client — Màn Đăng nhập, Main Menu, Đăng xuất (pier.html, 2026-11-17)
+- **Yêu cầu đã chốt với người dùng:** dựng màn Đăng nhập theo art `public/new resources/ui/Login`; đã đăng nhập Google từ lần trước thì chỉ hiện Main Menu (logo, nút CHƠI, nút Đăng xuất góc trên phải); nút Đăng xuất chỉ ở Main Menu; bấm Đăng xuất thì thoát cả Google lẫn phiên Server, hiện khung Đăng nhập và ẩn nút Đăng xuất. Không làm nút Facebook, không hiện chữ "v0.1". Nền giữ `public/login/background.png`. Chỉ pier.html.
+- **Đã làm:**
+  - `ui/boot/BootScreens.ts` + `boot.css`: khung Sign In Panel (640×388), tiêu đề "Đăng nhập", gạch ngang có viên cam, nút ảnh Google.png, dòng giới thiệu (lỗi đăng nhập thế chỗ dòng này); Main Menu với Button Play.png và Button Logout.png; màn chặn điện thoại cũng dùng khung mới. Kích thước theo màn thiết kế 1920×1080 (`--s`, tối thiểu 0.42px).
+  - `core/BootScene.ts`: có màn thiết kế + dùng Google thì: còn nhớ đăng nhập → `showMenu` (CHƠI → màn tải → vào hồ), chưa → khung Đăng nhập (bấm Google → vào thẳng hồ). Đăng xuất: `POST /auth/logout` (thu hồi cookie refresh, lỗi thì bỏ qua) rồi `signOutGoogle()` (thêm vào `src/firebaseAuth.js`).
+- **Kiểm tra:** tsc, eslint, prettier sạch; vitest 291 qua. Trình duyệt 1280×720: khung Đăng nhập và Main Menu khớp ảnh thiết kế; bấm Đăng xuất (gọi từ Main Menu dựng thử) → hiện khung Đăng nhập, nút Đăng xuất ẩn, không lỗi console; giả lập điện thoại vẫn ra màn chặn.
+- **Chưa kiểm:** chưa đăng nhập Google thật trong trình duyệt thử (agent không nhập mật khẩu), nên chưa xem luồng thật: đăng nhập → tải lại trang ra Main Menu → CHƠI vào hồ → Đăng xuất. Chưa thử với Server thật.
+
+## Feedback 2026-11-17 chiều: thanh cuộn Bán cá, trang phục trên Server thật, nút móc câu
+- **Web Client — bỏ thanh cuộn tab Bán cá:** `ui/shop/shop.css` `.shop-sell__grid` `scrollbar-width: none` + ẩn `::-webkit-scrollbar`, vẫn cuộn bằng chuột/vuốt. Prettier sạch, vitest 291 qua; chưa mở cửa hàng trong game để nhìn.
+- **Server — tab Ngoại hình trống với Server thật (người dùng duyệt cách sửa "đổi phiên bản + Server tự nạp"):**
+  - Nguyên nhân: `ConfigBootstrapper` chỉ nạp fixture khi bảng `config_versions` trống; 5 offer `offer_skin_06..10` được thêm vào fixture mà không đổi `configVersion`, nên DB đã chạy vẫn dùng bản cũ không có trang phục.
+  - Sửa: `Modules/Config/ConfigModule.cs` — khởi động mà `configVersion` của fixture chưa có trong DB thì thêm version đó và bật nó (tắt version đang bật, khóa `for update`, cùng cách Admin xuất bản). Fixture cùng version thì giữ nguyên version Admin đang bật. Đổi `configVersion` thành `v0-test-2026-11-17-skins-01` trong `gameplay-config.v0.json`, `minigame-vectors.v0.json`, `api-samples.v0.json` và các test Server dùng chuỗi này.
+  - Tác động: từ nay mỗi lần đổi `configVersion` trong fixture, lần khởi động sau sẽ thay version Admin đang bật bằng fixture.
+  - Kiểm tra: thêm `ConfigBootstrapTests` (2 test: version mới được bật và có `offer_skin_06`; cùng version giữ bản Admin). `dotnet test` 233/234 qua, test lỗi là `SeatTests.Disconnect125s` (đã biết hay timeout khi chạy cả bộ), chạy riêng qua.
+  - Cần làm trên máy chạy Server: khởi động lại API bằng `tools/run-local.ps1 -Mode real` (áp cả migration `SKIN_SkinsOwned`, `BOT_BotsAndMarks` nếu chưa áp; Server không tự migrate). Chưa xem tab Ngoại hình với Server thật.
+- **Nút móc câu:** người dùng chỉ cần nút dùng art mới của `public/mini game/Button Hook.png` (file duy nhất được thay, 2191 byte). Code vốn trỏ đúng file; thêm `?v=20261117` vào đường dẫn ảnh trong `fishing/FishButton.ts` để trình duyệt không dùng ảnh cũ đã cache. Kiểm tra: tsc, prettier sạch, vitest fishing 52 qua; dev server trả đúng ảnh mới 2191 byte. Đổi art lần sau thì đổi số `?v=`.
+
+## Server thật không câu được cá (kiểm tra 2026-11-17, chưa sửa)
+- Hồ `fishing-pier` hết cá: tồn đầu 898 (14/11), bị câu hết lúc 15:56 ngày 17/11 (bot 811, người 87); hồ `lake-01` còn 898. Từ đó lần câu chỉ "chờ" mãi. Không liên quan việc đổi `configVersion` (bản mới nạp lúc 16:04; so JSON hai bản: chỉ khác `shopOffers`, tên hiển thị cá, `configVersion`).
+- Hướng sửa (bot không trừ quần thể / thả thêm cá / báo "hồ hết cá" cho người chơi): người dùng sẽ bàn với GD sau.
+- **Cập nhật 2026-11-17 (người dùng báo bot câu đã không trừ tổng cá):** theo yêu cầu, thả lại cá cho hồ `fishing-pier` trên DB local thật (Postgres cổng 55432) bằng SQL làm giống `StockInTransactionAsync`: cộng lại đúng tồn đầu từng loài (bass 100, carp 200, goldcarp 40, koi 15, minnow 200, moonfin 3, perch 200, puffer 40, trout 100 = 898) và ghi 9 dòng `lake_fish_movements` kind `stock` cùng một batch. Kiểm tra sau khi chạy: tổng 898, reserved 0. Không đi qua Admin nên không có bản ghi đợt thả trong Admin.
+
+## Web Client — Camera giật khi di chuyển (2026-11-17)
+- **Nguyên nhân:** `LakeScene` bám nhân vật bằng `startFollow(..., roundPixels=true)`. Zoom pier là số lẻ (vd 2.4 ở 1280×720) nên Phaser không làm tròn khi vẽ, nhưng vẫn làm tròn scroll camera về nguyên px map: camera chạy 1-2-1-2 px trong khi nhân vật đi 1.5 px/khung, nhân vật lắc 0.5 px map (~1.2 px màn hình) mỗi khung.
+- **Sửa:** `startFollow(this.me.container, false)` (dùng cho mọi trang có LakeScene).
+- **Kiểm tra:** đo trên trình duyệt (mock, 1280×720, tạm tắt Google rồi bật lại): vị trí nhân vật trên màn hình trước đổi 1536 ↔ 1537.2 xen kẽ từng khung, sau cố định 1536; chụp lúc đang đi không thấy hở đường kẻ giữa các ô. tsc, eslint, prettier sạch, vitest 291 qua. Chưa thử trên Server thật và màn hình độ phân giải khác.
+
+## Web Client — Chặn điện thoại (pier.html, 2026-11-17)
+- **Yêu cầu:** mở web trên điện thoại thì không vào game, không cho đăng nhập, hiện popup báo ứng dụng không tương thích với điện thoại.
+- **Đã làm:** `core/device.ts` `isPhone()` (ưu tiên `navigator.userAgentData.mobile`, rồi UA iPhone/iPod/Windows Phone/Android…Mobile/Mobi); `preview.ts` gặp điện thoại thì chỉ hiện `BootScreens.showBlocked()` rồi dừng: không tạo Phaser, không gọi services, không có nút Google. Popup dùng nền và thẻ của màn đăng nhập: "Thông báo", 📵, "Ứng dụng này không tương thích với điện thoại.", "Vui lòng truy cập bằng máy tính để chơi Fishing Online."
+- **Phạm vi:** chỉ pier.html (trang có màn đăng nhập mới). Máy tính bảng (Android không có "Mobile", iPad báo là Mac) vẫn vào được. Chặn ở client, Server không chặn.
+- **Kiểm tra:** tsc, eslint, prettier sạch; `device.test.ts` 2 test qua. Trình duyệt giả lập Pixel 8 (375×812): hiện popup, không có canvas; máy tính 1280×800: vẫn ra màn đăng nhập bình thường. Chưa thử trên điện thoại thật.
 ## Sửa pier và bot (2026-11-16, feedback)
-- **Nhà Marlin's:** khối mái + tường gỗ (cột 90–107, hàng 3–18 của lưới 8 px) chặn hẳn; hiên trước cửa chặn như cũ và thấp thêm 2 hàng (hàng 19–27, tới y=224) để thân người chơi không đè lên tường. Bảng menu và các ô khác không đổi.
+- **Nhà Marlin's:** khối mái + tường gỗ (cột 90–107, hàng 3–18 của lưới 8 px) chặn hẳn; hiên trước cửa chỉ chặn tới vạch đỏ (hàng 19–24, tới y=200); từ hàng 25 trở xuống đi qua được (feedback 2026-11-16, lần chỉnh cuối). Bảng menu và các ô khác không đổi.
 - **Dock giữa (ảnh 2):** bỏ 11 ô chặn thừa trên ván không có vật nào (cạnh ghế đẩu, trên đầu thùng) và mở thêm hàng 35 cột 81–83 để ghế 28 có chỗ đứng tới được (trước đó nằm trong túi kín).
 - **Bot ngồi ghế:** Client mock (`findRoute` trong `botWalk.ts`) và Server (`BotMap.FindRoute`) tìm đường vòng qua vật cản tới chỗ đứng cạnh ghế; không có đường hoặc kẹt thì bỏ ghế, không dịch chuyển lên ghế như trước. Map pier của bot ở `server/.../Bots/pier-map.json` phải sửa cùng `fishingPierMap.json`.
 - **UI:** ô Sổ tay trong menu dùng `Icon So tay.png`; con cá thanh loading lật ngang.
 - **Kiểm tra:** vitest 288 qua (thêm test đường đi, kể cả mọi ghế pier tới được từ spawn); Server test bot qua. Chưa xem trực tiếp trong game.
+
+## Bot: chống đứng yên và không trùng vị trí (2026-11-17, yêu cầu)
+- **Nguyên nhân kẹt tìm được (chưa chứng minh là cái đã gặp trên server thật):** map có vùng đi lại chính 8017 ô lưới 8 px và 4 cù lao tách rời (một cù lao 149 ô quanh (872,624), ba ô nhỏ); bot lọt vào đó thì không có đường ra, vòng đời chỉ còn dạo vô ích và bỏ lượt ngồi. Ngoài ra bot đi dạo theo đường thẳng nên hay đụng nước/vật cản và đứng gần như tại chỗ. Server cũ chạy 17 giờ không có log để kết luận thêm; đã bật lại với log Debug để theo dõi.
+- **Server (`Modules/Bots`):** `BotMap` tính vùng chính từ spawn (`IsInMainArea`); `RandomStandable` và mọi điểm bot chọn chỉ lấy trong vùng này. Bot đi dạo bằng `FindRoute` (đường vòng) thay vì đường thẳng. **Watchdog:** `BotAgent.StalledFor` + `BotManager.RestartStalledAsync` (mỗi nhịp của `BotDirector`) khởi động lại vòng đời bot không có tiến triển quá 150 giây, đưa bot về vùng chính nếu đang ở cù lao.
+- **Không trùng vị trí:** điểm dừng cuối (đích đi dạo, chỗ đứng cạnh ghế, chỗ đứng sau khi rời ghế) phải cách mọi người trong phòng và chỗ bot khác đã đặt (`BotSpots`) ít nhất `MinSpotGap` = 24 px. Đang nghỉ mà có người đi tới đứng chồng lên thì bot đi sang chỗ khác ngay; tới nơi mà chỗ vừa bị chiếm thì chọn chỗ khác. Ghế vẫn do SeatSessions bảo đảm duy nhất.
+- **Bị chặn giữa đường (yêu cầu 2026-11-17):** bot chưa tới đích mà vị trí đổi chưa tới 2 px trong 0,5 giây (kể cả khi vẫn "bước" lắc sát vật cản) thì bỏ điểm đó, random điểm khác rồi đi tiếp, tối đa 4 lần mỗi chặng, không nghỉ giữa các lần chọn lại (Server `MoveToAsync`/`RoamAsync`). Đang đi tới ghế mà bị chặn thì bỏ ghế, quay về dạo. Mock: 5 nhịp 100 ms liên tiếp không đổi vị trí (`BOT_STUCK_TICKS`), trước đây là 30 nhịp.
+- **Lỗi hai người chồng một ghế (2026-11-17, server thật):** nguyên nhân là bot "ngồi ma". Khi Server kết thúc phiên ngồi của bot (hết vé, bị watchdog khởi động lại, lỗi giữa chừng), vị trí bot vẫn nằm ở toạ độ ghế; DB báo ghế trống nên người thật hoặc bot khác ngồi vào đúng chỗ đó. Đã sửa: `BotAgent.LeaveSeatSpotAsync` đưa bot ra chỗ trống gần ghế (đi bộ, bị chặn thì đặt thẳng) trong mọi đường thoát, và kiểm tra phiên còn sống trước mỗi lượt câu; bot không chọn ghế có người đứng sát vị trí ghế và kiểm lại ngay trước khi ngồi. `SeatSessions.SitDownAsync` thêm chốt theo phòng (ghế đã có người ngồi trong phòng thì `SEAT_TAKEN`) ngoài chỉ mục duy nhất của DB. Không đổi contract. Người thật vẫn đi bộ lên được vị trí ghế đang có bot ngồi (Server không kiểm đi lại), nhưng không ngồi được.
+- **Client mock:** cùng luật qua `tooClose`/`SPOT_GAP` và tham số `accept` của `pickWanderTarget`; bot mock tránh vị trí người chơi và bot khác (chưa có vùng chính/watchdog vì mock bot có tự thoát khi kẹt 3 giây).
+- **Kiểm tra:** vitest 291 qua, tsc/eslint sạch; Server 13 test bot qua (thêm vùng chính, `BotSpots`, watchdog khởi động lại, bot tránh người đứng đè). Chưa xem trực tiếp trong game.

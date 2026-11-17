@@ -199,7 +199,12 @@
   gap: 28px 16px;
   align-content: start;
   overflow-y: auto;
-  scrollbar-width: thin;
+  /* Ẩn thanh cuộn, vẫn cuộn bằng chuột/vuốt (feedback 2026-11-17). */
+  scrollbar-width: none;
+}
+
+.shop-sell__grid::-webkit-scrollbar {
+  display: none;
 }
 
 .shop-fish {
@@ -452,10 +457,12 @@
   border-image: url('/new%20resources/ui/Slot%20-%20State%20Empty.png') 12 fill / 12px stretch;
 }
 
+/* Cần nằm gọn trong lòng ô 120×120 (trong viền 12px) kể cả khi xoay nghiêng (feedback 2026-11-17). */
 .shop-card__rod {
-  width: 51px;
-  height: auto;
-  max-height: 128px;
+  width: auto;
+  height: 92px;
+  max-width: 44px;
+  object-fit: contain;
   transform: rotate(18deg);
 }
 
