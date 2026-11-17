@@ -13,6 +13,8 @@ export interface LakeMapArt {
    */
   readonly drawsSeats?: boolean;
   highlightSeat?(seatId: string | null): void;
+  /** Nhân vật đứng ở chân (x, y) bị vật thể của map vẽ đè (khuất); dùng khi chọn chỗ xuất hiện. */
+  isHidden?(x: number, y: number): boolean;
 }
 
 const REGISTRY_KEY = 'lakeMapArt';

@@ -22,6 +22,15 @@
         "dev"
       ],
       "port": 5173
+    },
+    {
+      "name": "client-v0-real",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "set VITE_USE_MOCK=false&& npm --prefix client-v0 run dev"
+      ],
+      "port": 5173
     }
   ]
 }

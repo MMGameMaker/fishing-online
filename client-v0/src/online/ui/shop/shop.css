@@ -211,6 +211,8 @@
   display: flex;
   gap: 12px;
   align-items: center;
+  /* Ô lưới không được rộng hơn cột, để tên dài xuống dòng thay vì tràn ra ngoài khung. */
+  min-width: 0;
   text-align: left;
 }
 
@@ -290,11 +292,15 @@
   min-width: 0;
 }
 
+/* Tên dài (Yellow Perch, Golden Goldfish) xuống tối đa 2 dòng, không bị cắt (feedback 2026-11-17). */
 .shop-fish__name {
+  display: -webkit-box;
   overflow: hidden;
   font-size: 28px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .shop-sell__bar {

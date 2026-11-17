@@ -8,6 +8,7 @@ import {
   PIER_SHEETS,
   RIPPLE_ANIMS,
   depthOf,
+  isHiddenBehindObject,
   pickRippleSpot,
   type PierMapData,
   type PierObject,
@@ -155,6 +156,22 @@ describe('map chơi được của pier', () => {
     for (let i = 0; i < 50; i++) {
       const p = randomSpawn(lake);
       expect(canStand(lake, p.x, p.y)).toBe(true);
+    }
+  });
+
+  it('điểm vào game không sát mép map và không khuất sau vật thể', () => {
+    const width = lake.widthTiles * lake.tileSize;
+    const height = lake.heightTiles * lake.tileSize;
+    const hidden = (x: number, y: number) => isHiddenBehindObject(MAP.objects, x, y);
+    // Có điểm đi được bị khuất (hải đăng, tán cây) để phép kiểm có ý nghĩa.
+    expect(reachablePoints(lake).some((p) => hidden(p.x, p.y))).toBe(true);
+    for (let i = 0; i < 200; i++) {
+      const p = randomSpawn(lake, Math.random, (x, y) => !hidden(x, y));
+      expect(p.x).toBeGreaterThanOrEqual(80);
+      expect(p.y).toBeGreaterThanOrEqual(80);
+      expect(p.x).toBeLessThanOrEqual(width - 80);
+      expect(p.y).toBeLessThanOrEqual(height - 80);
+      expect(hidden(p.x, p.y)).toBe(false);
     }
   });
 

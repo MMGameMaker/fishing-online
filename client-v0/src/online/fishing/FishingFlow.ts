@@ -145,6 +145,11 @@ export class FishingFlow {
     return this.isLocked() || nowMs < this.characterBusyUntilMs;
   }
 
+  /** Đặt nút móc câu dưới chân nhân vật (toạ độ lớp UI); không gọi thì nút ở giữa màn hình. */
+  setButtonAnchor(x: number, y: number): void {
+    this.button.setAnchor(x, y);
+  }
+
   update(): void {
     const { attempt, lake, catalog } = this.services.store.getState();
     const nowMs = performance.now();

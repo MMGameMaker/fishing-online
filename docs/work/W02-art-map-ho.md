@@ -542,6 +542,24 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 - **Sửa:** `startFollow(this.me.container, false)` (dùng cho mọi trang có LakeScene).
 - **Kiểm tra:** đo trên trình duyệt (mock, 1280×720, tạm tắt Google rồi bật lại): vị trí nhân vật trên màn hình trước đổi 1536 ↔ 1537.2 xen kẽ từng khung, sau cố định 1536; chụp lúc đang đi không thấy hở đường kẻ giữa các ô. tsc, eslint, prettier sạch, vitest 291 qua. Chưa thử trên Server thật và màn hình độ phân giải khác.
 
+## Web Client — Hình cá vừa câu trên đầu người khác (2026-11-17)
+- **Feedback:** câu xong thì trên đầu bot và người chơi thật (Server thật) phải hiện icon con cá câu được; trước đây chỉ là chấm elip tô màu độ hiếm (xám = thường).
+- **Đã sửa:** `entities/CharacterView.ts` — `HeadIcon` loại `fish` thêm `speciesId`; hiện ảnh `public/assets/fish/<speciesId>.png` (nạp texture lần đầu khi cần, trong lúc nạp hiện chấm màu cũ), thu vào khung tối đa 32×18 px map; pier.html đặt trong bong bóng trên đầu như emoji, trang khác đặt ở chỗ icon cũ. `LakeScene.syncCatches` truyền `speciesId` từ `CatchShown`. Server đã gửi `speciesId` trong `CatchShown` cho cả người thật lẫn bot (bot đi qua `FishingService.SubmitResultAsync`), không cần sửa Server.
+- **Kiểm tra:** tsc, eslint, prettier sạch; vitest 291 qua. Trình duyệt (mock, tạm tắt Google rồi bật lại): giả `CatchShown` cho 3 bot (moonfin, minnow, puffer) → bong bóng hiện đúng hình cá (minnow 32×16); koi chưa nạp sẵn vẫn hiện sau khi tải; hết `shownUntil` thì bong bóng tắt. Chưa xem với Server thật. Nhân vật của mình vẫn không hiện cá trên đầu (đã có popup nhận cá).
+- **Cập nhật:** đã thấy hình cá trên đầu bot khi chơi trên Server thật (17/11).
+
+## Review game feel pier.html trên Server thật (2026-11-17)
+- Tài liệu review gửi người dùng: https://claude.ai/artifact/V1saJgq9KE4ursR9zrWQST (tóm tắt, vòng chơi, UI/kinh tế, xã hội, so sánh thị trường, 10 đề xuất ưu tiên). Là đề xuất, chưa phải quyết định đã chốt.
+- Cách chơi: thêm cấu hình `client-v0-real` (Vite với `VITE_USE_MOCK=false`, cổng 5173) vào `.claude/launch.json`; người dùng đăng nhập Google trong trình duyệt app; agent bán 14 cá (70 Gold), mua 1 vé, câu 3 con trên tài khoản test.
+- Lỗi nhỏ thấy được: thẻ cá ghi "Nơi sống: fishing-pier"; tên cá dài bị cắt trong tab Bán cá; spawn ngẫu nhiên có lúc ở mép trên map (y=15) hoặc sau hải đăng; ghế sát mép map thì nút móc câu ở giữa màn hình, xa nhân vật; popup vé có nút -10/+10 trong khi tối đa 6 vé (chưa sửa). Dải banner "trống" là lúc chữ đang chạy giữa hai lượt, đúng hiệu ứng đã chốt, không sửa.
+
+## Web Client — Sửa mục 1–2 của review (2026-11-17)
+- **Thẻ cá:** "Nơi sống" hiện tên hồ (`fishing-pier` → "Bến cá", `lake-01` → "Hồ câu", map khác giữ mã) — `LakeScene` truyền `habitat` cho `FishingFlow`. Tên hiển thị là đề xuất, GD đổi được trong `LAKE_NAMES`.
+- **Tên cá dài trong tab Bán cá:** `.shop-fish` có `min-width: 0`, `.shop-fish__name` xuống tối đa 2 dòng thay vì cắt.
+- **Chỗ xuất hiện ngẫu nhiên:** `randomSpawn` chừa lề 80px quanh mép map và nhận thêm điều kiện; pier loại chỗ bị vật thể vẽ đè (`isHiddenBehindObject` trong `pierMap.ts`, qua `LakeMapArt.isHidden`). Không còn chỗ hợp thì dùng lại mọi chỗ đi được như cũ.
+- **Nút móc câu:** `LakeScene.anchorFishButton` đặt nút dưới chân nhân vật theo toạ độ màn hình mỗi khung (`FishButton.setAnchor`); camera ở giữa thì vị trí như cũ. Coral Cove không gọi nên giữ CSS cũ.
+- **Kiểm tra:** tsc, eslint, prettier sạch; vitest 292 qua (thêm test spawn không sát mép, không khuất). Trên Server thật (pier.html, tài khoản người dùng): Main Menu → CHƠI vào hồ, nhân vật xuất hiện chỗ thoáng; đặt nhân vật ở y=100 (sát mép trên) thì nút nằm ngay dưới chân; `habitat()` trả "Bến cá"; ô cá dựng thử với tên dài xuống 2 dòng, không tràn. Chưa nhìn thẻ cá thật với dòng "Bến cá" (vé hết giờ).
+
 ## Web Client — Chặn điện thoại (pier.html, 2026-11-17)
 - **Yêu cầu:** mở web trên điện thoại thì không vào game, không cho đăng nhập, hiện popup báo ứng dụng không tương thích với điện thoại.
 - **Đã làm:** `core/device.ts` `isPhone()` (ưu tiên `navigator.userAgentData.mobile`, rồi UA iPhone/iPod/Windows Phone/Android…Mobile/Mobi); `preview.ts` gặp điện thoại thì chỉ hiện `BootScreens.showBlocked()` rồi dừng: không tạo Phaser, không gọi services, không có nút Google. Popup dùng nền và thẻ của màn đăng nhập: "Thông báo", 📵, "Ứng dụng này không tương thích với điện thoại.", "Vui lòng truy cập bằng máy tính để chơi Fishing Online."

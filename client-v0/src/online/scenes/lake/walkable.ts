@@ -155,6 +155,9 @@ export function reachablePoints(map: LakeMap): { x: number; y: number }[] {
   return out;
 }
 
+/** Không xuất hiện trong khoảng này tính từ mép map (px map). */
+const SPAWN_EDGE_MARGIN_PX = 80;
+
 /**
  * Điểm xuất phát ngẫu nhiên khi vào game (yêu cầu 2026-11-16): bất kỳ chỗ đứng được và đi tới được trên map,
  * không phải nước hay vật cản. Map không có chỗ nào như vậy thì về spawn.
@@ -162,8 +165,22 @@ export function reachablePoints(map: LakeMap): { x: number; y: number }[] {
 export function randomSpawn(
   map: LakeMap,
   random: () => number = Math.random,
+  /** Loại thêm chỗ không hợp (vd. bị vật thể che); không còn chỗ nào thì bỏ qua điều kiện này. */
+  accept: (x: number, y: number) => boolean = () => true,
 ): { x: number; y: number } {
-  const points = reachablePoints(map);
+  const all = reachablePoints(map);
+  // Chừa lề quanh mép map (feedback 2026-11-17): sát mép thì camera chạm biên, nhân vật bị HUD che.
+  const maxX = map.widthTiles * map.tileSize - SPAWN_EDGE_MARGIN_PX;
+  const maxY = map.heightTiles * map.tileSize - SPAWN_EDGE_MARGIN_PX;
+  const good = all.filter(
+    (p) =>
+      p.x >= SPAWN_EDGE_MARGIN_PX &&
+      p.x <= maxX &&
+      p.y >= SPAWN_EDGE_MARGIN_PX &&
+      p.y <= maxY &&
+      accept(p.x, p.y),
+  );
+  const points = good.length > 0 ? good : all;
   if (points.length === 0) return { ...map.spawn };
   return { ...points[Math.floor(random() * points.length)]! };
 }
