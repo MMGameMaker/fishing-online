@@ -46,6 +46,21 @@ export const TITLES: readonly TitleOption[] = [
   { id: 'thien_long_cau', label: 'Thiên Long Câu' },
   { id: 'van_ngu_chi_chu', label: 'Vạn Ngư Chi Chủ' },
 ];
+/** Bậc danh hiệu (yêu cầu 2026-11-18), quyết màu biệt hiệu dưới tên nhân vật: 0 thường, 1 hiếm, 2 sử thi, 3 huyền thoại. */
+export type TitleTier = 0 | 1 | 2 | 3;
+const TIER_IDS: Record<Exclude<TitleTier, 0>, readonly string[]> = {
+  1: ['sat_thu_ca_chep', 'quy_cau', 'bao_ngu', 'than_cau', 'hac_long_ngu', 'ngu_ba_thien', 'lang_tu_cau_dem', 'ca_chu_nhan', 'thiet_can', 'vo_anh_cau'],
+  2: ['tay_ho_ba_chu', 'ngu_vuong', 'long_vuong_ho_tay', 'doc_co_cau_ngu', 'tay_ho_kiem_thu', 'diet_ngu_dai_de', 'tay_ho_chien_than', 'cau_thanh', 'ngu_long_ton_gia', 'doc_nhan_ngu_vuong'],
+  3: ['thien_ha_de_nhat_can', 'long_ngu_chien_than', 'huyet_ngu_dai_de', 'thien_long_cau', 'van_ngu_chi_chu'],
+};
+export const TITLE_TIER_COLORS: Record<TitleTier, string> = { 0: '#d8d8d8', 1: '#5aa9ff', 2: '#c77dff', 3: '#ffb02e' };
+
+export function titleTier(id: string | undefined): TitleTier {
+  if (!id) return 0;
+  for (const tier of [3, 2, 1] as const) if (TIER_IDS[tier].includes(id)) return tier;
+  return 0;
+}
+
 export const DEFAULT_TITLE_ID = TITLES[0]!.id;
 
 export function titleLabel(id: string | undefined): string {

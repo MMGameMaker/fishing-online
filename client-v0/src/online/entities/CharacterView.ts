@@ -12,6 +12,7 @@ import {
   hasHeadBubble,
   headBubbleTexture,
 } from './HeadBubble';
+import { titleLabel, titleTier, TITLE_TIER_COLORS, type TitleTier } from '../ui/profile/profileModel';
 import { animKey, ensureRod, ensureSkin, frameName, type CharacterAnim } from './placeholderArt';
 
 export interface CharacterOptions {
@@ -35,8 +36,16 @@ export type HeadIcon =
 /** Đỉnh đầu sprite vẽ tạm so với chân; art thật ghi `headTop` trong JSON. */
 const PLACEHOLDER_HEAD_TOP = 25;
 const LABEL_GAP = 9;
+const PIER_LABEL_LOWER = 3;
 const NAME_COLOR = '#ffffff';
 const MY_NAME_COLOR = '#ffd84a';
+const NAME_STROKE = '#2b1a0e';
+/** Vệt sáng biệt hiệu theo bậc (1 hiếm, 2 sử thi, 3 huyền thoại): chu kỳ, độ sáng; quét trong 55% đầu chu kỳ. */
+const SHEEN_PERIOD_MS: Record<TitleTier, number> = { 0: 0, 1: 4200, 2: 3200, 3: 2400 };
+const SHEEN_STRENGTH: Record<TitleTier, number> = { 0: 0, 1: 0.5, 2: 0.75, 3: 0.95 };
+const SHEEN_ACTIVE = 0.55;
+const SHEEN_STEP_MS = 50;
+let sheenSeq = 0;
 const ICON_GAP = 21;
 /** Khoảng từ mép trên tên tới tâm icon trên đầu (pier): đủ cho emoji cao ~23px không chạm tên. */
 const ICON_ABOVE_LABEL = 13;
@@ -128,6 +137,13 @@ export class CharacterView {
   private readonly rod: Phaser.GameObjects.Sprite;
   private readonly iconSlot: Phaser.GameObjects.Container;
   private readonly label: Phaser.GameObjects.Text;
+  /** Biệt hiệu (danh hiệu) dưới tên; chỉ trang có Head Bubble (pier) mới hiện. */
+  private readonly titleText: Phaser.GameObjects.Text;
+  /** Vệt sáng quét qua biệt hiệu (bậc hiếm trở lên): ảnh cộng sáng vẽ lại từ canvas chữ theo thời gian. */
+  private sheenImage: Phaser.GameObjects.Image | null = null;
+  private sheenTimer: Phaser.Time.TimerEvent | null = null;
+  private sheenKey: string | null = null;
+  private titleShown: string | undefined | null = null;
   private readonly bubble: Phaser.GameObjects.Text;
   private bubbleTimer: Phaser.Time.TimerEvent | null = null;
   /** Bong bóng Head Bubble.png (chỉ trang đã nạp ảnh này, vd. pier.html): chat hoặc emoji. */
@@ -173,9 +189,22 @@ export class CharacterView {
         fontSize: '8px',
         ...(hasHeadBubble(scene) ? { fontStyle: 'bold', resolution: 4 } : {}),
         color: options.isMe ? MY_NAME_COLOR : NAME_COLOR,
-        backgroundColor: '#00000066',
+        // Pier: bỏ nền hộp, thay bằng viền tối cho tên nổi trên cả gỗ lẫn nước (yêu cầu 2026-11-18).
+        ...(hasHeadBubble(scene) ? { stroke: NAME_STROKE, strokeThickness: 3 } : { backgroundColor: '#00000066' }),
       })
       .setOrigin(0.5, 1);
+    this.titleText = scene.add
+      .text(0, 0, '', {
+        fontFamily: 'Courier New, monospace',
+        fontSize: '6px',
+        fontStyle: 'bold',
+        resolution: 4,
+        color: TITLE_TIER_COLORS[0],
+        stroke: NAME_STROKE,
+        strokeThickness: 2,
+      })
+      .setOrigin(0.5, 1)
+      .setVisible(false);
     this.iconSlot = scene.add.container(0, 0);
     this.bubble = scene.add
       .text(0, 0, '', {
@@ -195,6 +224,7 @@ export class CharacterView {
       this.sadFace,
       this.rod,
       this.label,
+      this.titleText,
       this.bubble,
       this.iconSlot,
     ]);
@@ -246,6 +276,78 @@ export class CharacterView {
   /** Đổi tên hiển thị trên đầu (người chơi vừa đổi tên ở màn Tài khoản). */
   setName(name: string): void {
     if (this.label.text !== name) this.label.setText(name);
+  }
+
+  /** Đặt biệt hiệu dưới tên (pier). Không có id thì ẩn; bậc huyền thoại nhấp nháy nhẹ. */
+  setTitle(titleId: string | undefined): void {
+    if (!hasHeadBubble(this.scene) || this.titleShown === titleId) return;
+    this.titleShown = titleId;
+    this.stopSheen();
+    if (!titleId) {
+      this.titleText.setVisible(false);
+    } else {
+      const tier = titleTier(titleId);
+      this.titleText
+        .setText(titleLabel(titleId))
+        .setColor(TITLE_TIER_COLORS[tier])
+        .setVisible(true);
+      if (tier > 0) this.startSheen(tier);
+    }
+    this.placeHeadItems();
+  }
+
+  /** Vệt sáng chéo chạy qua chữ rồi nghỉ một nhịp; bậc càng cao càng sáng và nhanh. */
+  private startSheen(tier: TitleTier): void {
+    const source = this.titleText.canvas;
+    const key = `title-sheen-${++sheenSeq}`;
+    const texture = this.scene.textures.createCanvas(key, source.width, source.height);
+    if (!texture) return;
+    const period = SHEEN_PERIOD_MS[tier];
+    const strength = SHEEN_STRENGTH[tier];
+    const w = source.width;
+    const h = source.height;
+    const draw = (): void => {
+      const phase = (this.scene.time.now % period) / period;
+      const ctx = texture.getContext();
+      ctx.clearRect(0, 0, w, h);
+      if (phase < SHEEN_ACTIVE) {
+        const p = phase / SHEEN_ACTIVE;
+        const band = w * 0.35;
+        const cx = -band + p * (w + band * 2);
+        const gradient = ctx.createLinearGradient(cx - band / 2, 0, cx + band / 2, 0);
+        gradient.addColorStop(0, 'rgba(255,255,255,0)');
+        gradient.addColorStop(0.5, `rgba(255,255,255,${strength})`);
+        gradient.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.drawImage(source, 0, 0);
+        ctx.globalCompositeOperation = 'source-atop';
+        ctx.save();
+        ctx.transform(1, 0, -0.35, 1, 0, 0);
+        ctx.fillStyle = gradient;
+        ctx.fillRect(-w, 0, w * 3, h);
+        ctx.restore();
+        ctx.globalCompositeOperation = 'source-over';
+      }
+      texture.refresh();
+    };
+    draw();
+    this.sheenKey = key;
+    // 1 = Phaser.BlendModes.ADD (file này chỉ import kiểu Phaser).
+    this.sheenImage = this.scene.add
+      .image(0, 0, key)
+      .setOrigin(0.5, 1)
+      .setScale(1 / this.titleText.style.resolution)
+      .setBlendMode(1);
+    this.container.add(this.sheenImage);
+    this.sheenTimer = this.scene.time.addEvent({ delay: SHEEN_STEP_MS, loop: true, callback: draw });
+  }
+
+  private stopSheen(): void {
+    this.sheenTimer?.remove();
+    this.sheenTimer = null;
+    this.sheenImage?.destroy();
+    this.sheenImage = null;
+    if (this.sheenKey) this.scene.textures.remove(this.sheenKey);
+    this.sheenKey = null;
   }
 
   get x(): number {
@@ -441,6 +543,7 @@ export class CharacterView {
       return;
     }
     this.scene.tweens.killTweensOf(this.bubble);
+    this.stopSheen();
     this.bubble.setText(text).setVisible(true).setAlpha(0).setScale(0.5);
     this.scene.tweens.add({
       targets: this.bubble,
@@ -622,9 +725,15 @@ export class CharacterView {
   /** Nhãn tên và icon đặt theo chiều cao skin (thỏ có tai cao hơn sprite vẽ tạm). */
   private placeHeadItems(): void {
     const headTop = bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP;
-    this.label.y = -(headTop + LABEL_GAP);
+    // Có biệt hiệu: nó chiếm chỗ tên cũ (sát đầu), tên đẩy lên trên một dòng.
+    // pier: tên và biệt hiệu hạ thấp thêm một chút sát đầu (yêu cầu 2026-11-18).
+    const gap = hasHeadBubble(this.scene) ? LABEL_GAP - PIER_LABEL_LOWER : LABEL_GAP;
+    const titleRow = this.titleText.visible ? this.titleText.height + 1 : 0;
+    this.titleText.y = -(headTop + gap);
+    this.sheenImage?.setPosition(this.titleText.x, this.titleText.y);
+    this.label.y = -(headTop + gap + titleRow);
     this.iconSlot.y = -(headTop + ICON_GAP);
-    this.bubble.y = -(headTop + LABEL_GAP + SAY_GAP);
+    this.bubble.y = -(headTop + gap + titleRow + SAY_GAP);
     // pier.html (có ảnh Head Bubble): dấu !, emoji buồn, icon cá nằm hẳn trên tên, không đè chữ
     // (feedback 2026-11-14). Trang khác giữ chỗ cũ.
     if (hasHeadBubble(this.scene)) this.iconSlot.y = this.labelTop() - ICON_ABOVE_LABEL;

@@ -157,7 +157,7 @@ public sealed record SitDownResult(MySeatView Seat);
 /// <summary><paramref name="RestSeatId"/>: chỗ ngồi chơi đang ngồi (ghế quanh bàn, không câu; yêu cầu 2026-11-18).</summary>
 public sealed record PlayerView(
     Guid PlayerId, string DisplayName, string SkinId, string RodId, double X, double Y, string Dir, string? SeatId, bool Fishing,
-    string? RestSeatId = null);
+    string? RestSeatId = null, string? TitleId = null);
 
 public sealed record PlayerLeftView(Guid PlayerId);
 

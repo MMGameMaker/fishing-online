@@ -345,6 +345,8 @@ export interface PlayerView {
    * Server cũ chưa gửi thì bỏ trống = không ngồi.
    */
   restSeatId?: string | null;
+  /** Danh hiệu đang đeo, hiện dưới tên (yêu cầu 2026-11-18). Server cũ chưa gửi thì bỏ trống. */
+  titleId?: string;
 }
 
 export interface SeatView {

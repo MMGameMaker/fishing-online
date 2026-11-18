@@ -41,7 +41,7 @@ public sealed record BotDeps(
 /// (<see cref="StalledFor"/> để BotManager khởi động lại vòng đời bị kẹt). BOT-02: chỉ bot có suất câu mới ngồi ghế,
 /// BotManager có thể bảo bot đứng dậy (<see cref="RequestStand"/>), và bot báo trạng thái để chọn câu chat.
 /// </summary>
-public sealed class BotAgent(Guid playerId, string displayName, string skinId, string rodId, BotDeps deps)
+public sealed class BotAgent(Guid playerId, string displayName, string skinId, string rodId, BotDeps deps, string? titleId = null)
 {
     // Cùng nhịp người chơi thật gửi Move (10 lần/giây): Client nội suy 100 ms mỗi bước nên bot đi mượt, không giật.
     private const int StepMs = 100;
@@ -125,6 +125,7 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
                 DisplayName = displayName,
                 SkinId = skinId,
                 RodId = rodId,
+                TitleId = titleId,
                 // Không phải kết nối SignalR thật: tin gửi riêng cho bot rơi vào khoảng trống, tin phát cả phòng vẫn tới người thật.
                 ConnectionId = $"bot:{playerId}",
                 Abort = () => { },

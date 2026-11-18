@@ -88,6 +88,7 @@ public sealed class LakeCommands(
                     Y = command.Y ?? 0,
                     Dir = command.Dir ?? "down",
                     SeatId = session?.SeatId,
+                    TitleId = profile.TitleId,
                     LastMoveAt = now,
                 };
                 room.Add(player);

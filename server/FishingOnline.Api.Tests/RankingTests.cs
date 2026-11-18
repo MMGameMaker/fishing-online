@@ -15,7 +15,7 @@ public sealed class RankingTests(PostgresServer postgres) : GameTestBase(postgre
         {
             await using var scope = App.Services.CreateAsyncScope();
             await scope.ServiceProvider.GetRequiredService<ICatchRecorder>().RecordAsync(
-                playerId, attemptId ?? Guid.NewGuid(), "perch", 100 + i, 5, "v0-test-2026-11-17-skins-01", default);
+                playerId, attemptId ?? Guid.NewGuid(), "perch", 100 + i, 5, "v0-test-2026-11-18-fishnames-01", default);
         }
     }
 

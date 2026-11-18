@@ -250,7 +250,7 @@ public sealed class BotManager : IBotCoordinator
     {
         if (await PickOrCreateBotAsync(ct) is not { } profile) return false;
         var deps = new BotDeps(this, scopes, room, layout, seats, fishing, configs, map, spots, time, TimeScale, SuccessPctAsync, logger);
-        var agent = new BotAgent(profile.Id, profile.DisplayName, profile.SelectedSkinId, profile.EquippedRodId, deps);
+        var agent = new BotAgent(profile.Id, profile.DisplayName, profile.SelectedSkinId, profile.EquippedRodId, deps, profile.TitleId);
         active[profile.Id] = agent;
         await agent.StartAsync();
         logger.LogInformation("Bot {Bot} joined the lake", profile.DisplayName);
@@ -325,7 +325,8 @@ public sealed class BotManager : IBotCoordinator
                 bot.DisplayNameKey = DisplayNames.Key(name);
             }
             if (string.IsNullOrEmpty(bot.Bio)) bot.Bio = content.BioFor(bot.Id);
-            bot.TitleId ??= BotContent.TitleFor(bot.Id, ProfileRules.TitleIds);
+            // Theo id nên ổn định; ghi lại mỗi lần để bot cũ nhận luôn các danh hiệu mới (2026-11-18).
+            bot.TitleId = BotContent.TitleFor(bot.Id, ProfileRules.TitleIds);
         }
         await db.SaveChangesAsync(ct);
         botIds = new ConcurrentDictionary<Guid, bool>(bots.Select(bot => KeyValuePair.Create(bot.Id, true)));

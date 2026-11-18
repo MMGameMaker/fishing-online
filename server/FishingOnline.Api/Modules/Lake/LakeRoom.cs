@@ -51,6 +51,9 @@ public sealed class RoomPlayer
     public DateTimeOffset LastMoveAt { get; set; }
     public string? SeatId { get; set; }
 
+    /// <summary>Danh hiệu đang đeo, hiện dưới tên trên đầu nhân vật (yêu cầu 2026-11-18). Cập nhật khi vào hồ lại.</summary>
+    public string? TitleId { get; set; }
+
     /// <summary>Chỗ ngồi chơi đang giữ (chỉ trong RAM: rời phòng là trả chỗ).</summary>
     public string? RestSeatId { get; set; }
 
@@ -124,7 +127,7 @@ public sealed class LakeRoom(LakeLayout layout, IHubContext<GameHub> hub, IFishi
 
     public PlayerView View(RoomPlayer player) => new(
         player.PlayerId, player.DisplayName, player.SkinId, player.RodId, player.X, player.Y, player.Dir, player.SeatId,
-        fishing.IsBusy(player.PlayerId), player.RestSeatId);
+        fishing.IsBusy(player.PlayerId), player.RestSeatId, player.TitleId);
 
     /// <summary>Chỗ ngồi chơi đã có người khác giữ. Chỉ gọi trong <see cref="Queue"/>.</summary>
     public bool RestSeatTaken(string restSeatId, Guid except) =>

@@ -213,6 +213,7 @@ export class LakeScene extends Phaser.Scene {
       name: profile?.displayName ?? '',
       isMe: true,
     });
+    this.me.setTitle(profile?.titleId);
     // Không làm tròn khi bám: zoom thường là số lẻ (vd 2.4) nên camera làm tròn scroll về nguyên px map
     // chạy bước 1-2-1-2 trong khi nhân vật đi 1.5px/khung, nhân vật lắc ~1px màn hình mỗi khung (feedback 2026-11-17).
     this.cameras.main.startFollow(this.me.container, false);
@@ -439,6 +440,10 @@ export class LakeScene extends Phaser.Scene {
         (name) => {
           if (name) this.me?.setName(name);
         },
+      ),
+      store.select(
+        (s) => s.session.profile?.titleId,
+        (titleId) => this.me?.setTitle(titleId),
       ),
       store.select(
         (s) => s.lake.correction,
@@ -702,6 +707,7 @@ export class LakeScene extends Phaser.Scene {
     remote.view.setDepthOverride(restSeat?.depth ?? fishSeat?.depth ?? null);
     remote.view.setSkin(player.skinId);
     remote.view.setRod(player.rodId);
+    remote.view.setTitle(player.titleId);
   }
 
   private syncCatches(): void {
