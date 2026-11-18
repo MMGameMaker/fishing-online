@@ -35,7 +35,7 @@ import {
 export const LAKE_SCENE = 'Lake';
 
 /** Tên hồ hiển thị theo mapId Server gửi; map chưa đặt tên thì giữ mapId. */
-const LAKE_NAMES: Record<string, string> = { 'fishing-pier': 'Bến cá', 'lake-01': 'Hồ câu' };
+const LAKE_NAMES: Record<string, string> = { 'fishing-pier': 'Hồ Tây', 'lake-01': 'Hồ Tây' };
 const lakeDisplayName = (mapId: string | null | undefined): string =>
   mapId ? (LAKE_NAMES[mapId] ?? mapId) : '—';
 const TILE_TEXTURE = 'placeholder-tiles';

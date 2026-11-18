@@ -1,7 +1,7 @@
 """Xuất ảnh 9 loài cá của game từ atlas trong public/new resources/anim/atlases.
 
 Ra public/assets/fish/<speciesId>.png (cắt sát, kích thước gốc pixel art). Client dùng cho popup câu được
-cá, cửa hàng và túi đồ. Đổi ảnh một loài: sửa bảng FISH rồi chạy lại `python tools/export_fish_art.py`.
+cá, cửa hàng và túi đồ. LƯU Ý (2026-11-18): ảnh trong public/assets/fish đã được thay bằng art mới của Zen (export-2200, thu về 512px); chạy lại script này sẽ GHI ĐÈ bằng ảnh atlas cũ. Đổi ảnh một loài: sửa bảng FISH rồi chạy lại `python tools/export_fish_art.py`.
 """
 from __future__ import annotations
 

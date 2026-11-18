@@ -107,15 +107,15 @@ export const RARITY_COLORS = { junk: '#8a8a8a', common: '#d8d8d8', uncommon: '#6
 // speed: marker speed in bar pixels per millisecond.
 export const FISH = [
   { id: 'boot', name: 'Old Boot', rarity: 'junk', weight: 8, speed: 0.16, value: 1, color: '#6b4b32' },
-  { id: 'minnow', name: 'Minnow', rarity: 'common', weight: 28, speed: 0.18, value: 5, color: '#9fb4c7' },
-  { id: 'perch', name: 'Perch', rarity: 'common', weight: 24, speed: 0.2, value: 8, color: '#8fbf6a' },
-  { id: 'carp', name: 'Carp', rarity: 'common', weight: 18, speed: 0.22, value: 12, color: '#c9a064' },
-  { id: 'trout', name: 'Trout', rarity: 'uncommon', weight: 10, speed: 0.26, value: 24, color: '#e08a8a' },
-  { id: 'bass', name: 'Bass', rarity: 'uncommon', weight: 8, speed: 0.28, value: 30, color: '#4f8f6f' },
-  { id: 'goldcarp', name: 'Golden Carp', rarity: 'rare', weight: 4, speed: 0.32, value: 70, color: '#f2c14e' },
-  { id: 'puffer', name: 'Pufferfish', rarity: 'rare', weight: 3, speed: 0.34, value: 90, color: '#e7d27c' },
-  { id: 'koi', name: 'Koi', rarity: 'epic', weight: 1.5, speed: 0.38, value: 180, color: '#ff7a59' },
-  { id: 'moonfin', name: 'Moonfin', rarity: 'legendary', weight: 0.5, speed: 0.42, value: 500, color: '#b9a8ff' },
+  { id: 'minnow', name: 'Cá Cơm', rarity: 'common', weight: 28, speed: 0.18, value: 5, color: '#9fb4c7' },
+  { id: 'perch', name: 'Cá Mòi', rarity: 'common', weight: 24, speed: 0.2, value: 8, color: '#8fbf6a' },
+  { id: 'carp', name: 'Cá Rô Phi', rarity: 'common', weight: 18, speed: 0.22, value: 12, color: '#c9a064' },
+  { id: 'trout', name: 'Cá Trắm', rarity: 'uncommon', weight: 10, speed: 0.26, value: 24, color: '#e08a8a' },
+  { id: 'bass', name: 'Cá Chép', rarity: 'uncommon', weight: 8, speed: 0.28, value: 30, color: '#4f8f6f' },
+  { id: 'goldcarp', name: 'Cá Chuối', rarity: 'rare', weight: 4, speed: 0.32, value: 70, color: '#f2c14e' },
+  { id: 'puffer', name: 'Cá Thu', rarity: 'rare', weight: 3, speed: 0.34, value: 90, color: '#e7d27c' },
+  { id: 'koi', name: 'Cá Koi', rarity: 'epic', weight: 1.5, speed: 0.38, value: 180, color: '#ff7a59' },
+  { id: 'moonfin', name: 'Mực', rarity: 'legendary', weight: 0.5, speed: 0.42, value: 500, color: '#b9a8ff' },
 ];
 export const FISH_BY_ID = Object.fromEntries(FISH.map((f) => [f.id, f]));
 export const isRareFish = (fish) => ['rare', 'epic', 'legendary'].includes(fish.rarity);
