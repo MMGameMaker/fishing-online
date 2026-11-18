@@ -24,7 +24,8 @@ public static class ProfileRules
     public const long AchievementRewardGold = 100;
 
     /// <summary>Danh hiệu tạm, trùng bảng của Client (profileModel.ts). Mục đầu là mặc định.</summary>
-    public static readonly IReadOnlyList<string> TitleIds = ["master", "rookie", "hunter", "lake_king", "sea_friend", "legend"];
+    public static readonly IReadOnlyList<string> TitleIds = ["master", "rookie", "hunter", "lake_king", "sea_friend", "legend",
+        "tay_ho_ba_chu", "ngu_vuong", "sat_thu_ca_chep", "long_vuong_ho_tay", "doc_co_cau_ngu", "thien_ha_de_nhat_can", "quy_cau", "bao_ngu", "tay_ho_kiem_thu", "than_cau", "hac_long_ngu", "ngu_ba_thien", "lang_tu_cau_dem", "ca_chu_nhan", "thiet_can", "diet_ngu_dai_de", "tay_ho_chien_than", "vo_anh_cau", "cau_thanh", "ngu_long_ton_gia", "long_ngu_chien_than", "doc_nhan_ngu_vuong", "huyet_ngu_dai_de", "thien_long_cau", "van_ngu_chi_chu"];
 
     public static string DefaultTitleId => TitleIds[0];
 }

@@ -46,7 +46,7 @@ describe('codexRows', () => {
       },
       'lake-01',
     );
-    expect(rows[0]?.value).toBe('Marlin');
+    expect(rows[0]?.value).toBe('Mực');
     expect(rows[4]?.value).toBe('');
     expect(rows[5]?.value).toBe('');
   });

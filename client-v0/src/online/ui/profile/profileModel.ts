@@ -12,7 +12,7 @@ export interface TitleOption {
   label: string;
 }
 
-/** Danh hiệu tạm, tên do Claude đặt chờ GD duyệt. Mục đầu là mặc định. */
+/** Danh hiệu tạm; 25 mục sau do Zen cung cấp 2026-11-18, 6 mục đầu do Claude đặt chờ GD duyệt. Mục đầu là mặc định. */
 export const TITLES: readonly TitleOption[] = [
   { id: 'master', label: 'Bậc thầy câu cá' },
   { id: 'rookie', label: 'Tay câu mới nổi' },
@@ -20,6 +20,31 @@ export const TITLES: readonly TitleOption[] = [
   { id: 'lake_king', label: 'Vua hồ câu' },
   { id: 'sea_friend', label: 'Bạn của biển cả' },
   { id: 'legend', label: 'Huyền thoại cần câu' },
+  { id: 'tay_ho_ba_chu', label: 'Tây Hồ Bá Chủ' },
+  { id: 'ngu_vuong', label: 'Ngư Vương' },
+  { id: 'sat_thu_ca_chep', label: 'Sát Thủ Cá Chép' },
+  { id: 'long_vuong_ho_tay', label: 'Long Vương Hồ Tây' },
+  { id: 'doc_co_cau_ngu', label: 'Độc Cô Cầu Ngư' },
+  { id: 'thien_ha_de_nhat_can', label: 'Thiên Hạ Đệ Nhất Cần' },
+  { id: 'quy_cau', label: 'Quỷ Câu' },
+  { id: 'bao_ngu', label: 'Bạo Ngư' },
+  { id: 'tay_ho_kiem_thu', label: 'Tây Hồ Kiếm Thủ' },
+  { id: 'than_cau', label: 'Thần Câu' },
+  { id: 'hac_long_ngu', label: 'Hắc Long Ngư' },
+  { id: 'ngu_ba_thien', label: 'Ngư Bá Thiên' },
+  { id: 'lang_tu_cau_dem', label: 'Lãng Tử Câu Đêm' },
+  { id: 'ca_chu_nhan', label: 'Cá Chủ Nhân' },
+  { id: 'thiet_can', label: 'Thiết Cần' },
+  { id: 'diet_ngu_dai_de', label: 'Diệt Ngư Đại Đế' },
+  { id: 'tay_ho_chien_than', label: 'Tây Hồ Chiến Thần' },
+  { id: 'vo_anh_cau', label: 'Vô Ảnh Câu' },
+  { id: 'cau_thanh', label: 'Câu Thánh' },
+  { id: 'ngu_long_ton_gia', label: 'Ngư Long Tôn Giả' },
+  { id: 'long_ngu_chien_than', label: 'Long Ngư Chiến Thần' },
+  { id: 'doc_nhan_ngu_vuong', label: 'Độc Nhãn Ngư Vương' },
+  { id: 'huyet_ngu_dai_de', label: 'Huyết Ngư Đại Đế' },
+  { id: 'thien_long_cau', label: 'Thiên Long Câu' },
+  { id: 'van_ngu_chi_chu', label: 'Vạn Ngư Chi Chủ' },
 ];
 export const DEFAULT_TITLE_ID = TITLES[0]!.id;
 

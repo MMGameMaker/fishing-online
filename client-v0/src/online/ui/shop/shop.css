@@ -292,7 +292,7 @@
   min-width: 0;
 }
 
-/* Tên dài (Yellow Perch, Golden Goldfish) xuống tối đa 2 dòng, không bị cắt (feedback 2026-11-17). */
+/* Tên dài (Cá Chuối, Cá Rô Phi) xuống tối đa 2 dòng, không bị cắt (feedback 2026-11-17). */
 .shop-fish__name {
   display: -webkit-box;
   overflow: hidden;
