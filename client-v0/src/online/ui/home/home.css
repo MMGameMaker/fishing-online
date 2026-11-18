@@ -53,6 +53,8 @@
   position: relative;
   width: 344px;
   height: 142px;
+  /* Bấm vào thẻ người chơi không xuyên xuống người chơi/map phía dưới (2026-11-18). */
+  pointer-events: auto;
 }
 
 .home-card__art {
@@ -212,6 +214,8 @@
 /* Khung Gold: chưa có ảnh riêng, vẽ khung gỗ cùng kiểu hộp mua vé; nút ☰ là Button.png 84×88. */
 /* margin-top 6px bằng độ dày viền ngoài (outline) để cạnh trên nhìn thấy ngang với khung người chơi (feedback 2026-11-16). */
 .home-gold {
+  /* Như .home-card: chặn bấm xuyên xuống map. */
+  pointer-events: auto;
   display: flex;
   margin-top: 6px;
   gap: 16px;

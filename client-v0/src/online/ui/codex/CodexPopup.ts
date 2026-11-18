@@ -1,6 +1,7 @@
 // Popup "Sổ tay cá" theo ảnh mẫu 2026-11-13, mở từ ô icon nhà trong menu (HomeHud). Khung Codex Panel.png:
 // bên trái ảnh cá + 6 dòng thông tin, bên phải lưới ô cá. Đủ mọi loài trong catalog: loài đã câu hiện ảnh
 // thật, loài chưa câu phủ đen (bóng cá) và không điền "Nhỏ nhất/Lớn nhất đã câu". Dữ liệu GET /me/codex.
+import { lakeDisplayName } from '../../core/lakeNames';
 import type { Catalog } from '../../core/gameplayConfig';
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
@@ -197,7 +198,7 @@ export class CodexPopup {
     const image = fishImage(id, `codex__picture-fish${caught ? '' : ' codex__fish--unknown'}`);
     this.picture.replaceChildren(image);
     this.rows.replaceChildren(
-      ...codexRows(id, catalog, entry, lake.mapId ?? '—').map((row) => {
+      ...codexRows(id, catalog, entry, lakeDisplayName(lake.mapId)).map((row) => {
         const line = el('div', 'codex__row');
         const value = el('dd', '', row.value);
         if (row.color) value.style.color = row.color;

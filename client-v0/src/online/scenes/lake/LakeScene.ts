@@ -1,4 +1,5 @@
 // Scene hồ dùng map placeholder và hình khối màu cho tới khi có map thật và asset ART.
+import { lakeDisplayName } from '../../core/lakeNames';
 import Phaser from 'phaser';
 import { UI_DESIGN_WIDTH } from '../../core/env';
 import { getServices, type Services } from '../../core/services';
@@ -34,10 +35,6 @@ import {
 
 export const LAKE_SCENE = 'Lake';
 
-/** Tên hồ hiển thị theo mapId Server gửi; map chưa đặt tên thì giữ mapId. */
-const LAKE_NAMES: Record<string, string> = { 'fishing-pier': 'Hồ Tây', 'lake-01': 'Hồ Tây' };
-const lakeDisplayName = (mapId: string | null | undefined): string =>
-  mapId ? (LAKE_NAMES[mapId] ?? mapId) : '—';
 const TILE_TEXTURE = 'placeholder-tiles';
 const TREE_TEXTURE = 'placeholder-tree';
 const GROUND_DEPTH = -1000;
@@ -67,6 +64,8 @@ interface RemotePlayer {
   view: CharacterView;
   motion: RemoteMotion;
   iconUntilMs: number | null;
+  /** Mốc hết hạn của icon gần nhất đã hiện: không hiện lại cùng một icon (tránh chớp khi store đổi). */
+  lastIconUntilMs: number;
 }
 
 export class LakeScene extends Phaser.Scene {
@@ -681,6 +680,7 @@ export class LakeScene extends Phaser.Scene {
         }),
         motion: new RemoteMotion(player.x, player.y),
         iconUntilMs: null,
+        lastIconUntilMs: 0,
       };
       this.remotes.set(player.playerId, remote);
       if (isHomeHudEnabled(this)) {
@@ -710,13 +710,22 @@ export class LakeScene extends Phaser.Scene {
     remote.view.setTitle(player.titleId);
   }
 
+  /**
+   * Icon của store chỉ hiện khi chưa hết hạn và chưa từng hiện. Store giữ cả mục đã hết hạn; mỗi lần có người khác
+   * câu được cá, mục cũ bị duyệt lại và icon đã tắt hiện lại một khung rồi tắt ngay: lỗi chớp hình cá (2026-11-18).
+   */
+  private isFreshIcon(remote: RemotePlayer, untilMs: number): boolean {
+    return untilMs !== remote.lastIconUntilMs && untilMs > this.serverNow();
+  }
+
   private syncCatches(): void {
     const { catches } = this.services.store.getState().lake;
     for (const [playerId, shown] of Object.entries(catches)) {
       const remote = this.remotes.get(playerId);
       const untilMs = Date.parse(shown.shownUntil);
-      if (!remote || remote.iconUntilMs === untilMs) continue;
+      if (!remote || !this.isFreshIcon(remote, untilMs)) continue;
       remote.iconUntilMs = untilMs;
+      remote.lastIconUntilMs = untilMs;
       remote.view.setHeadIcon({ type: 'fish', speciesId: shown.speciesId, rarity: shown.rarity });
     }
   }
@@ -727,8 +736,9 @@ export class LakeScene extends Phaser.Scene {
     for (const [playerId, shownUntil] of Object.entries(fails)) {
       const remote = this.remotes.get(playerId);
       const untilMs = Date.parse(shownUntil);
-      if (!remote || remote.iconUntilMs === untilMs) continue;
+      if (!remote || !this.isFreshIcon(remote, untilMs)) continue;
       remote.iconUntilMs = untilMs;
+      remote.lastIconUntilMs = untilMs;
       remote.view.setHeadIcon({ type: 'sad' });
     }
   }

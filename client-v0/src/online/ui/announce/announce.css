@@ -8,7 +8,8 @@
   width: 720px;
   height: 40px;
   margin-left: -360px;
-  pointer-events: none;
+  /* Thanh đang hiện thì chặn bấm xuyên xuống người chơi (khi ẩn, scaleY(0) nên không còn vùng bấm). */
+  pointer-events: auto;
   background: #2c4b5c;
   border: 3px solid #1a2f3b;
   box-shadow:

@@ -102,7 +102,7 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
         });
 
     private static readonly string[] ClientPlayerFields =
-        ["playerId", "displayName", "skinId", "rodId", "x", "y", "dir", "seatId", "fishing", "restSeatId"];
+        ["playerId", "displayName", "skinId", "rodId", "x", "y", "dir", "seatId", "fishing", "restSeatId", "titleId"];
 
     private static async Task<T> EventuallyAsync<T>(Func<Task<T>> read, Func<T, bool> done, int timeoutMs = 20000)
     {
