@@ -1,4 +1,4 @@
-// Ghép skin thỏ mặc trang phục (skin_06–skin_10) từ atlas cosmetics thành sheet nhỏ, cùng khung, pivot,
+// Ghép skin thỏ mặc trang phục (skin_06–skin_10) và skin thú chỉ-bot (skin_bot_*, xem BOT_BODIES) từ atlas cosmetics thành sheet nhỏ, cùng khung, pivot,
 // tên frame `<anim>_<dir>_<i>` và JSON Hash như tools/bake_characters.py (skin_01–05 chỉ là thân thỏ trần).
 // Viết bằng Node vì máy dev không bắt buộc có Python; logic ghép bản sao từ bake_characters.py (khung 120×140,
 // chân tại (23, 53) trong khung gốc, bóng dưới chân khi không ngồi, lật `side` cho hướng trái).
@@ -24,6 +24,21 @@ export const OUTFIT_SKINS = {
   skin_09: { body: 'brown', outfit: 'swimsuit-pink' },
   skin_10: { body: 'brown', outfit: 'santa-outfit' },
 };
+
+/**
+ * Skin chỉ dành cho bot (GD chốt 2026-11-18): các thân thú còn lại trong atlas, trừ 5 con GD để dành (bear-panda, cat-calico,
+ * fox-red, raccoon, shiba-orange) và 5 thân đã là skin_01–05 (brown, cream, dark, tan, vienna-blue). Không nằm trong
+ * Social.Skins nên người chơi không chọn/mua được; server chọn ngẫu nhiên trong BotManager.Skins.
+ * Id = skin_bot_<tên thân, gạch ngang đổi thành gạch dưới>; đổi bảng này thì sửa cả BotManager.Skins và BAKED_BOT_SKINS ở client.
+ */
+export const BOT_BODIES = [
+  'bear-brown', 'bear-polar', 'beaver-brown', 'cat-black', 'cat-orange-tabby', 'cat-purple', 'cat-tuxedo', 'cat-white',
+  'duck-white', 'fox-arctic', 'fox-cascade-grey', 'fox-silver', 'harlequin', 'rat-grey', 'red-spotted-bunny',
+  'shiba-cream', 'shiba-dark', 'turtle-green', 'turtle-hermann', 'turtle-leatherback',
+];
+export const BOT_SKINS = Object.fromEntries(
+  BOT_BODIES.map((body) => [`skin_bot_${body.replaceAll('-', '_')}`, { body, outfit: null }]),
+);
 
 const SHADOW = 'general/bunny_shadow';
 const FEET = [23, 53];
@@ -208,7 +223,7 @@ if (process.argv.includes('--check')) {
   process.exit(maxDelta > 1 ? 1 : 0);
 }
 
-for (const [id, { body, outfit }] of Object.entries(OUTFIT_SKINS)) {
+for (const [id, { body, outfit }] of Object.entries({ ...OUTFIT_SKINS, ...BOT_SKINS })) {
   if (!existsSync(SRC)) throw new Error('Thiếu atlas cosmetics');
   writeSheet(join(OUT_SKIN, id), bakeSkin(body, outfit));
 }

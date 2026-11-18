@@ -251,4 +251,16 @@ export const EVENT_GUARDS: { [K in HubEventName]: Guard<HubEvents[K]> } = {
     str(v.skinId) &&
     int(v.level) &&
     typeof v.online === 'boolean',
+  FriendRemoved: (v): v is HubEvents['FriendRemoved'] => obj(v) && str(v.playerId),
+  TradeReceived: (v): v is HubEvents['TradeReceived'] =>
+    obj(v) &&
+    str(v.tradeId) &&
+    str(v.fromPlayerId) &&
+    str(v.fromName) &&
+    str(v.toPlayerId) &&
+    str(v.toName) &&
+    Array.isArray(v.offer) &&
+    Array.isArray(v.request),
+  TradeUpdated: (v): v is HubEvents['TradeUpdated'] =>
+    obj(v) && str(v.tradeId) && str(v.status) && str(v.fromPlayerId) && str(v.toPlayerId),
 };

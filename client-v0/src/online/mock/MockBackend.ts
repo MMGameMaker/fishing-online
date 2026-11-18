@@ -21,6 +21,8 @@ import type {
   MySeat,
   MyTicket,
   PlayerProfile,
+  DailyFishEntry,
+  DailyFishRanking,
   PlayerView,
   RankingEntry,
   RankingResponse,
@@ -128,6 +130,8 @@ const HTTP_STATUS: Partial<Record<ErrorCode, number>> = {
   RATE_LIMITED: 429,
   PLAYER_NOT_FOUND: 404,
   NOT_FRIENDS: 403,
+  TRADE_NOT_FOUND: 404,
+  TRADE_LIMIT_REACHED: 409,
 };
 
 const MY_ID = '11111111-1111-4111-8111-111111111111';
@@ -229,6 +233,8 @@ export class MockBackend {
   private readonly skinsOwned = new Set<string>();
   private selectedSkinId = 'skin_01';
   private fish: FishItem[] = [];
+  /** Mọi con mình đã câu (kể cả đã bán/đổi) để dựng BXH cá ngày. */
+  private readonly dailyLog: { speciesId: string; lengthTenthCm: number; caughtAt: string }[] = [];
   private inventoryVersion = 1;
   private readonly codex = new Map<string, CodexRuntime>();
   private readonly history: HistoryEntry[] = [];
@@ -310,6 +316,11 @@ export class MockBackend {
         x: this.position.x,
         y: this.position.y,
       }),
+      myFish: () => this.fish,
+      swapFish: (giveIds, receive) => {
+        this.fish = [...receive, ...this.fish.filter((f) => !giveIds.includes(f.catchId))];
+        this.inventoryVersion += 1;
+      },
     });
   }
 
@@ -1406,6 +1417,7 @@ export class MockBackend {
       lengthTenthCm,
       caughtAt,
     });
+    this.dailyLog.push({ speciesId: species.speciesId, lengthTenthCm, caughtAt });
     this.inventoryVersion += 1;
     this.attempt = null;
     this.recordHistory(attempt, 'success', null, lengthTenthCm);
@@ -1556,13 +1568,17 @@ export class MockBackend {
         return this.social.request(body.playerId);
       case 'GET /me/dm':
         return this.social.conversations();
+      case 'GET /trades':
+        return this.social.listTrades();
+      case 'POST /trades':
+        return this.social.createTrade(body);
       default:
-        return this.routeWithId(method, path);
+        return this.routeWithId(method, path, query);
     }
   }
 
   /** Đường dẫn có id: hồ sơ công khai, trả lời lời mời, lịch sử tin riêng (BOT-02). */
-  private routeWithId(method: string, path: string): unknown {
+  private routeWithId(method: string, path: string, query: URLSearchParams): unknown {
     const profile = /^\/players\/([^/]+)\/profile$/.exec(path);
     if (method === 'GET' && profile) return this.publicProfile(decodeURIComponent(profile[1]!));
     const answer = /^\/friends\/requests\/([^/]+)\/(accept|decline)$/.exec(path);
@@ -1570,6 +1586,22 @@ export class MockBackend {
       const id = decodeURIComponent(answer[1]!);
       return answer[2] === 'accept' ? this.social.accept(id) : this.social.decline(id);
     }
+    const daily = /^\/rankings\/daily-fish\/([^/]+)$/.exec(path);
+    if (method === 'GET' && daily) {
+      return this.dailyFishRanking(decodeURIComponent(daily[1]!), query);
+    }
+    const trade = /^\/trades\/([^/]+)\/(accept|decline|cancel)$/.exec(path);
+    if (method === 'POST' && trade) {
+      const id = decodeURIComponent(trade[1]!);
+      if (trade[2] === 'accept') return this.social.acceptTrade(id);
+      return trade[2] === 'decline' ? this.social.declineTrade(id) : this.social.cancelTrade(id);
+    }
+    const friendFish = /^\/friends\/([^/]+)\/fish$/.exec(path);
+    if (method === 'GET' && friendFish) {
+      return this.social.friendFish(decodeURIComponent(friendFish[1]!));
+    }
+    const friend = /^\/friends\/([^/]+)$/.exec(path);
+    if (method === 'DELETE' && friend) return this.social.remove(decodeURIComponent(friend[1]!));
     const dm = /^\/me\/dm\/([^/]+)$/.exec(path);
     if (method === 'GET' && dm) return this.social.history(decodeURIComponent(dm[1]!));
     throw new CommandError('VALIDATION_FAILED', `Mock chưa có ${method} ${path}`);
@@ -1833,6 +1865,55 @@ export class MockBackend {
           smallestLengthTenthCm: entry?.smallestLengthTenthCm ?? null,
         };
       }),
+    };
+  }
+
+  /**
+   * BXH cá ngày mock (cùng luật Server): top 10 người chơi, mỗi người con tốt nhất. Có 12 người giả với con
+   * rải đều từ 0h giờ VN tới hiện tại, cộng các con mình đã câu hôm nay (tính cả đã bán/đổi).
+   */
+  private dailyFishRanking(speciesId: string, query: URLSearchParams): DailyFishRanking {
+    const metric = query.get('metric') ?? 'length';
+    const species = this.config.fish.find((f) => f.speciesId === speciesId);
+    if (!species || (metric !== 'length' && metric !== 'earliest')) {
+      throw new CommandError('VALIDATION_FAILED');
+    }
+    const vn = 7 * 3_600_000;
+    const dayStart = Math.floor((this.nowMs + vn) / 86_400_000) * 86_400_000 - vn;
+    const names = pickBotNames(12, () => 0.5, [this.displayName]);
+    const span = Math.max(1, this.nowMs - dayStart);
+    // Người giả cố định theo loài: chiều dài và giờ câu suy ra từ chỉ số, không dùng random để bảng ổn định.
+    const seed = [...speciesId].reduce((sum, ch) => sum + ch.charCodeAt(0), 0);
+    const rows = names.map((name, index) => ({
+      playerId: `bot-daily-${index + 1}`,
+      displayName: name,
+      lengthTenthCm: Math.round(
+        species.minTenthCm + ((species.maxTenthCm - species.minTenthCm) * ((seed * 7 + index * 37) % 100)) / 100,
+      ),
+      caughtAt: new Date(dayStart + Math.floor((span * (((seed + index * 13) % 97) + 1)) / 98)).toISOString(),
+    }));
+    for (const mine of this.dailyLog) {
+      if (mine.speciesId !== speciesId || Date.parse(mine.caughtAt) < dayStart) continue;
+      rows.push({ playerId: MY_ID, displayName: this.displayName, ...mine });
+    }
+    const order = (a: (typeof rows)[number], b: (typeof rows)[number]) =>
+      metric === 'length'
+        ? b.lengthTenthCm - a.lengthTenthCm || Date.parse(a.caughtAt) - Date.parse(b.caughtAt)
+        : Date.parse(a.caughtAt) - Date.parse(b.caughtAt) || b.lengthTenthCm - a.lengthTenthCm;
+    const seen = new Set<string>();
+    const best = [...rows].sort(order).filter((row) => !seen.has(row.playerId) && seen.add(row.playerId));
+    const entry = (row: (typeof rows)[number], index: number): DailyFishEntry => ({
+      rank: index < 10 ? index + 1 : null,
+      ...row,
+    });
+    const mineIndex = best.findIndex((row) => row.playerId === MY_ID);
+    return {
+      speciesId,
+      metric,
+      periodStartsAt: new Date(dayStart).toISOString(),
+      periodEndsAt: new Date(dayStart + 86_400_000).toISOString(),
+      items: best.slice(0, 10).map(entry),
+      me: mineIndex < 0 ? null : entry(best[mineIndex]!, mineIndex),
     };
   }
 

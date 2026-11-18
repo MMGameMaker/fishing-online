@@ -319,6 +319,7 @@ public static class SocialModule
         services.Configure<SocialOptions>(configuration.GetSection("Social"));
         services.AddSingleton<FriendService>();
         services.AddSingleton<SocialService>();
+        services.AddSingleton<TradeService>();
         services.AddSingleton<IUserIdProvider, PlayerUserIdProvider>();
         services.AddHostedService<SocialCleanup>();
         return services;
@@ -332,6 +333,7 @@ public static class SocialModule
             ApiResult.Ok(await social.SelectSkinAsync(player.PlayerId, request.SkinId, ct))).RequireAuthorization();
         app.MapFriends();
         app.MapDirectMessages();
+        app.MapTrades();
         return app;
     }
 }

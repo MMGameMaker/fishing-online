@@ -3,17 +3,24 @@
 // chọn câu theo trạng thái), icon cá và hồ sơ công khai. MockBackend giữ bot và gọi vào đây mỗi nhịp.
 // Hoàn tất với mock không đồng nghĩa đã tích hợp Server thật.
 import type { FishConfig, GameplayConfig } from '../core/gameplayConfig';
-import type {
-  Conversation,
-  DirectMessage,
-  FriendEntry,
-  FriendRequestEntry,
-  FriendRequestResult,
-  FriendsResponse,
-  HubEvents,
-  PlayerView,
-  PublicProfile,
-  ShowcaseSlot,
+import {
+  TRADE_MAX_FISH,
+  type Conversation,
+  type DirectMessage,
+  type FishItem,
+  type FriendEntry,
+  type FriendFishResponse,
+  type FriendRequestEntry,
+  type FriendRequestResult,
+  type FriendsResponse,
+  type HubEvents,
+  type PlayerView,
+  type PublicProfile,
+  type ShowcaseSlot,
+  type TradeEntry,
+  type TradeFish,
+  type TradeResult,
+  type TradesResponse,
 } from '../net/contract';
 import { TITLES } from '../ui/profile/profileModel';
 import { levelForExp, rollLength, uniformInt, type Random } from './rules';
@@ -29,7 +36,14 @@ import {
 export class SocialError extends Error {
   constructor(
     readonly code:
-      'VALIDATION_FAILED' | 'NOT_FRIENDS' | 'PLAYER_NOT_FOUND' | 'STATE_CONFLICT' | 'RATE_LIMITED',
+      | 'VALIDATION_FAILED'
+      | 'NOT_FRIENDS'
+      | 'PLAYER_NOT_FOUND'
+      | 'STATE_CONFLICT'
+      | 'RATE_LIMITED'
+      | 'FISH_NOT_FOUND'
+      | 'TRADE_NOT_FOUND'
+      | 'TRADE_LIMIT_REACHED',
   ) {
     super(code);
   }
@@ -52,7 +66,15 @@ export interface MockSocialHost {
   bots: () => readonly PlayerView[];
   botState: (botId: string) => BotChatState;
   me: () => { playerId: string; displayName: string; x: number; y: number };
+  /** Túi cá của mình (chưa bán). */
+  myFish: () => readonly FishItem[];
+  /** Đổi cá: bỏ `giveIds` khỏi túi mình, thêm `receive` vào túi (tăng inventoryVersion). */
+  swapFish: (giveIds: string[], receive: FishItem[]) => void;
 }
+
+const TRADE_PENDING_MAX = 10;
+const BOT_TRADE_EVERY_MS = 3 * 60_000;
+const BOT_FISH_COUNT = 5;
 
 const CHAT_MAX = 160;
 const DM_GAP_MS = 2000;
@@ -78,6 +100,11 @@ export class MockSocial {
   private nextBotDmMs: number;
   private nextInviteScanMs: number;
   private lastBotChatMs = -Infinity;
+  /** Cá của từng bot (tạo lười lần đầu xem), đổi tay khi trade thành công. */
+  private readonly botFish = new Map<string, FishItem[]>();
+  /** Đề nghị đang chờ, cả đến lẫn đi. */
+  private readonly trades = new Map<string, TradeEntry>();
+  private nextBotTradeMs: number;
 
   constructor(private readonly host: MockSocialHost) {
     const now = host.now();
@@ -85,6 +112,7 @@ export class MockSocial {
     this.nextEmojiMs = now + this.between(25_000, 50_000);
     this.nextBotDmMs = now + this.between(60_000, 120_000);
     this.nextInviteScanMs = now + INVITE_SCAN_MS;
+    this.nextBotTradeMs = now + BOT_TRADE_EVERY_MS;
   }
 
   private between(min: number, max: number): number {
@@ -150,6 +178,10 @@ export class MockSocial {
     if (now >= this.nextBotDmMs) {
       this.nextBotDmMs = now + this.between(60_000, 120_000);
       this.botDirectOnce();
+    }
+    if (now >= this.nextBotTradeMs) {
+      this.nextBotTradeMs = now + BOT_TRADE_EVERY_MS;
+      this.botTradeOnce();
     }
   }
 
@@ -247,6 +279,13 @@ export class MockSocial {
     this.outgoing.delete(botId);
     const bot = this.bot(botId);
     if (bot) this.host.emit('FriendAdded', this.botEntry(bot));
+  }
+
+  /** Xoá bạn: giống Server, báo FriendRemoved; chưa là bạn thì NOT_FRIENDS. */
+  remove(playerId: string): FriendRequestResult {
+    if (!this.friends.delete(playerId)) throw new SocialError('NOT_FRIENDS');
+    this.host.emit('FriendRemoved', { playerId });
+    return { status: 'none' };
   }
 
   list(): FriendsResponse {
@@ -378,6 +417,189 @@ export class MockSocial {
 
   history(otherId: string): { messages: DirectMessage[] } {
     return { messages: [...(this.dms.get(otherId) ?? [])].slice(-50) };
+  }
+
+  // ---------- Trao đổi cá ----------
+
+  private botFishOf(botId: string): FishItem[] {
+    let list = this.botFish.get(botId);
+    if (!list) {
+      const fish = this.host.config.fish;
+      list = Array.from({ length: BOT_FISH_COUNT }, () => {
+        const species = fish[Math.floor(this.host.random() * fish.length)]!;
+        return {
+          catchId: this.nextId('catch'),
+          speciesId: species.speciesId,
+          lengthTenthCm: rollLength(this.host.config, species, 0, this.host.random),
+          caughtAt: this.iso(this.host.now()),
+        };
+      });
+      this.botFish.set(botId, list);
+    }
+    return list;
+  }
+
+  private static tradeFish(item: FishItem): TradeFish {
+    return { catchId: item.catchId, speciesId: item.speciesId, lengthTenthCm: item.lengthTenthCm };
+  }
+
+  /** Cá của bot bạn bè để chọn khi đổi (giống GET /friends/{id}/fish). */
+  friendFish(playerId: string): FriendFishResponse {
+    if (!this.friends.has(playerId)) throw new SocialError('NOT_FRIENDS');
+    return { playerId, fish: this.botFishOf(playerId).map(MockSocial.tradeFish) };
+  }
+
+  listTrades(): TradesResponse {
+    const all = [...this.trades.values()].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
+    const me = this.host.me().playerId;
+    return {
+      incoming: all.filter((trade) => trade.toPlayerId === me),
+      outgoing: all.filter((trade) => trade.fromPlayerId === me),
+    };
+  }
+
+  /** Mình đề nghị bot: cùng luật Server (bạn bè, 1–5 con mỗi bên, không trùng, cá phải còn). Bot trả lời sau 3–8 giây. */
+  createTrade(body: Record<string, unknown>): TradeEntry {
+    const me = this.host.me();
+    const toId = typeof body.toPlayerId === 'string' ? body.toPlayerId : '';
+    const ids = (value: unknown): string[] | null =>
+      Array.isArray(value) && value.every((id) => typeof id === 'string')
+        ? [...new Set(value as string[])]
+        : null;
+    const offer = ids(body.offerCatchIds);
+    const request = ids(body.requestCatchIds);
+    if (
+      !offer ||
+      !request ||
+      toId === me.playerId ||
+      offer.length < 1 ||
+      offer.length > TRADE_MAX_FISH ||
+      request.length < 1 ||
+      request.length > TRADE_MAX_FISH ||
+      offer.some((id) => request.includes(id))
+    ) {
+      throw new SocialError('VALIDATION_FAILED');
+    }
+    if (!this.friends.has(toId)) throw new SocialError('NOT_FRIENDS');
+    const pending = [...this.trades.values()].filter((t) => t.fromPlayerId === me.playerId).length;
+    if (pending >= TRADE_PENDING_MAX) throw new SocialError('TRADE_LIMIT_REACHED');
+    const mine = new Map(this.host.myFish().map((fish) => [fish.catchId, fish]));
+    const theirs = new Map(this.botFishOf(toId).map((fish) => [fish.catchId, fish]));
+    if (offer.some((id) => !mine.has(id)) || request.some((id) => !theirs.has(id))) {
+      throw new SocialError('FISH_NOT_FOUND');
+    }
+    const trade: TradeEntry = {
+      tradeId: this.nextId('trade'),
+      fromPlayerId: me.playerId,
+      fromName: me.displayName,
+      toPlayerId: toId,
+      toName: this.bot(toId)?.displayName ?? 'Bạn bè',
+      status: 'pending',
+      createdAt: this.iso(this.host.now()),
+      offer: offer.map((id) => MockSocial.tradeFish(mine.get(id)!)),
+      request: request.map((id) => MockSocial.tradeFish(theirs.get(id)!)),
+    };
+    this.trades.set(trade.tradeId, trade);
+    // Bot đồng ý ~70%, còn lại từ chối.
+    this.later(this.between(3000, 8000), () => {
+      if (!this.trades.has(trade.tradeId)) return;
+      if (this.host.random() < 0.7) {
+        try {
+          this.settle(trade, 'accepted');
+          return;
+        } catch {
+          // Cá đã bán hoặc đã đổi tay trong lúc chờ: bot coi như từ chối.
+        }
+      }
+      this.close(trade, 'declined');
+    });
+    return trade;
+  }
+
+  private close(trade: TradeEntry, status: 'accepted' | 'declined' | 'cancelled'): TradeResult {
+    this.trades.delete(trade.tradeId);
+    this.host.emit('TradeUpdated', {
+      tradeId: trade.tradeId,
+      status,
+      fromPlayerId: trade.fromPlayerId,
+      toPlayerId: trade.toPlayerId,
+    });
+    return { tradeId: trade.tradeId, status };
+  }
+
+  /** Đổi chéo: chỉ thành công khi mọi con còn đúng chủ, nếu không thì giữ nguyên (Server trả FISH_NOT_FOUND). */
+  private settle(trade: TradeEntry, status: 'accepted'): TradeResult {
+    const me = this.host.me().playerId;
+    const mineIsOffer = trade.fromPlayerId === me;
+    const botId = mineIsOffer ? trade.toPlayerId : trade.fromPlayerId;
+    const give = (mineIsOffer ? trade.offer : trade.request).map((fish) => fish.catchId);
+    const get = (mineIsOffer ? trade.request : trade.offer).map((fish) => fish.catchId);
+    const myBag = this.host.myFish();
+    const botBag = this.botFishOf(botId);
+    if (
+      give.some((id) => !myBag.some((fish) => fish.catchId === id)) ||
+      get.some((id) => !botBag.some((fish) => fish.catchId === id))
+    ) {
+      throw new SocialError('FISH_NOT_FOUND');
+    }
+    const received = botBag.filter((fish) => get.includes(fish.catchId));
+    const sent = myBag.filter((fish) => give.includes(fish.catchId)).map((fish) => ({ ...fish }));
+    this.botFish.set(botId, [...botBag.filter((fish) => !get.includes(fish.catchId)), ...sent]);
+    this.host.swapFish(give, received);
+    return this.close(trade, status);
+  }
+
+  private tradeOf(tradeId: string, side: 'to' | 'from'): TradeEntry {
+    const trade = this.trades.get(tradeId);
+    const me = this.host.me().playerId;
+    if (!trade || (side === 'to' ? trade.toPlayerId : trade.fromPlayerId) !== me) {
+      throw new SocialError('TRADE_NOT_FOUND');
+    }
+    return trade;
+  }
+
+  acceptTrade(tradeId: string): TradeResult {
+    const trade = this.tradeOf(tradeId, 'to');
+    if (!this.friends.has(trade.fromPlayerId)) throw new SocialError('NOT_FRIENDS');
+    return this.settle(trade, 'accepted');
+  }
+
+  declineTrade(tradeId: string): TradeResult {
+    return this.close(this.tradeOf(tradeId, 'to'), 'declined');
+  }
+
+  cancelTrade(tradeId: string): TradeResult {
+    return this.close(this.tradeOf(tradeId, 'from'), 'cancelled');
+  }
+
+  /** Thỉnh thoảng một bot bạn bè đang ở hồ đề nghị đổi 1 con của bot lấy 1 con của mình (mỗi 3 phút). */
+  botTradeOnce(): string | null {
+    const me = this.host.me();
+    const mine = this.host.myFish();
+    const bots = this.host
+      .bots()
+      .filter((bot) => this.friends.has(bot.playerId))
+      .filter((bot) => ![...this.trades.values()].some((t) => t.fromPlayerId === bot.playerId));
+    const bot = bots[Math.floor(this.host.random() * bots.length)];
+    if (!bot || mine.length === 0) return null;
+    const theirs = this.botFishOf(bot.playerId);
+    if (theirs.length === 0) return null;
+    const want = mine[Math.floor(this.host.random() * mine.length)]!;
+    const give = theirs[Math.floor(this.host.random() * theirs.length)]!;
+    const trade: TradeEntry = {
+      tradeId: this.nextId('trade'),
+      fromPlayerId: bot.playerId,
+      fromName: bot.displayName,
+      toPlayerId: me.playerId,
+      toName: me.displayName,
+      status: 'pending',
+      createdAt: this.iso(this.host.now()),
+      offer: [MockSocial.tradeFish(give)],
+      request: [MockSocial.tradeFish(want)],
+    };
+    this.trades.set(trade.tradeId, trade);
+    this.host.emit('TradeReceived', trade);
+    return bot.playerId;
   }
 
   // ---------- Hồ sơ công khai ----------

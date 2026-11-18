@@ -312,9 +312,9 @@ describe('ghế câu của pier', () => {
 describe('chỗ ngồi chơi của pier (yêu cầu 2026-11-18)', () => {
   const rest = MAP.lake.restSeats ?? [];
 
-  it('28 chỗ (Lake:RestSeatCount = 28): 20 ghế đẩu quanh bàn + 2 bàn picnic × 2 băng × 2 chỗ', () => {
-    expect(rest).toHaveLength(28);
-    expect(new Set(rest.map((s) => s.restSeatId)).size).toBe(28);
+  it('30 chỗ (Lake:RestSeatCount = 30): 20 ghế đẩu quanh bàn + 2 bàn picnic × 2 băng × 2 chỗ + 2 chỗ ghế băng cạnh máy bán nước', () => {
+    expect(rest).toHaveLength(30);
+    expect(new Set(rest.map((s) => s.restSeatId)).size).toBe(30);
     const stools = rest.filter((s) =>
       MAP.objects.some(
         (o) =>
@@ -339,7 +339,7 @@ describe('chỗ ngồi chơi của pier (yêu cầu 2026-11-18)', () => {
         }
       }
       expect(reachable, seat.restSeatId).toBe(true);
-      expect(['left', 'right'], seat.restSeatId).toContain(seat.facing);
+      expect(['left', 'right', 'down'], seat.restSeatId).toContain(seat.facing);
       expect(
         MAP.lake.seats.some((s) => Math.hypot(s.x - seat.x, s.y - seat.y) < 8),
         seat.restSeatId,

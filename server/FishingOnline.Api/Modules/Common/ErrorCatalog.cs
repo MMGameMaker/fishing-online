@@ -22,6 +22,9 @@ public static class ErrorCatalog
         // BOT-02 (2026-11-18): kết bạn/tin riêng với người không tồn tại, tin riêng cho người chưa là bạn.
         ["PLAYER_NOT_FOUND"] = new(404, false, "Player not found"),
         ["NOT_FRIENDS"] = new(403, false, "Players are not friends"),
+        // Trao đổi cá giữa bạn bè (2026-11-18).
+        ["TRADE_NOT_FOUND"] = new(404, false, "Trade not found"),
+        ["TRADE_LIMIT_REACHED"] = new(409, false, "Too many pending trades"),
         ["SEAT_TAKEN"] = new(409, false, "Seat is in use"),
         ["ALREADY_HAS_SEAT"] = new(409, false, "Player is already seated"),
         ["NO_TICKET"] = new(409, false, "No valid fishing ticket"),

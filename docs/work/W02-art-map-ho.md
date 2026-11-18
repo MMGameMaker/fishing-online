@@ -624,3 +624,10 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
   - Server thật (khởi động lại bằng `run-local.ps1 -Mode real`, 2026-11-18): snapshot trả `pier-3`, 38 ghế câu và có `restSeatId`. Người chơi bấm F ngồi `rest-01`, F lần nữa đứng dậy. Trong khoảng 2 phút, bot Server ngồi 19 lượt trên 17 chỗ, có lúc 6 bot ngồi cùng lúc, không lần nào 2 người trùng một chỗ. Chưa thử ngồi câu ở ghế dài trên Server thật.
 - **Lưu ý:** ghế B có phao rơi sát ống khói thuyền lớn, vẫn trên mặt nước. Người thật vẫn đi bộ lên được chỗ đang có người ngồi (Server không kiểm tra đi lại), nhưng không ngồi được.- 2026-11-18: Server chỉ nạp lại fixture khi `configVersion` đổi (DB giữ bản cũ nên thẻ cá vẫn hiện tên Anh). Đã đổi configVersion thành `v0-test-2026-11-18-fishnames-01` (fixtures + test Server). Server cần khởi động lại để nạp tên cá mới; version này thay luôn version Admin đang bật.
 - 2026-11-18 (Client): sửa chớp icon cá/buồn trên đầu người khác (`LakeScene.isFreshIcon`: store giữ mục đã hết hạn nên bị duyệt lại mỗi khi có người câu); Sổ tay cá "Nơi sống" dùng `core/lakeNames.ts` → Hồ Tây; thẻ người chơi, ô Gold và thanh thông báo câu cá chặn bấm xuyên xuống map (`pointer-events: auto`). Vitest 332/332; chưa thử trên trình duyệt.
+
+
+### Ghế băng cạnh máy bán nước ngồi được (Claude, 2026-11-18, yêu cầu người dùng)
+
+- **Map:** ghế băng `frontBench` tại (56, 80), cạnh 2 máy bán nước và 2 thùng rác, chưa có chỗ ngồi nào. Thêm 2 chỗ ngồi chơi `rest-29` (68, 114) và `rest-30` (93, 114), quay xuống, `bench: bench-rest-a`, cùng cách đặt như ghế câu `seat-31/32` ở ghế băng cạnh nước. `lake.restSeats` còn **30** chỗ, `mapVersion` `pier-4`. Sửa `fishingPierMap.json` và bản sao bot `server/.../Bots/pier-map.json` (bot cũng ngồi được).
+- **Cấu hình:** `Lake:RestSeatCount` 28 → 30 và `MapVersion` `pier-4` trong `tools/run-local.ps1` và `tools/run-playtest.ps1`. Chạy tay phải tự đặt hai giá trị này.
+- **Kiểm tra:** `pierMap.test.ts` cập nhật (30 chỗ, cho phép hướng `down`), vitest 332 qua. Trên Server thật (`RestSeatCount=30`, `pier-4`): đứng ở (80, 128), hiện phím F, bấm F thì ngồi `rest-29`, thỏ ngồi trên ghế băng.

@@ -7,7 +7,14 @@ import type { FriendEntry, FriendRequestEntry } from '../../net/contract';
 import { faceElement } from '../../social/skinFace';
 import { showError, showToast } from '../kit/components';
 import { animateIn, animateOut } from '../kit/motion';
-import { acceptFriend, declineFriend, reloadFriends } from './friendActions';
+import {
+  acceptFriend,
+  declineFriend,
+  reloadFriends,
+  reloadTrades,
+  removeFriend,
+} from './friendActions';
+import { TradeComposer, tradeRow } from './tradeUi';
 
 const CLOSE = encodeURI('/mini game/Button Close.png');
 const PANEL_W = 640;
@@ -37,6 +44,10 @@ export class FriendsPopup {
   private readonly list = el('div', 'friends__list');
   private cleanups: (() => void)[] = [];
   private busy = new Set<string>();
+  private confirming = new Set<string>();
+  private readonly tradeBusy = new Set<string>();
+  /** Đang ở màn chọn cá đổi với một người bạn (thay cho danh sách). */
+  private composer: TradeComposer | null = null;
 
   constructor(private readonly options: FriendsPopupOptions) {}
 
@@ -85,6 +96,10 @@ export class FriendsPopup {
         (s) => s.lake.players,
         () => this.render(),
       ),
+      store.select(
+        (s) => s.inventory,
+        () => this.composer?.render(),
+      ),
     );
     this.overlay = overlay;
     this.options.root.append(overlay);
@@ -94,11 +109,13 @@ export class FriendsPopup {
     void reloadFriends(this.options.services).catch((error: unknown) =>
       showError(this.options.root, error),
     );
+    void reloadTrades(this.options.services).catch(() => undefined);
   }
 
   close(): void {
     const overlay = this.overlay;
     if (!overlay) return;
+    this.closeComposer();
     this.overlay = null;
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups = [];
@@ -111,16 +128,53 @@ export class FriendsPopup {
   }
 
   destroy(): void {
+    this.closeComposer();
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups = [];
     this.overlay?.remove();
     this.overlay = null;
   }
 
+  private closeComposer(): void {
+    this.composer?.destroy();
+    this.composer = null;
+  }
+
+  private openComposer(friend: FriendEntry): void {
+    this.closeComposer();
+    this.composer = new TradeComposer({
+      services: this.options.services,
+      root: this.options.root,
+      friend,
+      onBack: () => {
+        this.closeComposer();
+        this.render();
+      },
+    });
+    this.render();
+  }
+
   private render(): void {
     if (!this.overlay) return;
+    if (this.composer) {
+      this.list.replaceChildren(this.composer.element);
+      return;
+    }
     const { social, lake } = this.options.services.store.getState();
     const nodes: HTMLElement[] = [];
+    const trades = social.trades;
+    const tradeCount = (trades?.incoming.length ?? 0) + (trades?.outgoing.length ?? 0);
+    if (trades && tradeCount > 0) {
+      const options = {
+        services: this.options.services,
+        root: this.options.root,
+        refresh: () => this.render(),
+        busy: this.tradeBusy,
+      };
+      nodes.push(el('h3', 'friends__section', `Đề nghị đổi cá (${tradeCount})`));
+      for (const trade of trades.incoming) nodes.push(tradeRow(trade, true, options));
+      for (const trade of trades.outgoing) nodes.push(tradeRow(trade, false, options));
+    }
     if (social.incoming.length > 0) {
       nodes.push(el('h3', 'friends__section', `Lời mời kết bạn (${social.incoming.length})`));
       for (const request of social.incoming) nodes.push(this.requestRow(request));
@@ -198,7 +252,14 @@ export class FriendsPopup {
         this.close();
         this.options.openDirect(friend.playerId);
       }),
+      this.button('Đổi cá', false, () => this.openComposer(friend)),
       this.button('Xem', false, () => this.options.openPlayer(friend.playerId)),
+      this.button(
+        this.confirming.has(friend.playerId) ? 'Bấm lại để xoá' : 'Xoá',
+        false,
+        () => void this.remove(friend),
+        this.busy.has(friend.playerId),
+      ),
     );
     row.append(this.person(friend, friend.online), actions);
     return row;
@@ -216,6 +277,31 @@ export class FriendsPopup {
     who.addEventListener('click', () => this.options.openPlayer(request.playerId));
     row.append(who, actions);
     return row;
+  }
+
+  /** Bấm lần đầu chỉ hỏi lại (4 giây), bấm lần hai mới xoá bạn. */
+  private async remove(friend: FriendEntry): Promise<void> {
+    if (this.busy.has(friend.playerId)) return;
+    if (!this.confirming.has(friend.playerId)) {
+      this.confirming.add(friend.playerId);
+      this.render();
+      window.setTimeout(() => {
+        if (this.confirming.delete(friend.playerId)) this.render();
+      }, 4000);
+      return;
+    }
+    this.confirming.delete(friend.playerId);
+    this.busy.add(friend.playerId);
+    this.render();
+    try {
+      await removeFriend(this.options.services, friend.playerId);
+      showToast(this.options.root, `Đã xoá ${friend.displayName} khỏi danh sách bạn bè.`);
+    } catch (error) {
+      showError(this.options.root, error);
+    } finally {
+      this.busy.delete(friend.playerId);
+      this.render();
+    }
   }
 
   private async answer(request: FriendRequestEntry, accept: boolean): Promise<void> {

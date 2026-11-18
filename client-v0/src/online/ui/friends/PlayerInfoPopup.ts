@@ -11,7 +11,7 @@ import { levelProgress } from '../home/levelProgress';
 import { showError, showToast } from '../kit/components';
 import { animateIn, animateOut } from '../kit/motion';
 import { SHOWCASE_SLOTS, formatLength, titleLabel } from '../profile/profileModel';
-import { acceptFriend, declineFriend, sendFriendRequest } from './friendActions';
+import { acceptFriend, declineFriend, removeFriend, sendFriendRequest } from './friendActions';
 import { currentFriendStatus, friendButtons } from './friendStatus';
 
 const CLOSE = encodeURI('/mini game/Button Close.png');
@@ -41,6 +41,7 @@ export class PlayerInfoPopup {
   private overlay: HTMLElement | null = null;
   private profile: PublicProfile | null = null;
   private busy = false;
+  private confirmRemove = false;
   private cleanups: (() => void)[] = [];
   private readonly body = el('div', 'player-info__content');
   private readonly actions = el('div', 'player-info__actions');
@@ -221,7 +222,7 @@ export class PlayerInfoPopup {
       const button = el(
         'button',
         `profile-dialog__btn ${action.primary ? 'profile-dialog__btn--save' : 'profile-dialog__btn--cancel'} player-info__btn`,
-        action.text,
+        action.id === 'remove' && this.confirmRemove ? 'Bấm lại để xoá' : action.text,
       );
       button.type = 'button';
       button.disabled = Boolean(action.disabled) || this.busy;
@@ -232,7 +233,7 @@ export class PlayerInfoPopup {
   }
 
   private async run(
-    action: 'request' | 'accept' | 'decline' | 'message',
+    action: 'request' | 'accept' | 'decline' | 'message' | 'remove',
     profile: PublicProfile,
   ): Promise<void> {
     if (action === 'message') {
@@ -241,6 +242,17 @@ export class PlayerInfoPopup {
       return;
     }
     if (this.busy) return;
+    if (action === 'remove' && !this.confirmRemove) {
+      // Bấm lần đầu chỉ hỏi lại; không bấm xác nhận trong 4 giây thì trở về nút thường.
+      this.confirmRemove = true;
+      this.renderActions();
+      window.setTimeout(() => {
+        this.confirmRemove = false;
+        this.renderActions();
+      }, 4000);
+      return;
+    }
+    this.confirmRemove = false;
     this.busy = true;
     this.renderActions();
     const { services, root } = this.options;
@@ -256,6 +268,10 @@ export class PlayerInfoPopup {
       } else if (action === 'accept') {
         await acceptFriend(services, profile.playerId);
         showToast(root, `Bạn và ${profile.displayName} đã là bạn bè.`);
+      } else if (action === 'remove') {
+        await removeFriend(services, profile.playerId);
+        if (this.profile) this.profile = { ...this.profile, friendStatus: 'none' };
+        showToast(root, `Đã xoá ${profile.displayName} khỏi danh sách bạn bè.`);
       } else {
         await declineFriend(services, profile.playerId);
         if (this.profile) this.profile = { ...this.profile, friendStatus: 'none' };

@@ -19,6 +19,32 @@ export const BAKED_SKINS = [
   'skin_09',
   'skin_10',
 ] as const;
+/**
+ * Skin thú chỉ dành cho bot (tools/bake_outfit_skins.mjs, BOT_BODIES); khớp BotManager.Skins ở server.
+ * Không nằm trong Social.Skins nên người chơi không chọn được, nhưng vẫn phải nạp để thấy bot trong hồ.
+ */
+export const BAKED_BOT_SKINS = [
+  'skin_bot_bear_brown',
+  'skin_bot_bear_polar',
+  'skin_bot_beaver_brown',
+  'skin_bot_cat_black',
+  'skin_bot_cat_orange_tabby',
+  'skin_bot_cat_purple',
+  'skin_bot_cat_tuxedo',
+  'skin_bot_cat_white',
+  'skin_bot_duck_white',
+  'skin_bot_fox_arctic',
+  'skin_bot_fox_cascade_grey',
+  'skin_bot_fox_silver',
+  'skin_bot_harlequin',
+  'skin_bot_rat_grey',
+  'skin_bot_red_spotted_bunny',
+  'skin_bot_shiba_cream',
+  'skin_bot_shiba_dark',
+  'skin_bot_turtle_green',
+  'skin_bot_turtle_hermann',
+  'skin_bot_turtle_leatherback',
+] as const;
 /** Cần câu đã có art, trùng rodId trong gameplay-config. */
 export const BAKED_RODS = [
   'rod_old',
@@ -47,7 +73,7 @@ export interface BakedCharacterData {
 
 /** Gọi trong preload của scene khởi động. */
 export function preloadCharacterArt(scene: Phaser.Scene): void {
-  for (const id of BAKED_SKINS) {
+  for (const id of [...BAKED_SKINS, ...BAKED_BOT_SKINS]) {
     if (!scene.textures.exists(id))
       scene.load.atlas(id, `${SKIN_DIR}${id}.png`, `${SKIN_DIR}${id}.json`);
   }

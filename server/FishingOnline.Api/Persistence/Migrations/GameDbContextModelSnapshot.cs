@@ -352,6 +352,9 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.Property<int>("ExpGained")
                         .HasColumnType("integer");
 
+                    b.Property<Guid?>("HolderPlayerId")
+                        .HasColumnType("uuid");
+
                     b.Property<bool>("IsBot")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
@@ -392,6 +395,8 @@ namespace FishingOnline.Api.Persistence.Migrations
 
                     b.HasIndex("AttemptId")
                         .IsUnique();
+
+                    b.HasIndex("HolderPlayerId");
 
                     b.HasIndex("PlayerId", "CaughtAt");
 
@@ -1069,6 +1074,54 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.HasIndex("FromPlayerId", "ToPlayerId", "SentAt");
 
                     b.ToTable("direct_messages", "game");
+                });
+
+            modelBuilder.Entity("FishingOnline.Api.Modules.Social.FishTradeItemRow", b =>
+                {
+                    b.Property<Guid>("TradeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("CatchId")
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("Offered")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("TradeId", "CatchId");
+
+                    b.ToTable("fish_trade_items", "game");
+                });
+
+            modelBuilder.Entity("FishingOnline.Api.Modules.Social.FishTradeRow", b =>
+                {
+                    b.Property<Guid>("TradeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<Guid>("FromPlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset?>("RespondedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<Guid>("ToPlayerId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("TradeId");
+
+                    b.HasIndex("FromPlayerId", "Status");
+
+                    b.HasIndex("ToPlayerId", "Status");
+
+                    b.ToTable("fish_trades", "game");
                 });
 
             modelBuilder.Entity("FishingOnline.Api.Modules.Social.FriendRequestRow", b =>

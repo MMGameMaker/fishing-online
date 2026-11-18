@@ -28,6 +28,9 @@ export const ERROR_CODES = [
   // BOT-02 (2026-11-18): kết bạn/tin riêng.
   'PLAYER_NOT_FOUND',
   'NOT_FRIENDS',
+  // Trao đổi cá giữa bạn bè (2026-11-18).
+  'TRADE_NOT_FOUND',
+  'TRADE_LIMIT_REACHED',
 ] as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[number];
@@ -144,6 +147,58 @@ export interface FriendsResponse {
   incoming: FriendRequestEntry[];
   /** Người mình đã mời, đang chờ họ trả lời. */
   outgoing: string[];
+}
+
+// ---------- Trao đổi cá giữa bạn bè ----------
+
+/** Mỗi bên đưa 1–5 con. Cá nhận về chỉ vào túi, không tính Sổ tay/kỷ lục/EXP/nhiệm vụ; không có Gold. */
+export const TRADE_MAX_FISH = 5;
+
+/** Một con cá trong đề nghị (cá của bạn bè: GET /friends/{id}/fish). */
+export interface TradeFish {
+  catchId: string;
+  speciesId: string;
+  lengthTenthCm: number;
+}
+
+export type TradeStatus = 'pending' | 'accepted' | 'declined' | 'cancelled';
+
+/** Một đề nghị đang chờ. `offer` là cá của `fromPlayerId`, `request` là cá của `toPlayerId`. */
+export interface TradeEntry {
+  tradeId: string;
+  fromPlayerId: string;
+  fromName: string;
+  toPlayerId: string;
+  toName: string;
+  status: TradeStatus;
+  createdAt: string;
+  offer: TradeFish[];
+  request: TradeFish[];
+}
+
+/** GET /trades: đề nghị đến mình và đề nghị mình đã gửi (chỉ loại đang chờ). */
+export interface TradesResponse {
+  incoming: TradeEntry[];
+  outgoing: TradeEntry[];
+}
+
+/** POST /trades: `toPlayerId` phải là bạn; mỗi mảng 1–5 con, không trùng nhau. */
+export interface CreateTradeRequest {
+  toPlayerId: string;
+  offerCatchIds: string[];
+  requestCatchIds: string[];
+}
+
+/** GET /friends/{id}/fish: cá chưa bán của bạn bè (chỉ bạn bè mới xem được). */
+export interface FriendFishResponse {
+  playerId: string;
+  fish: TradeFish[];
+}
+
+/** POST /trades/{id}/accept | decline | cancel. Chỉ người nhận đồng ý/từ chối; chỉ người gửi rút lại. */
+export interface TradeResult {
+  tradeId: string;
+  status: TradeStatus;
 }
 
 /** POST /friends/requests: `sent` đã gửi (hoặc đang chờ), `friends` đã là bạn. */
@@ -304,6 +359,33 @@ export interface RankingResponse {
   nextCursor: string | null;
   /** `value` là điểm hiện tại (cập nhật ngay); `rank`/`reward` theo bản chụp 30 phút, null nếu chưa/không trong top 50. */
   me: RankingEntry;
+}
+
+/**
+ * GET /rankings/daily-fish/{speciesId}?metric=length|earliest: BXH cá riêng theo ngày (0h giờ VN), top 10 người chơi thật.
+ * `length`: con dài nhất trong ngày (bằng nhau thì ai sớm hơn xếp trên); `earliest`: ai câu loài đó sớm nhất trong ngày
+ * (6h00 xếp trên 7h00). Mỗi người một dòng. Tính trực tiếp, chưa có thưởng.
+ */
+export type DailyFishMetric = 'length' | 'earliest';
+
+export interface DailyFishEntry {
+  /** null khi ngoài top 10 (chỉ gặp ở dòng `me`). */
+  rank: number | null;
+  playerId: string;
+  displayName: string;
+  lengthTenthCm: number;
+  caughtAt: string;
+}
+
+export interface DailyFishRanking {
+  speciesId: string;
+  metric: DailyFishMetric;
+  periodStartsAt: string;
+  /** 0h giờ VN ngày kế: mốc reset. */
+  periodEndsAt: string;
+  items: DailyFishEntry[];
+  /** Con tốt nhất của mình hôm nay cho loài này; null khi chưa câu. */
+  me: DailyFishEntry | null;
 }
 
 export interface HistoryEntry {
@@ -526,6 +608,12 @@ export interface HubEvents {
   FriendRequestReceived: FriendRequestEntry;
   /** Vừa thành bạn (gửi cho cả hai bên, mô tả người kia). */
   FriendAdded: FriendEntry;
+  /** Hết là bạn (DELETE /friends/{id}, gửi cho cả hai bên); `playerId` là người kia. */
+  FriendRemoved: { playerId: string };
+  /** Bạn bè gửi đề nghị đổi cá cho mình. */
+  TradeReceived: TradeEntry;
+  /** Đề nghị đổi trạng thái (accepted/declined/cancelled), gửi cho cả hai bên; accepted thì tải lại túi cá. */
+  TradeUpdated: { tradeId: string; status: TradeStatus; fromPlayerId: string; toPlayerId: string };
 }
 
 export type HubEventName = keyof HubEvents;

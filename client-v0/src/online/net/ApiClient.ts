@@ -85,6 +85,10 @@ export class ApiClient {
     return this.request<T>('PUT', path, body);
   }
 
+  delete<T>(path: string): Promise<T> {
+    return this.request<T>('DELETE', path);
+  }
+
   /** Đổi Firebase ID token lấy access token và lưu để các request sau tự gửi. */
   async login(firebaseIdToken: string, rememberMe = true): Promise<LoginResponse> {
     const result = await this.post<LoginResponse>('/auth/login', { firebaseIdToken, rememberMe });

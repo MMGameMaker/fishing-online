@@ -6,6 +6,7 @@ import { GameHub } from '../net/GameHub';
 import { createSignalRConnection } from '../net/signalrConnection';
 import type { LakeMap } from '../scenes/lake/walkable';
 import { bindHubToStore } from '../state/bindHub';
+import { bindTradeRefresh } from '../state/tradeRefresh';
 import { Store } from '../state/store';
 import { devIdentityFromUrl } from './devLogin';
 import { env } from './env';
@@ -33,6 +34,7 @@ export async function createServices(
     const api = new ApiClient({ baseUrl: env.apiBase, fetchImpl: mock.fetch });
     const hub = new GameHub(mock.createConnection());
     bindHubToStore(hub, store, () => mock.now());
+    bindTradeRefresh(hub, store, api);
     return { store, api, hub, map, isMock: true };
   }
 
@@ -43,6 +45,7 @@ export async function createServices(
     createSignalRConnection(env.apiBase, () => api.getAccessToken(), dev?.playerId ?? null),
   );
   bindHubToStore(hub, store);
+  bindTradeRefresh(hub, store, api);
   return { store, api, hub, map, isMock: false };
 }
 

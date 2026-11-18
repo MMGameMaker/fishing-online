@@ -12,6 +12,7 @@ import { formatClock } from '../../scenes/lake/seatLogic';
 import { CodexPopup } from '../codex/CodexPopup';
 import { SettingsPopup } from '../settings/SettingsPopup';
 import { InventoryPopup } from '../inventory/InventoryPopup';
+import { DailyFishPopup } from '../leaderboard/DailyFishPopup';
 import { LeaderboardPopup } from '../leaderboard/LeaderboardPopup';
 import { ProfilePopup } from '../profile/ProfilePopup';
 import { profileArt } from '../profile/profileArt';
@@ -124,6 +125,7 @@ export class HomeHud {
   private readonly settings: SettingsPopup;
   private readonly profile: ProfilePopup;
   private readonly leaderboard: LeaderboardPopup;
+  private readonly dailyFish: DailyFishPopup;
   private readonly friends: FriendsPopup;
   /** Chấm báo có lời mời kết bạn: trên nút mở menu và trên ô "Bạn bè". */
   private readonly menuDot = img(asset('Infomation/Claim Dot.png'), 'home-dot');
@@ -135,6 +137,11 @@ export class HomeHud {
     this.codex = new CodexPopup({ root: options.root, services: options.services });
     this.settings = new SettingsPopup({ root: options.root });
     this.leaderboard = new LeaderboardPopup({
+      root: options.root,
+      services: options.services,
+      now: options.serverNow,
+    });
+    this.dailyFish = new DailyFishPopup({
       root: options.root,
       services: options.services,
       now: options.serverNow,
@@ -193,6 +200,13 @@ export class HomeHud {
 
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && !this.menu.hidden) void this.setMenuOpen(false);
+      // Phím B: BXH cá ngày (tạm, nút mở sẽ gắn sau). Bỏ qua khi đang gõ chữ hoặc có phím bổ trợ.
+      const target = event.target as HTMLElement | null;
+      const typing = target?.matches('input, textarea, select, [contenteditable]') ?? false;
+      const modifier = event.ctrlKey || event.metaKey || event.altKey;
+      if ((event.key === 'b' || event.key === 'B') && !typing && !modifier && !event.repeat) {
+        this.dailyFish.toggle();
+      }
     };
     window.addEventListener('keydown', onKey);
     this.unsubscribes.push(() => window.removeEventListener('keydown', onKey));
@@ -229,6 +243,7 @@ export class HomeHud {
     this.codex.destroy();
     this.settings.destroy();
     this.leaderboard.destroy();
+    this.dailyFish.destroy();
     this.profile.destroy();
     this.friends.destroy();
     this.layer.remove();

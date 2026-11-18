@@ -1,4 +1,4 @@
-﻿# Chạy Fishing Online trên máy local, hai chế độ (gọi qua run-mock.bat / run-real.bat ở thư mục gốc):
+# Chạy Fishing Online trên máy local, hai chế độ (gọi qua run-mock.bat / run-real.bat ở thư mục gốc):
 #   -Mode mock : chỉ chạy client (Vite) với dữ liệu giả trong trình duyệt, không cần Docker/server.
 #   -Mode real : bật Docker Desktop, Postgres + Redis, áp migration, chạy API thật cổng 5080 (cửa sổ riêng),
 #                rồi chạy client nối server thật. Mặc định đăng nhập Google thật (Firebase), không bypass.
@@ -18,7 +18,7 @@ $server = Join-Path $repo 'server'
 $clientPort = 5173
 $apiPort = 5080
 # Map pier: Server phải trả đúng mapId và số ghế như client-v0/src/online/scenes/pier/fishingPierMap.json.
-$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-3'; SeatCount = '38'; RestSeatCount = '28' }
+$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-4'; SeatCount = '38'; RestSeatCount = '30' }
 
 function Write-Step([string]$text) { Write-Host "`n==> $text" -ForegroundColor Cyan }
 

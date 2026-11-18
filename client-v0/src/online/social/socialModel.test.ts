@@ -153,8 +153,19 @@ describe('tin riêng và bạn bè trong store (BOT-02)', () => {
     });
     expect(friendButtons('friends')).toMatchObject({
       label: 'Bạn bè',
-      actions: [{ id: 'message', text: 'Nhắn tin' }],
+      actions: [
+        { id: 'message', text: 'Nhắn tin' },
+        { id: 'remove', text: 'Xoá bạn' },
+      ],
     });
+    // Bị xoá bạn khi popup còn mở với hồ sơ cũ ghi "friends": store đã tải mà không thấy thì là "none".
+    expect(currentFriendStatus('bob', 'friends', { ...social, friends: [] })).toBe('none');
+    let state: GameState = reduce(initialState, {
+      type: 'social/friends',
+      payload: { friends: [friend('bob'), friend('cat')], incoming: [], outgoing: [] },
+    });
+    state = reduce(state, { type: 'FriendRemoved', payload: { playerId: 'bob' } });
+    expect(state.social.friends?.map((f) => f.playerId)).toEqual(['cat']);
     expect(friendButtons('pending_in').actions.map((a) => a.id)).toEqual(['accept', 'decline']);
   });
 });

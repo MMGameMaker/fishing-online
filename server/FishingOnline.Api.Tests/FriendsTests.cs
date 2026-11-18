@@ -51,6 +51,30 @@ public sealed class FriendsTests(PostgresServer postgres) : GameTestBase(postgre
     }
 
     [Fact]
+    public async Task Unfriend_RemovesBothSides_EventsToBoth_NoMoreDm_CanInviteAgain()
+    {
+        await using var alice = await App.ConnectAsync();
+        await using var bob = await App.ConnectAsync();
+        await MakeFriendsAsync(alice.PlayerId, bob.PlayerId);
+        var aliceHttp = App.Http(alice.PlayerId);
+        var bobHttp = App.Http(bob.PlayerId);
+
+        (await aliceHttp.DeleteAsync($"/api/v1/friends/{bob.PlayerId}")).EnsureSuccessStatusCode();
+        Assert.Equal(bob.PlayerId, (await alice.WaitForAsync("FriendRemoved")).GetProperty("playerId").GetGuid());
+        Assert.Equal(alice.PlayerId, (await bob.WaitForAsync("FriendRemoved")).GetProperty("playerId").GetGuid());
+        Assert.Equal(0, (await ReadDataAsync(await aliceHttp.GetAsync("/api/v1/friends"))).GetProperty("friends").GetArrayLength());
+        Assert.Equal(0, (await ReadDataAsync(await bobHttp.GetAsync("/api/v1/friends"))).GetProperty("friends").GetArrayLength());
+        Assert.Equal("NOT_FRIENDS", await bob.ErrorAsync("SendDirectMessage", new { toPlayerId = alice.PlayerId, text = "Còn đó không" }));
+
+        // Xoá lần nữa: đã không còn là bạn.
+        await AssertErrorAsync(await aliceHttp.DeleteAsync($"/api/v1/friends/{bob.PlayerId}"), 403, "NOT_FRIENDS");
+
+        // Mời lại và đồng ý như bình thường.
+        await MakeFriendsAsync(alice.PlayerId, bob.PlayerId);
+        Assert.Equal(1, (await ReadDataAsync(await aliceHttp.GetAsync("/api/v1/friends"))).GetProperty("friends").GetArrayLength());
+    }
+
+    [Fact]
     public async Task Decline_ThenInviteAgain_CrossInviteAccepts_UnknownPlayer404()
     {
         var alice = await App.NewPlayerAsync();

@@ -77,6 +77,9 @@ public sealed record FriendRequestResult(string Status);
 
 public sealed record FriendRequestCreated(Guid FromPlayerId, Guid ToPlayerId);
 
+/// <summary>Event <c>FriendRemoved</c>: <paramref name="PlayerId"/> là người kia (không còn là bạn).</summary>
+public sealed record FriendRemoved(Guid PlayerId);
+
 /// <summary>
 /// Kết bạn bằng lời mời (BOT-02 mục 4): gửi, đồng ý, từ chối, danh sách bạn kèm online, lời mời đến. Event realtime
 /// <c>FriendRequestReceived</c> (người được mời) và <c>FriendAdded</c> (cả hai bên) gửi tới mọi kết nối của người đó.
@@ -177,6 +180,26 @@ public sealed class FriendService(IServiceScopeFactory scopes, LakeRoom room, IH
                 .SetProperty(row => row.Status, FriendRequestStatus.Declined)
                 .SetProperty(row => row.RespondedAt, time.GetUtcNow()), ct);
         if (updated == 0) throw new GameException("STATE_CONFLICT");
+    }
+
+    /// <summary>
+    /// Xoá bạn (hai chiều). Dòng lời mời cũ giữ nguyên để bot không tự mời lại; người chơi vẫn mời lại được
+    /// (<see cref="RequestAsync"/> đưa dòng cũ về pending). Tin riêng cũ giữ lại nhưng không nhắn thêm được (NOT_FRIENDS).
+    /// Event <c>FriendRemoved</c> tới cả hai bên.
+    /// </summary>
+    public async Task RemoveAsync(Guid playerId, Guid friendId, CancellationToken ct)
+    {
+        await using (var scope = scopes.CreateAsyncScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
+            var removed = await db.Set<FriendshipRow>()
+                .Where(row => (row.PlayerId == playerId && row.FriendId == friendId) || (row.PlayerId == friendId && row.FriendId == playerId))
+                .ExecuteDeleteAsync(ct);
+            if (removed == 0) throw new GameException("NOT_FRIENDS");
+        }
+
+        await hub.Clients.User(playerId.ToString()).SendAsync("FriendRemoved", new FriendRemoved(friendId), ct);
+        await hub.Clients.User(friendId.ToString()).SendAsync("FriendRemoved", new FriendRemoved(playerId), ct);
     }
 
     public async Task<bool> AreFriendsAsync(Guid a, Guid b, CancellationToken ct)
@@ -296,6 +319,11 @@ public static class FriendsEndpoints
         friends.MapPost("/requests/{fromId:guid}/decline", async (Guid fromId, FriendService service, ICurrentPlayer player, CancellationToken ct) =>
         {
             await service.DeclineAsync(player.PlayerId, fromId, ct);
+            return ApiResult.Ok(new FriendRequestResult(FriendStatus.None));
+        });
+        friends.MapDelete("/{friendId:guid}", async (Guid friendId, FriendService service, ICurrentPlayer player, CancellationToken ct) =>
+        {
+            await service.RemoveAsync(player.PlayerId, friendId, ct);
             return ApiResult.Ok(new FriendRequestResult(FriendStatus.None));
         });
         return app;

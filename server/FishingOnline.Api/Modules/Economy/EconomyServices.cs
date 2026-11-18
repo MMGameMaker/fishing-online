@@ -35,7 +35,7 @@ public sealed class InventoryService(
         var player = await db.Players.AsNoTracking().SingleAsync(row => row.Id == playerId, ct);
         var rods = await db.Set<RodOwnedRow>().AsNoTracking().Where(row => row.PlayerId == playerId)
             .OrderBy(row => row.AcquiredAt).Select(row => row.RodId).ToListAsync(ct);
-        var fish = await db.Set<CatchRow>().AsNoTracking().Where(row => row.PlayerId == playerId && row.SoldAt == null)
+        var fish = await db.Set<CatchRow>().AsNoTracking().Where(CatchRow.HeldBy(playerId))
             .OrderByDescending(row => row.CaughtAt)
             .Select(row => new InventoryFishView(row.CatchId, row.SpeciesId, row.LengthTenthCm, row.CaughtAt))
             .ToListAsync(ct);
@@ -121,12 +121,12 @@ public sealed class InventoryService(
 
         var locked = sellAll
             ? await db.Set<CatchRow>()
-                .FromSqlInterpolated($"""select * from game.catches where "PlayerId" = {playerId} and "SoldAt" is null for update""")
+                .FromSqlInterpolated($"""select * from game.catches where ("HolderPlayerId" = {playerId} or ("HolderPlayerId" is null and "PlayerId" = {playerId})) and "SoldAt" is null for update""")
                 .AsTracking().ToListAsync(ct)
             : await db.Set<CatchRow>()
                 .FromSqlInterpolated($"""select * from game.catches where "CatchId" = any({ids}) for update""")
                 .AsTracking().ToListAsync(ct);
-        if (!sellAll && (locked.Count != ids.Length || locked.Any(row => row.PlayerId != playerId || row.SoldAt is not null)))
+        if (!sellAll && (locked.Count != ids.Length || locked.Any(row => row.Holder != playerId || row.SoldAt is not null)))
             throw new GameException("FISH_NOT_FOUND");
 
         if (locked.Count == 0)

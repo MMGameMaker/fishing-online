@@ -1,5 +1,6 @@
 using System.Globalization;
 using FishingOnline.Api.Modules.Common;
+using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Economy;
 using FishingOnline.Api.Modules.Identity;
 using FishingOnline.Api.Persistence;
@@ -27,7 +28,7 @@ public sealed record RankingView(
 /// thứ hạng làm mới 30 phút một lần, điểm của chính user cập nhật ngay. Đọc từ bảng catches (không migration).
 /// Chưa làm: tự cộng thưởng lúc hết tuần (GD chưa xác nhận), Giải đấu cần thủ, loại trừ tài khoản nghi gian lận.
 /// </summary>
-public sealed class RankingService(GameDbContext db, TimeProvider time)
+public sealed class RankingService(GameDbContext db, TimeProvider time, IConfigProvider configs)
 {
     public const string WeeklyCatchBoard = "total-catch-weekly";
     public const int DefaultLimit = 20;
@@ -110,7 +111,60 @@ public sealed class RankingService(GameDbContext db, TimeProvider time)
             live > 0 ? live : null, myRank is { } rank ? RewardOf(rank) : null);
         return new RankingView(boardId, snapshotAt, start, end, items, next, me);
     }
+
+    public const string DailyLength = "length";
+    public const string DailyEarliest = "earliest";
+    public const int DailyTop = 10;
+
+    /// <summary>0h giờ VN của ngày chứa <paramref name="now"/>.</summary>
+    public static DateTimeOffset DayStart(DateTimeOffset now) => new(now.ToOffset(VietnamOffset).Date, VietnamOffset);
+
+    /// <summary>
+    /// BXH cá riêng theo ngày (người dùng chốt 2026-11-18): mỗi loài hai bảng top 10 người chơi thật (không tính bot).
+    /// <c>length</c>: con dài nhất trong ngày, bằng nhau thì ai câu sớm hơn xếp trên. <c>earliest</c>: ai câu được loài này
+    /// sớm nhất trong ngày theo giờ thật (6h00 xếp trên 7h00). Mỗi người một dòng (con tốt nhất của họ), tính theo người câu
+    /// kể cả khi cá đã bán hoặc đổi tay. Ngày tính từ 0h giờ VN, tính trực tiếp từ bảng catches, chưa có thưởng.
+    /// </summary>
+    public async Task<DailyFishRankingView> DailyFishAsync(string speciesId, string metric, Guid playerId, CancellationToken ct)
+    {
+        if (metric is not (DailyLength or DailyEarliest) || configs.Current.Fish.All(fish => fish.SpeciesId != speciesId))
+            throw new GameException(ErrorCatalog.ValidationFailed);
+
+        var start = DayStart(time.GetUtcNow()).ToUniversalTime();
+        var end = start.AddDays(1);
+        var rows = await db.Set<CatchRow>().AsNoTracking()
+            .Where(row => row.SpeciesId == speciesId && !row.IsBot && row.CaughtAt >= start && row.CaughtAt < end)
+            .Select(row => new { row.PlayerId, row.LengthTenthCm, row.CaughtAt }).ToListAsync(ct);
+
+        var ordered = (metric == DailyLength
+            ? rows.OrderByDescending(row => row.LengthTenthCm).ThenBy(row => row.CaughtAt)
+            : rows.OrderBy(row => row.CaughtAt).ThenByDescending(row => row.LengthTenthCm))
+            .ThenBy(row => row.PlayerId);
+        // Mỗi người chỉ giữ con đứng trên nhất của họ.
+        var best = ordered.DistinctBy(row => row.PlayerId).ToList();
+
+        var top = best.Take(DailyTop).ToList();
+        var mine = best.FindIndex(row => row.PlayerId == playerId);
+        var ids = top.Select(row => row.PlayerId).Append(playerId).Distinct().ToArray();
+        var names = await db.Players.AsNoTracking().Where(player => ids.Contains(player.Id))
+            .ToDictionaryAsync(player => player.Id, player => player.DisplayName, ct);
+
+        var items = top.Select((row, index) => new DailyFishEntryView(
+            index + 1, row.PlayerId, names.GetValueOrDefault(row.PlayerId, string.Empty), row.LengthTenthCm, row.CaughtAt)).ToArray();
+        var me = mine < 0 ? null : new DailyFishEntryView(
+            mine < DailyTop ? mine + 1 : null, playerId, names.GetValueOrDefault(playerId, string.Empty), best[mine].LengthTenthCm, best[mine].CaughtAt);
+        return new DailyFishRankingView(speciesId, metric, start, end, items, me);
+    }
 }
+
+/// <summary>Một dòng BXH cá ngày: con tốt nhất của người đó trong ngày theo tiêu chí của bảng.</summary>
+public sealed record DailyFishEntryView(int? Rank, Guid PlayerId, string DisplayName, int LengthTenthCm, DateTimeOffset CaughtAt);
+
+/// <param name="Metric"><c>length</c> (dài nhất) hoặc <c>earliest</c> (câu sớm nhất trong ngày).</param>
+/// <param name="Me">Con tốt nhất của mình trong ngày cho loài này; Rank null khi ngoài top 10 hoặc chưa câu.</param>
+public sealed record DailyFishRankingView(
+    string SpeciesId, string Metric, DateTimeOffset PeriodStartsAt, DateTimeOffset PeriodEndsAt,
+    IReadOnlyList<DailyFishEntryView> Items, DailyFishEntryView? Me);
 
 public static class RankingModule
 {
@@ -121,6 +175,8 @@ public static class RankingModule
         app.MapGroup("/api/v1/rankings").RequireAuthorization()
             .MapGet("/{boardId}", async (string boardId, string? cursor, int? limit, RankingService ranking, ICurrentPlayer player, CancellationToken ct) =>
                 ApiResult.Ok(await ranking.GetAsync(boardId, player.PlayerId, cursor, limit, ct)));
+        app.MapGet("/api/v1/rankings/daily-fish/{speciesId}", async (string speciesId, string? metric, RankingService ranking, ICurrentPlayer player, CancellationToken ct) =>
+            ApiResult.Ok(await ranking.DailyFishAsync(speciesId, metric ?? RankingService.DailyLength, player.PlayerId, ct))).RequireAuthorization();
         return app;
     }
 }

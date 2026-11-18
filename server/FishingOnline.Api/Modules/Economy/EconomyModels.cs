@@ -39,6 +39,18 @@ public sealed class CatchRow
 
     /// <summary>Cá do bot câu (đánh dấu để Admin phân biệt với người thật). Không đưa vào bất kỳ gói gửi Client nào.</summary>
     public bool IsBot { get; set; }
+
+    /// <summary>
+    /// Người đang giữ con cá sau khi trao đổi với bạn bè; null = vẫn do <see cref="PlayerId"/> (người câu) giữ.
+    /// <see cref="PlayerId"/> luôn là người câu nên Sổ tay, kỷ lục, EXP, nhiệm vụ, xếp hạng không đổi khi cá chuyển tay.
+    /// </summary>
+    public Guid? HolderPlayerId { get; set; }
+
+    public Guid Holder => HolderPlayerId ?? PlayerId;
+
+    /// <summary>Cá chưa bán mà <paramref name="playerId"/> đang giữ (túi cá).</summary>
+    public static System.Linq.Expressions.Expression<Func<CatchRow, bool>> HeldBy(Guid playerId) =>
+        row => row.SoldAt == null && (row.HolderPlayerId == playerId || (row.HolderPlayerId == null && row.PlayerId == playerId));
 }
 
 public sealed class SpeciesRecordRow
@@ -83,6 +95,7 @@ public sealed class CatchRowConfig :IEntityTypeConfiguration<CatchRow>
         entity.Property(row => row.IsBot).HasDefaultValue(false);
         entity.HasIndex(row => row.AttemptId).IsUnique();
         entity.HasIndex(row => new { row.PlayerId, row.CaughtAt });
+        entity.HasIndex(row => row.HolderPlayerId);
     }
 }
 

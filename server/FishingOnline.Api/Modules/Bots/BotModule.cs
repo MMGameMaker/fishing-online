@@ -24,7 +24,19 @@ namespace FishingOnline.Api.Modules.Bots;
 /// </summary>
 public sealed class BotManager : IBotCoordinator
 {
-    private static readonly string[] Skins = ["skin_01", "skin_02", "skin_03", "skin_04", "skin_05"];
+    /// <summary>
+    /// Skin bot random: 5 thỏ miễn phí + 20 skin thú chỉ-bot (skin_bot_*, GD chốt 2026-11-18, loại bear-panda, cat-calico, fox-red,
+    /// raccoon, shiba-orange). Skin skin_bot_* không nằm trong Social.Skins nên người chơi không chọn được. Bot đã tạo trước đó giữ skin cũ.
+    /// Khớp BAKED_BOT_SKINS ở client-v0/src/online/entities/characterArt.ts.
+    /// </summary>
+    public static readonly string[] Skins =
+    [
+        "skin_01", "skin_02", "skin_03", "skin_04", "skin_05",
+        "skin_bot_bear_brown", "skin_bot_bear_polar", "skin_bot_beaver_brown", "skin_bot_cat_black", "skin_bot_cat_orange_tabby",
+        "skin_bot_cat_purple", "skin_bot_cat_tuxedo", "skin_bot_cat_white", "skin_bot_duck_white", "skin_bot_fox_arctic",
+        "skin_bot_fox_cascade_grey", "skin_bot_fox_silver", "skin_bot_harlequin", "skin_bot_rat_grey", "skin_bot_red_spotted_bunny",
+        "skin_bot_shiba_cream", "skin_bot_shiba_dark", "skin_bot_turtle_green", "skin_bot_turtle_hermann", "skin_bot_turtle_leatherback",
+    ];
 
     /// <summary>Bot mời kết bạn khi đứng cách user thật trong khoảng này (px).</summary>
     public const double InviteRadiusPx = 80;

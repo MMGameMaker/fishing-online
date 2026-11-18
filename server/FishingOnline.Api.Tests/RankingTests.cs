@@ -127,4 +127,69 @@ public sealed class RankingTests(PostgresServer postgres) : GameTestBase(postgre
         await AssertErrorAsync(await client.GetAsync($"{Board}?cursor=abc"), 400, "VALIDATION_FAILED");
         await AssertErrorAsync(await client.GetAsync($"{Board}?cursor=50"), 400, "VALIDATION_FAILED");
     }
-}
+
+    private async Task CatchSpeciesAsync(Guid playerId, string species, int length)
+    {
+        await using var scope = App.Services.CreateAsyncScope();
+        await scope.ServiceProvider.GetRequiredService<ICatchRecorder>().RecordAsync(
+            playerId, Guid.NewGuid(), species, length, 5, "v0-test-2026-11-18-fishnames-01", default);
+    }
+
+    private async Task<JsonElement> DailyAsync(Guid viewer, string species, string metric) =>
+        await ReadDataAsync(await App.Http(viewer).GetAsync($"/api/v1/rankings/daily-fish/{species}?metric={metric}"));
+
+    [Fact]
+    public async Task DailyFish_LengthAndEarliest_TopPerPlayer_ResetsAtVietnamMidnight()
+    {
+        var alice = await App.NewPlayerAsync();
+        var bob = await App.NewPlayerAsync();
+        var carol = await App.NewPlayerAsync();
+        // Đưa giờ giả về 2 giờ sáng giờ VN của ngày kế để các mốc +giờ không vượt nửa đêm.
+        App.Clock.Advance(RankingService.DayStart(App.Clock.GetUtcNow()).AddDays(1).AddHours(2) - App.Clock.GetUtcNow());
+
+        await CatchSpeciesAsync(alice, "perch", 100);
+        App.Clock.Advance(TimeSpan.FromHours(1));
+        await CatchSpeciesAsync(bob, "perch", 150);
+        App.Clock.Advance(TimeSpan.FromHours(1));
+        await CatchSpeciesAsync(alice, "perch", 120);
+        await CatchSpeciesAsync(carol, "koi", 300);
+
+        var length = await DailyAsync(carol, "perch", "length");
+        Assert.Equal("perch", length.GetProperty("speciesId").GetString());
+        var items = length.GetProperty("items").EnumerateArray().ToArray();
+        Assert.Equal([bob, alice], items.Select(item => item.GetProperty("playerId").GetGuid()));
+        Assert.Equal([150, 120], items.Select(item => item.GetProperty("lengthTenthCm").GetInt32()));
+        Assert.Equal([1, 2], items.Select(item => item.GetProperty("rank").GetInt32()));
+        Assert.Equal(JsonValueKind.Null, length.GetProperty("me").ValueKind);
+
+        // Sớm nhất: alice (con đầu lúc 2h) trước bob (3h); mỗi người một dòng.
+        var earliest = await DailyAsync(bob, "perch", "earliest");
+        var early = earliest.GetProperty("items").EnumerateArray().ToArray();
+        Assert.Equal([alice, bob], early.Select(item => item.GetProperty("playerId").GetGuid()));
+        Assert.Equal(100, early[0].GetProperty("lengthTenthCm").GetInt32());
+        Assert.Equal(2, earliest.GetProperty("me").GetProperty("rank").GetInt32());
+
+        // Mỗi loài một bảng riêng.
+        Assert.Single((await DailyAsync(alice, "koi", "length")).GetProperty("items").EnumerateArray());
+
+        await AssertErrorAsync(await App.Http(alice).GetAsync("/api/v1/rankings/daily-fish/khong-co?metric=length"), 400, "VALIDATION_FAILED");
+        await AssertErrorAsync(await App.Http(alice).GetAsync("/api/v1/rankings/daily-fish/perch?metric=lol"), 400, "VALIDATION_FAILED");
+
+        // Qua 0h giờ VN: bảng ngày mới trống.
+        App.Clock.Advance(TimeSpan.FromHours(23));
+        Assert.Equal(0, (await DailyAsync(alice, "perch", "length")).GetProperty("items").GetArrayLength());
+    }
+
+    [Fact]
+    public async Task DailyFish_OnlyTop10_MeBeyondTopHasNoRank()
+    {
+        App.Clock.Advance(RankingService.DayStart(App.Clock.GetUtcNow()).AddDays(1).AddHours(2) - App.Clock.GetUtcNow());
+        var viewer = await App.NewPlayerAsync();
+        await CatchSpeciesAsync(viewer, "perch", 10);
+        for (var i = 0; i < 10; i++) await CatchSpeciesAsync(await App.NewPlayerAsync(), "perch", 100 + i);
+
+        var board = await DailyAsync(viewer, "perch", "length");
+        Assert.Equal(10, board.GetProperty("items").GetArrayLength());
+        Assert.Equal(JsonValueKind.Null, board.GetProperty("me").GetProperty("rank").ValueKind);
+        Assert.Equal(10, board.GetProperty("me").GetProperty("lengthTenthCm").GetInt32());
+    }}

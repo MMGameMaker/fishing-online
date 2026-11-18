@@ -5415,7 +5415,7 @@
   ],
   "lake": {
     "mapId": "fishing-pier",
-    "mapVersion": "pier-3",
+    "mapVersion": "pier-4",
     "tileSize": 8,
     "widthTiles": 136,
     "heightTiles": 100,
@@ -6050,6 +6050,20 @@
         "facing": "left",
         "depth": 704.6,
         "bench": "picnic-2-r"
+      },
+      {
+        "restSeatId": "rest-29",
+        "x": 68,
+        "y": 114,
+        "facing": "down",
+        "bench": "bench-rest-a"
+      },
+      {
+        "restSeatId": "rest-30",
+        "x": 93,
+        "y": 114,
+        "facing": "down",
+        "bench": "bench-rest-a"
       }
     ]
   }

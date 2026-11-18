@@ -260,9 +260,10 @@
 }
 
 .friends__actions .friends__btn {
-  min-width: 110px;
+  min-width: 84px;
   height: 46px;
-  font-size: 20px;
+  padding: 0 10px !important;
+  font-size: 18px;
 }
 
 /* Mặt thỏ trong popup dùng lại khung avatar của khung chat. */
@@ -349,4 +350,174 @@
   right: -6px;
   width: 18px;
   height: 18px;
+}
+
+
+/* Đổi cá giữa bạn bè: chọn cá và dòng đề nghị đang chờ. */
+.friends__row {
+  flex-wrap: wrap;
+}
+
+.trade__row {
+  align-items: stretch;
+}
+
+.trade__body {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.trade__actions {
+  align-items: center;
+}
+
+.trade__head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.trade__title {
+  margin: 0;
+}
+
+.trade__hint {
+  margin: 8px 0;
+  font-size: 17px;
+  line-height: 22px;
+  color: #6b4a2e;
+}
+
+.trade__caption {
+  margin: 8px 0 4px;
+  font-size: 18px;
+  color: #6b4a2e;
+}
+
+.trade__column {
+  margin-bottom: 8px;
+}
+
+.trade__fish-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trade__fish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 92px;
+  padding: 4px;
+  font-size: 15px;
+  line-height: 18px;
+  background: #fff3d0;
+  border: 4px solid #d9a868;
+}
+
+button.trade__fish {
+  cursor: pointer;
+}
+
+.trade__fish:disabled {
+  cursor: default;
+}
+
+.trade__fish--on {
+  background: #ffe08a;
+  border-color: #e8782a;
+}
+
+.trade__fish-img {
+  width: 56px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.trade__fish-name {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.trade__fish-len {
+  color: #6b4a2e;
+}
+
+/* BXH cá ngày: chọn loài, hai tab tiêu chí, top 10. */
+.daily {
+  z-index: 21;
+}
+
+.daily__species {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.daily__chip {
+  width: 56px;
+  height: 44px;
+  background: #fff3d0;
+  border: 4px solid #d9a868;
+}
+
+.daily__chip--on {
+  background: #ffe08a;
+  border-color: #e8782a;
+}
+
+.daily__chip-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.daily__tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.daily__tabs .friends__btn {
+  min-width: 150px;
+  height: 46px;
+  font-size: 20px;
+}
+
+.daily__row {
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.daily__rank {
+  flex: none;
+  width: 36px;
+  font-size: 26px;
+  text-align: center;
+}
+
+.daily__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 22px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.daily__value {
+  flex: none;
+  font-size: 24px;
+}
+
+.daily__sub {
+  flex: none;
+  width: 78px;
+  font-size: 17px;
+  color: #6b4a2e;
+  text-align: right;
 }

@@ -1,4 +1,4 @@
-﻿# Chay ban choi thu PUBLIC tren may noi bo (docs/be/DEPLOY_PLAYTEST.md, PA2): Production, Google login that,
+# Chay ban choi thu PUBLIC tren may noi bo (docs/be/DEPLOY_PLAYTEST.md, PA2): Production, Google login that,
 # Tailscale Funnel -> Caddy (cong 8080) -> API (127.0.0.1:5080) + client-v0/dist.
 # Khac run-local.ps1: KHONG Development, KHONG Auth:DevBypass, KHONG /dev/topup.
 #
@@ -25,7 +25,7 @@ $pidFile = Join-Path $work 'pids.json'
 $apiPort = 5080
 $webPort = 8080
 # Map pier: phai khop client-v0/src/online/scenes/pier/fishingPierMap.json (cung gia tri voi run-local.ps1).
-$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-3'; SeatCount = '38'; RestSeatCount = '28' }
+$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-4'; SeatCount = '38'; RestSeatCount = '30' }
 
 function Write-Step([string]$text) { Write-Host "`n==> $text" -ForegroundColor Cyan }
 function Need([string]$cmd, [string]$hint) {

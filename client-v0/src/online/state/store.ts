@@ -16,6 +16,8 @@ import {
   type PlayerView,
   type ProgressResponse,
   type SeatView,
+  type TradeEntry,
+  type TradesResponse,
 } from '../net/contract';
 
 export const CHAT_LOG_LIMIT = 100;
@@ -70,6 +72,8 @@ export interface SocialState {
   dmUnread: Record<string, number>;
   /** Loài đã câu (Sổ tay cá) để dựng ô icon cá trong bảng Biểu cảm; null khi chưa tải. */
   caughtSpecies: string[] | null;
+  /** Đề nghị đổi cá đang chờ (đến/đi); null khi chưa tải GET /trades. */
+  trades: TradesResponse | null;
 }
 
 export const initialSocial: SocialState = {
@@ -79,6 +83,7 @@ export const initialSocial: SocialState = {
   dms: {},
   dmUnread: {},
   caughtSpecies: null,
+  trades: null,
 };
 
 export interface GameState {
@@ -106,7 +111,9 @@ export type GameAction =
   | { type: 'social/requestHandled'; payload: string }
   | { type: 'social/dmHistory'; payload: { playerId: string; messages: DirectMessage[] } }
   | { type: 'social/dmRead'; payload: string }
-  | { type: 'social/caught'; payload: string[] };
+  | { type: 'social/caught'; payload: string[] }
+  | { type: 'social/trades'; payload: TradesResponse }
+  | { type: 'social/tradeOutgoing'; payload: TradeEntry };
 
 export const initialLake: LakeState = {
   mapId: null,
@@ -326,6 +333,11 @@ function reduceSocial(
         outgoing: social.outgoing.filter((id) => id !== friend.playerId),
       };
     }
+    case 'FriendRemoved':
+      return {
+        ...social,
+        friends: social.friends?.filter((f) => f.playerId !== action.payload.playerId) ?? null,
+      };
     case 'DirectMessageReceived': {
       const message = action.payload;
       const mine = message.fromPlayerId === myId;
@@ -353,6 +365,44 @@ function reduceSocial(
       return { ...social, dmUnread: { ...social.dmUnread, [action.payload]: 0 } };
     case 'social/caught':
       return { ...social, caughtSpecies: action.payload };
+    case 'social/trades':
+      return { ...social, trades: action.payload };
+    case 'social/tradeOutgoing': {
+      const trades = social.trades ?? { incoming: [], outgoing: [] };
+      return {
+        ...social,
+        trades: {
+          ...trades,
+          outgoing: [
+            action.payload,
+            ...trades.outgoing.filter((t) => t.tradeId !== action.payload.tradeId),
+          ],
+        },
+      };
+    }
+    case 'TradeReceived': {
+      const trades = social.trades ?? { incoming: [], outgoing: [] };
+      return {
+        ...social,
+        trades: {
+          ...trades,
+          incoming: [
+            action.payload,
+            ...trades.incoming.filter((t) => t.tradeId !== action.payload.tradeId),
+          ],
+        },
+      };
+    }
+    case 'TradeUpdated': {
+      // Mọi trạng thái khác pending (đồng ý/từ chối/rút lại) đều đóng đề nghị.
+      const trades = social.trades;
+      if (!trades) return social;
+      const open = (t: TradeEntry) => t.tradeId !== action.payload.tradeId;
+      return {
+        ...social,
+        trades: { incoming: trades.incoming.filter(open), outgoing: trades.outgoing.filter(open) },
+      };
+    }
     case 'AttemptUpdate': {
       // Câu được loài mới: ô icon cá hiện ngay trong bảng Biểu cảm, không cần tải lại Sổ tay.
       const speciesId =

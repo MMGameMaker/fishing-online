@@ -33,6 +33,16 @@ public sealed class BotContentTests
     }
 
     [Fact]
+    public void BotSkins_ExcludeReservedAnimalsAndKeepTheOldFiveRabbits()
+    {
+        Assert.Equal(25, BotManager.Skins.Length);
+        Assert.Equal(BotManager.Skins.Length, BotManager.Skins.Distinct().Count());
+        Assert.All(["skin_01", "skin_02", "skin_03", "skin_04", "skin_05"], id => Assert.Contains(id, BotManager.Skins));
+        foreach (var reserved in new[] { "bear_panda", "cat_calico", "fox_red", "raccoon", "shiba_orange" })
+            Assert.DoesNotContain($"skin_bot_{reserved}", BotManager.Skins);
+    }
+
+    [Fact]
     public void TierValidation()
     {
         Assert.True(BotTiers.IsValid(BotTiers.Default, 50));

@@ -21,6 +21,9 @@ const EVENTS: HubEventName[] = [
   'DirectMessageReceived',
   'FriendRequestReceived',
   'FriendAdded',
+  'FriendRemoved',
+  'TradeReceived',
+  'TradeUpdated',
 ];
 
 /** Nối event của hub vào store; trả hàm gỡ. */
