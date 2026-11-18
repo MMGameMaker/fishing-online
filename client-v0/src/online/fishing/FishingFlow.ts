@@ -19,6 +19,7 @@ import { MINIGAME_SCENE, type MinigameData, type MinigameScene } from './Minigam
 import { drawFishIcon } from '../../art.js';
 import { fishImage, preloadFishArt } from '../ui/fishArt';
 import { buildCatchCard, preloadCatchCard } from './CatchCard';
+import { flyFish, hitStop, ripple, splash } from './fishingFx';
 import { SIDE_CONFETTI_PEAK_MS, burstConfetti, burstSideConfetti } from './confetti';
 import { buildResultCard, cancelText } from './resultText';
 import { playBiteBeep, playCatchSound, playSound, preloadFishingSounds } from './sound';
@@ -47,6 +48,8 @@ const LINE_FLASH = {
   normal: { scale: 3, alpha: 0.7, ms: 220 },
   weak: { scale: 5.5, alpha: 1, ms: 320 },
 } as const;
+/** Gợn nước quanh phao trong lúc chờ cá: mỗi nhịp một vòng nhỏ. */
+const WAIT_RIPPLE_MS = 1300;
 const WEAK_SHAKE_MS = 150;
 const WEAK_SHAKE_INTENSITY = 0.002;
 
@@ -58,6 +61,8 @@ export interface FishingActor {
   tugRod?(strong: boolean): void;
   /** Phao vẽ sẵn trong art cần; có thì không vẽ phao tròn đỏ riêng nữa. */
   bobberPoint?(): { x: number; y: number } | null;
+  /** Chỗ cá vừa câu bay tới (trên đầu); không có thì bỏ effect cá bay. */
+  catchPoint?(): { x: number; y: number };
 }
 
 export interface PierFishingOptions {
@@ -79,6 +84,11 @@ export interface PierFishingOptions {
    * (feedback 2026-11-16, thay quy tắc 2026-11-11 "trượt cá không icon buồn").
    */
   sadOnMissedBite?: boolean;
+  /**
+   * Effect nước và cá (feedback 2026-11-17): tõm nước khi phao rơi, gợn nước khi chờ, bắn nước khi cá cắn,
+   * khựng hình khi móc trúng, cá bay từ phao lên đầu nhân vật.
+   */
+  fishingFx?: boolean;
 }
 
 export class FishingFlow {
@@ -92,6 +102,7 @@ export class FishingFlow {
   private hookSentAtMs: number | null = null;
   private lastAttemptKey = '';
   private castTimer: Phaser.Time.TimerEvent | null = null;
+  private rippleTimer: Phaser.Time.TimerEvent | null = null;
   /** Hẹn giờ theo giờ thật (không theo đồng hồ scene) để khớp hạn minigame của Server. */
   private introTimer: number | null = null;
 
@@ -145,6 +156,11 @@ export class FishingFlow {
     return this.isLocked() || nowMs < this.characterBusyUntilMs;
   }
 
+  /** Đặt nút móc câu dưới chân nhân vật (toạ độ lớp UI); không gọi thì nút ở giữa màn hình. */
+  setButtonAnchor(x: number, y: number): void {
+    this.button.setAnchor(x, y);
+  }
+
   update(): void {
     const { attempt, lake, catalog } = this.services.store.getState();
     const nowMs = performance.now();
@@ -173,6 +189,7 @@ export class FishingFlow {
   }
 
   destroy(): void {
+    this.stopWaitRipples();
     this.clearIntro();
     this.unsubscribe();
     this.button.destroy();
@@ -219,19 +236,29 @@ export class FishingFlow {
     this.lastAttemptKey = key;
     this.castTimer?.remove();
     this.castTimer = null;
+    this.stopWaitRipples();
     this.clearIntro();
 
     switch (attempt.phase) {
       case 'waiting':
         this.showWaiting();
         break;
-      case 'bite':
+      case 'bite': {
         this.me.play('bite');
         this.me.setHeadIcon({ type: 'bite' });
         this.bobber.setFillStyle(0x7a1f1a).setScale(0.6);
         playBiteBeep();
+        const point = this.fxPoint();
+        if (point) {
+          // Cá cắn: nước bắn mạnh quanh phao kèm tiếng "tõm".
+          splash(this.scene, point.x, point.y, 'big');
+          playSound('castImpact', 0.7);
+        }
         break;
+      }
       case 'minigame':
+        // Móc trúng: khựng hình một nhịp rồi rung màn nhẹ.
+        if (this.pier.fishingFx) hitStop(this.scene);
         this.startMinigame(attempt);
         break;
       case 'success':
@@ -280,7 +307,32 @@ export class FishingFlow {
           .setScale(1)
           .setVisible(true);
       }
+      this.startWaitRipples();
     });
+  }
+
+  /** Chỗ phao trên mặt nước cho effect; null khi tắt effect hoặc không biết vị trí phao. */
+  private fxPoint(): { x: number; y: number } | null {
+    if (!this.pier.fishingFx) return null;
+    return this.me.bobberPoint?.() ?? this.bobberPoint();
+  }
+
+  /** Phao vừa rơi xuống: tõm nước, rồi gợn nước nhỏ theo nhịp trong lúc chờ cá. */
+  private startWaitRipples(): void {
+    const point = this.fxPoint();
+    if (!point) return;
+    splash(this.scene, point.x, point.y, 'small');
+    playSound('castImpact', 0.35);
+    this.rippleTimer = this.scene.time.addEvent({
+      delay: WAIT_RIPPLE_MS,
+      loop: true,
+      callback: () => ripple(this.scene, point.x, point.y, { size: 12, ms: 1000, alpha: 0.6 }),
+    });
+  }
+
+  private stopWaitRipples(): void {
+    this.rippleTimer?.remove();
+    this.rippleTimer = null;
   }
 
   /** Server tính hạn minigame sau introMs kể từ lúc thu cần, nên Client chờ đúng khoảng đó rồi mới hiện. */
@@ -378,6 +430,9 @@ export class FishingFlow {
   }
 
   private showSuccess(attempt: AttemptView): void {
+    const from = this.fxPoint();
+    const to = this.me.catchPoint?.();
+    if (from && to && attempt.result) flyFish(this.scene, attempt.result.speciesId, from, to);
     this.finishRound();
     this.me.play('success');
     const { catalog } = this.services.store.getState();

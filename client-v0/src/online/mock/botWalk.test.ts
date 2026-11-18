@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import pierMap from '../scenes/pier/fishingPierMap.json';
 import { nearestStandable, type LakeMap } from '../scenes/lake/walkable';
-import { findRoute, pickWanderTarget, walkStep } from './botWalk';
+import { SPOT_GAP, findRoute, pickWanderTarget, tooClose, walkStep } from './botWalk';
 
 /** Sàn 10×10 ô 8 px, trừ một cột chặn ở x = 5. */
 const MAP: LakeMap = {
@@ -56,6 +56,26 @@ describe('botWalk', () => {
       Math.random,
     );
     expect(none).toBeNull();
+  });
+
+  it('điểm dừng không trùng người/bot khác: tooClose và accept của pickWanderTarget', () => {
+    expect(tooClose({ x: 0, y: 0 }, { x: 10, y: 10 })).toBe(true);
+    expect(tooClose({ x: 0, y: 0 }, { x: SPOT_GAP, y: 0 })).toBe(false);
+    const avoid = { x: 20, y: 40 };
+    for (let i = 0; i < 200; i++) {
+      const target = pickWanderTarget(
+        MAP,
+        avoid.x,
+        avoid.y,
+        Math.random,
+        20,
+        30,
+        (p) => !tooClose(p, avoid),
+      );
+      if (target) expect(tooClose(target, avoid)).toBe(false);
+    }
+    // Mọi điểm quanh đều bị chiếm: không chọn được.
+    expect(pickWanderTarget(MAP, 20, 40, Math.random, 12, 30, () => false)).toBeNull();
   });
 });
 

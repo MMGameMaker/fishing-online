@@ -10,6 +10,7 @@ import {
   PILLAR_FLOW_WIDTH,
   RIPPLE_ANIMS,
   depthOf,
+  isHiddenBehindObject,
   pickRippleSpot,
   type PierMapData,
   type PierSheet,
@@ -86,6 +87,10 @@ export class PierArt implements LakeMapArt {
     this.createObjects(scene);
     this.createSeatOutlines(scene);
     this.fitCamera(scene);
+  }
+
+  isHidden(x: number, y: number): boolean {
+    return isHiddenBehindObject(MAP.objects, x, y);
   }
 
   /** Viền trắng ghế đang ngồi được; đổi ghế thì viền cũ mờ đi, viền mới hiện dần. */

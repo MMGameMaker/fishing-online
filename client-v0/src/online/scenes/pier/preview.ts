@@ -21,6 +21,7 @@ import '../../ui/boot/boot.css';
 import '../../ui/toast/toast.css';
 import './pier.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
+import { isPhone } from '../../core/device';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';
 import { BootScreens } from '../../ui/boot/BootScreens';
@@ -32,6 +33,11 @@ import { setLakeMapArt } from '../lake/mapArt';
 import { PIER_LAKE_MAP, PierArt } from './PierArt';
 
 async function start(): Promise<void> {
+  // Điện thoại: chỉ hiện thông báo không tương thích, không tạo game, không cho đăng nhập.
+  if (isPhone()) {
+    new BootScreens().showBlocked();
+    return;
+  }
   const services = await createServices(PIER_LAKE_MAP, { fishingBots: true });
   const game = new Phaser.Game({
     type: Phaser.AUTO,

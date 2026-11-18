@@ -28,7 +28,7 @@ export interface CharacterOptions {
 export type HeadIcon =
   | { type: 'bite' }
   | { type: 'sad' }
-  | { type: 'fish'; rarity: Rarity }
+  | { type: 'fish'; speciesId: string; rarity: Rarity }
   | { type: 'emoji'; emojiId: string }
   | null;
 
@@ -43,6 +43,10 @@ const ICON_ABOVE_LABEL = 13;
 const TEXT_ICONS = { bite: '!', sad: ':(' } as const;
 /** Icon buồn khi câu hụt dùng emoji động "sad" (feedback 2026-11-12); thiếu sheet thì hiện ":(". */
 const SAD_EMOTE_ART = 'sad';
+/** Hình cá trên đầu thu vào khung tối đa này (px map), giữ tỉ lệ ảnh. */
+const FISH_ICON_MAX_W = 32;
+const FISH_ICON_MAX_H = 18;
+
 /** Kéo cần mỗi lần tap trúng trong minigame: nhấc lớp cần lên vài px rồi hạ lại. */
 const TUG_PX = 2;
 const TUG_STRONG_PX = 3;
@@ -137,11 +141,13 @@ export class CharacterView {
   /** Lớp điểm ảnh mặt buồn, nằm giữa thân và cần. */
   private readonly sadFace: Phaser.GameObjects.Graphics;
   private sad = false;
+  
   /** Emoji buồn hiện bằng bong bóng trên đầu (pier) thay vì icon nhỏ. */
   private sadBubble: Phaser.GameObjects.Container | null = null;
   /** Viền trắng (tạo khi cần lần đầu). */
   private outline: Phaser.GameObjects.Sprite[] | null = null;
   private outlined = false;
+
 
   constructor(
     private readonly scene: Phaser.Scene,
@@ -253,6 +259,11 @@ export class CharacterView {
     return this.container.y - (bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP);
   }
 
+  /** Chỗ cá vừa câu bay tới: ngay trên đỉnh đầu (FishingActor.catchPoint). */
+  catchPoint(): { x: number; y: number } {
+    return { x: this.x, y: this.headY - 6 };
+  }
+
   get direction(): Direction {
     return this.dir;
   }
@@ -304,15 +315,15 @@ export class CharacterView {
   setHeadIcon(icon: HeadIcon): void {
     this.scene.tweens.killTweensOf(this.iconSlot.list);
     this.iconSlot.removeAll(true);
-    // Emoji buồn đang nằm trong bong bóng (pier) thì gỡ cùng icon; bong bóng chat/emoji khác giữ nguyên.
-    if (this.sadBubble && this.headBubble === this.sadBubble) this.hideHeadBubble();
-    this.sadBubble = null;
+    // Emoji buồn/cá đang nằm trong bong bóng (pier) thì gỡ cùng icon; bong bóng chat/emoji khác giữ nguyên.
+    if (this.iconBubble && this.headBubble === this.iconBubble) this.hideHeadBubble();
+    this.iconBubble = null;
+    this.headIcon = icon;
     this.sad = icon?.type === 'sad';
     this.drawSadFace();
     if (!icon) return;
     if (icon.type === 'fish') {
-      const color = Phaser.Display.Color.HexStringToColor(RARITY_COLORS[icon.rarity]).color;
-      this.iconSlot.add(this.scene.add.ellipse(0, 0, 14, 8, color));
+      this.showFishIcon(icon);
       return;
     }
     if (icon.type === 'emoji') {
@@ -323,7 +334,7 @@ export class CharacterView {
       // pier.html: emoji buồn trong bong bóng trên đầu, cùng cỡ emoji chat cho dễ thấy (feedback 2026-11-16).
       if (hasHeadBubble(this.scene)) {
         this.showEmoteBubble(SAD_EMOTE_ART);
-        this.sadBubble = this.headBubble;
+        this.iconBubble = this.headBubble;
       } else {
         this.showEmoteArt(SAD_EMOTE_ART);
       }
@@ -352,6 +363,30 @@ export class CharacterView {
         ease: 'Sine.easeInOut',
       });
     }
+  }
+
+  /**
+   * Hình loài cá vừa câu được trên đầu (feedback 2026-11-17, thay cho chấm màu độ hiếm). pier.html đặt trong
+   * bong bóng như emoji. Ảnh cá nạp lần đầu khi cần; trong lúc chờ hiện chấm màu độ hiếm.
+   */
+  private showFishIcon(icon: Extract<HeadIcon, { type: 'fish' }>): void {
+    const key = fishTextureKey(icon.speciesId);
+    if (!this.scene.textures.exists(key)) {
+      const color = Phaser.Display.Color.HexStringToColor(RARITY_COLORS[icon.rarity]).color;
+      this.iconSlot.add(this.scene.add.ellipse(0, 0, 14, 8, color));
+      loadFishTexture(this.scene, icon.speciesId, () => {
+        if (this.container.scene && this.headIcon === icon) this.setHeadIcon(icon);
+      });
+      return;
+    }
+    const image = this.scene.add.image(0, 0, key).setOrigin(0.5);
+    image.setScale(Math.min(FISH_ICON_MAX_W / image.width, FISH_ICON_MAX_H / image.height));
+    if (hasHeadBubble(this.scene)) {
+      this.showHeadBubble(image, image.displayWidth, image.displayHeight, 'emote');
+      this.iconBubble = this.headBubble;
+      return;
+    }
+    this.iconSlot.add(image);
   }
 
   /** Vị trí phao vẽ trong art cần (thế giới); null nếu cần chưa có art bake. */

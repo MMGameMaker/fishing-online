@@ -93,6 +93,30 @@ export function pickRippleSpot(
 const STACK_TOP_BIAS = 40;
 
 /** Độ sâu vẽ: sắp theo đáy khung; lớp bờ/bóng luôn dưới object. */
+/** Khung thân nhân vật quanh chân (x, y) dùng để xét bị che: rộng 16px, cao 28px. */
+const BODY_HALF_W = 8;
+const BODY_H = 28;
+
+/**
+ * Nhân vật đứng ở chân (x, y) có bị vật thể vẽ đè lên không (vd. ngọn hải đăng, tán cây): vật thể thường
+ * có độ sâu lớn hơn y chân và khung hình chạm khung thân. Dùng để tránh chỗ xuất hiện bị khuất (feedback 2026-11-17).
+ */
+export function isHiddenBehindObject(
+  objects: readonly PierObject[],
+  x: number,
+  y: number,
+): boolean {
+  return objects.some(
+    (o) =>
+      o.layer >= 1 &&
+      depthOf(o) > y &&
+      o.x < x + BODY_HALF_W &&
+      o.x + o.w > x - BODY_HALF_W &&
+      o.y < y &&
+      o.y + o.h > y - BODY_H,
+  );
+}
+
 export function depthOf(o: PierObject): number {
   if (o.layer === 0) return -9000;
   if (o.layer < 1) return -8000 + o.y + o.h;

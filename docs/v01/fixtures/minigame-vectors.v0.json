@@ -1,6 +1,6 @@
 {
   "purpose": "BE-B-07: mẫu MinigameParams và outcome cho harness Server. Không có bộ tap; vector tap của lõi TS do CL-C giữ ở client-v0/src/online/fishing/.",
-  "configVersion": "v0-test-2026-11-10-ticket-01",
+  "configVersion": "v0-test-2026-11-17-skins-01",
   "samples": [
     {
       "name": "common-lv1-success",

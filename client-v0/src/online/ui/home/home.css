@@ -232,6 +232,14 @@
   height: 64px;
 }
 
+/* Đồng xu bay vào ô Gold (goldFx.ts): toạ độ màn hình thật, nằm trên mọi popup. */
+.gold-fx-coin {
+  position: fixed;
+  z-index: 6000;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
 .home-gold__amount {
   flex: 1;
   font-size: 40px;

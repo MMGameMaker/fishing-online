@@ -127,6 +127,10 @@ public sealed class SeatSessions(
     {
         var seat = layout.Seat(seatId) ?? throw new GameException(ErrorCatalog.ValidationFailed);
         if (await room.Queue.RunAsync(() => Task.FromResult(room.Find(playerId) is null))) throw new GameException("STATE_CONFLICT");
+        // Chốt thêm theo phòng: ghế đang có người (người thật hay bot) ngồi trong phòng thì không ai khác được ngồi,
+        // kể cả khi DB chưa kịp phản ánh. DB (chỉ mục duy nhất theo ghế đang mở) vẫn là nguồn chân lý cuối cùng.
+        if (await room.Queue.RunAsync(() => Task.FromResult(room.Views().Any(view => view.PlayerId != playerId && view.SeatId == seatId))))
+            throw new GameException("SEAT_TAKEN");
 
         MySeatView view;
         await using (var scope = scopes.CreateAsyncScope())

@@ -429,6 +429,163 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
         await AssertErrorAsync(await player.GetAsync("/api/v1/admin/bots/settings"), 403, "FORBIDDEN");
     }
 
+    private static async Task<(double X, double Y)> PositionAsync(GameApp app, Guid playerId) =>
+        await app.Service<FishingOnline.Api.Modules.Lake.LakeRoom>().Queue.RunAsync(() =>
+            Task.FromResult(app.Service<FishingOnline.Api.Modules.Lake.LakeRoom>().Find(playerId) is { } p ? (p.X, p.Y) : (double.NaN, double.NaN)));
+
+    [Fact]
+    public async Task Watchdog_RestartsOnlyStalledBots_AndTheyKeepMoving()
+    {
+        var app = StartApp(realTimers: true);
+        await SetSettingsAsync(app, min: 1, max: 1);
+        var manager = app.Service<BotManager>();
+        await manager.CheckOnceAsync(default);
+        var botId = manager.ActiveIds.Single();
+
+        // Bot mới chạy không bị coi là kẹt.
+        Assert.Equal(0, await manager.RestartStalledAsync(BotManager.StallLimit));
+
+        // Ngưỡng 0: mọi bot đều bị khởi động lại, rồi vẫn tiếp tục đi (vòng đời mới thật sự chạy).
+        var before = await PositionAsync(app, botId);
+        Assert.Equal(1, await manager.RestartStalledAsync(TimeSpan.Zero));
+        var deadline = DateTime.UtcNow.AddSeconds(20);
+        var moved = false;
+        while (!moved && DateTime.UtcNow < deadline)
+        {
+            await Task.Delay(300);
+            var now = await PositionAsync(app, botId);
+            moved = Math.Abs(now.X - before.X) + Math.Abs(now.Y - before.Y) > 2;
+        }
+        Assert.True(moved, "Bot did not move after a watchdog restart.");
+        Assert.True(manager.IsActive(botId));
+    }
+
+    private static async Task<string> WaitForSeatedAsync(GameApp app, Guid botId, int seconds = 150)
+    {
+        var deadline = DateTime.UtcNow.AddSeconds(seconds);
+        while (DateTime.UtcNow < deadline)
+        {
+            var seatId = await app.WithDbAsync(db => db.Set<FishingOnline.Api.Modules.Lake.SeatSessionRow>().AsNoTracking()
+                .Where(row => row.PlayerId == botId && row.EndedAt == null).Select(row => row.SeatId).FirstOrDefaultAsync());
+            if (seatId is not null) return seatId;
+            await Task.Delay(300);
+        }
+        throw new TimeoutException("The bot never sat down.");
+    }
+
+    [Fact]
+    public async Task Player_CannotSitOnASeatABotIsSittingOn()
+    {
+        var app = StartApp(realTimers: true);
+        await SetSettingsAsync(app, min: 1, max: 1);
+        var manager = app.Service<BotManager>();
+        await manager.CheckOnceAsync(default);
+        var seatId = await WaitForSeatedAsync(app, manager.ActiveIds.Single());
+
+        await using var real = await app.ConnectAsync();
+        await real.OkAsync("JoinLake");
+        await real.OkAsync("BuyTicket", TicketArgs());
+        Assert.Equal("SEAT_TAKEN", await real.ErrorAsync("SitDown", new { seatId }));
+    }
+
+    [Fact]
+    public async Task Bot_LeavesTheSeatSpot_WhenTheServerEndsItsSession_SoNobodyStacksOnIt()
+    {
+        var app = StartApp(realTimers: true);
+        await SetSettingsAsync(app, min: 1, max: 1);
+        var manager = app.Service<BotManager>();
+        await manager.CheckOnceAsync(default);
+        var botId = manager.ActiveIds.Single();
+        await WaitForSeatedAsync(app, botId);
+        var seatSpot = await PositionAsync(app, botId);
+
+        // Hết vé giữa chừng: Server kết thúc phiên ngồi. Bot không được đứng "ngồi ma" ở vị trí ghế.
+        await app.Service<FishingOnline.Api.Modules.Lake.SeatSessions>().EndAsync(botId, "ticket_expired", default);
+
+        var deadline = DateTime.UtcNow.AddSeconds(30);
+        var left = false;
+        while (!left && DateTime.UtcNow < deadline)
+        {
+            await Task.Delay(300);
+            var now = await PositionAsync(app, botId);
+            left = !BotMap.TooClose(now.X, now.Y, seatSpot.X, seatSpot.Y);
+        }
+        Assert.True(left, "The bot stayed on the seat spot after its session ended.");
+    }
+
+    [Fact]
+    public async Task Soak_ManyBots_NeverStackOnASeatedPlayer_AndSeatsStayUnique()
+    {
+        var app = StartApp(realTimers: true);
+        await SetSettingsAsync(app, min: 8, max: 8);
+        var manager = app.Service<BotManager>();
+        for (var i = 0; i < 8; i++) await manager.CheckOnceAsync(default);
+        Assert.Equal(8, manager.ActiveCount);
+        var room = app.Service<FishingOnline.Api.Modules.Lake.LakeRoom>();
+
+        var violations = new List<string>();
+        var seatedSeen = 0;
+        var deadline = DateTime.UtcNow.AddSeconds(100);
+        while (DateTime.UtcNow < deadline)
+        {
+            var views = await room.Queue.RunAsync(() => Task.FromResult(room.Views()));
+            var seated = views.Where(view => view.SeatId is not null).ToArray();
+            seatedSeen = Math.Max(seatedSeen, seated.Length);
+            foreach (var group in seated.GroupBy(view => view.SeatId).Where(group => group.Count() > 1))
+                violations.Add($"seat {group.Key} has {group.Count()} occupants");
+            foreach (var sitter in seated)
+                foreach (var other in views.Where(view => view.PlayerId != sitter.PlayerId))
+                    if (Math.Abs(other.X - sitter.X) < 4 && Math.Abs(other.Y - sitter.Y) < 4)
+                        violations.Add($"{other.DisplayName} stands on {sitter.DisplayName} at seat {sitter.SeatId} ({sitter.X:0},{sitter.Y:0})");
+            var open = await app.WithDbAsync(db => db.Set<FishingOnline.Api.Modules.Lake.SeatSessionRow>().AsNoTracking()
+                .Where(row => row.EndedAt == null).Select(row => row.SeatId).ToListAsync());
+            if (open.Count != open.Distinct().Count()) violations.Add("duplicate open seat sessions in DB");
+            await Task.Delay(250);
+        }
+
+        Assert.Empty(violations.Distinct());
+        Assert.True(seatedSeen > 0, "No bot ever sat down during the soak run.");
+    }
+
+    [Fact]
+    public async Task Bot_MovesAwayWhenAPlayerStandsOnIt_AndNeverRestsOnAnotherBot()
+    {
+        var app = StartApp(realTimers: true);
+        await SetSettingsAsync(app, min: 3, max: 3);
+        var manager = app.Service<BotManager>();
+        await manager.CheckOnceAsync(default);
+        await manager.CheckOnceAsync(default);
+        await manager.CheckOnceAsync(default);
+        var bots = manager.ActiveIds.ToArray();
+        Assert.Equal(3, bots.Length);
+
+        // Người thật bước chồng lên một bot: bot phải tự đi sang chỗ khác.
+        await using var real = await app.ConnectAsync();
+        await real.OkAsync("JoinLake");
+        var room = app.Service<FishingOnline.Api.Modules.Lake.LakeRoom>();
+        var target = bots[0];
+        var deadline = DateTime.UtcNow.AddSeconds(30);
+        var separated = false;
+        while (!separated && DateTime.UtcNow < deadline)
+        {
+            var (bx, by) = await PositionAsync(app, target);
+            await room.Queue.RunAsync(() =>
+            {
+                if (room.Find(real.PlayerId) is { } player)
+                {
+                    player.X = bx;
+                    player.Y = by;
+                }
+                return Task.FromResult(true);
+            });
+            await Task.Delay(1500);
+            var (nx, ny) = await PositionAsync(app, target);
+            var (px, py) = await PositionAsync(app, real.PlayerId);
+            separated = !BotMap.TooClose(nx, ny, px, py);
+        }
+        Assert.True(separated, "Bot stayed on top of the player.");
+    }
+
     [Fact]
     public async Task BotWorldChat_GoesThroughSocialService()
     {

@@ -2,10 +2,13 @@
 // Thu cần bằng cách bấm nút hoặc phím Space (feedback 2026-11-11). Hình nút là ảnh Button Hook.png.
 import { isModalOpen } from '../ui/kit/modal';
 
-const HOOK_IMAGE = encodeURI('/mini game/Button Hook.png');
+// ?v= đổi mỗi khi thay art để trình duyệt không dùng ảnh cũ đã lưu (art mới 2026-11-17).
+const HOOK_IMAGE = `${encodeURI('/mini game/Button Hook.png')}?v=20261117`;
 const SVG_NS = 'http://www.w3.org/2000/svg';
 /** Bán kính vòng đếm ngược (đơn vị viewBox 100), ôm ngay ngoài viền tròn của ảnh nút. */
 const RING_R = 46;
+/** Mép trên nút cách chân nhân vật (px lớp UI), khớp `top: calc(50% + 72px)` trong fishing.css. */
+const BUTTON_BELOW_FEET_PX = 72;
 
 /**
  * Vòng vàng chạy quanh viền nút thay cho thanh dưới nút (feedback 2026-11-16): đầy khi cá vừa cắn,
@@ -76,6 +79,15 @@ export class FishButton {
       onPress();
     };
     window.addEventListener('keydown', this.onKeyDown);
+  }
+
+  /**
+   * Đặt nút ngay dưới chân nhân vật (toạ độ lớp UI 1920 ảo). Mặc định CSS đặt giữa màn hình, đúng khi
+   * camera giữ nhân vật ở giữa; ở mép map camera chạm biên nên phải bám theo nhân vật (feedback 2026-11-17).
+   */
+  setAnchor(x: number, y: number): void {
+    this.button.style.left = `${x}px`;
+    this.button.style.top = `${y + BUTTON_BELOW_FEET_PX}px`;
   }
 
   render(visible: boolean, progress: number): void {

@@ -1,5 +1,6 @@
 // Scene hồ dùng map placeholder và hình khối màu cho tới khi có map thật và asset ART.
 import Phaser from 'phaser';
+import { UI_DESIGN_WIDTH } from '../../core/env';
 import { getServices, type Services } from '../../core/services';
 import { CharacterView } from '../../entities/CharacterView';
 import { FishingFlow } from '../../fishing/FishingFlow';
@@ -32,6 +33,10 @@ import {
 
 export const LAKE_SCENE = 'Lake';
 
+/** Tên hồ hiển thị theo mapId Server gửi; map chưa đặt tên thì giữ mapId. */
+const LAKE_NAMES: Record<string, string> = { 'fishing-pier': 'Bến cá', 'lake-01': 'Hồ câu' };
+const lakeDisplayName = (mapId: string | null | undefined): string =>
+  mapId ? (LAKE_NAMES[mapId] ?? mapId) : '—';
 const TILE_TEXTURE = 'placeholder-tiles';
 const TREE_TEXTURE = 'placeholder-tree';
 const GROUND_DEPTH = -1000;
@@ -195,7 +200,9 @@ export class LakeScene extends Phaser.Scene {
     // khi đó nhân vật được đặt vào ghế). Trang khác giữ luật cũ: vị trí lần trước hoặc spawn.
     const seated = this.services.store.getState().lake.mySeat !== null;
     const start =
-      isHomeHudEnabled(this) && !seated ? randomSpawn(this.map) : startPosition(this.map, mine);
+      isHomeHudEnabled(this) && !seated
+        ? randomSpawn(this.map, Math.random, (x, y) => !getLakeMapArt(this)?.isHidden?.(x, y))
+        : startPosition(this.map, mine);
     const corrected = !mine || start.x !== mine.x || start.y !== mine.y;
     this.me = new CharacterView(this, {
       x: start.x,
@@ -205,7 +212,9 @@ export class LakeScene extends Phaser.Scene {
       name: profile?.displayName ?? '',
       isMe: true,
     });
-    this.cameras.main.startFollow(this.me.container, true);
+    // Không làm tròn khi bám: zoom thường là số lẻ (vd 2.4) nên camera làm tròn scroll về nguyên px map
+    // chạy bước 1-2-1-2 trong khi nhân vật đi 1.5px/khung, nhân vật lắc ~1px màn hình mỗi khung (feedback 2026-11-17).
+    this.cameras.main.startFollow(this.me.container, false);
     this.roamCircle = this.add.circle(0, 0, 10, 0xffffff, 0.12).setVisible(false);
     this.roamCircle.setDepth(ROAM_DEPTH);
     this.moveSender = new MoveSender((message) => {
@@ -233,7 +242,8 @@ export class LakeScene extends Phaser.Scene {
       () => this.serverNow(),
       undefined,
       undefined,
-      undefined,
+      // Dòng "Nơi sống" của thẻ cá: tên hồ thay cho mã map Server gửi (feedback 2026-11-17).
+      () => lakeDisplayName(this.services.store.getState().lake.mapId),
       // Riêng pier.html (feedback 2026-11-14): đồng xu Coin Art ở thẻ cá, pháo giấy hai góc, bỏ qua minigame.
       isHomeHudEnabled(this)
         ? {
@@ -243,6 +253,7 @@ export class LakeScene extends Phaser.Scene {
             lightSweep: true,
             closePopupByKey: true,
             sadOnMissedBite: true,
+            fishingFx: true,
           }
         : {},
     );
@@ -583,7 +594,7 @@ export class LakeScene extends Phaser.Scene {
       const untilMs = Date.parse(shown.shownUntil);
       if (!remote || remote.iconUntilMs === untilMs) continue;
       remote.iconUntilMs = untilMs;
-      remote.view.setHeadIcon({ type: 'fish', rarity: shown.rarity });
+      remote.view.setHeadIcon({ type: 'fish', speciesId: shown.speciesId, rarity: shown.rarity });
     }
   }
 
@@ -648,12 +659,25 @@ export class LakeScene extends Phaser.Scene {
     this.moveSender.update(nowMs, this.me.x, this.me.y, this.me.direction, moving);
   }
 
+  /**
+   * Nút móc câu bám chân nhân vật trên màn hình. Camera chạm mép map thì nhân vật lệch khỏi giữa màn hình,
+   * nút cố định ở giữa sẽ xa nhân vật và đè lên người khác (feedback 2026-11-17).
+   */
+  private anchorFishButton(): void {
+    const cam = this.cameras.main;
+    const toUi = UI_DESIGN_WIDTH / this.scale.width;
+    const x = ((this.me.x - cam.midPoint.x) * cam.zoom + cam.width / 2 + cam.x) * toUi;
+    const y = ((this.me.y - cam.midPoint.y) * cam.zoom + cam.height / 2 + cam.y) * toUi;
+    this.flow.setButtonAnchor(x, y);
+  }
+
   update(_time: number, delta: number): void {
     const nowMs = performance.now();
     const serverNowMs = this.serverNow();
     this.syncModal();
     this.moveMe(delta, nowMs);
     this.flow.update();
+    this.anchorFishButton();
     this.seatMarkers.update();
     this.updateSeatPrompt();
     this.seatUi.update(serverNowMs);

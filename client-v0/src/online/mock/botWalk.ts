@@ -19,7 +19,19 @@ export interface WalkResult {
   arrived: boolean;
 }
 
-/** Điểm đứng được ngẫu nhiên quanh (x, y); null nếu thử nhiều lần không được. */
+/** Khoảng cách tối thiểu (px) giữa điểm dừng của bot và người/bot khác (yêu cầu 2026-11-17); cùng số với BotMap.MinSpotGap ở Server. */
+export const SPOT_GAP = 24;
+
+/** Hai điểm có quá gần nhau để đứng chồng lên nhau không. */
+export function tooClose(
+  a: { x: number; y: number },
+  b: { x: number; y: number },
+  gap = SPOT_GAP,
+): boolean {
+  return (a.x - b.x) ** 2 + (a.y - b.y) ** 2 < gap * gap;
+}
+
+/** Điểm đứng được ngẫu nhiên quanh (x, y), qua được `accept` nếu có; null nếu thử nhiều lần không được. */
 export function pickWanderTarget(
   map: LakeMap,
   x: number,
@@ -27,11 +39,14 @@ export function pickWanderTarget(
   random: () => number,
   radius = 240,
   tries = 30,
+  accept?: (point: { x: number; y: number }) => boolean,
 ): { x: number; y: number } | null {
   for (let i = 0; i < tries; i++) {
     const tx = Math.round(x + (random() * 2 - 1) * radius);
     const ty = Math.round(y + (random() * 2 - 1) * radius);
-    if (canStand(map, tx, ty) && inLakeArea(map, tx, ty)) return { x: tx, y: ty };
+    const point = { x: tx, y: ty };
+    if (canStand(map, tx, ty) && inLakeArea(map, tx, ty) && (!accept || accept(point)))
+      return point;
   }
   return null;
 }
