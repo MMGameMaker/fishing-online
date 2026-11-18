@@ -120,7 +120,7 @@ public sealed class RankingService(GameDbContext db, TimeProvider time, IConfigP
     public static DateTimeOffset DayStart(DateTimeOffset now) => new(now.ToOffset(VietnamOffset).Date, VietnamOffset);
 
     /// <summary>
-    /// BXH cá riêng theo ngày (người dùng chốt 2026-11-18): mỗi loài hai bảng top 10 người chơi thật (không tính bot).
+    /// BXH cá riêng theo ngày (người dùng chốt 2026-11-18): mỗi loài hai bảng top 10 người chơi lấy từ DB, tính cả bot (người dùng chốt 2026-11-18).
     /// <c>length</c>: con dài nhất trong ngày, bằng nhau thì ai câu sớm hơn xếp trên. <c>earliest</c>: ai câu được loài này
     /// sớm nhất trong ngày theo giờ thật (6h00 xếp trên 7h00). Mỗi người một dòng (con tốt nhất của họ), tính theo người câu
     /// kể cả khi cá đã bán hoặc đổi tay. Ngày tính từ 0h giờ VN, tính trực tiếp từ bảng catches, chưa có thưởng.
@@ -133,7 +133,7 @@ public sealed class RankingService(GameDbContext db, TimeProvider time, IConfigP
         var start = DayStart(time.GetUtcNow()).ToUniversalTime();
         var end = start.AddDays(1);
         var rows = await db.Set<CatchRow>().AsNoTracking()
-            .Where(row => row.SpeciesId == speciesId && !row.IsBot && row.CaughtAt >= start && row.CaughtAt < end)
+            .Where(row => row.SpeciesId == speciesId && row.CaughtAt >= start && row.CaughtAt < end)
             .Select(row => new { row.PlayerId, row.LengthTenthCm, row.CaughtAt }).ToListAsync(ct);
 
         var ordered = (metric == DailyLength

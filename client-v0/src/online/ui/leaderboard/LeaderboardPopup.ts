@@ -21,13 +21,13 @@ import {
   type RankRow,
 } from './leaderboardModel';
 
-const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
-const RANK = (file: string) => UI(`Rank/${file}`);
-const CLOSE = encodeURI('/mini game/Button Close.png');
-const PANEL_W = 1144;
-const PANEL_H = 812;
+export const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
+export const RANK = (file: string) => UI(`Rank/${file}`);
+export const CLOSE = encodeURI('/mini game/Button Close.png');
+export const PANEL_W = 1144;
+export const PANEL_H = 812;
 
-function el<K extends keyof HTMLElementTagNameMap>(
+export function el<K extends keyof HTMLElementTagNameMap>(
   tag: K,
   className: string,
   text?: string,
@@ -38,7 +38,7 @@ function el<K extends keyof HTMLElementTagNameMap>(
   return node;
 }
 
-function img(src: string, className: string): HTMLImageElement {
+export function img(src: string, className: string): HTMLImageElement {
   const node = el('img', className);
   node.src = src;
   node.alt = '';
@@ -46,7 +46,7 @@ function img(src: string, className: string): HTMLImageElement {
   return node;
 }
 
-function rankCell(rank: number | null): HTMLElement {
+export function rankCell(rank: number | null): HTMLElement {
   const cell = el('span', 'rank__rank');
   if (rank !== null && rank >= 1 && rank <= 3)
     cell.append(img(RANK(`Rank ${rank}.png`), 'rank__crown'));

@@ -1,15 +1,14 @@
-// Popup "BXH cá ngày": mỗi loài hai bảng top 10 (dài nhất / câu sớm nhất trong ngày, 0h giờ VN reset), mở từ nút
-// bằng phím B (chỗ gắn nút sẽ chọn sau). Dữ liệu GET /rankings/daily-fish/{speciesId}?metric=; chưa có thưởng.
+// Popup "BXH cá ngày": dựng lại giống popup Bảng xếp hạng tuần (cùng khung Leaderboard Panel, dòng Row 1, huy hiệu
+// Rank 1..3, dòng của mình ghim ở cuối), thêm hàng tab chọn loài cá và hai tab tiêu chí (dài nhất / câu sớm nhất).
+// Mở bằng phím B (HomeHud). Dữ liệu GET /rankings/daily-fish/{speciesId}?metric=; 0h giờ VN reset, chưa có thưởng.
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
 import type { DailyFishEntry, DailyFishMetric, DailyFishRanking } from '../../net/contract';
 import { fishImage } from '../fishArt';
 import { showError } from '../kit/components';
 import { animateIn, animateOut } from '../kit/motion';
-
-const CLOSE = encodeURI('/mini game/Button Close.png');
-const PANEL_W = 640;
-const PANEL_H = 720;
+import { CLOSE, PANEL_H, PANEL_W, RANK, UI, el, img, rankCell } from './LeaderboardPopup';
+import { UNKNOWN } from './leaderboardModel';
 
 export const DAILY_METRICS: { id: DailyFishMetric; label: string }[] = [
   { id: 'length', label: 'Dài nhất' },
@@ -23,7 +22,7 @@ export const dailyLengthText = (tenthCm: number): string =>
 /** Giờ câu theo giờ Việt Nam, vd. "06:05". */
 export function dailyTimeText(iso: string): string {
   const date = new Date(iso);
-  if (Number.isNaN(date.getTime())) return '?';
+  if (Number.isNaN(date.getTime())) return UNKNOWN;
   return date.toLocaleTimeString('vi-VN', {
     hour: '2-digit',
     minute: '2-digit',
@@ -35,36 +34,37 @@ export function dailyTimeText(iso: string): string {
 /** "5 giờ 20 phút" còn lại tới 0h giờ VN. */
 export function dailyCountdown(periodEndsAt: string | null, nowMs: number): string {
   const end = periodEndsAt ? Date.parse(periodEndsAt) : NaN;
-  if (Number.isNaN(end)) return '?';
+  if (Number.isNaN(end)) return UNKNOWN;
   const left = Math.max(0, end - nowMs);
   return `${Math.floor(left / 3_600_000)} giờ ${Math.floor((left % 3_600_000) / 60_000)} phút`;
-}
-
-function el<K extends keyof HTMLElementTagNameMap>(
-  tag: K,
-  className: string,
-  text?: string,
-): HTMLElementTagNameMap[K] {
-  const node = document.createElement(tag);
-  node.className = className;
-  if (text !== undefined) node.textContent = text;
-  return node;
 }
 
 export interface DailyFishPopupOptions {
   root: HTMLElement;
   services: Services;
+  /** Giờ Server (đồng hồ đếm ngược); mặc định giờ máy. */
   now?: () => number;
 }
 
 export class DailyFishPopup {
   private overlay: HTMLElement | null = null;
   private cleanups: (() => void)[] = [];
-  private readonly body = el('div', 'daily__body');
+  private timer: HTMLElement | null = null;
+  private species: HTMLElement | null = null;
+  private tabs: HTMLElement | null = null;
+  private heads: HTMLElement | null = null;
+  private list: HTMLElement | null = null;
+  private gap: HTMLElement | null = null;
+  private me: HTMLElement | null = null;
   private speciesId: string | null = null;
   private metric: DailyFishMetric = 'length';
   private data: DailyFishRanking | null = null;
   private seq = 0;
+  private readonly empty = el(
+    'div',
+    'rank__empty',
+    'Chưa ai câu được loài này hôm nay. Hãy là người đầu tiên!',
+  );
 
   constructor(private readonly options: DailyFishPopupOptions) {}
 
@@ -76,43 +76,64 @@ export class DailyFishPopup {
 
   open(): void {
     if (this.overlay) return;
-    const overlay = el('div', 'shop friends daily');
+    const overlay = el('div', 'shop rank rank--daily');
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-label', 'BXH cá ngày');
-    const panel = el('div', 'player-info__panel friends__panel');
-    const close = el('button', 'profile__close player-info__close');
+    const panel = el('div', 'rank__panel');
+    const close = el('button', 'rank__close');
     close.type = 'button';
     close.setAttribute('aria-label', 'Đóng BXH cá ngày');
-    const icon = el('img', '');
-    icon.src = CLOSE;
-    icon.alt = '';
-    close.append(icon);
+    close.append(img(CLOSE, ''));
     close.addEventListener('click', () => this.close());
-    panel.append(close, el('h2', 'friends__title', 'BXH cá ngày'), this.body);
+
+    this.timer = el('div', 'rank__timer', UNKNOWN);
+    this.species = el('div', 'rank__species');
+    this.tabs = el('div', 'rank__tabs');
+    this.heads = el('div', 'rank__heads');
+    this.list = el('div', 'rank__list');
+    this.gap = el('div', 'rank__gap', '...');
+    this.gap.hidden = true;
+    this.me = el('div', 'rank__me');
+    this.empty.hidden = true;
+    panel.append(
+      img(RANK('Leaderboard Panel.png'), 'rank__art'),
+      this.timer,
+      el('h2', 'rank__title', 'BXH CÁ NGÀY'),
+      close,
+      this.species,
+      this.tabs,
+      this.heads,
+      this.list,
+      this.empty,
+      this.gap,
+      this.me,
+    );
     overlay.append(panel);
     overlay.style.setProperty(
       '--shop-scale',
-      String(Math.min(1.3, (UI_DESIGN_WIDTH * 0.92) / PANEL_W, (UI_DESIGN_HEIGHT * 0.9) / PANEL_H)),
+      String(Math.min(1, (UI_DESIGN_WIDTH * 0.96) / PANEL_W, (UI_DESIGN_HEIGHT * 0.92) / PANEL_H)),
     );
-    overlay.addEventListener('pointerdown', (event) => {
-      if (event.target === overlay) this.close();
-    });
     const onKey = (event: KeyboardEvent) => {
       if (event.key === 'Escape') this.close();
     };
     window.addEventListener('keydown', onKey);
+    overlay.addEventListener('pointerdown', (event) => {
+      if (event.target === overlay) this.close();
+    });
     this.cleanups.push(() => window.removeEventListener('keydown', onKey));
+
     this.overlay = overlay;
     this.options.root.append(overlay);
     animateIn(overlay, 'fade');
     animateIn(panel, 'pop');
-    this.speciesId ??= this.species()[0]?.speciesId ?? null;
+    this.speciesId ??= this.catalog()[0]?.speciesId ?? null;
+    this.data = null;
     this.render();
     void this.reload();
   }
 
-  private species(): { speciesId: string; name: string }[] {
+  private catalog(): { speciesId: string; name: string }[] {
     return this.options.services.store.getState().catalog?.fish ?? [];
   }
 
@@ -135,71 +156,78 @@ export class DailyFishPopup {
   }
 
   private render(): void {
-    if (!this.overlay) return;
-    const species = this.species();
-    const species_row = el('div', 'daily__species');
-    for (const fish of species) {
-      const chip = el('button', `daily__chip${fish.speciesId === this.speciesId ? ' daily__chip--on' : ''}`);
-      chip.type = 'button';
-      chip.title = fish.name;
-      chip.setAttribute('aria-label', fish.name);
-      chip.setAttribute('aria-pressed', String(fish.speciesId === this.speciesId));
-      chip.append(fishImage(fish.speciesId, 'daily__chip-img'));
-      chip.addEventListener('click', () => {
-        this.speciesId = fish.speciesId;
-        void this.reload();
-      });
-      species_row.append(chip);
-    }
-    const tabs = el('div', 'daily__tabs');
-    for (const metric of DAILY_METRICS) {
-      const tab = el(
-        'button',
-        `profile-dialog__btn ${metric.id === this.metric ? 'profile-dialog__btn--save' : 'profile-dialog__btn--cancel'} friends__btn`,
-        metric.label,
-      );
-      tab.type = 'button';
-      tab.addEventListener('click', () => {
-        this.metric = metric.id;
-        void this.reload();
-      });
-      tabs.append(tab);
-    }
+    if (!this.overlay || !this.list || !this.gap || !this.me || !this.timer) return;
+    if (!this.species || !this.tabs || !this.heads) return;
+    const { services, now } = this.options;
+    this.timer.textContent = dailyCountdown(this.data?.periodEndsAt ?? null, (now ?? Date.now)());
 
-    const nodes: HTMLElement[] = [species_row, tabs];
-    const name = species.find((f) => f.speciesId === this.speciesId)?.name ?? '';
-    nodes.push(
-      el(
-        'p',
-        'trade__hint',
-        `${name}: top 10 người chơi hôm nay. Làm mới lúc 0h giờ Việt Nam` +
-          (this.data ? ` (còn ${dailyCountdown(this.data.periodEndsAt, (this.options.now ?? Date.now)())}).` : '.'),
-      ),
+    this.species.replaceChildren(
+      ...this.catalog().map((fish) => {
+        const on = fish.speciesId === this.speciesId;
+        const chip = el('button', `rank__chip${on ? ' rank__chip--on' : ''}`);
+        chip.type = 'button';
+        chip.title = fish.name;
+        chip.setAttribute('aria-label', fish.name);
+        chip.setAttribute('aria-pressed', String(on));
+        chip.append(fishImage(fish.speciesId, 'rank__chip-img'));
+        chip.addEventListener('click', () => {
+          if (this.speciesId === fish.speciesId) return;
+          this.speciesId = fish.speciesId;
+          void this.reload();
+        });
+        return chip;
+      }),
     );
-    if (!this.data) nodes.push(el('p', 'friends__empty', 'Đang tải...'));
-    else if (this.data.items.length === 0) {
-      nodes.push(el('p', 'friends__empty', 'Chưa ai câu được loài này hôm nay. Hãy là người đầu tiên!'));
-    } else {
-      for (const entry of this.data.items) nodes.push(this.row(entry, false));
-      if (this.data.me && this.data.me.rank === null) {
-        nodes.push(el('p', 'friends__empty', '...'), this.row(this.data.me, true));
-      }
-    }
-    this.body.replaceChildren(...nodes);
+    this.tabs.replaceChildren(
+      ...DAILY_METRICS.map((metric) => {
+        const tab = el(
+          'button',
+          `rank__tab${metric.id === this.metric ? ' rank__tab--on' : ''}`,
+          metric.label,
+        );
+        tab.type = 'button';
+        tab.addEventListener('click', () => {
+          if (this.metric === metric.id) return;
+          this.metric = metric.id;
+          void this.reload();
+        });
+        return tab;
+      }),
+    );
+
+    const earliest = this.metric === 'earliest';
+    this.heads.replaceChildren(
+      el('span', 'rank__head-name', 'Tên'),
+      el('span', 'rank__head-count', earliest ? 'Giờ câu' : 'Chiều dài'),
+      el('span', 'rank__head-reward', earliest ? 'Chiều dài' : 'Giờ câu'),
+    );
+
+    const items = this.data?.items ?? [];
+    this.list.replaceChildren(...items.map((entry) => this.row(entry, false)));
+    const empty = this.data !== null && items.length === 0;
+    this.empty.hidden = !empty;
+    const me = this.data?.me ?? null;
+    // "..." chỉ khi mình ngoài top 10 (còn trong top thì dòng của mình đã hiện ở trên và ghim lại ở cuối).
+    this.gap.hidden = !this.data || empty || (me !== null && me.rank !== null);
+    const name = services.store.getState().session.profile?.displayName ?? 'Người chơi';
+    this.me.replaceChildren(this.row(me, true, name));
   }
 
-  private row(entry: DailyFishEntry, beyondTop: boolean): HTMLElement {
-    const mine = entry.playerId === this.options.services.store.getState().session.profile?.playerId;
-    const row = el('div', `friends__row daily__row${mine || beyondTop ? ' friends__row--request' : ''}`);
-    const main = this.data?.metric === 'earliest' ? dailyTimeText(entry.caughtAt) : dailyLengthText(entry.lengthTenthCm);
-    const sub = this.data?.metric === 'earliest' ? dailyLengthText(entry.lengthTenthCm) : dailyTimeText(entry.caughtAt);
-    row.append(
-      el('span', 'daily__rank', entry.rank === null ? '?' : String(entry.rank)),
-      el('span', 'daily__name', entry.displayName),
-      el('span', 'daily__value', main),
-      el('span', 'daily__sub', sub),
+  /** Mọi số liệu do BE trả; dòng của mình chưa có dữ liệu thì chỉ có tên, còn lại "?". */
+  private row(entry: DailyFishEntry | null, mine: boolean, fallbackName = ''): HTMLElement {
+    const line = el('div', `rank__row${mine ? ' rank__row--me' : ''}`);
+    const earliest = this.metric === 'earliest';
+    const length = entry ? dailyLengthText(entry.lengthTenthCm) : UNKNOWN;
+    const time = entry ? dailyTimeText(entry.caughtAt) : UNKNOWN;
+    line.append(
+      img(RANK('Row 1.png'), 'rank__row-art'),
+      rankCell(entry?.rank ?? null),
+      img(UI('Avatar.png'), 'rank__avatar'),
+      el('span', 'rank__name', entry?.displayName ?? fallbackName),
+      el('span', 'rank__count', earliest ? time : length),
+      el('span', 'rank__reward', earliest ? length : time),
     );
-    return row;
+    return line;
   }
 
   close(): void {
@@ -209,7 +237,7 @@ export class DailyFishPopup {
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups = [];
     overlay.style.pointerEvents = 'none';
-    const panel = overlay.querySelector<HTMLElement>('.friends__panel');
+    const panel = overlay.querySelector<HTMLElement>('.rank__panel');
     void Promise.all([
       panel ? animateOut(panel, 'pop') : Promise.resolve(),
       animateOut(overlay, 'fade'),
