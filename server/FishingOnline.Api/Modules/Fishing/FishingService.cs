@@ -8,6 +8,7 @@ using FishingOnline.Api.Persistence;
 using FishingOnline.Domain;
 using FishingOnline.Domain.Attempts;
 using FishingOnline.Domain.Config;
+using FishingOnline.Domain.Rules;
 using Microsoft.EntityFrameworkCore;
 
 namespace FishingOnline.Api.Modules.Fishing;
@@ -202,10 +203,17 @@ public sealed class FishingService(
         var before = Deserialize(row);
 
         // Tới giờ cắn thì chọn loài theo cá còn trong hồ; hồ hết cá thì picked = null và attempt chờ tiếp.
+        // Bot (yêu cầu 2026-11-18): vẫn câu được cá theo tỉ lệ loài nhưng không giữ/trừ tồn của hồ, để cá trong hồ để dành cho người thật.
         string? picked = null;
         Dictionary<string, LakeFishPopulation>? populationRows = null;
         if (before.Phase == FishingPhase.Waiting && Now >= before.BiteAt)
-            (picked, populationRows) = await population.PickAsync(db, random, config, before.Stats.RareLuck, ct);
+        {
+            var isBot = await db.Players.AsNoTracking().Where(player => player.Id == playerId).Select(player => player.IsBot).SingleOrDefaultAsync(ct);
+            if (isBot)
+                picked = SpawnPicker.PickAvailable(random, config, before.Stats.RareLuck, _ => true);
+            else
+                (picked, populationRows) = await population.PickAsync(db, random, config, before.Stats.RareLuck, ct);
+        }
 
         var attempt = FishingAttempt.Restore(new AttemptContext(config, random, _ => picked), before);
         var step = command(attempt, before);
@@ -217,7 +225,7 @@ public sealed class FishingService(
         if (step.Events.Count > 0 || after != before)
         {
             var now = Now;
-            if (picked is not null && before.SpeciesId is null && after.SpeciesId == picked)
+            if (picked is not null && populationRows is not null && before.SpeciesId is null && after.SpeciesId == picked)
             {
                 population.Reserve(populationRows![picked]);
                 row.PopulationReserved = true;

@@ -131,6 +131,42 @@ public sealed class PopulationTests(PostgresServer postgres) : GameTestBase(post
     }
 
     [Fact]
+    public async Task Bot_CatchesEvenWhenLakeIsEmpty_WithoutTouchingStock()
+    {
+        // Yêu cầu 2026-11-18: bot câu được cá nhưng không giữ/trừ tồn của hồ.
+        await OnlyAsync("perch", 3);
+        var botId = await App.NewPlayerAsync(1000);
+        await App.WithDbAsync(db => db.Players.Where(player => player.Id == botId)
+            .ExecuteUpdateAsync(setters => setters.SetProperty(player => player.IsBot, true)));
+        var bot = await App.ConnectAsync(botId);
+        await bot.OkAsync("JoinLake");
+        await SitAsync(bot, "seat-11");
+        var attemptId = (await bot.OkAsync("CastLine")).GetProperty("attemptId").GetGuid();
+
+        await TickAfterAsync(6000);
+        Assert.Equal("bite", (await AttemptAsync(attemptId)).Phase);
+        Assert.Equal(0, (await RowAsync("perch")).Reserved);
+        await bot.OkAsync("HookFish", new { attemptId });
+        await bot.OkAsync("SubmitFishingResult", new { attemptId, outcome = "success" });
+
+        Assert.Equal("success", (await AttemptAsync(attemptId)).Phase);
+        var perch = await RowAsync("perch");
+        Assert.Equal(3, perch.Remaining);
+        Assert.Equal(0, perch.Reserved);
+        Assert.Equal(0, await App.WithDbAsync(db => db.Set<LakeFishMovement>().CountAsync(row => row.Kind == MovementKinds.Catch)));
+        Assert.Equal(1, await App.WithDbAsync(db => db.Set<CatchRow>().CountAsync()));
+
+        // Người thật vẫn trừ tồn như cũ.
+        var (human, humanAttempt) = await CastAsync("seat-12");
+        await TickAfterAsync(6000);
+        await human.OkAsync("HookFish", new { attemptId = humanAttempt });
+        await human.OkAsync("SubmitFishingResult", new { attemptId = humanAttempt, outcome = "success" });
+        Assert.Equal(2, (await RowAsync("perch")).Remaining);
+        await bot.DisposeAsync();
+        await human.DisposeAsync();
+    }
+
+    [Fact]
     public async Task EmptyLake_NoBite_UntilStocked()
     {
         await OnlyAsync("perch", 0);
