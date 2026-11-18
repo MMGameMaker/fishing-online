@@ -271,3 +271,10 @@ MockBackend cùng contract: bot dùng 50 tên mới, bảng mốc (mock coi user
 - Art: icon ô "Bạn bè" (đang tạm), bố cục menu 7 ô (3 cột), có thể cần art riêng cho popup người chơi/bạn bè và tab chat.
 - Chưa kiểm tra pier.html với Server thật (cần chạy `run-real.bat` hoặc `tools/run-local.ps1 -Mode real -DevLogin`, áp migration mới bằng `server/migrate-local.ps1`).
 - Unread tin riêng chỉ đếm trong phiên (Client), Server chưa lưu "đã xem".
+
+### Sửa sau merge (Claude, 2026-11-18)
+
+- **Lỗi tìm thấy:** merge nhánh BOT-02 với nhánh W02 làm (1) `CharacterView.ts` mất trường `iconBubble`/`headIcon` và import `loadFishTexture`, nên mỗi lần có người câu được cá thì game báo `ReferenceError` và không hiện icon cá trên đầu; (2) `BotAgent.cs`/`BotModule.cs` bản BOT-02 đè mất hai luật bot ngày 2026-11-17: watchdog (bot đứng yên quá 150 giây thì khởi động lại) và chống đứng chồng (`BotSpots`, cách người/bot khác ≥ 24 px, bị đứng đè thì đi chỗ khác, rời vị trí ghế khi phiên ngồi kết thúc). Test Server không biên dịch.
+- **Web Client:** `CharacterView` dùng một helper ảnh cá chung (`entities/fishTexture.ts`, key `fish-icon-<loài>`) cho cả icon cá vừa câu và emoji `fish:<loài>`; emoji cá đánh dấu bằng data `fishEmote` để `clearEmote` chỉ gỡ emoji.
+- **Server:** `BotAgent` ghép lại: giữ đủ phần BOT-02 (`IBotCoordinator`, suất câu, `RequestStand`, `ChatState`, `OnCaughtAsync`, `IsBot`) và thêm lại `StalledFor`/`RestartAsync`, `BotSpots`, đi vòng/chọn lại điểm khi bị chặn, `LeaveSeatSpotAsync`. `BotManager.RestartStalledAsync` + `StallLimit` (150 s), `BotDirector` gọi mỗi nhịp; không giữ khóa kiểm tra mốc, bot đã dừng thì bỏ qua. 5 test cũ trong `BotTests` chuyển sang bảng mốc (`Tiers((0, n, n))`). Bỏ chú thích trùng ở `BotCheckResult`.
+- **Kiểm tra:** Client tsc/eslint sạch, vitest 321 qua; trong pier.html mock 22 lượt câu, 0 lỗi console, ảnh 8 loài cá nạp đúng. Server build sạch; `dotnet test` Domain 156/156, Api 260/261 (38 test bot qua); test còn fail là `SeatTests.Disconnect125s_LosesSeat_SeatFreeAtOnce` (flaky từ trước, chạy riêng thì qua). Chưa chạy với Server thật.

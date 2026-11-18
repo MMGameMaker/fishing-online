@@ -61,8 +61,8 @@ public sealed record BotSettingsRequest(bool Enabled, int CheckIntervalSeconds, 
 
 /// <summary>Chỉ Admin thấy: bot có trong hồ lúc này không và đã câu bao nhiêu con.</summary>
 public sealed record AdminBotView(Guid PlayerId, string DisplayName, int Level, bool InLake, int TotalCatches, DateTimeOffset CreatedAt);
-/// <summary>Kết quả một lần kiểm tra của BotManager, để test và log.</summary>
-/// <summary><c>RealPlayers</c> là user thật trong hồ; <c>TargetBots</c>/<c>TargetFishing</c> theo mốc (đã trừ chỗ cho giới hạn hồ).</summary>
+
+/// <summary>Kết quả một lần kiểm tra của BotManager, để test và log. <c>RealPlayers</c> là user thật trong hồ; <c>TargetBots</c>/<c>TargetFishing</c> theo mốc (đã trừ chỗ cho giới hạn hồ).</summary>
 public sealed record BotCheckResult(string Action, int RealPlayers, int Bots, int TargetBots, int TargetFishing, int NextCheckSeconds);
 
 public static class BotChecks

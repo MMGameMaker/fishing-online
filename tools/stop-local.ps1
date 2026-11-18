@@ -43,9 +43,10 @@ Write-Step 'API'
 Stop-Port $apiPort 'API' 'FishingOnline|start-api|dotnet'
 
 Write-Step 'Postgres + Redis'
-& docker info *> $null
-if ($LASTEXITCODE -ne 0) {
-    Write-Host 'Docker engine không chạy, không có container nào cần tắt.'
+$hasDockerCli = [bool](Get-Command docker -ErrorAction SilentlyContinue)
+if ($hasDockerCli) { & docker info *> $null }
+if (-not $hasDockerCli -or $LASTEXITCODE -ne 0) {
+    Write-Host 'Docker engine không chạy (hoặc máy không cài Docker), không có container nào cần tắt.'
 } else {
     & docker compose --project-directory (Join-Path $repo 'server') -f (Join-Path $repo 'server\compose.yaml') stop 2>&1 |
         ForEach-Object { Write-Host $_ }

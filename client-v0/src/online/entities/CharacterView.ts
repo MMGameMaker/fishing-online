@@ -3,9 +3,9 @@ import type { Rarity } from '../core/gameplayConfig';
 import type { Direction } from '../net/contract';
 import { EMOTE_TEXTURE, emojiById, emoteAnimKey } from '../social/emojis';
 import { fishSpeciesOf } from '../social/fishEmoji';
-import { fishArtUrl } from '../ui/fishArt';
 import { RARITY_COLORS } from '../ui/kit/format';
 import { bakedData } from './characterArt';
+import { fishTextureKey, loadFishTexture } from './fishTexture';
 import {
   HEAD_BUBBLE_ART_SCALE,
   HEAD_BUBBLE_TAIL_PX,
@@ -116,7 +116,8 @@ const OUTLINE_OFFSETS: readonly [number, number][] = [
 const OUTLINE_FADE_MS = 140;
 /** Icon cá trên đầu (emoji `fish:<loài>`): cạnh dài nhất bao nhiêu px. */
 const FISH_EMOTE_PX = 22;
-const fishTextureKey = (speciesId: string) => `fish-art:${speciesId}`;
+/** Đánh dấu ảnh cá là emoji (clearEmote gỡ), phân biệt với icon cá vừa câu được dùng chung texture. */
+const FISH_EMOTE_FLAG = 'fishEmote';
 const SAD_FACE_DARK = 0x5a3a22;
 const SAD_FACE_TEAR = 0x7fd3ff;
 
@@ -141,13 +142,13 @@ export class CharacterView {
   /** Lớp điểm ảnh mặt buồn, nằm giữa thân và cần. */
   private readonly sadFace: Phaser.GameObjects.Graphics;
   private sad = false;
-  
-  /** Emoji buồn hiện bằng bong bóng trên đầu (pier) thay vì icon nhỏ. */
-  private sadBubble: Phaser.GameObjects.Container | null = null;
+  /** Bong bóng trên đầu đang chứa icon (emoji buồn/cá vừa câu, pier) để gỡ cùng icon. */
+  private iconBubble: Phaser.GameObjects.Container | null = null;
+  /** Icon đang đặt; ảnh cá nạp xong chỉ vẽ lại nếu icon vẫn là cái này. */
+  private headIcon: HeadIcon = null;
   /** Viền trắng (tạo khi cần lần đầu). */
   private outline: Phaser.GameObjects.Sprite[] | null = null;
   private outlined = false;
-
 
   constructor(
     private readonly scene: Phaser.Scene,
@@ -467,7 +468,7 @@ export class CharacterView {
     const sprites = this.iconSlot.list.filter(
       (child): child is Phaser.GameObjects.Sprite | Phaser.GameObjects.Image =>
         (child instanceof Phaser.GameObjects.Sprite || child instanceof Phaser.GameObjects.Image) &&
-        (child.texture.key === EMOTE_TEXTURE || child.texture.key.startsWith('fish-art:')),
+        (child.texture.key === EMOTE_TEXTURE || child.getData(FISH_EMOTE_FLAG) === true),
     );
     for (const sprite of sprites) {
       this.scene.tweens.add({
@@ -506,9 +507,9 @@ export class CharacterView {
   /** Icon cá (ảnh loài trong ui/fishArt) trên đầu như emoji; tải ảnh lần đầu rồi mới hiện. */
   private showFishEmote(speciesId: string): void {
     const key = fishTextureKey(speciesId);
-    const show = () => {
+    loadFishTexture(this.scene, speciesId, () => {
       if (!this.container.active || !this.scene.textures.exists(key)) return;
-      const image = this.scene.add.image(0, 0, key).setOrigin(0.5);
+      const image = this.scene.add.image(0, 0, key).setOrigin(0.5).setData(FISH_EMOTE_FLAG, true);
       const scale = FISH_EMOTE_PX / Math.max(image.width, image.height, 1);
       image.setScale(scale);
       if (hasHeadBubble(this.scene)) {
@@ -516,14 +517,7 @@ export class CharacterView {
         return;
       }
       this.iconSlot.add(image);
-    };
-    if (this.scene.textures.exists(key)) {
-      show();
-      return;
-    }
-    this.scene.load.image(key, fishArtUrl(speciesId));
-    this.scene.load.once(`filecomplete-image-${key}`, show);
-    this.scene.load.start();
+    });
   }
 
   /** Emoji động trong bong bóng Head Bubble trên đầu (pier.html). */

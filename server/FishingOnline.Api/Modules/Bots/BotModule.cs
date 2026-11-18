@@ -32,6 +32,7 @@ public sealed class BotManager : IBotCoordinator
     private readonly ConcurrentDictionary<Guid, BotAgent> active = new();
     private readonly SemaphoreSlim gate = new(1, 1);
     private readonly Random random = new();
+    private readonly BotSpots spots = new();
     private readonly object seatLock = new();
     private readonly HashSet<Guid> seatHolders = [];
     private readonly ConcurrentDictionary<(Guid Bot, Guid Human), DateTimeOffset> lastDirect = new();
@@ -199,6 +200,32 @@ public sealed class BotManager : IBotCoordinator
         }
     }
 
+    /// <summary>Bot đứng yên quá lâu (không bước, không bước nào của lượt câu) thì coi là kẹt và khởi động lại vòng đời.</summary>
+    public static readonly TimeSpan StallLimit = TimeSpan.FromSeconds(150);
+
+    /// <summary>
+    /// Khởi động lại mọi bot kẹt từ <paramref name="limit"/> trở lên; trả số bot đã khởi động lại. Không giữ khóa kiểm tra mốc
+    /// (lần kiểm tra có thể chạy vài chục giây); bot bị bớt giữa chừng thì RestartAsync bỏ qua.
+    /// </summary>
+    public async Task<int> RestartStalledAsync(TimeSpan limit, CancellationToken ct = default)
+    {
+        var restarted = 0;
+        foreach (var agent in active.Values.Where(agent => agent.StalledFor >= limit).ToArray())
+        {
+            ct.ThrowIfCancellationRequested();
+            logger.LogWarning("Bot {Bot} stalled for {Seconds:0}s, restarting its loop", agent.DisplayName, agent.StalledFor.TotalSeconds);
+            try
+            {
+                if (await agent.RestartAsync()) restarted++;
+            }
+            catch (Exception exception) when (exception is not OperationCanceledException)
+            {
+                logger.LogWarning(exception, "Bot {Bot} could not be restarted", agent.DisplayName);
+            }
+        }
+        return restarted;
+    }
+
     private Task StaggerAsync(CancellationToken ct)
     {
         var min = configuration.GetValue("Bots:StaggerMinMs", 2000);
@@ -222,7 +249,7 @@ public sealed class BotManager : IBotCoordinator
     private async Task<bool> SpawnCoreAsync(CancellationToken ct)
     {
         if (await PickOrCreateBotAsync(ct) is not { } profile) return false;
-        var deps = new BotDeps(this, scopes, room, layout, seats, fishing, configs, map, time, TimeScale, SuccessPctAsync, logger);
+        var deps = new BotDeps(this, scopes, room, layout, seats, fishing, configs, map, spots, time, TimeScale, SuccessPctAsync, logger);
         var agent = new BotAgent(profile.Id, profile.DisplayName, profile.SelectedSkinId, profile.EquippedRodId, deps);
         active[profile.Id] = agent;
         await agent.StartAsync();
@@ -658,6 +685,15 @@ public sealed class BotDirector(BotManager manager, IConfiguration configuration
                 }
                 if (running is null && DateTimeOffset.UtcNow >= next) running = manager.CheckOnceAsync(stoppingToken);
                 await manager.TickAsync(stoppingToken);
+                try
+                {
+                    // Mỗi nhịp (không chờ chu kỳ 3 phút): bot đứng yên quá lâu thì khởi động lại.
+                    await manager.RestartStalledAsync(BotManager.StallLimit, stoppingToken);
+                }
+                catch (Exception exception) when (exception is not OperationCanceledException)
+                {
+                    logger.LogError(exception, "Bot watchdog failed");
+                }
             }
         }
         catch (OperationCanceledException)

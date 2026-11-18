@@ -15,7 +15,8 @@ if ($exists -ne '1') {
 }
 
 $env:ConnectionStrings__Postgres = "Host=127.0.0.1;Port=$PostgresPort;Username=postgres;Database=$Database"
-$env:ConnectionStrings__Redis = $null
+# API cần Redis (health/ready báo notReady nếu thiếu): dùng Redis/Memurai cục bộ cổng 6379, hoặc giá trị đã đặt sẵn.
+if (-not $env:ConnectionStrings__Redis) { $env:ConnectionStrings__Redis = '127.0.0.1:6379' }
 $env:ASPNETCORE_ENVIRONMENT = 'Development'
 # Vòng quét ghế/lần câu chạy liên tục; ẩn log từng câu SQL để terminal còn đọc được.
 Set-Item 'env:Logging__LogLevel__Microsoft.EntityFrameworkCore' 'Warning'

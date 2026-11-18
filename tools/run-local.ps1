@@ -124,18 +124,31 @@ function Start-RealBackend {
         throw "Cổng $apiPort đang bị tiến trình khác giữ nhưng /health/ready chưa đạt. Tắt nó rồi chạy lại."
     }
 
-    Write-Step 'Docker Desktop'
-    Wait-DockerEngine
+    # Máy không có Docker nhưng có Postgres portable (D:\Tools\postgres) thì chạy theo start-api-portable.ps1
+    # (tự bật Postgres, tạo DB, migrate, chạy API). Có Docker thì giữ đường Docker như cũ.
+    $hasDocker = (Get-Command docker -ErrorAction SilentlyContinue) -or
+        (Test-Path 'C:\Program Files\Docker\Docker\Docker Desktop.exe')
+    $usePortable = (-not $hasDocker) -and (Test-Path 'D:\Tools\postgres\bin\pg_ctl.exe')
+    if (-not $hasDocker -and -not $usePortable) {
+        throw 'Không thấy Docker Desktop lẫn Postgres portable (D:\Tools\postgres). Cài một trong hai rồi chạy lại.'
+    }
 
-    Write-Step 'Postgres + Redis'
-    $ErrorActionPreference = 'Continue'
-    & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $server 'start-infra.ps1') | Out-Null
-    if ($LASTEXITCODE -ne 0) { throw 'start-infra.ps1 thất bại.' }
+    if (-not $usePortable) {
+        Write-Step 'Docker Desktop'
+        Wait-DockerEngine
 
-    Write-Step 'Áp migration database'
-    & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $server 'migrate-local.ps1') | Out-Null
-    if ($LASTEXITCODE -ne 0) { throw 'migrate-local.ps1 thất bại.' }
-    $ErrorActionPreference = 'Stop'
+        Write-Step 'Postgres + Redis'
+        $ErrorActionPreference = 'Continue'
+        & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $server 'start-infra.ps1') | Out-Null
+        if ($LASTEXITCODE -ne 0) { throw 'start-infra.ps1 thất bại.' }
+
+        Write-Step 'Áp migration database'
+        & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $server 'migrate-local.ps1') | Out-Null
+        if ($LASTEXITCODE -ne 0) { throw 'migrate-local.ps1 thất bại.' }
+        $ErrorActionPreference = 'Stop'
+    } else {
+        Write-Host 'Không có Docker, dùng Postgres portable (cổng 55432); start-api-portable.ps1 tự bật DB và migrate.'
+    }
 
     Write-Step "Chạy API thật ở cửa sổ riêng (cổng $apiPort)"
     # Mặc định tắt bypass: đăng nhập bằng tài khoản Google thật. Xoá biến phòng khi terminal đang mang giá trị cũ.
@@ -144,7 +157,7 @@ function Start-RealBackend {
     $env:Lake__MapVersion = $pierMap.MapVersion
     $env:Lake__SeatCount = $pierMap.SeatCount
     $env:Logging__LogLevel__Microsoft__EntityFrameworkCore = 'Warning'
-    $apiScript = Join-Path $server 'start-api.ps1'
+    $apiScript = Join-Path $server $(if ($usePortable) { 'start-api-portable.ps1' } else { 'start-api.ps1' })
     Start-Process powershell -ArgumentList '-NoProfile', '-ExecutionPolicy', 'Bypass', '-NoExit', '-Command',
         "`$Host.UI.RawUI.WindowTitle = 'Fishing Online API (cổng $apiPort)'; & '$apiScript'"
 

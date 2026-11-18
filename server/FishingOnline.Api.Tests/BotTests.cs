@@ -437,7 +437,7 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
     public async Task Watchdog_RestartsOnlyStalledBots_AndTheyKeepMoving()
     {
         var app = StartApp(realTimers: true);
-        await SetSettingsAsync(app, min: 1, max: 1);
+        await SetSettingsAsync(app, Tiers((0, 1, 1)));
         var manager = app.Service<BotManager>();
         await manager.CheckOnceAsync(default);
         var botId = manager.ActiveIds.Single();
@@ -477,7 +477,7 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
     public async Task Player_CannotSitOnASeatABotIsSittingOn()
     {
         var app = StartApp(realTimers: true);
-        await SetSettingsAsync(app, min: 1, max: 1);
+        await SetSettingsAsync(app, Tiers((0, 1, 1)));
         var manager = app.Service<BotManager>();
         await manager.CheckOnceAsync(default);
         var seatId = await WaitForSeatedAsync(app, manager.ActiveIds.Single());
@@ -492,7 +492,7 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
     public async Task Bot_LeavesTheSeatSpot_WhenTheServerEndsItsSession_SoNobodyStacksOnIt()
     {
         var app = StartApp(realTimers: true);
-        await SetSettingsAsync(app, min: 1, max: 1);
+        await SetSettingsAsync(app, Tiers((0, 1, 1)));
         var manager = app.Service<BotManager>();
         await manager.CheckOnceAsync(default);
         var botId = manager.ActiveIds.Single();
@@ -517,7 +517,7 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
     public async Task Soak_ManyBots_NeverStackOnASeatedPlayer_AndSeatsStayUnique()
     {
         var app = StartApp(realTimers: true);
-        await SetSettingsAsync(app, min: 8, max: 8);
+        await SetSettingsAsync(app, Tiers((0, 8, 8)));
         var manager = app.Service<BotManager>();
         for (var i = 0; i < 8; i++) await manager.CheckOnceAsync(default);
         Assert.Equal(8, manager.ActiveCount);
@@ -551,7 +551,7 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
     public async Task Bot_MovesAwayWhenAPlayerStandsOnIt_AndNeverRestsOnAnotherBot()
     {
         var app = StartApp(realTimers: true);
-        await SetSettingsAsync(app, min: 3, max: 3);
+        await SetSettingsAsync(app, Tiers((0, 3, 3)));
         var manager = app.Service<BotManager>();
         await manager.CheckOnceAsync(default);
         await manager.CheckOnceAsync(default);
