@@ -1,6 +1,7 @@
 using System.Collections.Concurrent;
 using System.Text.RegularExpressions;
 using FishingOnline.Api.Modules.Common;
+using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Economy;
 using FishingOnline.Api.Modules.Identity;
 using FishingOnline.Api.Modules.Lake;
@@ -77,10 +78,29 @@ public sealed record SelectSkinRequest(string SkinId);
 
 public sealed record SelectSkinResponse(string SelectedSkinId);
 
+/// <summary>Tiền tố emoji icon cá (BOT-02 mục 2): <c>fish:&lt;speciesId&gt;</c>, chỉ gửi được khi đã câu loài đó.</summary>
+public static class FishEmoji
+{
+    public const string Prefix = "fish:";
+
+    public static string Of(string speciesId) => Prefix + speciesId;
+}
+
 public sealed class SocialService(
-    IServiceScopeFactory scopes, LakeRoom room, IOptions<SocialOptions> options, TimeProvider time, ILogger<SocialService> logger)
+    IServiceScopeFactory scopes,
+    LakeRoom room,
+    FriendService friends,
+    IConfigProvider configs,
+    IHubContext<GameHub> hub,
+    IOptions<SocialOptions> options,
+    TimeProvider time,
+    ILogger<SocialService> logger)
 {
     private readonly ConcurrentDictionary<Guid, Queue<DateTimeOffset>> chatHistory = new();
+    private readonly ConcurrentDictionary<Guid, Queue<DateTimeOffset>> directHistory = new();
+
+    /// <summary>Phát sau khi một tin riêng đã lưu và gửi đi (BotManager nghe để bot trả lời).</summary>
+    public event Func<DirectMessageView, Task>? DirectMessageSent;
     private readonly ConcurrentDictionary<Guid, DateTimeOffset> lastEmoji = new();
     private readonly Lazy<Regex?> bannedPattern = new(() => BuildPattern(options.Value.BannedWords));
 
@@ -94,7 +114,7 @@ public sealed class SocialService(
         var displayName = await room.Queue.RunAsync(() => Task.FromResult(room.Find(playerId)?.DisplayName))
             ?? throw new GameException("STATE_CONFLICT");
         var now = time.GetUtcNow();
-        if (!TryCountChat(playerId, now)) throw new GameException("RATE_LIMITED");
+        if (!TryCount(chatHistory, playerId, now)) throw new GameException("RATE_LIMITED");
 
         var message = new ChatMessageRow
         {
@@ -115,7 +135,7 @@ public sealed class SocialService(
 
     public async Task SendEmojiAsync(Guid playerId, string emojiId)
     {
-        if (!Settings.Emojis.Contains(emojiId)) throw new GameException(ErrorCatalog.ValidationFailed);
+        if (!await IsAllowedEmojiAsync(playerId, emojiId)) throw new GameException(ErrorCatalog.ValidationFailed);
         if (await room.Queue.RunAsync(() => Task.FromResult(room.Find(playerId) is null))) throw new GameException("STATE_CONFLICT");
 
         var now = time.GetUtcNow();
@@ -123,6 +143,80 @@ public sealed class SocialService(
         if (lastEmoji.TryGetValue(playerId, out var previous) && now - previous < minimum) throw new GameException("RATE_LIMITED");
         lastEmoji[playerId] = now;
         await room.BroadcastAsync("EmojiReceived", new EmojiReceivedView(playerId, emojiId));
+    }
+
+    /// <summary>16 emoji thường, hoặc icon cá <c>fish:&lt;speciesId&gt;</c> của loài người gửi đã câu được (Sổ tay cá).</summary>
+    private async Task<bool> IsAllowedEmojiAsync(Guid playerId, string? emojiId)
+    {
+        if (emojiId is null) return false;
+        if (!emojiId.StartsWith(FishEmoji.Prefix, StringComparison.Ordinal)) return Settings.Emojis.Contains(emojiId);
+        var speciesId = emojiId[FishEmoji.Prefix.Length..];
+        if (configs.Current.Fish.All(fish => fish.SpeciesId != speciesId)) return false;
+        await using var scope = scopes.CreateAsyncScope();
+        var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
+        return await db.Set<SpeciesRecordRow>().AsNoTracking().AnyAsync(row => row.PlayerId == playerId && row.SpeciesId == speciesId);
+    }
+
+    /// <summary>
+    /// Tin riêng (BOT-02 mục 3): chỉ giữa bạn bè, cùng luật độ dài và tần suất như chat chung (đếm riêng).
+    /// Người gửi không cần đang ở hồ; event tới mọi kết nối của cả hai người.
+    /// </summary>
+    public async Task<DirectMessageView> SendDirectAsync(Guid fromId, Guid toId, string? text, CancellationToken ct)
+    {
+        var trimmed = text?.Trim() ?? string.Empty;
+        if (trimmed.Length == 0 || trimmed.Length > Settings.ChatMaxLength || fromId == toId)
+            throw new GameException(ErrorCatalog.ValidationFailed);
+        if (!await friends.AreFriendsAsync(fromId, toId, ct)) throw new GameException("NOT_FRIENDS");
+        var now = time.GetUtcNow();
+        if (!TryCount(directHistory, fromId, now)) throw new GameException("RATE_LIMITED");
+
+        DirectMessageRow message;
+        await using (var scope = scopes.CreateAsyncScope())
+        {
+            var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
+            var name = await db.Players.AsNoTracking().Where(row => row.Id == fromId).Select(row => row.DisplayName).SingleAsync(ct);
+            message = new DirectMessageRow
+            {
+                MessageId = Guid.CreateVersion7(),
+                FromPlayerId = fromId,
+                ToPlayerId = toId,
+                FromName = name,
+                Text = bannedPattern.Value?.Replace(trimmed, "***") ?? trimmed,
+                SentAt = now,
+            };
+            db.Add(message);
+            await db.SaveChangesAsync(ct);
+        }
+        var view = message.View();
+        await hub.Clients.Users([fromId.ToString(), toId.ToString()]).SendAsync("DirectMessageReceived", view, CancellationToken.None);
+        if (DirectMessageSent is { } handlers)
+        {
+            foreach (var handler in handlers.GetInvocationList().Cast<Func<DirectMessageView, Task>>())
+            {
+                try
+                {
+                    await handler(view);
+                }
+                catch (Exception exception)
+                {
+                    logger.LogWarning(exception, "Direct message listener failed");
+                }
+            }
+        }
+        return view;
+    }
+
+    public async Task<ConversationsView> ConversationsAsync(Guid playerId, CancellationToken ct)
+    {
+        await using var scope = scopes.CreateAsyncScope();
+        return await DirectMessageQueries.ConversationsAsync(
+            scope.ServiceProvider.GetRequiredService<GameDbContext>(), playerId, friends.OnlineAsync, ct);
+    }
+
+    public async Task<DirectMessagesView> DirectHistoryAsync(Guid playerId, Guid otherId, int? limit, CancellationToken ct)
+    {
+        await using var scope = scopes.CreateAsyncScope();
+        return await DirectMessageQueries.HistoryAsync(scope.ServiceProvider.GetRequiredService<GameDbContext>(), playerId, otherId, limit, ct);
     }
 
     public async Task<SkinListView> ListSkinsAsync(Guid playerId, CancellationToken ct)
@@ -166,13 +260,14 @@ public sealed class SocialService(
         await using var scope = scopes.CreateAsyncScope();
         var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
         var removed = await db.Set<ChatMessageRow>().Where(row => row.SentAt < cutoff).ExecuteDeleteAsync(ct);
+        removed += await db.Set<DirectMessageRow>().Where(row => row.SentAt < cutoff).ExecuteDeleteAsync(ct);
         if (removed > 0) logger.LogInformation("Purged {Count} chat messages", removed);
         return removed;
     }
 
-    private bool TryCountChat(Guid playerId, DateTimeOffset now)
+    private bool TryCount(ConcurrentDictionary<Guid, Queue<DateTimeOffset>> histories, Guid playerId, DateTimeOffset now)
     {
-        var history = chatHistory.GetOrAdd(playerId, _ => new Queue<DateTimeOffset>());
+        var history = histories.GetOrAdd(playerId, _ => new Queue<DateTimeOffset>());
         lock (history)
         {
             var window = TimeSpan.FromSeconds(Settings.ChatBurstWindowSeconds);
@@ -222,7 +317,9 @@ public static class SocialModule
     public static IServiceCollection AddSocial(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<SocialOptions>(configuration.GetSection("Social"));
+        services.AddSingleton<FriendService>();
         services.AddSingleton<SocialService>();
+        services.AddSingleton<IUserIdProvider, PlayerUserIdProvider>();
         services.AddHostedService<SocialCleanup>();
         return services;
     }
@@ -233,6 +330,8 @@ public static class SocialModule
             ApiResult.Ok(await social.ListSkinsAsync(player.PlayerId, ct))).RequireAuthorization();
         app.MapPut("/api/v1/me/skin", async (SelectSkinRequest request, SocialService social, ICurrentPlayer player, CancellationToken ct) =>
             ApiResult.Ok(await social.SelectSkinAsync(player.PlayerId, request.SkinId, ct))).RequireAuthorization();
+        app.MapFriends();
+        app.MapDirectMessages();
         return app;
     }
 }

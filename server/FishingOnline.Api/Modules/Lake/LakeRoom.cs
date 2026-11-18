@@ -52,6 +52,9 @@ public sealed class RoomPlayer
     public string? SeatId { get; set; }
     public bool Online { get; set; } = true;
     public Queue<DateTimeOffset> RecentMoves { get; } = new();
+
+    /// <summary>Bot do Server điều khiển (BOT-02): chỉ dùng nội bộ để đếm user thật và nhường chỗ, không có trong PlayerView.</summary>
+    public bool IsBot { get; init; }
 }
 
 /// <summary>Presence trong RAM và các event gửi cho phòng; ghế/phiên có nguồn chân lý ở DB.</summary>
@@ -71,6 +74,43 @@ public sealed class LakeRoom(LakeLayout layout, IHubContext<GameHub> hub, IFishi
     public RoomPlayer? Find(Guid playerId) => players.GetValueOrDefault(playerId);
 
     public int Count => players.Count;
+
+    /// <summary>Số user thật (không tính bot). Chỉ gọi trong <see cref="Queue"/>.</summary>
+    public int HumanCount => players.Values.Count(player => !player.IsBot);
+
+    /// <summary>Chỉ gọi trong <see cref="Queue"/>.</summary>
+    public IReadOnlyList<RoomPlayer> Players => players.Values.ToArray();
+
+    /// <summary>
+    /// Hồ đầy khi user thật vào (BOT-02: user thật luôn vào được, tổng không vượt Lake:MaxPlayers): phòng đã bỏ một bot ra
+    /// (ưu tiên bot không ngồi ghế) và báo id để BotManager dừng bot đó. Gọi ngoài <see cref="Queue"/>.
+    /// </summary>
+    public event Func<Guid, Task>? BotEvicted;
+
+    /// <summary>Bỏ một bot khỏi phòng để nhường chỗ; null nếu không còn bot. Chỉ gọi trong <see cref="Queue"/>.</summary>
+    public Guid? EvictOneBot()
+    {
+        var bot = players.Values.Where(player => player.IsBot).OrderBy(player => player.SeatId is null ? 0 : 1).FirstOrDefault();
+        if (bot is null) return null;
+        players.Remove(bot.PlayerId);
+        return bot.PlayerId;
+    }
+
+    public async Task RaiseBotEvictedAsync(Guid botId)
+    {
+        if (BotEvicted is not { } handlers) return;
+        foreach (var handler in handlers.GetInvocationList().Cast<Func<Guid, Task>>())
+        {
+            try
+            {
+                await handler(botId);
+            }
+            catch (Exception)
+            {
+                // Bot không dừng sạch không được chặn người chơi vào hồ.
+            }
+        }
+    }
 
     public void Add(RoomPlayer player) => players[player.PlayerId] = player;
 

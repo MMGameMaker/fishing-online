@@ -4,6 +4,7 @@ using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Economy;
 using FishingOnline.Api.Modules.Identity;
 using FishingOnline.Api.Modules.Lake;
+using FishingOnline.Api.Modules.Social;
 using FishingOnline.Api.Modules.Wallet;
 using FishingOnline.Api.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -102,6 +103,14 @@ public sealed record ShowcaseSlotView(int Slot, string? SpeciesId, int? LengthTe
 
 public sealed record ShowcaseView(IReadOnlyList<ShowcaseSlotView> Slots);
 
+/// <summary>
+/// Hồ sơ công khai của người chơi khác (BOT-02 mục 4, popup thông tin người chơi): không có Gold, UID hay cờ bot.
+/// <c>FriendStatus</c>: self | friends | pending_out | pending_in | none.
+/// </summary>
+public sealed record PublicProfileView(
+    Guid PlayerId, string DisplayName, string SkinId, int Level, int Exp, string TitleId, string Bio,
+    IReadOnlyList<ShowcaseSlotView> Showcase, bool Online, string FriendStatus);
+
 public sealed record AchievementView(
     string Id, string Name, long Counter, IReadOnlyList<long> Thresholds, int ClaimedLevels, long RewardGold);
 
@@ -161,6 +170,34 @@ public sealed class ProfileService(GameDbContext db, IWallet wallet, IConfigProv
         }
         if (owned is not null) await owned.CommitAsync(ct);
         return await GetShowcaseAsync(playerId, ct);
+    }
+
+    /// <summary>
+    /// Hồ sơ công khai. Ô cá khoe của bot (nội bộ) là các loài có con dài nhất bot đã câu, tự cập nhật theo cá mới;
+    /// người thật dùng ô đã chọn. Gói trả về giống hệt nhau nên Client không phân biệt được bot.
+    /// </summary>
+    public async Task<PublicProfileView> GetPublicAsync(Guid viewerId, Guid playerId, FriendService friends, CancellationToken ct)
+    {
+        var player = await db.Players.AsNoTracking().SingleOrDefaultAsync(row => row.Id == playerId, ct)
+            ?? throw new GameException("PLAYER_NOT_FOUND");
+        ShowcaseView showcase;
+        if (player.IsBot)
+        {
+            var best = await db.Set<SpeciesRecordRow>().AsNoTracking().Where(row => row.PlayerId == playerId)
+                .OrderByDescending(row => row.BestLengthTenthCm).Take(ProfileRules.ShowcaseSlots).ToListAsync(ct);
+            showcase = new ShowcaseView(Enumerable.Range(0, ProfileRules.ShowcaseSlots).Select(slot => slot < best.Count
+                ? new ShowcaseSlotView(slot, best[slot].SpeciesId, best[slot].BestLengthTenthCm)
+                : new ShowcaseSlotView(slot, null, null)).ToArray());
+        }
+        else
+        {
+            showcase = await GetShowcaseAsync(playerId, ct);
+        }
+        var online = (await friends.OnlineAsync([playerId])).Contains(playerId);
+        var status = await friends.StatusAsync(viewerId, playerId, ct);
+        return new PublicProfileView(
+            player.Id, player.DisplayName, player.SelectedSkinId, player.Level, player.Exp,
+            player.TitleId ?? ProfileRules.DefaultTitleId, player.Bio, showcase.Slots, online, status);
     }
 
     // ---------- Thành tựu ----------
@@ -275,6 +312,8 @@ public static class ProfileModule
             ApiResult.Ok(await profile.GetAchievementsAsync(player.PlayerId, ct)));
         me.MapPost("/achievements/claim", async (ClaimAchievementRequest request, ProfileService profile, ICurrentPlayer player, CancellationToken ct) =>
             ApiResult.Ok(await profile.ClaimAsync(player.PlayerId, request.AchievementId, ct))).Idempotent("achievement.claim");
+        app.MapGet("/api/v1/players/{id:guid}/profile", async (Guid id, ProfileService profile, FriendService friends, ICurrentPlayer player, CancellationToken ct) =>
+            ApiResult.Ok(await profile.GetPublicAsync(player.PlayerId, id, friends, ct))).RequireAuthorization();
         return app;
     }
 }

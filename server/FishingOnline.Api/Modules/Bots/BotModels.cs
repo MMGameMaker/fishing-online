@@ -1,13 +1,14 @@
 using System.Reflection;
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FishingOnline.Api.Modules.Bots;
 
 /// <summary>
 /// Cài đặt bot, một dòng duy nhất (Id = 1). Admin sửa qua /api/v1/admin/bots/settings; đổi có hiệu lực ở lần kiểm tra kế tiếp,
-/// không cần publish phiên bản config gameplay.
+/// không cần publish phiên bản config gameplay. BOT-02 (2026-11-18): bảng mốc theo số user thật thay MinTotalPlayers/MaxBots.
 /// </summary>
 public sealed class BotSettingsRow
 {
@@ -18,16 +19,13 @@ public sealed class BotSettingsRow
     /// <summary>Tắt thì Server không thêm bot nữa và cho bot đang có rời hồ ở lần kiểm tra kế tiếp.</summary>
     public bool Enabled { get; set; } = true;
 
-    /// <summary>Tổng số người trong hồ (cả bot) dưới mức này thì thêm 1 bot, trên mức này thì cho 1 bot rời đi.</summary>
-    public int MinTotalPlayers { get; set; } = 10;
-
     public int CheckIntervalSeconds { get; set; } = 180;
-
-    /// <summary>Số bot tối đa cùng lúc trong hồ.</summary>
-    public int MaxBots { get; set; } = 10;
 
     /// <summary>Tỉ lệ bot báo thắng minigame (0–100), để bot không câu trúng mọi lần.</summary>
     public int SuccessRatePct { get; set; } = 60;
+
+    /// <summary>Bảng mốc theo số user thật trong hồ (lưu jsonb).</summary>
+    public List<BotTier> Tiers { get; set; } = [.. BotTiers.Default];
 
     public string? UpdatedBy { get; set; }
 
@@ -36,25 +34,36 @@ public sealed class BotSettingsRow
 
 public sealed class BotSettingsRowConfig : IEntityTypeConfiguration<BotSettingsRow>
 {
+    private static readonly JsonSerializerOptions Json = new(JsonSerializerDefaults.Web);
+
     public void Configure(EntityTypeBuilder<BotSettingsRow> entity)
     {
         entity.ToTable("bot_settings");
         entity.HasKey(row => row.Id);
         entity.Property(row => row.Id).ValueGeneratedNever();
         entity.Property(row => row.UpdatedBy).HasMaxLength(254);
+        entity.Property(row => row.Tiers)
+            .HasColumnType("jsonb")
+            .HasConversion(
+                tiers => JsonSerializer.Serialize(tiers, Json),
+                text => JsonSerializer.Deserialize<List<BotTier>>(text, Json) ?? new List<BotTier>(),
+                new ValueComparer<List<BotTier>>(
+                    (a, b) => a!.SequenceEqual(b!),
+                    tiers => tiers.Aggregate(0, (hash, tier) => HashCode.Combine(hash, tier)),
+                    tiers => tiers.ToList()));
     }
 }
 
 public sealed record BotSettingsView(
-    bool Enabled, int MinTotalPlayers, int CheckIntervalSeconds, int MaxBots, int SuccessRatePct, string? UpdatedBy, DateTimeOffset? UpdatedAt);
+    bool Enabled, int CheckIntervalSeconds, int SuccessRatePct, IReadOnlyList<BotTier> Tiers, string? UpdatedBy, DateTimeOffset? UpdatedAt);
 
-public sealed record BotSettingsRequest(bool Enabled, int MinTotalPlayers, int CheckIntervalSeconds, int MaxBots, int SuccessRatePct);
+public sealed record BotSettingsRequest(bool Enabled, int CheckIntervalSeconds, int SuccessRatePct, IReadOnlyList<BotTier>? Tiers);
 
 /// <summary>Chỉ Admin thấy: bot có trong hồ lúc này không và đã câu bao nhiêu con.</summary>
 public sealed record AdminBotView(Guid PlayerId, string DisplayName, int Level, bool InLake, int TotalCatches, DateTimeOffset CreatedAt);
-
 /// <summary>Kết quả một lần kiểm tra của BotManager, để test và log.</summary>
-public sealed record BotCheckResult(string Action, int TotalPlayers, int Bots, int NextCheckSeconds);
+/// <summary><c>RealPlayers</c> là user thật trong hồ; <c>TargetBots</c>/<c>TargetFishing</c> theo mốc (đã trừ chỗ cho giới hạn hồ).</summary>
+public sealed record BotCheckResult(string Action, int RealPlayers, int Bots, int TargetBots, int TargetFishing, int NextCheckSeconds);
 
 public static class BotChecks
 {

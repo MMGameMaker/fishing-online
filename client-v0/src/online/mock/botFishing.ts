@@ -2,26 +2,10 @@
 // bot đi dạo một lúc rồi ngồi ghế trống câu cá, mỗi lượt câu được (hiện cá trên đầu, thanh thông báo và
 // tin hệ thống trong chat như người chơi khác) hoặc trượt (emoji buồn); câu vài lượt thì đứng dậy đi tiếp.
 // Hàm thuần theo random truyền vào để test được; MockBackend gọi mỗi nhịp.
+import { BOT_CONTENT } from './botSocial';
 
-/** Tên hiển thị cho bot: người Việt và nước ngoài, 3–16 ký tự như luật tên của Server. */
-export const BOT_NAMES = [
-  'Minh Anh',
-  'Quốc Bảo',
-  'Thu Hà',
-  'Hoàng Nam',
-  'Lan Phương',
-  'Gia Huy',
-  'Bảo Ngọc',
-  'Đức Trí',
-  'Emma',
-  'Liam',
-  'Sakura',
-  'Lucas',
-  'Mia Chen',
-  'Noah',
-  'Yuki',
-  'Olivia',
-] as const;
+/** Tên hiển thị cho bot: 50 tên Zen duyệt cho BOT-02 (cùng nguồn Server, botSocial.ts). */
+export const BOT_NAMES: readonly string[] = BOT_CONTENT.names;
 
 /** Chọn `count` tên khác nhau, không trùng tên người chơi. */
 export function pickBotNames(count: number, random: () => number, avoid: string[] = []): string[] {

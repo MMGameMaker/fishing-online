@@ -162,11 +162,15 @@ public sealed class GameApp : WebApplicationFactory<Program>
         "PlayerJoined", "PlayerLeft", "PlayerMoved", "SeatChanged", "MyTicket", "MySeat", "AttemptUpdate", "CatchShown",
         "FailShown",
         "SkinChanged", "ChatReceived", "EmojiReceived", "CatchAnnounced", "RodChanged",
+        "DirectMessageReceived", "FriendRequestReceived", "FriendAdded",
     ];
 
     public required string ConnectionString { get; init; }
     public bool RealTimers { get; init; }
     public ManualClock Clock { get; init; } = new(DateTimeOffset.UtcNow);
+
+    /// <summary>Cài đặt thêm/ghi đè cho riêng app này (vd. Lake:MaxPlayers nhỏ để test giới hạn hồ).</summary>
+    public IReadOnlyDictionary<string, string> Settings { get; init; } = new Dictionary<string, string>();
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -176,6 +180,7 @@ public sealed class GameApp : WebApplicationFactory<Program>
         // Bot không tự chạy theo giờ trong test; test gọi BotManager.CheckOnceAsync trực tiếp. Bot chờ ngắn lại 50 lần.
         builder.UseSetting("Bots:PollMs", "0");
         builder.UseSetting("Bots:TimeScale", "50");
+        foreach (var (key, value) in Settings) builder.UseSetting(key, value);
         builder.UseSetting("Auth:JwtSigningKey", Convert.ToBase64String(RandomNumberGenerator.GetBytes(48)));
         if (!RealTimers)
         {
@@ -311,9 +316,15 @@ public abstract class GameTestBase(PostgresServer postgres) : IAsyncLifetime
         if (connectionString is not null) await postgres.DropDatabaseAsync(connectionString);
     }
 
-    protected GameApp StartApp(ManualClock? clock = null, bool realTimers = false)
+    protected GameApp StartApp(ManualClock? clock = null, bool realTimers = false, IReadOnlyDictionary<string, string>? settings = null)
     {
-        var app = new GameApp { ConnectionString = connectionString!, Clock = clock ?? new ManualClock(DateTimeOffset.UtcNow), RealTimers = realTimers };
+        var app = new GameApp
+        {
+            ConnectionString = connectionString!,
+            Clock = clock ?? new ManualClock(DateTimeOffset.UtcNow),
+            RealTimers = realTimers,
+            Settings = settings ?? new Dictionary<string, string>(),
+        };
         _ = app.Server;
         apps.Add(app);
         return app;

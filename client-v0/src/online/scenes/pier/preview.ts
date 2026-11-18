@@ -13,6 +13,7 @@ import '../../ui/inventory/inventory.css';
 import '../../ui/codex/codex.css';
 import '../../ui/leaderboard/leaderboard.css';
 import '../../ui/profile/profile.css';
+import '../../ui/friends/friends.css';
 import '../../ui/skin/skin.css';
 import '../../ui/settings/settings.css';
 import '../../ui/boot/boot.css';

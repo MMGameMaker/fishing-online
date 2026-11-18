@@ -19,6 +19,9 @@ public static class ErrorCatalog
         // Chưa có trong SPEC mục 5: đã đăng nhập nhưng thiếu quyền Admin (AD-01).
         ["FORBIDDEN"] = new(403, false, "Permission denied"),
         ["FISH_NOT_FOUND"] = new(404, false, "Fish not found"),
+        // BOT-02 (2026-11-18): kết bạn/tin riêng với người không tồn tại, tin riêng cho người chưa là bạn.
+        ["PLAYER_NOT_FOUND"] = new(404, false, "Player not found"),
+        ["NOT_FRIENDS"] = new(403, false, "Players are not friends"),
         ["SEAT_TAKEN"] = new(409, false, "Seat is in use"),
         ["ALREADY_HAS_SEAT"] = new(409, false, "Player is already seated"),
         ["NO_TICKET"] = new(409, false, "No valid fishing ticket"),

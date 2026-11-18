@@ -14,6 +14,8 @@ import { SettingsPopup } from '../settings/SettingsPopup';
 import { InventoryPopup } from '../inventory/InventoryPopup';
 import { LeaderboardPopup } from '../leaderboard/LeaderboardPopup';
 import { ProfilePopup } from '../profile/ProfilePopup';
+import { profileArt } from '../profile/profileArt';
+import { FriendsPopup } from '../friends/FriendsPopup';
 import { COIN_ART } from '../coinArt';
 import { ShopPopup } from '../shop/ShopPopup';
 import { expText, levelProgress } from './levelProgress';
@@ -23,15 +25,25 @@ const asset = (file: string) => encodeURI(UI_DIR + file);
 const COIN_ICON = COIN_ART;
 const CLOSE_ICON = encodeURI('/mini game/Button Close.png');
 
-const MENU_ITEMS = [
+interface MenuItem {
+  id: string;
+  label: string;
+  /** Ảnh trong public/new resources/ui, hoặc URL đầy đủ (icon tạm). */
+  icon: string;
+}
+
+const MENU_ITEMS: readonly MenuItem[] = [
   { id: 'shop', label: 'Cửa hàng', icon: 'Icon Shop.png' },
   { id: 'profile', label: 'Hồ sơ', icon: 'Icon Appearance.png' },
   { id: 'leaderboard', label: 'Bảng xếp hạng', icon: 'Icon Leaderboard.png' },
   { id: 'inventory', label: 'Túi đồ', icon: 'Icon Inventory.png' },
   // Icon Sổ tay (người dùng thêm 2026-11-16, trước đó dùng icon nhà Icon Home.png).
   { id: 'codex', label: 'Sổ tay cá', icon: 'Icon So tay.png' },
+  // BOT-02 (2026-11-18): danh sách bạn. Icon tạm vẽ bằng điểm ảnh (profileArt), chờ art thật.
+  { id: 'friends', label: 'Bạn bè', icon: profileArt('friends') },
   { id: 'settings', label: 'Cài đặt', icon: 'Icon Settings.png' },
-] as const;
+];
+const menuIcon = (icon: string) => (icon.startsWith('data:') ? icon : asset(icon));
 const COMING_SOON = 'Sắp ra mắt';
 
 const REGISTRY_KEY = 'homeHud';
@@ -51,6 +63,10 @@ export interface HomeHudOptions {
   serverNow: () => number;
   /** Mở popup mua vé đã có (TicketDialog qua SeatUi). */
   openBuyTicket: () => Promise<boolean>;
+  /** Mở tab Tin riêng với một người (khung chat của LakeScene). */
+  openDirect: (playerId: string) => void;
+  /** Mở popup thông tin người chơi. */
+  openPlayer: (playerId: string) => void;
 }
 
 function el<K extends keyof HTMLElementTagNameMap>(
@@ -104,6 +120,10 @@ export class HomeHud {
   private readonly settings: SettingsPopup;
   private readonly profile: ProfilePopup;
   private readonly leaderboard: LeaderboardPopup;
+  private readonly friends: FriendsPopup;
+  /** Chấm báo có lời mời kết bạn: trên nút mở menu và trên ô "Bạn bè". */
+  private readonly menuDot = img(asset('Infomation/Claim Dot.png'), 'home-dot');
+  private readonly friendsDot = img(asset('Infomation/Claim Dot.png'), 'home-dot');
 
   constructor(private readonly options: HomeHudOptions) {
     this.shop = new ShopPopup({ root: options.root, services: options.services });
@@ -114,6 +134,12 @@ export class HomeHud {
       root: options.root,
       services: options.services,
       now: options.serverNow,
+    });
+    this.friends = new FriendsPopup({
+      root: options.root,
+      services: options.services,
+      openDirect: options.openDirect,
+      openPlayer: options.openPlayer,
     });
     this.inventory = new InventoryPopup({
       root: options.root,
@@ -138,6 +164,10 @@ export class HomeHud {
         () => this.renderProfile(),
       ),
       store.select(
+        (s) => s.social.incoming,
+        (incoming) => this.renderFriendDots(incoming.length),
+      ),
+      store.select(
         (s) => s.session.gold,
         (gold) => (this.gold.textContent = formatGold(gold ?? '0')),
       ),
@@ -152,6 +182,7 @@ export class HomeHud {
       ),
     );
     this.renderProfile();
+    this.renderFriendDots(store.getState().social.incoming.length);
     this.gold.textContent = formatGold(store.getState().session.gold ?? '0');
 
     // Bố cục tính theo màn thiết kế 1920×1080; ui-root scale cả khung chơi nên không cần fit riêng.
@@ -195,6 +226,7 @@ export class HomeHud {
     this.settings.destroy();
     this.leaderboard.destroy();
     this.profile.destroy();
+    this.friends.destroy();
     this.layer.remove();
     this.menu.remove();
   }
@@ -234,7 +266,7 @@ export class HomeHud {
   private buildGold(): void {
     const box = el('div', 'home-gold');
     const menuButton = button('home-gold__menu', 'Menu');
-    menuButton.append(img(asset('Button.png')));
+    menuButton.append(img(asset('Button.png')), this.menuDot);
     menuButton.addEventListener('click', () => void this.setMenuOpen(this.menu.hidden));
     box.append(img(COIN_ICON, 'home-gold__coin'), this.gold, menuButton);
     this.right.append(box);
@@ -251,7 +283,11 @@ export class HomeHud {
     close.append(img(CLOSE_ICON));
     close.addEventListener('click', () => void this.setMenuOpen(false));
 
-    const grid = el('div', 'home-menu__grid');
+    // 7 ô (thêm Bạn bè): lưới 3 cột ô nhỏ hơn để vừa khung (friends.css).
+    const grid = el(
+      'div',
+      MENU_ITEMS.length > 6 ? 'home-menu__grid home-menu__grid--compact' : 'home-menu__grid',
+    );
     const select = (slot: HTMLButtonElement, label: string) => {
       grid.querySelector('.home-menu__slot--active')?.classList.remove('home-menu__slot--active');
       slot.classList.add('home-menu__slot--active');
@@ -260,7 +296,8 @@ export class HomeHud {
     for (const item of MENU_ITEMS) {
       const slot = button('home-menu__slot', item.label);
       slot.append(img(asset('Icon Button.png'), 'home-menu__frame'));
-      slot.append(img(asset(item.icon), 'home-menu__icon'));
+      slot.append(img(menuIcon(item.icon), 'home-menu__icon'));
+      if (item.id === 'friends') slot.append(this.friendsDot);
       slot.addEventListener('pointerenter', () => select(slot, item.label));
       slot.addEventListener('focus', () => select(slot, item.label));
       slot.addEventListener('click', () => {
@@ -280,6 +317,9 @@ export class HomeHud {
         } else if (item.id === 'shop') {
           void this.setMenuOpen(false);
           this.shop.open('sell');
+        } else if (item.id === 'friends') {
+          void this.setMenuOpen(false);
+          this.friends.open();
         } else if (item.id === 'inventory') {
           void this.setMenuOpen(false);
           this.inventory.open('rods');
@@ -288,7 +328,7 @@ export class HomeHud {
       grid.append(slot);
     }
     const first = grid.querySelector<HTMLButtonElement>('.home-menu__slot');
-    if (first) select(first, MENU_ITEMS[0].label);
+    if (first) select(first, MENU_ITEMS[0]!.label);
 
     panel.append(this.menuLabel, grid, close);
     this.menu.append(panel);
@@ -297,6 +337,11 @@ export class HomeHud {
       if (event.target === this.menu) void this.setMenuOpen(false);
     });
     this.menu.hidden = true;
+  }
+
+  private renderFriendDots(incoming: number): void {
+    this.menuDot.hidden = incoming === 0;
+    this.friendsDot.hidden = incoming === 0;
   }
 
   private renderProfile(): void {

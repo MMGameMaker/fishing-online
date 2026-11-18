@@ -6,8 +6,20 @@ using FishingOnline.Api.Modules.Wallet;
 
 namespace FishingOnline.Api.Modules.Bots;
 
+/// <summary>Phần BotManager điều phối giữa các bot: suất ngồi ghế (bot được câu) và phản ứng khi câu được cá.</summary>
+public interface IBotCoordinator
+{
+    /// <summary>Xin suất ngồi ghế; false khi đã đủ số bot được câu hoặc phải chừa ghế cho user thật.</summary>
+    Task<bool> TryTakeSeatAsync(Guid botId);
+
+    void ReleaseSeat(Guid botId);
+
+    Task OnCaughtAsync(Guid botId, string speciesId);
+}
+
 /// <summary>Mọi thứ một bot cần để hành xử như người chơi thật (dùng đúng các service mà Hub gọi).</summary>
 public sealed record BotDeps(
+    IBotCoordinator Coordinator,
     IServiceScopeFactory Scopes,
     LakeRoom Room,
     LakeLayout Layout,
@@ -38,8 +50,33 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
     private double x;
     private double y;
     private string direction = "down";
+    private volatile bool standRequested;
+    private volatile BotChatState chatState = BotChatState.Idle;
 
     public Guid PlayerId => playerId;
+
+    /// <summary>Trạng thái để chọn câu chat world (chờ cá / cá cắn, đang kéo / lúc khác).</summary>
+    public BotChatState ChatState => chatState;
+
+    /// <summary>
+    /// BotManager bảo bot đứng dậy (mốc bot câu giảm, hoặc phải chừa ghế cho user thật): rời ghế ngay (hủy lần câu đang mở)
+    /// rồi về đi dạo; bot đang đi tới ghế thì bỏ ghế đó.
+    /// </summary>
+    public void RequestStand()
+    {
+        standRequested = true;
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                await deps.Seats.EndAsync(playerId, SeatEndReasons.LeftSeat, CancellationToken.None);
+            }
+            catch (Exception exception)
+            {
+                deps.Logger.LogDebug(exception, "Bot {Bot} could not leave its seat", displayName);
+            }
+        });
+    }
 
     public string DisplayName => displayName;
 
@@ -62,6 +99,7 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
                 // Không phải kết nối SignalR thật: tin gửi riêng cho bot rơi vào khoảng trống, tin phát cả phòng vẫn tới người thật.
                 ConnectionId = $"bot:{playerId}",
                 Abort = () => { },
+                IsBot = true,
                 X = x,
                 Y = y,
                 Dir = direction,
@@ -106,7 +144,20 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
                 try
                 {
                     await WanderAsync(random.Next(6000, 20000), ct);
-                    if (random.NextDouble() < 0.7) await FishSessionAsync(ct);
+                    // Chỉ bot có suất (theo mốc "bot được câu") mới tới ghế; bot khác chỉ đi dạo và chat.
+                    if (random.NextDouble() < 0.7 && await deps.Coordinator.TryTakeSeatAsync(playerId))
+                    {
+                        standRequested = false;
+                        try
+                        {
+                            await FishSessionAsync(ct);
+                        }
+                        finally
+                        {
+                            deps.Coordinator.ReleaseSeat(playerId);
+                            chatState = BotChatState.Idle;
+                        }
+                    }
                 }
                 catch (GameException exception)
                 {
@@ -206,10 +257,16 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
             // không dịch chuyển lên ghế (feedback 2026-11-16).
             var stand = deps.Map.NearestStandable(seatSpot.X, seatSpot.Y) ?? deps.Map.Spawn;
             if (deps.Map.FindRoute(new BotMap.MapPoint(x, y), stand) is not { } route) return;
-            foreach (var point in route) await MoveToAsync(point.X, point.Y, ct);
+            foreach (var point in route)
+            {
+                if (standRequested) return;
+                await MoveToAsync(point.X, point.Y, ct);
+            }
             if (Math.Abs(stand.X - x) > 6 || Math.Abs(stand.Y - y) > 6) return;
         }
+        if (standRequested) return;
         await deps.Seats.SitDownAsync(playerId, seatId, ct);
+        chatState = BotChatState.Waiting;
         if (seatSpot is not null)
         {
             x = seatSpot.X;
@@ -219,14 +276,16 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
         }
 
         var casts = random.Next(2, 6);
-        for (var i = 0; i < casts && !ct.IsCancellationRequested; i++)
+        for (var i = 0; i < casts && !ct.IsCancellationRequested && !standRequested; i++)
         {
             if (!await CastOnceAsync(ct)) break;
             await DelayAsync(random.Next(1000, 3000), ct);
         }
 
         // Còn lần câu dở (vd. bị hủy giữa chừng) thì EndAsync hủy hộ; không thì rời ghế bình thường.
-        if (!await deps.Seats.EndAsync(playerId, SeatEndReasons.LeftSeat, CancellationToken.None)) return;
+        // Ghế có thể đã được rời trước (BotManager bảo nhường) nên vẫn đi ra chỗ đứng.
+        await deps.Seats.EndAsync(playerId, SeatEndReasons.LeftSeat, CancellationToken.None);
+        chatState = BotChatState.Idle;
         // Đứng dậy: đi bộ ra chỗ đứng gần ghế (không dịch chuyển).
         if (seatSpot is not null && deps.Map.NearestStandable(seatSpot.X, seatSpot.Y, 48) is { } outside)
             await MoveToAsync(outside.X, outside.Y, ct);
@@ -235,9 +294,11 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
     /// <summary>Một lượt: quăng, chờ cá cắn, phản ứng rồi kéo, báo kết quả. False nếu lượt không thể tiếp tục.</summary>
     private async Task<bool> CastOnceAsync(CancellationToken ct)
     {
+        chatState = BotChatState.Waiting;
         await deps.Fishing.CastAsync(playerId, Guid.NewGuid(), ct);
         var attempt = await WaitForPhaseAsync("bite", 60000, ct);
         if (attempt is null) return false;
+        chatState = BotChatState.Fighting;
 
         var windowMs = deps.Configs.Current.Fishing.BiteWindowMs;
         await DelayAsync(random.Next(500, Math.Max(600, Math.Min(1800, windowMs - 800))), ct);
@@ -256,14 +317,20 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
         var playMs = (int)(minigame.DurationMs * (0.35 + 0.45 * random.NextDouble()));
         await DelayAsync(playMs, ct);
         var wins = random.Next(100) < await deps.SuccessPct(ct);
+        AttemptView result;
         try
         {
-            await deps.Fishing.SubmitResultAsync(playerId, attempt.AttemptId, wins ? "success" : "failed", ct);
+            result = await deps.Fishing.SubmitResultAsync(playerId, attempt.AttemptId, wins ? "success" : "failed", ct);
         }
         catch (GameException exception) when (exception.Code is "RESULT_EXPIRED" or "STATE_CONFLICT")
         {
             return true;
         }
+        finally
+        {
+            chatState = BotChatState.Waiting;
+        }
+        if (result.Result is { } caught) await deps.Coordinator.OnCaughtAsync(playerId, caught.SpeciesId);
         return true;
     }
 

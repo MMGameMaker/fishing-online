@@ -10,6 +10,7 @@ import { preloadHeadBubble } from '../../entities/HeadBubble';
 import { CatchBanner } from '../../ui/announce/CatchBanner';
 import { COIN_ART } from '../../ui/coinArt';
 import { HomeHud, isHomeHudEnabled } from '../../ui/home/HomeHud';
+import { PlayerInfoPopup } from '../../ui/friends/PlayerInfoPopup';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
@@ -40,6 +41,8 @@ const EMOJI_SHOW_MS = 3000;
 const WATER_TILE = 0;
 const GRASS_TILE = 1;
 const BOBBER_DISTANCE_PX = 48;
+/** Đứng cách người khác trong khoảng này (px) thì người đó có viền trắng (BOT-02, như ghế ngồi được). */
+const NEAR_PLAYER_PX = 40;
 const FACING_VECTORS: Record<string, { x: number; y: number }> = {
   up: { x: 0, y: -1 },
   down: { x: 0, y: 1 },
@@ -83,6 +86,10 @@ export class LakeScene extends Phaser.Scene {
   private myId = '';
   private readonly remotes = new Map<string, RemotePlayer>();
   private social!: SocialUi;
+  /** Popup thông tin người chơi khác (pier.html): bấm vào nhân vật để mở. */
+  private playerInfo: PlayerInfoPopup | null = null;
+  /** Người khác đang được rê chuột lên (viền trắng). */
+  private hoveredId: string | null = null;
   /** Emoji trên đầu tự ẩn sau EMOJI_SHOW_MS; mỗi người chơi một hẹn giờ. */
   private readonly emojiTimers = new Map<string, Phaser.Time.TimerEvent>();
   private readonly cleanups: (() => void)[] = [];
@@ -257,6 +264,8 @@ export class LakeScene extends Phaser.Scene {
         services: this.services,
         serverNow: () => this.serverNow(),
         openBuyTicket: () => this.seatUi.openBuyTicket(),
+        openDirect: (playerId) => this.social.openDirect(playerId),
+        openPlayer: (playerId) => this.openPlayerInfo(playerId),
       });
     }
   }
@@ -275,7 +284,20 @@ export class LakeScene extends Phaser.Scene {
       services: this.services,
       onTyping: (typing) => this.setTyping(typing),
       trimEmotes: isHomeHudEnabled(this),
+      onOpenPlayer: (playerId) => this.openPlayerInfo(playerId),
     });
+    if (isHomeHudEnabled(this)) {
+      const popup = new PlayerInfoPopup({
+        root: this.root,
+        services: this.services,
+        openDirect: (playerId) => this.social.openDirect(playerId),
+      });
+      this.playerInfo = popup;
+      this.cleanups.push(() => {
+        popup.destroy();
+        this.playerInfo = null;
+      });
+    }
     this.input.keyboard?.addKey('ENTER').on('down', () => this.social.focusInput());
     const { hub } = this.services;
     this.cleanups.push(
@@ -325,6 +347,30 @@ export class LakeScene extends Phaser.Scene {
       keyboard.resetKeys();
     } else {
       keyboard.enableGlobalCapture();
+    }
+  }
+
+  /** Mở popup thông tin người chơi (bấm nhân vật, danh sách bạn, tên trong tab Tin riêng). */
+  private openPlayerInfo(playerId: string): void {
+    if (playerId === this.myId) return;
+    void this.playerInfo?.open(playerId);
+  }
+
+  /** Viền trắng cho người đang được rê chuột lên, hoặc người đứng gần nhân vật mình nhất (pier.html). */
+  private updateOutlines(): void {
+    if (!this.playerInfo) return;
+    let nearId: string | null = null;
+    let nearDistance = NEAR_PLAYER_PX;
+    for (const [id, remote] of this.remotes) {
+      const distance = Math.hypot(remote.view.x - this.me.x, remote.view.y - this.me.y);
+      if (distance <= nearDistance) {
+        nearDistance = distance;
+        nearId = id;
+      }
+    }
+    const blocked = this.modalOpen;
+    for (const [id, remote] of this.remotes) {
+      remote.view.setOutlined(!blocked && (id === this.hoveredId || id === nearId));
     }
   }
 
@@ -486,6 +532,7 @@ export class LakeScene extends Phaser.Scene {
     }
     for (const [id, remote] of this.remotes) {
       if (!players[id]) {
+        if (this.hoveredId === id) this.hoveredId = null;
         remote.view.destroy();
         this.remotes.delete(id);
       }
@@ -508,6 +555,19 @@ export class LakeScene extends Phaser.Scene {
         iconUntilMs: null,
       };
       this.remotes.set(player.playerId, remote);
+      if (isHomeHudEnabled(this)) {
+        // pier.html: rê chuột lên người khác hiện viền trắng, bấm để mở popup thông tin (BOT-02).
+        const id = player.playerId;
+        remote.view.enablePointer({
+          onHover: (hover) => {
+            if (hover) this.hoveredId = id;
+            else if (this.hoveredId === id) this.hoveredId = null;
+          },
+          onClick: () => {
+            if (!this.modalOpen && !this.flow.isLocked()) this.openPlayerInfo(id);
+          },
+        });
+      }
     }
     remote.motion.setTarget(player.x, player.y, now);
     remote.view.setDirection(player.dir);
@@ -599,5 +659,6 @@ export class LakeScene extends Phaser.Scene {
     this.seatUi.update(serverNowMs);
     this.homeHud?.update();
     this.updateRemotes(nowMs, serverNowMs);
+    this.updateOutlines();
   }
 }

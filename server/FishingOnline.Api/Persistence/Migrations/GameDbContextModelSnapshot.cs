@@ -248,14 +248,12 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.Property<bool>("Enabled")
                         .HasColumnType("boolean");
 
-                    b.Property<int>("MaxBots")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("MinTotalPlayers")
-                        .HasColumnType("integer");
-
                     b.Property<int>("SuccessRatePct")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Tiers")
+                        .IsRequired()
+                        .HasColumnType("jsonb");
 
                     b.Property<DateTimeOffset?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -1035,6 +1033,84 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.HasIndex("PlayerId", "SentAt");
 
                     b.ToTable("chat_messages", "game");
+                });
+
+            modelBuilder.Entity("FishingOnline.Api.Modules.Social.DirectMessageRow", b =>
+                {
+                    b.Property<Guid>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("FromName")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("character varying(80)");
+
+                    b.Property<Guid>("FromPlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("SentAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasMaxLength(400)
+                        .HasColumnType("character varying(400)");
+
+                    b.Property<Guid>("ToPlayerId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("SentAt");
+
+                    b.HasIndex("ToPlayerId", "SentAt");
+
+                    b.HasIndex("FromPlayerId", "ToPlayerId", "SentAt");
+
+                    b.ToTable("direct_messages", "game");
+                });
+
+            modelBuilder.Entity("FishingOnline.Api.Modules.Social.FriendRequestRow", b =>
+                {
+                    b.Property<Guid>("FromPlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ToPlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset?>("RespondedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.HasKey("FromPlayerId", "ToPlayerId");
+
+                    b.HasIndex("ToPlayerId", "Status");
+
+                    b.ToTable("friend_requests", "game");
+                });
+
+            modelBuilder.Entity("FishingOnline.Api.Modules.Social.FriendshipRow", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("FriendId")
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("PlayerId", "FriendId");
+
+                    b.ToTable("friendships", "game");
                 });
 
             modelBuilder.Entity("FishingOnline.Api.Modules.Wallet.LedgerEntry", b =>

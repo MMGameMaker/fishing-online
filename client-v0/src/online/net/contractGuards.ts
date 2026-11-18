@@ -233,4 +233,21 @@ export const EVENT_GUARDS: { [K in HubEventName]: Guard<HubEvents[K]> } = {
     isRarityValue(v.rarity) &&
     typeof v.first === 'boolean' &&
     iso(v.announcedAt),
+  DirectMessageReceived: (v): v is HubEvents['DirectMessageReceived'] =>
+    obj(v) &&
+    str(v.messageId) &&
+    str(v.fromPlayerId) &&
+    str(v.toPlayerId) &&
+    str(v.fromName) &&
+    str(v.text) &&
+    iso(v.sentAt),
+  FriendRequestReceived: (v): v is HubEvents['FriendRequestReceived'] =>
+    obj(v) && str(v.playerId) && str(v.displayName) && str(v.skinId) && int(v.level),
+  FriendAdded: (v): v is HubEvents['FriendAdded'] =>
+    obj(v) &&
+    str(v.playerId) &&
+    str(v.displayName) &&
+    str(v.skinId) &&
+    int(v.level) &&
+    typeof v.online === 'boolean',
 };

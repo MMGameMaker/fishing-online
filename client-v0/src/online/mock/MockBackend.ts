@@ -78,6 +78,14 @@ import {
   pickWanderTarget,
   walkStep,
 } from './botWalk';
+import {
+  DEFAULT_BOT_TIERS,
+  allowedFishingBots,
+  botTarget,
+  pickBotTier,
+  type BotChatState,
+} from './botSocial';
+import { MockSocial, SocialError } from './MockSocial';
 
 export interface MockOptions {
   config: GameplayConfig;
@@ -114,6 +122,8 @@ const HTTP_STATUS: Partial<Record<ErrorCode, number>> = {
   SKIN_NOT_OWNED: 422,
   NOT_IN_SEAT: 422,
   RATE_LIMITED: 429,
+  PLAYER_NOT_FOUND: 404,
+  NOT_FRIENDS: 403,
 };
 
 const MY_ID = '11111111-1111-4111-8111-111111111111';
@@ -247,6 +257,15 @@ export class MockBackend {
   >();
   private broadcastTimerMs = 0;
   private realtimeHandle: ReturnType<typeof setInterval> | null = null;
+  /**
+   * pier.html (BOT-02): bot theo bảng mốc với user thật = 1 (30 bot, 20 được câu), vào dần 2–5 giây một con.
+   * null khi dùng số bot cố định (fishing.html, test).
+   */
+  private botGoal: { total: number; fishing: number } | null = null;
+  private botNamePool: string[] = [];
+  private nextBotJoinMs = 0;
+  private botSerial = 0;
+  readonly social: MockSocial;
 
   constructor(options: MockOptions) {
     this.config = options.config;
@@ -263,7 +282,27 @@ export class MockBackend {
       this.seats.set(info.seatId, { info, state: 'available', occupantPlayerId: null });
     }
     this.fishingBots = options.fishingBots ?? false;
-    this.createBots(options.botCount ?? 3);
+    if (this.fishingBots && options.botCount === undefined) {
+      this.botGoal = botTarget(pickBotTier(DEFAULT_BOT_TIERS, 1), 1);
+      this.botNamePool = pickBotNames(this.botGoal.total, this.random, [this.displayName]);
+      this.nextBotJoinMs = this.nowMs + 1000;
+    } else {
+      this.createBots(options.botCount ?? 3);
+    }
+    this.social = new MockSocial({
+      config: this.config,
+      random: this.random,
+      now: () => this.nowMs,
+      emit: (event, payload) => this.emit(event, payload),
+      bots: () => this.bots,
+      botState: (botId) => this.botChatState(botId),
+      me: () => ({
+        playerId: MY_ID,
+        displayName: this.displayName,
+        x: this.position.x,
+        y: this.position.y,
+      }),
+    });
   }
 
   // ---------- Điều khiển thời gian ----------
@@ -354,7 +393,78 @@ export class MockBackend {
     this.applySeatTimeScale(dt);
     this.checkSession();
     this.checkAttempt();
+    this.joinBots();
     this.moveBots(dt);
+    if (this.fishingBots) this.social.tick();
+  }
+
+  /** Bot vào hồ dần, 2–5 giây một con, tới đúng mục tiêu của mốc (pier.html). */
+  private joinBots(): void {
+    const goal = this.botGoal;
+    if (!goal || this.bots.length >= goal.total || this.nowMs < this.nextBotJoinMs) return;
+    this.nextBotJoinMs = this.nowMs + uniformInt(this.random, 2000, 5000);
+    this.botSerial += 1;
+    const spawn =
+      pickWanderTarget(this.map, this.map.spawn.x, this.map.spawn.y, this.random) ?? this.map.spawn;
+    const bot: PlayerView = {
+      playerId: `bot-${this.botSerial}`,
+      displayName: this.botNamePool[this.botSerial - 1] ?? `Ngư dân ${this.botSerial}`,
+      skinId: `skin_0${((this.botSerial - 1) % 5) + 1}`,
+      rodId: this.config.newPlayer.rodId,
+      x: spawn.x,
+      y: spawn.y,
+      dir: 'down',
+      seatId: null,
+      fishing: false,
+    };
+    this.bots.push(bot);
+    this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+    this.emit('PlayerJoined', { ...bot });
+  }
+
+  /** Trạng thái chọn câu chat: ngồi chờ cá, cá cắn/kéo (3 giây cuối mỗi lượt), lúc khác. */
+  private botChatState(botId: string): BotChatState {
+    const state = this.botStates.get(botId);
+    if (state?.mode !== 'fishing') return 'idle';
+    return this.nowMs >= state.nextResultMs - 3000 ? 'fighting' : 'waiting';
+  }
+
+  /** Số bot được giữ suất ngồi (đang tới ghế hoặc đang câu); luôn chừa ghế cho người chơi. */
+  private allowedBotSeats(): number {
+    const fishingTarget = this.botGoal?.fishing ?? this.bots.length;
+    return allowedFishingBots({
+      fishingTarget,
+      seatCount: this.seats.size,
+      humansSeated: this.session ? 1 : 0,
+      humansStanding: this.session ? 0 : 1,
+    });
+  }
+
+  private botSeatHolders(): string[] {
+    return [...this.botStates].filter(([, s]) => s.mode !== 'wander').map(([id]) => id);
+  }
+
+  /** Thừa suất ngồi: bot đang tới ghế bỏ ghế trước, rồi bot đang câu đứng dậy. */
+  private balanceBotSeats(): void {
+    const holders = this.botSeatHolders();
+    let excess = holders.length - this.allowedBotSeats();
+    if (excess <= 0) return;
+    const ordered = holders.sort(
+      (a, b) =>
+        Number(this.botStates.get(a)?.mode === 'fishing') -
+        Number(this.botStates.get(b)?.mode === 'fishing'),
+    );
+    for (const id of ordered) {
+      if (excess <= 0) break;
+      const state = this.botStates.get(id);
+      const bot = this.bots.find((b) => b.playerId === id);
+      if (!state || !bot) continue;
+      this.botStates.set(id, startWander(this.nowMs, this.random));
+      const walk = this.botWalks.get(id);
+      if (walk) walk.route = null;
+      if (state.mode === 'fishing') this.botLeaveSeat(bot, state.seatId);
+      excess -= 1;
+    }
   }
 
   private applySeatTimeScale(dt: number): void {
@@ -425,6 +535,7 @@ export class MockBackend {
       { dir: 'left', dx: -BOT_STEP_PX, dy: 0 },
       { dir: 'right', dx: BOT_STEP_PX, dy: 0 },
     ];
+    if (this.fishingBots) this.balanceBotSeats();
     for (const bot of this.bots) {
       if (this.fishingBots) {
         // Bot pier: đi bộ mượt (bước ngắn mỗi 100 ms), không bước ngẫu nhiên 16 px.
@@ -517,6 +628,11 @@ export class MockBackend {
     if (!state) return false;
     if (state.mode === 'wander') {
       if (this.nowMs < state.untilMs) return false;
+      // Chỉ đúng số "bot được câu" mới tới ghế; bot khác tiếp tục đi dạo và chat (BOT-02).
+      if (this.botSeatHolders().length >= this.allowedBotSeats()) {
+        this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+        return false;
+      }
       // Chọn ghế trống chưa bot nào đang đi tới, rồi đi bộ tới đó (không dịch chuyển lên ghế).
       const taken = new Set(
         [...this.botStates.values()].flatMap((s) => (s.mode === 'toSeat' ? [s.seatId] : [])),
@@ -608,6 +724,7 @@ export class MockBackend {
   /** Bot câu được: cá trên đầu (CatchShown) và khoe cá cho cả hồ (CatchAnnounced → thanh + chat). */
   private botCaught(bot: PlayerView): void {
     const fish = pickSpecies(this.config, 0, this.random);
+    this.social.onBotCaught(bot, fish);
     this.emit('CatchShown', {
       playerId: bot.playerId,
       speciesId: fish.speciesId,
@@ -802,8 +919,12 @@ export class MockBackend {
       if (this.forcedError && !NO_FORCED_ERROR.has(name)) throw new CommandError(this.forcedError);
       ack = respond(true, this.runCommand(name, args), null);
     } catch (error) {
-      if (!(error instanceof CommandError)) throw error;
-      ack = respond(false, null, { code: error.code, message: error.message });
+      if (error instanceof SocialError) {
+        ack = respond(false, null, { code: error.code, message: error.message });
+      } else {
+        if (!(error instanceof CommandError)) throw error;
+        ack = respond(false, null, { code: error.code, message: error.message });
+      }
     }
     if (isMoney && ack.ok) this.hubReceipts.set(requestId, { fingerprint, ack });
     return ack;
@@ -846,11 +967,21 @@ export class MockBackend {
         });
         return null;
       case 'SendEmoji':
-        this.emit('EmojiReceived', { playerId: MY_ID, emojiId: String(args.emojiId ?? '') });
-        return null;
+        return this.commandEmoji(String(args.emojiId ?? ''));
+      case 'SendDirectMessage':
+        return this.social.sendDirect(args);
       default:
         throw new CommandError('VALIDATION_FAILED', `Mock chưa có lệnh ${String(name)}`);
     }
+  }
+
+  /** 16 emoji thường, hoặc icon cá `fish:<loài>` của loài đã câu (giống Server, BOT-02). */
+  private commandEmoji(emojiId: string): null {
+    const fish = emojiId.startsWith('fish:') ? emojiId.slice(5) : null;
+    const allowed = fish ? this.codex.has(fish) : /^emoji_(0[1-9]|1[0-6])$/.test(emojiId);
+    if (!allowed) throw new CommandError('VALIDATION_FAILED');
+    this.emit('EmojiReceived', { playerId: MY_ID, emojiId });
+    return null;
   }
 
   private commandMove(args: Record<string, unknown>): null {
@@ -1188,7 +1319,8 @@ export class MockBackend {
       const data = this.route(method, path, body, url.searchParams);
       if (data === undefined) return new Response(null, { status: 204 });
       responseBody = JSON.stringify({ data, traceId: this.nextId('trace') });
-    } catch (error) {
+    } catch (caught) {
+      const error = caught instanceof SocialError ? new CommandError(caught.code) : caught;
       if (!(error instanceof CommandError)) throw error;
       const failure = this.errorBody(error);
       status = failure.status;
@@ -1259,9 +1391,46 @@ export class MockBackend {
         return this.historyPage(query);
       case 'GET /rankings/total-catch-weekly':
         return this.rankingResponse(query);
+      case 'GET /friends':
+        return this.social.list();
+      case 'POST /friends/requests':
+        return this.social.request(body.playerId);
+      case 'GET /me/dm':
+        return this.social.conversations();
       default:
-        throw new CommandError('VALIDATION_FAILED', `Mock chưa có ${method} ${path}`);
+        return this.routeWithId(method, path);
     }
+  }
+
+  /** Đường dẫn có id: hồ sơ công khai, trả lời lời mời, lịch sử tin riêng (BOT-02). */
+  private routeWithId(method: string, path: string): unknown {
+    const profile = /^\/players\/([^/]+)\/profile$/.exec(path);
+    if (method === 'GET' && profile) return this.publicProfile(decodeURIComponent(profile[1]!));
+    const answer = /^\/friends\/requests\/([^/]+)\/(accept|decline)$/.exec(path);
+    if (method === 'POST' && answer) {
+      const id = decodeURIComponent(answer[1]!);
+      return answer[2] === 'accept' ? this.social.accept(id) : this.social.decline(id);
+    }
+    const dm = /^\/me\/dm\/([^/]+)$/.exec(path);
+    if (method === 'GET' && dm) return this.social.history(decodeURIComponent(dm[1]!));
+    throw new CommandError('VALIDATION_FAILED', `Mock chưa có ${method} ${path}`);
+  }
+
+  /** Hồ sơ công khai: của mình (friendStatus self) hoặc của bot. */
+  private publicProfile(playerId: string) {
+    if (playerId !== MY_ID) return this.social.publicProfile(playerId);
+    return {
+      playerId: MY_ID,
+      displayName: this.displayName,
+      skinId: this.selectedSkinId,
+      level: this.level,
+      exp: this.exp,
+      titleId: this.titleId,
+      bio: this.bio,
+      showcase: this.showcase().slots,
+      online: true,
+      friendStatus: 'self' as const,
+    };
   }
 
   private login() {

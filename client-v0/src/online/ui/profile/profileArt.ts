@@ -119,6 +119,20 @@ const GRIDS: Record<string, string[]> = {
     '..kyyyyyk...',
     '.kkkkkkkkk..',
   ],
+  // Icon tạm ô "Bạn bè" trong menu HomeHud (BOT-02), chờ art thật: hai mặt thỏ cạnh nhau và trái tim.
+  friends: [
+    '.w.w....w.w...',
+    '.wpw....wpw...',
+    '.www....www...',
+    'wwwww..wwwww..',
+    'wewew..wewew..',
+    'wwpww..wwpww..',
+    '.www....www...',
+    '..........rr.r',
+    '.........rrrrr',
+    '..........rrr.',
+    '...........r..',
+  ],
   avatar: [
     '..ww....ww..',
     '..wp....pw..',

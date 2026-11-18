@@ -25,6 +25,8 @@ export const ERROR_TEXT: Record<ErrorCode | ClientErrorCode, string> = {
   INVALID_QUANTITY: 'Số lượng vé không hợp lệ.',
   PRICE_CHANGED: 'Giá vé vừa thay đổi, hãy xác nhận lại.',
   STATE_CONFLICT: 'Không thể thực hiện lúc này.',
+  PLAYER_NOT_FOUND: 'Không tìm thấy người chơi này.',
+  NOT_FRIENDS: 'Chỉ nhắn tin riêng được cho bạn bè.',
   NETWORK_ERROR: 'Không kết nối được máy chủ.',
   TIMEOUT: 'Máy chủ phản hồi quá lâu, hãy thử lại.',
 };

@@ -2,6 +2,8 @@ import Phaser from 'phaser';
 import type { Rarity } from '../core/gameplayConfig';
 import type { Direction } from '../net/contract';
 import { EMOTE_TEXTURE, emojiById, emoteAnimKey } from '../social/emojis';
+import { fishSpeciesOf } from '../social/fishEmoji';
+import { fishArtUrl } from '../ui/fishArt';
 import { RARITY_COLORS } from '../ui/kit/format';
 import { bakedData } from './characterArt';
 import {
@@ -100,6 +102,17 @@ const SAD_FACE_PX: Partial<Record<Direction, { dark: number[][]; tear: number[][
     ],
   },
 };
+/** Viền trắng quanh thân khi rê chuột/đứng gần (BOT-02, giống viền ghế): 4 bản sao trắng lệch 1px phía sau. */
+const OUTLINE_OFFSETS: readonly [number, number][] = [
+  [-1, 0],
+  [1, 0],
+  [0, -1],
+  [0, 1],
+];
+const OUTLINE_FADE_MS = 140;
+/** Icon cá trên đầu (emoji `fish:<loài>`): cạnh dài nhất bao nhiêu px. */
+const FISH_EMOTE_PX = 22;
+const fishTextureKey = (speciesId: string) => `fish-art:${speciesId}`;
 const SAD_FACE_DARK = 0x5a3a22;
 const SAD_FACE_TEAR = 0x7fd3ff;
 
@@ -126,6 +139,9 @@ export class CharacterView {
   private sad = false;
   /** Emoji buồn hiện bằng bong bóng trên đầu (pier) thay vì icon nhỏ. */
   private sadBubble: Phaser.GameObjects.Container | null = null;
+  /** Viền trắng (tạo khi cần lần đầu). */
+  private outline: Phaser.GameObjects.Sprite[] | null = null;
+  private outlined = false;
 
   constructor(
     private readonly scene: Phaser.Scene,
@@ -175,8 +191,48 @@ export class CharacterView {
       this.iconSlot,
     ]);
     this.container.setDepth(options.y);
+    this.body.on(Phaser.Animations.Events.ANIMATION_UPDATE, () => this.syncOutline());
     this.placeHeadItems();
     this.applyAnimation();
+  }
+
+  /** Bấm/rê chuột lên thân nhân vật (người khác trên pier.html): mở popup thông tin, hiện viền trắng. */
+  enablePointer(handlers: { onClick: () => void; onHover: (hover: boolean) => void }): void {
+    this.body.setInteractive({ pixelPerfect: true, useHandCursor: true });
+    this.body.on(Phaser.Input.Events.POINTER_OVER, () => handlers.onHover(true));
+    this.body.on(Phaser.Input.Events.POINTER_OUT, () => handlers.onHover(false));
+    this.body.on(Phaser.Input.Events.POINTER_UP, () => handlers.onClick());
+  }
+
+  /** Viền trắng quanh thân, hiện/ẩn mờ dần như viền ghế ngồi được. */
+  setOutlined(on: boolean): void {
+    if (on === this.outlined) return;
+    this.outlined = on;
+    if (on && !this.outline) {
+      this.outline = OUTLINE_OFFSETS.map(([dx, dy]) =>
+        this.scene.add.sprite(dx, dy, this.body.texture.key).setTintFill(0xffffff).setAlpha(0),
+      );
+      this.container.addAt(this.outline, 0);
+      this.syncOutline();
+    }
+    if (!this.outline) return;
+    this.scene.tweens.killTweensOf(this.outline);
+    this.scene.tweens.add({
+      targets: this.outline,
+      alpha: on ? 1 : 0,
+      duration: OUTLINE_FADE_MS,
+      ease: 'Sine.easeOut',
+    });
+  }
+
+  /** Viền đi theo đúng frame của thân (cả khi đổi skin, hướng, animation). */
+  private syncOutline(): void {
+    if (!this.outline) return;
+    for (const sprite of this.outline) {
+      sprite.setTexture(this.body.texture.key, this.body.frame.name);
+      sprite.setFlipX(this.body.flipX);
+      if (!this.body.frame.customPivot) sprite.setOrigin(0.5, 1);
+    }
   }
 
   /** Đổi tên hiển thị trên đầu (người chơi vừa đổi tên ở màn Tài khoản). */
@@ -366,6 +422,7 @@ export class CharacterView {
     this.scene.tweens.killTweensOf(this.iconSlot.list);
     this.scene.tweens.killTweensOf(this.bubble);
     this.scene.tweens.killTweensOf(this.rod);
+    if (this.outline) this.scene.tweens.killTweensOf(this.outline);
     this.container.destroy(true);
   }
 
@@ -373,8 +430,9 @@ export class CharacterView {
   clearEmote(): void {
     if (this.headBubbleKind === 'emote') this.hideHeadBubble();
     const sprites = this.iconSlot.list.filter(
-      (child): child is Phaser.GameObjects.Sprite =>
-        child instanceof Phaser.GameObjects.Sprite && child.texture.key === EMOTE_TEXTURE,
+      (child): child is Phaser.GameObjects.Sprite | Phaser.GameObjects.Image =>
+        (child instanceof Phaser.GameObjects.Sprite || child instanceof Phaser.GameObjects.Image) &&
+        (child.texture.key === EMOTE_TEXTURE || child.texture.key.startsWith('fish-art:')),
     );
     for (const sprite of sprites) {
       this.scene.tweens.add({
@@ -389,6 +447,11 @@ export class CharacterView {
 
   /** Emoji động trên đầu; chưa nạp được sheet emoji thì hiện mã emoji bằng chữ. */
   private showEmote(emojiId: string): void {
+    const fish = fishSpeciesOf(emojiId);
+    if (fish) {
+      this.showFishEmote(fish);
+      return;
+    }
     const emoji = emojiById(emojiId);
     if (!emoji || !this.scene.anims.exists(emoteAnimKey(emoji.art))) {
       this.iconSlot.add(
@@ -403,6 +466,29 @@ export class CharacterView {
       return;
     }
     this.showEmoteArt(emoji.art);
+  }
+
+  /** Icon cá (ảnh loài trong ui/fishArt) trên đầu như emoji; tải ảnh lần đầu rồi mới hiện. */
+  private showFishEmote(speciesId: string): void {
+    const key = fishTextureKey(speciesId);
+    const show = () => {
+      if (!this.container.active || !this.scene.textures.exists(key)) return;
+      const image = this.scene.add.image(0, 0, key).setOrigin(0.5);
+      const scale = FISH_EMOTE_PX / Math.max(image.width, image.height, 1);
+      image.setScale(scale);
+      if (hasHeadBubble(this.scene)) {
+        this.showHeadBubble(image, image.width * scale, image.height * scale, 'emote');
+        return;
+      }
+      this.iconSlot.add(image);
+    };
+    if (this.scene.textures.exists(key)) {
+      show();
+      return;
+    }
+    this.scene.load.image(key, fishArtUrl(speciesId));
+    this.scene.load.once(`filecomplete-image-${key}`, show);
+    this.scene.load.start();
   }
 
   /** Emoji động trong bong bóng Head Bubble trên đầu (pier.html). */
@@ -421,7 +507,7 @@ export class CharacterView {
    * (người dùng chốt 2026-11-14). Nảy lên khi hiện, thu nhỏ và mờ dần khi ẩn.
    */
   private showHeadBubble(
-    content: Phaser.GameObjects.Text | Phaser.GameObjects.Sprite,
+    content: Phaser.GameObjects.Text | Phaser.GameObjects.Sprite | Phaser.GameObjects.Image,
     contentW: number,
     contentH: number,
     kind: 'text' | 'emote',
@@ -530,6 +616,7 @@ export class CharacterView {
     this.body.play(animKey(this.skinId, bodyAnim, this.dir));
     this.drawSadFace();
     this.rod.play(animKey(this.rodId, this.anim, this.dir));
+    this.syncOutline();
     // Art thật mang pivot chân trong frame (Phaser tự áp); sprite vẽ tạm neo đáy-giữa.
     for (const sprite of [this.body, this.rod]) {
       if (!sprite.frame.customPivot) sprite.setOrigin(0.5, 1);

@@ -1,0 +1,352 @@
+/* Popup thông tin người chơi khác và popup "Bạn bè" (BOT-02). Dùng nền mờ .shop (shop.css), khung Secondary L,
+   ô cá Slot và nút Small/Primary M của popup Tài khoản (profile.css). Toạ độ theo màn thiết kế, thu theo --shop-scale. */
+.player-info {
+  z-index: 19;
+}
+
+/* :where() để không lấn độ ưu tiên của nút Small/Primary M (profile-dialog__btn). */
+:where(.player-info, .friends) button {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.player-info img,
+.friends img {
+  display: block;
+  image-rendering: pixelated;
+  user-select: none;
+}
+
+.player-info__panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  width: 640px;
+  padding: 26px 30px 34px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Infomation/Secondary%20L.png') 10 fill / 12px stretch;
+  transform: translate(-50%, -50%) scale(var(--shop-scale, 1.4));
+}
+
+.player-info__close {
+  top: -30px;
+  right: -30px;
+}
+
+.player-info__loading {
+  margin: 40px 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.player-info__top {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.player-info__avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  box-sizing: border-box;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Infomation/Slot%20-%20State%20Empty.png') 12 fill / 12px
+    stretch;
+}
+
+.player-info__face {
+  background-repeat: no-repeat;
+  transform: scale(2.4);
+}
+
+.player-info__id {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.player-info__name-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.player-info__name {
+  overflow: hidden;
+  font-size: 36px;
+  line-height: 42px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.player-info__level {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  color: #6b4a2e;
+}
+
+.player-info__bar {
+  flex: none;
+}
+
+.player-info__title {
+  padding: 4px 8px;
+  font-size: 22px;
+  text-align: center;
+  background: #fff3d0;
+  border: 4px solid #8a5a2b;
+}
+
+.player-info__bio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 84px;
+  padding: 10px 14px;
+  margin-top: 16px;
+  font-size: 22px;
+  line-height: 28px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  background: #fff3d0;
+  border: 4px solid #8a5a2b;
+}
+
+.player-info__caption {
+  margin: 14px 0 8px;
+  font-size: 20px;
+  color: #6b4a2e;
+  text-align: center;
+}
+
+.player-info__slots {
+  display: grid;
+  grid-template-columns: repeat(3, 112px);
+  gap: 23px;
+  justify-content: center;
+}
+
+.player-info__slot {
+  cursor: default;
+}
+
+.player-info__slot:hover {
+  filter: none;
+}
+
+.player-info__actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  margin-top: 20px;
+}
+
+.player-info__status {
+  font-size: 20px;
+  white-space: nowrap;
+  color: #2f9e44;
+}
+
+.player-info__btn,
+.friends__btn {
+  width: auto;
+  min-width: 160px;
+  padding: 0 18px !important;
+}
+
+.player-info__btn:disabled,
+.friends__btn:disabled {
+  cursor: default;
+  filter: grayscale(0.4);
+  opacity: 0.75;
+}
+
+/* Popup "Bạn bè". */
+.friends__panel {
+  height: 720px;
+  display: flex;
+  flex-direction: column;
+}
+
+.friends__title {
+  margin: 0 0 12px;
+  font-size: 34px;
+  text-align: center;
+}
+
+.friends__list {
+  flex: 1;
+  min-height: 0;
+  padding-right: 6px;
+  overflow-y: auto;
+  scrollbar-color: #8a5a2b #f3d9a3;
+  scrollbar-width: thin;
+}
+
+.friends__section {
+  margin: 12px 0 8px;
+  font-size: 22px;
+  color: #6b4a2e;
+}
+
+.friends__empty {
+  margin: 12px 0;
+  font-size: 20px;
+  line-height: 26px;
+  color: #a98a64;
+  text-align: center;
+}
+
+.friends__row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  background: #fff3d0;
+  border: 4px solid #d9a868;
+}
+
+.friends__row--request {
+  border-color: #e8782a;
+}
+
+.friends__who {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.friends__info {
+  min-width: 0;
+}
+
+.friends__name {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  overflow: hidden;
+  font-size: 24px;
+  white-space: nowrap;
+}
+
+.friends__meta {
+  font-size: 17px;
+  color: #6b4a2e;
+}
+
+.friends__actions {
+  display: flex;
+  flex: none;
+  gap: 8px;
+}
+
+.friends__actions .friends__btn {
+  min-width: 110px;
+  height: 46px;
+  font-size: 20px;
+}
+
+/* Mặt thỏ trong popup dùng lại khung avatar của khung chat. */
+.friends .chat-msg__avatar,
+.player-info .chat-msg__avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Emote%20Slot.png') 16 fill / 12px stretch;
+}
+
+.friends .chat-msg__face {
+  background-repeat: no-repeat;
+  transform: scale(1.1);
+}
+
+.friends .chat-direct__dot,
+.player-info .chat-direct__dot {
+  flex: none;
+  width: 12px;
+  height: 12px;
+  background: #9a8a7a;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+}
+
+.friends .chat-direct__dot--on,
+.player-info .chat-direct__dot--on {
+  background: #5cc85a;
+}
+
+/* Menu HomeHud có 7 ô (thêm "Bạn bè"): lưới 3 cột ô nhỏ hơn để vừa khung Menu Panel. */
+.home-menu__grid--compact {
+  left: 52px;
+  grid-template-columns: repeat(3, 104px);
+  gap: 18px;
+}
+
+.home-menu__grid--compact .home-menu__slot {
+  width: 104px;
+  height: 109px;
+}
+
+.home-menu__grid--compact .home-menu__frame {
+  width: 100%;
+  height: 100%;
+}
+
+.home-menu__grid--compact .home-menu__icon {
+  top: 28px;
+  left: 29px;
+  width: 46px;
+  height: 46px;
+}
+
+.home-menu__grid--compact .home-menu__slot--active::after {
+  inset: 0 0 6px;
+  border-width: 5px;
+}
+
+/* Chấm báo lời mời kết bạn (Claim Dot.png) trên nút mở menu và ô "Bạn bè". */
+.home-dot {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+}
+
+.home-dot[hidden] {
+  display: none !important;
+}
+
+.home-gold__menu {
+  position: relative;
+}
+
+.home-gold__menu .home-dot {
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+}

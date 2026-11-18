@@ -25,6 +25,9 @@ export const ERROR_CODES = [
   'INVALID_QUANTITY',
   'PRICE_CHANGED',
   'STATE_CONFLICT',
+  // BOT-02 (2026-11-18): kết bạn/tin riêng.
+  'PLAYER_NOT_FOUND',
+  'NOT_FRIENDS',
 ] as const;
 
 export type ErrorCode = (typeof ERROR_CODES)[number];
@@ -96,6 +99,85 @@ export interface ShowcaseSlot {
 
 export interface ShowcaseResponse {
   slots: ShowcaseSlot[];
+}
+
+/**
+ * GET /players/{id}/profile (BOT-02): hồ sơ công khai của người khác, không có Gold/UID/cờ bot.
+ * `friendStatus`: quan hệ của người xem với người này.
+ */
+export type FriendStatus = 'self' | 'friends' | 'pending_out' | 'pending_in' | 'none';
+
+export interface PublicProfile {
+  playerId: string;
+  displayName: string;
+  skinId: string;
+  level: number;
+  exp: number;
+  titleId: string;
+  bio: string;
+  showcase: ShowcaseSlot[];
+  /** Đang có mặt trong hồ. */
+  online: boolean;
+  friendStatus: FriendStatus;
+}
+
+/** Một người bạn trong GET /friends; `online` = đang trong hồ. */
+export interface FriendEntry {
+  playerId: string;
+  displayName: string;
+  skinId: string;
+  level: number;
+  online: boolean;
+}
+
+/** Lời mời kết bạn đang chờ mình trả lời (người gửi). */
+export interface FriendRequestEntry {
+  playerId: string;
+  displayName: string;
+  skinId: string;
+  level: number;
+  sentAt: string;
+}
+
+export interface FriendsResponse {
+  friends: FriendEntry[];
+  incoming: FriendRequestEntry[];
+  /** Người mình đã mời, đang chờ họ trả lời. */
+  outgoing: string[];
+}
+
+/** POST /friends/requests: `sent` đã gửi (hoặc đang chờ), `friends` đã là bạn. */
+export interface FriendRequestResult {
+  status: 'sent' | 'friends' | 'none';
+}
+
+/** Tin riêng giữa hai người bạn (event DirectMessageReceived, ack SendDirectMessage, GET /me/dm/{id}). */
+export interface DirectMessage {
+  messageId: string;
+  fromPlayerId: string;
+  toPlayerId: string;
+  fromName: string;
+  text: string;
+  sentAt: string;
+}
+
+export interface DirectMessagesResponse {
+  messages: DirectMessage[];
+}
+
+/** Một hội thoại trong tab "Tin riêng" (GET /me/dm). */
+export interface Conversation {
+  playerId: string;
+  displayName: string;
+  skinId: string;
+  online: boolean;
+  lastText: string;
+  lastFromPlayerId: string;
+  lastAt: string;
+}
+
+export interface ConversationsResponse {
+  conversations: Conversation[];
 }
 
 export interface Stats {
@@ -379,7 +461,10 @@ export interface HubCommands {
     ack: { attempt: AttemptView };
   };
   SendChat: { args: { text: string }; ack: null };
+  /** `emojiId`: emoji_01..16 hoặc `fish:<speciesId>` (loài người gửi đã câu, BOT-02). */
   SendEmoji: { args: { emojiId: string }; ack: null };
+  /** Tin riêng cho bạn bè (BOT-02); chưa là bạn thì lỗi NOT_FRIENDS. */
+  SendDirectMessage: { args: { toPlayerId: string; text: string }; ack: DirectMessage };
 }
 
 export type HubCommandName = keyof HubCommands;
@@ -422,6 +507,12 @@ export interface HubEvents {
     first: boolean;
     announcedAt: string;
   };
+  /** Tin riêng, tới cả người gửi và người nhận (mọi tab). */
+  DirectMessageReceived: DirectMessage;
+  /** Có người mời mình kết bạn. */
+  FriendRequestReceived: FriendRequestEntry;
+  /** Vừa thành bạn (gửi cho cả hai bên, mô tả người kia). */
+  FriendAdded: FriendEntry;
 }
 
 export type HubEventName = keyof HubEvents;

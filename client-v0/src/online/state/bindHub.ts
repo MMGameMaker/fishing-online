@@ -18,6 +18,9 @@ const EVENTS: HubEventName[] = [
   'ChatReceived',
   'EmojiReceived',
   'CatchAnnounced',
+  'DirectMessageReceived',
+  'FriendRequestReceived',
+  'FriendAdded',
 ];
 
 /** Nối event của hub vào store; trả hàm gỡ. */

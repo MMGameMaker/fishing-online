@@ -42,6 +42,7 @@ public sealed class LakeCommands(
         if (session is not null) await seats.ClearDisconnectedAsync(playerId, ct);
         var ticket = await seats.GetTicketAsync(playerId, ct);
 
+        Guid? evicted = null;
         await room.Queue.RunAsync(async () =>
         {
             var now = time.GetUtcNow();
@@ -66,7 +67,13 @@ public sealed class LakeCommands(
             }
             else
             {
-                if (room.Count >= MaxPlayers) throw new GameException("STATE_CONFLICT");
+                // Chỉ user thật tính vào giới hạn; hồ đầy vì bot thì một bot rời đi nhường chỗ (BOT-02).
+                if (room.HumanCount >= MaxPlayers) throw new GameException("STATE_CONFLICT");
+                if (room.Count >= MaxPlayers && room.EvictOneBot() is { } botId)
+                {
+                    evicted = botId;
+                    await room.BroadcastAsync("PlayerLeft", new PlayerLeftView(botId));
+                }
                 var player = new RoomPlayer
                 {
                     PlayerId = playerId,
@@ -87,6 +94,7 @@ public sealed class LakeCommands(
             await room.Groups.AddToGroupAsync(connectionId, room.Group, CancellationToken.None);
             return true;
         });
+        if (evicted is { } bot) await room.RaiseBotEvictedAsync(bot);
 
         var seatViews = await seats.SeatViewsAsync(ct);
         var myAttempt = await attempts.GetActiveViewAsync(playerId, ct);

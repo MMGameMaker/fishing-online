@@ -3,6 +3,10 @@ import type { Catalog, Rarity } from '../core/gameplayConfig';
 import {
   isSeatEnded,
   type AttemptView,
+  type DirectMessage,
+  type FriendEntry,
+  type FriendRequestEntry,
+  type FriendsResponse,
   type HubEventName,
   type HubEvents,
   type InventoryResponse,
@@ -15,6 +19,8 @@ import {
 } from '../net/contract';
 
 export const CHAT_LOG_LIMIT = 100;
+/** Số tin riêng giữ cho mỗi hội thoại. */
+export const DM_LOG_LIMIT = 100;
 
 export interface ShownCatch {
   speciesId: string;
@@ -52,8 +58,32 @@ export type ChatEntry = HubEvents['ChatReceived'] & {
   announce?: HubEvents['CatchAnnounced'];
 };
 
+/** Bạn bè, lời mời, tin riêng và loài đã câu (BOT-02). */
+export interface SocialState {
+  /** null khi chưa tải GET /friends. */
+  friends: FriendEntry[] | null;
+  incoming: FriendRequestEntry[];
+  outgoing: string[];
+  /** Tin riêng theo id người kia, cũ trước mới sau. */
+  dms: Record<string, DirectMessage[]>;
+  /** Số tin riêng chưa xem theo id người kia. */
+  dmUnread: Record<string, number>;
+  /** Loài đã câu (Sổ tay cá) để dựng ô icon cá trong bảng Biểu cảm; null khi chưa tải. */
+  caughtSpecies: string[] | null;
+}
+
+export const initialSocial: SocialState = {
+  friends: null,
+  incoming: [],
+  outgoing: [],
+  dms: {},
+  dmUnread: {},
+  caughtSpecies: null,
+};
+
 export interface GameState {
   session: { profile: PlayerProfile | null; gold: string | null };
+  social: SocialState;
   lake: LakeState;
   attempt: AttemptView | null;
   inventory: InventoryResponse | null;
@@ -70,7 +100,13 @@ export type GameAction =
   | { type: 'lake/serverOffset'; payload: number }
   | { type: 'inventory/set'; payload: InventoryResponse }
   | { type: 'progress/set'; payload: ProgressResponse }
-  | { type: 'catalog/set'; payload: Catalog };
+  | { type: 'catalog/set'; payload: Catalog }
+  | { type: 'social/friends'; payload: FriendsResponse }
+  | { type: 'social/outgoing'; payload: string }
+  | { type: 'social/requestHandled'; payload: string }
+  | { type: 'social/dmHistory'; payload: { playerId: string; messages: DirectMessage[] } }
+  | { type: 'social/dmRead'; payload: string }
+  | { type: 'social/caught'; payload: string[] };
 
 export const initialLake: LakeState = {
   mapId: null,
@@ -91,6 +127,7 @@ export const initialLake: LakeState = {
 
 export const initialState: GameState = {
   session: { profile: null, gold: null },
+  social: initialSocial,
   lake: initialLake,
   attempt: null,
   inventory: null,
@@ -242,10 +279,98 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
   }
 }
 
+function mergeMessages(list: DirectMessage[], added: DirectMessage[]): DirectMessage[] {
+  const seen = new Set(list.map((m) => m.messageId));
+  const merged = [...list, ...added.filter((m) => !seen.has(m.messageId))];
+  merged.sort((a, b) => Date.parse(a.sentAt) - Date.parse(b.sentAt));
+  return merged.slice(-DM_LOG_LIMIT);
+}
+
+function reduceSocial(
+  social: SocialState,
+  action: GameAction,
+  myId: string | undefined,
+): SocialState {
+  switch (action.type) {
+    case 'social/friends':
+      return {
+        ...social,
+        friends: action.payload.friends,
+        incoming: action.payload.incoming,
+        outgoing: action.payload.outgoing,
+      };
+    case 'social/outgoing':
+      return social.outgoing.includes(action.payload)
+        ? social
+        : { ...social, outgoing: [...social.outgoing, action.payload] };
+    case 'social/requestHandled':
+      return { ...social, incoming: social.incoming.filter((r) => r.playerId !== action.payload) };
+    case 'FriendRequestReceived':
+      return {
+        ...social,
+        incoming: [
+          action.payload,
+          ...social.incoming.filter((r) => r.playerId !== action.payload.playerId),
+        ],
+      };
+    case 'FriendAdded': {
+      const friend = action.payload;
+      const friends = [
+        ...(social.friends ?? []).filter((f) => f.playerId !== friend.playerId),
+        friend,
+      ];
+      return {
+        ...social,
+        friends,
+        incoming: social.incoming.filter((r) => r.playerId !== friend.playerId),
+        outgoing: social.outgoing.filter((id) => id !== friend.playerId),
+      };
+    }
+    case 'DirectMessageReceived': {
+      const message = action.payload;
+      const mine = message.fromPlayerId === myId;
+      const other = mine ? message.toPlayerId : message.fromPlayerId;
+      const before = social.dms[other] ?? [];
+      const list = mergeMessages(before, [message]);
+      if (list.length === before.length && list.every((m, i) => m === before[i])) return social;
+      return {
+        ...social,
+        dms: { ...social.dms, [other]: list },
+        dmUnread: mine
+          ? social.dmUnread
+          : { ...social.dmUnread, [other]: (social.dmUnread[other] ?? 0) + 1 },
+      };
+    }
+    case 'social/dmHistory': {
+      const { playerId, messages } = action.payload;
+      return {
+        ...social,
+        dms: { ...social.dms, [playerId]: mergeMessages(social.dms[playerId] ?? [], messages) },
+      };
+    }
+    case 'social/dmRead':
+      if (!social.dmUnread[action.payload]) return social;
+      return { ...social, dmUnread: { ...social.dmUnread, [action.payload]: 0 } };
+    case 'social/caught':
+      return { ...social, caughtSpecies: action.payload };
+    case 'AttemptUpdate': {
+      // Câu được loài mới: ô icon cá hiện ngay trong bảng Biểu cảm, không cần tải lại Sổ tay.
+      const speciesId =
+        action.payload.phase === 'success' ? action.payload.result?.speciesId : null;
+      if (!speciesId || !social.caughtSpecies || social.caughtSpecies.includes(speciesId))
+        return social;
+      return { ...social, caughtSpecies: [...social.caughtSpecies, speciesId] };
+    }
+    default:
+      return social;
+  }
+}
+
 /** Reducer thuần cho mọi event ở SPEC mục 4 và phản hồi HTTP. */
 export function reduce(state: GameState, action: GameAction): GameState {
   const lake = reduceLake(state.lake, action);
-  const next = lake === state.lake ? state : { ...state, lake };
+  const social = reduceSocial(state.social, action, state.session.profile?.playerId);
+  const next = lake === state.lake && social === state.social ? state : { ...state, lake, social };
 
   switch (action.type) {
     case 'LakeSnapshot':

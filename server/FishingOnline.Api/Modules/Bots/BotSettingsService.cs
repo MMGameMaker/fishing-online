@@ -21,8 +21,7 @@ public sealed class BotSettingsService(GameDbContext db, TimeProvider time)
 
     public async Task<BotSettingsView> UpdateAsync(string actor, BotSettingsRequest request, CancellationToken ct)
     {
-        if (request.MinTotalPlayers is < 0 or > MaxPlayersLimit
-            || request.MaxBots is < 0 or > MaxPlayersLimit
+        if (!BotTiers.IsValid(request.Tiers, MaxPlayersLimit)
             || request.CheckIntervalSeconds is < MinIntervalSeconds or > MaxIntervalSeconds
             || request.SuccessRatePct is < 0 or > 100)
             throw new GameException(ErrorCatalog.ValidationFailed);
@@ -35,9 +34,8 @@ public sealed class BotSettingsService(GameDbContext db, TimeProvider time)
             db.Add(row);
         }
         row.Enabled = request.Enabled;
-        row.MinTotalPlayers = request.MinTotalPlayers;
         row.CheckIntervalSeconds = request.CheckIntervalSeconds;
-        row.MaxBots = request.MaxBots;
+        row.Tiers = [.. request.Tiers!];
         row.SuccessRatePct = request.SuccessRatePct;
         row.UpdatedBy = actor;
         row.UpdatedAt = time.GetUtcNow();
@@ -58,5 +56,5 @@ public sealed class BotSettingsService(GameDbContext db, TimeProvider time)
     }
 
     private static BotSettingsView ViewOf(BotSettingsRow row) => new(
-        row.Enabled, row.MinTotalPlayers, row.CheckIntervalSeconds, row.MaxBots, row.SuccessRatePct, row.UpdatedBy, row.UpdatedAt);
+        row.Enabled, row.CheckIntervalSeconds, row.SuccessRatePct, row.Tiers.ToArray(), row.UpdatedBy, row.UpdatedAt);
 }
