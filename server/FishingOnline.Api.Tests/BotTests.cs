@@ -102,7 +102,7 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
         });
 
     private static readonly string[] ClientPlayerFields =
-        ["playerId", "displayName", "skinId", "rodId", "x", "y", "dir", "seatId", "fishing"];
+        ["playerId", "displayName", "skinId", "rodId", "x", "y", "dir", "seatId", "fishing", "restSeatId"];
 
     private static async Task<T> EventuallyAsync<T>(Func<Task<T>> read, Func<T, bool> done, int timeoutMs = 20000)
     {
@@ -545,6 +545,50 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
 
         Assert.Empty(violations.Distinct());
         Assert.True(seatedSeen > 0, "No bot ever sat down during the soak run.");
+    }
+
+    [Fact]
+    public async Task Soak_BotsSitOnRestSeats_NeverTwoOnOneSpot()
+    {
+        // Yêu cầu 2026-11-18: bot ngồi chơi ghế quanh bàn ngẫu nhiên; mỗi chỗ (nửa ghế đôi) chỉ một người.
+        var app = StartApp(realTimers: true, settings: new Dictionary<string, string> { ["Lake:RestSeatCount"] = "28" });
+        await SetSettingsAsync(app, Tiers((0, 8, 0)));
+        var manager = app.Service<BotManager>();
+        for (var i = 0; i < 8; i++) await manager.CheckOnceAsync(default);
+        var room = app.Service<FishingOnline.Api.Modules.Lake.LakeRoom>();
+        var map = BotMap.Load();
+
+        var violations = new List<string>();
+        var restingSeen = 0;
+        var deadline = DateTime.UtcNow.AddSeconds(60);
+        while (DateTime.UtcNow < deadline)
+        {
+            var views = await room.Queue.RunAsync(() => Task.FromResult(room.Views()));
+            var resting = views.Where(view => view.RestSeatId is not null).ToArray();
+            restingSeen = Math.Max(restingSeen, resting.Length);
+            foreach (var group in resting.GroupBy(view => view.RestSeatId).Where(group => group.Count() > 1))
+                violations.Add($"rest seat {group.Key} has {group.Count()} occupants");
+            foreach (var sitter in resting)
+            {
+                var spot = map.RestSeats.Single(seat => seat.RestSeatId == sitter.RestSeatId);
+                if (Math.Abs(sitter.X - spot.X) > 0.5 || Math.Abs(sitter.Y - spot.Y) > 0.5)
+                    violations.Add($"{sitter.DisplayName} on {sitter.RestSeatId} is not at the seat ({sitter.X:0},{sitter.Y:0})");
+                if (sitter.SeatId is not null) violations.Add($"{sitter.DisplayName} holds a fishing seat and a rest seat");
+            }
+            await Task.Delay(200);
+        }
+
+        Assert.Empty(violations.Distinct());
+        Assert.True(restingSeen > 0, "No bot ever sat on a rest seat during the soak run.");
+    }
+
+    [Fact]
+    public void BotMap_HasRestSeats_MatchingClientMap()
+    {
+        var map = BotMap.Load();
+        Assert.Equal(28, map.RestSeats.Count);
+        Assert.Equal(38, map.Seats.Count);
+        Assert.Equal(map.RestSeats.Count, map.RestSeats.Select(seat => seat.RestSeatId).Distinct().Count());
     }
 
     [Fact]

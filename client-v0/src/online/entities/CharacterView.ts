@@ -139,6 +139,7 @@ export class CharacterView {
   private anim: CharacterAnim = 'idle';
   /** Đang ngồi ghế: 'idle' hiển thị thành tư thế ngồi. */
   private seated = false;
+  private depthOverride: number | null = null;
   /** Lớp điểm ảnh mặt buồn, nằm giữa thân và cần. */
   private readonly sadFace: Phaser.GameObjects.Graphics;
   private sad = false;
@@ -270,7 +271,15 @@ export class CharacterView {
   }
 
   setPosition(x: number, y: number): void {
-    this.container.setPosition(x, y).setDepth(y);
+    this.container.setPosition(x, y).setDepth(this.depthOverride ?? y);
+  }
+
+  /**
+   * Độ sâu cố định khi ngồi ghế dài dọc (ghế đè lên người ngồi nửa trên nếu theo y chân); null để về theo y.
+   */
+  setDepthOverride(depth: number | null): void {
+    this.depthOverride = depth;
+    this.container.setDepth(depth ?? this.container.y);
   }
 
   setDirection(dir: Direction): void {

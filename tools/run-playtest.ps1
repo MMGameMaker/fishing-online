@@ -25,7 +25,7 @@ $pidFile = Join-Path $work 'pids.json'
 $apiPort = 5080
 $webPort = 8080
 # Map pier: phai khop client-v0/src/online/scenes/pier/fishingPierMap.json (cung gia tri voi run-local.ps1).
-$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-2'; SeatCount = '30' }
+$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-3'; SeatCount = '38'; RestSeatCount = '28' }
 
 function Write-Step([string]$text) { Write-Host "`n==> $text" -ForegroundColor Cyan }
 function Need([string]$cmd, [string]$hint) {
@@ -113,6 +113,7 @@ $env:Gameplay__ConfigPath = $configCopy
 $env:Lake__MapId = $pierMap.MapId
 $env:Lake__MapVersion = $pierMap.MapVersion
 $env:Lake__SeatCount = $pierMap.SeatCount
+$env:Lake__RestSeatCount = $pierMap.RestSeatCount
 $env:Auth__JwtSigningKey = [IO.File]::ReadAllText($keyFile).Trim()
 $env:Logging__LogLevel__Microsoft__EntityFrameworkCore = 'Warning'
 Remove-Item Env:\Auth__DevBypass -ErrorAction SilentlyContinue

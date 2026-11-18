@@ -37,7 +37,19 @@ export const BOT_TO_SEAT_MS = 30_000;
 export type BotState =
   | { mode: 'wander'; untilMs: number }
   | { mode: 'toSeat'; seatId: string; giveUpMs: number }
-  | { mode: 'fishing'; seatId: string; nextResultMs: number; roundsLeft: number };
+  | { mode: 'fishing'; seatId: string; nextResultMs: number; roundsLeft: number }
+  /** Ngồi chơi ở ghế quanh bàn (yêu cầu 2026-11-18), không chiếm suất câu. */
+  | { mode: 'toRest'; restSeatId: string; giveUpMs: number }
+  | { mode: 'resting'; restSeatId: string; untilMs: number };
+
+/** Hết giờ dạo thì có xác suất này đi ngồi chơi một ghế trống thay vì tìm ghế câu. */
+export const BOT_REST_CHANCE = 0.3;
+/** Ngồi chơi bao lâu (ms). */
+export const BOT_REST_MS = [15_000, 40_000] as const;
+
+export function startResting(restSeatId: string, nowMs: number, random: () => number): BotState {
+  return { mode: 'resting', restSeatId, untilMs: nowMs + between(random, BOT_REST_MS) };
+}
 
 const between = (random: () => number, [min, max]: readonly [number, number]) =>
   Math.round(min + random() * (max - min));

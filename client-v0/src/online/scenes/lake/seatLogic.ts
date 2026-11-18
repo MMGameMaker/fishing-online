@@ -12,8 +12,36 @@ export function isNearSeat(x: number, y: number, seat: { x: number; y: number })
   return Math.hypot(x - seat.x, y - seat.y) <= NEAR_SEAT_PX;
 }
 
-/** Ghế gần nhất trong tầm ngồi; `isFree` lọc ghế còn trống (bỏ qua thì lấy mọi ghế). */
-export function nearestSeat<T extends { x: number; y: number }>(
+/** Điểm ngồi; `bench` chung cho các chỗ của cùng một ghế dài (yêu cầu 2026-11-18). */
+interface SeatPoint {
+  x: number;
+  y: number;
+  bench?: string;
+}
+
+/**
+ * Khoảng cách tới ghế để xét tầm ngồi: ghế dài tính tới nửa gần nhất của cả ghế, nên đứng cạnh nửa đã có người
+ * vẫn ngồi được vào nửa còn lại.
+ */
+export function seatReach<T extends SeatPoint>(
+  x: number,
+  y: number,
+  seat: T,
+  seats: readonly T[],
+): number {
+  let reach = Math.hypot(x - seat.x, y - seat.y);
+  if (!seat.bench) return reach;
+  for (const other of seats) {
+    if (other.bench === seat.bench) reach = Math.min(reach, Math.hypot(x - other.x, y - other.y));
+  }
+  return reach;
+}
+
+/**
+ * Ghế gần nhất trong tầm ngồi; `isFree` lọc ghế còn trống (bỏ qua thì lấy mọi ghế). Ghế dài: đứng trong tầm nửa
+ * nào cũng được, và chọn nửa còn trống gần mình nhất (người đầu vào nửa gần, người sau vào nửa còn lại).
+ */
+export function nearestSeat<T extends SeatPoint>(
   x: number,
   y: number,
   seats: readonly T[],
@@ -23,7 +51,8 @@ export function nearestSeat<T extends { x: number; y: number }>(
   let bestDistance = Infinity;
   for (const seat of seats) {
     const distance = Math.hypot(x - seat.x, y - seat.y);
-    if (distance > NEAR_SEAT_PX || distance >= bestDistance || !isFree(seat)) continue;
+    if (distance >= bestDistance || !isFree(seat)) continue;
+    if (seatReach(x, y, seat, seats) > NEAR_SEAT_PX) continue;
     best = seat;
     bestDistance = distance;
   }

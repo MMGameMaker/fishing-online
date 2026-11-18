@@ -591,3 +591,35 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 - **Lỗi hai người chồng một ghế (2026-11-17, server thật):** nguyên nhân là bot "ngồi ma". Khi Server kết thúc phiên ngồi của bot (hết vé, bị watchdog khởi động lại, lỗi giữa chừng), vị trí bot vẫn nằm ở toạ độ ghế; DB báo ghế trống nên người thật hoặc bot khác ngồi vào đúng chỗ đó. Đã sửa: `BotAgent.LeaveSeatSpotAsync` đưa bot ra chỗ trống gần ghế (đi bộ, bị chặn thì đặt thẳng) trong mọi đường thoát, và kiểm tra phiên còn sống trước mỗi lượt câu; bot không chọn ghế có người đứng sát vị trí ghế và kiểm lại ngay trước khi ngồi. `SeatSessions.SitDownAsync` thêm chốt theo phòng (ghế đã có người ngồi trong phòng thì `SEAT_TAKEN`) ngoài chỉ mục duy nhất của DB. Không đổi contract. Người thật vẫn đi bộ lên được vị trí ghế đang có bot ngồi (Server không kiểm đi lại), nhưng không ngồi được.
 - **Client mock:** cùng luật qua `tooClose`/`SPOT_GAP` và tham số `accept` của `pickWanderTarget`; bot mock tránh vị trí người chơi và bot khác (chưa có vùng chính/watchdog vì mock bot có tự thoát khi kẹt 3 giây).
 - **Kiểm tra:** vitest 291 qua, tsc/eslint sạch; Server 13 test bot qua (thêm vùng chính, `BotSpots`, watchdog khởi động lại, bot tránh người đứng đè). Chưa xem trực tiếp trong game.
+
+## Ghế ngồi chơi và ghế dài câu cá (2026-11-18, yêu cầu người dùng)
+- **Yêu cầu đã chốt với người dùng:**
+  - Ghế quanh bàn ngồi được: đứng gần bấm F để ngồi, bấm F lần nữa hoặc phím di chuyển để đứng. Chỉ để ngồi chơi và chat; tác dụng khác người dùng bổ sung sau.
+  - Ghế dài 2 chỗ: người đầu vào nửa gần mình hơn, người sau vào nửa còn lại. Chỗ đã có người thì người khác không ngồi được.
+  - Ghế đẩu quanh bàn đi xuyên qua được.
+  - 4 ghế dài cạnh nước đi xuyên qua được, mỗi ghế 2 chỗ câu.
+  - Bot thỉnh thoảng ngồi một ghế trống ngẫu nhiên.
+- **Map (`fishingPierMap.json`, `mapVersion` `pier-3`; bản sao bot `server/.../Bots/pier-map.json` sinh lại từ file này):**
+  - `lake.seats` 30 → **38**: `seat-31..38` trên 4 ghế dài cạnh nước. Ghế ngang A (494,38) và B (854,549) nhìn xuống; ghế dọc (432,320) quay phải và (768,288) quay trái ra nước.
+  - Mục mới `lake.restSeats` có **28** chỗ (`rest-01..28`): 20 ghế đẩu quanh 5 bàn nhỏ (quay vào bàn) và 2 bàn picnic × 2 băng × 2 chỗ.
+  - Trường `bench` gom 2 chỗ của cùng ghế dài. Trường `depth` dùng cho ghế dọc, để người ngồi nửa trên không bị ghế che.
+  - Mở 145 ô lưới đi được dưới 20 ghế đẩu quanh bàn và 4 ghế dài cạnh nước. Ghế đẩu câu cá và băng ghế picnic vẫn chặn.
+- **Contract (Client + Server cùng sửa, Claude chịu trách nhiệm):**
+  - `PlayerView.restSeatId?: string | null` (Server cũ không gửi = không ngồi).
+  - Lệnh hub `SitRest { restSeatId, x, y, dir }` và `StandRest {}`. Chỗ đã có người thì `SEAT_TAKEN`; đang ngồi ghế câu thì `ALREADY_HAS_SEAT`; chỗ không có thì `VALIDATION_FAILED`.
+  - Server phát `PlayerJoined` cho cả phòng (kể cả người ngồi) khi ngồi hoặc đứng.
+- **Server:**
+  - Giữ chỗ trong RAM (`RoomPlayer.RestSeatId`, kiểm tra trong hàng đợi phòng nên ngồi tranh chỉ một người được).
+  - Tự trả chỗ khi: rời phòng, vào lại hồ, `Move` lệch quá 2 px khỏi chỗ ngồi, hoặc ngồi ghế câu.
+  - Cấu hình mới `Lake:RestSeatCount` (mặc định 0). `run-local.ps1`/`run-playtest.ps1`: `SeatCount` 38, `RestSeatCount` 28, `MapVersion` pier-3.
+  - Bot: sau mỗi lượt dạo có 30% đi ngồi chơi một chỗ trống ngẫu nhiên trong 15–40 giây (`BotAgent.RestSessionAsync`). Không chiếm suất câu; khi được bảo dừng hoặc khởi động lại thì đứng dậy.
+- **Client:**
+  - `LakeScene`: F chọn chỗ trống gần nhất giữa ghế câu và chỗ ngồi chơi. Ghế dài tính tầm từ nửa gần nhất (`seatLogic.seatReach`), nên đứng cạnh nửa đã có người vẫn ngồi được nửa còn lại.
+  - Viền trắng có thêm trên ghế dài và băng ghế picnic (`PierArt`). Người khác ngồi chơi hiện tư thế ngồi.
+  - Mock: `SitRest`/`StandRest`; bot mock 30% đi ngồi chơi 15–40 giây.
+- **Kiểm tra:**
+  - Client: tsc, eslint, prettier sạch; vitest 332 qua (thêm test map, ghế đôi, mock).
+  - Server: build sạch; 9 test `RestSeatTests`, test bot chạy lâu (không bao giờ 2 người một chỗ, bot có ngồi), test map bot 28/38 chỗ.
+  - Mock `pier.html?dev=…`: ngồi ghế đẩu và băng picnic, F đứng dậy, chỗ bot đã ngồi báo "Ghế đã có người", bot mock tự ngồi chơi; người ngồi câu ở 4 ghế dài có phao rơi xuống nước.
+  - Server thật (khởi động lại bằng `run-local.ps1 -Mode real`, 2026-11-18): snapshot trả `pier-3`, 38 ghế câu và có `restSeatId`. Người chơi bấm F ngồi `rest-01`, F lần nữa đứng dậy. Trong khoảng 2 phút, bot Server ngồi 19 lượt trên 17 chỗ, có lúc 6 bot ngồi cùng lúc, không lần nào 2 người trùng một chỗ. Chưa thử ngồi câu ở ghế dài trên Server thật.
+- **Lưu ý:** ghế B có phao rơi sát ống khói thuyền lớn, vẫn trên mặt nước. Người thật vẫn đi bộ lên được chỗ đang có người ngồi (Server không kiểm tra đi lại), nhưng không ngồi được.

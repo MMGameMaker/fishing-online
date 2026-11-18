@@ -39,6 +39,7 @@ import {
   nearestStandable,
   type LakeMap,
   type LakeSeat,
+  type RestSeat,
 } from '../scenes/lake/walkable';
 import {
   addStats,
@@ -63,10 +64,12 @@ import {
   type AchievementCounters,
 } from './achievements';
 import {
+  BOT_REST_CHANCE,
   BOT_TO_SEAT_MS,
   nextRound,
   pickBotNames,
   startFishing,
+  startResting,
   startWander,
   type BotState,
 } from './botFishing';
@@ -230,6 +233,8 @@ export class MockBackend {
   private readonly codex = new Map<string, CodexRuntime>();
   private readonly history: HistoryEntry[] = [];
   private position: { x: number; y: number; dir: Direction };
+  /** Chỗ ngồi chơi người chơi đang ngồi (yêu cầu 2026-11-18). */
+  private myRestSeatId: string | null = null;
   private lastMoveSeq = 0;
   private readonly seats = new Map<string, SeatRuntime>();
   private session: SessionRuntime | null = null;
@@ -444,7 +449,9 @@ export class MockBackend {
   }
 
   private botSeatHolders(): string[] {
-    return [...this.botStates].filter(([, s]) => s.mode !== 'wander').map(([id]) => id);
+    return [...this.botStates]
+      .filter(([, s]) => s.mode === 'toSeat' || s.mode === 'fishing')
+      .map(([id]) => id);
   }
 
   /** Thừa suất ngồi: bot đang tới ghế bỏ ghế trước, rồi bot đang câu đứng dậy. */
@@ -652,8 +659,11 @@ export class MockBackend {
   private tickFishingBot(bot: PlayerView): boolean {
     const state = this.botStates.get(bot.playerId);
     if (!state) return false;
+    if (state.mode === 'toRest' || state.mode === 'resting') return this.tickRestingBot(bot, state);
     if (state.mode === 'wander') {
       if (this.nowMs < state.untilMs) return false;
+      // Thỉnh thoảng đi ngồi chơi một ghế trống ngẫu nhiên thay vì tìm ghế câu (yêu cầu 2026-11-18).
+      if (this.random() < BOT_REST_CHANCE && this.startBotRest(bot)) return true;
       // Chỉ đúng số "bot được câu" mới tới ghế; bot khác tiếp tục đi dạo và chat (BOT-02).
       if (this.botSeatHolders().length >= this.allowedBotSeats()) {
         this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
@@ -696,34 +706,12 @@ export class MockBackend {
       }
       // Đi bộ tới chỗ đứng cạnh ghế theo đường vòng qua vật cản; không có đường hoặc kẹt thì bỏ ghế này,
       // không dịch chuyển lên ghế (feedback 2026-11-16).
-      const walk = this.botWalks.get(bot.playerId) ?? {
-        target: null,
-        pauseUntilMs: 0,
-        stuck: 0,
-        route: null,
-      };
-      this.botWalks.set(bot.playerId, walk);
-      if (!walk.route) {
-        walk.route = findRoute(this.map, bot, stand);
-        walk.stuck = 0;
-        if (!walk.route) {
-          this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
-          return false;
-        }
+      const progress = this.walkBotTo(bot, stand);
+      if (progress === 'failed') {
+        this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+        return false;
       }
-      const waypoint = walk.route[0];
-      if (waypoint) {
-        if (this.stepBot(bot, waypoint.x, waypoint.y) && walk.stuck < BOT_STUCK_TICKS)
-          walk.route.shift();
-        if (walk.stuck >= BOT_STUCK_TICKS) {
-          walk.route = null;
-          walk.stuck = 0;
-          this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
-          return false;
-        }
-        if (walk.route.length > 0) return true;
-      }
-      walk.route = null;
+      if (progress === 'walking') return true;
       seat.state = 'occupied';
       seat.occupantPlayerId = bot.playerId;
       bot.x = seat.info.x;
@@ -803,6 +791,132 @@ export class MockBackend {
     });
   }
 
+  /** Đi bộ theo đường vòng qua vật cản tới `stand`: còn đi, đã tới, hoặc không có đường/kẹt. */
+  private walkBotTo(
+    bot: PlayerView,
+    stand: { x: number; y: number },
+  ): 'walking' | 'arrived' | 'failed' {
+    const walk = this.botWalks.get(bot.playerId) ?? {
+      target: null,
+      pauseUntilMs: 0,
+      stuck: 0,
+      route: null,
+    };
+    this.botWalks.set(bot.playerId, walk);
+    if (!walk.route) {
+      walk.route = findRoute(this.map, bot, stand);
+      walk.stuck = 0;
+      if (!walk.route) return 'failed';
+    }
+    const waypoint = walk.route[0];
+    if (waypoint) {
+      if (this.stepBot(bot, waypoint.x, waypoint.y) && walk.stuck < BOT_STUCK_TICKS)
+        walk.route.shift();
+      if (walk.stuck >= BOT_STUCK_TICKS) {
+        walk.route = null;
+        walk.stuck = 0;
+        return 'failed';
+      }
+      if (walk.route.length > 0) return 'walking';
+    }
+    walk.route = null;
+    return 'arrived';
+  }
+
+  // ---------- Chỗ ngồi chơi (ghế quanh bàn, không câu; yêu cầu 2026-11-18) ----------
+
+  private restSeatInfo(restSeatId: string): RestSeat | undefined {
+    return (this.map.restSeats ?? []).find((seat) => seat.restSeatId === restSeatId);
+  }
+
+  /** Chỗ đã có người ngồi (mình hoặc bot) hoặc đang có bot đi tới. */
+  private restTaken(restSeatId: string, exceptBotId?: string): boolean {
+    if (this.myRestSeatId === restSeatId) return true;
+    if (this.bots.some((bot) => bot.restSeatId === restSeatId)) return true;
+    return [...this.botStates].some(
+      ([id, state]) =>
+        id !== exceptBotId && state.mode === 'toRest' && state.restSeatId === restSeatId,
+    );
+  }
+
+  /** Chọn ngẫu nhiên một chỗ ngồi chơi trống để bot đi tới; false nếu map không có hoặc đã kín. */
+  private startBotRest(bot: PlayerView): boolean {
+    const free = (this.map.restSeats ?? []).filter((seat) => !this.restTaken(seat.restSeatId));
+    const seat = free[Math.floor(this.random() * free.length)];
+    if (!seat) return false;
+    this.botStates.set(bot.playerId, {
+      mode: 'toRest',
+      restSeatId: seat.restSeatId,
+      giveUpMs: this.nowMs + BOT_TO_SEAT_MS,
+    });
+    return true;
+  }
+
+  private tickRestingBot(
+    bot: PlayerView,
+    state: Extract<BotState, { mode: 'toRest' } | { mode: 'resting' }>,
+  ): boolean {
+    const seat = this.restSeatInfo(state.restSeatId);
+    if (state.mode === 'resting') {
+      if (this.nowMs < state.untilMs && seat) return true;
+      this.botStandRest(bot);
+      this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+      return true;
+    }
+    if (!seat || this.nowMs > state.giveUpMs || this.restTaken(seat.restSeatId, bot.playerId)) {
+      this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+      return false;
+    }
+    const stand = nearestStandable(this.map, seat.x, seat.y) ?? this.map.spawn;
+    const progress = this.walkBotTo(bot, stand);
+    if (progress === 'failed') {
+      this.botStates.set(bot.playerId, startWander(this.nowMs, this.random));
+      return false;
+    }
+    if (progress === 'walking') return true;
+    bot.restSeatId = seat.restSeatId;
+    bot.x = seat.x;
+    bot.y = seat.y;
+    bot.dir = seat.facing as Direction;
+    this.emit('PlayerJoined', { ...bot });
+    this.botStates.set(bot.playerId, startResting(seat.restSeatId, this.nowMs, this.random));
+    return true;
+  }
+
+  private botStandRest(bot: PlayerView): void {
+    if (!bot.restSeatId) return;
+    bot.restSeatId = null;
+    const spot = nearestStandable(this.map, bot.x, bot.y) ?? this.map.spawn;
+    bot.x = spot.x;
+    bot.y = spot.y;
+    this.emit('PlayerJoined', { ...bot });
+  }
+
+  private commandSitRest(args: Record<string, unknown>): null {
+    const seat = this.restSeatInfo(String(args.restSeatId));
+    const x = Number(args.x);
+    const y = Number(args.y);
+    const dir = args.dir as Direction;
+    if (!seat || !Number.isFinite(x) || !Number.isFinite(y) || !DIRECTIONS.includes(dir)) {
+      throw new CommandError('VALIDATION_FAILED');
+    }
+    if (this.session) throw new CommandError('ALREADY_HAS_SEAT');
+    if (this.myRestSeatId !== seat.restSeatId && this.restTaken(seat.restSeatId)) {
+      throw new CommandError('SEAT_TAKEN');
+    }
+    this.myRestSeatId = seat.restSeatId;
+    this.position = { x, y, dir };
+    this.emit('PlayerJoined', this.myView());
+    return null;
+  }
+
+  private commandStandRest(): null {
+    if (!this.myRestSeatId) return null;
+    this.myRestSeatId = null;
+    this.emit('PlayerJoined', this.myView());
+    return null;
+  }
+
   // ---------- Dữ liệu trả về ----------
 
   private iso(ms: number): string {
@@ -843,6 +957,7 @@ export class MockBackend {
       dir: this.position.dir,
       seatId: this.session?.seatId ?? null,
       fishing: this.attempt !== null,
+      restSeatId: this.myRestSeatId,
     };
   }
 
@@ -987,6 +1102,10 @@ export class MockBackend {
         return this.commandSitDown(args);
       case 'LeaveSeat':
         return this.commandLeave();
+      case 'SitRest':
+        return this.commandSitRest(args);
+      case 'StandRest':
+        return this.commandStandRest();
       case 'CastLine':
         return this.commandCast();
       case 'HookFish':
@@ -1034,7 +1153,10 @@ export class MockBackend {
       throw new CommandError('VALIDATION_FAILED');
     }
     // Giống Server: vị trí do Client báo, không kiểm tra map hay tốc độ.
+    const moved = Math.abs(x - this.position.x) > 2 || Math.abs(y - this.position.y) > 2;
     this.position = { x, y, dir };
+    // Đi khỏi chỗ ngồi chơi mà chưa báo đứng dậy: Server tự trả chỗ.
+    if (moved && this.myRestSeatId) this.commandStandRest();
     return null;
   }
 
@@ -1078,6 +1200,7 @@ export class MockBackend {
     if (!this.ticket || this.nowMs >= this.ticket.expiresAtMs) throw new CommandError('NO_TICKET');
     const seat = this.seatOf(String(args.seatId));
     if (seat.state === 'occupied') throw new CommandError('SEAT_TAKEN');
+    this.commandStandRest();
 
     this.session = {
       sessionId: this.nextId('session'),

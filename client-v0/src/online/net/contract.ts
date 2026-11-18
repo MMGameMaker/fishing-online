@@ -340,6 +340,11 @@ export interface PlayerView {
   dir: Direction;
   seatId: string | null;
   fishing: boolean;
+  /**
+   * Chỗ ngồi chơi đang ngồi (ghế quanh bàn, không câu; yêu cầu 2026-11-18), vd `rest-01`.
+   * Server cũ chưa gửi thì bỏ trống = không ngồi.
+   */
+  restSeatId?: string | null;
 }
 
 export interface SeatView {
@@ -454,6 +459,12 @@ export interface HubCommands {
   };
   SitDown: { args: { seatId: string }; ack: SitDownResult };
   LeaveSeat: { args: Record<string, never>; ack: null };
+  /**
+   * Ngồi chơi vào một chỗ (yêu cầu 2026-11-18): Server giữ chỗ, đã có người thì SEAT_TAKEN.
+   * Gửi kèm vị trí chỗ ngồi để Server đặt nhân vật vào đó.
+   */
+  SitRest: { args: { restSeatId: string; x: number; y: number; dir: Direction }; ack: null };
+  StandRest: { args: Record<string, never>; ack: null };
   CastLine: { args: Record<string, never>; ack: { attemptId: string } };
   HookFish: { args: { attemptId: string }; ack: null };
   SubmitFishingResult: {

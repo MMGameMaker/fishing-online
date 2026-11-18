@@ -176,7 +176,7 @@ describe('map chơi được của pier', () => {
   });
 
   it('mỗi ghế có chỗ đứng trong tầm ngồi và phao rơi xuống nước', () => {
-    expect(lake.seats).toHaveLength(30);
+    expect(lake.seats).toHaveLength(38);
     for (const seat of lake.seats) {
       // Ghế là vật cản: rời ghế thì bước sang chỗ đứng được gần nhất, không quá 24px.
       const stand = nearestStandable(lake, seat.x, seat.y, 24);
@@ -203,7 +203,28 @@ describe('va chạm map pier', () => {
   const objectsNamed = (frame: string): PierObject[] =>
     MAP.objects.filter((o) => o.frame === frame);
 
-  it('không đứng được giữa ghế đẩu, ghế băng, bàn, thùng, máy bán nước', () => {
+  /** Đi xuyên qua được (yêu cầu 2026-11-18): ghế đẩu quanh bàn và 4 ghế dài cạnh nước có chỗ câu. */
+  const passThrough = (o: PierObject): boolean =>
+    (o.frame === 'main-objects/stool' &&
+      !lake.seats.some(
+        (s) => s.x >= o.x && s.x <= o.x + o.w && s.y >= o.y && s.y <= (o.by ?? 0) + 4,
+      )) ||
+    (/^main-objects\/(frontBench|leftBench|rightBench)$/.test(o.frame) &&
+      lake.seats.some(
+        (s) => s.x >= o.x && s.x <= o.x + o.w && s.y >= o.y && s.y <= (o.by ?? 0) + 4,
+      ));
+
+  it('đi xuyên qua ghế đẩu quanh bàn và ghế dài cạnh nước', () => {
+    const open = MAP.objects.filter(passThrough);
+    expect(open).toHaveLength(24);
+    for (const o of open) {
+      const x = o.x + o.w / 2;
+      const y = (o.by ?? o.y + o.h) - 3;
+      expect(canStand(lake, x, y), `${o.frame} @${o.x},${o.y}`).toBe(true);
+    }
+  });
+
+  it('không đứng được giữa ghế đẩu câu, ghế băng khác, bàn, thùng, máy bán nước', () => {
     const frames = [
       'main-objects/stool',
       'main-objects/frontBench',
@@ -219,6 +240,7 @@ describe('va chạm map pier', () => {
       const list = objectsNamed(frame);
       expect(list.length, frame).toBeGreaterThan(0);
       for (const o of list) {
+        if (passThrough(o)) continue;
         // Tâm phần dưới của hình (chỗ vật chạm đất).
         const bottom = o.by ?? o.y + o.h;
         const x = o.x + o.w / 2;
@@ -259,22 +281,75 @@ describe('chồng thùng', () => {
 });
 
 describe('ghế câu của pier', () => {
-  it('mọi ghế câu nằm trên một ghế đẩu có sẵn của map (ghế băng không câu được)', () => {
-    const stools = MAP.objects.filter((o) => o.frame === 'main-objects/stool');
+  const onObject = (seat: { x: number; y: number }, frames: RegExp): PierObject | undefined =>
+    MAP.objects.find(
+      (o) =>
+        frames.test(o.frame) &&
+        seat.x >= o.x &&
+        seat.x <= o.x + o.w &&
+        seat.y >= o.y &&
+        seat.y <= (o.by ?? o.y + o.h) + 4,
+    );
+
+  it('ghế câu nằm trên ghế đẩu, hoặc 2 chỗ trên mỗi ghế dài cạnh nước (yêu cầu 2026-11-18)', () => {
+    const perBench = new Map<PierObject, number>();
     for (const seat of MAP.lake.seats) {
-      const onStool = stools.some(
+      const object = onObject(seat, /^main-objects\/(stool|frontBench|leftBench|rightBench)$/);
+      expect(object, seat.seatId).toBeDefined();
+      if (object && object.frame !== 'main-objects/stool') {
+        perBench.set(object, (perBench.get(object) ?? 0) + 1);
+      }
+    }
+    expect([...perBench.values()]).toEqual([2, 2, 2, 2]);
+  });
+
+  it('số ghế bằng số ghế Server chạy cho pier (Lake:SeatCount = 38)', () => {
+    expect(MAP.lake.seats.length).toBe(38);
+    expect(new Set(MAP.lake.seats.map((s) => s.seatId)).size).toBe(38);
+  });
+});
+
+describe('chỗ ngồi chơi của pier (yêu cầu 2026-11-18)', () => {
+  const rest = MAP.lake.restSeats ?? [];
+
+  it('28 chỗ (Lake:RestSeatCount = 28): 20 ghế đẩu quanh bàn + 2 bàn picnic × 2 băng × 2 chỗ', () => {
+    expect(rest).toHaveLength(28);
+    expect(new Set(rest.map((s) => s.restSeatId)).size).toBe(28);
+    const stools = rest.filter((s) =>
+      MAP.objects.some(
         (o) =>
-          seat.x >= o.x &&
-          seat.x <= o.x + o.w &&
-          seat.y >= o.y &&
-          seat.y <= (o.by ?? o.y + o.h) + 4,
-      );
-      expect(onStool, seat.seatId).toBe(true);
+          o.frame === 'main-objects/stool' &&
+          s.x >= o.x &&
+          s.x <= o.x + o.w &&
+          s.y >= o.y &&
+          s.y <= (o.by ?? 0) + 4,
+      ),
+    );
+    expect(stools).toHaveLength(20);
+  });
+
+  it('mỗi chỗ có chỗ đứng trong tầm bấm F, quay mặt vào bàn, không trùng ghế câu', () => {
+    for (const seat of rest) {
+      let reachable = false;
+      for (let dy = -NEAR_SEAT_PX; dy <= NEAR_SEAT_PX && !reachable; dy += 2) {
+        for (let dx = -NEAR_SEAT_PX; dx <= NEAR_SEAT_PX && !reachable; dx += 2) {
+          reachable =
+            isNearSeat(seat.x + dx, seat.y + dy, seat) &&
+            canStand(MAP.lake, seat.x + dx, seat.y + dy);
+        }
+      }
+      expect(reachable, seat.restSeatId).toBe(true);
+      expect(['left', 'right'], seat.restSeatId).toContain(seat.facing);
+      expect(
+        MAP.lake.seats.some((s) => Math.hypot(s.x - seat.x, s.y - seat.y) < 8),
+        seat.restSeatId,
+      ).toBe(false);
     }
   });
 
-  it('số ghế bằng số ghế Server chạy cho pier (Lake:SeatCount = 30)', () => {
-    expect(MAP.lake.seats.length).toBe(30);
-    expect(new Set(MAP.lake.seats.map((s) => s.seatId)).size).toBe(30);
+  it('ghế dài: người ngồi nửa dưới vẽ trên người ngồi nửa trên, cả hai trên ghế', () => {
+    const benches = [...MAP.lake.seats, ...rest].filter((s) => s.depth !== undefined);
+    expect(benches.length).toBe(12);
+    for (const seat of benches) expect(seat.depth!).toBeGreaterThan(seat.y);
   });
 });

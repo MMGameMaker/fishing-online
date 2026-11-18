@@ -18,7 +18,7 @@ $server = Join-Path $repo 'server'
 $clientPort = 5173
 $apiPort = 5080
 # Map pier: Server phải trả đúng mapId và số ghế như client-v0/src/online/scenes/pier/fishingPierMap.json.
-$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-2'; SeatCount = '30' }
+$pierMap = @{ MapId = 'fishing-pier'; MapVersion = 'pier-3'; SeatCount = '38'; RestSeatCount = '28' }
 
 function Write-Step([string]$text) { Write-Host "`n==> $text" -ForegroundColor Cyan }
 
@@ -156,6 +156,7 @@ function Start-RealBackend {
     $env:Lake__MapId = $pierMap.MapId
     $env:Lake__MapVersion = $pierMap.MapVersion
     $env:Lake__SeatCount = $pierMap.SeatCount
+    $env:Lake__RestSeatCount = $pierMap.RestSeatCount
     $env:Logging__LogLevel__Microsoft__EntityFrameworkCore = 'Warning'
     $apiScript = Join-Path $server $(if ($usePortable) { 'start-api-portable.ps1' } else { 'start-api.ps1' })
     Start-Process powershell -ArgumentList '-NoProfile', '-ExecutionPolicy', 'Bypass', '-NoExit', '-Command',

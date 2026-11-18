@@ -6,6 +6,20 @@ export interface LakeSeat {
   y: number;
   facing: string;
   roamRadius: number;
+  /** Độ sâu vẽ khi ngồi (ghế dài dọc đè lên người ngồi nửa trên); bỏ trống thì theo y chân. */
+  depth?: number;
+  /** Các chỗ của cùng một ghế dài có chung `bench` (yêu cầu 2026-11-18). */
+  bench?: string;
+}
+
+/** Chỗ ngồi chơi, không câu (ghế quanh bàn; yêu cầu 2026-11-18). Ghế dài có 2 chỗ là 2 mục. */
+export interface RestSeat {
+  restSeatId: string;
+  x: number;
+  y: number;
+  facing: string;
+  depth?: number;
+  bench?: string;
 }
 
 export interface LakeMap {
@@ -19,6 +33,7 @@ export interface LakeMap {
   lakeArea: { x: number; y: number }[];
   moveRules: { maxSpeedPxPerSec: number; feetHalfWidth: number; feetHeight: number };
   seats: LakeSeat[];
+  restSeats?: RestSeat[];
 }
 
 function isWalkableTile(map: LakeMap, col: number, row: number): boolean {

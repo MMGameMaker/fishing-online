@@ -15,7 +15,7 @@ import { PlayerInfoPopup } from '../../ui/friends/PlayerInfoPopup';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
-import { isNearSeat, nearestSeat } from './seatLogic';
+import { NEAR_SEAT_PX, nearestSeat, seatReach } from './seatLogic';
 import { SeatPrompt, preloadSitPrompt } from './SeatPrompt';
 import { ConnectionWatch } from './ConnectionWatch';
 import { SocialUi } from '../../social/SocialUi';
@@ -29,6 +29,7 @@ import {
   stepMove,
   type LakeMap,
   type LakeSeat,
+  type RestSeat,
 } from './walkable';
 
 export const LAKE_SCENE = 'Lake';
@@ -46,8 +47,6 @@ const EMOJI_SHOW_MS = 3000;
 const WATER_TILE = 0;
 const GRASS_TILE = 1;
 const BOBBER_DISTANCE_PX = 48;
-/** Đứng cách người khác trong khoảng này (px) thì người đó có viền trắng (BOT-02, như ghế ngồi được). */
-const NEAR_PLAYER_PX = 40;
 const FACING_VECTORS: Record<string, { x: number; y: number }> = {
   up: { x: 0, y: -1 },
   down: { x: 0, y: 1 },
@@ -97,6 +96,8 @@ export class LakeScene extends Phaser.Scene {
   private hoveredId: string | null = null;
   /** Emoji trên đầu tự ẩn sau EMOJI_SHOW_MS; mỗi người chơi một hẹn giờ. */
   private readonly emojiTimers = new Map<string, Phaser.Time.TimerEvent>();
+  /** Đang gửi SitRest/StandRest: bỏ qua bấm lặp. */
+  private restPending = false;
   private readonly cleanups: (() => void)[] = [];
 
   constructor() {
@@ -367,21 +368,12 @@ export class LakeScene extends Phaser.Scene {
     void this.playerInfo?.open(playerId);
   }
 
-  /** Viền trắng cho người đang được rê chuột lên, hoặc người đứng gần nhân vật mình nhất (pier.html). */
+  /** Viền trắng chỉ cho người/bot đang được rê chuột lên (pier.html); đứng gần không hiện viền. */
   private updateOutlines(): void {
     if (!this.playerInfo) return;
-    let nearId: string | null = null;
-    let nearDistance = NEAR_PLAYER_PX;
-    for (const [id, remote] of this.remotes) {
-      const distance = Math.hypot(remote.view.x - this.me.x, remote.view.y - this.me.y);
-      if (distance <= nearDistance) {
-        nearDistance = distance;
-        nearId = id;
-      }
-    }
     const blocked = this.modalOpen;
     for (const [id, remote] of this.remotes) {
-      remote.view.setOutlined(!blocked && (id === this.hoveredId || id === nearId));
+      remote.view.setOutlined(!blocked && id === this.hoveredId);
     }
   }
 
@@ -408,16 +400,29 @@ export class LakeScene extends Phaser.Scene {
     if (!keyboard) throw new Error('Trình duyệt không có bàn phím');
     this.cursors = keyboard.createCursorKeys();
     this.wasd = keyboard.addKeys('W,A,S,D') as typeof this.wasd;
-    // Nhấn F cạnh ghế trống để ngồi (feedback 2026-11-11, thay phím E).
+    // Nhấn F cạnh ghế trống để ngồi (feedback 2026-11-11, thay phím E); đang ngồi chơi thì F để đứng dậy.
     keyboard.addKey('F').on('down', () => {
+      if (this.myRestSeatId()) {
+        void this.standRest();
+        return;
+      }
+      const target = this.seatTargetNearMe();
+      if (target?.kind === 'rest') {
+        void this.sitRest(target.seat);
+        return;
+      }
       // Ưu tiên ghế trống gần nhất; không có thì ghế gần nhất để báo lỗi (đã có người…).
-      const seat = this.freeSeatNearMe() ?? nearestSeat(this.me.x, this.me.y, this.map.seats);
+      const seat = target?.seat ?? nearestSeat(this.me.x, this.me.y, this.map.seats);
       if (seat) this.onSeatPressed(seat);
+      else if (nearestSeat(this.me.x, this.me.y, this.restSeats())) {
+        showError(this.root, { code: 'SEAT_TAKEN' });
+      }
     });
     // Phím gợi ý F cạnh đầu nhân vật khi đứng gần ghế trống; chạm vào cũng ngồi được.
     this.seatPrompt = new SeatPrompt(this, () => {
-      const seat = this.freeSeatNearMe();
-      if (seat) this.onSeatPressed(seat);
+      const target = this.seatTargetNearMe();
+      if (target?.kind === 'rest') void this.sitRest(target.seat);
+      else if (target) this.onSeatPressed(target.seat);
     });
     // Không còn bấm chuột lên map để đi; chỉ phím di chuyển hoặc joystick.
     // pier.html không dùng joystick (feedback 2026-11-14), kể cả máy có màn hình cảm ứng.
@@ -446,6 +451,11 @@ export class LakeScene extends Phaser.Scene {
         (s) => s.lake.mySeat,
         (seat) => this.onSessionChanged(seat?.seatId ?? null),
       ),
+      // Chỗ ngồi chơi của mình theo PlayerView Server phát cho cả phòng (gồm mình).
+      store.select(
+        (s) => s.lake.players[this.myId]?.restSeatId ?? null,
+        (restSeatId) => this.onRestChanged(restSeatId),
+      ),
       store.select(
         (s) => s.lake.players,
         () => this.syncRemotes(),
@@ -470,6 +480,7 @@ export class LakeScene extends Phaser.Scene {
     // SPEC 0.9: đang ngồi thì không đi lại, nên không còn vẽ vòng phạm vi roamRadius.
     this.roamCircle.setVisible(false);
     this.me.setSeated(Boolean(seat));
+    this.me.setDepthOverride(seat?.depth ?? null);
     if (!seat) {
       this.standUpFromSeat();
       return;
@@ -491,13 +502,114 @@ export class LakeScene extends Phaser.Scene {
     );
   }
 
+  private restSeats(): readonly RestSeat[] {
+    return this.map.restSeats ?? [];
+  }
+
+  private myRestSeatId(): string | null {
+    return this.services.store.getState().lake.players[this.myId]?.restSeatId ?? null;
+  }
+
+  /** Chỗ ngồi chơi đã có người (người thật hay bot), tính cả mình. */
+  private restTaken(restSeatId: string): boolean {
+    const { players } = this.services.store.getState().lake;
+    return Object.values(players).some((player) => player.restSeatId === restSeatId);
+  }
+
+  private freeRestNearMe(): RestSeat | null {
+    return nearestSeat(
+      this.me.x,
+      this.me.y,
+      this.restSeats(),
+      (seat) => !this.restTaken(seat.restSeatId),
+    );
+  }
+
+  /**
+   * Chỗ sẽ ngồi khi bấm F: ghế câu hoặc chỗ ngồi chơi còn trống gần nhất. Ghế dài 2 chỗ là 2 điểm ngồi,
+   * nên người đầu tiên vào nửa gần mình hơn, người sau vào nửa còn lại (yêu cầu 2026-11-18).
+   */
+  private seatTargetNearMe():
+    { kind: 'fish'; seat: LakeSeat } | { kind: 'rest'; seat: RestSeat } | null {
+    const fish = this.freeSeatNearMe();
+    const rest = this.freeRestNearMe();
+    const distance = (seat: { x: number; y: number }): number =>
+      Math.hypot(seat.x - this.me.x, seat.y - this.me.y);
+    if (rest && (!fish || distance(rest) < distance(fish))) return { kind: 'rest', seat: rest };
+    return fish ? { kind: 'fish', seat: fish } : null;
+  }
+
   /** Hiện phím F khi đang đứng (chưa giữ ghế), không bận câu và có ghế trống trong tầm. */
   private updateSeatPrompt(): void {
     const { lake } = this.services.store.getState();
-    const seat = !lake.mySeat && !this.flow.isLocked() ? this.freeSeatNearMe() : null;
-    this.seatPrompt.update(this.me.x, this.me.headY, seat !== null);
+    const target =
+      !lake.mySeat && !this.myRestSeatId() && !this.flow.isLocked()
+        ? this.seatTargetNearMe()
+        : null;
+    this.seatPrompt.update(this.me.x, this.me.headY, target !== null);
     // Viền trắng đúng chiếc ghế sẽ ngồi khi bấm F (feedback 2026-11-12).
-    getLakeMapArt(this)?.highlightSeat?.(seat?.seatId ?? null);
+    const highlight =
+      target?.kind === 'rest' ? target.seat.restSeatId : (target?.seat.seatId ?? null);
+    getLakeMapArt(this)?.highlightSeat?.(highlight);
+  }
+
+  /** Ngồi chơi vào chỗ trống; Server giữ chỗ nên hai người bấm cùng lúc chỉ một người ngồi được. */
+  private async sitRest(seat: RestSeat): Promise<void> {
+    const { lake } = this.services.store.getState();
+    if (this.restPending || this.flow.isLocked() || this.modalOpen || lake.mySeat) return;
+    if (this.restTaken(seat.restSeatId)) {
+      showError(this.root, { code: 'SEAT_TAKEN' });
+      return;
+    }
+    this.restPending = true;
+    try {
+      const ack = await this.services.hub.invoke('SitRest', {
+        restSeatId: seat.restSeatId,
+        x: seat.x,
+        y: seat.y,
+        dir: seat.facing as Direction,
+      });
+      if (!ack.ok) showError(this.root, ack.error);
+    } catch (error) {
+      console.warn(error);
+      showError(this.root, { code: 'NETWORK_ERROR' });
+    } finally {
+      this.restPending = false;
+    }
+  }
+
+  private async standRest(): Promise<void> {
+    if (this.restPending) return;
+    this.restPending = true;
+    try {
+      const ack = await this.services.hub.invoke('StandRest', {});
+      if (!ack.ok) showError(this.root, ack.error);
+    } catch (error) {
+      console.warn(error);
+      showError(this.root, { code: 'NETWORK_ERROR' });
+    } finally {
+      this.restPending = false;
+    }
+  }
+
+  /** Server xác nhận ngồi/đứng chỗ ngồi chơi: đặt nhân vật vào chỗ (tư thế ngồi) hoặc bước ra chỗ đứng được. */
+  private onRestChanged(restSeatId: string | null): void {
+    const seat = restSeatId
+      ? this.restSeats().find((candidate) => candidate.restSeatId === restSeatId)
+      : undefined;
+    if (seat) {
+      const dir = seat.facing as Direction;
+      this.me.setPosition(seat.x, seat.y);
+      this.me.setDirection(dir);
+      this.me.setSeated(true);
+      this.me.setDepthOverride(seat.depth ?? null);
+      this.moveSender.flush(performance.now(), seat.x, seat.y, dir);
+      return;
+    }
+    if (this.services.store.getState().lake.mySeat) return;
+    this.me.setSeated(false);
+    this.me.setDepthOverride(null);
+    this.standUpFromSeat();
   }
 
   /** Ghế là vật cản (map pier): rời ghế thì bước sang chỗ đứng được gần nhất để không kẹt. */
@@ -528,7 +640,7 @@ export class LakeScene extends Phaser.Scene {
       showError(this.root, { code: 'SEAT_TAKEN' });
     } else if (lake.mySeat) {
       showError(this.root, { code: 'ALREADY_HAS_SEAT' });
-    } else if (isNearSeat(this.me.x, this.me.y, seat)) {
+    } else if (seatReach(this.me.x, this.me.y, seat, this.map.seats) <= NEAR_SEAT_PX) {
       void this.seatUi.openSeat(seat);
     } else {
       showToast(this.root, 'Hãy đi tới gần ghế để ngồi.');
@@ -582,7 +694,12 @@ export class LakeScene extends Phaser.Scene {
     }
     remote.motion.setTarget(player.x, player.y, now);
     remote.view.setDirection(player.dir);
-    remote.view.setSeated(player.seatId !== null);
+    const restSeat = player.restSeatId
+      ? this.restSeats().find((seat) => seat.restSeatId === player.restSeatId)
+      : undefined;
+    const fishSeat = player.seatId ? this.seatById(player.seatId) : undefined;
+    remote.view.setSeated(player.seatId !== null || restSeat !== undefined);
+    remote.view.setDepthOverride(restSeat?.depth ?? fishSeat?.depth ?? null);
     remote.view.setSkin(player.skinId);
     remote.view.setRod(player.rodId);
   }
@@ -643,7 +760,13 @@ export class LakeScene extends Phaser.Scene {
       const keys = this.readAxis();
       if ((keys.x !== 0 || keys.y !== 0) && this.flow.canLeaveSeat()) void this.seatUi.leave();
     }
-    const locked = this.flow.isLocked() || seated;
+    // Đang ngồi chơi: bấm phím di chuyển là đứng dậy (chờ Server xác nhận rồi mới đi).
+    const resting = this.myRestSeatId() !== null;
+    if (resting) {
+      const keys = this.readAxis();
+      if (keys.x !== 0 || keys.y !== 0) void this.standRest();
+    }
+    const locked = this.flow.isLocked() || seated || resting;
     const axis = locked ? { x: 0, y: 0 } : this.readAxis();
     let moving = false;
     if (axis.x !== 0 || axis.y !== 0) {

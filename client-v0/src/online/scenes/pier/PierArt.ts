@@ -53,6 +53,15 @@ const OUTLINE_OFFSETS: readonly [number, number][] = [
 const OUTLINE_FADE_MS = 140;
 /** Điểm ngồi nằm ngay dưới đáy ghế đẩu (lakemap: y = đáy + 2). */
 const SEAT_BELOW_STOOL_PX = 4;
+/** Vật ghế có viền khi đứng gần chỗ ngồi của nó. */
+const SEAT_FRAMES = new Set([
+  'main-objects/stool',
+  'main-objects/frontBench',
+  'main-objects/leftBench',
+  'main-objects/rightBench',
+  'main-objects/picnicTableLeft',
+  'main-objects/picnicTableRight',
+]);
 
 interface AtlasJson {
   animations?: Record<string, string[]>;
@@ -112,30 +121,40 @@ export class PierArt implements LakeMapArt {
     this.highlighted = seatId;
   }
 
-  /** Mỗi ghế câu gắn với ghế đẩu chứa điểm ngồi; dựng sẵn viền ẩn (alpha 0). */
+  /**
+   * Mỗi chỗ ngồi (ghế câu và chỗ ngồi chơi) gắn với vật ghế chứa điểm ngồi: ghế đẩu, ghế dài, băng ghế bàn picnic.
+   * Dựng sẵn viền ẩn (alpha 0); hai chỗ của cùng một ghế dài dùng chung một viền.
+   */
   private createSeatOutlines(scene: Phaser.Scene): void {
-    const stools = MAP.objects.filter((o) => o.frame === 'main-objects/stool');
-    for (const seat of MAP.lake.seats) {
-      const stool = stools.find(
+    const seatObjects = MAP.objects.filter((o) => SEAT_FRAMES.has(o.frame));
+    const built = new Map<PierMapData['objects'][number], Phaser.GameObjects.Image[]>();
+    const points = [
+      ...MAP.lake.seats.map((seat) => ({ id: seat.seatId, x: seat.x, y: seat.y })),
+      ...(MAP.lake.restSeats ?? []).map((seat) => ({ id: seat.restSeatId, x: seat.x, y: seat.y })),
+    ];
+    for (const seat of points) {
+      const object = seatObjects.find(
         (o) =>
           seat.x >= o.x &&
           seat.x <= o.x + o.w &&
           seat.y >= o.y &&
           seat.y <= (o.by ?? o.y + o.h) + SEAT_BELOW_STOOL_PX,
       );
-      if (!stool) continue;
-      const depth = depthOf(stool) - 0.5;
-      this.outlines.set(
-        seat.seatId,
-        OUTLINE_OFFSETS.map(([dx, dy]) =>
+      if (!object) continue;
+      let parts = built.get(object);
+      if (!parts) {
+        const depth = depthOf(object) - 0.5;
+        parts = OUTLINE_OFFSETS.map(([dx, dy]) =>
           scene.add
-            .image(stool.x + dx, stool.y + dy, stool.sheet, stool.frame)
+            .image(object.x + dx, object.y + dy, object.sheet, object.frame)
             .setOrigin(0)
             .setTintFill(0xffffff)
             .setDepth(depth)
             .setAlpha(0),
-        ),
-      );
+        );
+        built.set(object, parts);
+      }
+      this.outlines.set(seat.id, parts);
     }
   }
 

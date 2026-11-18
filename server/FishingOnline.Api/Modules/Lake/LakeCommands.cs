@@ -56,6 +56,8 @@ public sealed class LakeCommands(
                 existing.SkinId = profile.SelectedSkinId;
                 existing.RodId = profile.EquippedRodId;
                 existing.SeatId = session?.SeatId;
+                // Vào lại hồ (rớt mạng, tải lại trang) thì đứng; chỗ ngồi chơi đã giữ được trả.
+                existing.RestSeatId = null;
                 existing.LastMoveAt = now;
                 existing.LastSeq = 0;
                 if (command.X is { } x && command.Y is { } y)
@@ -116,15 +118,43 @@ public sealed class LakeCommands(
             if (command.Seq <= player.LastSeq) return true;
             player.LastSeq = command.Seq;
 
+            // Đi khỏi chỗ ngồi chơi mà chưa gửi StandRest (Client lỗi/cũ): tự trả chỗ để người khác ngồi được.
+            var leftRestSeat = player.RestSeatId is not null
+                && (Math.Abs(command.X - player.X) > RestSeatTolerancePx || Math.Abs(command.Y - player.Y) > RestSeatTolerancePx);
+
             // Vị trí do Client báo; Server chỉ ghi lại và chuyển cho người khác.
             player.X = command.X;
             player.Y = command.Y;
             player.Dir = command.Dir;
             player.LastMoveAt = now;
+            if (leftRestSeat) await room.StandRestAsync(player);
             await room.Others(player.ConnectionId).SendAsync("PlayerMoved", new PlayerMovedView(playerId, command.X, command.Y, command.Dir, command.Seq));
             return true;
         });
     }
+
+    /// <summary>Ngồi chơi ở ghế quanh bàn (yêu cầu 2026-11-18): giữ chỗ trong RAM, người khác không ngồi chồng được.</summary>
+    public Task SitRestAsync(Guid playerId, SitRestCommand command)
+    {
+        if (!layout.IsRestSeat(command.RestSeatId) || !IsValidPosition(command.X, command.Y, command.Dir))
+            throw new GameException(ErrorCatalog.ValidationFailed);
+        return room.Queue.RunAsync(async () =>
+        {
+            var player = room.Find(playerId) ?? throw new GameException("STATE_CONFLICT");
+            if (player.RestSeatId == command.RestSeatId) return true;
+            await room.SitRestAsync(player, command.RestSeatId, command.X, command.Y, command.Dir);
+            return true;
+        });
+    }
+
+    public Task StandRestAsync(Guid playerId) => room.Queue.RunAsync(async () =>
+    {
+        if (room.Find(playerId) is { } player) await room.StandRestAsync(player);
+        return true;
+    });
+
+    /// <summary>Lệch quá khoảng này so với chỗ đang ngồi chơi thì coi như đã đứng dậy.</summary>
+    private const double RestSeatTolerancePx = 2;
 
     public async Task OnDisconnectedAsync(Guid playerId, string connectionId)
     {
@@ -227,7 +257,8 @@ public static class LakeModule
         services.AddSingleton(provider =>
         {
             var lake = provider.GetRequiredService<IConfiguration>().GetSection("Lake");
-            return new LakeLayout(lake["MapId"] ?? "lake-01", lake["MapVersion"] ?? "1", lake.GetValue("SeatCount", 20));
+            return new LakeLayout(
+                lake["MapId"] ?? "lake-01", lake["MapVersion"] ?? "1", lake.GetValue("SeatCount", 20), lake.GetValue("RestSeatCount", 0));
         });
         services.AddSingleton<LakeRoom>();
         services.AddSingleton<SeatSessions>();

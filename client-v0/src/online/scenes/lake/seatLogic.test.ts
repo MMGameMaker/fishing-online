@@ -1,7 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import configJson from '@fixtures/gameplay-config.v0.json';
 import type { GameplayConfig } from '../../core/gameplayConfig';
-import { formatClock, isNearSeat, nearestSeat, priceSummary, sessionEndText } from './seatLogic';
+import {
+  formatClock,
+  isNearSeat,
+  nearestSeat,
+  priceSummary,
+  seatReach,
+  sessionEndText,
+} from './seatLogic';
 
 const { ticketPricing } = configJson as unknown as GameplayConfig;
 
@@ -46,5 +53,31 @@ describe('nearestSeat', () => {
 
   it('không có ghế nào trong tầm thì trả null', () => {
     expect(nearestSeat(250, 250, seats)).toBeNull();
+  });
+});
+
+describe('ghế dài 2 chỗ (yêu cầu 2026-11-18)', () => {
+  // Băng ghế dọc: nửa trên (y 598) và nửa dưới (y 622), cách nhau 24 px.
+  const bench = [
+    { id: 'top', x: 137, y: 598, bench: 'b1' },
+    { id: 'bottom', x: 137, y: 622, bench: 'b1' },
+  ];
+
+  it('người đầu tiên ngồi nửa gần mình hơn', () => {
+    expect(nearestSeat(118, 622, bench)?.id).toBe('bottom');
+    expect(nearestSeat(118, 598, bench)?.id).toBe('top');
+  });
+
+  it('nửa gần đã có người thì người sau ngồi nửa còn lại, dù nửa đó ngoài 24 px', () => {
+    expect(Math.hypot(118 - 137, 622 - 598)).toBeGreaterThan(24);
+    expect(nearestSeat(118, 622, bench, (seat) => seat.id !== 'bottom')?.id).toBe('top');
+  });
+
+  it('cả ghế đã kín thì không có chỗ', () => {
+    expect(nearestSeat(118, 622, bench, () => false)).toBeNull();
+  });
+
+  it('tầm ngồi của ghế dài tính tới nửa gần nhất', () => {
+    expect(seatReach(118, 622, bench[0]!, bench)).toBeCloseTo(19);
   });
 });

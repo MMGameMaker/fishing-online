@@ -128,7 +128,11 @@ public sealed class BotMap
         Width = document.WidthTiles * TileSize;
         Height = document.HeightTiles * TileSize;
         Seats = document.Seats.ToDictionary(seat => seat.SeatId);
+        RestSeats = document.RestSeats ?? [];
     }
+
+    /// <summary>Chỗ ngồi chơi (ghế quanh bàn, không câu; yêu cầu 2026-11-18). Ghế dài 2 chỗ là 2 mục.</summary>
+    public IReadOnlyList<MapRestSeat> RestSeats { get; }
 
     public int TileSize { get; }
 
@@ -371,9 +375,11 @@ public sealed class BotMap
 
     public sealed record MapSeat(string SeatId, double X, double Y, string Facing, double RoamRadius);
 
+    public sealed record MapRestSeat(string RestSeatId, double X, double Y, string Facing);
+
     private sealed record MoveRulesDocument(double MaxSpeedPxPerSec, double FeetHalfWidth, double FeetHeight);
 
     private sealed record MapDocument(
         string MapId, string MapVersion, int TileSize, int WidthTiles, int HeightTiles, string[] WalkableRows,
-        MapPoint Spawn, MoveRulesDocument MoveRules, MapSeat[] Seats);
+        MapPoint Spawn, MoveRulesDocument MoveRules, MapSeat[] Seats, MapRestSeat[]? RestSeats = null);
 }

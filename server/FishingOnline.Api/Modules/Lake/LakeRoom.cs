@@ -50,6 +50,10 @@ public sealed class RoomPlayer
     public long LastSeq { get; set; }
     public DateTimeOffset LastMoveAt { get; set; }
     public string? SeatId { get; set; }
+
+    /// <summary>Chỗ ngồi chơi đang giữ (chỉ trong RAM: rời phòng là trả chỗ).</summary>
+    public string? RestSeatId { get; set; }
+
     public bool Online { get; set; } = true;
     public Queue<DateTimeOffset> RecentMoves { get; } = new();
 
@@ -120,7 +124,35 @@ public sealed class LakeRoom(LakeLayout layout, IHubContext<GameHub> hub, IFishi
 
     public PlayerView View(RoomPlayer player) => new(
         player.PlayerId, player.DisplayName, player.SkinId, player.RodId, player.X, player.Y, player.Dir, player.SeatId,
-        fishing.IsBusy(player.PlayerId));
+        fishing.IsBusy(player.PlayerId), player.RestSeatId);
+
+    /// <summary>Chỗ ngồi chơi đã có người khác giữ. Chỉ gọi trong <see cref="Queue"/>.</summary>
+    public bool RestSeatTaken(string restSeatId, Guid except) =>
+        players.Values.Any(player => player.PlayerId != except && player.RestSeatId == restSeatId);
+
+    /// <summary>
+    /// Ngồi chơi: giữ chỗ, đặt vị trí vào chỗ ngồi và phát PlayerJoined cho cả phòng (gồm người ngồi, để Client của họ
+    /// nhận xác nhận qua cùng một đường). Đã có người thì SEAT_TAKEN; đang ngồi ghế câu thì ALREADY_HAS_SEAT.
+    /// Chỉ gọi trong <see cref="Queue"/>.
+    /// </summary>
+    public async Task SitRestAsync(RoomPlayer player, string restSeatId, double x, double y, string dir)
+    {
+        if (player.SeatId is not null) throw new GameException("ALREADY_HAS_SEAT");
+        if (RestSeatTaken(restSeatId, player.PlayerId)) throw new GameException("SEAT_TAKEN");
+        player.RestSeatId = restSeatId;
+        player.X = x;
+        player.Y = y;
+        player.Dir = dir;
+        await BroadcastAsync("PlayerJoined", View(player));
+    }
+
+    /// <summary>Trả chỗ ngồi chơi (nếu có) và phát lại PlayerView. Chỉ gọi trong <see cref="Queue"/>.</summary>
+    public async Task StandRestAsync(RoomPlayer player)
+    {
+        if (player.RestSeatId is null) return;
+        player.RestSeatId = null;
+        await BroadcastAsync("PlayerJoined", View(player));
+    }
 
     public Task<string?> ConnectionOfAsync(Guid playerId) =>
         Queue.RunAsync(() => Task.FromResult(Find(playerId) is { Online: true } player ? player.ConnectionId : null));

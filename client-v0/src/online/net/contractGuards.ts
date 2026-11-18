@@ -116,7 +116,8 @@ export const isPlayerView: Guard<PlayerView> = (v): v is PlayerView =>
   num(v.y) &&
   isDirection(v.dir) &&
   (v.seatId === null || str(v.seatId)) &&
-  bool(v.fishing);
+  bool(v.fishing) &&
+  (v.restSeatId === undefined || v.restSeatId === null || str(v.restSeatId));
 
 export const isSeatView: Guard<SeatView> = (v): v is SeatView =>
   obj(v) &&

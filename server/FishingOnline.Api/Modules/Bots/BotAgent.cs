@@ -52,6 +52,11 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
     private const int BlockedWindowMs = 500;
     private const double BlockedMinMovePx = 2;
     private const int MaxRepicks = 4;
+    // Ngồi chơi (yêu cầu 2026-11-18): xác suất sau mỗi lượt dạo, thời gian ngồi, và chỗ đứng cạnh ghế không quá xa chỗ ngồi.
+    private const double RestChance = 0.3;
+    private const int RestMinMs = 15000;
+    private const int RestMaxMs = 40000;
+    private const double RestStandMaxPx = 32;
 
     private readonly Random random = new();
     private readonly SemaphoreSlim lifecycle = new(1, 1);
@@ -67,6 +72,8 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
     private volatile BotChatState chatState = BotChatState.Idle;
     /// <summary>Ghế mà bot đang đứng ở vị trí của nó (từ lúc ngồi tới lúc đã ra khỏi vị trí đó); null khi đang ở chỗ thường.</summary>
     private BotMap.MapSeat? seatedAt;
+    /// <summary>Chỗ ngồi chơi bot đang ngồi; null khi không ngồi.</summary>
+    private BotMap.MapRestSeat? restingAt;
 
     public Guid PlayerId => playerId;
 
@@ -223,6 +230,12 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
                 {
                     await LeaveSeatSpotAsync(ct);
                     await WanderAsync(random.Next(6000, 20000), ct);
+                    // Thỉnh thoảng ngồi chơi một ghế trống ngẫu nhiên (yêu cầu 2026-11-18); không chiếm suất câu.
+                    if (random.NextDouble() < RestChance && await RestSessionAsync(ct))
+                    {
+                        Touch();
+                        continue;
+                    }
                     // Chỉ bot có suất (theo mốc "bot được câu") mới tới ghế; bot khác chỉ đi dạo và chat.
                     if (random.NextDouble() < 0.7 && await deps.Coordinator.TryTakeSeatAsync(playerId))
                     {
@@ -501,6 +514,77 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
         }
     }
 
+    /// <summary>
+    /// Đi tới một chỗ ngồi chơi trống ngẫu nhiên (ghế quanh bàn), ngồi một lúc rồi đứng dậy. Giữ chỗ qua đúng luật của phòng
+    /// (<see cref="LakeRoom.SitRestAsync"/>) nên không ngồi chồng lên người thật hay bot khác. False nếu không ngồi được.
+    /// </summary>
+    private async Task<bool> RestSessionAsync(CancellationToken ct)
+    {
+        var others = await OthersAsync();
+        // Chỗ chưa ai giữ và không có ai đang đứng ngay trên điểm ngồi (ghế đôi cách nhau 16-24 px nên không dùng TooClose).
+        var free = deps.Map.RestSeats
+            .Where(seat => deps.Layout.IsRestSeat(seat.RestSeatId)
+                && others.All(view => view.RestSeatId != seat.RestSeatId && Math.Abs(view.X - seat.X) + Math.Abs(view.Y - seat.Y) > 8))
+            .ToArray();
+        if (free.Length == 0) return false;
+        var seat = free[random.Next(free.Length)];
+
+        var stand = deps.Map.NearestStandable(seat.X, seat.Y, 40, accept: spot => IsFree(spot, others))
+            ?? deps.Map.NearestStandable(seat.X, seat.Y, 40);
+        if (stand is null || Math.Abs(stand.X - seat.X) + Math.Abs(stand.Y - seat.Y) > RestStandMaxPx * 1.5) return false;
+        deps.Spots.TryReserve(playerId, stand);
+        if (deps.Map.FindRoute(new BotMap.MapPoint(x, y), stand) is not { } route) return false;
+        if ((await WalkRouteAsync(route, ct)).Blocked) return false;
+        if (Math.Abs(stand.X - x) > 6 || Math.Abs(stand.Y - y) > 6) return false;
+
+        var sat = await deps.Room.Queue.RunAsync(async () =>
+        {
+            if (deps.Room.Find(playerId) is not { } player || deps.Room.RestSeatTaken(seat.RestSeatId, playerId)) return false;
+            await deps.Room.SitRestAsync(player, seat.RestSeatId, seat.X, seat.Y, seat.Facing);
+            return true;
+        });
+        if (!sat) return false;
+        restingAt = seat;
+        x = seat.X;
+        y = seat.Y;
+        direction = seat.Facing;
+        Touch();
+        try
+        {
+            var total = random.Next(RestMinMs, RestMaxMs);
+            for (var spent = 0; spent < total && !ct.IsCancellationRequested; spent += PauseSliceMs)
+            {
+                await DelayAsync(PauseSliceMs, ct);
+                Touch();
+            }
+        }
+        finally
+        {
+            await StandFromRestAsync();
+        }
+        return true;
+    }
+
+    /// <summary>Trả chỗ ngồi chơi và bước ra chỗ đứng được gần đó (băng ghế bàn picnic là vật cản).</summary>
+    private async Task StandFromRestAsync()
+    {
+        if (restingAt is not { } seat) return;
+        restingAt = null;
+        await deps.Room.Queue.RunAsync(async () =>
+        {
+            if (deps.Room.Find(playerId) is { } player) await deps.Room.StandRestAsync(player);
+            return true;
+        });
+        var around = await OthersAsync();
+        var spot = deps.Map.NearestStandable(seat.X, seat.Y, 48, accept: candidate => IsFree(candidate, around))
+            ?? deps.Map.NearestStandable(seat.X, seat.Y, 64);
+        if (spot is null) return;
+        deps.Spots.TryReserve(playerId, spot);
+        x = spot.X;
+        y = spot.Y;
+        await PublishPositionAsync();
+    }
+
     /// <summary>Một lượt: quăng, chờ cá cắn, phản ứng rồi kéo, báo kết quả. False nếu lượt không thể tiếp tục.</summary>
     private async Task<bool> CastOnceAsync(CancellationToken ct)
     {
@@ -589,6 +673,7 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
     {
         try
         {
+            await StandFromRestAsync();
             await deps.Seats.EndAsync(playerId, SeatEndReasons.LeftSeat, CancellationToken.None);
             chatState = BotChatState.Idle;
             await LeaveSeatSpotAsync(CancellationToken.None);

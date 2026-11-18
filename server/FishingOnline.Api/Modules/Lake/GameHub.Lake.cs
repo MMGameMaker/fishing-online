@@ -24,10 +24,24 @@ public sealed partial class GameHub
         return CommandAck.Success(command.RequestId, result);
     }
 
-    public async Task<CommandAck> SitDown(SitDownCommand command, [FromServices] SeatSessions seats)
+    public async Task<CommandAck> SitDown(SitDownCommand command, [FromServices] SeatSessions seats, [FromServices] LakeCommands lake)
     {
         var result = await seats.SitDownAsync(PlayerId, command.SeatId, Context.ConnectionAborted);
+        // Đang ngồi chơi mà ngồi ghế câu (Client cũ): trả chỗ ngồi chơi.
+        await lake.StandRestAsync(PlayerId);
         return CommandAck.Success(command.RequestId, result);
+    }
+
+    public async Task<CommandAck> SitRest(SitRestCommand command, [FromServices] LakeCommands lake)
+    {
+        await lake.SitRestAsync(PlayerId, command);
+        return CommandAck.Success(command.RequestId);
+    }
+
+    public async Task<CommandAck> StandRest(StandRestCommand command, [FromServices] LakeCommands lake)
+    {
+        await lake.StandRestAsync(PlayerId);
+        return CommandAck.Success(command.RequestId);
     }
 
     public async Task<CommandAck> LeaveSeat(LeaveSeatCommand command, [FromServices] SeatSessions seats)

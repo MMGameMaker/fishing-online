@@ -154,8 +154,10 @@ public sealed record TicketPurchaseResult(MyTicketView Ticket, string Gold, stri
 
 public sealed record SitDownResult(MySeatView Seat);
 
+/// <summary><paramref name="RestSeatId"/>: chỗ ngồi chơi đang ngồi (ghế quanh bàn, không câu; yêu cầu 2026-11-18).</summary>
 public sealed record PlayerView(
-    Guid PlayerId, string DisplayName, string SkinId, string RodId, double X, double Y, string Dir, string? SeatId, bool Fishing);
+    Guid PlayerId, string DisplayName, string SkinId, string RodId, double X, double Y, string Dir, string? SeatId, bool Fishing,
+    string? RestSeatId = null);
 
 public sealed record PlayerLeftView(Guid PlayerId);
 
@@ -170,3 +172,8 @@ public sealed record BuyTicketCommand(string RequestId, int Quantity, string Exp
 public sealed record SitDownCommand(string RequestId, string SeatId) : IHubCommand;
 
 public sealed record LeaveSeatCommand(string RequestId) : IHubCommand;
+
+/// <summary>Ngồi chơi vào một chỗ; kèm vị trí chỗ ngồi vì Server không giữ map.</summary>
+public sealed record SitRestCommand(string RequestId, string RestSeatId, double X, double Y, string Dir) : IHubCommand;
+
+public sealed record StandRestCommand(string RequestId) : IHubCommand;
