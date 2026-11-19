@@ -631,3 +631,11 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 - **Map:** ghế băng `frontBench` tại (56, 80), cạnh 2 máy bán nước và 2 thùng rác, chưa có chỗ ngồi nào. Thêm 2 chỗ ngồi chơi `rest-29` (68, 114) và `rest-30` (93, 114), quay xuống, `bench: bench-rest-a`, cùng cách đặt như ghế câu `seat-31/32` ở ghế băng cạnh nước. `lake.restSeats` còn **30** chỗ, `mapVersion` `pier-4`. Sửa `fishingPierMap.json` và bản sao bot `server/.../Bots/pier-map.json` (bot cũng ngồi được).
 - **Cấu hình:** `Lake:RestSeatCount` 28 → 30 và `MapVersion` `pier-4` trong `tools/run-local.ps1` và `tools/run-playtest.ps1`. Chạy tay phải tự đặt hai giá trị này.
 - **Kiểm tra:** `pierMap.test.ts` cập nhật (30 chỗ, cho phép hướng `down`), vitest 332 qua. Trên Server thật (`RestSeatCount=30`, `pier-4`): đứng ở (80, 128), hiện phím F, bấm F thì ngồi `rest-29`, thỏ ngồi trên ghế băng.
+
+
+### Dời ghế câu, xoá cột gỗ (Claude, 2026-11-19, yêu cầu người dùng)
+
+- Người dùng dời hình ghế seat-01, 02, 03, 25, 26, 28, 29, 30 trong `fishingPierMap.json`; Claude căn lại bóng ghế, `by` (= y + 15), chỗ ngồi (x + 7, y + 17) và ô va chạm `walkableRows` (bỏ ô ở chỗ cũ, chặn ô ở chỗ mới). Hàng ghế dưới (seat-26, 29, 28) cùng y = 260. Xoá cột gỗ `woodenDockPillar` (611, 254) cùng bóng và ô va chạm của nó.
+- Kiểm tra: vitest 343/343 (gồm `pierMap.test.ts`, `botWalk.test.ts`). Chưa xem bằng mắt. Server thật đọc map bot từ file này khi khởi động nên phải chạy lại Server.
+- Lưu ý khi sửa file này bằng editor: sửa rồi lưu từ bản đã mở trước đó sẽ ghi đè thay đổi của người khác (cột gỗ từng bị khôi phục như vậy); tải lại file trước khi sửa.
+- 2026-11-19 (tiếp): căn lại seat-10, seat-11 theo hình ghế mới; xoá `smallRaft` (386, 585) cùng bóng; sửa nền ao phía dưới-trái map: bỏ mảng cát giữa ao (ground hàng 36–39, cột 24–29) để ao là một khối nước liền, nối bờ viền phía trên. vitest 343/343. Nền ao chỉ kiểm bằng ảnh dựng lại từ atlas (không phải màn hình game); chưa xem trong game.

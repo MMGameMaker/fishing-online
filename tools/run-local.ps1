@@ -1,4 +1,4 @@
-# Chạy Fishing Online trên máy local, hai chế độ (gọi qua run-mock.bat / run-real.bat ở thư mục gốc):
+﻿# Chạy Fishing Online trên máy local, hai chế độ (gọi qua run-mock.bat / run-real.bat ở thư mục gốc):
 #   -Mode mock : chỉ chạy client (Vite) với dữ liệu giả trong trình duyệt, không cần Docker/server.
 #   -Mode real : bật Docker Desktop, Postgres + Redis, áp migration, chạy API thật cổng 5080 (cửa sổ riêng),
 #                rồi chạy client nối server thật. Mặc định đăng nhập Google thật (Firebase), không bypass.
