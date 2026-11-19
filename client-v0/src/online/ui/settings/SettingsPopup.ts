@@ -8,6 +8,7 @@ import {
 } from '../../core/audioSettings';
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import { animateIn, animateOut } from '../kit/motion';
+import { localPoint, localRect } from '../../core/viewFrame';
 
 const DIR = '/new resources/ui/Setting/';
 const art = (file: string) => encodeURI(DIR + file);
@@ -146,8 +147,10 @@ export class SettingsPopup {
     render(getAudioSettings()[key]);
 
     const fromEvent = (event: PointerEvent) => {
-      const rect = root.getBoundingClientRect();
-      const value = valueFromPointer(rect.width > 0 ? (event.clientX - rect.left) / rect.width : 0);
+      const rect = localRect(root);
+      const value = valueFromPointer(
+        rect.width > 0 ? (localPoint(event).x - rect.left) / rect.width : 0,
+      );
       render(value);
       setAudioSetting(key, value);
     };

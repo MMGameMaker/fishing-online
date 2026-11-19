@@ -6,6 +6,7 @@ import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import { formatGold } from '../../ui/kit/format';
 import { animateIn, animateOut } from '../../ui/kit/motion';
 import { priceSummary } from './seatLogic';
+import { localPoint, localRect } from '../../core/viewFrame';
 
 const DIR = '/mini game/';
 const asset = (file: string) => encodeURI(DIR + file);
@@ -254,17 +255,17 @@ export function openTicketDialog({
 
     // Kéo núm hoặc bấm lên thanh để chọn số lượng.
     const unitsAt = (clientX: number) => {
-      const rect = slider.getBoundingClientRect();
+      const rect = localRect(slider);
       const knobW = (rect.width * SLIDER.knobW) / SLIDER.w;
       const ratio = (clientX - rect.left - knobW / 2) / Math.max(1, rect.width - knobW);
       return 1 + Math.max(0, Math.min(1, ratio)) * (maxUnits - 1);
     };
     slider.addEventListener('pointerdown', (event) => {
       slider.setPointerCapture(event.pointerId);
-      setUnits(unitsAt(event.clientX));
+      setUnits(unitsAt(localPoint(event).x));
     });
     slider.addEventListener('pointermove', (event) => {
-      if (slider.hasPointerCapture(event.pointerId)) setUnits(unitsAt(event.clientX));
+      if (slider.hasPointerCapture(event.pointerId)) setUnits(unitsAt(localPoint(event).x));
     });
 
     window.addEventListener('keydown', onKey);

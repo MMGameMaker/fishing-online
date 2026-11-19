@@ -4,6 +4,7 @@ import { GAME_WIDTH, UI_DESIGN_WIDTH } from '../../core/env';
 import { ApiError } from '../../net/ApiClient';
 import { errorTextFor } from './errorText';
 import { formatGold } from './format';
+import { localRect } from '../../core/viewFrame';
 
 const DEFAULT_TOAST_MS = 3000;
 
@@ -32,7 +33,7 @@ export function mountUiOverlay(game: Phaser.Game): { root: HTMLElement; destroy:
  */
 export function trackCanvasFrame(game: Phaser.Game, el: HTMLElement): () => void {
   const sync = () => {
-    const rect = game.canvas.getBoundingClientRect();
+    const rect = localRect(game.canvas);
     const scale = rect.width / UI_DESIGN_WIDTH;
     if (!scale) return;
     el.style.left = `${rect.left}px`;

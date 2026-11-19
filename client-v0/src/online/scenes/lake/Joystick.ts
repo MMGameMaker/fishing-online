@@ -1,4 +1,5 @@
 import { joystickVector } from './movement';
+import { localPoint, localRect } from '../../core/viewFrame';
 
 const RADIUS_PX = 45;
 
@@ -38,11 +39,12 @@ export class Joystick {
   }
 
   private track(event: PointerEvent): void {
-    const rect = this.base.getBoundingClientRect();
+    const rect = localRect(this.base);
+    const point = localPoint(event);
     // ui-root được scale theo canvas: quy đổi px chuột thật về px thiết kế của joystick.
     const scale = rect.width / Math.max(1, this.base.offsetWidth);
-    const dx = (event.clientX - (rect.left + rect.width / 2)) / scale;
-    const dy = (event.clientY - (rect.top + rect.height / 2)) / scale;
+    const dx = (point.x - (rect.left + rect.width / 2)) / scale;
+    const dy = (point.y - (rect.top + rect.height / 2)) / scale;
     this.vector = joystickVector(dx, dy, RADIUS_PX);
     const limit = Math.min(1, RADIUS_PX / Math.max(1, Math.hypot(dx, dy)));
     this.knob.style.transform = `translate(${dx * limit}px, ${dy * limit}px)`;

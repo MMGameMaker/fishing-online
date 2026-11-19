@@ -1,7 +1,7 @@
 /* Màn đăng nhập, Main Menu và màn tải (pier.html). Art Login: feedback 2026-11-17. */
 .boot-screens {
   /* 1 đơn vị = 1px trên màn thiết kế 1920×1080; không nhỏ hơn 0.42px để màn hẹp vẫn đọc được. */
-  --s: max(0.42px, min(100vw / 1920, 100vh / 1080));
+  --s: max(0.42px, min(var(--fw, 100vw) / 1920, var(--fh, 100vh) / 1080));
   position: fixed;
   inset: 0;
   z-index: 5000;
@@ -41,7 +41,7 @@
 }
 .boot--loading {
   background: url('/login/loading-background.png') center/cover no-repeat;
-  padding-bottom: 5vh;
+  padding-bottom: calc(var(--fh, 100vh) * 0.05);
 }
 .boot__logo-zone {
   display: flex;

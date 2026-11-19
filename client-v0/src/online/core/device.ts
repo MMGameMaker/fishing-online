@@ -6,6 +6,11 @@ interface UADataNavigator {
   userAgentData?: { mobile?: boolean };
 }
 
+/** Thiết bị cảm ứng chính (điện thoại, máy tính bảng); máy tính dùng chuột thì không. */
+export function isTouchDevice(): boolean {
+  return window.matchMedia?.('(pointer: coarse)').matches ?? false;
+}
+
 export function isPhone(nav: Navigator = navigator): boolean {
   const mobile = (nav as Navigator & UADataNavigator).userAgentData?.mobile;
   if (mobile === true) return true;

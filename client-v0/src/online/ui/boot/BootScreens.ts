@@ -31,7 +31,11 @@ export class BootScreens {
   private onPlay: (() => void) | null = null;
   private onLogout: (() => void) | null = null;
 
-  constructor(parent: HTMLElement = document.body) {
+  /** `onGesture` chạy đồng bộ ngay trong lần bấm CHƠI/Google (để xin toàn màn hình, cần thao tác thật). */
+  constructor(
+    parent: HTMLElement = document.body,
+    private readonly options: { onGesture?: () => void } = {},
+  ) {
     this.root = document.createElement('div');
     this.root.className = 'boot-screens';
     this.root.innerHTML = `
@@ -91,10 +95,13 @@ export class BootScreens {
     // Popup Google chỉ mở được ngay trong thao tác bấm, nên gọi thẳng trong sự kiện click.
     this.googleBtn.addEventListener('click', () => {
       if (this.googleBtn.disabled) return;
+      // Mở popup Google trước (nó cần quyền bấm), rồi mới xin toàn màn hình.
       this.onGoogle?.();
+      this.options.onGesture?.();
     });
     this.playBtn.addEventListener('click', () => {
       if (this.playBtn.disabled) return;
+      this.options.onGesture?.();
       this.playBtn.disabled = true;
       this.logoutBtn.disabled = true;
       this.onPlay?.();

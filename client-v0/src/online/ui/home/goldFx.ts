@@ -2,6 +2,7 @@
 // đồng xu trong ô nảy nhẹ (feedback 2026-11-17, mục "Gợi ý effect và FX" của review).
 import { playSound } from '../../fishing/sound';
 import { formatGold } from '../kit/format';
+import { frameSize, localRect } from '../../core/viewFrame';
 
 const COIN_COUNT = 8;
 const FLY_MS = 760;
@@ -35,15 +36,16 @@ export function playGoldGain(
   from: number,
   to: number,
 ): void {
-  const target = coinIcon.getBoundingClientRect();
+  const target = localRect(coinIcon);
   if (reduceMotion() || target.width === 0) {
     amount.textContent = formatGold(String(to));
     return;
   }
   const endX = target.left + target.width / 2 - COIN_PX / 2;
   const endY = target.top + target.height / 2 - COIN_PX / 2;
-  const startX = window.innerWidth / 2 - COIN_PX / 2;
-  const startY = window.innerHeight / 2 - COIN_PX / 2;
+  const frame = frameSize();
+  const startX = frame.width / 2 - COIN_PX / 2;
+  const startY = frame.height / 2 - COIN_PX / 2;
   for (let i = 0; i < COIN_COUNT; i++) {
     const coin = document.createElement('img');
     coin.src = coinSrc;

@@ -29,6 +29,7 @@ import {
 } from './shopModel';
 import { loadSkins, skinImage } from '../skin/skinArt';
 import { TOP_UP_PACKS, type TopUpResponse } from './topUpPacks';
+import { localPoint, localRect } from '../../core/viewFrame';
 
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
 const MINI = (file: string) => encodeURI(`/mini game/${file}`);
@@ -460,17 +461,17 @@ export class ShopPopup {
         plus.disabled = quantity >= max;
       }
       const unitsAt = (clientX: number) => {
-        const rect = slider.getBoundingClientRect();
+        const rect = localRect(slider);
         const knobW = (rect.width * SLIDER.knobW) / SLIDER.w;
         const ratio = (clientX - rect.left - knobW / 2) / Math.max(1, rect.width - knobW);
         return 1 + Math.max(0, Math.min(1, ratio)) * (max - 1);
       };
       slider.addEventListener('pointerdown', (event) => {
         slider.setPointerCapture(event.pointerId);
-        set(unitsAt(event.clientX));
+        set(unitsAt(localPoint(event).x));
       });
       slider.addEventListener('pointermove', (event) => {
-        if (slider.hasPointerCapture(event.pointerId)) set(unitsAt(event.clientX));
+        if (slider.hasPointerCapture(event.pointerId)) set(unitsAt(localPoint(event).x));
       });
 
       set(1);

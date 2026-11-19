@@ -21,6 +21,7 @@ import '../../ui/boot/boot.css';
 import '../../ui/toast/toast.css';
 import './pier.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
+import { armFullscreenRetry, enterMobileFullscreen } from '../../core/fullscreen';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';
 import { BootScreens } from '../../ui/boot/BootScreens';
@@ -29,10 +30,12 @@ import { setToastRenderer } from '../../ui/kit/components';
 import { SlideToast } from '../../ui/toast/SlideToast';
 import { LakeScene } from '../lake/LakeScene';
 import { setLakeMapArt } from '../lake/mapArt';
+import { startMobileFrame } from './mobileFrame';
 import { PIER_LAKE_MAP, PierArt } from './PierArt';
 
 async function start(): Promise<void> {
-  // Điện thoại vào được (feedback 2026-11-19), nhưng chỉ chơi ngang: màn dọc bị lớp #rotate-hint trong pier.html phủ lên.
+  // Điện thoại vào được (feedback 2026-11-19): máy đang dọc thì body tự xoay sang phải, xoay máy ngang thì về thẳng.
+  const mobileFrame = startMobileFrame();
   const services = await createServices(PIER_LAKE_MAP, { fishingBots: true });
   const game = new Phaser.Game({
     type: Phaser.AUTO,
@@ -48,9 +51,17 @@ async function start(): Promise<void> {
     },
     scene: [BootScene, LakeScene, MinigameScene],
   });
+  mobileFrame.attach(game);
   setServices(game, services);
   // Dữ liệu game vẫn mock, nhưng đăng nhập Google thật để lấy tên tài khoản làm tên người chơi.
-  setBootOptions(game, { googleInMock: true, screens: new BootScreens() });
+  // Bấm CHƠI hoặc nút Google trên điện thoại thì vào toàn màn hình (phải ngay trong thao tác bấm).
+  const screens = new BootScreens(document.body, {
+    onGesture: () => {
+      enterMobileFullscreen();
+      armFullscreenRetry();
+    },
+  });
+  setBootOptions(game, { googleInMock: true, screens });
   setLakeMapArt(game, new PierArt());
   // Giao diện home theo ảnh demo (khung người chơi, vé, Gold, menu) chỉ có ở trang này.
   enableHomeHud(game);
