@@ -2,7 +2,10 @@
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+    />
     <title>Fishing Pier</title>
     <style>
       html,
@@ -11,8 +14,13 @@
         height: 100%;
         background: #000;
         overflow: hidden;
+        overscroll-behavior: none;
+        touch-action: manipulation;
+        -webkit-user-select: none;
+        user-select: none;
       }
-      /* Khung chơi giữ tỉ lệ 16:9, to nhất có thể giữa cửa sổ; phần thừa là nền đen. */
+      /* Khung chơi giữ tỉ lệ 16:9, to nhất có thể giữa cửa sổ; phần thừa là nền đen.
+         Điện thoại: dvh theo vùng nhìn thấy thật (thanh địa chỉ co giãn); vh là phương án dự phòng. */
       #game {
         position: fixed;
         inset: 0;
@@ -20,11 +28,63 @@
         width: min(100vw, calc(100vh * 16 / 9));
         height: min(100vh, calc(100vw * 9 / 16));
       }
+      @supports (height: 100dvh) {
+        #game {
+          width: min(100vw, calc(100dvh * 16 / 9));
+          height: min(100dvh, calc(100vw * 9 / 16));
+        }
+      }
+      /* Chỉ cho chơi ngang: màn cảm ứng đang đứng dọc thì phủ lời nhắc xoay ngang lên trên cùng. */
+      #rotate-hint {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 2147483647;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        padding: 24px;
+        box-sizing: border-box;
+        background: #10141f;
+        color: #fff;
+        font-family: system-ui, sans-serif;
+        text-align: center;
+      }
+      #rotate-hint .rotate-hint__icon {
+        font-size: 64px;
+        line-height: 1;
+        animation: rotate-hint-tilt 1.8s ease-in-out infinite;
+      }
+      #rotate-hint p {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      @keyframes rotate-hint-tilt {
+        0%,
+        20% {
+          transform: rotate(0deg);
+        }
+        60%,
+        100% {
+          transform: rotate(-90deg);
+        }
+      }
+      @media (orientation: portrait) and (pointer: coarse) {
+        #rotate-hint {
+          display: flex;
+        }
+      }
     </style>
   </head>
   <!-- page-pier: style riêng của trang này (scenes/pier/pier.css). Bỏ dòng gợi ý phím (feedback 2026-11-14). -->
   <body class="page-pier">
     <div id="game"></div>
+    <div id="rotate-hint" role="alert">
+      <div class="rotate-hint__icon">📱</div>
+      <p>Vui lòng xoay ngang điện thoại để chơi</p>
+    </div>
     <script type="module" src="/src/online/scenes/pier/preview.ts"></script>
   </body>
 </html>
