@@ -15,8 +15,9 @@ import { acceptFriend, declineFriend, removeFriend, sendFriendRequest } from './
 import { currentFriendStatus, friendButtons } from './friendStatus';
 
 const CLOSE = encodeURI('/mini game/Button Close.png');
-const PANEL_W = 640;
-const PANEL_H = 600;
+/** Khung Notebook.png thu về 928x536 (ảnh gốc 1392x804). */
+const PANEL_W = 928;
+const PANEL_H = 536;
 const PANEL_ZOOM = 1.4;
 
 function el<K extends keyof HTMLElementTagNameMap>(
@@ -59,7 +60,7 @@ export class PlayerInfoPopup {
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
     overlay.setAttribute('aria-label', 'Thông tin người chơi');
-    const panel = el('div', 'player-info__panel');
+    const panel = el('div', 'player-info__panel player-info__panel--notebook');
     const close = el('button', 'profile__close player-info__close');
     close.type = 'button';
     close.setAttribute('aria-label', 'Đóng');
@@ -197,7 +198,7 @@ export class PlayerInfoPopup {
       slots.append(slot);
     }
 
-    this.body.replaceChildren(top, bio, el('div', 'player-info__caption', 'Cá khoe'), slots);
+    this.body.replaceChildren(top, bio, el('div', 'player-info__caption', 'Khoe cá'), slots);
     animateIn(this.body, 'fade');
     this.renderActions();
   }

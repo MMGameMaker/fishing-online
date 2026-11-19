@@ -1,6 +1,7 @@
 // Scene hồ dùng map placeholder và hình khối màu cho tới khi có map thật và asset ART.
 import { lakeDisplayName } from '../../core/lakeNames';
 import Phaser from 'phaser';
+import { isTouchDevice } from '../../core/device';
 import { UI_DESIGN_WIDTH } from '../../core/env';
 import { getServices, type Services } from '../../core/services';
 import { CharacterView } from '../../entities/CharacterView';
@@ -13,10 +14,11 @@ import { CatchBanner } from '../../ui/announce/CatchBanner';
 import { COIN_ART } from '../../ui/coinArt';
 import { HomeHud, isHomeHudEnabled } from '../../ui/home/HomeHud';
 import { PlayerInfoPopup } from '../../ui/friends/PlayerInfoPopup';
+import { ActionButton } from './ActionButton';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
-import { NEAR_SEAT_PX, nearestSeat, seatReach } from './seatLogic';
+import { NEAR_SEAT_PX, nearestPlayer, nearestSeat, seatReach } from './seatLogic';
 import { SeatPrompt, preloadSitPrompt } from './SeatPrompt';
 import { ConnectionWatch } from './ConnectionWatch';
 import { SocialUi } from '../../social/SocialUi';
@@ -32,6 +34,12 @@ import {
   type LakeSeat,
   type RestSeat,
 } from './walkable';
+
+/** Việc bấm F (hoặc nút hành động) sẽ làm: ngồi ghế câu, ngồi chỗ chơi, hoặc xem người/bot. */
+type InteractTarget =
+  | { kind: 'fish'; seat: LakeSeat }
+  | { kind: 'rest'; seat: RestSeat }
+  | { kind: 'player'; id: string };
 
 export const LAKE_SCENE = 'Lake';
 
@@ -80,6 +88,8 @@ export class LakeScene extends Phaser.Scene {
   private seatPrompt!: SeatPrompt;
   private roamCircle!: Phaser.GameObjects.Arc;
   private joystick: Joystick | null = null;
+  /** Nút hành động thay phím F trên điện thoại (pier.html). */
+  private actionButton: ActionButton | null = null;
   private moveSender!: MoveSender;
   private typing = false;
   private modalOpen = false;
@@ -91,8 +101,8 @@ export class LakeScene extends Phaser.Scene {
   private social!: SocialUi;
   /** Popup thông tin người chơi khác (pier.html): bấm vào nhân vật để mở. */
   private playerInfo: PlayerInfoPopup | null = null;
-  /** Người khác đang được rê chuột lên (viền trắng). */
-  private hoveredId: string | null = null;
+  /** Người/bot đang là mục tiêu bấm F (viền trắng + phím F), pier.html. */
+  private targetPlayerId: string | null = null;
   /** Emoji trên đầu tự ẩn sau EMOJI_SHOW_MS; mỗi người chơi một hẹn giờ. */
   private readonly emojiTimers = new Map<string, Phaser.Time.TimerEvent>();
   /** Đang gửi SitRest/StandRest: bỏ qua bấm lặp. */
@@ -144,6 +154,8 @@ export class LakeScene extends Phaser.Scene {
 
   private shutdown(): void {
     this.seatPrompt.destroy();
+    this.actionButton?.destroy();
+    this.actionButton = null;
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups.length = 0;
     this.flow.destroy();
@@ -249,7 +261,7 @@ export class LakeScene extends Phaser.Scene {
       isHomeHudEnabled(this)
         ? {
             catchCardCoin: COIN_ART,
-            sideConfetti: true,
+            screenConfetti: true,
             skipMinigame: true,
             lightSweep: true,
             closePopupByKey: true,
@@ -266,7 +278,8 @@ export class LakeScene extends Phaser.Scene {
       this.map.seats,
       this.services.store,
       (seat) => this.onSeatPressed(seat),
-      { hidden: Boolean(getLakeMapArt(this)?.drawsSeats) },
+      // pier.html: không bấm chuột vào ghế; chỉ đứng gần rồi bấm F (feedback 2026-11-19).
+      { hidden: Boolean(getLakeMapArt(this)?.drawsSeats), clickable: !isHomeHudEnabled(this) },
     );
     const homeHud = isHomeHudEnabled(this);
     this.seatUi = new SeatUi(this.root, this.services, () => this.flow.canLeaveSeat(), !homeHud);
@@ -362,18 +375,18 @@ export class LakeScene extends Phaser.Scene {
     }
   }
 
-  /** Mở popup thông tin người chơi (bấm nhân vật, danh sách bạn, tên trong tab Tin riêng). */
+  /** Mở popup thông tin người chơi (bấm F cạnh nhân vật, danh sách bạn, tên trong tab Tin riêng). */
   private openPlayerInfo(playerId: string): void {
     if (playerId === this.myId) return;
     void this.playerInfo?.open(playerId);
   }
 
-  /** Viền trắng chỉ cho người/bot đang được rê chuột lên (pier.html); đứng gần không hiện viền. */
+  /** Viền trắng cho người/bot đang là mục tiêu bấm F (pier.html). */
   private updateOutlines(): void {
     if (!this.playerInfo) return;
     const blocked = this.modalOpen;
     for (const [id, remote] of this.remotes) {
-      remote.view.setOutlined(!blocked && id === this.hoveredId);
+      remote.view.setOutlined(!blocked && id === this.targetPlayerId);
     }
   }
 
@@ -401,32 +414,19 @@ export class LakeScene extends Phaser.Scene {
     this.cursors = keyboard.createCursorKeys();
     this.wasd = keyboard.addKeys('W,A,S,D') as typeof this.wasd;
     // Nhấn F cạnh ghế trống để ngồi (feedback 2026-11-11, thay phím E); đang ngồi chơi thì F để đứng dậy.
-    keyboard.addKey('F').on('down', () => {
-      if (this.myRestSeatId()) {
-        void this.standRest();
-        return;
-      }
-      const target = this.seatTargetNearMe();
-      if (target?.kind === 'rest') {
-        void this.sitRest(target.seat);
-        return;
-      }
-      // Ưu tiên ghế trống gần nhất; không có thì ghế gần nhất để báo lỗi (đã có người…).
-      const seat = target?.seat ?? nearestSeat(this.me.x, this.me.y, this.map.seats);
-      if (seat) this.onSeatPressed(seat);
-      else if (nearestSeat(this.me.x, this.me.y, this.restSeats())) {
-        showError(this.root, { code: 'SEAT_TAKEN' });
-      }
-    });
-    // Phím gợi ý F cạnh đầu nhân vật khi đứng gần ghế trống; chạm vào cũng ngồi được.
-    this.seatPrompt = new SeatPrompt(this, () => {
-      const target = this.seatTargetNearMe();
-      if (target?.kind === 'rest') void this.sitRest(target.seat);
-      else if (target) this.onSeatPressed(target.seat);
-    });
+    // pier.html: đứng gần người/bot thì F mở thông tin người đó (feedback 2026-11-19).
+    keyboard.addKey('F').on('down', () => this.interact());
+    // Phím gợi ý F cạnh đầu nhân vật khi đứng gần ghế trống hoặc người khác; chạm vào cũng như bấm F.
+    this.seatPrompt = new SeatPrompt(this, () => this.interact());
     // Không còn bấm chuột lên map để đi; chỉ phím di chuyển hoặc joystick.
-    // pier.html không dùng joystick (feedback 2026-11-14), kể cả máy có màn hình cảm ứng.
-    if (this.sys.game.device.input.touch && !isHomeHudEnabled(this)) {
+    if (isHomeHudEnabled(this)) {
+      // pier.html: chỉ máy cảm ứng (điện thoại) có joystick bên trái và nút hành động bên phải thay phím F
+      // (feedback 2026-11-19; trước đó pier không dùng joystick, 2026-11-14).
+      if (isTouchDevice()) {
+        this.joystick = new Joystick(this.root);
+        this.actionButton = new ActionButton(this.root, () => this.interact());
+      }
+    } else if (this.sys.game.device.input.touch) {
       this.joystick = new Joystick(this.root);
     }
   }
@@ -495,6 +495,53 @@ export class LakeScene extends Phaser.Scene {
     this.moveSender.flush(performance.now(), seat.x, seat.y, seat.facing as Direction);
   }
 
+  /** Bấm F (hoặc chạm phím F): đứng dậy khỏi chỗ ngồi chơi, mở thông tin người gần nhất, hoặc ngồi vào ghế gần nhất. */
+  private interact(): void {
+    if (this.myRestSeatId()) {
+      void this.standRest();
+      return;
+    }
+    const target = this.interactTargetNearMe();
+    if (target?.kind === 'player') {
+      if (!this.modalOpen && !this.flow.isLocked()) this.openPlayerInfo(target.id);
+      return;
+    }
+    if (target?.kind === 'rest') {
+      void this.sitRest(target.seat);
+      return;
+    }
+    // Ưu tiên ghế trống gần nhất; không có thì ghế gần nhất để báo lỗi (đã có người…).
+    const seat = target?.seat ?? nearestSeat(this.me.x, this.me.y, this.map.seats);
+    if (seat) this.onSeatPressed(seat);
+    else if (nearestSeat(this.me.x, this.me.y, this.restSeats())) {
+      showError(this.root, { code: 'SEAT_TAKEN' });
+    }
+  }
+
+  /** Người/bot khác gần nhất trong tầm; chỉ pier.html (có popup thông tin người chơi). */
+  private playerNearMe(): { id: string; distance: number } | null {
+    if (!this.playerInfo) return null;
+    const others = [...this.remotes].map(([id, remote]) => ({
+      id,
+      x: remote.view.x,
+      y: remote.view.y,
+    }));
+    return nearestPlayer(this.me.x, this.me.y, others);
+  }
+
+  /** Mục tiêu bấm F: ghế/chỗ ngồi chơi trống hoặc người/bot, cái nào gần mình hơn. */
+  private interactTargetNearMe(): InteractTarget | null {
+    const seat = this.seatTargetNearMe();
+    const player = this.playerNearMe();
+    if (player) {
+      const seatDistance = seat
+        ? Math.hypot(seat.seat.x - this.me.x, seat.seat.y - this.me.y)
+        : Infinity;
+      if (player.distance < seatDistance) return { kind: 'player', id: player.id };
+    }
+    return seat;
+  }
+
   /** Ghế trống gần nhất trong tầm ngồi của nhân vật. */
   private freeSeatNearMe(): LakeSeat | null {
     const { seats } = this.services.store.getState().lake;
@@ -548,13 +595,29 @@ export class LakeScene extends Phaser.Scene {
     const { lake } = this.services.store.getState();
     const target =
       !lake.mySeat && !this.myRestSeatId() && !this.flow.isLocked()
-        ? this.seatTargetNearMe()
+        ? this.interactTargetNearMe()
         : null;
-    this.seatPrompt.update(this.me.x, this.me.headY, target !== null);
-    // Viền trắng đúng chiếc ghế sẽ ngồi khi bấm F (feedback 2026-11-12).
-    const highlight =
-      target?.kind === 'rest' ? target.seat.restSeatId : (target?.seat.seatId ?? null);
+    // Điện thoại: nút hành động ở góc phải thay phím F cạnh đầu nhân vật.
+    this.seatPrompt.update(this.me.x, this.me.headY, target !== null && !this.actionButton);
+    this.updateActionButton(target);
+    // Viền trắng đúng chiếc ghế sẽ ngồi hoặc người sẽ mở thông tin khi bấm F (feedback 2026-11-12, 2026-11-19).
+    this.targetPlayerId = target?.kind === 'player' ? target.id : null;
+    let highlight: string | null = null;
+    if (target?.kind === 'rest') highlight = target.seat.restSeatId;
+    else if (target?.kind === 'fish') highlight = target.seat.seatId;
     getLakeMapArt(this)?.highlightSeat?.(highlight);
+  }
+
+  /** Chữ trên nút hành động (điện thoại): việc F sẽ làm; null = ẩn nút. */
+  private updateActionButton(target: InteractTarget | null): void {
+    if (!this.actionButton) return;
+    let label: string | null = null;
+    if (!this.modalOpen) {
+      if (this.myRestSeatId()) label = 'Đứng dậy';
+      else if (target?.kind === 'player') label = 'Thông tin';
+      else if (target) label = 'Ngồi';
+    }
+    this.actionButton.update(label);
   }
 
   /** Ngồi chơi vào chỗ trống; Server giữ chỗ nên hai người bấm cùng lúc chỉ một người ngồi được. */
@@ -659,7 +722,7 @@ export class LakeScene extends Phaser.Scene {
     }
     for (const [id, remote] of this.remotes) {
       if (!players[id]) {
-        if (this.hoveredId === id) this.hoveredId = null;
+        if (this.targetPlayerId === id) this.targetPlayerId = null;
         remote.view.destroy();
         this.remotes.delete(id);
       }
@@ -683,19 +746,6 @@ export class LakeScene extends Phaser.Scene {
         lastIconUntilMs: 0,
       };
       this.remotes.set(player.playerId, remote);
-      if (isHomeHudEnabled(this)) {
-        // pier.html: rê chuột lên người khác hiện viền trắng, bấm để mở popup thông tin (BOT-02).
-        const id = player.playerId;
-        remote.view.enablePointer({
-          onHover: (hover) => {
-            if (hover) this.hoveredId = id;
-            else if (this.hoveredId === id) this.hoveredId = null;
-          },
-          onClick: () => {
-            if (!this.modalOpen && !this.flow.isLocked()) this.openPlayerInfo(id);
-          },
-        });
-      }
     }
     remote.motion.setTarget(player.x, player.y, now);
     remote.view.setDirection(player.dir);
@@ -822,6 +872,8 @@ export class LakeScene extends Phaser.Scene {
     this.seatUi.update(serverNowMs);
     this.homeHud?.update();
     this.updateRemotes(nowMs, serverNowMs);
+    this.me.syncTextResolution();
+    for (const remote of this.remotes.values()) remote.view.syncTextResolution();
     this.updateOutlines();
   }
 }

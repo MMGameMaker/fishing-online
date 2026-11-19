@@ -21,7 +21,7 @@ import '../../ui/boot/boot.css';
 import '../../ui/toast/toast.css';
 import './pier.css';
 import { BootScene, setBootOptions } from '../../core/BootScene';
-import { armFullscreenRetry, enterMobileFullscreen } from '../../core/fullscreen';
+import { setFullscreenGuard } from '../../core/fullscreen';
 import { createServices, setServices } from '../../core/services';
 import { MinigameScene } from '../../fishing/MinigameScene';
 import { BootScreens } from '../../ui/boot/BootScreens';
@@ -54,13 +54,8 @@ async function start(): Promise<void> {
   mobileFrame.attach(game);
   setServices(game, services);
   // Dữ liệu game vẫn mock, nhưng đăng nhập Google thật để lấy tên tài khoản làm tên người chơi.
-  // Bấm CHƠI hoặc nút Google trên điện thoại thì vào toàn màn hình (phải ngay trong thao tác bấm).
-  const screens = new BootScreens(document.body, {
-    onGesture: () => {
-      enterMobileFullscreen();
-      armFullscreenRetry();
-    },
-  });
+  // Điện thoại: màn đăng nhập/menu chưa toàn màn hình; vào tới hồ thì bật, chạm lại mà chưa toàn màn hình thì bật lại.
+  const screens = new BootScreens(document.body, { onGameVisible: setFullscreenGuard });
   setBootOptions(game, { googleInMock: true, screens });
   setLakeMapArt(game, new PierArt());
   // Giao diện home theo ảnh demo (khung người chơi, vé, Gold, menu) chỉ có ở trang này.

@@ -1,4 +1,5 @@
 // Thành phần UI dùng chung, vẽ bằng DOM trên canvas.
+import { animateIn, animateOut, removeWithMotion } from './motion';
 import type Phaser from 'phaser';
 import { GAME_WIDTH, UI_DESIGN_WIDTH } from '../../core/env';
 import { ApiError } from '../../net/ApiClient';
@@ -166,7 +167,8 @@ export function showToast(
   toast.className = `ui-toast ui-toast--${kind}`;
   toast.textContent = message;
   host.append(toast);
-  window.setTimeout(() => toast.remove(), durationMs);
+  animateIn(toast, 'pop');
+  window.setTimeout(() => void removeWithMotion(toast, 'fade'), durationMs);
 }
 
 /** Hiển thị lỗi theo mã từ ApiError hoặc ack của hub. */
@@ -195,8 +197,13 @@ export function confirmDialog(root: HTMLElement, options: ConfirmOptions): Promi
     overlay.setAttribute('aria-modal', 'true');
 
     const close = (result: boolean) => {
-      overlay.remove();
       resolve(result);
+      overlay.style.pointerEvents = 'none';
+      const panel = overlay.querySelector<HTMLElement>('.ui-panel');
+      void Promise.all([
+        panel ? animateOut(panel, 'pop') : Promise.resolve(),
+        animateOut(overlay, 'fade'),
+      ]).then(() => overlay.remove());
     };
 
     const body = document.createElement('div');
@@ -214,7 +221,10 @@ export function confirmDialog(root: HTMLElement, options: ConfirmOptions): Promi
       }),
     );
     body.append(message, actions);
-    overlay.append(createPanel(options.title, body));
+    const panel = createPanel(options.title, body);
+    overlay.append(panel);
     root.append(overlay);
+    animateIn(overlay, 'fade');
+    animateIn(panel, 'pop');
   });
 }

@@ -1,7 +1,8 @@
 import { joystickVector } from './movement';
 import { localPoint, localRect } from '../../core/viewFrame';
 
-const RADIUS_PX = 45;
+/** Bán kính kéo = 41% cỡ đế (110px → 45px như trước); đế to hơn ở pier thì tầm kéo to theo. */
+const RADIUS_RATIO = 0.41;
 
 /** Joystick ảo cho thiết bị cảm ứng, dựa trên Pointer Events của DOM. */
 export class Joystick {
@@ -45,8 +46,9 @@ export class Joystick {
     const scale = rect.width / Math.max(1, this.base.offsetWidth);
     const dx = (point.x - (rect.left + rect.width / 2)) / scale;
     const dy = (point.y - (rect.top + rect.height / 2)) / scale;
-    this.vector = joystickVector(dx, dy, RADIUS_PX);
-    const limit = Math.min(1, RADIUS_PX / Math.max(1, Math.hypot(dx, dy)));
+    const radius = this.base.offsetWidth * RADIUS_RATIO;
+    this.vector = joystickVector(dx, dy, radius);
+    const limit = Math.min(1, radius / Math.max(1, Math.hypot(dx, dy)));
     this.knob.style.transform = `translate(${dx * limit}px, ${dy * limit}px)`;
   }
 }

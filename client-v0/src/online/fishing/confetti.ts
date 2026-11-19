@@ -76,14 +76,17 @@ export function burstConfetti(root: HTMLElement): HTMLElement {
   return layer;
 }
 
-/** Pháo bắn từ hai góc dưới lên kịp tới đỉnh trong khoảng này (ms); popup cá hiện sau mốc đó. */
-export const SIDE_CONFETTI_PEAK_MS = 600;
+/** Pháo nổ từ giữa màn hình bung ra tới đỉnh trong khoảng này (ms); popup cá hiện sau mốc đó. */
+export const SCREEN_CONFETTI_PEAK_MS = 600;
+/** Số mảnh khi bắn phủ cả màn hình (nhiều hơn pháo giữa popup để lấp đủ diện tích). */
+const SCREEN_PIECES = 120;
 
 /**
- * Pháo giấy bắn từ hai góc dưới màn hình chéo lên phía giữa rồi rơi xuống (pier.html, feedback
- * 2026-11-14). Lớp nằm dưới popup (không z-index) để mảnh giấy rơi phía sau thẻ cá. Tự gỡ khi xong.
+ * Pháo giấy nổ từ giữa màn hình, bung ra mọi hướng phủ cả màn hình rồi rơi xuống (pier.html, feedback 2026-11-19;
+ * trước đó bắn từ hai góc dưới, 2026-11-14). Lớp nằm dưới popup (không z-index) để mảnh giấy rơi phía sau thẻ cá.
+ * Tự gỡ khi xong.
  */
-export function burstSideConfetti(root: HTMLElement): HTMLElement {
+export function burstScreenConfetti(root: HTMLElement): HTMLElement {
   const layer = document.createElement('div');
   layer.setAttribute('aria-hidden', 'true');
   Object.assign(layer.style, {
@@ -96,41 +99,41 @@ export function burstSideConfetti(root: HTMLElement): HTMLElement {
   const width = root.clientWidth || window.innerWidth;
   const height = root.clientHeight || window.innerHeight;
 
-  let running = PIECES;
-  for (let i = 0; i < PIECES; i++) {
-    const fromLeft = i % 2 === 0;
+  let running = SCREEN_PIECES;
+  for (let i = 0; i < SCREEN_PIECES; i++) {
     const piece = document.createElement('i');
-    const w = Math.round(between(5, 9));
+    const w = Math.round(between(8, 14));
     Object.assign(piece.style, {
       position: 'absolute',
-      left: fromLeft ? '0' : 'auto',
-      right: fromLeft ? 'auto' : '0',
-      bottom: '0',
+      left: '50%',
+      top: '50%',
       width: `${w}px`,
       height: `${Math.round(w * between(1.3, 2))}px`,
       background: COLORS[i % COLORS.length]!,
       imageRendering: 'pixelated',
     });
     layer.append(piece);
-    // Bay chéo vào giữa: ngang 25–55% bề rộng, lên 45–80% chiều cao; rồi rơi xuống thêm một đoạn.
-    const dir = fromLeft ? 1 : -1;
-    const dx = dir * between(0.25, 0.55) * width;
-    const rise = between(0.45, 0.8) * height;
-    const drift = dir * between(0.05, 0.15) * width;
-    const fall = between(0.25, 0.45) * height;
+    // Bung theo hình elip bằng khung màn hình: có mảnh bay tới tận mép và góc, có mảnh ở gần giữa.
+    const angle = between(0, Math.PI * 2);
+    const reach = between(0.25, 1.05);
+    const dx = Math.cos(angle) * reach * width * 0.55;
+    const dy = Math.sin(angle) * reach * height * 0.55;
+    // Rồi rơi xuống kèm trôi nhẹ cho tự nhiên.
+    const drift = between(-0.05, 0.05) * width;
+    const fall = between(0.2, 0.45) * height;
     const spin = between(-720, 720);
-    const duration = between(1500, 2300);
-    const delay = between(0, 150);
+    const duration = between(1600, 2400);
+    const delay = between(0, 120);
     const animation = piece.animate(
       [
         { transform: 'translate(0, 0) rotate(0deg)', offset: 0 },
         {
-          transform: `translate(${dx}px, ${-rise}px) rotate(${spin * 0.4}deg)`,
+          transform: `translate(${dx}px, ${dy}px) rotate(${spin * 0.4}deg)`,
           offset: 0.32,
           easing: 'cubic-bezier(0.3, 0, 0.7, 1)',
         },
         {
-          transform: `translate(${dx + drift}px, ${-rise + fall}px) rotate(${spin}deg)`,
+          transform: `translate(${dx + drift}px, ${dy + fall}px) rotate(${spin}deg)`,
           offset: 1,
         },
       ],

@@ -1,6 +1,8 @@
 // Màn đăng nhập, Main Menu và màn tải theo thiết kế, dạng lớp DOM phủ kín cửa sổ.
 // Art: public/new resources/ui/Login (khung Sign In Panel, nút Google, CHƠI, Đăng xuất) — feedback 2026-11-17.
 // Chỉ pier.html bật (qua BootOptions.screens); trang khác vẫn dùng chữ Phaser cũ.
+import { animateIn } from '../kit/motion';
+
 const TIPS = [
   'Mẹo: Ngồi vào ghế trống để bắt đầu câu cá.',
   'Mẹo: Bán cá trong cửa hàng để kiếm Gold.',
@@ -31,10 +33,10 @@ export class BootScreens {
   private onPlay: (() => void) | null = null;
   private onLogout: (() => void) | null = null;
 
-  /** `onGesture` chạy đồng bộ ngay trong lần bấm CHƠI/Google (để xin toàn màn hình, cần thao tác thật). */
+  /** `onGameVisible(true)` khi đã vào hồ (màn phủ tắt), `(false)` khi quay về đăng nhập/menu/tải. */
   constructor(
     parent: HTMLElement = document.body,
-    private readonly options: { onGesture?: () => void } = {},
+    private readonly options: { onGameVisible?: (visible: boolean) => void } = {},
   ) {
     this.root = document.createElement('div');
     this.root.className = 'boot-screens';
@@ -95,13 +97,10 @@ export class BootScreens {
     // Popup Google chỉ mở được ngay trong thao tác bấm, nên gọi thẳng trong sự kiện click.
     this.googleBtn.addEventListener('click', () => {
       if (this.googleBtn.disabled) return;
-      // Mở popup Google trước (nó cần quyền bấm), rồi mới xin toàn màn hình.
       this.onGoogle?.();
-      this.options.onGesture?.();
     });
     this.playBtn.addEventListener('click', () => {
       if (this.playBtn.disabled) return;
-      this.options.onGesture?.();
       this.playBtn.disabled = true;
       this.logoutBtn.disabled = true;
       this.onPlay?.();
@@ -162,6 +161,7 @@ export class BootScreens {
   /** Tắt dần màn phủ khi đã vào được hồ. */
   hide(): void {
     this.setProgress(100);
+    this.options.onGameVisible?.(true);
     this.root.classList.add('is-leaving');
     window.setTimeout(() => {
       if (!this.root.classList.contains('is-leaving')) return;
@@ -172,7 +172,10 @@ export class BootScreens {
   }
 
   private show(screen: HTMLElement): void {
+    // Màn mới hiện mờ dần (đăng nhập, menu, tải đổi cho nhau), không bật tức thì.
+    if (screen.hidden) animateIn(screen, 'fade');
     for (const s of [this.login, this.menu, this.blocked, this.loading]) s.hidden = s !== screen;
+    this.options.onGameVisible?.(false);
     this.root.classList.add('is-open');
     this.root.classList.remove('is-leaving');
   }

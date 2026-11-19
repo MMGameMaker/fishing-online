@@ -176,6 +176,93 @@
   opacity: 0.75;
 }
 
+/* Popup thông tin người chơi dùng Notebook.png làm nền (feedback 2026-11-19). Ảnh 1392x804 thu về 928x536;
+   phần giấy rộng x 15..863, y 18..497 (gáy lò xo ở mép phải), nên nội dung nằm gọn trong lề padding.
+   Xếp dọc, mỗi khối trải hết bề ngang: người chơi (avatar to + tên, level, thanh kinh nghiệm, danh hiệu),
+   lời nhắn (một khối dài, thấp), "Khoe cá" + 3 ô cá ở dưới, hàng nút ở đáy. Popup Bạn bè vẫn dùng khung cũ. */
+.player-info__panel--notebook {
+  display: flex;
+  flex-direction: column;
+  width: 928px;
+  height: 536px;
+  padding: 42px 84px 50px 46px;
+  background: url('/new%20resources/ui/Notebook.png') no-repeat center / 100% 100%;
+  border: 0;
+  image-rendering: pixelated;
+}
+
+.player-info__panel--notebook .player-info__close {
+  top: -26px;
+  right: -12px;
+}
+
+.player-info__panel--notebook .player-info__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  margin-bottom: 6px;
+}
+
+.player-info__panel--notebook .player-info__loading {
+  margin: auto 0;
+}
+
+.player-info__panel--notebook .player-info__top {
+  gap: 24px;
+}
+
+.player-info__panel--notebook .player-info__avatar {
+  width: 144px;
+  height: 144px;
+}
+
+.player-info__panel--notebook .player-info__face {
+  transform: scale(3);
+}
+
+.player-info__panel--notebook .player-info__id {
+  gap: 6px;
+}
+
+.player-info__panel--notebook .player-info__name {
+  font-size: 32px;
+  line-height: 38px;
+}
+
+.player-info__panel--notebook .player-info__title {
+  padding: 4px 12px;
+}
+
+.player-info__panel--notebook .player-info__bio {
+  flex: none;
+  min-height: 0;
+  margin-top: 0;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.player-info__panel--notebook .player-info__caption {
+  margin: 0;
+  line-height: 24px;
+}
+
+.player-info__panel--notebook .player-info__slots {
+  grid-template-columns: repeat(3, 100px);
+  gap: 28px;
+}
+
+.player-info__panel--notebook .player-info__slot {
+  width: 100px;
+  height: 100px;
+}
+
+.player-info__panel--notebook .player-info__actions {
+  flex: none;
+  margin-top: 0;
+}
+
 /* Popup "Bạn bè". */
 .friends__panel {
   height: 720px;
@@ -351,7 +438,6 @@
   width: 18px;
   height: 18px;
 }
-
 
 /* Đổi cá giữa bạn bè: chọn cá và dòng đề nghị đang chờ. */
 .friends__row {

@@ -118,6 +118,7 @@ export class HomeHud {
   private readonly menuLabel = el('div', 'home-menu__label');
   private readonly unsubscribes: (() => void)[] = [];
   private lastClock = '';
+  private ticketShown = false;
   private lastAttemptId = '';
   private readonly shop: ShopPopup;
   private readonly inventory: InventoryPopup;
@@ -233,7 +234,20 @@ export class HomeHud {
     // Hết vé thì ẩn cả ô (kèm popup đang mở); có vé lại thì hiện.
     const hasTicket = clock !== '';
     if (!hasTicket) void this.setPopupOpen(false);
-    this.ticketWrap.hidden = !hasTicket;
+    void this.setTicketShown(hasTicket);
+  }
+
+  /** Ô vé hiện/ẩn mờ dần (feedback 2026-11-19), không bật/tắt tức thì. */
+  private async setTicketShown(shown: boolean): Promise<void> {
+    if (shown === this.ticketShown) return;
+    this.ticketShown = shown;
+    if (shown) {
+      this.ticketWrap.hidden = false;
+      animateIn(this.ticketWrap, 'fade');
+      return;
+    }
+    await animateOut(this.ticketWrap, 'fade');
+    if (!this.ticketShown) this.ticketWrap.hidden = true;
   }
 
   destroy(): void {
@@ -409,13 +423,15 @@ export class HomeHud {
 
   private async setMenuOpen(open: boolean): Promise<void> {
     if (open === !this.menu.hidden) return;
+    const panel = this.menu.querySelector<HTMLElement>('.home-menu__panel');
     if (open) {
       void this.setPopupOpen(false);
       this.menu.hidden = false;
       animateIn(this.menu, 'fade');
+      if (panel) animateIn(panel, 'pop');
       return;
     }
-    await animateOut(this.menu, 'fade');
+    await Promise.all([animateOut(this.menu, 'fade'), panel ? animateOut(panel, 'pop') : null]);
     this.menu.hidden = true;
   }
 }

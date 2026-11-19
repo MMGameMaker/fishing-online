@@ -1,6 +1,7 @@
-// Toàn màn hình trên điện thoại/máy tính bảng, bật khi người chơi bấm CHƠI hoặc nút Google (feedback 2026-11-19).
+// Toàn màn hình trên điện thoại/máy tính bảng (feedback 2026-11-19): màn đăng nhập/menu chưa bật; vào tới hồ thì bật,
+// và mỗi lần người chơi chạm lại trong game mà đang không toàn màn hình thì bật lại.
 // Trình duyệt chỉ cho vào toàn màn hình ngay trong thao tác chạm thật của người chơi, nên phải gọi đồng bộ
-// trong sự kiện click, không `await` gì trước. iPhone Safari không có Fullscreen API: lệnh tự bỏ qua.
+// trong sự kiện chạm, không `await` gì trước. iPhone Safari không có Fullscreen API: lệnh tự bỏ qua.
 import { isTouchDevice } from './device';
 
 type FullscreenElement = HTMLElement & {
@@ -29,14 +30,24 @@ export function enterMobileFullscreen(): void {
   }
 }
 
-let retryArmed = false;
+let guardOn = false;
+let guardListening = false;
+
+function onTouch(): void {
+  if (guardOn) enterMobileFullscreen();
+}
 
 /**
- * Cơ hội thứ hai: cửa sổ đăng nhập Google (popup) có thể làm mất quyền bật toàn màn hình hoặc thoát nó
- * khi quay lại trang. Chạm tiếp theo trên trang, nếu vẫn chưa toàn màn hình thì bật. Chỉ một lần.
+ * Bật/tắt chế độ "đang trong game". Bật: thử vào toàn màn hình ngay (có thể bị từ chối vì đã quá lâu sau lần chạm
+ * cuối) và từ giờ mỗi lần chạm/bấm phím trên trang mà chưa toàn màn hình thì bật lại. Tắt (về đăng nhập/menu): ngừng.
  */
-export function armFullscreenRetry(): void {
-  if (retryArmed || !isTouchDevice()) return;
-  retryArmed = true;
-  document.addEventListener('pointerup', enterMobileFullscreen, { once: true, capture: true });
+export function setFullscreenGuard(on: boolean): void {
+  guardOn = on && isTouchDevice();
+  if (!guardOn) return;
+  enterMobileFullscreen();
+  if (guardListening) return;
+  guardListening = true;
+  // Pha capture để vẫn chạy khi game/popup chặn sự kiện nổi lên.
+  document.addEventListener('pointerup', onTouch, true);
+  document.addEventListener('keydown', onTouch, true);
 }

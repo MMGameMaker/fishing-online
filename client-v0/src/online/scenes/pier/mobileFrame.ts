@@ -71,17 +71,38 @@ export function startMobileFrame(): MobileFrame {
   };
 }
 
-/** Cỡ cha và vùng canvas lấy từ bố cục (offsetWidth, localRect) thay vì hộp bao đã xoay. */
+// Số pixel tối đa của canvas (điện thoại 3x mà phủ cả màn thì rất nặng GPU).
+const MAX_CANVAS_PIXELS = 3_500_000;
+const MAX_PIXEL_RATIO = 3;
+
+/**
+ * Tỉ lệ canvas/CSS (feedback 2026-11-19: hình mờ, vỡ trên điện thoại). Phaser 3.90 không biết devicePixelRatio:
+ * canvas chỉ có đúng số pixel CSS rồi bị trình duyệt phóng 2–3 lần. Cảm ứng mới bật (máy tính giữ nguyên 1).
+ */
+function pixelRatio(cssWidth: number, cssHeight: number): number {
+  if (!isTouchDevice() || cssWidth <= 0 || cssHeight <= 0) return 1;
+  const budget = Math.sqrt(MAX_CANVAS_PIXELS / (cssWidth * cssHeight));
+  return Math.max(1, Math.min(window.devicePixelRatio || 1, MAX_PIXEL_RATIO, budget));
+}
+
+/**
+ * Cỡ cha và vùng canvas lấy từ bố cục (offsetWidth, localRect) thay vì hộp bao đã xoay.
+ * Cỡ game = cỡ CSS × tỉ lệ pixel: canvas có đủ pixel thật của màn hình, CSS (pier.html) thu về đúng khung.
+ * Camera tự phóng theo cỡ canvas; toạ độ chạm đã nhân `displayScale` nên không cần sửa thêm.
+ */
 function patchScale(game: Phaser.Game): void {
   const scale = game.scale;
   const originalParentBounds = scale.getParentBounds.bind(scale);
   scale.getParentBounds = () => {
-    if (!isViewRotated()) return originalParentBounds();
     const parent = scale.parent as HTMLElement | null;
+    const ratio = parent ? pixelRatio(parent.offsetWidth, parent.offsetHeight) : 1;
+    if (!isViewRotated() && ratio === 1) return originalParentBounds();
     if (!parent) return false;
+    const width = Math.round(parent.offsetWidth * ratio);
+    const height = Math.round(parent.offsetHeight * ratio);
     const size = scale.parentSize;
-    if (size.width === parent.offsetWidth && size.height === parent.offsetHeight) return false;
-    size.setSize(parent.offsetWidth, parent.offsetHeight);
+    if (size.width === width && size.height === height) return false;
+    size.setSize(width, height);
     return true;
   };
   const originalUpdateBounds = scale.updateBounds.bind(scale);

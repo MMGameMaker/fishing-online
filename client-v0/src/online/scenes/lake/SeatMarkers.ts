@@ -24,7 +24,14 @@ export class SeatMarkers {
     seats: LakeSeat[],
     private readonly store: Store,
     onSeatPressed: (seat: LakeSeat) => void,
-    options: { depth?: number; offsetY?: number; hitSize?: number; hidden?: boolean } = {},
+    options: {
+      depth?: number;
+      offsetY?: number;
+      hitSize?: number;
+      hidden?: boolean;
+      /** false: không bấm chuột/chạm vào ghế được (pier.html chỉ tương tác bằng phím F khi đứng gần). */
+      clickable?: boolean;
+    } = {},
   ) {
     const depth = options.depth ?? MARKER_DEPTH;
     const offsetY = options.offsetY ?? DEFAULT_OFFSET_Y;
@@ -42,10 +49,12 @@ export class SeatMarkers {
         rect.setVisible(false);
         number.setVisible(false);
       }
-      const zone = scene.add
-        .zone(seat.x, y, hitSize, hitSize)
-        .setInteractive({ cursor: 'pointer' });
-      zone.on('pointerdown', () => onSeatPressed(seat));
+      if (options.clickable !== false) {
+        const zone = scene.add
+          .zone(seat.x, y, hitSize, hitSize)
+          .setInteractive({ cursor: 'pointer' });
+        zone.on('pointerdown', () => onSeatPressed(seat));
+      }
       return { seat, rect, number };
     });
   }

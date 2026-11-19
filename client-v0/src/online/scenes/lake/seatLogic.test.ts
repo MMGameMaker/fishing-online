@@ -4,6 +4,7 @@ import type { GameplayConfig } from '../../core/gameplayConfig';
 import {
   formatClock,
   isNearSeat,
+  nearestPlayer,
   nearestSeat,
   priceSummary,
   seatReach,
@@ -79,5 +80,23 @@ describe('ghế dài 2 chỗ (yêu cầu 2026-11-18)', () => {
 
   it('tầm ngồi của ghế dài tính tới nửa gần nhất', () => {
     expect(seatReach(118, 622, bench[0]!, bench)).toBeCloseTo(19);
+  });
+});
+
+describe('nearestPlayer', () => {
+  const players = [
+    { id: 'far', x: 100, y: 0 },
+    { id: 'near', x: 20, y: 0 },
+    { id: 'nearer', x: 0, y: 10 },
+  ];
+
+  it('chọn người gần nhất trong tầm', () => {
+    expect(nearestPlayer(0, 0, players)).toEqual({ id: 'nearer', distance: 10 });
+  });
+
+  it('không ai trong tầm thì null (tầm 28px)', () => {
+    expect(nearestPlayer(0, 0, [{ id: 'a', x: 29, y: 0 }])).toBeNull();
+    expect(nearestPlayer(0, 0, [{ id: 'a', x: 28, y: 0 }])?.id).toBe('a');
+    expect(nearestPlayer(0, 0, [])).toBeNull();
   });
 });

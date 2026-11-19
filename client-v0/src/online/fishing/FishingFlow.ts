@@ -20,7 +20,7 @@ import { drawFishIcon } from '../../art.js';
 import { fishImage, preloadFishArt } from '../ui/fishArt';
 import { buildCatchCard, preloadCatchCard } from './CatchCard';
 import { flyFish, hitStop, ripple, splash } from './fishingFx';
-import { SIDE_CONFETTI_PEAK_MS, burstConfetti, burstSideConfetti } from './confetti';
+import { SCREEN_CONFETTI_PEAK_MS, burstConfetti, burstScreenConfetti } from './confetti';
 import { buildResultCard, cancelText } from './resultText';
 import { playBiteBeep, playCatchSound, playSound, preloadFishingSounds } from './sound';
 import { submitFishingResult } from './submitResult';
@@ -68,8 +68,8 @@ export interface FishingActor {
 export interface PierFishingOptions {
   /** Ảnh đồng xu cho dòng Giá của thẻ câu được cá (Coin Art.png); bỏ trống giữ ảnh thẻ. */
   catchCardCoin?: string;
-  /** Pháo giấy bắn từ hai góc dưới, khoảng 0,6 giây sau mới hiện popup cá (feedback 2026-11-14). */
-  sideConfetti?: boolean;
+  /** Pháo giấy nổ từ giữa màn hình phủ cả màn, khoảng 0,6 giây sau mới hiện popup cá (feedback 2026-11-19). */
+  screenConfetti?: boolean;
   /** Vệt sáng quét qua con cá trong popup (feedback 2026-11-14). */
   lightSweep?: boolean;
   /** Popup cá đóng bằng F hoặc Space (hiện gợi ý trong thẻ), không đóng bằng chạm ra ngoài (feedback 2026-11-14). */
@@ -465,11 +465,11 @@ export class FishingFlow {
         hint: this.pier.closePopupByKey ? CLOSE_KEY_HINT : undefined,
         fish,
       });
-    if (this.pier.sideConfetti) {
-      // Bắn pháo từ hai góc trước, pháo lên tới đỉnh thì mới hiện thẻ cá; chặn tự quăng cần trong lúc chờ.
+    if (this.pier.screenConfetti) {
+      // Pháo nổ từ giữa màn hình trước, bung tới đỉnh thì mới hiện thẻ cá; chặn tự quăng cần trong lúc chờ.
       this.resultOpen = true;
-      burstSideConfetti(this.root);
-      window.setTimeout(() => this.openPopup(popup(), false), SIDE_CONFETTI_PEAK_MS);
+      burstScreenConfetti(this.root);
+      window.setTimeout(() => this.openPopup(popup(), false), SCREEN_CONFETTI_PEAK_MS);
       return;
     }
     this.openPopup(popup());

@@ -29,6 +29,12 @@
         width: min(var(--fw, 100vw), calc(var(--fh, 100vh) * 16 / 9));
         height: min(var(--fh, 100vh), calc(var(--fw, 100vw) * 9 / 16));
       }
+      /* Canvas có thể nhiều pixel hơn khung (màn hình mật độ cao, xem mobileFrame.ts): CSS thu về đúng khung. */
+      #game canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+      }
     </style>
   </head>
   <!-- page-pier: style riêng của trang này (scenes/pier/pier.css). Bỏ dòng gợi ý phím (feedback 2026-11-14). -->

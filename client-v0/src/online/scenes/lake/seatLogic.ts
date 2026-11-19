@@ -92,3 +92,22 @@ export function sessionEndText(reason: string): string | null {
   if (SILENT_SEAT_END.has(reason)) return null;
   return SEAT_END_TEXT[reason] ?? 'Phiên giữ ghế đã kết thúc.';
 }
+
+/** Tầm tương tác (bấm F) với người/bot khác: gần bằng thân nhân vật (pier.html, feedback 2026-11-19). */
+export const NEAR_PLAYER_PX = 28;
+
+/** Người/bot gần nhất trong tầm tương tác; null nếu không có ai. */
+export function nearestPlayer(
+  x: number,
+  y: number,
+  players: readonly { id: string; x: number; y: number }[],
+  maxPx = NEAR_PLAYER_PX,
+): { id: string; distance: number } | null {
+  let best: { id: string; distance: number } | null = null;
+  for (const player of players) {
+    const distance = Math.hypot(player.x - x, player.y - y);
+    if (distance <= maxPx && (!best || distance < best.distance))
+      best = { id: player.id, distance };
+  }
+  return best;
+}

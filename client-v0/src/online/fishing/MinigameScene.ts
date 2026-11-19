@@ -3,6 +3,7 @@
 // thanh đường đi của cá ở trên, thanh đo có kim ở dưới; cả cụm nằm giữa, phía dưới màn hình.
 // Ảnh nguồn vẽ ở tỉ lệ 4 (mỗi điểm ảnh pixel art = 4×4 px), nên mọi toạ độ ảnh dưới đây chia hết cho 4.
 import Phaser from 'phaser';
+import { smoothText } from '../entities/smoothText';
 import { GAME_HEIGHT, GAME_WIDTH } from '../core/env';
 import type { Rarity } from '../core/gameplayConfig';
 import type { FishingOutcome, MinigameParams, TapResult } from '../net/contract';
@@ -302,10 +303,16 @@ export class MinigameScene extends Phaser.Scene {
       strokeThickness: 2,
       resolution: Math.max(2, Math.ceil(this.cameras.main.zoom)),
     };
-    this.distanceText = this.add
-      .text(...at(LAYOUT.fishRight, -2), '', { ...font, fontSize: '8px', color: '#ffffff' })
-      .setOrigin(1, 1);
-    this.effectText = this.add.text(...at(0, -2), '', { ...font, fontSize: '8px' }).setOrigin(0, 1);
+    this.distanceText = smoothText(
+      this,
+      this.add
+        .text(...at(LAYOUT.fishRight, -2), '', { ...font, fontSize: '8px', color: '#ffffff' })
+        .setOrigin(1, 1),
+    );
+    this.effectText = smoothText(
+      this,
+      this.add.text(...at(0, -2), '', { ...font, fontSize: '8px' }).setOrigin(0, 1),
+    );
 
     // Thân cá lắc qua lại như đang bơi (feedback 2026-11-12).
     this.fish.angle = -FISH_SWAY_DEG;
@@ -383,19 +390,22 @@ export class MinigameScene extends Phaser.Scene {
 
   /** Chữ nảy lên rồi bay lên và mờ dần tại (x, y) trong khung 480×270. */
   private floatText(text: string, color: string, x: number, y: number, size = 8): void {
-    const label = this.add
-      .text(x, y, text, {
-        fontFamily: 'Courier New, monospace',
-        fontStyle: 'bold',
-        fontSize: `${size}px`,
-        color,
-        stroke: '#14364a',
-        strokeThickness: 2,
-        resolution: Math.max(2, Math.ceil(this.cameras.main.zoom)),
-      })
-      .setOrigin(0.5, 1)
-      .setDepth(2)
-      .setScale(0.4);
+    const label = smoothText(
+      this,
+      this.add
+        .text(x, y, text, {
+          fontFamily: 'Courier New, monospace',
+          fontStyle: 'bold',
+          fontSize: `${size}px`,
+          color,
+          stroke: '#14364a',
+          strokeThickness: 2,
+          resolution: Math.max(2, Math.ceil(this.cameras.main.zoom)),
+        })
+        .setOrigin(0.5, 1)
+        .setDepth(2)
+        .setScale(0.4),
+    );
     this.tweens.add({ targets: label, scale: 1, duration: 160, ease: 'Back.easeOut' });
     this.tweens.add({
       targets: label,

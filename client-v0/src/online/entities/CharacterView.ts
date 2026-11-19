@@ -12,7 +12,13 @@ import {
   hasHeadBubble,
   headBubbleTexture,
 } from './HeadBubble';
-import { titleLabel, titleTier, TITLE_TIER_COLORS, type TitleTier } from '../ui/profile/profileModel';
+import { smoothText, textResolution } from './smoothText';
+import {
+  titleLabel,
+  titleTier,
+  TITLE_TIER_COLORS,
+  type TitleTier,
+} from '../ui/profile/profileModel';
 import { animKey, ensureRod, ensureSkin, frameName, type CharacterAnim } from './placeholderArt';
 
 export interface CharacterOptions {
@@ -40,6 +46,9 @@ const PIER_LABEL_LOWER = 3;
 const NAME_COLOR = '#ffffff';
 const MY_NAME_COLOR = '#ffd84a';
 const NAME_STROKE = '#2b1a0e';
+/** Độ dày viền chữ tên và biệt hiệu (pier): mảnh hơn trước, 3 và 2 (feedback 2026-11-19). */
+const NAME_STROKE_PX = 1.5;
+const TITLE_STROKE_PX = 1;
 /** Vệt sáng biệt hiệu theo bậc (1 hiếm, 2 sử thi, 3 huyền thoại): chu kỳ, độ sáng; quét trong 55% đầu chu kỳ. */
 const SHEEN_PERIOD_MS: Record<TitleTier, number> = { 0: 0, 1: 4200, 2: 3200, 3: 2400 };
 const SHEEN_STRENGTH: Record<TitleTier, number> = { 0: 0, 1: 0.5, 2: 0.75, 3: 0.95 };
@@ -144,6 +153,8 @@ export class CharacterView {
   private sheenTimer: Phaser.Time.TimerEvent | null = null;
   private sheenKey: string | null = null;
   private titleShown: string | undefined | null = null;
+  /** Độ phân giải chữ đang dùng cho tên và biệt hiệu (theo zoom camera, pier). */
+  private textRes = 0;
   private readonly bubble: Phaser.GameObjects.Text;
   private bubbleTimer: Phaser.Time.TimerEvent | null = null;
   /** Bong bóng Head Bubble.png (chỉ trang đã nạp ảnh này, vd. pier.html): chat hoặc emoji. */
@@ -187,10 +198,12 @@ export class CharacterView {
         // Vàng cho bản thân, trắng cho người khác và bot (feedback 2026-11-14).
         fontFamily: hasHeadBubble(scene) ? 'Courier New, monospace' : 'monospace',
         fontSize: '8px',
-        ...(hasHeadBubble(scene) ? { fontStyle: 'bold', resolution: 4 } : {}),
+        ...(hasHeadBubble(scene) ? { fontStyle: 'bold', resolution: textResolution(scene) } : {}),
         color: options.isMe ? MY_NAME_COLOR : NAME_COLOR,
         // Pier: bỏ nền hộp, thay bằng viền tối cho tên nổi trên cả gỗ lẫn nước (yêu cầu 2026-11-18).
-        ...(hasHeadBubble(scene) ? { stroke: NAME_STROKE, strokeThickness: 3 } : { backgroundColor: '#00000066' }),
+        ...(hasHeadBubble(scene)
+          ? { stroke: NAME_STROKE, strokeThickness: NAME_STROKE_PX }
+          : { backgroundColor: '#00000066' }),
       })
       .setOrigin(0.5, 1);
     this.titleText = scene.add
@@ -198,13 +211,15 @@ export class CharacterView {
         fontFamily: 'Courier New, monospace',
         fontSize: '6px',
         fontStyle: 'bold',
-        resolution: 4,
+        resolution: hasHeadBubble(scene) ? textResolution(scene) : 4,
         color: TITLE_TIER_COLORS[0],
         stroke: NAME_STROKE,
-        strokeThickness: 2,
+        strokeThickness: TITLE_STROKE_PX,
       })
       .setOrigin(0.5, 1)
       .setVisible(false);
+    smoothText(scene, this.label);
+    smoothText(scene, this.titleText);
     this.iconSlot = scene.add.container(0, 0);
     this.bubble = scene.add
       .text(0, 0, '', {
@@ -232,14 +247,6 @@ export class CharacterView {
     this.body.on(Phaser.Animations.Events.ANIMATION_UPDATE, () => this.syncOutline());
     this.placeHeadItems();
     this.applyAnimation();
-  }
-
-  /** Bấm/rê chuột lên thân nhân vật (người khác trên pier.html): mở popup thông tin, hiện viền trắng. */
-  enablePointer(handlers: { onClick: () => void; onHover: (hover: boolean) => void }): void {
-    this.body.setInteractive({ pixelPerfect: true, useHandCursor: true });
-    this.body.on(Phaser.Input.Events.POINTER_OVER, () => handlers.onHover(true));
-    this.body.on(Phaser.Input.Events.POINTER_OUT, () => handlers.onHover(false));
-    this.body.on(Phaser.Input.Events.POINTER_UP, () => handlers.onClick());
   }
 
   /** Viền trắng quanh thân, hiện/ẩn mờ dần như viền ghế ngồi được. */
@@ -271,6 +278,25 @@ export class CharacterView {
       sprite.setFlipX(this.body.flipX);
       if (!this.body.frame.customPivot) sprite.setOrigin(0.5, 1);
     }
+  }
+
+  /**
+   * Pier: vẽ lại tên và biệt hiệu khi zoom camera đổi (đổi cỡ cửa sổ, xoay máy) để chữ luôn vẽ gần đúng cỡ hiển thị.
+   * Gọi mỗi khung; chỉ làm gì khi độ phân giải đổi.
+   */
+  syncTextResolution(): void {
+    if (!hasHeadBubble(this.scene)) return;
+    const res = textResolution(this.scene);
+    if (res === this.textRes) return;
+    this.textRes = res;
+    this.label.setResolution(res);
+    this.titleText.setResolution(res);
+    const tier = titleTier(this.titleShown ?? undefined);
+    if (this.sheenImage) {
+      this.stopSheen();
+      if (tier > 0) this.startSheen(tier);
+    }
+    this.placeHeadItems();
   }
 
   /** Đổi tên hiển thị trên đầu (người chơi vừa đổi tên ở màn Tài khoản). */
@@ -338,7 +364,11 @@ export class CharacterView {
       .setScale(1 / this.titleText.style.resolution)
       .setBlendMode(1);
     this.container.add(this.sheenImage);
-    this.sheenTimer = this.scene.time.addEvent({ delay: SHEEN_STEP_MS, loop: true, callback: draw });
+    this.sheenTimer = this.scene.time.addEvent({
+      delay: SHEEN_STEP_MS,
+      loop: true,
+      callback: draw,
+    });
   }
 
   private stopSheen(): void {
@@ -453,16 +483,21 @@ export class CharacterView {
       return;
     }
     const text = TEXT_ICONS[icon.type];
-    const label = this.scene.add
-      .text(0, 0, text, {
-        fontFamily: 'monospace',
-        fontSize: '14px',
-        fontStyle: 'bold',
-        color: icon.type === 'bite' ? BITE_COLOR : '#ffffff',
-        stroke: '#000000',
-        strokeThickness: 2,
-      })
-      .setOrigin(0.5);
+    const pier = hasHeadBubble(this.scene);
+    const label = smoothText(
+      this.scene,
+      this.scene.add
+        .text(0, 0, text, {
+          fontFamily: pier ? 'Courier New, monospace' : 'monospace',
+          fontSize: '14px',
+          fontStyle: 'bold',
+          color: icon.type === 'bite' ? BITE_COLOR : '#ffffff',
+          stroke: '#000000',
+          strokeThickness: 2,
+          ...(pier ? { resolution: textResolution(this.scene) } : {}),
+        })
+        .setOrigin(0.5),
+    );
     this.iconSlot.add(label);
     if (icon.type === 'bite') {
       label.setAlpha(BITE_MIN_ALPHA);
@@ -532,10 +567,11 @@ export class CharacterView {
           fontStyle: 'bold',
           color: '#3a1d0e',
           align: 'center',
-          resolution: 4,
+          resolution: textResolution(this.scene),
           wordWrap: { width: SAY_WRAP_PX, useAdvancedWrap: true },
         })
         .setOrigin(0.5);
+      smoothText(this.scene, content);
       this.showHeadBubble(content, content.width, content.height, 'text');
       this.bubbleTimer = this.scene.time.delayedCall(SAY_MS, () => {
         if (this.headBubbleKind === 'text') this.hideHeadBubble();

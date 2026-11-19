@@ -203,24 +203,40 @@ describe('va chạm map pier', () => {
   const objectsNamed = (frame: string): PierObject[] =>
     MAP.objects.filter((o) => o.frame === frame);
 
-  /** Đi xuyên qua được (yêu cầu 2026-11-18): ghế đẩu quanh bàn và 4 ghế dài cạnh nước có chỗ câu. */
+  /**
+   * Đi xuyên qua được (yêu cầu 2026-11-18): ghế đẩu quanh bàn. Bốn ghế dài cạnh nước có chỗ câu từng đi xuyên qua
+   * được nhưng đã có va chạm (feedback 2026-11-19).
+   */
   const passThrough = (o: PierObject): boolean =>
-    (o.frame === 'main-objects/stool' &&
-      !lake.seats.some(
-        (s) => s.x >= o.x && s.x <= o.x + o.w && s.y >= o.y && s.y <= (o.by ?? 0) + 4,
-      )) ||
-    (/^main-objects\/(frontBench|leftBench|rightBench)$/.test(o.frame) &&
-      lake.seats.some(
-        (s) => s.x >= o.x && s.x <= o.x + o.w && s.y >= o.y && s.y <= (o.by ?? 0) + 4,
-      ));
+    o.frame === 'main-objects/stool' &&
+    !lake.seats.some((s) => s.x >= o.x && s.x <= o.x + o.w && s.y >= o.y && s.y <= (o.by ?? 0) + 4);
 
-  it('đi xuyên qua ghế đẩu quanh bàn và ghế dài cạnh nước', () => {
+  it('đi xuyên qua ghế đẩu quanh bàn', () => {
     const open = MAP.objects.filter(passThrough);
-    expect(open).toHaveLength(24);
+    expect(open).toHaveLength(20);
     for (const o of open) {
       const x = o.x + o.w / 2;
       const y = (o.by ?? o.y + o.h) - 3;
       expect(canStand(lake, x, y), `${o.frame} @${o.x},${o.y}`).toBe(true);
+    }
+  });
+
+  it('ghế dài có chỗ câu (4 ghế dài cạnh nước) chặn đường đi', () => {
+    const benches = MAP.objects.filter(
+      (o) =>
+        /^main-objects\/(frontBench|leftBench|rightBench)$/.test(o.frame) &&
+        lake.seats.some(
+          (s) => s.x >= o.x && s.x <= o.x + o.w && s.y >= o.y && s.y <= (o.by ?? 0) + 4,
+        ),
+    );
+    expect(benches).toHaveLength(4);
+    for (const o of benches) {
+      // Mọi điểm dọc thân ghế (cách mép 6px) đều không đứng được.
+      for (let dy = 8; dy < (o.by ?? o.y + o.h) - o.y - 2; dy += 8) {
+        expect(canStand(lake, o.x + o.w / 2, o.y + dy + 6), `${o.frame} @${o.x},${o.y}+${dy}`).toBe(
+          false,
+        );
+      }
     }
   });
 
@@ -351,5 +367,39 @@ describe('chỗ ngồi chơi của pier (yêu cầu 2026-11-18)', () => {
     const benches = [...MAP.lake.seats, ...rest].filter((s) => s.depth !== undefined);
     expect(benches.length).toBe(12);
     for (const seat of benches) expect(seat.depth!).toBeGreaterThan(seat.y);
+  });
+});
+
+// Bản sao map cho bot ở Server phải khớp map Client, nếu không bot ngồi/đi sai chỗ (feedback 2026-11-19).
+describe('bản sao map pier cho bot ở Server', () => {
+  const botMap = JSON.parse(
+    readFileSync(
+      fileURLToPath(
+        new URL(
+          '../../../../../server/FishingOnline.Api/Modules/Bots/pier-map.json',
+          import.meta.url,
+        ),
+      ),
+      'utf8',
+    ),
+  ) as {
+    mapVersion: string;
+    walkableRows: string[];
+    spawn: unknown;
+    moveRules: unknown;
+    seats: { seatId: string; x: number; y: number; facing: string }[];
+    restSeats: unknown[];
+  };
+
+  it('khớp lưới đi được, spawn, luật di chuyển và chỗ ngồi chơi', () => {
+    expect(botMap.mapVersion).toBe(MAP.lake.mapVersion);
+    expect(botMap.walkableRows).toEqual(MAP.lake.walkableRows);
+    expect(botMap.spawn).toEqual(MAP.lake.spawn);
+    expect(botMap.moveRules).toEqual(MAP.lake.moveRules);
+    expect(botMap.restSeats).toEqual(MAP.lake.restSeats);
+  });
+
+  it('khớp từng ghế câu (vị trí, hướng, ghế dài, độ sâu)', () => {
+    expect(botMap.seats).toEqual(MAP.lake.seats.map((seat) => ({ ...seat, number: undefined })));
   });
 });
