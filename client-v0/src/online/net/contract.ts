@@ -507,6 +507,8 @@ export interface LakeSnapshot {
   myTicket: MyTicket | null;
   mySeat: MySeat | null;
   myAttempt: AttemptView | null;
+  /** Hồ hết cá (2026-11-19); Server cũ không gửi thì coi là còn cá. */
+  lakeEmpty?: boolean;
 }
 
 export interface CommandAck<T> {
@@ -577,6 +579,8 @@ export interface HubEvents {
   AttemptUpdate: AttemptView;
   CatchShown: { playerId: string; speciesId: string; rarity: Rarity; shownUntil: string };
   FailShown: { playerId: string; shownUntil: string };
+  /** Hồ vừa hết cá (`empty` true) hoặc có cá trở lại sau đợt thả (2026-11-19). */
+  LakeStockChanged: { empty: boolean };
   SkinChanged: { playerId: string; skinId: string };
   /** Đổi cần đang dùng (PUT /me/equipped-rod): cả hồ thấy cần mới ngay. */
   RodChanged: { playerId: string; rodId: string };

@@ -228,8 +228,8 @@ public sealed class TicketTests(PostgresServer postgres) : GameTestBase(postgres
     [Theory]
     [InlineData(0)]
     [InlineData(-1)]
-    [InlineData(7)]
-    public async Task QuantityOutsideOneToSix_IsRejected(int quantity)
+    [InlineData(11)]
+    public async Task QuantityOutsideOneToTen_IsRejected(int quantity)
     {
         await using var player = await App.ConnectAsync(await App.NewPlayerAsync(1000));
 

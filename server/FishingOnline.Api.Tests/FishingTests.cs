@@ -483,7 +483,7 @@ public sealed class FishingTests(PostgresServer postgres) : GameTestBase(postgre
 
 public sealed class MonitoringTests(PostgresServer postgres) : GameTestBase(postgres)
 {
-    private const string ConfigVersion = "v0-test-2026-11-18-fishnames-01";
+    private const string ConfigVersion = "v0-test-2026-11-19-ticket10-01";
 
     private SecurityMonitor Monitor => App.Service<SecurityMonitor>();
 

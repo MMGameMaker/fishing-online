@@ -111,7 +111,7 @@
    "data": {
     "mapId": "lake-01",
     "mapVersion": "placeholder-1",
-    "configVersion": "v0-test-2026-11-18-fishnames-01",
+    "configVersion": "v0-test-2026-11-19-ticket10-01",
     "serverTime": "2026-11-09T10:00:00Z",
     "players": [
      {
@@ -412,7 +412,7 @@
   }
  },
  "_ticketExamples": {
-  "note": "Ca độc lập, không phải chuỗi ví liên tục. Vé test 50 Gold/10 phút, tối đa 6 vé mỗi lần; chưa phải giá chốt.",
+  "note": "Ca độc lập, không phải chuỗi ví liên tục. Vé test 50 Gold/10 phút, tối đa 10 vé mỗi lần; chưa phải giá chốt.",
   "buy": {
    "quantity": 2,
    "expectedPriceVersion": "ticket-price-test-01"

@@ -345,11 +345,12 @@ public sealed class FishingService(
 }
 
 public sealed class FishingBackground(
-    FishingService fishing, FishPopulation population, SecurityMonitor monitor, IConfiguration configuration, ILogger<FishingBackground> logger)
+    FishingService fishing, FishPopulation population, LakeStock lakeStock, SecurityMonitor monitor, IConfiguration configuration, ILogger<FishingBackground> logger)
     : BackgroundService
 {
     private static readonly TimeSpan MonitorEvery = TimeSpan.FromSeconds(1);
     private static readonly TimeSpan PurgeEvery = TimeSpan.FromHours(1);
+    private static readonly TimeSpan StockEvery = TimeSpan.FromSeconds(2);
 
     public override async Task StartAsync(CancellationToken cancellationToken)
     {
@@ -366,7 +367,8 @@ public sealed class FishingBackground(
         return Task.WhenAll(
             LoopAsync(TimeSpan.FromMilliseconds(tickMs), fishing.TickOnceAsync, stoppingToken),
             LoopAsync(MonitorEvery, async ct => await monitor.ProcessBatchAsync(ct), stoppingToken),
-            LoopAsync(PurgeEvery, async ct => await monitor.PurgeAsync(ct), stoppingToken));
+            LoopAsync(PurgeEvery, async ct => await monitor.PurgeAsync(ct), stoppingToken),
+            LoopAsync(StockEvery, lakeStock.RefreshAsync, stoppingToken));
     }
 
     private async Task LoopAsync(TimeSpan period, Func<CancellationToken, Task> work, CancellationToken stoppingToken)
@@ -402,6 +404,7 @@ public static class FishingModule
         services.AddSingleton<IFishingState>(provider => provider.GetRequiredService<FishingState>());
         services.AddSingleton<SecurityMonitor>();
         services.AddSingleton<FishPopulation>();
+        services.AddSingleton<LakeStock>();
         services.AddSingleton<FishingService>();
         services.AddHostedService<FishingBackground>();
         return services;

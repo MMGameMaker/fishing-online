@@ -13,6 +13,8 @@ const SCROLL_PX_PER_S = 150;
 const SCROLL_TIMES = 3;
 /** Hàng chờ dài quá thì bỏ thông báo cũ để thanh không chạy mãi khi đông người câu. */
 const MAX_QUEUE = 5;
+/** Khoảng nghỉ giữa hai lượt của thông báo lặp (hồ hết cá). */
+const NOTICE_GAP_MS = 5000;
 
 /**
  * Nội dung: "Chúc mừng [tên] là người đầu tiên câu được [cá]!" (tên vàng, cá màu độ hiếm).
@@ -48,6 +50,11 @@ export class CatchBanner {
   private running = false;
   private destroyed = false;
   private current: HTMLElement | null = null;
+  /** Thông báo lặp (hồ hết cá): chạy một lượt, nghỉ `gapMs`, rồi chạy lại cho tới khi bị gỡ. */
+  private notice: { text: string; gapMs: number } | null = null;
+  /** Thông báo mới đặt thì chạy ngay, không chờ khoảng nghỉ. */
+  private noticeReady = true;
+  private wake: (() => void) | null = null;
 
   constructor(private readonly root: HTMLElement) {}
 
@@ -57,21 +64,61 @@ export class CatchBanner {
     if (!this.running) void this.drain();
   }
 
+  /** Đặt (hoặc gỡ bằng null) dòng thông báo lặp; đổi nội dung thì chạy lại ngay (feedback 2026-11-19). */
+  setNotice(text: string | null, gapMs = NOTICE_GAP_MS): void {
+    if (text === null) {
+      this.notice = null;
+      this.noticeReady = true;
+      this.wake?.();
+      return;
+    }
+    if (this.notice?.text !== text) this.noticeReady = true;
+    this.notice = { text, gapMs };
+    this.wake?.();
+    if (!this.running) void this.drain();
+  }
+
   destroy(): void {
     this.destroyed = true;
     this.queue.length = 0;
+    this.notice = null;
+    this.wake?.();
     this.current?.remove();
   }
 
   private async drain(): Promise<void> {
     this.running = true;
-    while (!this.destroyed && this.queue.length > 0) {
-      await this.play(this.queue.shift()!);
+    while (!this.destroyed) {
+      const next = this.queue.shift();
+      if (next) {
+        await this.play(announcementParts(next), SCROLL_TIMES);
+        continue;
+      }
+      const notice = this.notice;
+      if (!notice) break;
+      if (!this.noticeReady) await this.sleep(notice.gapMs);
+      // Trong lúc nghỉ có thể đã gỡ/đổi thông báo hoặc có tin khoe cá chen vào: xét lại từ đầu.
+      if (this.notice !== notice || this.queue.length > 0) continue;
+      this.noticeReady = false;
+      await this.play([{ text: notice.text }], 1);
     }
     this.running = false;
   }
 
-  private async play(announcement: Announcement): Promise<void> {
+  /** Chờ `ms`, hoặc dậy sớm khi thông báo bị đổi/gỡ. */
+  private sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => {
+      const done = () => {
+        window.clearTimeout(timer);
+        this.wake = null;
+        resolve();
+      };
+      const timer = window.setTimeout(done, ms);
+      this.wake = done;
+    });
+  }
+
+  private async play(parts: { text: string; color?: string }[], iterations: number): Promise<void> {
     const bar = document.createElement('div');
     bar.className = 'catch-banner';
     bar.setAttribute('role', 'status');
@@ -79,7 +126,14 @@ export class CatchBanner {
     track.className = 'catch-banner__track';
     const text = document.createElement('div');
     text.className = 'catch-banner__text';
-    renderAnnouncement(text, announcement);
+    text.replaceChildren(
+      ...parts.map((part) => {
+        const span = document.createElement('span');
+        span.textContent = part.text;
+        if (part.color) span.style.color = part.color;
+        return span;
+      }),
+    );
     track.append(text);
     bar.append(track);
     this.root.append(bar);
@@ -100,7 +154,7 @@ export class CatchBanner {
         ],
         {
           duration: (distance / SCROLL_PX_PER_S) * 1000,
-          iterations: SCROLL_TIMES,
+          iterations,
           easing: 'linear',
           fill: 'forwards',
         },

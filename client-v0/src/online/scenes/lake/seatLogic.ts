@@ -4,7 +4,7 @@ import type { TicketPricingConfig } from '../../core/gameplayConfig';
 /** Tầm tương tác ghế: phải đứng sát ghế đẩu (feedback 2026-11-13, trước là 64). */
 export const NEAR_SEAT_PX = 24;
 /** Giới hạn của giao diện; Server kiểm tra lại theo ticketPricing.maxUnitsPerPurchase. */
-export const MAX_UI_DURATION_UNITS = 6;
+export const MAX_UI_DURATION_UNITS = 10;
 
 export const SEAT_COLORS = { available: 0x4fbf6a, occupied: 0xd9534f } as const;
 
@@ -111,3 +111,8 @@ export function nearestPlayer(
   }
   return best;
 }
+
+/** Hồ hết cá (2026-11-19): toast khi bấm mua vé và dòng chạy trên thanh thông báo (lặp mỗi 5 giây). */
+export const LAKE_EMPTY_TOAST = 'Hồ đã hết cá rồi! Các chiến hữu quay lại sau nhé!';
+export const LAKE_EMPTY_BANNER =
+  'Cá đã trốn sạch rồi! Hồ đang bổ sung chiến lợi phẩm, các cần thủ hãy nghỉ tay và quay lại sau nhé!';

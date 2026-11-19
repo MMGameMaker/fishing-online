@@ -113,7 +113,7 @@ public sealed class AdminAuthTests(PostgresServer postgres) : AdminTestBase(post
 
 public sealed class AdminConfigTests(PostgresServer postgres) : AdminTestBase(postgres)
 {
-    private const string Base = "v0-test-2026-11-18-fishnames-01";
+    private const string Base = "v0-test-2026-11-19-ticket10-01";
 
     private async Task<(HttpClient Client, JsonElement Draft)> DraftAsync()
     {

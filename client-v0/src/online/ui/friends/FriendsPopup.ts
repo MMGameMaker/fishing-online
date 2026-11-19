@@ -92,8 +92,15 @@ export class FriendsPopup {
         (s) => s.social,
         () => this.render(),
       ),
+      // Chỉ vẽ lại khi tập bạn bè đang ở hồ đổi. Server thật gửi vị trí người/bot liên tục nên `lake.players` đổi
+      // tham chiếu mỗi tick; vẽ lại theo nó thay nút giữa lúc nhấn và nhả chuột, làm click không bao giờ kích hoạt.
       store.select(
-        (s) => s.lake.players,
+        (s) =>
+          (s.social.friends ?? [])
+            .filter((f) => Boolean(s.lake.players[f.playerId]))
+            .map((f) => f.playerId)
+            .sort()
+            .join(','),
         () => this.render(),
       ),
       store.select(

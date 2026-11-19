@@ -1,7 +1,7 @@
 // HUD vé câu cá và hộp thoại mua vé. Vé không gắn với ghế; giá và Gold luôn lấy theo Server.
 import type { Services } from '../../core/services';
 import { createButton, createGoldLabel, showError, showToast } from '../../ui/kit/components';
-import { MAX_UI_DURATION_UNITS, formatClock, sessionEndText } from './seatLogic';
+import { LAKE_EMPTY_TOAST, MAX_UI_DURATION_UNITS, formatClock, sessionEndText } from './seatLogic';
 import { COIN_ART } from '../../ui/coinArt';
 import { openTicketDialog, preloadTicketDialog } from './TicketDialog';
 import type { LakeSeat } from './walkable';
@@ -105,6 +105,11 @@ export class SeatUi {
 
   /** true nếu đã mua vé thành công, false nếu đóng hoặc mua thất bại. Popup theo hình mẫu (TicketDialog). */
   openBuyTicket(): Promise<boolean> {
+    // Hồ hết cá thì không bán vé (pier.html, 2026-11-19): chỉ báo bằng toast, không mở popup.
+    if (!this.showHud && this.services.store.getState().lake.lakeEmpty) {
+      showToast(this.root, LAKE_EMPTY_TOAST);
+      return Promise.resolve(false);
+    }
     const pricing = this.services.store.getState().catalog?.ticketPricing;
     if (!pricing) return Promise.resolve(false);
     return openTicketDialog({

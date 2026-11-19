@@ -5,7 +5,7 @@ import type { LakeMap } from '../scenes/lake/walkable';
 import { mountDevOverlay } from './devOverlay';
 import { MockBackend } from './MockBackend';
 
-/** Dựng mock cho trình duyệt; `?mockError=SEAT_TAKEN` bật lỗi giả, `?mockPing=150` giả độ trễ. */
+/** Dựng mock cho trình duyệt; `?mockError=SEAT_TAKEN` bật lỗi giả, `?mockPing=150` giả độ trễ, `?mockEmpty=1` hồ hết cá. */
 export function createMock(
   map: LakeMap,
   botCount?: number,
@@ -25,6 +25,9 @@ export function createMock(
     botCount,
     fishingBots: extra.fishingBots,
   });
+  if (query.get('mockEmpty') === '1') mock.setLakeEmpty(true);
+  // Chỉ khi phát triển: __mockBackend.setLakeEmpty(true) để thử thông báo hồ hết cá.
+  if (import.meta.env.DEV) (window as unknown as { __mockBackend: unknown }).__mockBackend = mock;
   mock.startRealtime();
   mountDevOverlay(mock, forcedError);
   return mock;

@@ -195,7 +195,8 @@ export const isLakeSnapshot: Guard<LakeSnapshot> = (v): v is LakeSnapshot =>
   arrayOf(isSeatView)(v.seats) &&
   (v.myTicket === null || isMyTicket(v.myTicket)) &&
   (v.mySeat === null || isMySeat(v.mySeat)) &&
-  (v.myAttempt === null || isAttemptView(v.myAttempt));
+  (v.myAttempt === null || isAttemptView(v.myAttempt)) &&
+  (v.lakeEmpty === undefined || bool(v.lakeEmpty));
 
 export function isCommandAck<T>(v: unknown, dataGuard: (d: unknown) => d is T): v is CommandAck<T> {
   if (!obj(v) || !str(v.requestId) || !bool(v.ok)) return false;
@@ -219,6 +220,7 @@ export const EVENT_GUARDS: { [K in HubEventName]: Guard<HubEvents[K]> } = {
   CatchShown: (v): v is HubEvents['CatchShown'] =>
     obj(v) && str(v.playerId) && str(v.speciesId) && isRarityValue(v.rarity) && iso(v.shownUntil),
   FailShown: (v): v is HubEvents['FailShown'] => obj(v) && str(v.playerId) && iso(v.shownUntil),
+  LakeStockChanged: (v): v is HubEvents['LakeStockChanged'] => obj(v) && bool(v.empty),
   SkinChanged: (v): v is HubEvents['SkinChanged'] => obj(v) && str(v.playerId) && str(v.skinId),
   RodChanged: (v): v is HubEvents['RodChanged'] => obj(v) && str(v.playerId) && str(v.rodId),
   ChatReceived: (v): v is HubEvents['ChatReceived'] =>

@@ -48,6 +48,8 @@ export interface LakeState {
   fails: Record<string, string>;
   chat: ChatEntry[];
   emojis: Record<string, string>;
+  /** Hồ hết cá: chặn mua vé và chạy thông báo thay thanh khoe cá (2026-11-19). */
+  lakeEmpty: boolean;
 }
 
 /**
@@ -130,6 +132,7 @@ export const initialLake: LakeState = {
   fails: {},
   chat: [],
   emojis: {},
+  lakeEmpty: false,
 };
 
 export const initialState: GameState = {
@@ -165,9 +168,12 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
         seats: keyBy(s.seats, (seat) => seat.seatId),
         myTicket: s.myTicket,
         mySeat: s.mySeat,
+        lakeEmpty: s.lakeEmpty ?? false,
         correction: null,
       };
     }
+    case 'LakeStockChanged':
+      return { ...lake, lakeEmpty: action.payload.empty };
     case 'PlayerJoined':
       return { ...lake, players: { ...lake.players, [action.payload.playerId]: action.payload } };
     case 'PlayerLeft':

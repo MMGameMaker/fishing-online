@@ -1,6 +1,6 @@
 {
-  "configVersion": "v0-test-2026-11-18-fishnames-01",
-  "status": "Fixture test: không thính; vé 50 Gold/10 phút, tối đa 6 vé mỗi lần mua là số test GD 2026-11-10, chưa khóa balance.",
+  "configVersion": "v0-test-2026-11-19-ticket10-01",
+  "status": "Fixture test: không thính; vé 50 Gold/10 phút, tối đa 10 vé mỗi lần mua (GD nâng từ 6 lên 10 ngày 2026-11-19; 50 Gold/10 phút là số test GD 2026-11-10), chưa khóa balance.",
   "newPlayer": {
     "gold": 100,
     "rodId": "rod_old"
@@ -424,7 +424,7 @@
   "ticketPricing": {
     "billingUnitMinutes": 10,
     "unitPriceGold": "50",
-    "maxUnitsPerPurchase": 6,
+    "maxUnitsPerPurchase": 10,
     "priceVersion": "ticket-price-test-01",
     "status": "Số test GD 2026-11-10; chưa có giới hạn tổng thời gian vé còn lại"
   },

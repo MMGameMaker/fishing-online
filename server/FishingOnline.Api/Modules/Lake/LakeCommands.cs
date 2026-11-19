@@ -9,7 +9,8 @@ namespace FishingOnline.Api.Modules.Lake;
 
 public sealed record LakeSnapshot(
     string MapId, string MapVersion, string ConfigVersion, DateTimeOffset ServerTime,
-    IReadOnlyList<PlayerView> Players, IReadOnlyList<SeatView> Seats, MyTicketView? MyTicket, MySeatView? MySeat, AttemptView? MyAttempt);
+    IReadOnlyList<PlayerView> Players, IReadOnlyList<SeatView> Seats, MyTicketView? MyTicket, MySeatView? MySeat, AttemptView? MyAttempt,
+    bool LakeEmpty = false);
 
 /// <summary>Vào phòng, di chuyển, mất kết nối. Mọi thay đổi presence đi qua hàng đợi của phòng.</summary>
 public sealed class LakeCommands(
@@ -19,6 +20,7 @@ public sealed class LakeCommands(
     SeatSessions seats,
     IConfigProvider configs,
     FishingService attempts,
+    LakeStock lakeStock,
     IConfiguration configuration,
     TimeProvider time)
 {
@@ -103,7 +105,8 @@ public sealed class LakeCommands(
         var myAttempt = await attempts.GetActiveViewAsync(playerId, ct);
         var players = await room.Queue.RunAsync(() => Task.FromResult(room.Views()));
         return new LakeSnapshot(
-            layout.MapId, layout.MapVersion, configs.Current.ConfigVersion, time.GetUtcNow(), players, seatViews, ticket, session, myAttempt);
+            layout.MapId, layout.MapVersion, configs.Current.ConfigVersion, time.GetUtcNow(), players, seatViews, ticket, session, myAttempt,
+            await lakeStock.IsEmptyAsync(ct));
     }
 
     public Task MoveAsync(Guid playerId, MoveCommand command)

@@ -18,7 +18,13 @@ import { ActionButton } from './ActionButton';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
-import { NEAR_SEAT_PX, nearestPlayer, nearestSeat, seatReach } from './seatLogic';
+import {
+  LAKE_EMPTY_BANNER,
+  NEAR_SEAT_PX,
+  nearestPlayer,
+  nearestSeat,
+  seatReach,
+} from './seatLogic';
 import { SeatPrompt, preloadSitPrompt } from './SeatPrompt';
 import { ConnectionWatch } from './ConnectionWatch';
 import { SocialUi } from '../../social/SocialUi';
@@ -338,8 +344,17 @@ export class LakeScene extends Phaser.Scene {
     );
     // Khoe cá kiểu 1: thanh chạy chữ nửa trên màn hình cho mọi người (tin hệ thống vào chat qua store).
     const banner = new CatchBanner(this.root);
+    // Hồ hết cá (pier.html): thanh không báo người câu trúng nữa mà chạy dòng "cá đã trốn sạch" mỗi 5 giây.
+    const { store } = this.services;
+    const noticeOnly = isHomeHudEnabled(this);
+    const syncNotice = (empty: boolean) =>
+      banner.setNotice(noticeOnly && empty ? LAKE_EMPTY_BANNER : null);
+    syncNotice(store.getState().lake.lakeEmpty);
     this.cleanups.push(
-      hub.on('CatchAnnounced', (announcement) => banner.show(announcement)),
+      hub.on('CatchAnnounced', (announcement) => {
+        if (!(noticeOnly && store.getState().lake.lakeEmpty)) banner.show(announcement);
+      }),
+      store.select((s) => s.lake.lakeEmpty, syncNotice),
       () => banner.destroy(),
     );
   }

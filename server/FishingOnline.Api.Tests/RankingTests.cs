@@ -15,7 +15,7 @@ public sealed class RankingTests(PostgresServer postgres) : GameTestBase(postgre
         {
             await using var scope = App.Services.CreateAsyncScope();
             await scope.ServiceProvider.GetRequiredService<ICatchRecorder>().RecordAsync(
-                playerId, attemptId ?? Guid.NewGuid(), "perch", 100 + i, 5, "v0-test-2026-11-18-fishnames-01", default);
+                playerId, attemptId ?? Guid.NewGuid(), "perch", 100 + i, 5, "v0-test-2026-11-19-ticket10-01", default);
         }
     }
 
@@ -132,7 +132,7 @@ public sealed class RankingTests(PostgresServer postgres) : GameTestBase(postgre
     {
         await using var scope = App.Services.CreateAsyncScope();
         await scope.ServiceProvider.GetRequiredService<ICatchRecorder>().RecordAsync(
-            playerId, Guid.NewGuid(), species, length, 5, "v0-test-2026-11-18-fishnames-01", default);
+            playerId, Guid.NewGuid(), species, length, 5, "v0-test-2026-11-19-ticket10-01", default);
     }
 
     private async Task<JsonElement> DailyAsync(Guid viewer, string species, string metric) =>

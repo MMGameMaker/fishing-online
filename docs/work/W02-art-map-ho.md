@@ -754,3 +754,30 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
   - Ảnh dựng lại từ map mới (nền + vật thể từ atlas) khớp ảnh người dùng: ghế nằm trên bờ cỏ trái hồ, chỗ cũ trước nhà trống. Chưa ngồi thử ghế mới bằng nhân vật trong game.
   - **Sự cố playtest (Claude gây ra):** lúc khởi động lại Server bằng `run-local.ps1`, Claude đã tắt nhầm API playtest Production (chạy từ 13:20 qua `run-playtest.ps1`, cổng 5080 dùng chung) và thay bằng API dev. API dev không nhận tên miền Tailscale (`AllowedHosts`), nên link public báo "Không đăng nhập được". Đã chạy lại `run-playtest.ps1 -PublicHost desktop-oohtpvv.tail21ba23.ts.net -SkipInfra` (dùng Postgres portable cổng 55432 + Redis 6379): build lại client, publish API, bật Caddy và Funnel. Đăng nhập qua link public đã vào lại được hồ. **Lưu ý:** máy này đang chạy playtest, nên đừng dùng `run-local.ps1 -Mode real`: nó tranh cổng 5080 với playtest.
 - **Mở hiên trước nhà Marlin's (cùng ngày, người dùng khoanh trên ảnh):** chỉ mở phần ván hiên trước nửa trái nhà, giữa chỗ ghế cũ và cửa: cột 90–96, hàng 22–24, x 720–775, y 176–199, 21 ô. Phần trước cửa và nửa phải vẫn chặn như cũ. Hình nhà (`fishing-objects/fishShop`, đáy y=202) thêm `"d": 176` (chân tường gỗ), để người đứng trên hiên vẽ đè lên nhà chứ không bị che. Đã sửa cả bản map của bot. vitest 350 qua. Đã chạy lại `run-playtest.ps1` và chụp lại lưới chặn để kiểm tra. Lần chạy đầu bằng công cụ chạy nền của agent thì API và Caddy tắt theo khi lệnh kết thúc (link báo 502). Đã chạy lại bằng `Start-Process` tách riêng: API (dotnet) và Caddy chạy từ 16:05, tiến trình cha đã thoát mà vẫn sống, link public ready. Chưa đi thử bằng nhân vật trên hiên.
+
+
+## Popup Bạn bè: sửa nút không bấm được, bỏ thanh cuộn, nút hết bè, nền Card Art (Claude, 2026-11-19, yêu cầu người dùng)
+
+- **Nút Nhắn tin / Đổi cá / Xem / Xoá không bấm được trên Server thật:** nguyên nhân ở client, không ở Server. `FriendsPopup` vẽ lại cả danh sách mỗi khi `lake.players` đổi tham chiếu. Server thật gửi vị trí người và bot liên tục nên nút bị thay mới giữa lúc nhấn và nhả chuột, click không kích hoạt. Bản mock không có người di chuyển nên không lỗi. Nay chỉ vẽ lại khi tập bạn bè đang ở hồ thay đổi (selector trả chuỗi id).
+- **Thanh cuộn (khoanh cam):** ẩn (`scrollbar-width: none` và `::-webkit-scrollbar`), vẫn cuộn được bằng lăn chuột / vuốt.
+- **Nút Đồng ý / Từ chối (khoanh vàng) bị bè:** ảnh nút (Primary M 400x102, Small 232x68) bị kéo vào ô 84x46. Nay vẽ bằng border-image 9 mảnh, góc và viền giữ tỉ lệ. Áp cho mọi nút `.friends__btn` (cả Nhắn tin, Đổi cá, Xem, Xoá).
+- **Nền popup:** `Card Art.png` (304x372) bằng border-image 9 mảnh thay `Secondary L.png`. Chỉ popup Bạn bè; popup thông tin người chơi vẫn dùng Notebook.
+- **Kiểm tra:** tsc, prettier, vitest (ui + mock) qua. Trên mock: Xem, Đổi cá mở được; sau sửa danh sách không vẽ lại trong 8 giây. Chưa thử trên Server thật có bot di chuyển, chưa thử Nhắn tin / Xoá bằng chuột thật, chưa xem hàng lời mời ở màn hình thật.
+
+
+## Hồ hết cá: chặn mua vé, thông báo chạy mỗi 5 giây (Claude, 2026-11-19, yêu cầu người dùng)
+
+- **Contract mới (Server + Client, chỉ cộng thêm, Client cũ/Server cũ vẫn chạy):** `LakeSnapshot.lakeEmpty` (bool, tuỳ chọn, thiếu = còn cá) và sự kiện hub `LakeStockChanged { empty }`.
+- **Server:** `Modules/Fishing/LakeStock.cs`. Hết cá = đã có dòng quần thể và mọi loài `Remaining <= 0` (chưa gieo thì không tính hết). `FishingBackground` đo mỗi 2 giây, đổi trạng thái thì phát `LakeStockChanged` cho cả hồ, nên bắt được cả đợt thả của Admin. `LakeCommands.JoinAsync` điền `lakeEmpty` vào snapshot. `dotnet build` qua. **Chưa chạy test Server và chưa build lại/khởi động lại Server đang chạy**: Server thật chưa có phần này tới khi build lại.
+- **Client (chỉ pier.html):** `SeatUi.openBuyTicket` khi hết cá thì hiện toast "Hồ đã hết cá rồi! Các chiến hữu quay lại sau nhé!" và không mở popup mua vé. Thanh thông báo đỏ khi hết cá bỏ tin người câu trúng, chạy dòng "Cá đã trốn sạch rồi! ..." một lượt rồi nghỉ 5 giây (`CatchBanner.setNotice`), có cá lại thì gỡ. Tin khoe cá vẫn vào chat như cũ.
+- **Mock:** `MockBackend.setLakeEmpty(bool)`, `?mockEmpty=1`, và `__mockBackend.setLakeEmpty(true)` trong console khi dev.
+- **Kiểm tra:** tsc, eslint, vitest 350 qua. Trên mock: bật hết cá thì thanh chạy dòng mới, bấm "Mua thêm" ra toast và không mở popup; tắt hết cá thì popup mở lại. Chưa thử trên Server thật; chưa đo thời gian chạy một lượt dòng chữ trên thanh.
+
+
+## Vé tối đa 10, +10/-10 nhảy theo bội số 10, hiệu ứng nhấn mọi nút (Claude, 2026-11-19, yêu cầu người dùng)
+
+- **Quyết định đã duyệt (người dùng):** vé tối đa mỗi lần mua nâng từ 6 lên 10. Sửa `ticketPricing.maxUnitsPerPurchase` = 10 trong `docs/v01/fixtures/gameplay-config.v0.json`, `MAX_UI_DURATION_UNITS` = 10 (client), `configVersion` đổi thành `v0-test-2026-11-19-ticket10-01` ở fixture, `minigame-vectors`, `api-samples` và các test Server dùng chuỗi này (Server chỉ nạp lại fixture khi `configVersion` đổi). `priceVersion` giữ nguyên. Cập nhật `SPEC_CHUNG.md` mục vé, test `GameplayConfigJsonTests` (10) và `LakeTests` (số lượng 11 bị từ chối).
+- **Server cần khởi động lại** để nạp config mới; version này thay luôn version Admin đang bật (như lần đổi tên cá 2026-11-18).
+- **Popup vé:** `+10` nhảy tới bội số 10 kế tiếp (1 → 10 → 20…, kẹp ở tối đa), `-10` về bội số 10 phía dưới (20 → 10, 10 → 1 là tối thiểu).
+- **Hiệu ứng nhấn:** `pier.css` thêm quy tắc chung cho mọi `button` và `[role=button]` trên pier.html: đè thì thu về 0.93 (`scale`, 0.06s), nhả thì nảy lại (0.14s). Dùng thuộc tính `scale` riêng và `:where()` (độ ưu tiên 0) nên không đụng `transform` của nút và không đè transition nút đã có.
+- **Kiểm tra:** tsc, vitest client 350, test Domain 156 qua; test Api build qua nhưng chưa chạy (cần DB). Trên mock: +10 từ 1 ra 10, -10 về 1, MAX 10, MIN 1. Chưa nhìn bằng mắt hiệu ứng nhấn, chưa thử trên Server thật.

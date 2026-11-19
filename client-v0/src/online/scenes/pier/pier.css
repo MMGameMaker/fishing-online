@@ -90,3 +90,16 @@ body.page-pier .joystick__knob {
   height: 100px;
   margin: -50px 0 0 -50px;
 }
+
+/* Hiệu ứng nhấn cho mọi nút trên pier.html (feedback 2026-11-19): nút thu nhỏ nhẹ khi đè, nảy lại khi nhả.
+   Dùng thuộc tính `scale` riêng (không đụng `transform` đang dịch/định vị nút) và :where() để độ ưu tiên bằng 0:
+   nút nào đã tự khai báo transition/scale thì giữ cái của nó. */
+:where(body.page-pier button, body.page-pier [role='button']) {
+  transition: scale 0.14s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+:where(body.page-pier button:not(:disabled), body.page-pier [role='button']):active {
+  scale: 0.93;
+  transition-duration: 0.06s;
+  transition-timing-function: ease-out;
+}

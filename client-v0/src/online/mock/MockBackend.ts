@@ -1016,6 +1016,8 @@ export class MockBackend {
     };
   }
 
+  private lakeEmpty = false;
+
   private snapshot(): LakeSnapshot {
     return {
       mapId: this.map.mapId,
@@ -1027,7 +1029,15 @@ export class MockBackend {
       myTicket: this.ticket ? this.ticketView(this.ticket) : null,
       mySeat: this.session ? this.mySeatView(this.session) : null,
       myAttempt: this.attempt ? this.attemptView(this.attempt) : null,
+      lakeEmpty: this.lakeEmpty,
     };
+  }
+
+  /** Giả lập hồ hết cá / có cá lại (Server thật phát LakeStockChanged khi quần thể về 0 hoặc được thả). */
+  setLakeEmpty(empty: boolean): void {
+    if (this.lakeEmpty === empty) return;
+    this.lakeEmpty = empty;
+    this.emit('LakeStockChanged', { empty });
   }
 
   private inventory(): InventoryResponse {
@@ -1888,9 +1898,12 @@ export class MockBackend {
       playerId: `bot-daily-${index + 1}`,
       displayName: name,
       lengthTenthCm: Math.round(
-        species.minTenthCm + ((species.maxTenthCm - species.minTenthCm) * ((seed * 7 + index * 37) % 100)) / 100,
+        species.minTenthCm +
+          ((species.maxTenthCm - species.minTenthCm) * ((seed * 7 + index * 37) % 100)) / 100,
       ),
-      caughtAt: new Date(dayStart + Math.floor((span * (((seed + index * 13) % 97) + 1)) / 98)).toISOString(),
+      caughtAt: new Date(
+        dayStart + Math.floor((span * (((seed + index * 13) % 97) + 1)) / 98),
+      ).toISOString(),
     }));
     for (const mine of this.dailyLog) {
       if (mine.speciesId !== speciesId || Date.parse(mine.caughtAt) < dayStart) continue;
@@ -1901,7 +1914,9 @@ export class MockBackend {
         ? b.lengthTenthCm - a.lengthTenthCm || Date.parse(a.caughtAt) - Date.parse(b.caughtAt)
         : Date.parse(a.caughtAt) - Date.parse(b.caughtAt) || b.lengthTenthCm - a.lengthTenthCm;
     const seen = new Set<string>();
-    const best = [...rows].sort(order).filter((row) => !seen.has(row.playerId) && seen.add(row.playerId));
+    const best = [...rows]
+      .sort(order)
+      .filter((row) => !seen.has(row.playerId) && seen.add(row.playerId));
     const entry = (row: (typeof rows)[number], index: number): DailyFishEntry => ({
       rank: index < 10 ? index + 1 : null,
       ...row,

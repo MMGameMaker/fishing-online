@@ -263,11 +263,13 @@
   margin-top: 0;
 }
 
-/* Popup "Bạn bè". */
+/* Popup "Bạn bè": nền Card Art.png (feedback 2026-11-19), 9 mảnh để viền giữ nét khi thu phóng. */
 .friends__panel {
-  height: 720px;
   display: flex;
   flex-direction: column;
+  height: 720px;
+  border: 12px solid transparent;
+  border-image: url('/new%20resources/ui/Card%20Art.png') 12 fill / 12px stretch;
 }
 
 .friends__title {
@@ -279,10 +281,14 @@
 .friends__list {
   flex: 1;
   min-height: 0;
-  padding-right: 6px;
   overflow-y: auto;
-  scrollbar-color: #8a5a2b #f3d9a3;
-  scrollbar-width: thin;
+
+  /* Ẩn thanh cuộn nhưng vẫn cuộn được bằng lăn chuột / vuốt (feedback 2026-11-19). */
+  scrollbar-width: none;
+}
+
+.friends__list::-webkit-scrollbar {
+  display: none;
 }
 
 .friends__section {
@@ -351,6 +357,25 @@
   height: 46px;
   padding: 0 10px !important;
   font-size: 18px;
+}
+
+/* Nút trong popup Bạn bè: ảnh nút (Primary M 400x102, Small 232x68) bị kéo bè khi ép vào ô 84x46. Vẽ bằng 9 mảnh
+   để góc và viền giữ nguyên tỉ lệ, chỉ phần giữa giãn (feedback 2026-11-19). */
+.friends__btn {
+  box-sizing: border-box;
+  background: none;
+  border-style: solid;
+  border-width: 7px 7px 11px;
+}
+
+.friends__btn.profile-dialog__btn--save {
+  background: none;
+  border-image: url('/new%20resources/ui/Primary%20M.png') 9 9 14 fill / 7px 7px 11px stretch;
+}
+
+.friends__btn.profile-dialog__btn--cancel {
+  background: none;
+  border-image: url('/new%20resources/ui/Small.png') 8 8 12 fill / 7px 7px 11px stretch;
 }
 
 /* Mặt thỏ trong popup dùng lại khung avatar của khung chat. */

@@ -18,6 +18,7 @@ const EVENTS: HubEventName[] = [
   'ChatReceived',
   'EmojiReceived',
   'CatchAnnounced',
+  'LakeStockChanged',
   'DirectMessageReceived',
   'FriendRequestReceived',
   'FriendAdded',

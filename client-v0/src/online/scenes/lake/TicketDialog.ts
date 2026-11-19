@@ -193,8 +193,9 @@ export function openTicketDialog({
     const amount = el('div', 'ticket-dialog__amount');
     const amountActions: [string, () => number][] = [
       ['Ít nhất', () => 1],
-      ['Bớt 10', () => units - 10],
-      ['Thêm 10', () => units + 10],
+      // Nhảy theo bội số của 10: từ 1 bấm +10 ra 10 (không phải 11), từ 10 bấm -10 về 1 (tối thiểu).
+      ['Bớt 10', () => (units % 10 === 0 ? units - 10 : Math.floor(units / 10) * 10)],
+      ['Thêm 10', () => Math.floor(units / 10) * 10 + 10],
       ['Nhiều nhất', () => maxUnits],
     ];
     for (const [aria, next] of amountActions) {

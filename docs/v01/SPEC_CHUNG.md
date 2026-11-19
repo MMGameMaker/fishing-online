@@ -49,7 +49,7 @@ Vé là quyền câu theo thời gian, không gắn với ghế. Bỏ Tier ghế
 - Mỗi player có tối đa một hạn vé `ticket.expiresAt`. Vé còn hiệu lực khi `serverNow < expiresAt`. Đồng hồ vé chạy theo giờ Server từ lúc mua, kể cả khi không ngồi hoặc mất kết nối. Không hoàn vé, không tự gia hạn.
 - `BuyTicket {quantity, expectedPriceVersion}`: `1 ≤ quantity ≤ ticketPricing.maxUnitsPerPurchase`, ngoài khoảng → `INVALID_QUANTITY`. `addedMinutes = quantity × billingUnitMinutes`, `totalGold = quantity × unitPriceGold`. Còn vé: `expiresAt += addedMinutes` (được vượt 60 phút); hết vé hoặc chưa có: `expiresAt = serverNow + addedMinutes`.
 - Atomic: khóa hàng vé, trừ Gold + ledger `ticket_purchase` + cập nhật hạn vé + receipt trong một transaction. Gửi lại cùng requestId không trừ tiền hay cộng thời gian lần hai. Client gửi `expectedPriceVersion`; giá đổi → `PRICE_CHANGED` trước khi thu tiền.
-- Số test (GD 2026-11-10): 50 Gold/vé 10 phút, tối đa 6 vé mỗi lần mua. Chưa có giới hạn tổng thời gian vé còn lại (GD chưa chốt).
+- Số test (GD 2026-11-10): 50 Gold/vé 10 phút, tối đa 10 vé mỗi lần mua (nâng từ 6 ngày 2026-11-19). Chưa có giới hạn tổng thời gian vé còn lại (GD chưa chốt).
 
 **Ghế**
 - 20 ghế `seat-01..seat-20`, trạng thái `available` | `occupied`. Mỗi ghế một người, mỗi player ngồi tối đa 1 ghế.
