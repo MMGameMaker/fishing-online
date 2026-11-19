@@ -35,6 +35,42 @@ body.page-pier .emoji-panel__slot .emote-icon {
   transform: scale(1.4);
 }
 
+/* Ô icon cá (feedback 2026-11-19): ảnh cá vừa lòng ô (ô 64px, viền 12px nên lòng ô ~41px) và nghiêng 45° (đầu cá hướng lên trên)
+   (30×22 xoay 45° còn ~37px, vẫn nằm trong lòng ô); nền lòng ô tô màu theo độ hiếm của loài. */
+body.page-pier .emoji-panel__slot--fish {
+  position: relative;
+}
+
+body.page-pier .emoji-panel__slot--fish::before {
+  position: absolute;
+  inset: 11px;
+  content: '';
+  background: var(--rarity-fill, #d8cdb5);
+}
+
+body.page-pier .emoji-panel__slot--fish[data-rarity='uncommon'] {
+  --rarity-fill: #a9dc94;
+}
+
+body.page-pier .emoji-panel__slot--fish[data-rarity='rare'] {
+  --rarity-fill: #8fc2f5;
+}
+
+body.page-pier .emoji-panel__slot--fish[data-rarity='epic'] {
+  --rarity-fill: #c9a2f0;
+}
+
+body.page-pier .emoji-panel__slot--fish[data-rarity='legendary'] {
+  --rarity-fill: #f7c564;
+}
+
+body.page-pier .emoji-panel__fish {
+  position: relative;
+  width: 30px;
+  height: 22px;
+  transform: rotate(45deg);
+}
+
 /* Feedback 2026-11-14: ẩn ô debug "MOCK / Thời gian ghế" của dữ liệu giả trên trang này. */
 body.page-pier .mock-overlay {
   display: none;

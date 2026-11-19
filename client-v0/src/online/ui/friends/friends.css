@@ -409,19 +409,48 @@
   height: 46px;
 }
 
+/* Icon Bạn bè to hơn một chút (feedback 2026-11-19): hình trong ảnh chiếm ít khung nên trông nhỏ hơn icon khác. */
+.home-menu__grid--compact .home-menu__icon--smooth {
+  top: 21px;
+  left: 22px;
+  width: 60px;
+  height: 60px;
+}
+
 .home-menu__grid--compact .home-menu__slot--active::after {
   inset: 0 0 6px;
   border-width: 5px;
 }
 
-/* Chấm báo lời mời kết bạn (Claim Dot.png) trên nút mở menu và ô "Bạn bè". */
+/* Chấm báo lời mời kết bạn (Claim Dot.png) trên nút mở menu và ô "Bạn bè". z-index để nằm trên viền cam của ô
+   đang chọn (::after vẽ sau nên đè lên chấm), hiện/ẩn mờ dần có nảy qua ui-in-pop / ui-out-pop (HomeHud). */
 .home-dot {
   position: absolute;
+  z-index: 2;
   top: -4px;
   right: -4px;
   width: 24px;
   height: 24px;
   pointer-events: none;
+}
+
+/* Sau khi nảy lên (ui-in-pop) thì chớp chậm: mờ đi và thu nhỏ nhẹ rồi trở lại, easing ease-in-out nên êm,
+   không giật (feedback 2026-11-19). Dùng thuộc tính `opacity` và `scale` riêng. */
+.home-dot--pulse {
+  animation: home-dot-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes home-dot-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+
+  50% {
+    opacity: 0.35;
+    scale: 0.8;
+  }
 }
 
 .home-dot[hidden] {

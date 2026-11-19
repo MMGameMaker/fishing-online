@@ -50,7 +50,12 @@ export class FishButton {
   private readonly onKeyDown: (event: KeyboardEvent) => void;
   private visible = false;
 
-  constructor(root: HTMLElement, onPress: () => void) {
+  /** `belowFeetPx`: mép trên nút cách chân nhân vật (px lớp UI); mặc định 72. */
+  constructor(
+    root: HTMLElement,
+    onPress: () => void,
+    private readonly belowFeetPx = BUTTON_BELOW_FEET_PX,
+  ) {
     this.button.type = 'button';
     this.button.className = 'fish-button';
     this.button.setAttribute('aria-hidden', 'true');
@@ -87,7 +92,7 @@ export class FishButton {
    */
   setAnchor(x: number, y: number): void {
     this.button.style.left = `${x}px`;
-    this.button.style.top = `${y + BUTTON_BELOW_FEET_PX}px`;
+    this.button.style.top = `${y + this.belowFeetPx}px`;
   }
 
   render(visible: boolean, progress: number): void {

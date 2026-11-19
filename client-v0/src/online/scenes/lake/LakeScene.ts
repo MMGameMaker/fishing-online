@@ -263,7 +263,7 @@ export class LakeScene extends Phaser.Scene {
             catchCardCoin: COIN_ART,
             screenConfetti: true,
             skipMinigame: true,
-            lightSweep: true,
+            buttonBelowFeetPx: 40,
             closePopupByKey: true,
             sadOnMissedBite: true,
             fishingFx: true,

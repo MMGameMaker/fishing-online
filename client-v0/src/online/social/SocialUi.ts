@@ -347,6 +347,9 @@ export class SocialUi {
         const slot = el('button', 'emoji-panel__slot emoji-panel__slot--fish');
         slot.type = 'button';
         slot.dataset.emojiId = fishEmojiId(speciesId);
+        // Độ hiếm của loài để tô nền ô (pier.css); không rõ thì không đặt.
+        const rarity = catalog?.fish.find((f) => f.speciesId === speciesId)?.rarity;
+        if (rarity) slot.dataset.rarity = rarity;
         slot.setAttribute('aria-label', this.speciesName(speciesId));
         slot.title = this.speciesName(speciesId);
         slot.append(fishImage(speciesId, 'emoji-panel__fish'));

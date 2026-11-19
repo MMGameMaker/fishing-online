@@ -348,6 +348,11 @@
   height: 56px;
 }
 
+/* Ảnh gốc lớn hơn nhiều so với 56px (vd. friend icon.png 1024px): lọc mịn, không thu bằng NEAREST (vỡ, răng cưa). */
+.home-menu .home-menu__icon--smooth {
+  image-rendering: auto;
+}
+
 /* Ô đang chọn: viền cam như ảnh demo (đè lên viền tối của khung). */
 .home-menu__slot--active::after {
   position: absolute;

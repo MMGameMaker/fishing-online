@@ -702,3 +702,42 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 
 - **Đổi:** khi câu được cá ở pier, pháo giấy không còn bắn từ hai góc dưới (feedback 2026-11-14) mà nổ từ giữa màn hình, bung ra mọi hướng theo hình elip bằng khung màn hình (tới tận mép và góc) rồi rơi xuống. `fishing/confetti.ts`: `burstSideConfetti` → `burstScreenConfetti` (120 mảnh, mảnh 8–14px trên lớp UI 1920), `SIDE_CONFETTI_PEAK_MS` → `SCREEN_CONFETTI_PEAK_MS`; tuỳ chọn `sideConfetti` của `FishingFlow` đổi thành `screenConfetti`. Vẫn nằm dưới thẻ cá và popup cá hiện sau 0,6 giây như cũ. Pháo giữa popup (`burstConfetti`, trang khác) giữ nguyên.
 - **Kiểm tra:** tsc/eslint/vitest 350 sạch. Gọi trực tiếp hàm trong game ở khung 1280x720 và dừng hoạt ảnh ở 0,7 giây: mảnh giấy phủ khắp màn hình. Chưa xem cả chuỗi từ lúc câu được cá thật (chỉ gọi hàm), chưa thử trên điện thoại.
+
+### Icon Bạn bè dùng friend icon.png (Claude, 2026-11-19, yêu cầu người dùng)
+
+- Ô "Bạn bè" trong menu chính (`ui/home/HomeHud.ts`) dùng `public/new resources/ui/friend icon.png` (người dùng thêm) thay icon tạm vẽ bằng điểm ảnh. Ảnh gốc 1024x1024 (nền trong suốt) thu về 56px nên đặt lớp `home-menu__icon--smooth` (`image-rendering: auto`) để không bị răng cưa như thu bằng NEAREST. Chấm đỏ lời mời kết bạn giữ nguyên. Kiểm tra trong game: menu hiện đúng icon mới; tsc/eslint/vitest 350 sạch. Nếu người dùng đưa bản 56x56 thì bỏ `smooth: true`.
+
+### Icon Bạn bè to hơn, chấm đỏ nằm trên viền chọn, chấm đỏ có fade (Claude, 2026-11-19, yêu cầu người dùng)
+
+- **Icon:** hình trong `friend icon.png` chiếm ít khung nên trông nhỏ; ở lưới 3 cột (`home-menu__grid--compact`) icon này nay 60px (các icon khác giữ 46px), căn giữa ô. **Chấm đỏ:** `::after` viền cam của ô đang chọn vẽ sau nên đè lên chấm; thêm `z-index: 2` cho `.home-dot`. **Hiệu ứng:** `HomeHud.setDotShown` cho cả chấm ở nút menu và ô Bạn bè: hiện bằng `ui-in-pop` (nảy), ẩn bằng `ui-out-pop` rồi mới gỡ; chấm ẩn sẵn lúc tạo và có tập `shownDots` để không chạy lại hiệu ứng khi số lời mời đổi nhưng vẫn > 0.
+- **Các ô bên cạnh:** 6 ô còn lại không đổi (icon 46px, khung, viền chọn). Kiểm tra trong game: ô Bạn bè chọn thì chấm đỏ nằm trên viền cam, icon to hơn; hiệu ứng hiện chấm chạy xong ở opacity 1. Chưa xem hiệu ứng ẩn bằng mắt, tsc/eslint/vitest 350 sạch.
+
+### Chấm đỏ chớp chậm (Claude, 2026-11-19, yêu cầu người dùng)
+
+- Hai chấm đỏ (nút menu và ô Bạn bè) sau khi nảy lên thì chớp chậm liên tục: `home-dot--pulse` (`friends.css`) 1,4 giây/nhịp, mờ xuống 35% và thu về 80% rồi trở lại, `ease-in-out` nên êm. `HomeHud.setDotShown` chuyển từ nảy sang chớp khi hết `ui-in-pop`, bỏ chớp trước khi chạy hiệu ứng ẩn. Kiểm tra trong game: lấy mẫu opacity 0,35–1 theo nhịp; vitest 350, tsc/eslint sạch. Nếu muốn nhẹ hơn hoặc nhanh hơn thì chỉnh `0.35`, `0.8` và `1.4s` trong `friends.css`.
+
+### Hiệu ứng khoe cá: cá lắc, nền theo độ hiếm, vòng lan (Claude, 2026-11-19, yêu cầu người dùng)
+
+- **Chỉ pier.html** (bong bóng đầu nhân vật, `CharacterView.ts`): (1) con cá trong bong bóng lắc ±5° quanh tâm kèm nhấp nhô 1px, `Sine.easeInOut`, lặp tới khi bong bóng ẩn (cả cá khoe bằng icon hạng lẫn cá gửi như emoji); (7) nền bong bóng theo độ hiếm (nhân màu): thường giữ kem, không phổ biến xanh lá nhạt, hiếm xanh dương nhạt, sử thi tím nhạt, huyền thoại vàng; (6) cá từ hiếm trở lên có vòng elip lan ra dưới chân nhân vật (hiếm 2 vòng xanh, sử thi 2 vòng tím to hơn, huyền thoại 3 vòng vàng to nhất), mỗi vòng 1 giây, so le 0,26 giây, mờ dần. Hằng số `RARITY_BUBBLE_TINT`, `RARITY_RIPPLE`, `FISH_WOBBLE_*`. Tween lắc lặp vô hạn nên được gỡ khi bong bóng/nhân vật huỷ (`destroyBubble`).
+- **Kiểm tra:** vitest 350, tsc/eslint sạch. Trong game gọi `setHeadIcon` cá huyền thoại: tint `ffe39a`, góc cá dao động quanh -5°, 3 vòng lan vàng ở chân. Chưa xem từng hạng bằng mắt và chưa xem bong bóng trên đầu trong ảnh (khung chụp bị cắt); màu nền/độ đậm vòng cần bạn đánh giá.
+
+### Ảnh cá vừa ô trong bảng Biểu cảm (Claude, 2026-11-19, yêu cầu người dùng)
+
+- Ảnh cá trong ô icon cá của bảng Biểu cảm (`.emoji-panel__fish`) trước 52×40 tràn ra viền ô (ô 64px, viền 12px, lòng ô ~41px). Ở pier nay 36×28 (`pier.css`), `object-fit: contain` giữ tỉ lệ cá. Bảng Biểu cảm và 16 emoji giữ nguyên. Kiểm tra trong game bằng 4 ô cá dựng tạm (mock chưa có cá đã câu): cá nằm gọn trong lòng ô.
+
+### Bỏ hiệu ứng khoe cá 1 + 6 + 7, thêm vệt sáng quét (Claude, 2026-11-19, yêu cầu người dùng)
+
+- **Bỏ** hoàn toàn cá lắc, nền bong bóng theo độ hiếm và vòng lan quanh chân (mục "Hiệu ứng khoe cá: cá lắc, nền theo độ hiếm, vòng lan" ở trên không còn hiệu lực): bong bóng khoe cá về như cũ (nền kem, cá đứng yên).
+- **Thêm** vệt sáng chéo quét qua con cá trong bong bóng (cùng kiểu vệt sáng của thẻ cá): `entities/fishSweep.ts` vẽ vệt bằng canvas, cắt theo hình cá, quét từ trái sang phải trong 55% của nhịp 2,4 giây rồi nghỉ, lặp; `CharacterView.showHeadBubble` tuỳ chọn `sweep`; timer và texture của vệt gỡ cùng bong bóng (kể cả khi bong bóng bị thay hoặc nhân vật huỷ). Áp dụng cho cá khoe tự động và cá gửi như emoji. Chỉ pier.html.
+- **Kiểm tra:** vitest 350, tsc/eslint sạch. Trong game: bong bóng cá có vệt sáng trắng chéo nằm trong hình cá (ảnh chụp), điểm ảnh sáng của texture vệt đổi theo nhịp rồi về 0 khi bong bóng ẩn. Chưa xem chuyển động liền mạch (khung xem của công cụ chạy chậm), cần bạn xem trên máy thật; độ sáng/độ rộng vệt chỉnh ở `STRENGTH` và `band` trong `fishSweep.ts`.
+
+### Bỏ vệt sáng, nút câu cao lên (Claude, 2026-11-19, yêu cầu người dùng)
+
+- **Bỏ vệt sáng:** xoá vệt sáng trên con cá của bong bóng khoe cá (`entities/fishSweep.ts` và phần nối trong `CharacterView`); tắt vệt sáng của thẻ cá (bỏ `lightSweep: true` ở `LakeScene`, mã trong `CatchCard` giữ lại, bật lại bằng cờ này). Mục "Bỏ hiệu ứng khoe cá 1 + 6 + 7, thêm vệt sáng quét" ở trên không còn hiệu lực phần vệt sáng.
+- **Nút câu (hình móc, SPACE) cao hơn:** ở pier mép trên nút cách chân nhân vật 40px thay vì 72px (tuỳ chọn `buttonBelowFeetPx` của `PierFishingOptions`, `FishButton` nhận tham số cùng tên). Trang khác giữ 72px. Áp dụng cho mọi ghế câu của pier. Kiểm tra: giá trị 40 đã vào nút trong game; tsc/eslint/vitest 350 sạch. Chưa xem lại vị trí nút trên từng ghế bằng mắt (cần ngồi ghế và thả cần), nếu cần cao/thấp hơn chỉnh số 40 ở `LakeScene.ts`.
+
+### Cá trong bảng Biểu cảm nghiêng 45° và nền ô theo độ hiếm (Claude, 2026-11-19, yêu cầu người dùng)
+
+- Chỉ pier.html. Ảnh cá nghiêng 45° (`rotate(-45deg)`, thu về 30×22 để sau khi xoay vẫn nằm trong lòng ô 41px). "Fill màu theo độ hiếm" hiểu là tô nền lòng ô (không tô lên chính ảnh cá, vì sẽ mất chi tiết): `SocialUi.renderFishSlots` đặt `data-rarity` cho ô, `pier.css` vẽ `::before` trong lòng ô với màu thường xám kem, không phổ biến xanh lá, hiếm xanh dương, sử thi tím, huyền thoại vàng (biến `--rarity-fill`). Kiểm tra trong game bằng 4 ô cá dựng tạm: ảnh xoay 45°, 4 màu nền khác nhau; tsc/eslint/vitest sạch. Nếu ý là tô màu lên chính con cá thì cần làm lại.
+
+- **Sửa tiếp (cùng ngày):** nghiêng ngược lại cho đầu cá hướng lên trên: `rotate(45deg)` (trước `-45deg` làm đầu cá chúc xuống). Ảnh cá gốc quay đầu sang trái nên xoay theo chiều kim đồng hồ 45° là đầu lên trên bên trái. Chưa xem được rõ ở khung chụp nhỏ.

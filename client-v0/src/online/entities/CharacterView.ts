@@ -132,6 +132,7 @@ const OUTLINE_OFFSETS: readonly [number, number][] = [
   [0, 1],
 ];
 const OUTLINE_FADE_MS = 140;
+
 /** Icon cá trên đầu (emoji `fish:<loài>`): cạnh dài nhất bao nhiêu px. */
 const FISH_EMOTE_PX = 22;
 /** Đánh dấu ảnh cá là emoji (clearEmote gỡ), phân biệt với icon cá vừa câu được dùng chung texture. */

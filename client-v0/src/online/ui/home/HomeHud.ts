@@ -15,7 +15,6 @@ import { InventoryPopup } from '../inventory/InventoryPopup';
 import { DailyFishPopup } from '../leaderboard/DailyFishPopup';
 import { LeaderboardPopup } from '../leaderboard/LeaderboardPopup';
 import { ProfilePopup } from '../profile/ProfilePopup';
-import { profileArt } from '../profile/profileArt';
 import { FriendsPopup } from '../friends/FriendsPopup';
 import { COIN_ART } from '../coinArt';
 import { ShopPopup } from '../shop/ShopPopup';
@@ -32,6 +31,8 @@ interface MenuItem {
   label: string;
   /** Ảnh trong public/new resources/ui, hoặc URL đầy đủ (icon tạm). */
   icon: string;
+  /** Ảnh gốc lớn hơn nhiều so với ô: thu bằng lọc mịn thay vì NEAREST. */
+  smooth?: boolean;
 }
 
 const MENU_ITEMS: readonly MenuItem[] = [
@@ -41,11 +42,17 @@ const MENU_ITEMS: readonly MenuItem[] = [
   { id: 'inventory', label: 'Túi đồ', icon: 'Icon Inventory.png' },
   // Icon Sổ tay (người dùng thêm 2026-11-16, trước đó dùng icon nhà Icon Home.png).
   { id: 'codex', label: 'Sổ tay cá', icon: 'Icon So tay.png' },
-  // BOT-02 (2026-11-18): danh sách bạn. Icon tạm vẽ bằng điểm ảnh (profileArt), chờ art thật.
-  { id: 'friends', label: 'Bạn bè', icon: profileArt('friends') },
+  // BOT-02 (2026-11-18): danh sách bạn. Icon thật do người dùng thêm 2026-11-19 (ảnh 1024x1024, thu về 56px).
+  { id: 'friends', label: 'Bạn bè', icon: 'friend icon.png', smooth: true },
   { id: 'settings', label: 'Cài đặt', icon: 'Icon Settings.png' },
 ];
 const menuIcon = (icon: string) => (icon.startsWith('data:') ? icon : asset(icon));
+/** Chấm đỏ báo lời mời kết bạn, ẩn sẵn. */
+function hiddenDot(): HTMLImageElement {
+  const dot = img(asset('Infomation/Claim Dot.png'), 'home-dot');
+  dot.hidden = true;
+  return dot;
+}
 const COMING_SOON = 'Sắp ra mắt';
 
 const REGISTRY_KEY = 'homeHud';
@@ -119,6 +126,8 @@ export class HomeHud {
   private readonly unsubscribes: (() => void)[] = [];
   private lastClock = '';
   private ticketShown = false;
+  /** Chấm đỏ đang hiện (đích của hiệu ứng), để không chạy lại hiệu ứng khi số lời mời đổi nhưng vẫn > 0. */
+  private readonly shownDots = new Set<HTMLElement>();
   private lastAttemptId = '';
   private readonly shop: ShopPopup;
   private readonly inventory: InventoryPopup;
@@ -129,8 +138,9 @@ export class HomeHud {
   private readonly dailyFish: DailyFishPopup;
   private readonly friends: FriendsPopup;
   /** Chấm báo có lời mời kết bạn: trên nút mở menu và trên ô "Bạn bè". */
-  private readonly menuDot = img(asset('Infomation/Claim Dot.png'), 'home-dot');
-  private readonly friendsDot = img(asset('Infomation/Claim Dot.png'), 'home-dot');
+  // Ẩn sẵn; renderFriendDots hiện khi có lời mời (setDotShown).
+  private readonly menuDot = hiddenDot();
+  private readonly friendsDot = hiddenDot();
 
   constructor(private readonly options: HomeHudOptions) {
     this.shop = new ShopPopup({ root: options.root, services: options.services });
@@ -341,7 +351,12 @@ export class HomeHud {
     for (const item of MENU_ITEMS) {
       const slot = button('home-menu__slot', item.label);
       slot.append(img(asset('Icon Button.png'), 'home-menu__frame'));
-      slot.append(img(menuIcon(item.icon), 'home-menu__icon'));
+      slot.append(
+        img(
+          menuIcon(item.icon),
+          item.smooth ? 'home-menu__icon home-menu__icon--smooth' : 'home-menu__icon',
+        ),
+      );
       if (item.id === 'friends') slot.append(this.friendsDot);
       slot.addEventListener('pointerenter', () => select(slot, item.label));
       slot.addEventListener('focus', () => select(slot, item.label));
@@ -385,8 +400,34 @@ export class HomeHud {
   }
 
   private renderFriendDots(incoming: number): void {
-    this.menuDot.hidden = incoming === 0;
-    this.friendsDot.hidden = incoming === 0;
+    void this.setDotShown(this.menuDot, incoming > 0);
+    void this.setDotShown(this.friendsDot, incoming > 0);
+  }
+
+  /** Chấm đỏ hiện nảy lên rồi chớp chậm; ẩn thì mờ và thu nhỏ rồi mới gỡ (feedback 2026-11-19), không bật/tắt tức thì. */
+  private async setDotShown(dot: HTMLElement, shown: boolean): Promise<void> {
+    if (shown === this.shownDots.has(dot)) return;
+    if (shown) {
+      this.shownDots.add(dot);
+      dot.hidden = false;
+      dot.classList.remove('home-dot--pulse');
+      animateIn(dot, 'pop');
+      // Nảy lên xong thì chuyển sang chớp chậm liên tục.
+      dot.addEventListener(
+        'animationend',
+        () => {
+          if (!this.shownDots.has(dot)) return;
+          dot.classList.remove('ui-in-pop');
+          dot.classList.add('home-dot--pulse');
+        },
+        { once: true },
+      );
+      return;
+    }
+    this.shownDots.delete(dot);
+    dot.classList.remove('home-dot--pulse');
+    await animateOut(dot, 'pop');
+    if (!this.shownDots.has(dot)) dot.hidden = true;
   }
 
   private renderProfile(): void {

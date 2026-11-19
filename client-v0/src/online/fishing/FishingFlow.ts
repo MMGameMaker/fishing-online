@@ -70,8 +70,13 @@ export interface PierFishingOptions {
   catchCardCoin?: string;
   /** Pháo giấy nổ từ giữa màn hình phủ cả màn, khoảng 0,6 giây sau mới hiện popup cá (feedback 2026-11-19). */
   screenConfetti?: boolean;
-  /** Vệt sáng quét qua con cá trong popup (feedback 2026-11-14). */
+  /**
+   * Vệt sáng quét qua con cá trong popup (feedback 2026-11-14). Tắt từ 2026-11-19 (người dùng bỏ vệt sáng):
+   * bật lại bằng `lightSweep: true` trong LakeScene, code vẫn giữ trong CatchCard.
+   */
   lightSweep?: boolean;
+  /** Mép trên nút câu cách chân nhân vật (px lớp UI); bỏ trống thì 72. Pier đưa nút lên cao hơn (2026-11-19). */
+  buttonBelowFeetPx?: number;
   /** Popup cá đóng bằng F hoặc Space (hiện gợi ý trong thẻ), không đóng bằng chạm ra ngoài (feedback 2026-11-14). */
   closePopupByKey?: boolean;
   /**
@@ -121,7 +126,7 @@ export class FishingFlow {
     /** Tuỳ chọn riêng của pier.html; trang khác bỏ trống để giữ hành vi cũ. */
     private readonly pier: PierFishingOptions = {},
   ) {
-    this.button = new FishButton(root, () => this.press());
+    this.button = new FishButton(root, () => this.press(), this.pier.buttonBelowFeetPx);
     preloadCatchCard();
     preloadFishingSounds();
     preloadFishArt(services.store.getState().catalog?.fish.map((f) => f.speciesId) ?? []);
