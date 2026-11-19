@@ -596,7 +596,8 @@ public sealed class BotTests(PostgresServer postgres) : AdminTestBase(postgres)
     public void BotMap_HasRestSeats_MatchingClientMap()
     {
         var map = BotMap.Load();
-        Assert.Equal(28, map.RestSeats.Count);
+        // pier-4: thêm 2 chỗ trên ghế dài góc trên bên trái (rest-29/30); phải khớp Lake:RestSeatCount trong run-local.ps1.
+        Assert.Equal(30, map.RestSeats.Count);
         Assert.Equal(38, map.Seats.Count);
         Assert.Equal(map.RestSeats.Count, map.RestSeats.Select(seat => seat.RestSeatId).Distinct().Count());
     }

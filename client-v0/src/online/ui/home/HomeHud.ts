@@ -206,7 +206,9 @@ export class HomeHud {
     this.renderProfile();
     this.renderFriendDots(store.getState().social.incoming.length);
     this.gold.textContent = formatGold(store.getState().session.gold ?? '0');
-
+    // Mốc so sánh phải là số đang hiện; để 0 thì lần trừ tiền đầu tiên (vd. mua vé 50 → 30) bị coi là được cộng
+    // và chạy hiệu ứng đồng xu (lỗi 2026-11-19).
+    this.shownGold = Number(store.getState().session.gold ?? '0');
     // Bố cục tính theo màn thiết kế 1920×1080; ui-root scale cả khung chơi nên không cần fit riêng.
 
     const onKey = (event: KeyboardEvent) => {
