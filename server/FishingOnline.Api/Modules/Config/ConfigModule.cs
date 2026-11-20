@@ -41,7 +41,7 @@ public static class GameplayConfigValidator
 {
     private const int LevelCount = 10;
     private const int TotalExpRequired = 1850;
-    private const int SpeciesCount = 9;
+    private const int MinSpeciesCount = 1;
     private const int BasisPointTotal = 10000;
 
     public static IReadOnlyList<string> Validate(GameplayConfig config)
@@ -54,7 +54,10 @@ public static class GameplayConfigValidator
         var defaults = config.Rods.Count(rod => rod.IsDefault);
         if (defaults != 1) errors.Add($"rods: cần đúng 1 cần mặc định, có {defaults}.");
 
-        if (config.Fish.Count != SpeciesCount) errors.Add($"fish: cần {SpeciesCount} loài, có {config.Fish.Count}.");
+        // Số loài không còn cố định 9 (người dùng thêm 11 loài 2026-11-20); chỉ bắt buộc có cá và mã loài không trùng.
+        if (config.Fish.Count < MinSpeciesCount) errors.Add($"fish: cần ít nhất {MinSpeciesCount} loài, có {config.Fish.Count}.");
+        errors.AddRange(config.Fish.GroupBy(fish => fish.SpeciesId).Where(group => group.Count() > 1)
+            .Select(group => $"fish: trùng speciesId {group.Key}."));
         errors.AddRange(config.Fish.Where(fish => fish.MinTenthCm > fish.MaxTenthCm)
             .Select(fish => $"fish: {fish.SpeciesId} có min lớn hơn max."));
 

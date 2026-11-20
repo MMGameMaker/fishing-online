@@ -31,6 +31,15 @@
         "set VITE_USE_MOCK=false&& npm --prefix client-v0 run dev"
       ],
       "port": 5173
+    },
+    {
+      "name": "client-v0-mock",
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "cd client-v0&& set VITE_USE_MOCK=true&& npx vite --port 5175 --strictPort"
+      ],
+      "port": 5175
     }
   ]
 }

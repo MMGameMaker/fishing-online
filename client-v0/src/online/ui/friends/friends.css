@@ -278,6 +278,43 @@
   text-align: center;
 }
 
+/* Hai tab "Bạn bè" / "Lời mời kết bạn" (feedback 2026-11-20): nền Tab - State Default/Active.png như túi đồ,
+   cắt 9 mảnh để kéo dài vẫn giữ viền. Tab đang chọn cao hơn, chữ trắng. */
+.friends__tabs {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  height: 64px;
+  margin-bottom: 8px;
+}
+
+.friends__tab {
+  position: relative;
+  flex: 1;
+  height: 54px;
+  padding: 0 !important;
+  font-size: 22px;
+  color: #6b4a2e;
+  background: none !important;
+  border: 8px solid transparent !important;
+  border-image: url('/new%20resources/ui/Tab%20-%20State%20Default.png') 8 fill / 8px stretch !important;
+}
+
+.friends__tab:hover:not(.friends__tab--active) {
+  filter: brightness(1.06);
+}
+
+.friends__tab--active {
+  height: 64px;
+  color: #fff;
+  text-shadow: 0 3px 0 #14364a;
+  border-image-source: url('/new%20resources/ui/Tab%20-%20State%20Active.png') !important;
+}
+
+.friends__tab .chat-tabs__badge[hidden] {
+  display: none;
+}
+
 .friends__list {
   flex: 1;
   min-height: 0;

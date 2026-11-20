@@ -4,7 +4,36 @@
 const FISH_DIR = '/assets/fish/';
 const FALLBACK = encodeURI('/new resources/ui/Icon Sell.png');
 
-export const fishArtUrl = (speciesId: string): string => `${FISH_DIR}${speciesId}.png`;
+/**
+ * Tên file ảnh theo mã loài (người dùng chốt 2026-11-20: tên tiếng Việt không dấu, viết hoa chữ đầu mỗi từ).
+ * Mã loài trên Server/database giữ nguyên; chỉ tên file đổi. Loài không có trong bảng dùng `<speciesId>.png`.
+ */
+export const FISH_ART_FILES: Readonly<Record<string, string>> = {
+  bass: 'CaChep',
+  carp: 'CaRoPhi',
+  goldcarp: 'CaChuoi',
+  trout: 'TramCo',
+  koi: 'CaKoi',
+  perch: 'CaMoi',
+  minnow: 'CaCom',
+  moonfin: 'Muc',
+  puffer: 'CaThu',
+  // 11 loài thêm 2026-11-20 (người dùng duyệt bảng độ hiếm; Cá Mập là loài huyền thoại duy nhất).
+  stonefish: 'CaDa',
+  cowfish: 'CaBo',
+  pomfret: 'CaChim',
+  pangasius: 'CaTra',
+  flyingfish: 'CaChuon',
+  goby: 'CaBongTuong',
+  eel: 'CaChinh',
+  lobster: 'TomHum',
+  sturgeon: 'CaTam',
+  stingray: 'CaDuoi',
+  shark: 'CaMap',
+};
+
+export const fishArtUrl = (speciesId: string): string =>
+  `${FISH_DIR}${FISH_ART_FILES[speciesId] ?? speciesId}.png`;
 
 /**
  * Ảnh cá vừa khung chứa (object-fit: contain trong CSS), nét pixel. `fallback` false: để nơi gọi tự xử lý

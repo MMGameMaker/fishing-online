@@ -2,6 +2,8 @@
 
 Ra public/assets/fish/<speciesId>.png (cắt sát, kích thước gốc pixel art). Client dùng cho popup câu được
 cá, cửa hàng và túi đồ. LƯU Ý (2026-11-18): ảnh trong public/assets/fish đã được thay bằng art mới của Zen (export-2200, thu về 512px); chạy lại script này sẽ GHI ĐÈ bằng ảnh atlas cũ. Đổi ảnh một loài: sửa bảng FISH rồi chạy lại `python tools/export_fish_art.py`.
+LƯU Ý (2026-11-20): file ảnh đã đổi tên theo tên tiếng Việt (carp → CaRoPhi.png...), bảng tra ở `src/online/ui/fishArt.ts`
+(FISH_ART_FILES). Script này vẫn xuất `<speciesId>.png` nên Client sẽ không dùng file nó tạo ra.
 """
 from __future__ import annotations
 

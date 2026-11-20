@@ -40,6 +40,15 @@ export const BOT_SKINS = Object.fromEntries(
   BOT_BODIES.map((body) => [`skin_bot_${body.replaceAll('-', '_')}`, { body, outfit: null }]),
 );
 
+/**
+ * NPC đứng trên map (không phải người chơi/bot), yêu cầu người dùng 2026-11-20:
+ * npc_panda gấu trúc mở Sổ tay cá, npc_fox cáo đỏ mở Cửa hàng tab Bán cá.
+ */
+export const NPC_SKINS = {
+  npc_panda: { body: 'bear-panda', outfit: null },
+  npc_fox: { body: 'fox-red', outfit: null },
+};
+
 const SHADOW = 'general/bunny_shadow';
 const FEET = [23, 53];
 const W = 120;
@@ -223,7 +232,10 @@ if (process.argv.includes('--check')) {
   process.exit(maxDelta > 1 ? 1 : 0);
 }
 
-for (const [id, { body, outfit }] of Object.entries({ ...OUTFIT_SKINS, ...BOT_SKINS })) {
+// --only=<id>[,<id>]: chỉ bake các skin này (vd. --only=npc_panda), không ghi lại các file khác.
+const only = process.argv.find((arg) => arg.startsWith('--only='))?.slice(7).split(',');
+for (const [id, { body, outfit }] of Object.entries({ ...OUTFIT_SKINS, ...BOT_SKINS, ...NPC_SKINS })) {
+  if (only && !only.includes(id)) continue;
   if (!existsSync(SRC)) throw new Error('Thiếu atlas cosmetics');
   writeSheet(join(OUT_SKIN, id), bakeSkin(body, outfit));
 }

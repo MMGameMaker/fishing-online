@@ -233,6 +233,18 @@ export class HomeHud {
     this.unsubscribes.push(() => document.removeEventListener('pointerdown', onOutside, true));
   }
 
+  /** Mở Sổ tay cá từ ngoài menu (bấm F cạnh gấu trúc NPC, yêu cầu 2026-11-20). */
+  openCodex(): void {
+    void this.setMenuOpen(false);
+    this.codex.open();
+  }
+
+  /** Mở Cửa hàng ở tab Bán cá từ ngoài menu (bấm F cạnh cáo NPC, yêu cầu 2026-11-20). */
+  openSellFish(): void {
+    void this.setMenuOpen(false);
+    this.shop.open('sell');
+  }
+
   /** Gọi mỗi khung: đồng hồ vé đếm lùi theo giờ Server. */
   update(): void {
     const ticket = this.options.services.store.getState().lake.myTicket;

@@ -18,7 +18,7 @@ public class MinigameParamsTests
     [InlineData("trout", 0.16, 0.05)]
     [InlineData("goldcarp", 0.13, 0.045)]
     [InlineData("koi", 0.11, 0.04)]
-    [InlineData("moonfin", 0.09, 0.04)]
+    [InlineData("shark", 0.09, 0.04)]
     public void Level1_UsesBaseValuesOfTheRarity(string speciesId, double green, double yellow)
     {
         var fish = TestData.Species(speciesId);

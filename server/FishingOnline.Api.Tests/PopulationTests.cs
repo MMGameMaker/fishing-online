@@ -40,7 +40,8 @@ public sealed class PopulationTests(PostgresServer postgres) : GameTestBase(post
     public async Task Seed_UsesApprovedStockPerRarity_AndDoesNotResetOnRestart()
     {
         Assert.Equal(200, (await RowAsync("perch")).Remaining);
-        Assert.Equal(3, (await RowAsync("moonfin")).Remaining);
+        Assert.Equal(15, (await RowAsync("moonfin")).Remaining);
+        Assert.Equal(3, (await RowAsync("shark")).Remaining);
         await OnlyAsync("perch", 7);
 
         await Population.EnsureSeededAsync(default);

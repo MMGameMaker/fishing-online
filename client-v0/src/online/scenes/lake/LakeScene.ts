@@ -37,15 +37,20 @@ import {
   startPosition,
   stepMove,
   type LakeMap,
+  type LakeNpc,
   type LakeSeat,
   type RestSeat,
 } from './walkable';
 
-/** Việc bấm F (hoặc nút hành động) sẽ làm: ngồi ghế câu, ngồi chỗ chơi, hoặc xem người/bot. */
+/** Việc bấm F (hoặc nút hành động) sẽ làm: ngồi ghế câu, ngồi chỗ chơi, xem người/bot, hoặc nói chuyện với NPC. */
 type InteractTarget =
   | { kind: 'fish'; seat: LakeSeat }
   | { kind: 'rest'; seat: RestSeat }
-  | { kind: 'player'; id: string };
+  | { kind: 'player'; id: string }
+  | { kind: 'npc'; npc: LakeNpc };
+
+/** Tầm bấm F với NPC: NPC chặn ô dưới chân nên đứng sát nhất vẫn cách chân NPC khoảng 12–20px. */
+const NEAR_NPC_PX = 32;
 
 export const LAKE_SCENE = 'Lake';
 
@@ -113,6 +118,8 @@ export class LakeScene extends Phaser.Scene {
   private readonly emojiTimers = new Map<string, Phaser.Time.TimerEvent>();
   /** Đang gửi SitRest/StandRest: bỏ qua bấm lặp. */
   private restPending = false;
+  /** NPC đứng yên trên map (map.npcs), chỉ trang có HomeHud. */
+  private readonly npcViews: { npc: LakeNpc; view: CharacterView }[] = [];
   private readonly cleanups: (() => void)[] = [];
 
   constructor() {
@@ -122,6 +129,9 @@ export class LakeScene extends Phaser.Scene {
   preload(): void {
     getLakeMapArt(this)?.preload(this);
     preloadEmotes(this);
+    for (const npc of getServices(this).map.npcs ?? []) {
+      if (npc.prop && !this.textures.exists(npc.prop.image)) this.load.image(npc.prop.image, npc.prop.image);
+    }
     // Art riêng của pier.html: bong bóng Head Bubble.png và phím Sit Prompt F.png.
     if (isHomeHudEnabled(this)) {
       preloadHeadBubble(this);
@@ -143,6 +153,7 @@ export class LakeScene extends Phaser.Scene {
       this.createTrees();
     }
     this.createMe();
+    this.createNpcs();
 
     const overlay = mountUiOverlay(this.game);
     this.root = overlay.root;
@@ -249,6 +260,43 @@ export class LakeScene extends Phaser.Scene {
       dir: this.me.direction,
     }));
     this.cleanups.push(() => this.services.hub.setPositionProvider(null));
+  }
+
+  /** NPC trong map.npcs (pier.html): đứng yên, không đồng bộ qua Server; ô dưới chân đã chặn trong walkableRows. */
+  private createNpcs(): void {
+    if (!isHomeHudEnabled(this)) return;
+    for (const npc of this.map.npcs ?? []) {
+      const view = new CharacterView(this, {
+        x: npc.x,
+        y: npc.y,
+        skinId: npc.skinId,
+        rodId: 'rod_old',
+        name: npc.name,
+        nameColor: npc.nameColor,
+        showRod: false,
+      });
+      view.setDirection(npc.facing);
+      view.setSeated(Boolean(npc.sit));      // Đồ kê (phiến đá) vẽ ngay dưới NPC: người đứng sau NPC vẫn bị đá che, người đứng trước thì đè lên đá.
+      if (npc.prop) {
+        this.add.image(npc.prop.x, npc.prop.y, npc.prop.image).setOrigin(0, 0).setDepth(npc.y - 0.5);
+      }
+      this.npcViews.push({ npc, view });
+    }
+  }
+
+  private npcNearMe(): { npc: LakeNpc; distance: number } | null {
+    let best: { npc: LakeNpc; distance: number } | null = null;
+    for (const { npc } of this.npcViews) {
+      const distance = Math.hypot(npc.x - this.me.x, npc.y - this.me.y);
+      if (distance <= NEAR_NPC_PX && (!best || distance < best.distance)) best = { npc, distance };
+    }
+    return best;
+  }
+
+  private runNpcAction(npc: LakeNpc): void {
+    if (this.modalOpen || this.flow.isLocked()) return;
+    if (npc.action === 'codex') this.homeHud?.openCodex();
+    else if (npc.action === 'sellFish') this.homeHud?.openSellFish();
   }
 
   private createFishing(): void {
@@ -517,6 +565,10 @@ export class LakeScene extends Phaser.Scene {
       return;
     }
     const target = this.interactTargetNearMe();
+    if (target?.kind === 'npc') {
+      this.runNpcAction(target.npc);
+      return;
+    }
     if (target?.kind === 'player') {
       if (!this.modalOpen && !this.flow.isLocked()) this.openPlayerInfo(target.id);
       return;
@@ -544,17 +596,21 @@ export class LakeScene extends Phaser.Scene {
     return nearestPlayer(this.me.x, this.me.y, others);
   }
 
-  /** Mục tiêu bấm F: ghế/chỗ ngồi chơi trống hoặc người/bot, cái nào gần mình hơn. */
+  /** Mục tiêu bấm F: ghế/chỗ ngồi chơi trống, người/bot hoặc NPC, cái nào gần mình hơn. */
   private interactTargetNearMe(): InteractTarget | null {
     const seat = this.seatTargetNearMe();
     const player = this.playerNearMe();
-    if (player) {
-      const seatDistance = seat
-        ? Math.hypot(seat.seat.x - this.me.x, seat.seat.y - this.me.y)
-        : Infinity;
-      if (player.distance < seatDistance) return { kind: 'player', id: player.id };
+    const npc = this.npcNearMe();
+    let best: InteractTarget | null = seat;
+    let bestDistance = seat
+      ? Math.hypot(seat.seat.x - this.me.x, seat.seat.y - this.me.y)
+      : Infinity;
+    if (player && player.distance < bestDistance) {
+      best = { kind: 'player', id: player.id };
+      bestDistance = player.distance;
     }
-    return seat;
+    if (npc && npc.distance < bestDistance) best = { kind: 'npc', npc: npc.npc };
+    return best;
   }
 
   /** Ghế trống gần nhất trong tầm ngồi của nhân vật. */
@@ -617,6 +673,9 @@ export class LakeScene extends Phaser.Scene {
     this.updateActionButton(target);
     // Viền trắng đúng chiếc ghế sẽ ngồi hoặc người sẽ mở thông tin khi bấm F (feedback 2026-11-12, 2026-11-19).
     this.targetPlayerId = target?.kind === 'player' ? target.id : null;
+    for (const { npc, view } of this.npcViews) {
+      view.setOutlined(!this.modalOpen && target?.kind === 'npc' && target.npc === npc);
+    }
     let highlight: string | null = null;
     if (target?.kind === 'rest') highlight = target.seat.restSeatId;
     else if (target?.kind === 'fish') highlight = target.seat.seatId;
@@ -630,6 +689,7 @@ export class LakeScene extends Phaser.Scene {
     if (!this.modalOpen) {
       if (this.myRestSeatId()) label = 'Đứng dậy';
       else if (target?.kind === 'player') label = 'Thông tin';
+      else if (target?.kind === 'npc') label = target.npc.action === 'codex' ? 'Sổ tay cá' : 'Bán cá';
       else if (target) label = 'Ngồi';
     }
     this.actionButton.update(label);

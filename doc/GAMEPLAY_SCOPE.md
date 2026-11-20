@@ -262,6 +262,8 @@ Chốt 5 loại cần. Buff của cần cộng cho nhân vật. Old Fishing Rod 
 
 ## Fish Codex
 
+> **Cập nhật 2026-11-20 (người dùng duyệt):** thêm 11 loài, tổng 20 loài; Cá Mập (`shark`) là loài legendary duy nhất, Mực (`moonfin`) hạ xuống epic (HP 100, EXP 20, giá 50). Nguồn số liệu hiện hành là `docs/v01/fixtures/gameplay-config.v0.json`; bảng dưới là bảng gốc 9 loài.
+
 Chốt 9 loài cá, 5 bậc rarity. Kích thước cá tính bằng chiều dài (cm), không dùng cân nặng; chiều dài random trong khoảng Min-Max khi bắt được cá. Chiều dài không ảnh hưởng độ khó minigame, chỉ để so sánh giữa các user. Người chơi bán cá để kiếm Gold. Bản đầu chưa dùng cột Appears during và Found in, vì chỉ có 1 nơi câu.
 
 | # | id | Name | Rarity | Min. Length (cm) | Max. Length (cm) | HP | EXP | Giá bán (Gold) |

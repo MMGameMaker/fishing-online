@@ -39,11 +39,11 @@ public sealed class PopulationPickTests
         // Chỉ còn epic và legendary: lượt rơi vào common..rare lên epic, legendary vẫn chỉ theo tỷ lệ của nó.
         var random = new SeededRandomSource(3);
         var picks = Enumerable.Range(0, 4000)
-            .Select(_ => SpawnPicker.PickAvailable(random, TestData.Config, 0, species => species is "koi" or "moonfin"))
+            .Select(_ => SpawnPicker.PickAvailable(random, TestData.Config, 0, species => species is "koi" or "shark"))
             .ToArray();
 
-        Assert.All(picks, species => Assert.Contains(species, new[] { "koi", "moonfin" }));
-        Assert.InRange(picks.Count(species => species == "moonfin") / (double)picks.Length, 0.001, 0.02);
+        Assert.All(picks, species => Assert.Contains(species, new[] { "koi", "shark" }));
+        Assert.InRange(picks.Count(species => species == "shark") / (double)picks.Length, 0.001, 0.02);
     }
 
     [Fact]

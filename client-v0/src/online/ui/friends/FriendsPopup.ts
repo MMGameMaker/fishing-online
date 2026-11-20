@@ -20,6 +20,10 @@ const CLOSE = encodeURI('/mini game/Button Close.png');
 const PANEL_W = 640;
 const PANEL_H = 720;
 const PANEL_ZOOM = 1.3;
+/** Đổi cá tạm ẩn khỏi giao diện (feedback 2026-11-20); code giữ nguyên để bật lại. */
+const TRADE_ENABLED = false;
+
+type FriendsTab = 'friends' | 'requests';
 
 function el<K extends keyof HTMLElementTagNameMap>(
   tag: K,
@@ -42,6 +46,11 @@ export interface FriendsPopupOptions {
 export class FriendsPopup {
   private overlay: HTMLElement | null = null;
   private readonly list = el('div', 'friends__list');
+  /** Hai tab "Bạn bè" / "Lời mời kết bạn" (feedback 2026-11-20); mở popup luôn về tab Bạn bè. */
+  private tab: FriendsTab = 'friends';
+  private readonly tabFriends = el('button', 'friends__tab');
+  private readonly tabRequests = el('button', 'friends__tab');
+  private readonly requestsBadge = el('span', 'chat-tabs__badge');
   private cleanups: (() => void)[] = [];
   private busy = new Set<string>();
   private confirming = new Set<string>();
@@ -66,7 +75,27 @@ export class FriendsPopup {
     icon.alt = '';
     close.append(icon);
     close.addEventListener('click', () => this.close());
-    panel.append(close, el('h2', 'friends__title', 'Bạn bè'), this.list);
+    this.tab = 'friends';
+    const tabs = el('div', 'friends__tabs');
+    tabs.setAttribute('role', 'tablist');
+    for (const [button, tab, label] of [
+      [this.tabFriends, 'friends', 'Bạn bè'],
+      [this.tabRequests, 'requests', 'Lời mời kết bạn'],
+    ] as const) {
+      button.type = 'button';
+      button.setAttribute('role', 'tab');
+      button.replaceChildren(el('span', 'friends__tab-label', label));
+      button.onclick = () => {
+        if (this.tab === tab) return;
+        this.tab = tab;
+        this.closeComposer();
+        this.render();
+        this.list.scrollTop = 0;
+      };
+      tabs.append(button);
+    }
+    this.tabRequests.append(this.requestsBadge);
+    panel.append(close, el('h2', 'friends__title', 'Bạn bè'), tabs, this.list);
     overlay.append(panel);
     overlay.style.setProperty(
       '--shop-scale',
@@ -168,10 +197,21 @@ export class FriendsPopup {
       return;
     }
     const { social, lake } = this.options.services.store.getState();
+    this.tabFriends.classList.toggle('friends__tab--active', this.tab === 'friends');
+    this.tabRequests.classList.toggle('friends__tab--active', this.tab === 'requests');
+    this.tabFriends.setAttribute('aria-selected', String(this.tab === 'friends'));
+    this.tabRequests.setAttribute('aria-selected', String(this.tab === 'requests'));
+    const pending = social.incoming.length;
+    this.requestsBadge.textContent = pending > 99 ? '99+' : String(pending);
+    this.requestsBadge.hidden = pending === 0;
+    if (this.tab === 'requests') {
+      this.list.replaceChildren(...this.requestNodes());
+      return;
+    }
     const nodes: HTMLElement[] = [];
     const trades = social.trades;
     const tradeCount = (trades?.incoming.length ?? 0) + (trades?.outgoing.length ?? 0);
-    if (trades && tradeCount > 0) {
+    if (TRADE_ENABLED && trades && tradeCount > 0) {
       const options = {
         services: this.options.services,
         root: this.options.root,
@@ -181,10 +221,6 @@ export class FriendsPopup {
       nodes.push(el('h3', 'friends__section', `Đề nghị đổi cá (${tradeCount})`));
       for (const trade of trades.incoming) nodes.push(tradeRow(trade, true, options));
       for (const trade of trades.outgoing) nodes.push(tradeRow(trade, false, options));
-    }
-    if (social.incoming.length > 0) {
-      nodes.push(el('h3', 'friends__section', `Lời mời kết bạn (${social.incoming.length})`));
-      for (const request of social.incoming) nodes.push(this.requestRow(request));
     }
     const friends = [...(social.friends ?? [])]
       .map((f) => ({ ...f, online: f.online || Boolean(lake.players[f.playerId]) }))
@@ -205,6 +241,17 @@ export class FriendsPopup {
     }
     for (const friend of friends) nodes.push(this.friendRow(friend));
     this.list.replaceChildren(...nodes);
+  }
+
+  private requestNodes(): HTMLElement[] {
+    const { incoming } = this.options.services.store.getState().social;
+    if (incoming.length === 0) {
+      return [el('p', 'friends__empty', 'Chưa có lời mời kết bạn nào.')];
+    }
+    return [
+      el('h3', 'friends__section', `Lời mời kết bạn (${incoming.length})`),
+      ...incoming.map((request) => this.requestRow(request)),
+    ];
   }
 
   private person(
@@ -259,7 +306,7 @@ export class FriendsPopup {
         this.close();
         this.options.openDirect(friend.playerId);
       }),
-      this.button('Đổi cá', false, () => this.openComposer(friend)),
+      ...(TRADE_ENABLED ? [this.button('Đổi cá', false, () => this.openComposer(friend))] : []),
       this.button('Xem', false, () => this.options.openPlayer(friend.playerId)),
       this.button(
         this.confirming.has(friend.playerId) ? 'Bấm lại để xoá' : 'Xoá',

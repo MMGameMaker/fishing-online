@@ -149,6 +149,22 @@ describe('map chơi được của pier', () => {
     expect(canStand(lake, lake.spawn.x, lake.spawn.y)).toBe(true);
   });
 
+  it('NPC chặn chỗ đứng và có chỗ đứng cạnh trong tầm bấm F (2026-11-20)', () => {
+    expect(lake.npcs?.map((npc) => [npc.npcId, npc.skinId, npc.action])).toEqual([
+      ['codex-panda', 'npc_panda', 'codex'],
+      ['sell-fox', 'npc_fox', 'sellFish'],
+    ]);
+    for (const npc of lake.npcs ?? []) {
+      expect(canStand(lake, npc.x, npc.y), npc.npcId).toBe(false);
+      // Có chỗ đứng cách chân NPC tối đa 24px (tầm NEAR_NPC_PX = 32 ở LakeScene).
+      const spots = [-24, -16, -12, 12, 16, 24].flatMap((d) => [
+        [npc.x + d, npc.y],
+        [npc.x, npc.y + d],
+      ]);
+      expect(spots.some(([x, y]) => canStand(lake, x!, y!)), npc.npcId).toBe(true);
+    }
+  });
+
   it('điểm vào game ngẫu nhiên phủ phần lớn map và luôn đứng được', () => {
     const points = reachablePoints(lake);
     // Map pier rộng: số ô đi tới được từ spawn phải lớn (không bị kẹt trong một góc nhỏ).

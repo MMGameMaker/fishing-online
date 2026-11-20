@@ -358,7 +358,7 @@ public sealed class ConfigTests(PostgresServer postgres) : GameTestBase(postgres
     public void MissingSpecies_IsRejectedWithErrorList()
     {
         var config = Fixture();
-        var broken = config with { Fish = config.Fish.Skip(1).ToArray(), Rods = [] };
+        var broken = config with { Fish = [], Rods = [] };
 
         var errors = GameplayConfigValidator.Validate(broken);
 

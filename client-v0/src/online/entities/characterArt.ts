@@ -45,6 +45,8 @@ export const BAKED_BOT_SKINS = [
   'skin_bot_turtle_hermann',
   'skin_bot_turtle_leatherback',
 ] as const;
+/** Skin NPC đứng trên map (tools/bake_outfit_skins.mjs, NPC_SKINS). */
+export const BAKED_NPC_SKINS = ['npc_panda', 'npc_fox'] as const;
 /** Cần câu đã có art, trùng rodId trong gameplay-config. */
 export const BAKED_RODS = [
   'rod_old',
@@ -73,7 +75,7 @@ export interface BakedCharacterData {
 
 /** Gọi trong preload của scene khởi động. */
 export function preloadCharacterArt(scene: Phaser.Scene): void {
-  for (const id of [...BAKED_SKINS, ...BAKED_BOT_SKINS]) {
+  for (const id of [...BAKED_SKINS, ...BAKED_BOT_SKINS, ...BAKED_NPC_SKINS]) {
     if (!scene.textures.exists(id))
       scene.load.atlas(id, `${SKIN_DIR}${id}.png`, `${SKIN_DIR}${id}.json`);
   }

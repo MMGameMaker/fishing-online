@@ -34,6 +34,29 @@ export interface LakeMap {
   moveRules: { maxSpeedPxPerSec: number; feetHalfWidth: number; feetHeight: number };
   seats: LakeSeat[];
   restSeats?: RestSeat[];
+  /** NPC đứng yên trên map; ô dưới chân đã chặn sẵn trong walkableRows. Bấm F ở gần để làm `action`. */
+  npcs?: LakeNpc[];
+}
+
+/**
+ * Yêu cầu 2026-11-20: `codex` mở Sổ tay cá (gấu trúc chân hải đăng), `sellFish` mở Cửa hàng ở tab Bán cá
+ * (cáo đỏ đầu cầu gỗ cạnh thùng hàng).
+ */
+export type NpcAction = 'codex' | 'sellFish';
+
+export interface LakeNpc {
+  npcId: string;
+  skinId: string;
+  name: string;
+  x: number;
+  y: number;
+  facing: 'up' | 'down' | 'left' | 'right';
+  action: NpcAction;
+  /** Màu tên (mặc định trắng như người chơi khác). */
+  nameColor?: string;
+  /** Ngồi (tư thế ngồi của skin, x/y là điểm ngồi) thay vì đứng. */
+  sit?: boolean;  /** Đồ đặt kèm (vd. phiến đá cáo ngồi): ảnh trong public, góc trên-trái (x, y), vẽ ngay dưới NPC. */
+  prop?: { image: string; x: number; y: number };
 }
 
 function isWalkableTile(map: LakeMap, col: number, row: number): boolean {

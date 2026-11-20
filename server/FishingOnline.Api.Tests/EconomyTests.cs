@@ -1,5 +1,6 @@
 using System.Net.Http.Json;
 using System.Text.Json;
+using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Economy;
 using FishingOnline.Api.Modules.Fishing;
 using FishingOnline.Api.Modules.Lake;
@@ -22,7 +23,7 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
     {
         await using var scope = App.Services.CreateAsyncScope();
         return await scope.ServiceProvider.GetRequiredService<ICatchRecorder>().RecordAsync(
-            playerId, attemptId ?? Guid.NewGuid(), species, length, exp, "v0-test-2026-11-19-ticket10-01", default);
+            playerId, attemptId ?? Guid.NewGuid(), species, length, exp, "v0-test-2026-11-20-fish20-01", default);
     }
 
     private Task<long> GoldOfAsync(Guid playerId) =>
@@ -322,7 +323,7 @@ public sealed class EconomyTests(PostgresServer postgres) : GameTestBase(postgre
 
         var species = (await ReadDataAsync(await App.Http(playerId).GetAsync("/api/v1/me/codex"))).GetProperty("species").EnumerateArray().ToArray();
 
-        Assert.Equal(9, species.Length);
+        Assert.Equal(App.Service<IConfigProvider>().Current.Fish.Count, species.Length);
         Assert.True(species.Single(item => item.GetProperty("speciesId").GetString() == "perch").GetProperty("discovered").GetBoolean());
         var koi = species.Single(item => item.GetProperty("speciesId").GetString() == "koi");
         Assert.False(koi.GetProperty("discovered").GetBoolean());

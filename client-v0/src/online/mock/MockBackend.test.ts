@@ -174,7 +174,7 @@ describe('MockBackend', () => {
     const codex = await rig.api.get<{ species: { speciesId: string; discovered: boolean }[] }>(
       '/me/codex',
     );
-    expect(codex.species).toHaveLength(9);
+    expect(codex.species).toHaveLength(config.fish.length);
     expect(codex.species.filter((s) => s.discovered).map((s) => s.speciesId)).toEqual([
       species.speciesId,
     ]);

@@ -41,9 +41,9 @@ public sealed class SpawnPickerTests
         var common = TestData.Config.Fish.Where(fish => fish.Rarity == Rarity.Common).ToArray();
         var total = common.Sum(fish => counts[fish.SpeciesId]);
 
-        Assert.Equal(3, common.Length);
+        Assert.Equal(6, common.Length);
         foreach (var fish in common)
-            Assert.Equal(100.0 / 3, 100.0 * counts[fish.SpeciesId] / total, SpeciesTolerancePct);
+            Assert.Equal(100.0 / 6, 100.0 * counts[fish.SpeciesId] / total, SpeciesTolerancePct);
     }
 
     [Theory]
@@ -54,8 +54,8 @@ public sealed class SpawnPickerTests
     [InlineData(9549, "goldcarp")]
     [InlineData(9550, "koi")]
     [InlineData(9949, "koi")]
-    [InlineData(9950, "moonfin")]
-    [InlineData(9999, "moonfin")]
+    [InlineData(9950, "shark")]
+    [InlineData(9999, "shark")]
     public void RollBoundaries_AtZeroLuck(int roll, string speciesId)
     {
         var random = new ScriptedRandomSource([roll, 0]);

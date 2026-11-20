@@ -30,6 +30,10 @@ export interface CharacterOptions {
   dir?: Direction;
   /** Nhân vật của người đang chơi: tên chữ vàng để dễ nhận ra giữa người khác. */
   isMe?: boolean;
+  /** Màu tên riêng (NPC, yêu cầu 2026-11-20); ưu tiên hơn màu theo isMe. */
+  nameColor?: string;
+  /** false: ẩn lớp cần câu (NPC không cầm cần). */
+  showRod?: boolean;
 }
 
 export type HeadIcon =
@@ -200,7 +204,7 @@ export class CharacterView {
         fontFamily: hasHeadBubble(scene) ? 'Courier New, monospace' : 'monospace',
         fontSize: '8px',
         ...(hasHeadBubble(scene) ? { fontStyle: 'bold', resolution: textResolution(scene) } : {}),
-        color: options.isMe ? MY_NAME_COLOR : NAME_COLOR,
+        color: options.nameColor ?? (options.isMe ? MY_NAME_COLOR : NAME_COLOR),
         // Pier: bỏ nền hộp, thay bằng viền tối cho tên nổi trên cả gỗ lẫn nước (yêu cầu 2026-11-18).
         ...(hasHeadBubble(scene)
           ? { stroke: NAME_STROKE, strokeThickness: NAME_STROKE_PX }
@@ -245,6 +249,7 @@ export class CharacterView {
       this.iconSlot,
     ]);
     this.container.setDepth(options.y);
+    if (options.showRod === false) this.rod.setVisible(false);
     this.body.on(Phaser.Animations.Events.ANIMATION_UPDATE, () => this.syncOutline());
     this.placeHeadItems();
     this.applyAnimation();

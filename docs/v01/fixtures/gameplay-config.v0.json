@@ -1,5 +1,5 @@
 {
-  "configVersion": "v0-test-2026-11-19-ticket10-01",
+  "configVersion": "v0-test-2026-11-20-fish20-01",
   "status": "Fixture test: không thính; vé 50 Gold/10 phút, tối đa 10 vé mỗi lần mua (GD nâng từ 6 lên 10 ngày 2026-11-19; 50 Gold/10 phút là số test GD 2026-11-10), chưa khóa balance.",
   "newPlayer": {
     "gold": 100,
@@ -238,12 +238,122 @@
     {
       "speciesId": "moonfin",
       "name": "Mực",
-      "rarity": "legendary",
+      "rarity": "epic",
       "minTenthCm": 500,
       "maxTenthCm": 1500,
-      "hp": 160,
-      "exp": 40,
-      "sellGold": 150
+      "hp": 100,
+      "exp": 20,
+      "sellGold": 50
+    },
+    {
+      "speciesId": "stonefish",
+      "name": "Cá Đá",
+      "rarity": "common",
+      "minTenthCm": 100,
+      "maxTenthCm": 350,
+      "hp": 55,
+      "exp": 5,
+      "sellGold": 5
+    },
+    {
+      "speciesId": "cowfish",
+      "name": "Cá Bò",
+      "rarity": "common",
+      "minTenthCm": 100,
+      "maxTenthCm": 300,
+      "hp": 55,
+      "exp": 5,
+      "sellGold": 5
+    },
+    {
+      "speciesId": "pomfret",
+      "name": "Cá Chim",
+      "rarity": "common",
+      "minTenthCm": 150,
+      "maxTenthCm": 400,
+      "hp": 55,
+      "exp": 5,
+      "sellGold": 5
+    },
+    {
+      "speciesId": "pangasius",
+      "name": "Cá Tra",
+      "rarity": "uncommon",
+      "minTenthCm": 300,
+      "maxTenthCm": 900,
+      "hp": 70,
+      "exp": 8,
+      "sellGold": 10
+    },
+    {
+      "speciesId": "flyingfish",
+      "name": "Cá Chuồn",
+      "rarity": "uncommon",
+      "minTenthCm": 150,
+      "maxTenthCm": 450,
+      "hp": 70,
+      "exp": 8,
+      "sellGold": 10
+    },
+    {
+      "speciesId": "goby",
+      "name": "Cá Bống Tượng",
+      "rarity": "uncommon",
+      "minTenthCm": 150,
+      "maxTenthCm": 500,
+      "hp": 70,
+      "exp": 8,
+      "sellGold": 10
+    },
+    {
+      "speciesId": "eel",
+      "name": "Cá Chình",
+      "rarity": "rare",
+      "minTenthCm": 400,
+      "maxTenthCm": 1500,
+      "hp": 85,
+      "exp": 12,
+      "sellGold": 20
+    },
+    {
+      "speciesId": "lobster",
+      "name": "Tôm Hùm",
+      "rarity": "rare",
+      "minTenthCm": 200,
+      "maxTenthCm": 600,
+      "hp": 85,
+      "exp": 12,
+      "sellGold": 20
+    },
+    {
+      "speciesId": "sturgeon",
+      "name": "Cá Tầm",
+      "rarity": "epic",
+      "minTenthCm": 800,
+      "maxTenthCm": 2500,
+      "hp": 100,
+      "exp": 20,
+      "sellGold": 50
+    },
+    {
+      "speciesId": "stingray",
+      "name": "Cá Đuối",
+      "rarity": "epic",
+      "minTenthCm": 500,
+      "maxTenthCm": 2000,
+      "hp": 100,
+      "exp": 20,
+      "sellGold": 50
+    },
+    {
+      "speciesId": "shark",
+      "name": "Cá Mập",
+      "rarity": "legendary",
+      "minTenthCm": 1500,
+      "maxTenthCm": 4000,
+      "hp": 200,
+      "exp": 60,
+      "sellGold": 300
     }
   ],
   "seatSession": {

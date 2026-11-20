@@ -15,7 +15,7 @@ public sealed class GameplayConfigJsonTests
     {
         var config = GameplayConfigJson.Parse(FixtureJson);
 
-        Assert.Equal(160, config.Fish.Single(fish => fish.SpeciesId == "moonfin").Hp);
+        Assert.Equal(200, config.Fish.Single(fish => fish.SpeciesId == "shark").Hp);
         Assert.Equal(50, config.TicketPricing.UnitPriceGold);
         Assert.Equal(10, config.TicketPricing.MaxUnitsPerPurchase);
         Assert.Equal(440, config.Levels.Single(level => level.Level == 10).ExpReq);
@@ -28,8 +28,8 @@ public sealed class GameplayConfigJsonTests
 
         Assert.Equal(10, config.Levels.Count);
         Assert.Equal(5, config.Rods.Count);
-        Assert.Equal(9, config.Fish.Count);
-        Assert.Equal(Rarity.Legendary, config.Fish.Single(fish => fish.SpeciesId == "moonfin").Rarity);
+        Assert.Equal(20, config.Fish.Count);
+        Assert.Equal(Rarity.Legendary, config.Fish.Single(fish => fish.SpeciesId == "shark").Rarity);
         Assert.Equal(Enum.GetValues<Rarity>(), config.Minigame.Rarity.Select(entry => entry.Rarity));
         Assert.Null(config.Rods.Single(rod => rod.IsDefault).PriceGold);
         Assert.Equal(6050, config.Spawn.RarityBaseBp.Common);

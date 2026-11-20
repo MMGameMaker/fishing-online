@@ -1,6 +1,6 @@
 {
   "purpose": "BE-B-07: mẫu MinigameParams và outcome cho harness Server. Không có bộ tap; vector tap của lõi TS do CL-C giữ ở client-v0/src/online/fishing/.",
-  "configVersion": "v0-test-2026-11-19-ticket10-01",
+  "configVersion": "v0-test-2026-11-20-fish20-01",
   "samples": [
     {
       "name": "common-lv1-success",
@@ -92,7 +92,7 @@
     },
     {
       "name": "legendary-lv10-giant-at-deadline",
-      "speciesId": "moonfin",
+      "speciesId": "shark",
       "player": { "level": 10, "rodId": "rod_giant_caster" },
       "params": {
         "seed": 2024,
@@ -104,7 +104,7 @@
         "shiftMin": 0.3,
         "shiftMax": 0.7,
         "missPenaltyMs": 3500,
-        "fishHp": 160,
+        "fishHp": 200,
         "atk": 33,
         "deadlineAt": "2026-11-09T10:01:31.500Z"
       },

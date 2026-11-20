@@ -113,7 +113,7 @@ public sealed class AdminAuthTests(PostgresServer postgres) : AdminTestBase(post
 
 public sealed class AdminConfigTests(PostgresServer postgres) : AdminTestBase(postgres)
 {
-    private const string Base = "v0-test-2026-11-19-ticket10-01";
+    private const string Base = "v0-test-2026-11-20-fish20-01";
 
     private async Task<(HttpClient Client, JsonElement Draft)> DraftAsync()
     {
@@ -144,7 +144,7 @@ public sealed class AdminConfigTests(PostgresServer postgres) : AdminTestBase(po
     {
         var (client, draft) = await DraftAsync();
         var document = JsonNode.Parse(draft.GetProperty("document").GetRawText())!;
-        document["fish"]!.AsArray().RemoveAt(0);
+        document["fish"]!.AsArray().Clear();
         (await SaveAsync(client, draft, 1, document)).EnsureSuccessStatusCode();
 
         var report = await DataAsync(client.PostAsync($"/api/v1/admin/config/drafts/{draft.GetProperty("draftId").GetGuid()}/validate", null));

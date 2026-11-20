@@ -56,7 +56,9 @@ async function start(): Promise<void> {
   // Dữ liệu game vẫn mock, nhưng đăng nhập Google thật để lấy tên tài khoản làm tên người chơi.
   // Điện thoại: màn đăng nhập/menu chưa toàn màn hình; vào tới hồ thì bật, chạm lại mà chưa toàn màn hình thì bật lại.
   const screens = new BootScreens(document.body, { onGameVisible: setFullscreenGuard });
-  setBootOptions(game, { googleInMock: true, screens });
+  // Bản dev + mock: ?mockLogin bỏ qua Google để kiểm tra trong trình duyệt không mở được popup đăng nhập.
+  const skipGoogle = import.meta.env.DEV && new URLSearchParams(location.search).has('mockLogin');
+  setBootOptions(game, { googleInMock: !skipGoogle, screens });
   setLakeMapArt(game, new PierArt());
   // Giao diện home theo ảnh demo (khung người chơi, vé, Gold, menu) chỉ có ở trang này.
   enableHomeHud(game);

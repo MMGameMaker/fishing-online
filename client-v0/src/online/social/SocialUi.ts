@@ -159,8 +159,10 @@ export class SocialUi {
         (s) => s.social.friends,
         () => this.renderDirect(),
       ),
+      // Chỉ vẽ lại khi tập người ở hồ đổi (chấm online). `lake.players` đổi tham chiếu mỗi bước đi của người/bot;
+      // vẽ lại theo nó thay nút giữa lúc nhấn và nhả chuột nên bấm vào một người không mở được hội thoại.
       store.select(
-        (s) => s.lake.players,
+        (s) => Object.keys(s.lake.players).sort().join(','),
         () => {
           if (this.tab === 'direct' && !this.thread) this.renderDirect();
         },
