@@ -129,9 +129,6 @@ export class LakeScene extends Phaser.Scene {
   preload(): void {
     getLakeMapArt(this)?.preload(this);
     preloadEmotes(this);
-    for (const npc of getServices(this).map.npcs ?? []) {
-      if (npc.prop && !this.textures.exists(npc.prop.image)) this.load.image(npc.prop.image, npc.prop.image);
-    }
     // Art riêng của pier.html: bong bóng Head Bubble.png và phím Sit Prompt F.png.
     if (isHomeHudEnabled(this)) {
       preloadHeadBubble(this);
@@ -273,13 +270,10 @@ export class LakeScene extends Phaser.Scene {
         rodId: 'rod_old',
         name: npc.name,
         nameColor: npc.nameColor,
+        nameLowerPx: npc.nameOffsetY,
         showRod: false,
       });
       view.setDirection(npc.facing);
-      view.setSeated(Boolean(npc.sit));      // Đồ kê (phiến đá) vẽ ngay dưới NPC: người đứng sau NPC vẫn bị đá che, người đứng trước thì đè lên đá.
-      if (npc.prop) {
-        this.add.image(npc.prop.x, npc.prop.y, npc.prop.image).setOrigin(0, 0).setDepth(npc.y - 0.5);
-      }
       this.npcViews.push({ npc, view });
     }
   }
@@ -689,7 +683,8 @@ export class LakeScene extends Phaser.Scene {
     if (!this.modalOpen) {
       if (this.myRestSeatId()) label = 'Đứng dậy';
       else if (target?.kind === 'player') label = 'Thông tin';
-      else if (target?.kind === 'npc') label = target.npc.action === 'codex' ? 'Sổ tay cá' : 'Bán cá';
+      else if (target?.kind === 'npc')
+        label = target.npc.action === 'codex' ? 'Sổ tay cá' : 'Bán cá';
       else if (target) label = 'Ngồi';
     }
     this.actionButton.update(label);

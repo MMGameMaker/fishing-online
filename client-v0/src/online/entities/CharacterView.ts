@@ -34,6 +34,8 @@ export interface CharacterOptions {
   nameColor?: string;
   /** false: ẩn lớp cần câu (NPC không cầm cần). */
   showRod?: boolean;
+  /** Hạ tên (và biệt hiệu, bong bóng, icon trên đầu) xuống bao nhiêu px so với mặc định (NPC, 2026-11-20). */
+  nameLowerPx?: number;
 }
 
 export type HeadIcon =
@@ -167,6 +169,7 @@ export class CharacterView {
   private headBubbleKind: 'text' | 'emote' | null = null;
   private skinId: string;
   private rodId: string;
+  private readonly nameLowerPx: number;
   private dir: Direction;
   private anim: CharacterAnim = 'idle';
   /** Đang ngồi ghế: 'idle' hiển thị thành tư thế ngồi. */
@@ -190,6 +193,7 @@ export class CharacterView {
     this.skinId = options.skinId;
     this.rodId = options.rodId;
     this.dir = options.dir ?? 'down';
+    this.nameLowerPx = options.nameLowerPx ?? 0;
     ensureSkin(scene, this.skinId);
     ensureRod(scene, this.rodId);
 
@@ -766,7 +770,8 @@ export class CharacterView {
 
   /** Nhãn tên và icon đặt theo chiều cao skin (thỏ có tai cao hơn sprite vẽ tạm). */
   private placeHeadItems(): void {
-    const headTop = bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP;
+    const headTop =
+      (bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP) - this.nameLowerPx;
     // Có biệt hiệu: nó chiếm chỗ tên cũ (sát đầu), tên đẩy lên trên một dòng.
     // pier: tên và biệt hiệu hạ thấp thêm một chút sát đầu (yêu cầu 2026-11-18).
     const gap = hasHeadBubble(this.scene) ? LABEL_GAP - PIER_LABEL_LOWER : LABEL_GAP;

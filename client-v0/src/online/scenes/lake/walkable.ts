@@ -54,9 +54,8 @@ export interface LakeNpc {
   action: NpcAction;
   /** Màu tên (mặc định trắng như người chơi khác). */
   nameColor?: string;
-  /** Ngồi (tư thế ngồi của skin, x/y là điểm ngồi) thay vì đứng. */
-  sit?: boolean;  /** Đồ đặt kèm (vd. phiến đá cáo ngồi): ảnh trong public, góc trên-trái (x, y), vẽ ngay dưới NPC. */
-  prop?: { image: string; x: number; y: number };
+  /** Hạ tên xuống bao nhiêu px so với người chơi (mặc định 0). */
+  nameOffsetY?: number;
 }
 
 function isWalkableTile(map: LakeMap, col: number, row: number): boolean {
