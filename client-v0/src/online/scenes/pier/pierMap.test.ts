@@ -50,7 +50,7 @@ describe('map bến cá dựng lại từ ảnh gốc', () => {
   it('object dùng frame có thật và chạm vào khung map', () => {
     expect(MAP.objects.length).toBeGreaterThan(100);
     for (const o of MAP.objects) {
-      expect(frames[o.sheet][o.frame], o.frame).toBeDefined();
+      if (!o.image) expect(frames[o.sheet][o.frame], o.frame).toBeDefined();
       expect(o.x + o.w).toBeGreaterThan(0);
       expect(o.y + o.h).toBeGreaterThan(0);
       expect(o.x).toBeLessThan(MAP.width);
@@ -151,8 +151,9 @@ describe('map chơi được của pier', () => {
 
   it('NPC chặn chỗ đứng và có chỗ đứng cạnh trong tầm bấm F (2026-11-20)', () => {
     expect(lake.npcs?.map((npc) => [npc.npcId, npc.skinId, npc.action])).toEqual([
-      ['codex-panda', 'npc_panda', 'codex'],
+      ['codex-octopus', 'npc_octopus', 'codex'],
       ['sell-fox', 'npc_fox', 'sellFish'],
+      ['rank-podium', 'npc_podium', 'leaderboard'],
     ]);
     for (const npc of lake.npcs ?? []) {
       expect(canStand(lake, npc.x, npc.y), npc.npcId).toBe(false);
@@ -294,7 +295,7 @@ describe('va chạm map pier', () => {
 describe('chồng thùng', () => {
   it('thùng đỉnh vẽ trên các thùng bên dưới nhưng dưới nhân vật đứng trước chồng', () => {
     const tops = MAP.objects.filter((o) => o.layer > 1);
-    expect(tops.length).toBeGreaterThan(0);
+    // Chồng thùng duy nhất đã bị xoá để nhường chỗ cho bục xếp hạng (2026-11-21); còn chồng nào thì vẫn kiểm.
     for (const top of tops) {
       const under = MAP.objects.filter(
         (o) =>

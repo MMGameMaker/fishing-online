@@ -17,6 +17,8 @@ import {
 } from './pierMap';
 
 const MAP = mapData as PierMapData;
+/** Khoá texture cho object dùng ảnh riêng (`image`). */
+const imageKey = (url: string): string => `pier-img:${url}`;
 const ATLAS_BASE = encodeURI('/new resources/anim/atlases');
 const SHADOW_TEXTURE = 'fishing-pier-map-shadows';
 
@@ -81,6 +83,9 @@ export class PierArt implements LakeMapArt {
       if (scene.textures.exists(key)) continue;
       scene.load.atlas(key, `${ATLAS_BASE}/${file}.png`, `${ATLAS_BASE}/${file}.json`);
       scene.load.json(`${key}-json`, `${ATLAS_BASE}/${file}.json`);
+    }
+    for (const url of new Set(MAP.objects.flatMap((o) => (o.image ? [o.image] : [])))) {
+      if (!scene.textures.exists(imageKey(url))) scene.load.image(imageKey(url), url);
     }
   }
 
@@ -286,7 +291,9 @@ export class PierArt implements LakeMapArt {
   private createObjects(scene: Phaser.Scene): void {
     for (const o of MAP.objects) {
       const depth = depthOf(o);
-      if (o.anim && scene.anims.exists(o.anim)) {
+      if (o.image) {
+        scene.add.image(o.x, o.y, imageKey(o.image)).setOrigin(0).setDepth(depth);
+      } else if (o.anim && scene.anims.exists(o.anim)) {
         scene.add
           .sprite(o.x, o.y, o.sheet, o.frame)
           .setOrigin(0)

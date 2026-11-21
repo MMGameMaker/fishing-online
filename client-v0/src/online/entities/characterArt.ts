@@ -46,7 +46,7 @@ export const BAKED_BOT_SKINS = [
   'skin_bot_turtle_leatherback',
 ] as const;
 /** Skin NPC đứng trên map (tools/bake_outfit_skins.mjs, NPC_SKINS). */
-export const BAKED_NPC_SKINS = ['npc_panda', 'npc_fox'] as const;
+export const BAKED_NPC_SKINS = ['npc_octopus', 'npc_fox', 'npc_podium'] as const;
 /** Cần câu đã có art, trùng rodId trong gameplay-config. */
 export const BAKED_RODS = [
   'rod_old',

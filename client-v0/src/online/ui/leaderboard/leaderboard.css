@@ -1,19 +1,35 @@
 /* Popup "Bảng xếp hạng tuần" (LeaderboardPopup.ts). Dùng chung nền mờ của .shop. Toạ độ là pixel ảnh
    Leaderboard Panel.png 1144×812: lòng khung x 20..1124, đường kẻ đầu y 118, dòng Row 1.png 1104×90. */
+/* Hàng tab chuyển bảng cao 76px nằm trên khung (như popup Túi đồ, yêu cầu 2026-11-21), rồi tới thân khung
+   Leaderboard Panel.png 1144×812: mọi toạ độ bên dưới tính từ đỉnh thân khung (.rank__body). */
 .rank__panel {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 1144px;
-  height: 812px;
+  height: 888px;
   transform: translate(-50%, -50%) scale(var(--shop-scale, 1));
 }
 
-.rank__timer {
+.rank__body {
   position: absolute;
-  top: 28px;
+  top: 76px;
+  left: 0;
+  width: 1144px;
+  height: 812px;
+}
+
+/* Vùng đầu khung: từ mép trong phía trên (y 20) tới đường kẻ (y 118), tâm y 69. Đồng hồ và nút đóng cùng cao 76px
+   (cao bằng ảnh nút đóng) nên cùng top 31; tiêu đề căn giữa theo cả vùng (yêu cầu 2026-11-21). */
+.rank__timer {
+  box-sizing: border-box;
+  position: absolute;
+  top: 31px;
   left: 40px;
-  padding: 10px 22px;
+  display: flex;
+  align-items: center;
+  height: 76px;
+  padding: 0 22px;
   font-size: 24px;
   line-height: 1.2;
   background: #ffe9b8;
@@ -23,9 +39,13 @@
 
 .rank__title {
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  height: 98px;
   margin: 0;
   font-size: 48px;
   text-align: center;
@@ -33,13 +53,76 @@
 
 .rank__close {
   position: absolute;
-  top: 24px;
+  top: 31px;
   right: 40px;
+  height: 76px;
+  padding: 0;
+  line-height: 0;
 }
 
 .rank__close img {
   width: 72px;
   height: 76px;
+}
+
+/* Mỗi tab nội dung phủ cả khung; phần tử con tự đặt toạ độ theo khung. Chỉ phần tử con nhận chuột, để không che
+   đồng hồ, hai tab chuyển bảng và nút đóng. */
+.rank__view {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.rank__view[hidden] {
+  display: none;
+}
+
+.rank__view > * {
+  pointer-events: auto;
+}
+
+/* Hai tab chuyển bảng "BXH Tuần" / "BXH Ngày" kiểu popup Túi đồ: tab chưa chọn là khung nâu nhỏ (Tab - State Default.png),
+   tab đang chọn là dải xanh dài chữ trắng (Tab - State Active.png); không icon nên cả hai đều ghi chữ. */
+.rank__boards {
+  position: absolute;
+  top: 0;
+  left: 56px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  height: 80px;
+}
+
+.rank__board-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Rộng hơn Túi đồ (112) vì tab này ghi chữ chứ không chỉ icon; chữ không sát viền. */
+  width: 160px;
+  height: 72px;
+  padding: 0;
+  font: inherit;
+  font-size: 20px;
+  color: #6b4a2e;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  background: url('/new%20resources/ui/Tab%20-%20State%20Default.png') no-repeat 0 0 / 100% 100%;
+  border: 0;
+  image-rendering: pixelated;
+}
+
+.rank__board-tab:hover:not(.rank__board-tab--active) {
+  filter: brightness(1.06);
+}
+
+.rank__board-tab--active {
+  width: 272px;
+  height: 80px;
+  font-size: 32px;
+  color: #fff;
+  text-shadow: 0 3px 0 #14364a;
+  background-image: url('/new%20resources/ui/Tab%20-%20State%20Active.png');
 }
 
 .rank__heads {
@@ -107,15 +190,32 @@
   display: none;
 }
 
+/* Mũi tên xuống thay cho "...", canh giữa khoảng trống giữa thẻ cuối danh sách (y 642) và thẻ của mình (y 692):
+   tâm y 667, mũi tên cao 16px nên top 659. */
 .rank__gap {
   position: absolute;
-  top: 638px;
+  top: 659px;
   left: 20px;
+  display: flex;
+  justify-content: center;
   width: 1104px;
-  font-size: 30px;
-  line-height: 1;
-  text-align: center;
-  color: #b8742f;
+  height: 16px;
+  /* Mũi tên báo còn dòng bên dưới: mờ dần khi đã kéo hết danh sách, hiện lại khi kéo lên (easing vào-ra). */
+  opacity: 1;
+  transition: opacity 260ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.rank__gap--off {
+  opacity: 0;
+}
+
+.rank__gap-arrow {
+  width: 0;
+  height: 0;
+  border-top: 16px solid #b8742f;
+  border-right: 12px solid transparent;
+  border-left: 12px solid transparent;
 }
 
 .rank__me {
@@ -196,57 +296,150 @@
   height: 36px;
 }
 
-/* BXH cá ngày (DailyFishPopup.ts): cùng khung bảng tuần, thêm hàng chọn loài (y 124) và hai tab tiêu chí (y 186);
-   tiêu đề thu nhỏ, danh sách ngắn lại còn y 266..642 (cuộn). */
-.rank--daily .rank__title {
-  top: 36px;
-  font-size: 44px;
-}
-
-.rank__species {
+/* Tab "Bảng xếp hạng cá" (DailyFishView.ts): cùng khung bảng tuần, thêm hàng chọn loài + hai tab tiêu chí (y 148);
+   tiêu đề cột y 242, danh sách ngắn lại còn y 274..652 (cuộn). */
+/* Thanh chọn loài (yêu cầu 2026-11-21): thanh Secondary L.png ở trên, bấm xổ bảng Panel Art.png liệt kê mọi loài.
+   Hai ảnh dùng border-image (viền 12px, đáy 16px có bóng) để co giãn theo cỡ mà viền không méo. */
+/* Một hàng: thanh chọn loài + hai tab tiêu chí, cùng cao 68px, canh giữa giữa đường kẻ (y 118) và tiêu đề cột (y 254). */
+.rank__bar {
   position: absolute;
-  top: 124px;
+  top: 148px;
   left: 20px;
+  z-index: 6;
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  align-items: flex-start;
   justify-content: center;
   width: 1104px;
 }
 
-.rank__chip {
-  width: 96px;
-  height: 56px;
-  padding: 0;
-  cursor: pointer;
-  background: #fff3d0;
-  border: 4px solid #d9a868;
+.rank__species {
+  flex: none;
 }
 
-.rank__chip--on {
-  background: #ffe08a;
-  border-color: #e8782a;
+.rank__picker {
+  position: relative;
+  /* Vừa tên dài nhất "Cá Bống Tượng" (13 ký tự) không bị cắt. */
+  width: 376px;
 }
 
-.rank__chip-img {
-  display: block;
+.rank__pick {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   width: 100%;
-  height: 100%;
+  height: 68px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 26px;
+  color: #3a1d0e;
+  cursor: pointer;
+  background: none;
+  border-style: solid;
+  border-width: 12px 12px 16px;
+  border-image: url('/new resources/ui/Infomation/Secondary L.png') 12 12 16 fill / 12px 12px 16px stretch;
+  image-rendering: pixelated;
+}
+
+.rank__pick:active {
+  transform: translateY(2px);
+}
+
+.rank__pick-img,
+.rank__option-img {
+  flex: none;
+  display: block;
+  width: 64px;
+  height: 34px;
   object-fit: contain;
   image-rendering: pixelated;
 }
 
-.rank__tabs {
+.rank__pick-name,
+.rank__option-name {
+  flex: 1;
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mũi tên xổ xuống, xoay lên khi bảng đang mở. */
+.rank__pick-caret {
+  flex: none;
+  width: 0;
+  height: 0;
+  border-top: 14px solid #7a4018;
+  border-right: 10px solid transparent;
+  border-left: 10px solid transparent;
+  transition: transform 160ms ease-out;
+}
+
+.rank__pick--open .rank__pick-caret {
+  transform: rotate(180deg);
+}
+
+.rank__menu {
+  box-sizing: border-box;
   position: absolute;
-  top: 190px;
-  left: 20px;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  /* Vừa đúng 6 dòng (6 × 60 + viền 20 + 24): không bao giờ lộ nửa dòng ở đáy; cuộn bám theo từng dòng. */
+  max-height: 404px;
+  padding: 0;
+  overflow: hidden auto;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  border-style: solid;
+  border-width: 20px 20px 24px;
+  border-image: url('/new resources/ui/Panel Art.png') 20 20 24 fill / 20px 20px 24px stretch;
+  image-rendering: pixelated;
+}
+
+.rank__menu[hidden] {
+  display: none;
+}
+
+.rank__option {
+  scroll-snap-align: start;
+  box-sizing: border-box;
   display: flex;
-  gap: 16px;
-  justify-content: center;
-  width: 1104px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 60px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 26px;
+  color: #3a1d0e;
+  cursor: pointer;
+  background: none;
+  border: 0;
+}
+
+.rank__option:hover {
+  background: #ffe9b8;
+}
+
+.rank__option--on {
+  color: #fff;
+  background: #d9732a;
+}
+
+.rank__tabs {
+  display: flex;
+  gap: 8px;
 }
 
 .rank__tab {
-  padding: 6px 28px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  /* Cao 64px = phần thấy của thanh chọn loài (68px trừ 4px bóng đáy), để hai bên ngang nhau. */
+  height: 64px;
+  padding: 0 28px;
   font: inherit;
   font-size: 26px;
   line-height: 1.2;
@@ -262,11 +455,17 @@
   background: #d9732a;
 }
 
-.rank--daily .rank__heads {
-  top: 240px;
+.rank__view--daily .rank__heads {
+  top: 242px;
 }
 
-.rank--daily .rank__list {
-  top: 272px;
-  height: 366px;
+/* Tiêu đề cột y 242, danh sách đúng 4 thẻ y 274..652 (đẩy lên 12px, yêu cầu 2026-11-21); thẻ của mình y 692: tâm khoảng trống
+   y 672, mũi tên top 664. */
+.rank__view--daily .rank__list {
+  top: 274px;
+  height: 378px;
+}
+
+.rank__view--daily .rank__gap {
+  top: 664px;
 }

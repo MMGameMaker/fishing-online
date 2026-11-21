@@ -207,6 +207,8 @@ export class CharacterView {
         // Vàng cho bản thân, trắng cho người khác và bot (feedback 2026-11-14).
         fontFamily: hasHeadBubble(scene) ? 'Courier New, monospace' : 'monospace',
         fontSize: '8px',
+        // Tên NPC nhiều dòng canh giữa.
+        align: 'center',
         ...(hasHeadBubble(scene) ? { fontStyle: 'bold', resolution: textResolution(scene) } : {}),
         color: options.nameColor ?? (options.isMe ? MY_NAME_COLOR : NAME_COLOR),
         // Pier: bỏ nền hộp, thay bằng viền tối cho tên nổi trên cả gỗ lẫn nước (yêu cầu 2026-11-18).
@@ -401,6 +403,16 @@ export class CharacterView {
   /** Toạ độ y của đỉnh đầu (tai) trong thế giới, để đặt gợi ý cạnh đầu nhân vật. */
   get headY(): number {
     return this.container.y - (bakedData(this.scene, this.skinId).headTop ?? PLACEHOLDER_HEAD_TOP);
+  }
+
+  /**
+   * Chỗ sinh phím F làm con của container nhân vật (toạ độ cục bộ): bên phải khối tên + biệt hiệu, căn giữa theo dòng
+   * tên (feedback 2026-11-21). `gap` là khoảng từ mép chữ tới tâm phím, `keyH` là chiều cao phím (đáy phím thấp hơn tâm
+   * nửa chiều cao).
+   */
+  promptLocal(gap: number, keyH: number): { x: number; y: number } {
+    const widest = Math.max(this.label.width, this.titleText.visible ? this.titleText.width : 0);
+    return { x: widest / 2 + gap, y: this.label.y - this.label.height / 2 + keyH / 2 };
   }
 
   /** Chỗ cá vừa câu bay tới: ngay trên đỉnh đầu (FishingActor.catchPoint). */

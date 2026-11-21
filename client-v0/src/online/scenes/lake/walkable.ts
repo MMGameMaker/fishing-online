@@ -42,7 +42,7 @@ export interface LakeMap {
  * Yêu cầu 2026-11-20: `codex` mở Sổ tay cá (gấu trúc chân hải đăng), `sellFish` mở Cửa hàng ở tab Bán cá
  * (cáo đỏ đầu cầu gỗ cạnh thùng hàng).
  */
-export type NpcAction = 'codex' | 'sellFish';
+export type NpcAction = 'codex' | 'sellFish' | 'leaderboard';
 
 export interface LakeNpc {
   npcId: string;

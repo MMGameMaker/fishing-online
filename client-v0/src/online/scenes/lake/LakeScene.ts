@@ -25,7 +25,7 @@ import {
   nearestSeat,
   seatReach,
 } from './seatLogic';
-import { SeatPrompt, preloadSitPrompt } from './SeatPrompt';
+import { SeatPrompt, preloadSitPrompt, type PromptPlacement } from './SeatPrompt';
 import { ConnectionWatch } from './ConnectionWatch';
 import { SocialUi } from '../../social/SocialUi';
 import { ensureEmoteAnims, preloadEmotes } from '../../social/emojis';
@@ -38,6 +38,7 @@ import {
   stepMove,
   type LakeMap,
   type LakeNpc,
+  type NpcAction,
   type LakeSeat,
   type RestSeat,
 } from './walkable';
@@ -51,6 +52,18 @@ type InteractTarget =
 
 /** Tầm bấm F với NPC: NPC chặn ô dưới chân nên đứng sát nhất vẫn cách chân NPC khoảng 12–20px. */
 const NEAR_NPC_PX = 32;
+/** Chữ trên nút hành động (điện thoại) theo việc F làm ở từng NPC. */
+const NPC_ACTION_LABELS: Record<NpcAction, string> = {
+  codex: 'Sổ tay cá',
+  sellFish: 'Bán cá',
+  leaderboard: 'Bảng xếp hạng',
+};
+/** Lệch của phím F so với vật được chọn (px thế giới): ghế tính từ điểm ngồi (nằm dưới chân ghế đẩu khoảng 9px; -23 đưa phím lên cao hơn góc trên bên phải ghế); người/NPC tính từ giữa người và đỉnh đầu (phím ở bên phải, ngang đầu). */
+const SEAT_PROMPT_DX = 15;
+const SEAT_PROMPT_DY = -23;
+/** Người/bot/NPC: phím cách mép phải khối tên bấy nhiêu px (tâm phím), chiều cao phím để căn giữa theo dòng tên. */
+const PERSON_PROMPT_GAP = 10;
+const PROMPT_KEY_H = 15;
 
 export const LAKE_SCENE = 'Lake';
 
@@ -291,6 +304,7 @@ export class LakeScene extends Phaser.Scene {
     if (this.modalOpen || this.flow.isLocked()) return;
     if (npc.action === 'codex') this.homeHud?.openCodex();
     else if (npc.action === 'sellFish') this.homeHud?.openSellFish();
+    else if (npc.action === 'leaderboard') this.homeHud?.openLeaderboard();
   }
 
   private createFishing(): void {
@@ -312,7 +326,7 @@ export class LakeScene extends Phaser.Scene {
             screenConfetti: true,
             skipMinigame: true,
             buttonBelowFeetPx: 40,
-            closePopupByKey: true,
+            closePopupAnywhere: true,
             sadOnMissedBite: true,
             fishingFx: true,
           }
@@ -663,7 +677,9 @@ export class LakeScene extends Phaser.Scene {
         ? this.interactTargetNearMe()
         : null;
     // Điện thoại: nút hành động ở góc phải thay phím F cạnh đầu nhân vật.
-    this.seatPrompt.update(this.me.x, this.me.headY, target !== null && !this.actionButton);
+    // Phím F là con của vật được chọn nên chỉ cần biết mục tiêu nào; vị trí chỉ tính khi mục tiêu đổi.
+    const promptToken = this.actionButton ? null : this.promptToken(target);
+    this.seatPrompt.update(promptToken, () => this.promptPlacement(target!));
     this.updateActionButton(target);
     // Viền trắng đúng chiếc ghế sẽ ngồi hoặc người sẽ mở thông tin khi bấm F (feedback 2026-11-12, 2026-11-19).
     this.targetPlayerId = target?.kind === 'player' ? target.id : null;
@@ -676,6 +692,36 @@ export class LakeScene extends Phaser.Scene {
     getLakeMapArt(this)?.highlightSeat?.(highlight);
   }
 
+  /** View của người/NPC đang là mục tiêu bấm F (null nếu mục tiêu là ghế hoặc đã biến mất). */
+  private targetView(target: InteractTarget): CharacterView | undefined {
+    if (target.kind === 'player') return this.remotes.get(target.id)?.view;
+    if (target.kind === 'npc') return this.npcViews.find((n) => n.npc === target.npc)?.view;
+    return undefined;
+  }
+
+  /** Định danh mục tiêu cho phím F: ghế theo đối tượng ghế, người/NPC theo view (đổi view thì sinh lại phím). */
+  private promptToken(target: InteractTarget | null): unknown | null {
+    if (!target) return null;
+    if (target.kind === 'fish' || target.kind === 'rest') return target.seat;
+    return this.targetView(target) ?? null;
+  }
+
+  /**
+   * Chỗ sinh phím F (feedback 2026-11-21): ghế thì ở toạ độ thế giới, góc trên bên phải ghế (lệch từ điểm ngồi); người/bot
+   * và NPC thì làm con của container nhân vật, bên phải khối tên và căn giữa theo dòng tên.
+   */
+  private promptPlacement(target: InteractTarget): PromptPlacement {
+    if (target.kind === 'fish' || target.kind === 'rest') {
+      return {
+        parent: null,
+        x: target.seat.x + SEAT_PROMPT_DX,
+        y: target.seat.y + SEAT_PROMPT_DY,
+      };
+    }
+    const view = this.targetView(target)!;
+    return { parent: view.container, ...view.promptLocal(PERSON_PROMPT_GAP, PROMPT_KEY_H) };
+  }
+
   /** Chữ trên nút hành động (điện thoại): việc F sẽ làm; null = ẩn nút. */
   private updateActionButton(target: InteractTarget | null): void {
     if (!this.actionButton) return;
@@ -684,7 +730,7 @@ export class LakeScene extends Phaser.Scene {
       if (this.myRestSeatId()) label = 'Đứng dậy';
       else if (target?.kind === 'player') label = 'Thông tin';
       else if (target?.kind === 'npc')
-        label = target.npc.action === 'codex' ? 'Sổ tay cá' : 'Bán cá';
+        label = NPC_ACTION_LABELS[target.npc.action];
       else if (target) label = 'Ngồi';
     }
     this.actionButton.update(label);

@@ -1,14 +1,22 @@
-// Popup "BXH cá ngày": dựng lại giống popup Bảng xếp hạng tuần (cùng khung Leaderboard Panel, dòng Row 1, huy hiệu
-// Rank 1..3, dòng của mình ghim ở cuối), thêm hàng tab chọn loài cá và hai tab tiêu chí (dài nhất / câu sớm nhất).
-// Mở bằng phím B (HomeHud). Dữ liệu GET /rankings/daily-fish/{speciesId}?metric=; 0h giờ VN reset, chưa có thưởng.
-import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
-import type { Services } from '../../core/services';
+// Tab "Bảng xếp hạng cá" (BXH cá ngày) của popup Bảng xếp hạng (LeaderboardPopup.ts): cùng khung Leaderboard Panel, dòng
+// Row 1, huy hiệu Rank 1..3, dòng của mình ghim ở cuối; thêm thanh chọn loài cá (thanh Secondary L bấm xổ bảng Panel Art,
+// hiện hình và tên loài đang chọn; mặc định loài đầu tiên) và hai tab tiêu chí (dài nhất / câu sớm nhất), cùng một hàng.
+// Dữ liệu GET /rankings/daily-fish/{speciesId}?metric=; 0h giờ VN reset, chưa có thưởng.
 import type { DailyFishEntry, DailyFishMetric, DailyFishRanking } from '../../net/contract';
 import { fishImage } from '../fishArt';
 import { showError } from '../kit/components';
 import { animateIn, animateOut } from '../kit/motion';
-import { CLOSE, PANEL_H, PANEL_W, RANK, UI, el, img, rankCell } from './LeaderboardPopup';
 import { UNKNOWN } from './leaderboardModel';
+import {
+  RANK,
+  UI,
+  el,
+  img,
+  rankCell,
+  updateScrollHint,
+  type RankView,
+  type RankViewOptions,
+} from './rankKit';
 
 export const DAILY_METRICS: { id: DailyFishMetric; label: string }[] = [
   { id: 'length', label: 'Dài nhất' },
@@ -39,98 +47,65 @@ export function dailyCountdown(periodEndsAt: string | null, nowMs: number): stri
   return `${Math.floor(left / 3_600_000)} giờ ${Math.floor((left % 3_600_000) / 60_000)} phút`;
 }
 
-export interface DailyFishPopupOptions {
-  root: HTMLElement;
-  services: Services;
-  /** Giờ Server (đồng hồ đếm ngược); mặc định giờ máy. */
-  now?: () => number;
-}
-
-export class DailyFishPopup {
-  private overlay: HTMLElement | null = null;
-  private cleanups: (() => void)[] = [];
-  private timer: HTMLElement | null = null;
-  private species: HTMLElement | null = null;
-  private tabs: HTMLElement | null = null;
-  private heads: HTMLElement | null = null;
-  private list: HTMLElement | null = null;
-  private gap: HTMLElement | null = null;
-  private me: HTMLElement | null = null;
-  private speciesId: string | null = null;
-  private metric: DailyFishMetric = 'length';
-  private data: DailyFishRanking | null = null;
-  private seq = 0;
+export class DailyFishView implements RankView {
+  readonly root = el('div', 'rank__view rank__view--daily');
+  private readonly species = el('div', 'rank__species');
+  private readonly tabs = el('div', 'rank__tabs');
+  private readonly heads = el('div', 'rank__heads');
+  private readonly list = el('div', 'rank__list');
+  private readonly gap = el('div', 'rank__gap');
+  private readonly me = el('div', 'rank__me');
   private readonly empty = el(
     'div',
     'rank__empty',
     'Chưa ai câu được loài này hôm nay. Hãy là người đầu tiên!',
   );
+  /** Bảng xổ chọn loài và trạng thái mở của nó. */
+  private menu: HTMLElement | null = null;
+  private pickerOpen = false;
+  private speciesId: string | null = null;
+  private metric: DailyFishMetric = 'length';
+  private data: DailyFishRanking | null = null;
+  private seq = 0;
+  private alive = true;
+  private readonly onOutside = (event: PointerEvent): void => {
+    if (this.pickerOpen && !(event.target as HTMLElement | null)?.closest('.rank__picker')) {
+      this.closePicker();
+    }
+  };
 
-  constructor(private readonly options: DailyFishPopupOptions) {}
-
-  /** Phím B: mở, bấm lần nữa thì đóng. */
-  toggle(): void {
-    if (this.overlay) this.close();
-    else this.open();
+  constructor(private readonly options: RankViewOptions) {
+    // Thanh chọn loài và hai tab tiêu chí nằm chung một hàng, cao bằng nhau.
+    const bar = el('div', 'rank__bar');
+    bar.append(this.species, this.tabs);
+    this.list.addEventListener('scroll', () => this.updateHint());
+    this.gap.append(el('span', 'rank__gap-arrow'));
+    this.gap.setAttribute('aria-hidden', 'true');
+    this.gap.hidden = true;
+    this.empty.hidden = true;
+    this.root.append(bar, this.heads, this.list, this.empty, this.gap, this.me);
+    // Bấm ra ngoài bảng chọn loài thì đóng bảng.
+    document.addEventListener('pointerdown', this.onOutside, true);
+    this.render();
   }
 
-  open(): void {
-    if (this.overlay) return;
-    const overlay = el('div', 'shop rank rank--daily');
-    overlay.setAttribute('role', 'dialog');
-    overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', 'BXH cá ngày');
-    const panel = el('div', 'rank__panel');
-    const close = el('button', 'rank__close');
-    close.type = 'button';
-    close.setAttribute('aria-label', 'Đóng BXH cá ngày');
-    close.append(img(CLOSE, ''));
-    close.addEventListener('click', () => this.close());
-
-    this.timer = el('div', 'rank__timer', UNKNOWN);
-    this.species = el('div', 'rank__species');
-    this.tabs = el('div', 'rank__tabs');
-    this.heads = el('div', 'rank__heads');
-    this.list = el('div', 'rank__list');
-    this.gap = el('div', 'rank__gap', '...');
-    this.gap.hidden = true;
-    this.me = el('div', 'rank__me');
-    this.empty.hidden = true;
-    panel.append(
-      img(RANK('Leaderboard Panel.png'), 'rank__art'),
-      this.timer,
-      el('h2', 'rank__title', 'BXH CÁ NGÀY'),
-      close,
-      this.species,
-      this.tabs,
-      this.heads,
-      this.list,
-      this.empty,
-      this.gap,
-      this.me,
-    );
-    overlay.append(panel);
-    overlay.style.setProperty(
-      '--shop-scale',
-      String(Math.min(1, (UI_DESIGN_WIDTH * 0.96) / PANEL_W, (UI_DESIGN_HEIGHT * 0.92) / PANEL_H)),
-    );
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') this.close();
-    };
-    window.addEventListener('keydown', onKey);
-    overlay.addEventListener('pointerdown', (event) => {
-      if (event.target === overlay) this.close();
-    });
-    this.cleanups.push(() => window.removeEventListener('keydown', onKey));
-
-    this.overlay = overlay;
-    this.options.root.append(overlay);
-    animateIn(overlay, 'fade');
-    animateIn(panel, 'pop');
+  activate(): void {
+    this.pickerOpen = false;
     this.speciesId ??= this.catalog()[0]?.speciesId ?? null;
     this.data = null;
     this.render();
     void this.reload();
+  }
+
+  timerText(): string {
+    return dailyCountdown(this.data?.periodEndsAt ?? null, (this.options.now ?? Date.now)());
+  }
+
+  /** Esc đóng bảng chọn loài trước, bấm lần nữa mới đóng popup. */
+  handleEscape(): boolean {
+    if (!this.pickerOpen) return false;
+    this.closePicker();
+    return true;
   }
 
   private catalog(): { speciesId: string; name: string }[] {
@@ -147,37 +122,18 @@ export class DailyFishPopup {
       const data = await this.options.services.api.get<DailyFishRanking>(
         `/rankings/daily-fish/${encodeURIComponent(speciesId)}?metric=${this.metric}`,
       );
-      if (!this.overlay || seq !== this.seq) return;
+      if (!this.alive || seq !== this.seq) return;
       this.data = data;
       this.render();
     } catch (error) {
-      if (this.overlay && seq === this.seq) showError(this.options.root, error);
+      if (this.alive && seq === this.seq) showError(this.options.root, error);
     }
   }
 
   private render(): void {
-    if (!this.overlay || !this.list || !this.gap || !this.me || !this.timer) return;
-    if (!this.species || !this.tabs || !this.heads) return;
-    const { services, now } = this.options;
-    this.timer.textContent = dailyCountdown(this.data?.periodEndsAt ?? null, (now ?? Date.now)());
-
-    this.species.replaceChildren(
-      ...this.catalog().map((fish) => {
-        const on = fish.speciesId === this.speciesId;
-        const chip = el('button', `rank__chip${on ? ' rank__chip--on' : ''}`);
-        chip.type = 'button';
-        chip.title = fish.name;
-        chip.setAttribute('aria-label', fish.name);
-        chip.setAttribute('aria-pressed', String(on));
-        chip.append(fishImage(fish.speciesId, 'rank__chip-img'));
-        chip.addEventListener('click', () => {
-          if (this.speciesId === fish.speciesId) return;
-          this.speciesId = fish.speciesId;
-          void this.reload();
-        });
-        return chip;
-      }),
-    );
+    const { services } = this.options;
+    this.options.onTimer();
+    this.renderPicker(this.species);
     this.tabs.replaceChildren(
       ...DAILY_METRICS.map((metric) => {
         const tab = el(
@@ -207,10 +163,98 @@ export class DailyFishPopup {
     const empty = this.data !== null && items.length === 0;
     this.empty.hidden = !empty;
     const me = this.data?.me ?? null;
-    // "..." chỉ khi mình ngoài top 10 (còn trong top thì dòng của mình đã hiện ở trên và ghim lại ở cuối).
-    this.gap.hidden = !this.data || empty || (me !== null && me.rank !== null);
+    // Mũi tên chỉ ẩn hẳn khi chưa có dữ liệu hoặc bảng trống; còn lại mờ dần/hiện lại theo vị trí cuộn (updateHint).
+    this.gap.hidden = !this.data || empty;
     const name = services.store.getState().session.profile?.displayName ?? 'Người chơi';
     this.me.replaceChildren(this.row(me, true, name));
+    requestAnimationFrame(() => this.updateHint());
+  }
+
+  private updateHint(): void {
+    updateScrollHint(this.list, this.gap);
+  }
+
+  /** Thanh chọn loài: loài đang chọn (hình + tên) trên thanh, bấm xổ bảng liệt kê mọi loài. */
+  private renderPicker(host: HTMLElement): void {
+    const fishes = this.catalog();
+    // Chưa chọn (hoặc loài không còn trong danh mục) thì lấy loài đầu tiên làm mặc định.
+    const current = fishes.find((f) => f.speciesId === this.speciesId) ?? fishes[0];
+    if (!current) {
+      host.replaceChildren();
+      this.menu = null;
+      return;
+    }
+    this.speciesId = current.speciesId;
+    const keepScroll = this.menu?.scrollTop ?? 0;
+
+    const wrap = el('div', 'rank__picker');
+    const bar = el('button', `rank__pick${this.pickerOpen ? ' rank__pick--open' : ''}`);
+    bar.type = 'button';
+    bar.setAttribute('aria-haspopup', 'listbox');
+    bar.setAttribute('aria-expanded', String(this.pickerOpen));
+    bar.setAttribute('aria-label', `Loài cá: ${current.name}`);
+    bar.append(
+      fishImage(current.speciesId, 'rank__pick-img'),
+      el('span', 'rank__pick-name', current.name),
+      el('span', 'rank__pick-caret'),
+    );
+    bar.addEventListener('click', () => (this.pickerOpen ? this.closePicker() : this.openPicker()));
+
+    const menu = el('div', 'rank__menu');
+    menu.setAttribute('role', 'listbox');
+    menu.hidden = !this.pickerOpen;
+    for (const fish of fishes) {
+      const on = fish.speciesId === current.speciesId;
+      const option = el('button', `rank__option${on ? ' rank__option--on' : ''}`);
+      option.type = 'button';
+      option.setAttribute('role', 'option');
+      option.setAttribute('aria-selected', String(on));
+      option.append(
+        fishImage(fish.speciesId, 'rank__option-img'),
+        el('span', 'rank__option-name', fish.name),
+      );
+      option.addEventListener('click', () => this.pickSpecies(fish.speciesId));
+      menu.append(option);
+    }
+    wrap.append(bar, menu);
+    host.replaceChildren(wrap);
+    this.menu = menu;
+    menu.scrollTop = keepScroll;
+  }
+
+  private openPicker(): void {
+    const menu = this.menu;
+    if (!menu || this.pickerOpen) return;
+    this.pickerOpen = true;
+    this.species.querySelector('.rank__pick')?.classList.add('rank__pick--open');
+    this.species.querySelector('.rank__pick')?.setAttribute('aria-expanded', 'true');
+    menu.hidden = false;
+    animateIn(menu, 'fade');
+    const on = menu.querySelector<HTMLElement>('.rank__option--on');
+    // Đưa loài đang chọn vào giữa khung, làm tròn theo dòng để không lộ nửa dòng.
+    if (on) {
+      const rowHeight = on.offsetHeight || 60;
+      menu.scrollTop = Math.round((on.offsetTop - (menu.clientHeight - rowHeight) / 2) / rowHeight) * rowHeight;
+    }
+  }
+
+  private closePicker(): void {
+    const menu = this.menu;
+    if (!this.pickerOpen) return;
+    this.pickerOpen = false;
+    this.species.querySelector('.rank__pick')?.classList.remove('rank__pick--open');
+    this.species.querySelector('.rank__pick')?.setAttribute('aria-expanded', 'false');
+    if (!menu) return;
+    void animateOut(menu, 'fade').then(() => {
+      if (!this.pickerOpen) menu.hidden = true;
+    });
+  }
+
+  private pickSpecies(speciesId: string): void {
+    this.closePicker();
+    if (this.speciesId === speciesId) return;
+    this.speciesId = speciesId;
+    void this.reload();
   }
 
   /** Mọi số liệu do BE trả; dòng của mình chưa có dữ liệu thì chỉ có tên, còn lại "?". */
@@ -230,24 +274,9 @@ export class DailyFishPopup {
     return line;
   }
 
-  close(): void {
-    const overlay = this.overlay;
-    if (!overlay) return;
-    this.overlay = null;
-    this.cleanups.forEach((cleanup) => cleanup());
-    this.cleanups = [];
-    overlay.style.pointerEvents = 'none';
-    const panel = overlay.querySelector<HTMLElement>('.rank__panel');
-    void Promise.all([
-      panel ? animateOut(panel, 'pop') : Promise.resolve(),
-      animateOut(overlay, 'fade'),
-    ]).then(() => overlay.remove());
-  }
-
   destroy(): void {
-    this.cleanups.forEach((cleanup) => cleanup());
-    this.cleanups = [];
-    this.overlay?.remove();
-    this.overlay = null;
+    this.alive = false;
+    document.removeEventListener('pointerdown', this.onOutside, true);
+    this.root.remove();
   }
 }

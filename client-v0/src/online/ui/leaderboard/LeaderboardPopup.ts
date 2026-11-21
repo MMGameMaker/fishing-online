@@ -1,74 +1,21 @@
-// Popup "Bảng xếp hạng tuần" theo ảnh mẫu 2026-11-16, mở từ ô "Bảng xếp hạng" trong menu (HomeHud).
-// Khung Rank/Leaderboard Panel.png 1144×812, dòng Rank/Row 1.png 1104×90, huy hiệu Rank 1..3.png.
-// Dòng cuối là của chính mình; chưa có dữ liệu thì chỉ điền tên, các cột còn lại là "?".
-// Mọi số liệu lấy từ BE (GET /rankings/total-catch-weekly, phân trang, tối đa top 50) theo doc/GAMEPLAY_SCOPE.md;
-// danh sách cuộn, tới cuối thì tải trang kế.
+// Popup "Bảng xếp hạng" gộp hai bảng (yêu cầu 2026-11-21), mở từ ô "Bảng xếp hạng" trong menu hoặc bấm F cạnh bục
+// "Hội Quán Cao Thủ" (HomeHud). Khung Rank/Leaderboard Panel.png 1144×812; hai tab "BXH Tuần" và
+// "BXH Ngày" (nền Tab - State Default/Active.png, không icon, kiểu popup Túi đồ) nằm trên khung. Mặc định mở
+// ra bảng tuần. Nội dung từng tab là một RankView: WeeklyBoardView (tuần) và DailyFishView (cá ngày, trước đây mở bằng phím B,
+// đã bỏ phím tắt).
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
-import { COIN_ART } from '../coinArt';
 import { animateIn, animateOut } from '../kit/motion';
-import type { RankingResponse } from '../../net/contract';
-import { showError } from '../kit/components';
-import { formatGold } from '../kit/format';
-import {
-  BOARD_ID,
-  PAGE_SIZE,
-  UNKNOWN,
-  countdownText,
-  formatCount,
-  myRowFrom,
-  toRow,
-  type RankRow,
-} from './leaderboardModel';
+import { DailyFishView } from './DailyFishPopup';
+import { CLOSE, PANEL_H, PANEL_W, RANK, el, img, type RankView } from './rankKit';
+import { WeeklyBoardView } from './WeeklyBoardView';
 
-export const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
-export const RANK = (file: string) => UI(`Rank/${file}`);
-export const CLOSE = encodeURI('/mini game/Button Close.png');
-export const PANEL_W = 1144;
-export const PANEL_H = 812;
+export type BoardTab = 'weekly' | 'daily';
 
-export function el<K extends keyof HTMLElementTagNameMap>(
-  tag: K,
-  className: string,
-  text?: string,
-): HTMLElementTagNameMap[K] {
-  const node = document.createElement(tag);
-  node.className = className;
-  if (text !== undefined) node.textContent = text;
-  return node;
-}
-
-export function img(src: string, className: string): HTMLImageElement {
-  const node = el('img', className);
-  node.src = src;
-  node.alt = '';
-  node.draggable = false;
-  return node;
-}
-
-export function rankCell(rank: number | null): HTMLElement {
-  const cell = el('span', 'rank__rank');
-  if (rank !== null && rank >= 1 && rank <= 3)
-    cell.append(img(RANK(`Rank ${rank}.png`), 'rank__crown'));
-  else cell.textContent = rank === null ? UNKNOWN : String(rank);
-  return cell;
-}
-
-function row(data: RankRow, mine: boolean): HTMLElement {
-  const line = el('div', `rank__row${mine ? ' rank__row--me' : ''}`);
-  const reward = el('span', 'rank__reward');
-  if (data.reward !== null) reward.append(img(COIN_ART, 'rank__coin'));
-  reward.append(el('span', '', data.reward === null ? UNKNOWN : formatGold(data.reward)));
-  line.append(
-    img(RANK('Row 1.png'), 'rank__row-art'),
-    rankCell(data.rank),
-    img(UI('Avatar.png'), 'rank__avatar'),
-    el('span', 'rank__name', data.displayName),
-    el('span', 'rank__count', formatCount(data.value)),
-    reward,
-  );
-  return line;
-}
+const TABS: { id: BoardTab; label: string }[] = [
+  { id: 'weekly', label: 'BXH Tuần' },
+  { id: 'daily', label: 'BXH Ngày' },
+];
 
 export interface LeaderboardPopupOptions {
   root: HTMLElement;
@@ -81,69 +28,69 @@ export class LeaderboardPopup {
   private overlay: HTMLElement | null = null;
   private cleanups: (() => void)[] = [];
   private timer: HTMLElement | null = null;
-  private list: HTMLElement | null = null;
-  private gap: HTMLElement | null = null;
-  private me: HTMLElement | null = null;
-  private data: RankingResponse | null = null;
-  private items: RankRow[] = [];
-  private nextCursor: string | null = null;
-  private loading = false;
-  private readonly empty = el(
-    'div',
-    'rank__empty',
-    'Hãy trở thành người câu cá đầu tiên xuất hiện trên bảng xếp hạng!',
-  );
+  private views: Record<BoardTab, RankView> | null = null;
+  private tabButtons = new Map<BoardTab, HTMLButtonElement>();
+  private active: BoardTab = 'weekly';
 
   constructor(private readonly options: LeaderboardPopupOptions) {}
 
   open(): void {
     if (this.overlay) return;
+    const { root, services, now } = this.options;
     const overlay = el('div', 'shop rank');
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
-    overlay.setAttribute('aria-label', 'Bảng xếp hạng tuần');
+    overlay.setAttribute('aria-label', 'Bảng xếp hạng');
     const panel = el('div', 'rank__panel');
-    const timer = el('div', 'rank__timer', UNKNOWN);
+    const timer = el('div', 'rank__timer', '?');
     const close = el('button', 'rank__close');
     close.type = 'button';
     close.setAttribute('aria-label', 'Đóng bảng xếp hạng');
     close.append(img(CLOSE, ''));
     close.addEventListener('click', () => this.close());
 
-    const heads = el('div', 'rank__heads');
-    heads.append(
-      el('span', 'rank__head-name', 'Tên'),
-      el('span', 'rank__head-count', 'Cá đã câu'),
-      el('span', 'rank__head-reward', 'Thưởng'),
-    );
-    const list = el('div', 'rank__list');
-    list.addEventListener('scroll', () => this.loadMore());
-    const gap = el('div', 'rank__gap', '...');
-    gap.hidden = true;
-    const me = el('div', 'rank__me');
-    this.empty.hidden = true;
-    this.timer = timer;
-    this.list = list;
-    this.gap = gap;
-    this.me = me;
-    panel.append(
+    // Mỗi tab báo đồng hồ riêng; chỉ cập nhật khi tab đó đang hiện.
+    const onTimer = (id: BoardTab) => () => {
+      if (this.active === id) this.syncTimer();
+    };
+    const views: Record<BoardTab, RankView> = {
+      weekly: new WeeklyBoardView({ root, services, now, onTimer: onTimer('weekly') }),
+      daily: new DailyFishView({ root, services, now, onTimer: onTimer('daily') }),
+    };
+    const boards = el('nav', 'rank__boards');
+    boards.setAttribute('role', 'tablist');
+    this.tabButtons.clear();
+    for (const tab of TABS) {
+      const button = el('button', 'rank__board-tab', tab.label);
+      button.type = 'button';
+      button.setAttribute('role', 'tab');
+      button.addEventListener('click', () => this.switchTo(tab.id));
+      this.tabButtons.set(tab.id, button);
+      boards.append(button);
+    }
+
+    this.active = 'weekly';
+    views.daily.root.hidden = true;
+    // Thân khung: tab nội dung nằm dưới, đồng hồ, tiêu đề và nút đóng nằm trên để luôn bấm được; hàng tab chuyển bảng ở trên khung.
+    const body = el('div', 'rank__body');
+    body.append(
       img(RANK('Leaderboard Panel.png'), 'rank__art'),
+      views.weekly.root,
+      views.daily.root,
       timer,
-      el('h2', 'rank__title', 'BẢNG XẾP HẠNG TUẦN'),
+      el('h2', 'rank__title', 'BẢNG XẾP HẠNG'),
       close,
-      heads,
-      list,
-      this.empty,
-      gap,
-      me,
     );
+    panel.append(body, boards);
     overlay.append(panel);
     overlay.style.setProperty(
       '--shop-scale',
       String(Math.min(1, (UI_DESIGN_WIDTH * 0.96) / PANEL_W, (UI_DESIGN_HEIGHT * 0.92) / PANEL_H)),
     );
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') this.close();
+      if (event.key !== 'Escape') return;
+      if (this.views?.[this.active].handleEscape()) return;
+      this.close();
     };
     window.addEventListener('keydown', onKey);
     overlay.addEventListener('pointerdown', (event) => {
@@ -151,63 +98,44 @@ export class LeaderboardPopup {
     });
     this.cleanups.push(() => window.removeEventListener('keydown', onKey));
 
+    this.timer = timer;
+    this.views = views;
     this.overlay = overlay;
-    this.options.root.append(overlay);
+    root.append(overlay);
     animateIn(overlay, 'fade');
     animateIn(panel, 'pop');
-    this.data = null;
-    this.items = [];
-    this.render();
-    void this.reload();
+    this.syncTabs();
+    this.syncTimer();
+    views.weekly.activate();
   }
 
-  private render(): void {
-    if (!this.list || !this.gap || !this.me || !this.timer) return;
-    const { services, now } = this.options;
-    const name = services.store.getState().session.profile?.displayName ?? 'Người chơi';
-    const mine = myRowFrom(this.data, name);
-    this.timer.textContent = countdownText(this.data?.periodEndsAt ?? null, (now ?? Date.now)());
-    this.list.replaceChildren(...this.items.map((item) => row(item, false)));
-    // Bảng chưa có ai (BE đã trả về nhưng không có dòng nào): hiện lời mời ở giữa bảng.
-    const empty = this.data !== null && this.items.length === 0;
-    this.empty.hidden = !empty;
-    this.gap.hidden = !this.data || empty;
-    this.me.replaceChildren(row(mine, true));
+  /** Chuyển tab: tab cũ mờ dần rồi ẩn, tab mới hiện dần và tải lại dữ liệu. */
+  private switchTo(id: BoardTab): void {
+    const views = this.views;
+    if (!views || this.active === id) return;
+    const old = views[this.active];
+    this.active = id;
+    void animateOut(old.root, 'fade').then(() => {
+      if (this.views && this.views[this.active] !== old) old.root.hidden = true;
+    });
+    const next = views[id];
+    next.root.hidden = false;
+    animateIn(next.root, 'fade');
+    this.syncTabs();
+    this.syncTimer();
+    next.activate();
   }
 
-  /** Mọi số liệu (hạng, số cá, thưởng, hạn chu kỳ) lấy từ BE; lỗi thì chỉ còn dòng tên của mình. */
-  private async reload(): Promise<void> {
-    this.items = [];
-    this.nextCursor = null;
-    await this.fetchPage(null);
-  }
-
-  private async fetchPage(cursor: string | null): Promise<void> {
-    if (this.loading) return;
-    this.loading = true;
-    try {
-      const query = `limit=${PAGE_SIZE}${cursor ? `&cursor=${encodeURIComponent(cursor)}` : ''}`;
-      const data = await this.options.services.api.get<RankingResponse>(
-        `/rankings/${BOARD_ID}?${query}`,
-      );
-      if (!this.overlay) return;
-      if (cursor === null) this.data = data;
-      this.items = [...this.items, ...data.items.map(toRow)];
-      this.nextCursor = data.nextCursor;
-      this.render();
-    } catch (error) {
-      if (this.overlay) showError(this.options.root, error);
-    } finally {
-      this.loading = false;
+  private syncTabs(): void {
+    for (const [id, button] of this.tabButtons) {
+      const on = id === this.active;
+      button.classList.toggle('rank__board-tab--active', on);
+      button.setAttribute('aria-selected', String(on));
     }
   }
 
-  private loadMore(): void {
-    const list = this.list;
-    if (!list || !this.nextCursor) return;
-    if (list.scrollTop + list.clientHeight >= list.scrollHeight - 40) {
-      void this.fetchPage(this.nextCursor);
-    }
+  private syncTimer(): void {
+    if (this.timer && this.views) this.timer.textContent = this.views[this.active].timerText();
   }
 
   close(): void {
@@ -218,15 +146,24 @@ export class LeaderboardPopup {
     this.cleanups = [];
     overlay.style.pointerEvents = 'none';
     const panel = overlay.querySelector<HTMLElement>('.rank__panel');
+    const views = this.views;
+    this.views = null;
     void Promise.all([
       panel ? animateOut(panel, 'pop') : Promise.resolve(),
       animateOut(overlay, 'fade'),
-    ]).then(() => overlay.remove());
+    ]).then(() => {
+      views?.weekly.destroy();
+      views?.daily.destroy();
+      overlay.remove();
+    });
   }
 
   destroy(): void {
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups = [];
+    this.views?.weekly.destroy();
+    this.views?.daily.destroy();
+    this.views = null;
     this.overlay?.remove();
     this.overlay = null;
   }

@@ -21,6 +21,8 @@ export interface PierObject {
   h: number;
   /** 0: lớp bờ nước, 0.5: bóng object, 1: object thường, >1: vẽ sau (thùng trên đỉnh chồng). */
   layer: number;
+  /** Ảnh riêng (đường dẫn trong public) thay cho frame atlas, vd. bóng đổ nghiêng của bảng tin; `frame` chỉ để nhận diện. */
+  image?: string;
   /** Animation chứa frame này (nếu có), để chạy tiếp từ đúng frame trong ảnh gốc. */
   anim?: string;
   animIndex?: number;
