@@ -221,20 +221,20 @@ describe('va chạm map pier', () => {
     MAP.objects.filter((o) => o.frame === frame);
 
   /**
-   * Đi xuyên qua được (yêu cầu 2026-11-18): ghế đẩu quanh bàn. Bốn ghế dài cạnh nước có chỗ câu từng đi xuyên qua
-   * được nhưng đã có va chạm (feedback 2026-11-19).
+   * Ghế đẩu quanh bàn (ngồi chơi, không câu): trước đây đi xuyên qua được (yêu cầu 2026-11-18), nay cũng có va chạm như
+   * ghế đẩu câu (yêu cầu 2026-11-21); người chơi vẫn bấm F ở gần để ngồi.
    */
-  const passThrough = (o: PierObject): boolean =>
+  const tableStool = (o: PierObject): boolean =>
     o.frame === 'main-objects/stool' &&
     !lake.seats.some((s) => s.x >= o.x && s.x <= o.x + o.w && s.y >= o.y && s.y <= (o.by ?? 0) + 4);
 
-  it('đi xuyên qua ghế đẩu quanh bàn', () => {
-    const open = MAP.objects.filter(passThrough);
-    expect(open).toHaveLength(20);
-    for (const o of open) {
+  it('ghế đẩu quanh bàn chặn đường đi', () => {
+    const stools = MAP.objects.filter(tableStool);
+    expect(stools).toHaveLength(20);
+    for (const o of stools) {
       const x = o.x + o.w / 2;
       const y = (o.by ?? o.y + o.h) - 3;
-      expect(canStand(lake, x, y), `${o.frame} @${o.x},${o.y}`).toBe(true);
+      expect(canStand(lake, x, y), `${o.frame} @${o.x},${o.y}`).toBe(false);
     }
   });
 
@@ -273,7 +273,6 @@ describe('va chạm map pier', () => {
       const list = objectsNamed(frame);
       expect(list.length, frame).toBeGreaterThan(0);
       for (const o of list) {
-        if (passThrough(o)) continue;
         // Tâm phần dưới của hình (chỗ vật chạm đất).
         const bottom = o.by ?? o.y + o.h;
         const x = o.x + o.w / 2;

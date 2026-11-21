@@ -917,3 +917,13 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 
 ### 2026-11-21 — Công cụ chọn cá cho mock (`?mockFish=1`)
 - `pier.html?mockFish=1` hiện bảng "Chọn cá" bên trái dưới thẻ người chơi (đặt theo canvas, `devOverlay.ts` `mountFishPicker`, CSS `.mock-fish` ở kit.css). Chọn loài nào thì mỗi lần cá cắn của người chơi (MockBackend.toBite) chỉ ra loài đó; "Ngẫu nhiên" trả lại xác suất thường. Chỉ cá của người chơi, bot vẫn ngẫu nhiên. Chỉ có ở mock, không đụng Server thật. Kiểm tra tsc/eslint/vitest; chưa xem hiển thị (bản preview của tôi đòi đăng nhập).
+
+### 2026-11-21 — Collider cho 20 ghế đẩu quanh bàn
+- Đổi quyết định 2026-11-18 (ghế đẩu quanh bàn đi xuyên qua được) theo yêu cầu của Zen: 20 ghế đẩu ngồi chơi cạnh bàn giờ chặn đường như ghế đẩu câu (80 ô 8px đặt về 0 trong `walkableRows`; bản sao bot `Bots/pier-map.json` cập nhật khớp). Vẫn bấm F để ngồi, rời ghế bước ra chỗ đứng gần nhất.
+- Test `pierMap.test.ts`: "đi xuyên qua ghế đẩu" đổi thành "ghế đẩu quanh bàn chặn đường đi". vitest 359 pass (gồm test chỗ đứng gần ghế, spawn, bản sao bot). Chưa thử trong game.
+
+- Popup bán cá (Shop): hàng giá (số lượng + xu + tổng) đưa lên cùng hàng với nút −/+ (top 476, giữa hai nút), chữ 26px. Chưa xem trong game.
+
+### 2026-11-21 — Nút bắt cá trên mobile
+- Điện thoại (cảm ứng, pier.html): nút móc câu (SPACE) cố định ở góc phải dưới, đúng chỗ nút hành động F, thay vì bám chân nhân vật. Khi cá cắn thì nút F/Ngồi/Đứng dậy ẩn đi nhường chỗ, hết cắn thì F hiện lại. `FishButton.setDocked`, class `.fish-button--docked` (fishing.css), `FishingFlow.setButtonDocked/isButtonShown`, `LakeScene.updateActionButton`. Máy tính không đổi. Chưa thử trên điện thoại.
+- Nút móc câu trên mobile to 240px (bằng joystick), tâm ngang tâm joystick; vòng đếm ngược và chữ SPACE to theo.

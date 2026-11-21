@@ -231,3 +231,47 @@
   text-align: center;
   white-space: normal;
 }
+
+/* Điện thoại (pier.html): nút móc câu ở góc phải dưới, cùng chỗ nút hành động F (to 240px bằng joystick, tâm ngang tâm joystick: cách mép phải/dưới 210px). Không dùng
+   translateX(-50%) nên có nhịp nảy riêng. */
+.fish-button--docked {
+  top: auto;
+  right: 90px;
+  bottom: 85px;
+  left: auto;
+  transform: none;
+  animation-name: fish-button-pulse-docked;
+}
+
+@keyframes fish-button-pulse-docked {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+.fish-button--docked .fish-button__face {
+  width: 240px;
+  height: 249px;
+}
+
+.fish-button--docked .fish-button__image {
+  width: 240px;
+  height: 249px;
+}
+
+.fish-button--docked .fish-button__ring {
+  top: -14px;
+  left: -14px;
+  width: 268px;
+  height: 268px;
+}
+
+.fish-button--docked .fish-button__key {
+  bottom: 26px;
+  font-size: 36px;
+}

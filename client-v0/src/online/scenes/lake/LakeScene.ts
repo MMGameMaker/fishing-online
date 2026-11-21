@@ -531,6 +531,8 @@ export class LakeScene extends Phaser.Scene {
       if (isTouchDevice()) {
         this.joystick = new Joystick(this.root);
         this.actionButton = new ActionButton(this.root, () => this.interact());
+        // Nút móc câu chiếm chỗ nút hành động khi cá cắn (yêu cầu 2026-11-21).
+        this.flow.setButtonDocked(true);
       }
     } else if (this.sys.game.device.input.touch) {
       this.joystick = new Joystick(this.root);
@@ -761,7 +763,7 @@ export class LakeScene extends Phaser.Scene {
   private updateActionButton(target: InteractTarget | null): void {
     if (!this.actionButton) return;
     let label: string | null = null;
-    if (!this.modalOpen) {
+    if (!this.modalOpen && !this.flow.isButtonShown) {
       if (this.myRestSeatId()) label = 'Đứng dậy';
       else if (target?.kind === 'player') label = 'Thông tin';
       else if (target?.kind === 'npc')

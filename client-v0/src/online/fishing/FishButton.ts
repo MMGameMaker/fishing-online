@@ -49,6 +49,7 @@ export class FishButton {
   private readonly ring = ring();
   private readonly onKeyDown: (event: KeyboardEvent) => void;
   private visible = false;
+  private docked = false;
 
   /** `belowFeetPx`: mép trên nút cách chân nhân vật (px lớp UI); mặc định 72. */
   constructor(
@@ -91,8 +92,26 @@ export class FishButton {
    * camera giữ nhân vật ở giữa; ở mép map camera chạm biên nên phải bám theo nhân vật (feedback 2026-11-17).
    */
   setAnchor(x: number, y: number): void {
+    if (this.docked) return;
     this.button.style.left = `${x}px`;
     this.button.style.top = `${y + this.belowFeetPx}px`;
+  }
+
+  /**
+   * Điện thoại (pier.html, yêu cầu 2026-11-21): nút móc câu cố định ở góc phải dưới, đúng chỗ nút hành động F, thay vì bám
+   * chân nhân vật giữa màn hình. Xoá vị trí inline đã đặt bởi setAnchor.
+   */
+  setDocked(on: boolean): void {
+    this.docked = on;
+    this.button.classList.toggle('fish-button--docked', on);
+    if (on) {
+      this.button.style.removeProperty('left');
+      this.button.style.removeProperty('top');
+    }
+  }
+
+  get isShown(): boolean {
+    return this.visible;
   }
 
   render(visible: boolean, progress: number): void {

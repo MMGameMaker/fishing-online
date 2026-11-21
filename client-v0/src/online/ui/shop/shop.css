@@ -537,12 +537,12 @@
 
 .shop-sell-dialog__price {
   position: absolute;
-  top: 436px;
+  top: 476px;
   left: 310px;
   display: flex;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
-  font-size: 22px;
+  font-size: 26px;
   transform: translate(-50%, -50%);
 }
 

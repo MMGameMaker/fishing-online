@@ -164,6 +164,16 @@ export class FishingFlow {
     return this.isLocked() || nowMs < this.characterBusyUntilMs;
   }
 
+  /** Điện thoại: đặt nút móc câu ở góc phải dưới thay vì bám nhân vật. */
+  setButtonDocked(on: boolean): void {
+    this.button.setDocked(on);
+  }
+
+  /** Nút móc câu đang hiện (cá đang cắn). */
+  get isButtonShown(): boolean {
+    return this.button.isShown;
+  }
+
   /** Đặt nút móc câu dưới chân nhân vật (toạ độ lớp UI); không gọi thì nút ở giữa màn hình. */
   setButtonAnchor(x: number, y: number): void {
     this.button.setAnchor(x, y);
