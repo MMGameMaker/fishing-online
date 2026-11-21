@@ -73,7 +73,17 @@ export function mountFishPicker(mock: MockBackend): void {
       void animateOut(list, 'fade').then(() => (list.hidden = true));
     }
   });
-  box.append(head, list);
+  // Nút dưới bảng: thêm mỗi loài một con vào túi (mở lại Cửa hàng/Túi đồ để thấy).
+  const grant = document.createElement('button');
+  grant.type = 'button';
+  grant.className = 'mock-fish__grant';
+  grant.textContent = 'Có tất cả cá';
+  grant.addEventListener('click', () => {
+    const count = mock.grantAllFish();
+    grant.textContent = `Đã thêm ${count} loài ✓`;
+    window.setTimeout(() => (grant.textContent = 'Có tất cả cá'), 1800);
+  });
+  box.append(head, list, grant);
   document.body.append(box);
   refresh();
 

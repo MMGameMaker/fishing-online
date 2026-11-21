@@ -268,7 +268,8 @@
 }
 
 .mock-fish__head,
-.mock-fish__item {
+.mock-fish__item,
+.mock-fish__grant {
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -302,4 +303,10 @@
 
 .mock-fish__item--on {
   background: #ffd98a;
+}
+
+.mock-fish__grant {
+  color: #fff;
+  background: #2f7d4f;
+  border-width: 0 2px 2px;
 }

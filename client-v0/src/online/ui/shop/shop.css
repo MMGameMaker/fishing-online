@@ -598,12 +598,86 @@
   height: 260px;
 }
 
+.shop-sell-dialog__fish {
+  perspective: 700px;
+}
+
+/* Quầng sáng sau cá theo màu độ hiếm, thở chậm (yêu cầu 2026-11-21). */
 .shop-sell-dialog__fish::before {
   position: absolute;
-  inset: 8px;
+  inset: -6px;
   content: '';
-  background: radial-gradient(circle, var(--rarity) 0%, transparent 70%);
-  opacity: 0.45;
+  background: radial-gradient(ellipse at center, #fff8 0%, var(--rarity) 28%, transparent 68%);
+  opacity: 0.7;
+  animation: shop-fish-glow 2.6s ease-in-out infinite;
+}
+
+@keyframes shop-fish-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+    scale: 0.92;
+  }
+
+  50% {
+    opacity: 0.95;
+    scale: 1.06;
+  }
+}
+
+/* Cá bơi: lên xuống theo sóng, ngóc/chúi đầu nhẹ và xoay quanh trục dọc. */
+.shop-sell-dialog__fish-spin {
+  position: relative;
+  transform-style: preserve-3d;
+  /* Easing sine in-out cho từng đoạn lên/xuống: đổi chiều êm ở hai đầu, nhanh nhất ở giữa. */
+  animation: shop-fish-3d 5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes shop-fish-3d {
+  0%,
+  100% {
+    transform: translateY(5px) rotateZ(2deg) rotateY(-9deg) scale(0.97);
+  }
+
+  50% {
+    transform: translateY(-5px) rotateZ(-2deg) rotateY(9deg) scale(1.03);
+  }
+}
+
+/* Bóng nước nổi lên phía trên cá (dùng lại kiểu hạt bong bóng buổi sáng: vòng tròn mờ viền sáng, lắc ngang nhẹ rồi mờ dần). */
+.shop-sell-dialog__bubble {
+  position: absolute;
+  z-index: 2;
+  bottom: 12px;
+  left: var(--bx);
+  width: var(--bs);
+  height: var(--bs);
+  pointer-events: none;
+  background: rgb(191 244 255 / 18%);
+  border: 1px solid rgb(223 249 255 / 95%);
+  border-radius: 50%;
+  opacity: 0;
+  animation: shop-bubble-rise var(--bd) ease-in infinite;
+}
+
+@keyframes shop-bubble-rise {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(var(--bw), -110px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(var(--bw) * -0.6), -230px);
+  }
 }
 
 .shop-sell-dialog__fish img {
@@ -611,6 +685,7 @@
   width: 360px;
   height: 220px;
   object-fit: contain;
+  filter: drop-shadow(0 0 12px var(--rarity)) drop-shadow(0 8px 0 rgb(26 14 32 / 25%));
 }
 
 .shop-sell-dialog__sell {
@@ -645,4 +720,91 @@
   position: absolute;
   top: 36px;
   right: 46px;
+}
+
+/* Cá cử động từng bộ phận (swimFish.ts): các mảnh canvas chồng khít nhau, mỗi mảnh một animation. */
+.swim-fish {
+  position: relative;
+  width: 360px;
+  height: 220px;
+  /* Bóng/quầng sáng đặt ở lớp ngoài cùng để các mảnh không lộ đường nối. */
+  filter: drop-shadow(0 0 12px var(--rarity)) drop-shadow(0 8px 0 rgb(26 14 32 / 25%));
+}
+
+/* Thân và đuôi là hai canvas chồng khít; đuôi quẫy sang trái-phải = co giãn ngang quanh gốc đuôi. */
+.swim-fish__layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.swim-fish__tail {
+  animation: swim-tail-swish 0.85s cubic-bezier(0.45, 0, 0.55, 1) infinite alternate;
+}
+
+@keyframes swim-tail-swish {
+  from {
+    transform: scaleX(1.02);
+  }
+
+  to {
+    transform: scaleX(0.68);
+  }
+}
+
+/* Ảnh vừa khít khung (khung đã co theo tỉ lệ ảnh) để vị trí mắt tính theo ảnh đúng chỗ. */
+.shop-sell-dialog__fish .swim-fish img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+}
+
+/* Mắt long lanh: sao 4 cánh nhấp nháy trên đồng tử, kèm điểm sáng nhỏ. */
+.swim-fish__eye {
+  position: absolute;
+  width: var(--eye, 18px);
+  height: var(--eye, 18px);
+  pointer-events: none;
+  transform: translate(-85%, -85%);
+}
+
+.swim-fish__eye::before,
+.swim-fish__eye::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: #fff;
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  filter: drop-shadow(0 0 3px #fff);
+  animation: swim-twinkle 2.2s ease-in-out infinite;
+}
+
+.swim-fish__eye::after {
+  inset: 22% 22% auto auto;
+  width: 45%;
+  height: 45%;
+  animation-delay: -1.1s;
+}
+
+@keyframes swim-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    scale: 0.4;
+    rotate: 0deg;
+  }
+
+  45% {
+    opacity: 1;
+    scale: 1;
+    rotate: 20deg;
+  }
+
+  70% {
+    opacity: 0.6;
+    scale: 0.75;
+    rotate: 35deg;
+  }
 }

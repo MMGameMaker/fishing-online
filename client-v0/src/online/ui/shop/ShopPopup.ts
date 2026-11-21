@@ -4,6 +4,7 @@
 // Nạp Gold (gói thử, Server bản dev cộng Gold; đang ẩn). Ảnh trong
 // public/new resources/ui và public/mini game, vẽ cho màn 1920×1080; cả popup thu theo cửa sổ.
 import { playGoldGain } from '../home/goldFx';
+import { swimFish } from './swimFish';
 import { RARITY_LABELS, formatGold } from '../kit/format';
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
@@ -33,6 +34,8 @@ import { TOP_UP_PACKS, type TopUpResponse } from './topUpPacks';
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
 const MINI = (file: string) => encodeURI(`/mini game/${file}`);
 const COIN = COIN_ART;
+/** Số bóng nước nổi sau con cá trong popup bán cá. */
+const SELL_BUBBLES = 9;
 const CLOSE = MINI('Button Close.png');
 const rodIcon = (rodId: string) => `/assets/rods/${rodId}-icon.png`;
 
@@ -433,7 +436,20 @@ export class ShopPopup {
 
       const fishBox = el('div', 'shop-sell-dialog__fish');
       fishBox.style.setProperty('--rarity', SHOP_RARITY_COLORS[group.rarity]);
-      fishBox.append(fishImage(group.speciesId));
+      // Cá chuyển động 3D (yêu cầu 2026-11-21): lớp spin bơi lên xuống + xoay quanh trục dọc (CSS); bóng nước nổi lên phía trên cá.
+      const spin = el('div', 'shop-sell-dialog__fish-spin');
+      spin.append(swimFish(group.speciesId, 380, 230));
+      fishBox.append(spin);
+      // Bóng nước thêm sau cá trong DOM nên nằm trên cá.
+      for (let i = 0; i < SELL_BUBBLES; i++) {
+        const bubble = el('span', 'shop-sell-dialog__bubble');
+        bubble.style.setProperty('--bx', `${8 + Math.random() * 84}%`);
+        bubble.style.setProperty('--bs', `${5 + Math.random() * 7}px`);
+        bubble.style.setProperty('--bd', `${3 + Math.random() * 2.5}s`);
+        bubble.style.setProperty('--bw', `${(Math.random() < 0.5 ? -1 : 1) * (6 + Math.random() * 10)}px`);
+        bubble.style.animationDelay = `${-Math.random() * 5}s`;
+        fishBox.append(bubble);
+      }
       const sellButton = button('shop-sell-dialog__sell', 'Bán', 'Bán');
       sellButton.addEventListener('click', () => {
         sellButton.disabled = true;

@@ -1039,6 +1039,29 @@ export class MockBackend {
     this.forcedSpeciesId = speciesId;
   }
 
+  /** Công cụ dev: thêm vào túi mỗi loài một con (và ghi vào sổ cá) để thử bán cá, sổ tay, bảng xếp hạng. Trả số loài đã thêm. */
+  grantAllFish(): number {
+    const caughtAt = this.iso(this.nowMs);
+    for (const species of this.config.fish) {
+      const lengthTenthCm = rollLength(this.config, species, 0, this.random);
+      const previous = this.codex.get(species.speciesId);
+      this.codex.set(species.speciesId, {
+        totalCaught: (previous?.totalCaught ?? 0) + 1,
+        bestLengthTenthCm: Math.max(previous?.bestLengthTenthCm ?? 0, lengthTenthCm),
+        smallestLengthTenthCm: Math.min(previous?.smallestLengthTenthCm ?? lengthTenthCm, lengthTenthCm),
+        firstCaughtAt: previous?.firstCaughtAt ?? caughtAt,
+      });
+      this.fish.unshift({
+        catchId: this.nextId('catch'),
+        speciesId: species.speciesId,
+        lengthTenthCm,
+        caughtAt,
+      });
+    }
+    this.inventoryVersion += 1;
+    return this.config.fish.length;
+  }
+
   getForcedSpecies(): string | null {
     return this.forcedSpeciesId;
   }
