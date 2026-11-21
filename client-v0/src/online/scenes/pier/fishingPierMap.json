@@ -11384,7 +11384,7 @@
       }
     ],
     "moveRules": {
-      "maxSpeedPxPerSec": 90,
+      "maxSpeedPxPerSec": 60,
       "feetHalfWidth": 7,
       "feetHeight": 6
     },
