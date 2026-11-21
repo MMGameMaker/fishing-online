@@ -546,26 +546,6 @@
   transform: translate(-50%, -50%);
 }
 
-.shop-slider {
-  position: absolute;
-  top: 452px;
-  left: 118px;
-  width: 384px;
-  height: 48px;
-  cursor: pointer;
-  touch-action: none;
-  background: no-repeat 0 0 / 100% 100%;
-}
-
-.shop-slider__knob {
-  position: absolute;
-  top: 0;
-  width: 40px;
-  height: 48px;
-  pointer-events: none;
-  background: no-repeat 0 0 / 100% 100%;
-}
-
 .shop-round {
   position: absolute;
   top: 476px;

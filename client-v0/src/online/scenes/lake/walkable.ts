@@ -56,6 +56,16 @@ export interface LakeNpc {
   nameColor?: string;
   /** Hạ tên xuống bao nhiêu px so với người chơi (mặc định 0). */
   nameOffsetY?: number;
+  /** Câu NPC nói khi người chơi bước vào vùng bấm F (random một câu mỗi lần; chờ 10 giây kể từ lần ra cuối mới nói lại). */
+  greetings?: string[];
+  /** Câu NPC nói khi người chơi mua hàng thành công ở Cửa hàng (random một câu mỗi lần mua). */
+  purchaseLines?: string[];
+  /** Câu NPC nói khi người chơi đóng Cửa hàng mà không mua gì (random một câu mỗi lần). */
+  noPurchaseLines?: string[];
+  /** Câu NPC nói khi người chơi bán cá thành công ở Cửa hàng (random một câu mỗi lần bán). */
+  sellLines?: string[];
+  /** Hạt quanh tên (NpcNameFx): loại hạt theo chủ đề; chữ tên luôn đứng yên. Bỏ trống thì không có hạt. */
+  nameFx?: { particle: 'fish' | 'coin' | 'star' };
 }
 
 function isWalkableTile(map: LakeMap, col: number, row: number): boolean {

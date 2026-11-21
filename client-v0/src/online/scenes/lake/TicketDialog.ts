@@ -6,19 +6,15 @@ import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import { formatGold } from '../../ui/kit/format';
 import { animateIn, animateOut } from '../../ui/kit/motion';
 import { priceSummary } from './seatLogic';
-import { localPoint, localRect } from '../../core/viewFrame';
 
 const DIR = '/mini game/';
 const asset = (file: string) => encodeURI(DIR + file);
 const DESIGN_W = 1120;
 const DESIGN_H = 564;
 
-// Slider.png 384×48: núm kéo ở x 0..40, thanh từ x 40 tới 384 (đầu phải bo tròn ở x 364..384).
-export const SLIDER = { w: 384, h: 48, knobW: 40, capW: 20, fillCol: 200 };
 // Art Ticket.png: chữ "10 phút" vẽ sẵn, xoá đi vì số phút đổi theo lượng vé chọn.
 const TICKET_TEXT_BOX = { x: 148, y: 84, w: 96, h: 28, color: 'rgb(232,96,76)' };
 
-let sliderParts: Promise<{ track: string; knob: string }> | null = null;
 let ticketArt: Promise<string> | null = null;
 
 function loadImage(src: string): Promise<HTMLImageElement> {
@@ -37,25 +33,6 @@ function canvas(w: number, h: number): [HTMLCanvasElement, CanvasRenderingContex
   return [c, c.getContext('2d')!];
 }
 
-/** Tách Slider.png thành núm kéo và thanh trống (đầu trái lấy đối xứng từ đầu phải). */
-export function loadSliderParts(): Promise<{ track: string; knob: string }> {
-  sliderParts ??= loadImage(asset('Slider.png')).then((image) => {
-    const { w, h, knobW, capW, fillCol } = SLIDER;
-    const [knob, kctx] = canvas(knobW, h);
-    kctx.drawImage(image, 0, 0, knobW, h, 0, 0, knobW, h);
-    const [track, tctx] = canvas(w, h);
-    tctx.drawImage(image, 0, 0);
-    tctx.clearRect(0, 0, knobW + 4, h);
-    for (let x = capW; x < knobW + 4; x++) tctx.drawImage(image, fillCol, 0, 1, h, x, 0, 1, h);
-    tctx.save();
-    tctx.scale(-1, 1);
-    tctx.drawImage(image, w - capW, 0, capW, h, -capW, 0, capW, h);
-    tctx.restore();
-    return { track: track.toDataURL(), knob: knob.toDataURL() };
-  });
-  return sliderParts;
-}
-
 function loadTicketArt(): Promise<string> {
   ticketArt ??= loadImage(asset('Art Ticket.png')).then((image) => {
     const [c, ctx] = canvas(image.width, image.height);
@@ -70,9 +47,7 @@ function loadTicketArt(): Promise<string> {
 
 /** Gọi sớm để ảnh popup sẵn sàng trước lần mở đầu tiên. */
 export function preloadTicketDialog(): void {
-  void Promise.all([loadSliderParts(), loadTicketArt()]).catch((error: unknown) =>
-    console.warn(error),
-  );
+  loadTicketArt().catch((error: unknown) => console.warn(error));
 }
 
 function el<K extends keyof HTMLElementTagNameMap>(
@@ -154,10 +129,19 @@ export function openTicketDialog({
       if (!busy) close(false);
     });
 
-    const ticket = el('img', 'ticket-dialog__art');
-    ticket.alt = '';
+    // Ảnh vé + lớp ánh sáng quét ngang (lightsweep, yêu cầu 2026-11-21): lớp sheen dùng chính ảnh vé làm mặt nạ nên chỉ sáng trong
+    // hình vé.
+    const ticket = el('div', 'ticket-dialog__art');
+    const ticketImg = el('img', 'ticket-dialog__art-img');
+    ticketImg.alt = '';
+    const ticketSheen = el('div', 'ticket-dialog__art-sheen');
+    ticket.append(ticketImg, ticketSheen);
     void loadTicketArt()
-      .then((src) => (ticket.src = src))
+      .then((src) => {
+        ticketImg.src = src;
+        ticketSheen.style.maskImage = `url("${src}")`;
+        ticketSheen.style.setProperty('-webkit-mask-image', `url("${src}")`);
+      })
       .catch((error: unknown) => console.warn(error));
 
     const price = el('div', 'ticket-dialog__price');
@@ -168,16 +152,6 @@ export function openTicketDialog({
       image(coinSrc ?? asset('Coin Small.png'), 'ticket-dialog__coin'),
       priceTotal,
     );
-
-    const slider = el('div', 'ticket-dialog__slider');
-    const knob = el('div', 'ticket-dialog__knob');
-    slider.append(knob);
-    void loadSliderParts()
-      .then(({ track, knob: knobSrc }) => {
-        slider.style.backgroundImage = `url("${track}")`;
-        knob.style.backgroundImage = `url("${knobSrc}")`;
-      })
-      .catch((error: unknown) => console.warn(error));
 
     const round = (label: string, delta: number, aria: string, side: 'minus' | 'plus') => {
       const button = el('button', `ticket-dialog__round ticket-dialog__round--${side}`, label);
@@ -235,7 +209,6 @@ export function openTicketDialog({
       ticket,
       price,
       minus,
-      slider,
       plus,
       amount,
       duration,
@@ -248,26 +221,9 @@ export function openTicketDialog({
       priceUnits.textContent = String(units);
       priceTotal.textContent = formatGold(total);
       duration.textContent = `Hiệu lực: ${minutes} phút`;
-      const ratio = maxUnits > 1 ? (units - 1) / (maxUnits - 1) : 0;
-      knob.style.left = `${ratio * (SLIDER.w - SLIDER.knobW)}px`;
       minus.disabled = units <= 1;
       plus.disabled = units >= maxUnits;
     }
-
-    // Kéo núm hoặc bấm lên thanh để chọn số lượng.
-    const unitsAt = (clientX: number) => {
-      const rect = localRect(slider);
-      const knobW = (rect.width * SLIDER.knobW) / SLIDER.w;
-      const ratio = (clientX - rect.left - knobW / 2) / Math.max(1, rect.width - knobW);
-      return 1 + Math.max(0, Math.min(1, ratio)) * (maxUnits - 1);
-    };
-    slider.addEventListener('pointerdown', (event) => {
-      slider.setPointerCapture(event.pointerId);
-      setUnits(unitsAt(localPoint(event).x));
-    });
-    slider.addEventListener('pointermove', (event) => {
-      if (slider.hasPointerCapture(event.pointerId)) setUnits(unitsAt(localPoint(event).x));
-    });
 
     window.addEventListener('keydown', onKey);
     setUnits(1);

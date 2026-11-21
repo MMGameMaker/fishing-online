@@ -234,8 +234,11 @@
   height: 376px;
   padding: 4px 10px 4px 0;
   overflow-y: auto;
-  scrollbar-color: #8a5a2b #f3d9a3;
-  scrollbar-width: thin;
+  scrollbar-width: none;
+}
+
+.profile__ach::-webkit-scrollbar {
+  display: none;
 }
 
 .profile__card {
@@ -505,6 +508,25 @@ textarea.profile-dialog__input {
   max-height: 300px;
   overflow-y: auto;
   padding-right: 4px;
+  scrollbar-width: none;
+}
+
+.profile-dialog__titles::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hộp Đổi danh hiệu dùng khung Rank/Leaderboard Panel.png (yêu cầu 2026-11-21): 9-slice, phần đầu có đường kẻ nằm trong
+   viền trên (cao 73px) nên tiêu đề đặt đè lên vùng đó. */
+.profile-dialog__box--panel {
+  padding: 0 26px 24px;
+  border-width: 73px 12px 17px;
+  border-image: url('/new%20resources/ui/Rank/Leaderboard%20Panel.png') 122 20 28 fill / 73px 12px 17px stretch;
+}
+
+.profile-dialog__box--panel .profile-dialog__title {
+  height: 73px;
+  margin: -73px -38px 14px;
+  line-height: 73px;
 }
 
 .profile-dialog__title-option {

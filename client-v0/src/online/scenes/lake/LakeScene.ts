@@ -5,6 +5,8 @@ import { isTouchDevice } from '../../core/device';
 import { UI_DESIGN_WIDTH } from '../../core/env';
 import { getServices, type Services } from '../../core/services';
 import { CharacterView } from '../../entities/CharacterView';
+import { NpcNameFx, spawnCoinBurst } from '../../entities/NpcNameFx';
+import { newGreetState, pickLineIndex, stepGreeting, type GreetState } from './npcGreeting';
 import { FishingFlow } from '../../fishing/FishingFlow';
 import type { Direction, PlayerView } from '../../net/contract';
 import { mountUiOverlay, showError, showToast } from '../../ui/kit/components';
@@ -52,6 +54,14 @@ type InteractTarget =
 
 /** Tầm bấm F với NPC: NPC chặn ô dưới chân nên đứng sát nhất vẫn cách chân NPC khoảng 12–20px. */
 const NEAR_NPC_PX = 32;
+/** Hiệu ứng chữ tên NPC: nhún và dồn sóng khi người chơi cách chân NPC tối đa chừng này px; lề (px map) ngoài màn hình vẫn cập nhật. */
+const NEAR_NPC_FX_PX = 64;
+const NPC_FX_MARGIN_PX = 40;
+/** Tạm tắt hạt quanh tên NPC (yêu cầu 2026-11-21); đổi thành true để bật lại, dữ liệu `nameFx` trong map vẫn giữ. */
+const NPC_NAME_FX_ENABLED = false;
+/** Lời chào NPC: chờ chừng này kể từ lần người chơi ra khỏi vùng bấm F gần nhất mới nói lại; mỗi câu hiện chừng này. */
+const NPC_GREET_COOLDOWN_MS = 10_000;
+const NPC_GREET_SHOW_MS = 6_000;
 /** Chữ trên nút hành động (điện thoại) theo việc F làm ở từng NPC. */
 const NPC_ACTION_LABELS: Record<NpcAction, string> = {
   codex: 'Sổ tay cá',
@@ -132,7 +142,21 @@ export class LakeScene extends Phaser.Scene {
   /** Đang gửi SitRest/StandRest: bỏ qua bấm lặp. */
   private restPending = false;
   /** NPC đứng yên trên map (map.npcs), chỉ trang có HomeHud. */
-  private readonly npcViews: { npc: LakeNpc; view: CharacterView }[] = [];
+  private readonly npcViews: {
+    npc: LakeNpc;
+    view: CharacterView;
+    fx: NpcNameFx | null;
+    /** Trạng thái lời chào: đang trong vùng bấm F, lúc ra gần nhất, câu vừa nói (tránh lặp liền hai lần). */
+    greet: GreetState;
+    /** Câu cảm ơn vừa nói khi mua hàng (tránh lặp liền hai lần). */
+    lastPurchaseIndex: number;
+    /** Câu tiếc vừa nói khi đóng cửa hàng mà không mua (tránh lặp liền hai lần). */
+    lastNoPurchaseIndex: number;
+    /** Câu cảm ơn vừa nói khi nhận cá bán (tránh lặp liền hai lần). */
+    lastSellIndex: number;
+  }[] = [];
+  /** Giao dịch gần nhất trong lần mở Cửa hàng hiện tại, để NPC phản ứng khi đóng popup. */
+  private pendingShopReaction: 'purchase' | 'sell' | null = null;
   private readonly cleanups: (() => void)[] = [];
 
   constructor() {
@@ -287,7 +311,8 @@ export class LakeScene extends Phaser.Scene {
         showRod: false,
       });
       view.setDirection(npc.facing);
-      this.npcViews.push({ npc, view });
+      const fx = NPC_NAME_FX_ENABLED && npc.nameFx ? new NpcNameFx(this, view, npc.nameFx) : null;
+      this.npcViews.push({ npc, view, fx, greet: newGreetState(), lastPurchaseIndex: -1, lastNoPurchaseIndex: -1, lastSellIndex: -1 });
     }
   }
 
@@ -353,6 +378,16 @@ export class LakeScene extends Phaser.Scene {
         openBuyTicket: () => this.seatUi.openBuyTicket(),
         openDirect: (playerId) => this.social.openDirect(playerId),
         openPlayer: (playerId) => this.openPlayerInfo(playerId),
+        // NPC chỉ nói và bắn xu SAU KHI đóng Cửa hàng (popup đang mở thì chữ/xu bị che): ghi nhớ lần giao dịch gần nhất.
+        onShopPurchase: () => (this.pendingShopReaction = 'purchase'),
+        onShopSell: () => (this.pendingShopReaction = 'sell'),
+        onShopClose: (traded) => {
+          const pending = this.pendingShopReaction;
+          this.pendingShopReaction = null;
+          if (pending === 'purchase') this.npcReactToPurchase();
+          else if (pending === 'sell') this.npcReactToSell();
+          else if (!traded) this.npcReactToLeavingEmptyHanded();
+        },
       });
     }
   }
@@ -991,5 +1026,69 @@ export class LakeScene extends Phaser.Scene {
     this.me.syncTextResolution();
     for (const remote of this.remotes.values()) remote.view.syncTextResolution();
     this.updateOutlines();
+    this.updateNpcNames();
+    this.updateNpcGreetings();
+  }
+
+  /** Mua hàng thành công ở Cửa hàng: NPC có `purchaseLines` (Cáo) nói ngẫu nhiên một câu cảm ơn. */
+  private npcReactToPurchase(): void {
+    for (const entry of this.npcViews) {
+      const lines = entry.npc.purchaseLines;
+      if (!lines || lines.length === 0) continue;
+      entry.lastPurchaseIndex = pickLineIndex(lines.length, entry.lastPurchaseIndex);
+      entry.view.say(lines[entry.lastPurchaseIndex]!, NPC_GREET_SHOW_MS);
+      spawnCoinBurst(this, entry.view);
+    }
+  }
+
+  /** Bán cá thành công ở Cửa hàng: NPC có `sellLines` (Cáo) nói ngẫu nhiên một câu cảm ơn (không bắn xu; xu bay vào ô Gold là goldFx). */
+  private npcReactToSell(): void {
+    for (const entry of this.npcViews) {
+      const lines = entry.npc.sellLines;
+      if (!lines || lines.length === 0) continue;
+      entry.lastSellIndex = pickLineIndex(lines.length, entry.lastSellIndex);
+      entry.view.say(lines[entry.lastSellIndex]!, NPC_GREET_SHOW_MS);
+    }
+  }
+
+  /** Đóng Cửa hàng mà không mua cũng không bán gì: NPC có `noPurchaseLines` (Cáo) nói ngẫu nhiên một câu tiếc. */
+  private npcReactToLeavingEmptyHanded(): void {
+    for (const entry of this.npcViews) {
+      const lines = entry.npc.noPurchaseLines;
+      if (!lines || lines.length === 0) continue;
+      entry.lastNoPurchaseIndex = pickLineIndex(lines.length, entry.lastNoPurchaseIndex);
+      entry.view.say(lines[entry.lastNoPurchaseIndex]!, NPC_GREET_SHOW_MS);
+    }
+  }
+
+  /**
+   * NPC chào khi người chơi bước vào vùng bấm F (yêu cầu 2026-11-21): random một câu trong `greetings`. Vào ra liên tục
+   * thì không nói liên tục: phải đợi `NPC_GREET_COOLDOWN_MS` kể từ lần ra cuối cùng mới nói lại.
+   */
+  private updateNpcGreetings(): void {
+    const now = this.time.now;
+    for (const { npc, view, greet } of this.npcViews) {
+      const lines = npc.greetings;
+      if (!lines || lines.length === 0) continue;
+      const inside = Math.hypot(npc.x - this.me.x, npc.y - this.me.y) <= NEAR_NPC_PX;
+      const index = stepGreeting(greet, inside, now, lines.length, NPC_GREET_COOLDOWN_MS);
+      if (index !== null) view.say(lines[index]!, NPC_GREET_SHOW_MS);
+    }
+  }
+
+  /** Hiệu ứng chữ tên NPC (NpcNameFx): chỉ chạy khi NPC trong màn hình; đứng gần thì nhún và sóng dồn hơn. */
+  private updateNpcNames(): void {
+    const view = this.cameras.main.worldView;
+    const now = this.time.now;
+    for (const { npc, fx } of this.npcViews) {
+      if (!fx) continue;
+      const onScreen =
+        npc.x > view.x - NPC_FX_MARGIN_PX &&
+        npc.x < view.right + NPC_FX_MARGIN_PX &&
+        npc.y > view.y - NPC_FX_MARGIN_PX &&
+        npc.y < view.bottom + NPC_FX_MARGIN_PX;
+      const near = Math.hypot(npc.x - this.me.x, npc.y - this.me.y) <= NEAR_NPC_FX_PX;
+      fx.update(now, near, onScreen);
+    }
   }
 }

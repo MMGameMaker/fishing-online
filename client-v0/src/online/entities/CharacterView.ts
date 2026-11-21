@@ -79,6 +79,8 @@ const TUG_MS = 70;
 const EMOTE_SCALE = 0.6;
 /** Emoji trong bong bóng trên đầu to lên 50% (feedback 2026-11-16); bong bóng ôm theo icon. */
 const HEAD_EMOTE_SCALE = EMOTE_SCALE * 1.5;
+/** Cạnh phần trong của bong bóng emoji (px map, chưa tính viền 3px mỗi cạnh). */
+const EMOTE_BUBBLE_INNER_PX = 21;
 /** Bong bóng lời nói khi chat: hiện bao lâu, rộng tối đa, khoảng cách trên nhãn tên. */
 /** GD chốt 2026-11-13: bong bóng chat tồn tại 10 giây. */
 const SAY_MS = 10_000;
@@ -149,6 +151,10 @@ const SAD_FACE_TEAR = 0x7fd3ff;
 /** Nhân vật gồm thân, lớp cần câu, nhãn tên và chỗ gắn icon trên đầu. Gốc tọa độ ở chân. */
 export class CharacterView {
   readonly container: Phaser.GameObjects.Container;
+  /** Nhãn tên (NpcNameFx ẩn nó và tự vẽ từng chữ, nhưng vẫn dùng kích thước của nhãn). */
+  get nameLabel(): Phaser.GameObjects.Text {
+    return this.label;
+  }
   private readonly body: Phaser.GameObjects.Sprite;
   private readonly rod: Phaser.GameObjects.Sprite;
   private readonly iconSlot: Phaser.GameObjects.Container;
@@ -578,8 +584,8 @@ export class CharacterView {
     });
   }
 
-  /** Bong bóng lời nói trên đầu khi người này chat: nảy lên, giữ SAY_MS rồi mờ dần. */
-  say(text: string): void {
+  /** Bong bóng lời nói trên đầu khi người này chat: nảy lên, giữ `durationMs` (mặc định SAY_MS) rồi mờ dần. */
+  say(text: string, durationMs = SAY_MS): void {
     this.bubbleTimer?.remove();
     if (hasHeadBubble(this.scene)) {
       const content = this.scene.add
@@ -595,7 +601,7 @@ export class CharacterView {
         .setOrigin(0.5);
       smoothText(this.scene, content);
       this.showHeadBubble(content, content.width, content.height, 'text');
-      this.bubbleTimer = this.scene.time.delayedCall(SAY_MS, () => {
+      this.bubbleTimer = this.scene.time.delayedCall(durationMs, () => {
         if (this.headBubbleKind === 'text') this.hideHeadBubble();
       });
       return;
@@ -610,7 +616,7 @@ export class CharacterView {
       duration: POP_IN_MS,
       ease: 'Back.easeOut',
     });
-    this.bubbleTimer = this.scene.time.delayedCall(SAY_MS, () => {
+    this.bubbleTimer = this.scene.time.delayedCall(durationMs, () => {
       this.scene.tweens.add({
         targets: this.bubble,
         alpha: 0,
@@ -697,8 +703,9 @@ export class CharacterView {
       .setOrigin(0.5)
       .setScale(HEAD_EMOTE_SCALE)
       .play(emoteAnimKey(art));
-    const size = sprite.width * HEAD_EMOTE_SCALE;
-    this.showHeadBubble(sprite, size, size, 'emote');
+    // Khung 39px chỉ có hình emoji rộng ~17px (động tối đa ~25px): bong bóng ôm theo hình chứ không theo cả khung
+    // (yêu cầu 2026-11-21: nhỏ lại, chỉ to hơn icon một chút).
+    this.showHeadBubble(sprite, EMOTE_BUBBLE_INNER_PX, EMOTE_BUBBLE_INNER_PX, 'emote');
   }
 
   /**

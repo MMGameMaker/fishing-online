@@ -407,14 +407,14 @@ export class ProfilePopup {
 
   // ---------- Tab nhỏ: đổi tên / danh hiệu / lời nhắn ----------
 
-  private openDialog(title: string, body: HTMLElement): HTMLElement | null {
+  private openDialog(title: string, body: HTMLElement, boxClass = ''): HTMLElement | null {
     const panel = this.overlay?.querySelector<HTMLElement>('.profile__panel');
     if (!panel) return null;
     this.closeDialog();
     const dialog = el('div', 'profile-dialog');
     dialog.setAttribute('role', 'dialog');
     dialog.setAttribute('aria-label', title);
-    const box = el('div', 'profile-dialog__box');
+    const box = el('div', `profile-dialog__box${boxClass ? ` ${boxClass}` : ''}`);
     const heading = el('h2', 'profile-dialog__title', title);
     box.append(heading, body);
     dialog.append(box);
@@ -537,7 +537,7 @@ export class ProfilePopup {
       list.append(option);
     }
     body.append(list, this.actions(null));
-    this.openDialog('Đổi danh hiệu', body);
+    this.openDialog('Đổi danh hiệu', body, 'profile-dialog__box--panel');
   }
 
   private async saveTitle(titleId: string, current: string): Promise<void> {

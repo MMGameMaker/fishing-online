@@ -1017,6 +1017,7 @@ export class MockBackend {
   }
 
   private lakeEmpty = false;
+  private forcedSpeciesId: string | null = null;
 
   private snapshot(): LakeSnapshot {
     return {
@@ -1031,6 +1032,20 @@ export class MockBackend {
       myAttempt: this.attempt ? this.attemptView(this.attempt) : null,
       lakeEmpty: this.lakeEmpty,
     };
+  }
+
+  /** Công cụ dev (`?mockFish=1`): ép mọi lần cá cắn của người chơi là loài này; null = ngẫu nhiên như thường. */
+  setForcedSpecies(speciesId: string | null): void {
+    this.forcedSpeciesId = speciesId;
+  }
+
+  getForcedSpecies(): string | null {
+    return this.forcedSpeciesId;
+  }
+
+  /** Danh sách loài trong config để công cụ dev liệt kê. */
+  listSpecies(): { speciesId: string; name: string; rarity: string }[] {
+    return this.config.fish.map((f) => ({ speciesId: f.speciesId, name: f.name, rarity: f.rarity }));
   }
 
   /** Giả lập hồ hết cá / có cá lại (Server thật phát LakeStockChanged khi quần thể về 0 hoặc được thả). */
@@ -1278,7 +1293,9 @@ export class MockBackend {
 
   private toBite(attempt: AttemptRuntime): void {
     attempt.phase = 'bite';
-    attempt.species = pickSpecies(this.config, this.totalStats().rareLuck, this.random);
+    attempt.species =
+      this.config.fish.find((f) => f.speciesId === this.forcedSpeciesId) ??
+      pickSpecies(this.config, this.totalStats().rareLuck, this.random);
     attempt.biteDeadlineMs = this.nowMs + this.config.fishing.biteWindowMs;
     this.emit('AttemptUpdate', this.attemptView(attempt));
   }

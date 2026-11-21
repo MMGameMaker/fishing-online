@@ -55,6 +55,25 @@
   height: 142px;
   /* Bấm vào thẻ người chơi không xuyên xuống người chơi/map phía dưới (2026-11-18). */
   pointer-events: auto;
+
+  /* Bấm mở hồ sơ (2026-11-21): con trỏ bàn tay, sáng nhẹ khi rê chuột, nhún xuống khi bấm. */
+  cursor: pointer;
+  transition:
+    filter 140ms ease-out,
+    transform 100ms ease-out;
+}
+
+.home-card:hover {
+  filter: brightness(1.06);
+}
+
+.home-card:active {
+  transform: translateY(2px);
+}
+
+.home-card:focus-visible {
+  outline: 3px solid #ffd84a;
+  outline-offset: 2px;
 }
 
 .home-card__art {

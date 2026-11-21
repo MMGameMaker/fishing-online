@@ -3,6 +3,7 @@
 // cần đã có thì "Đã có"), Ngoại hình (5 skin mặc trang phục, 300 Gold, mua qua cùng POST /shop/buy) và
 // Nạp Gold (gói thử, Server bản dev cộng Gold; đang ẩn). Ảnh trong
 // public/new resources/ui và public/mini game, vẽ cho màn 1920×1080; cả popup thu theo cửa sổ.
+import { playGoldGain } from '../home/goldFx';
 import { RARITY_LABELS, formatGold } from '../kit/format';
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
@@ -13,7 +14,6 @@ import { snapshotScroll } from '../kit/scroll';
 
 /** Các vùng cuộn trong thân cửa hàng (danh sách cá, thẻ cần câu/gói Gold). */
 const SCROLL_AREAS = '.shop-sell__grid, .shop-cards';
-import { SLIDER, loadSliderParts } from '../../scenes/lake/TicketDialog';
 import { COIN_ART } from '../coinArt';
 import { fishImage } from '../fishArt';
 import { fishDescription } from './fishInfo';
@@ -29,7 +29,6 @@ import {
 } from './shopModel';
 import { loadSkins, skinImage } from '../skin/skinArt';
 import { TOP_UP_PACKS, type TopUpResponse } from './topUpPacks';
-import { localPoint, localRect } from '../../core/viewFrame';
 
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
 const MINI = (file: string) => encodeURI(`/mini game/${file}`);
@@ -99,11 +98,22 @@ function fitScale(target: HTMLElement, w: number, h: number): () => void {
 export interface ShopPopupOptions {
   root: HTMLElement;
   services: Services;
+  /** Gọi sau mỗi lần mua cần/skin thành công (NPC cửa hàng nói câu cảm ơn, yêu cầu 2026-11-21). */
+  onPurchase?: () => void;
+  /** Gọi sau mỗi lần bán cá thành công (NPC cửa hàng nói câu cảm ơn khi nhận cá, yêu cầu 2026-11-21). */
+  onSell?: () => void;
+  /** Gọi khi đóng Cửa hàng; `traded` = trong lần mở này có mua hoặc bán được món nào (NPC nói câu tiếc nếu không giao dịch gì). */
+  onClose?: (traded: boolean) => void;
 }
 
 export class ShopPopup {
   private overlay: HTMLElement | null = null;
+  /** Lần mở hiện tại đã mua hoặc bán được món nào chưa. */
+  private traded = false;
   private goldText: HTMLElement | null = null;
+  private goldCoin: HTMLElement | null = null;
+  /** Gold đang hiển thị ở đầu cửa hàng (null = chưa hiện lần nào trong lần mở này). */
+  private shownGold: number | null = null;
   private tabButtons = new Map<TabId, HTMLButtonElement>();
   private body: HTMLElement | null = null;
   private tab: TabId = 'sell';
@@ -123,8 +133,9 @@ export class ShopPopup {
   /** `selecting`: vào thẳng chế độ chọn nhiều của tab Bán cá (nút "Chọn cá" ở Túi đồ). */
   open(tab: TabId = 'sell', options: { selecting?: boolean } = {}): void {
     if (this.overlay) return;
+    this.traded = false;
+    this.shownGold = null;
     this.resetScroll = true;
-    void loadSliderParts().catch(() => undefined);
     const overlay = el('div', 'shop');
     overlay.setAttribute('role', 'dialog');
     overlay.setAttribute('aria-modal', 'true');
@@ -135,7 +146,8 @@ export class ShopPopup {
 
     this.goldText = el('span', 'shop__gold-amount');
     const gold = el('div', 'shop__gold');
-    gold.append(img(COIN, 'shop__gold-coin'), this.goldText);
+    this.goldCoin = img(COIN, 'shop__gold-coin');
+    gold.append(this.goldCoin, this.goldText);
     const close = button('shop__close', 'Đóng cửa hàng');
     close.append(img(CLOSE));
     close.addEventListener('click', () => this.close());
@@ -189,6 +201,7 @@ export class ShopPopup {
     this.overlay = null;
     this.cleanups.forEach((cleanup) => cleanup());
     this.cleanups = [];
+    this.options.onClose?.(this.traded);
     this.tabButtons.clear();
     this.selecting = false;
     this.selected.clear();
@@ -221,11 +234,17 @@ export class ShopPopup {
   }
 
   private renderGold(): void {
-    if (this.goldText) {
-      this.goldText.textContent = formatGold(
-        this.options.services.store.getState().session.gold ?? '0',
-      );
+    if (!this.goldText) return;
+    const gold = this.options.services.store.getState().session.gold ?? '0';
+    const next = Number(gold);
+    const previous = this.shownGold;
+    this.shownGold = Number.isFinite(next) ? next : null;
+    // Gold tăng (bán cá): xu bay về ô Gold của cửa hàng, thu dần về cỡ biểu tượng; còn lại đổi số ngay.
+    if (this.goldCoin && previous !== null && Number.isFinite(next) && next > previous) {
+      playGoldGain(this.goldCoin, this.goldText, COIN, previous, next);
+      return;
     }
+    this.goldText.textContent = formatGold(gold);
   }
 
   private render(): void {
@@ -336,6 +355,8 @@ export class ShopPopup {
     try {
       const ok = await sellFish(this.options.services, this.options.root, catchIds, all);
       if (ok) {
+        this.traded = true;
+        this.options.onSell?.();
         this.selecting = false;
         this.selected.clear();
       }
@@ -390,16 +411,6 @@ export class ShopPopup {
       const total = el('span', '');
       price.append(units, img(COIN, 'shop-coin'), total);
 
-      const slider = el('div', 'shop-slider');
-      const knob = el('div', 'shop-slider__knob');
-      slider.append(knob);
-      void loadSliderParts()
-        .then(({ track, knob: knobSrc }) => {
-          slider.style.backgroundImage = `url("${track}")`;
-          knob.style.backgroundImage = `url("${knobSrc}")`;
-        })
-        .catch((error: unknown) => console.warn(error));
-
       const round = (text: string, delta: number, aria: string, side: string) => {
         const node = button(`shop-round shop-round--${side}`, aria, text);
         node.addEventListener('click', () => set(quantity + delta));
@@ -443,7 +454,6 @@ export class ShopPopup {
         desc,
         price,
         minus,
-        slider,
         plus,
         amount,
         fishBox,
@@ -455,25 +465,9 @@ export class ShopPopup {
         quantity = Math.max(1, Math.min(max, Math.round(next)));
         units.textContent = String(quantity);
         total.textContent = formatGold(String(quantity * group.unitGold));
-        const ratio = max > 1 ? (quantity - 1) / (max - 1) : 0;
-        knob.style.left = `${ratio * (SLIDER.w - SLIDER.knobW)}px`;
         minus.disabled = quantity <= 1;
         plus.disabled = quantity >= max;
       }
-      const unitsAt = (clientX: number) => {
-        const rect = localRect(slider);
-        const knobW = (rect.width * SLIDER.knobW) / SLIDER.w;
-        const ratio = (clientX - rect.left - knobW / 2) / Math.max(1, rect.width - knobW);
-        return 1 + Math.max(0, Math.min(1, ratio)) * (max - 1);
-      };
-      slider.addEventListener('pointerdown', (event) => {
-        slider.setPointerCapture(event.pointerId);
-        set(unitsAt(localPoint(event).x));
-      });
-      slider.addEventListener('pointermove', (event) => {
-        if (slider.hasPointerCapture(event.pointerId)) set(unitsAt(localPoint(event).x));
-      });
-
       set(1);
       this.options.root.append(overlay);
       animateIn(overlay, 'fade');
@@ -556,6 +550,8 @@ export class ShopPopup {
       store.dispatch({ type: 'session/gold', payload: result.gold });
       store.dispatch({ type: 'inventory/set', payload: result.inventory });
       showToast(this.options.root, `Đã mua ${name}.`);
+      this.traded = true;
+      this.options.onPurchase?.();
     } catch (error) {
       showError(this.options.root, error);
     } finally {

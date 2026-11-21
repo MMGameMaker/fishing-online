@@ -7467,16 +7467,6 @@
     },
     {
       "sheet": "town",
-      "frame": "main-objects/news-board",
-      "x": 115,
-      "y": 255,
-      "w": 120,
-      "h": 73,
-      "layer": 1,
-      "by": 327
-    },
-    {
-      "sheet": "town",
       "frame": "main-objects/stool",
       "x": 913,
       "y": 369,
@@ -8596,17 +8586,6 @@
       "y": 497,
       "w": 69,
       "h": 44,
-      "layer": 0.5,
-      "by": 541
-    },
-    {
-      "sheet": "town",
-      "frame": "custom/podium-shadow",
-      "image": "/assets/props/podium-shadow.png",
-      "x": 379,
-      "y": 522,
-      "w": 81,
-      "h": 19,
       "layer": 0.5,
       "by": 541
     },
@@ -11347,8 +11326,8 @@
       "1111111111111111111111111111111111111111111111111111111111111111100011111001111100111110011111111111111111111111111111111111111111111110",
       "1111111111111111111111111111111111111111111111111111111111011111111111111101111111101111111111111111111111111111111111111111111111111100",
       "1111111111111100001111111111111111110001111111111111111110011111000000000000000000000000000001111111111111111111111111111111111111111100",
-      "1111111111111100001111111111111111110000111111100000000001011100000000000000000000000000000001100011111111111111111111111111111111111111",
-      "1111111111111100001111111100011111111111111111100000000001011100000000000000000000000000000001100011111111111111111111111111111111111111",
+      "1111111111111100001111111111111111110000111111111111111111011100000000000000000000000000000001100011111111111111111111111111111111111111",
+      "1111111111111100001111111100011111111111111111111111111111011100000000000000000000000000000001100011111111111111111111111111111111111111",
       "1111111111111111111111111100011111111111111111111111111111111111000000000000000000000000000010111110000011111111111000111111111110001111",
       "1100011110000011111111111111111111000011110011111111111111110111000000000000000000000000000000011110000011100000011000111111111110000111",
       "1100001110000011111111111111111111000011110001111111111111100000000000000000000000000000000000111110000011100000011111111111111111111111",
@@ -11937,7 +11916,10 @@
         "facing": "down",
         "action": "codex",
         "nameColor": "#C8A2FF",
-        "nameOffsetY": 2
+        "nameOffsetY": 2,
+        "nameFx": {
+          "particle": "fish"
+        }
       },
       {
         "npcId": "sell-fox",
@@ -11948,18 +11930,82 @@
         "facing": "down",
         "action": "sellFish",
         "nameColor": "#5ab8ff",
-        "nameOffsetY": 2
+        "nameOffsetY": 2,
+        "nameFx": {
+          "particle": "coin"
+        },
+        "greetings": [
+          "Ối giời! Đại vương giá lâm rồi, mau vào xem hàng!",
+          "Cá tươi, cần xịn, đồ đẹp! Đại vương muốn gì chúng em cũng có!",
+          "Đại vương mua cần không? Cần này quăng phát, cá mê quên lối về!",
+          "Tay trắng đi câu thì lấy gì mà khoe với đời hả Đại vương?",
+          "Đại vương cứ vào xem hàng! Không mua cũng chẳng ai dám đuổi đâu đại vương đâu!",
+          "Đồ nhà trồng được, giá nhà bán... à nhầm, giá hữu nghị cho Đại vương!",
+          "Cần tốt không thiếu, chỉ chờ mỗi Đại vương đến mua!",
+          "Muốn cá to thì phải đầu tư, đừng bắt cá phải thông cảm Đại vương ạ!",
+          "Áo đẹp, cần ngon, mồi thơm! Chỉ thiếu mỗi người yêu cho Đại vương thôi!",
+          "Đồ xịn đang giảm giá, Đại vương chậm chân thì chỉ còn cái nịt!",
+          "Người có thể ế, nhưng cần câu thì Đại vương nhất định không được thiếu!"
+        ],
+        "purchaseLines": [
+          "Chốt đơn! Đại vương đúng là người có gu!",
+          "Khách sộp đây rồi! Chúc Đại vương sớm câu được cá khủng!",
+          "Tiền trao cháo múc, hàng trao tận tay Đại vương!",
+          "Món này hợp với Đại vương lắm, mua là chuẩn bài!",
+          "Đa tạ Đại vương! Lần sau nhớ ghé vét thêm nhé!",
+          "Đã có đồ xịn, giờ chỉ còn thiếu kỹ năng thôi Đại vương ạ!",
+          "Đại vương xuống tiền nhanh như cá đớp mồi!",
+          "Khách quý tương lai của bổn tiệm đây rồi!",
+          "Mua hàng sáng suốt! Cá ngoài hồ chuẩn bị run trước Đại vương rồi!",
+          "Chúc mừng Đại vương, vừa sở hữu món đồ đáng đồng tiền!",
+          "Hàng ngon đã về tay, Đại vương mau đi làm nên lịch sử thôi!",
+          "Mắt nhìn hàng chuẩn đấy Đại vương! Không hổ danh dân chuyên!"
+        ],
+        "sellLines": [
+          "Ối giời! Đại vương lại mang chiến lợi phẩm đến rồi! Cho chúng em xem nào!",
+          "Cá tươi thế này mà không bán cho chúng em thì bán cho ai, Đại vương!",
+          "Ui chao! Con này béo tốt quá! Chắc ăn no mồi lắm đây!",
+          "Đại vương câu được cá, chúng em có hàng, đôi bên cùng có lợi!",
+          "Cá ngon thế này, chúng em nhìn thôi đã thấy thèm!",
+          "Đại vương cứ yên tâm, chúng em thu mua tận tình, ép giá... à nhầm, trả giá tận tâm!",
+          "Hôm nay Đại vương trúng mánh rồi! Cá này bán được kha khá đấy!",
+          "Cá to thế này mà đem về nấu thì phí của trời, bán cho chúng em đi!",
+          "Đại vương đúng là cao thủ! Hồ này chắc sắp hết cá vì ngài mất thôi!",
+          "Chúng em đang khát hàng, Đại vương đến đúng lúc quá!",
+          "Cá bé cũng mua, cá to càng mê! Đại vương có bao nhiêu chúng em cân hết!",
+          "Đưa đây chúng em cân thử! Yên tâm, cân nhà chúng em chưa bao giờ biết nói dối!",
+          "Đại vương bán cá, chúng em bán niềm vui... và trả bằng ngân lượng!",
+          "Cá vào kho, tiền vào túi! Giao dịch này quá hời cho Đại vương!",
+          "Đa tạ Đại vương! Nhờ ngài mà hôm nay chúng em khỏi phải treo biển hết hàng!"
+        ],
+        "noPurchaseLines": [
+          "Ơ kìa Đại vương, xem xong rồi đi thật à?",
+          "Không mua cũng được Đại vương, nhưng đừng quên bọn em nhé!",
+          "Ví của Đại vương đang ngủ đông hay sao mà không chịu mở thế?",
+          "Ngắm hàng miễn phí thì Đại vương thích lắm nhỉ!",
+          "Thôi được, lần sau Đại vương nhớ mang theo ngân lượng nhé!",
+          "Đi tay không thế này, cá nó cười cho đấy Đại vương ạ!",
+          "Đại vương cứ suy nghĩ, hàng không chạy mất đâu... chắc thế!",
+          "Đại vương xem lâu thế, tưởng sắp vét sạch cửa hàng rồi!",
+          "Chắc Đại vương đang chờ cá tự nhảy vào giỏ rồi!",
+          "Ngân lượng không có thì đam mê cũng phải chịu khó một chút Đại vương!",
+          "Hàng xịn thế này mà Đại vương không rước về, tiếc cả đời!",
+          "Thôi, bổn tiệm hiểu rồi... Đại vương chỉ đến ngắm hàng cho vui thôi à?"
+        ]
       },
       {
-        "npcId": "rank-podium",
-        "skinId": "npc_podium",
+        "npcId": "rank-board",
+        "skinId": "npc_board",
         "name": "Hội Quán Cao Thủ",
-        "x": 414,
-        "y": 541,
+        "x": 173,
+        "y": 327,
         "facing": "down",
         "action": "leaderboard",
         "nameColor": "#C8A2FF",
-        "nameOffsetY": 2
+        "nameOffsetY": 2,
+        "nameFx": {
+          "particle": "star"
+        }
       }
     ]
   }

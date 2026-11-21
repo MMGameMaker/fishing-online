@@ -257,3 +257,49 @@
     opacity: 0;
   }
 }
+
+/* Bảng chọn loài cá của mock (?mockFish=1, devOverlay.ts): nằm trên canvas game, dưới thẻ người chơi. */
+.mock-fish {
+  position: fixed;
+  z-index: 40;
+  width: 240px;
+  font: bold 13px monospace;
+  color: #1a1a1a;
+}
+
+.mock-fish__head,
+.mock-fish__item {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 6px 10px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: #f2c14e;
+  border: 2px solid #1a1a1a;
+}
+
+.mock-fish__list {
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  background: #fff3d0;
+}
+
+.mock-fish__list::-webkit-scrollbar {
+  display: none;
+}
+
+.mock-fish__item {
+  background: #fff3d0;
+  border-width: 0 2px 2px;
+}
+
+.mock-fish__item:hover {
+  background: #ffe9ad;
+}
+
+.mock-fish__item--on {
+  background: #ffd98a;
+}

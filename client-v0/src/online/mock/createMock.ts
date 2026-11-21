@@ -2,10 +2,11 @@ import configJson from '@fixtures/gameplay-config.v0.json';
 import { isGameplayConfig } from '../core/gameplayConfig';
 import { isErrorCode } from '../net/contractGuards';
 import type { LakeMap } from '../scenes/lake/walkable';
-import { mountDevOverlay } from './devOverlay';
+import { mountDevOverlay, mountFishPicker } from './devOverlay';
 import { MockBackend } from './MockBackend';
 
-/** Dựng mock cho trình duyệt; `?mockError=SEAT_TAKEN` bật lỗi giả, `?mockPing=150` giả độ trễ, `?mockEmpty=1` hồ hết cá. */
+/** Dựng mock cho trình duyệt; `?mockError=SEAT_TAKEN` bật lỗi giả, `?mockPing=150` giả độ trễ, `?mockEmpty=1` hồ hết cá, `?mockFish=1` hiện bảng chọn loài để
+ * chỉ câu ra loài đó. */
 export function createMock(
   map: LakeMap,
   botCount?: number,
@@ -30,5 +31,6 @@ export function createMock(
   if (import.meta.env.DEV) (window as unknown as { __mockBackend: unknown }).__mockBackend = mock;
   mock.startRealtime();
   mountDevOverlay(mock, forcedError);
+  if (query.get('mockFish') === '1') mountFishPicker(mock);
   return mock;
 }

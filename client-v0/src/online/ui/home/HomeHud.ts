@@ -75,6 +75,12 @@ export interface HomeHudOptions {
   openDirect: (playerId: string) => void;
   /** Mở popup thông tin người chơi. */
   openPlayer: (playerId: string) => void;
+  /** Mua cần/skin ở Cửa hàng thành công (NPC cửa hàng nói câu cảm ơn). */
+  onShopPurchase?: () => void;
+  /** Bán cá thành công ở Cửa hàng. */
+  onShopSell?: () => void;
+  /** Đóng Cửa hàng; `traded` = lần mở đó có mua hoặc bán được món nào. */
+  onShopClose?: (traded: boolean) => void;
 }
 
 function el<K extends keyof HTMLElementTagNameMap>(
@@ -141,7 +147,13 @@ export class HomeHud {
   private readonly friendsDot = hiddenDot();
 
   constructor(private readonly options: HomeHudOptions) {
-    this.shop = new ShopPopup({ root: options.root, services: options.services });
+    this.shop = new ShopPopup({
+      root: options.root,
+      services: options.services,
+      onPurchase: options.onShopPurchase,
+      onSell: options.onShopSell,
+      onClose: options.onShopClose,
+    });
     this.profile = new ProfilePopup({ root: options.root, services: options.services });
     this.codex = new CodexPopup({ root: options.root, services: options.services });
     this.settings = new SettingsPopup({ root: options.root });
@@ -285,6 +297,18 @@ export class HomeHud {
     const bar = el('div', 'home-card__bar');
     bar.append(this.expFill);
     card.append(this.name, bar, this.expText, this.levelText);
+    // Bấm vào thẻ người chơi mở hồ sơ (Tài khoản) như ô "Hồ sơ" trong menu (yêu cầu 2026-11-21); cũng bấm được bằng phím.
+    card.setAttribute('role', 'button');
+    card.tabIndex = 0;
+    card.setAttribute('aria-label', 'Mở hồ sơ');
+    const openProfile = () => this.profile.open();
+    card.addEventListener('click', openProfile);
+    card.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openProfile();
+      }
+    });
     this.left.append(card);
   }
 
@@ -325,7 +349,8 @@ export class HomeHud {
     const next = Number(gold);
     const previous = this.shownGold;
     this.shownGold = next;
-    if (!Number.isFinite(next) || !Number.isFinite(previous) || next <= previous) {
+    // Cửa hàng đang mở thì xu bay về ô Gold trong cửa hàng (ShopPopup), ô Gold ngoài HUD chỉ đổi số.
+    if (this.shop.isOpen || !Number.isFinite(next) || !Number.isFinite(previous) || next <= previous) {
       this.gold.textContent = formatGold(gold);
       return;
     }

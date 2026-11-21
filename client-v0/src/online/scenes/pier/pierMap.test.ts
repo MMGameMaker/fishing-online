@@ -153,7 +153,7 @@ describe('map chơi được của pier', () => {
     expect(lake.npcs?.map((npc) => [npc.npcId, npc.skinId, npc.action])).toEqual([
       ['codex-octopus', 'npc_octopus', 'codex'],
       ['sell-fox', 'npc_fox', 'sellFish'],
-      ['rank-podium', 'npc_podium', 'leaderboard'],
+      ['rank-board', 'npc_board', 'leaderboard'],
     ]);
     for (const npc of lake.npcs ?? []) {
       expect(canStand(lake, npc.x, npc.y), npc.npcId).toBe(false);
@@ -190,7 +190,7 @@ describe('map chơi được của pier', () => {
       expect(p.y).toBeLessThanOrEqual(height - 80);
       expect(hidden(p.x, p.y)).toBe(false);
     }
-  });
+  }, 30_000); // duyệt hàng nghìn điểm × mọi object (cả bóng cây): chậm hơn 5 giây mặc định khi chạy cả bộ test
 
   it('mỗi ghế có chỗ đứng trong tầm ngồi và phao rơi xuống nước', () => {
     expect(lake.seats).toHaveLength(38);

@@ -10,9 +10,6 @@ const STAGGER_MS = 45;
 const COUNT_MS = 650;
 const COIN_PX = 34;
 
-const reduceMotion = (): boolean =>
-  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
-
 /** Đếm số Gold từ `from` lên `to` trên phần tử `target`. */
 function countUp(target: HTMLElement, from: number, to: number): void {
   const start = performance.now();
@@ -37,10 +34,13 @@ export function playGoldGain(
   to: number,
 ): void {
   const target = localRect(coinIcon);
-  if (reduceMotion() || target.width === 0) {
+  // Không bỏ qua khi máy bật "giảm chuyển động" (Windows tắt hiệu ứng hoạt cảnh làm hiệu ứng này biến mất, yêu cầu 2026-11-21).
+  if (target.width === 0) {
     amount.textContent = formatGold(String(to));
     return;
   }
+  // Bay về đích thì thu dần về đúng cỡ biểu tượng đồng xu ở đích.
+  const endScale = target.width / COIN_PX;
   const endX = target.left + target.width / 2 - COIN_PX / 2;
   const endY = target.top + target.height / 2 - COIN_PX / 2;
   const frame = frameSize();
@@ -67,7 +67,7 @@ export function playGoldGain(
           offset: 0.35,
           easing: 'cubic-bezier(0.55, 0, 0.9, 0.4)',
         },
-        { transform: `translate(${endX - startX}px, ${endY - startY}px) scale(0.8)`, opacity: 1 },
+        { transform: `translate(${endX - startX}px, ${endY - startY}px) scale(${endScale})`, opacity: 1 },
       ],
       { duration: FLY_MS, delay: i * STAGGER_MS, fill: 'both' },
     );
