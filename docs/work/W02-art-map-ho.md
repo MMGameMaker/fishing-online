@@ -972,3 +972,6 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 - Cá 3D nhẹ nhàng hơn: lên xuống ±5px (trước ±12), ngả ±2°, xoay trục dọc ±9° (trước ±20°), scale 0,97↔1,03, chu kỳ 5s (trước 3,6s). Chưa xem trong game.
 - Popup bán cá: cỡ cá theo diện tích cố định (~56.000px², giới hạn 380x230) thay vì vừa khung, để các loài to bằng nhau; diện tích phần cá thực tế 45-56 nghìn px² (trừ Cá Cơm ~36 nghìn vì quá dài, Cá Đuối ~38 nghìn vì ảnh có nhiều khoảng trống). Chưa xem trong game.
 - Đuôi vẫy SANG TRÁI-PHẢI (theo yêu cầu): đuôi tách thành canvas riêng (bảng `TAILS` ở swimFish.ts, 16 loài; cắt hết chiều cao từ chỗ đuôi bắt đầu để không sót mép) và co giãn ngang quanh gốc đuôi, scaleX 1,02 <-> 0,68, 0,85s (`.swim-fish__tail`). Không có ở Mực, Tôm Hùm, Cá Đuối, Cá Chình. Vây/miệng vẫn đứng yên. Đã xem 9 loài bằng trang tạm (đuôi co lại sạch, không bóng đôi); chưa xem chuyển động trong game.
+
+### 2026-11-21 — Chậm anim đi của người và bot (pier)
+- `CharacterView.applyAnimation`: trên pier (`hasHeadBubble`) anim `walk` chạy với `timeScale` 0,7 (12 → ~8,4 khung/giây) cho thân và cần, để chân không guồng nhanh hơn tốc độ di chuyển (90px/s); trang khác không đổi. Chỉnh hằng `WALK_ANIM_TIME_SCALE` nếu vẫn nhanh/chậm. Chưa xem trong game.

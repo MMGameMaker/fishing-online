@@ -80,6 +80,8 @@ const EMOTE_SCALE = 0.6;
 /** Emoji trong bong bóng trên đầu to lên 50% (feedback 2026-11-16); bong bóng ôm theo icon. */
 const HEAD_EMOTE_SCALE = EMOTE_SCALE * 1.5;
 /** Cạnh phần trong của bong bóng emoji (px map, chưa tính viền 3px mỗi cạnh). */
+/** Hệ số tốc độ anim đi trên pier (1 = theo file art, 12 khung/giây). */
+const WALK_ANIM_TIME_SCALE = 0.7;
 const EMOTE_BUBBLE_INNER_PX = 21;
 /** Bong bóng lời nói khi chat: hiện bao lâu, rộng tối đa, khoảng cách trên nhãn tên. */
 /** GD chốt 2026-11-13: bong bóng chat tồn tại 10 giây. */
@@ -829,6 +831,10 @@ export class CharacterView {
     this.body.play(animKey(this.skinId, bodyAnim, this.dir));
     this.drawSadFace();
     this.rod.play(animKey(this.rodId, this.anim, this.dir));
+    // pier.html (yêu cầu 2026-11-21): anim đi chậm lại để chân không guồng nhanh hơn tốc độ di chuyển ("đi như bay").
+    const speed = this.anim === 'walk' && hasHeadBubble(this.scene) ? WALK_ANIM_TIME_SCALE : 1;
+    this.body.anims.timeScale = speed;
+    this.rod.anims.timeScale = speed;
     this.syncOutline();
     // Art thật mang pivot chân trong frame (Phaser tự áp); sprite vẽ tạm neo đáy-giữa.
     for (const sprite of [this.body, this.rod]) {
