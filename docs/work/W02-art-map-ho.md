@@ -975,3 +975,4 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 
 ### 2026-11-21 — Chậm anim đi của người và bot (pier)
 - `CharacterView.applyAnimation`: trên pier (`hasHeadBubble`) anim `walk` chạy với `timeScale` 0,7 (12 → ~8,4 khung/giây) cho thân và cần, để chân không guồng nhanh hơn tốc độ di chuyển (90px/s); trang khác không đổi. Chỉnh hằng `WALK_ANIM_TIME_SCALE` nếu vẫn nhanh/chậm. Chưa xem trong game.
+- **Dời tượng bạch tuộc Bách Khoa Toàn Cá (2026-11-21, người dùng yêu cầu):** NPC `codex-octopus` và bóng `custom/octopus-statue-shadow` từ đầu cầu gỗ cạnh thùng hàng (772, 541) sang bãi cỏ đầu trái cây cầu ngang (430, 572): người dùng chỉnh sang trái rồi hạ cho chân tượng ngang gốc cây `lightTree1` (280, 465, by 572); bóng (406, 528), by 572. Trả ô chặn cũ (cột 95–97, hàng 66–67), chặn mới cột 52–54 hàng 70–71. Client + bot Server; xem trên mock: tượng đứng trên cỏ đầu trái cầu, đứng trước tượng bấm F được.
