@@ -1,3 +1,5 @@
+import { CELEBRATION_KINDS, CELEBRATION_NAMES } from '../entities/celebrations';
+import { EXPRESSION_KINDS, EXPRESSION_NAMES } from '../entities/faceExpression';
 import { animateIn, animateOut } from '../ui/kit/motion';
 import type { MockBackend } from './MockBackend';
 
@@ -103,7 +105,37 @@ export function mountFishPicker(mock: MockBackend): void {
       .__fishing;
     game?.services?.store?.dispatch({ type: 'session/gold', payload: String(total) });
   });
-  box.append(head, list, grant, gold, pick);
+  // Ba nút thử anim ăn mừng của nhân vật mình (nhảy mừng, xoay vòng, nhún nhảy).
+  const celebrate = CELEBRATION_KINDS.map((kind) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'mock-fish__celebrate';
+    button.textContent = CELEBRATION_NAMES[kind];
+    button.addEventListener('click', () => {
+      const game = (window as unknown as { __fishing?: { game?: { scene?: { getScenes: (active: boolean) => unknown[] } } } })
+        .__fishing?.game;
+      for (const scene of game?.scene?.getScenes(true) ?? []) {
+        (scene as { celebrateMe?: (kind: string) => boolean }).celebrateMe?.(kind);
+      }
+    });
+    return button;
+  });
+  // Hai nút thử biểu cảm mặt (chớp mắt, mắt cười) của nhân vật mình.
+  const expressions = EXPRESSION_KINDS.map((kind) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'mock-fish__celebrate';
+    button.textContent = EXPRESSION_NAMES[kind];
+    button.addEventListener('click', () => {
+      const game = (window as unknown as { __fishing?: { game?: { scene?: { getScenes: (active: boolean) => unknown[] } } } })
+        .__fishing?.game;
+      for (const scene of game?.scene?.getScenes(true) ?? []) {
+        (scene as { expressMe?: (kind: string) => boolean }).expressMe?.(kind);
+      }
+    });
+    return button;
+  });
+  box.append(head, list, grant, gold, pick, ...celebrate, ...expressions);
   document.body.append(box);
   refresh();
 

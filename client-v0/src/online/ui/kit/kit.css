@@ -271,6 +271,7 @@
 .mock-fish__item,
 .mock-fish__grant,
 .mock-fish__gold,
+.mock-fish__celebrate,
 .mock-fish__pick {
   display: block;
   box-sizing: border-box;
@@ -316,6 +317,12 @@
 .mock-fish__gold {
   color: #1a1a1a;
   background: #e0a82e;
+  border-width: 0 2px 2px;
+}
+
+.mock-fish__celebrate {
+  color: #fff;
+  background: #8a4fb8;
   border-width: 0 2px 2px;
 }
 

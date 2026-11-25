@@ -97,27 +97,8 @@ export function preloadCharacterArt(scene: Phaser.Scene): void {
   }
 }
 
-/**
- * Skin có hậu tố màu (`skin_02~brown`): tạo texture từ sheet bản trắng đã nạp bằng cách đổi 3 màu lông, chép khung và dữ liệu bake.
- * Chỉ tạo khi cần (mỗi texture ~4 MB), đồng bộ nên gọi trước khi dựng sprite. Không tạo được (chưa nạp gốc) thì để nguyên.
- */
-export function ensureColoredSkin(scene: Phaser.Scene, skinId: string): void {
-  if (scene.textures.exists(skinId)) return;
-  const { base, colorId } = parseSkinId(skinId);
-  if (colorId === WHITE_COLOR_ID || !scene.textures.exists(base)) return;
-  const source = scene.textures.get(base);
-  const image = source.getSourceImage() as CanvasImageSource & { width: number; height: number };
-  const canvas = document.createElement('canvas');
-  canvas.width = image.width;
-  canvas.height = image.height;
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return;
-  ctx.drawImage(image, 0, 0);
-  const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  recolorPixels(pixels.data, colorId);
-  ctx.putImageData(pixels, 0, 0);
-  const texture = scene.textures.addCanvas(skinId, canvas);
-  if (!texture) return;
+/** Chép khung (kèm điểm neo ở chân) và dữ liệu bake từ texture nguồn sang texture canvas mới cùng bố cục. */
+function copyAtlasFrames(source: Phaser.Textures.Texture, texture: Phaser.Textures.CanvasTexture): void {
   for (const name of source.getFrameNames()) {
     const frame = source.get(name);
     const copy = texture.add(name, 0, frame.cutX, frame.cutY, frame.cutWidth, frame.cutHeight);
@@ -129,6 +110,71 @@ export function ensureColoredSkin(scene: Phaser.Scene, skinId: string): void {
     }
   }
   texture.customData = source.customData;
+}
+
+/** Vẽ sheet nguồn ra canvas, cho `edit` sửa điểm ảnh rồi đăng ký thành texture `key` (chép khung và dữ liệu bake). */
+function addEditedTexture(
+  scene: Phaser.Scene,
+  source: Phaser.Textures.Texture,
+  key: string,
+  edit: (pixels: Uint8ClampedArray) => void,
+): boolean {
+  const image = source.getSourceImage() as CanvasImageSource & { width: number; height: number };
+  const canvas = document.createElement('canvas');
+  canvas.width = image.width;
+  canvas.height = image.height;
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return false;
+  ctx.drawImage(image, 0, 0);
+  const pixels = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  edit(pixels.data);
+  ctx.putImageData(pixels, 0, 0);
+  const texture = scene.textures.addCanvas(key, canvas);
+  if (!texture) return false;
+  copyAtlasFrames(source, texture);
+  return true;
+}
+
+/**
+ * Skin có hậu tố màu (`skin_02~brown`): tạo texture từ sheet bản trắng đã nạp bằng cách đổi 3 màu lông, chép khung và dữ liệu bake.
+ * Chỉ tạo khi cần (mỗi texture ~4 MB), đồng bộ nên gọi trước khi dựng sprite. Không tạo được (chưa nạp gốc) thì để nguyên.
+ */
+export function ensureColoredSkin(scene: Phaser.Scene, skinId: string): void {
+  if (scene.textures.exists(skinId)) return;
+  const { base, colorId } = parseSkinId(skinId);
+  if (colorId === WHITE_COLOR_ID || !scene.textures.exists(base)) return;
+  addEditedTexture(scene, scene.textures.get(base), skinId, (pixels) => recolorPixels(pixels, colorId));
+}
+
+/** Bóng đổ in sẵn trong sheet là các điểm ảnh bán trong suốt (alpha 191); thân là alpha 255. */
+const SHADOW_ALPHA = 191;
+
+export interface ShadowSplit {
+  /** Texture thân đã bỏ bóng. */
+  bodyKey: string;
+  /** Texture chỉ có bóng. */
+  shadowKey: string;
+}
+
+/**
+ * Tách bóng khỏi thân cho anim ăn mừng (nhảy lên mà bóng vẫn nằm dưới đất). Tạo lười, lần đầu mỗi skin; texture gốc không đổi.
+ * Trả null nếu texture skin chưa có (sprite vẽ tạm) hay không tạo được.
+ */
+export function ensureShadowSplit(scene: Phaser.Scene, skinId: string): ShadowSplit | null {
+  const bodyKey = `${skinId}#noshadow`;
+  const shadowKey = `${skinId}#shadow`;
+  if (scene.textures.exists(bodyKey) && scene.textures.exists(shadowKey)) return { bodyKey, shadowKey };
+  if (!scene.textures.exists(skinId)) return null;
+  const source = scene.textures.get(skinId);
+  if (!source.customData || (source.customData as BakedCharacterData).animations === undefined) return null;
+  const ok =
+    addEditedTexture(scene, source, bodyKey, (pixels) => {
+      for (let i = 3; i < pixels.length; i += 4) if (pixels[i] === SHADOW_ALPHA) pixels[i] = 0;
+    }) &&
+    addEditedTexture(scene, source, shadowKey, (pixels) => {
+      for (let i = 3; i < pixels.length; i += 4) if (pixels[i] !== SHADOW_ALPHA) pixels[i] = 0;
+    });
+  return ok ? { bodyKey, shadowKey } : null;
 }
 
 export function bakedData(scene: Phaser.Scene, texture: string): BakedCharacterData {

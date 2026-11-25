@@ -4,7 +4,7 @@ import type { Direction, OutfitView, WardrobeSlot } from '../net/contract';
 import { EMOTE_TEXTURE, emojiById, emoteAnimKey } from '../social/emojis';
 import { fishSpeciesOf } from '../social/fishEmoji';
 import { RARITY_COLORS } from '../ui/kit/format';
-import { bakedData } from './characterArt';
+import { bakedData, ensureShadowSplit, type ShadowSplit } from './characterArt';
 import { fishTextureKey, loadFishTexture } from './fishTexture';
 import {
   HEAD_BUBBLE_ART_SCALE,
@@ -14,6 +14,8 @@ import {
 } from './HeadBubble';
 import { smoothText, textResolution } from './smoothText';
 import { loadWardrobeArt } from './wardrobeArt';
+import { celebrationPose, type CelebrationKind } from './celebrations';
+import { EXPRESSION_MS, expressionPixels, type ExpressionKind } from './faceExpression';
 import {
   titleLabel,
   titleTier,
@@ -204,6 +206,22 @@ export class CharacterView {
   /** Viền trắng (tạo khi cần lần đầu). */
   private outline: Phaser.GameObjects.Sprite[] | null = null;
   private outlined = false;
+  /** Biểu cảm mặt đang hiện (chớp mắt, mắt cười): vài điểm ảnh vẽ đè lên mặt khi đứng yên nhìn thẳng (faceExpression.ts). */
+  private expression: {
+    kind: ExpressionKind;
+    startMs: number;
+    endMs: number;
+    graphics: Phaser.GameObjects.Graphics;
+    fur: number;
+  } | null = null;
+  /** Anim ăn mừng đang chạy (celebrations.ts): thân dùng khung idle + dịch/co giãn, bóng ở yên dưới đất. */
+  private celebration: {
+    kind: CelebrationKind;
+    startMs: number;
+    baseDir: Direction;
+    split: ShadowSplit;
+    shadow: Phaser.GameObjects.Sprite;
+  } | null = null;
 
   constructor(
     private readonly scene: Phaser.Scene,
@@ -473,13 +491,128 @@ export class CharacterView {
   play(anim: CharacterAnim): void {
     const shown = this.seated && anim === 'idle' ? 'sit' : anim;
     if (shown === this.anim) return;
+    // Đi, câu... là kết thúc ăn mừng (idle/ngồi thì để chạy nốt).
+    if (this.celebration && shown !== 'idle') this.endCelebration();
     this.anim = shown;
+    this.applyAnimation();
+  }
+
+  /**
+   * Biểu cảm mặt trong thời gian ngắn (faceExpression.ts). Chỉ khi đứng yên nhìn thẳng, không ngồi, không ăn mừng; trả true nếu bắt đầu.
+   * Lớp vẽ nằm ngay trên thân và DƯỚI trang phục: mũ, mũ trùm, áo cao cổ, bộ hóa trang che tới đâu thì biểu cảm bị che tới đó.
+   * Bị gỡ ngay khi nhân vật đi, quay hướng hoặc đổi skin.
+   */
+  setExpression(kind: ExpressionKind): boolean {
+    this.endExpression();
+    if (!this.canShowExpression()) return false;
+    const graphics = this.scene.add.graphics();
+    this.container.addAt(graphics, this.container.getIndex(this.body) + 1);
+    const now = this.scene.time.now;
+    this.expression = { kind, startMs: now, endMs: now + EXPRESSION_MS[kind], graphics, fur: this.foreheadColor() };
+    this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.tickExpression, this);
+    this.tickExpression();
+    return true;
+  }
+
+  private canShowExpression(): boolean {
+    return !this.celebration && !this.seated && this.anim === 'idle' && this.dir === 'down';
+  }
+
+  /** Màu lông trán lấy từ thân (khớp mọi loài và màu) để che mắt gốc; không lấy được thì trắng kem. */
+  private foreheadColor(): number {
+    const pixel = this.scene.textures.getPixel(60, 47, this.skinId, 'idle_down_0');
+    return pixel && pixel.alpha === 255 ? (pixel.red << 16) | (pixel.green << 8) | pixel.blue : 0xf9f7e4;
+  }
+
+  private tickExpression(): void {
+    const e = this.expression;
+    if (!e) return;
+    if (this.scene.time.now >= e.endMs || !this.canShowExpression()) {
+      this.endExpression();
+      return;
+    }
+    const colors = { fur: e.fur, dark: 0x7d593a, blush: 0xf2a0a0, red: 0xe0405a, tear: 0x6ab0f0, white: 0xffffff };
+    e.graphics.clear();
+    // Khung bake 120×140 có chân ở (60, 76): đổi sang toạ độ so với chân.
+    for (const px of expressionPixels(e.kind, this.skinId, this.scene.time.now - e.startMs)) {
+      e.graphics.fillStyle(colors[px.color]);
+      e.graphics.fillRect(px.x - 60, px.y - 76, 1, 1);
+    }
+  }
+
+  private endExpression(): void {
+    const e = this.expression;
+    if (!e) return;
+    this.expression = null;
+    this.scene.events.off(Phaser.Scenes.Events.UPDATE, this.tickExpression, this);
+    e.graphics.destroy();
+  }
+
+  get isCelebrating(): boolean {
+    return this.celebration !== null;
+  }
+
+  /**
+   * Ăn mừng: nhảy mừng, xoay vòng hoặc nhún nhảy. Chỉ khi đang đứng yên (idle, không ngồi) và chưa ăn mừng; trả true nếu bắt đầu.
+   * Bóng đổ tách khỏi thân (ensureShadowSplit) nên nhảy lên mà bóng vẫn nằm dưới đất.
+   */
+  celebrate(kind: CelebrationKind): boolean {
+    if (this.celebration || this.seated || this.anim !== 'idle') return false;
+    const split = ensureShadowSplit(this.scene, this.skinId);
+    if (!split) return false;
+    const shadow = this.scene.add.sprite(0, 0, split.shadowKey, frameName('idle', this.dir, 0));
+    if (!shadow.frame.customPivot) shadow.setOrigin(0.5, 1);
+    this.container.addAt(shadow, 0);
+    for (const sprite of this.poseSprites()) sprite.anims.stop();
+    this.body.setTexture(split.bodyKey);
+    this.celebration = { kind, startMs: this.scene.time.now, baseDir: this.dir, split, shadow };
+    this.scene.events.on(Phaser.Scenes.Events.UPDATE, this.tickCelebration, this);
+    this.tickCelebration();
+    return true;
+  }
+
+  /** Thân, trang phục đã nạp và cần: các sprite cùng dịch/co giãn khi ăn mừng. */
+  private poseSprites(): Phaser.GameObjects.Sprite[] {
+    const layers = WARDROBE_ORDER.map((slot) => this.wardrobe[slot]).filter((layer) => layer.ready && layer.id !== null);
+    return [this.body, ...layers.map((layer) => layer.sprite), this.rod];
+  }
+
+  private tickCelebration(): void {
+    const c = this.celebration;
+    if (!c) return;
+    const pose = celebrationPose(c.kind, this.scene.time.now - c.startMs, c.baseDir);
+    if (pose.done) {
+      this.endCelebration();
+      return;
+    }
+    const frame = frameName('idle', pose.dir, 0);
+    for (const sprite of this.poseSprites()) {
+      if (this.scene.textures.get(sprite.texture.key).has(frame)) sprite.setFrame(frame);
+      sprite.setPosition(pose.dx, pose.dy).setScale(pose.sx, pose.sy);
+    }
+    this.sadFace.setPosition(pose.dx, pose.dy);
+    c.shadow.setFrame(frame);
+    // Bóng ở dưới đất, theo ngang và thu nhỏ khi thân lên cao.
+    c.shadow.setPosition(pose.dx, 0).setScale(Math.max(0.6, 1 + pose.dy * 0.02));
+  }
+
+  private endCelebration(): void {
+    const c = this.celebration;
+    if (!c) return;
+    this.celebration = null;
+    this.scene.events.off(Phaser.Scenes.Events.UPDATE, this.tickCelebration, this);
+    c.shadow.destroy();
+    for (const sprite of [this.body, this.rod, ...WARDROBE_ORDER.map((slot) => this.wardrobe[slot].sprite)]) {
+      sprite.setPosition(0, 0).setScale(1, 1);
+    }
+    this.sadFace.setPosition(0, 0);
     this.applyAnimation();
   }
 
   /** Ngồi xuống/đứng dậy khỏi ghế; animation câu cá của art thật đã ở tư thế ngồi. */
   setSeated(seated: boolean): void {
     if (seated === this.seated) return;
+    if (seated) this.endCelebration();
     this.seated = seated;
     if (seated && this.anim === 'idle') this.play('idle');
     else if (!seated && this.anim === 'sit') {
@@ -491,6 +624,8 @@ export class CharacterView {
 
   setSkin(skinId: string): void {
     if (skinId === this.skinId) return;
+    this.endCelebration();
+    this.endExpression();
     this.skinId = skinId;
     ensureSkin(this.scene, skinId);
     this.placeHeadItems();
@@ -676,6 +811,8 @@ export class CharacterView {
   }
 
   destroy(): void {
+    this.scene.events.off(Phaser.Scenes.Events.UPDATE, this.tickCelebration, this);
+    this.scene.events.off(Phaser.Scenes.Events.UPDATE, this.tickExpression, this);
     this.bubbleTimer?.remove();
     if (this.headBubble) this.scene.tweens.killTweensOf(this.headBubble);
     this.scene.tweens.killTweensOf(this.iconSlot.list);
@@ -871,6 +1008,8 @@ export class CharacterView {
   }
 
   private applyAnimation(): void {
+    // Đang ăn mừng thì anim thường tạm dừng; hết ăn mừng sẽ gọi lại.
+    if (this.celebration) return;
     // Cá cắn/kéo cá: thân giữ tư thế ngồi yên, chỉ lớp cần (có tay) rung.
     const bodyAnim = BODY_STILL_ANIMS.has(this.anim) ? 'sit' : this.anim;
     this.body.play(animKey(this.skinId, bodyAnim, this.dir));

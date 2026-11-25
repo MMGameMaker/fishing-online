@@ -19,6 +19,8 @@ import { PlayerInfoPopup } from '../../ui/friends/PlayerInfoPopup';
 import { ActionButton } from './ActionButton';
 import { Joystick } from './Joystick';
 import { getLakeMapArt } from './mapArt';
+import type { CelebrationKind } from '../../entities/celebrations';
+import type { ExpressionKind } from '../../entities/faceExpression';
 import { MoveSender, RemoteMotion, directionFromVector } from './movement';
 import {
   LAKE_EMPTY_BANNER,
@@ -1028,6 +1030,16 @@ export class LakeScene extends Phaser.Scene {
     const x = ((this.me.x - cam.midPoint.x) * cam.zoom + cam.width / 2 + cam.x) * toUi;
     const y = ((this.me.y - cam.midPoint.y) * cam.zoom + cam.height / 2 + cam.y) * toUi;
     this.flow.setButtonAnchor(x, y);
+  }
+
+  /** Ăn mừng cho nhân vật của mình (công cụ dev thử anim; chưa nối vào tình huống trong game). Trả true nếu bắt đầu. */
+  /** Biểu cảm mặt cho nhân vật của mình (công cụ dev thử; chưa nối vào tình huống trong game). */
+  expressMe(kind: ExpressionKind): boolean {
+    return this.me.setExpression(kind);
+  }
+
+  celebrateMe(kind: CelebrationKind): boolean {
+    return this.me.celebrate(kind);
   }
 
   update(_time: number, delta: number): void {
