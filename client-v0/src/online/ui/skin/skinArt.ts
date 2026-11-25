@@ -1,9 +1,9 @@
 // Art skin dùng chung cho Túi đồ, cửa hàng và khung Ngoại hình: chân dung thỏ cắt từ sheet đã bake
 // (tools/bake_characters.py, tools/bake_outfit_skins.mjs) và danh sách skin từ Server.
 import type { ApiClient } from '../../net/ApiClient';
+import { loadSkinFrames, loadSkinImage } from '../../entities/skinSheet';
 import type { SkinsResponse } from '../../net/contract';
 
-const SKIN_DIR = '/assets/characters/';
 
 const portraits = new Map<string, Promise<string | null>>();
 
@@ -12,16 +12,10 @@ export function skinPortrait(skinId: string): Promise<string | null> {
   let portrait = portraits.get(skinId);
   if (!portrait) {
     portrait = (async () => {
-      const response = await fetch(`${SKIN_DIR}${skinId}.json`);
-      if (!response.ok) return null;
-      const data = (await response.json()) as {
-        frames: Record<string, { frame: { x: number; y: number; w: number; h: number } }>;
-      };
-      const frame = data.frames['idle_down_0']?.frame;
-      if (!frame) return null;
-      const image = new Image();
-      image.src = `${SKIN_DIR}${skinId}.png`;
-      await image.decode();
+      const data = await loadSkinFrames(skinId);
+      const frame = data?.frames['idle_down_0']?.frame;
+      const image = await loadSkinImage(skinId);
+      if (!frame || !image) return null;
       const canvas = document.createElement('canvas');
       canvas.width = frame.w;
       canvas.height = frame.h;
@@ -109,16 +103,10 @@ function bodyCrop(skinId: string, box: WardrobeThumbs['box']): Promise<HTMLCanva
   let crop = bodyCrops.get(skinId);
   if (!crop) {
     crop = (async () => {
-      const response = await fetch(`${SKIN_DIR}${skinId}.json`);
-      if (!response.ok) return null;
-      const data = (await response.json()) as {
-        frames: Record<string, { frame: { x: number; y: number; w: number; h: number } }>;
-      };
-      const frame = data.frames['idle_down_0']?.frame;
-      if (!frame) return null;
-      const image = new Image();
-      image.src = `${SKIN_DIR}${skinId}.png`;
-      await image.decode();
+      const data = await loadSkinFrames(skinId);
+      const frame = data?.frames['idle_down_0']?.frame;
+      const image = await loadSkinImage(skinId);
+      if (!frame || !image) return null;
       const canvas = document.createElement('canvas');
       canvas.width = box.w;
       canvas.height = box.h;

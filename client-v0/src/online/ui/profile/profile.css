@@ -32,6 +32,20 @@
   height: 121px;
 }
 
+.profile__face-wrap {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 96px;
+}
+
+.profile__face {
+  flex: none;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  transform: scale(4);
+}
+
 .profile__avatar-img {
   width: 96px;
   height: 80px;

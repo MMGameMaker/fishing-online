@@ -15,6 +15,35 @@ namespace FishingOnline.Api.Modules.Social;
 
 public sealed record SkinOption(string SkinId, string Name, string Unlock);
 
+/// <summary>
+/// Skin có màu (yêu cầu 2026-11-25): id dạng <c>loài_trắng~màu</c>, ví dụ <c>skin_02~brown</c>; Client đổi 3 màu lông lúc chạy.
+/// Danh sách loài và màu khớp client-v0/src/online/entities/skinColor.ts (SKIN_SPECIES, SKIN_COLORS).
+/// </summary>
+public static class SkinColors
+{
+    public const char Separator = '~';
+
+    public static readonly IReadOnlySet<string> WhiteBases = new HashSet<string>
+    {
+        "skin_02", "skin_bot_cat_white", "skin_bot_fox_arctic", "skin_bot_bear_polar", "skin_bot_duck_white",
+        "skin_bot_beaver_white", "skin_bot_rat_white", "skin_bot_shiba_white", "skin_bot_turtle_white",
+        "skin_bot_harlequin_white", "skin_bot_red_bunny_white",
+    };
+
+    /// <summary>Màu đổi được (trắng là id gốc, không có hậu tố).</summary>
+    public static readonly IReadOnlySet<string> ColorIds = new HashSet<string>
+    {
+        "brown", "beige", "peach", "gray", "silver", "orange", "cream", "purple", "green", "blue",
+    };
+
+    /// <summary>Id <c>loài~màu</c> hợp lệ (loài thuộc <see cref="WhiteBases"/>, màu thuộc <see cref="ColorIds"/>).</summary>
+    public static bool IsValidColored(string skinId)
+    {
+        var at = skinId.IndexOf(Separator);
+        return at > 0 && WhiteBases.Contains(skinId[..at]) && ColorIds.Contains(skinId[(at + 1)..]);
+    }
+}
+
 /// <summary>Giá trị của <see cref="SkinOption.Unlock"/>: free dùng ngay, shop phải mua bằng offer cùng itemId trong gameplay-config.</summary>
 public static class SkinUnlock
 {
@@ -233,11 +262,14 @@ public sealed class SocialService(
 
     public async Task<SelectSkinResponse> SelectSkinAsync(Guid playerId, string skinId, CancellationToken ct)
     {
-        var option = Settings.Skins.SingleOrDefault(skin => skin.SkinId == skinId) ?? throw new GameException(ErrorCatalog.ValidationFailed);
+        // Skin có màu thì không cần có trong danh sách; còn lại phải có trong cấu hình.
+        var coloredSkin = SkinColors.IsValidColored(skinId);
+        var option = Settings.Skins.SingleOrDefault(skin => skin.SkinId == skinId);
+        if (option is null && !coloredSkin) throw new GameException(ErrorCatalog.ValidationFailed);
         await using (var scope = scopes.CreateAsyncScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<GameDbContext>();
-            if (option.Unlock == SkinUnlock.Shop
+            if (option?.Unlock == SkinUnlock.Shop
                 && !await db.Set<SkinOwnedRow>().AsNoTracking().AnyAsync(row => row.PlayerId == playerId && row.SkinId == skinId, ct))
                 throw new GameException("SKIN_NOT_OWNED");
             await db.Players.Where(row => row.Id == playerId).ExecuteUpdateAsync(setters => setters

@@ -20,6 +20,7 @@ import { showError, showToast } from '../kit/components';
 import { formatGold } from '../kit/format';
 import { animateIn, animateOut } from '../kit/motion';
 import { SkinPopup } from '../skin/SkinPopup';
+import { faceElement } from '../../social/skinFace';
 import { profileArt } from './profileArt';
 import {
   BIO_MAX,
@@ -81,7 +82,10 @@ export class ProfilePopup {
   private nameEl = el('div', 'profile__name');
   private levelEl = el('div', 'profile__level');
   private expEl = el('div', 'profile__exp');
-  private uidEl = el('div', 'profile__uid');
+  /** Mặt nhân vật theo skin đang chọn (cùng nguồn với thẻ người chơi ở góc trái). */
+  private readonly face = el('div', 'profile__face-wrap');
+  private faceSkin = '';
+  private readonly uidEl = el('div', 'profile__uid');
   private titleEl = el('div', 'profile__title');
   private bioEl = el('div', 'profile__bio');
   private list = el('div', 'profile__ach');
@@ -106,7 +110,7 @@ export class ProfilePopup {
     close.addEventListener('click', () => this.close());
 
     const avatar = el('div', 'profile__avatar');
-    avatar.append(img(profileArt('avatar'), 'profile__avatar-img'));
+    avatar.append(this.face);
 
     panel.append(
       img(UI('Infomation/Frame.png'), 'shop__art'),
@@ -312,6 +316,11 @@ export class ProfilePopup {
     const { session, catalog } = this.options.services.store.getState();
     const profile: PlayerProfile | null = session.profile;
     this.nameEl.textContent = profile?.displayName ?? 'Người chơi';
+    const skinId = profile?.selectedSkinId ?? 'skin_01';
+    if (skinId !== this.faceSkin) {
+      this.faceSkin = skinId;
+      this.face.replaceChildren(faceElement(skinId, 'profile__face', true));
+    }
     this.uidEl.textContent = `UID: ${uidFromPlayerId(profile?.playerId ?? '')}`;
     const level = profile?.level ?? 1;
     this.levelEl.textContent = `Lv.${level}`;

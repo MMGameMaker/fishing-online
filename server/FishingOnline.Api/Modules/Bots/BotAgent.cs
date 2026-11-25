@@ -382,14 +382,22 @@ public sealed class BotAgent(Guid playerId, string displayName, string skinId, s
         var windowStartX = x;
         var windowStartY = y;
         var windowMs = 0;
+        // Quãng đường mỗi bước tính theo thời gian thật đã trôi (Task.Delay(100) thực tế 103-115 ms): bot đi đúng tốc độ đặt và đều (2026-11-25).
+        var clock = System.Diagnostics.Stopwatch.StartNew();
+        var lastStepAt = clock.Elapsed.TotalMilliseconds;
+        var firstStep = true;
         while (elapsed < 40000)
         {
             ct.ThrowIfCancellationRequested();
+            var nowMs = clock.Elapsed.TotalMilliseconds;
+            var stepMs = firstStep ? StepMs : Math.Clamp((nowMs - lastStepAt) * Math.Max(1.0, deps.TimeScale), 1, StepMs * 3);
+            firstStep = false;
+            lastStepAt = nowMs;
             var dx = tx - x;
             var dy = ty - y;
             var distance = Math.Sqrt(dx * dx + dy * dy);
             if (distance < 3) return new Leg(elapsed, false);
-            var step = Math.Min(distance, speed * StepMs / 1000.0);
+            var step = Math.Min(distance, speed * stepMs / 1000.0);
             var (nextX, nextY) = deps.Map.StepMove(x, y, dx / distance * step, dy / distance * step);
             if (nextX != x || nextY != y)
             {

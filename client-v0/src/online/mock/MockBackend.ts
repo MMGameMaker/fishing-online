@@ -63,6 +63,7 @@ import {
   type Random,
 } from './rules';
 import { MOCK_SKINS } from './skinCatalog';
+import { SKIN_SPECIES, skinColorOf } from '../entities/skinColor';
 import { TOP_UP_PACKS } from '../ui/shop/topUpPacks';
 import { BIO_MAX, TITLES } from '../ui/profile/profileModel';
 import {
@@ -219,6 +220,17 @@ interface IdempotentReceipt {
   body: string;
 }
 
+/** Skin hợp lệ trong mock: có trong catalog, hoặc `loài trắng~màu` với loài và màu có thật. */
+function isKnownSkin(skinId: string): boolean {
+  if (MOCK_SKINS.some((skin) => skin.skinId === skinId)) return true;
+  const at = skinId.indexOf('~');
+  if (at < 0) return false;
+  const base = skinId.slice(0, at);
+  return (
+    SKIN_SPECIES.some((species) => species.base === base) && skinColorOf(skinId.slice(at + 1)) !== undefined
+  );
+}
+
 export class MockBackend {
   readonly fetch: FetchLike = (input, init) => this.handleHttp(input, init);
 
@@ -310,7 +322,7 @@ export class MockBackend {
         const saved = JSON.parse(globalThis.localStorage?.getItem(CHARACTER_STORAGE_KEY) ?? 'null') as {
           skinId?: unknown;
         } | null;
-        if (typeof saved?.skinId === 'string' && MOCK_SKINS.some((skin) => skin.skinId === saved.skinId)) {
+        if (typeof saved?.skinId === 'string' && isKnownSkin(saved.skinId)) {
           this.selectedSkinId = saved.skinId;
           this.characterChosen = true;
         }
@@ -1951,9 +1963,10 @@ export class MockBackend {
   }
 
   private selectSkin(skinId: string): SelectSkinResponse {
+    // Skin có màu (`loài trắng~màu`) hợp lệ khi loài thuộc danh sách và màu có trong bảng; còn lại phải có trong catalog.
     const skin = MOCK_SKINS.find((s) => s.skinId === skinId);
-    if (!skin) throw new CommandError('VALIDATION_FAILED');
-    if (skin.unlock === 'shop' && !this.skinsOwned.has(skinId))
+    if (!isKnownSkin(skinId)) throw new CommandError('VALIDATION_FAILED');
+    if (skin?.unlock === 'shop' && !this.skinsOwned.has(skinId))
       throw new CommandError('SKIN_NOT_OWNED');
     this.selectedSkinId = skinId;
     this.characterChosen = true;

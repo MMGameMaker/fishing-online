@@ -17,6 +17,7 @@ import { ProfilePopup } from '../profile/ProfilePopup';
 import { FriendsPopup } from '../friends/FriendsPopup';
 import { COIN_ART } from '../coinArt';
 import { ShopPopup } from '../shop/ShopPopup';
+import { faceElement } from '../../social/skinFace';
 import { playGoldGain } from './goldFx';
 import { expText, levelProgress } from './levelProgress';
 
@@ -116,6 +117,9 @@ export class HomeHud {
   private readonly name = el('div', 'home-card__name');
   private readonly expFill = el('div', 'home-card__exp-fill');
   private readonly expText = el('div', 'home-card__exp');
+  /** Ô chân dung trên thẻ người chơi: che hình thỏ in sẵn trong art, vẽ mặt theo skin đang chọn (đồng bộ với popup Tài khoản). */
+  private readonly portrait = el('div', 'home-card__portrait');
+  private portraitSkin = '';
   private readonly levelText = el('div', 'home-card__level');
   private readonly chip = button('home-ticket', 'Vé câu cá');
   private readonly chipTime = el('span', 'home-ticket__time');
@@ -296,7 +300,7 @@ export class HomeHud {
     card.append(img(asset('User Card.png'), 'home-card__art'));
     const bar = el('div', 'home-card__bar');
     bar.append(this.expFill);
-    card.append(this.name, bar, this.expText, this.levelText);
+    card.append(this.portrait, this.name, bar, this.expText, this.levelText);
     // Bấm vào thẻ người chơi mở hồ sơ (Tài khoản) như ô "Hồ sơ" trong menu (yêu cầu 2026-11-21); cũng bấm được bằng phím.
     card.setAttribute('role', 'button');
     card.tabIndex = 0;
@@ -469,6 +473,11 @@ export class HomeHud {
     this.expFill.style.width = `${Math.round(progress.ratio * 1000) / 10}%`;
     this.expText.textContent = catalog ? expText(progress) : `EXP ${profile?.exp ?? 0}`;
     this.levelText.textContent = `Lv. ${level}`;
+    const skinId = profile?.selectedSkinId ?? 'skin_01';
+    if (skinId !== this.portraitSkin) {
+      this.portraitSkin = skinId;
+      this.portrait.replaceChildren(faceElement(skinId, 'home-card__face', true));
+    }
   }
 
   private async reloadProfile(): Promise<void> {

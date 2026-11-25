@@ -81,6 +81,26 @@
   inset: 0;
 }
 
+.home-card__portrait {
+  /* Ô chân dung trong User Card.png đã xoá thỏ in sẵn (x 24..111, y 28..111; dải bóng trên y 24..27 giữ nguyên), mặt nhân vật đặt lên trên. */
+  position: absolute;
+  top: 28px;
+  left: 24px;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 84px;
+  overflow: hidden;
+}
+
+.home-card__face {
+  flex: none;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  /* Dịch (-2px, -3px) để mặt nằm giữa cả khung chân dung (viền trái dày hơn viền phải) chứ không chỉ giữa ô nâu (yêu cầu 2026-11-25). */
+  transform: translate(-2px, 0) scale(3.5);
+}
+
 .home-card__name {
   position: absolute;
   top: 16px;

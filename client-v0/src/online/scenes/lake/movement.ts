@@ -2,7 +2,6 @@
 import type { Direction } from '../../net/contract';
 
 export const MOVE_SEND_INTERVAL_MS = 100;
-const REMOTE_LERP_MS = 100;
 const REMOTE_WALK_HOLD_MS = 150;
 
 export function directionFromVector(dx: number, dy: number, fallback: Direction): Direction {
@@ -39,38 +38,67 @@ export class MoveSender {
   }
 }
 
-/** Nội suy người chơi khác tới vị trí mới trong 100 ms. */
+/**
+ * Nội suy người chơi khác bằng bộ đệm: hiển thị chậm hơn gói mới nhận RENDER_DELAY_MS và nội suy giữa hai gói liền nhau.
+ * Server gửi Move mỗi ~100-115 ms (Task.Delay lệch, máy bận còn lệch hơn); nội suy cố định 100 ms thì gói trễ làm nhân vật
+ * đứng khựng rồi chạy tiếp (đi giật). Trễ thêm một nhịp thì luôn có đủ hai điểm để trượt đều (2026-11-25, bot đi giật).
+ */
+const RENDER_DELAY_MS = 150;
+/** Nghỉ lâu hơn mức này rồi mới có gói mới thì coi là bắt đầu đi từ đứng yên. */
+const REST_GAP_MS = 250;
+/** Nhịp gửi danh nghĩa, dùng làm độ dài đoạn trượt đầu tiên khi bắt đầu đi. */
+const NOMINAL_STEP_MS = 100;
+/** Nhảy xa hơn mức này (đặt vào ghế, dịch chuyển) thì hiện ngay, không trượt. */
+const TELEPORT_PX = 160;
+
+interface MotionPoint {
+  t: number;
+  x: number;
+  y: number;
+}
+
 export class RemoteMotion {
-  private fromX: number;
-  private fromY: number;
-  private toX: number;
-  private toY: number;
-  private startMs = Number.NEGATIVE_INFINITY;
+  private points: MotionPoint[];
+  private lastArrivalMs = Number.NEGATIVE_INFINITY;
 
   constructor(x: number, y: number) {
-    this.fromX = x;
-    this.fromY = y;
-    this.toX = x;
-    this.toY = y;
+    this.points = [{ t: Number.NEGATIVE_INFINITY, x, y }];
   }
 
   setTarget(x: number, y: number, nowMs: number): void {
-    if (x === this.toX && y === this.toY) return;
-    const current = this.sample(nowMs);
-    this.fromX = current.x;
-    this.fromY = current.y;
-    this.toX = x;
-    this.toY = y;
-    this.startMs = nowMs;
+    const last = this.points[this.points.length - 1]!;
+    if (x === last.x && y === last.y) return;
+    if (Math.hypot(x - last.x, y - last.y) > TELEPORT_PX) {
+      // Nhảy xa: hiện ngay tại điểm mới.
+      this.points = [{ t: nowMs - RENDER_DELAY_MS - 1, x, y }];
+    } else {
+      if (nowMs - last.t > REST_GAP_MS) {
+        // Đang đứng yên rồi mới đi: đoạn trượt đầu bắt đầu NOMINAL_STEP_MS trước gói này.
+        this.points = [{ t: nowMs - NOMINAL_STEP_MS, x: last.x, y: last.y }];
+      }
+      this.points.push({ t: nowMs, x, y });
+    }
+    this.lastArrivalMs = nowMs;
   }
 
   sample(nowMs: number): { x: number; y: number; moving: boolean } {
-    const elapsed = nowMs - this.startMs;
-    const progress = Math.min(1, Math.max(0, elapsed / REMOTE_LERP_MS));
+    const renderMs = nowMs - RENDER_DELAY_MS;
+    const points = this.points;
+    // Bỏ điểm đã qua, chỉ giữ điểm ngay trước thời điểm hiển thị.
+    while (points.length > 2 && points[1]!.t <= renderMs) points.shift();
+    const moving = nowMs - this.lastArrivalMs < RENDER_DELAY_MS + REMOTE_WALK_HOLD_MS;
+    const from = points[0]!;
+    const to = points[1];
+    if (!to || renderMs >= to.t) {
+      const end = to ?? from;
+      return { x: end.x, y: end.y, moving };
+    }
+    if (renderMs <= from.t) return { x: from.x, y: from.y, moving };
+    const progress = (renderMs - from.t) / (to.t - from.t);
     return {
-      x: this.fromX + (this.toX - this.fromX) * progress,
-      y: this.fromY + (this.toY - this.fromY) * progress,
-      moving: elapsed < REMOTE_LERP_MS + REMOTE_WALK_HOLD_MS,
+      x: from.x + (to.x - from.x) * progress,
+      y: from.y + (to.y - from.y) * progress,
+      moving,
     };
   }
 }

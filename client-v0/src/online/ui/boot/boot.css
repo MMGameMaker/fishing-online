@@ -278,6 +278,24 @@
   color: #4a2a14;
   text-align: center;
 }
+/* Hàng nút dưới panel: QUAY LẠI (bước 2), TIẾP TỤC (bước 1) hoặc VÀO HỒ. */
+.pick__actions {
+  display: flex;
+  flex: none;
+  gap: calc(24 * var(--s));
+  align-items: center;
+  justify-content: center;
+}
+.pick__actions > [hidden] {
+  display: none;
+}
+.pick__back {
+  width: calc(300 * var(--s));
+  filter: hue-rotate(160deg) saturate(0.8);
+}
+.pick__back:hover:not(:disabled) {
+  filter: hue-rotate(160deg) saturate(0.8) brightness(1.08);
+}
 .pick__right {
   display: flex;
   flex: 1;

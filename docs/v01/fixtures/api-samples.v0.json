@@ -30,7 +30,8 @@
     "selectedSkinId": "skin_01",
     "equippedRodId": "rod_old",
     "titleId": "master",
-    "bio": ""
+    "bio": "",
+    "characterChosen": true
    },
    "traceId": "fx-me"
   },

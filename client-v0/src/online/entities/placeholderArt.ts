@@ -1,7 +1,7 @@
 // Sprite tạm vẽ bằng canvas, đặt tên khung `<anim>_<dir>_<i>` theo ART-02 để thay được bằng atlas thật.
 import type Phaser from 'phaser';
 import type { Direction } from '../net/contract';
-import { bakedData } from './characterArt';
+import { bakedData, ensureColoredSkin } from './characterArt';
 
 export const DIRECTIONS: readonly Direction[] = ['down', 'up', 'left', 'right'];
 
@@ -158,6 +158,7 @@ export function ensureAnimations(scene: Phaser.Scene, texture: string): void {
 
 /** Texture skin có sẵn (khi ART giao) thì giữ nguyên, chưa có thì vẽ tạm. */
 export function ensureSkin(scene: Phaser.Scene, skinId: string): void {
+  ensureColoredSkin(scene, skinId);
   createSheet(scene, skinId, drawBody(skinId));
   ensureAnimations(scene, skinId);
 }
