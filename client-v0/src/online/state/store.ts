@@ -243,6 +243,18 @@ function reduceLake(lake: LakeState, action: GameAction): LakeState {
         },
       };
     }
+    case 'OutfitChanged': {
+      const player = lake.players[action.payload.playerId];
+      if (!player) return lake;
+      const { hatId, topId, legsId, setId } = action.payload;
+      return {
+        ...lake,
+        players: {
+          ...lake.players,
+          [player.playerId]: { ...player, outfit: { hatId, topId, legsId, setId: setId ?? null } },
+        },
+      };
+    }
     case 'RodChanged': {
       const player = lake.players[action.payload.playerId];
       if (!player) return lake;

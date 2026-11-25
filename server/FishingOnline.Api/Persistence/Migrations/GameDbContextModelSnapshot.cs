@@ -1221,6 +1221,23 @@ namespace FishingOnline.Api.Persistence.Migrations
                         });
                 });
 
+            modelBuilder.Entity("FishingOnline.Api.Modules.Wardrobe.WardrobeOwnedRow", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ItemId")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+
+                    b.Property<DateTimeOffset>("AcquiredAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("PlayerId", "ItemId");
+
+                    b.ToTable("wardrobe_owned", "game");
+                });
+
             modelBuilder.Entity("FishingOnline.Api.Persistence.PlayerProfile", b =>
                 {
                     b.Property<Guid>("Id")
@@ -1232,6 +1249,11 @@ namespace FishingOnline.Api.Persistence.Migrations
                         .HasMaxLength(400)
                         .HasColumnType("character varying(400)")
                         .HasDefaultValue("");
+
+                    b.Property<bool>("CharacterChosen")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false);
 
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -1254,6 +1276,10 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.Property<int>("Exp")
                         .HasColumnType("integer");
 
+                    b.Property<string>("HatId")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+
                     b.Property<int>("InventoryVersion")
                         .HasColumnType("integer");
 
@@ -1261,6 +1287,10 @@ namespace FishingOnline.Api.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false);
+
+                    b.Property<string>("LegsId")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
 
                     b.Property<int>("Level")
                         .ValueGeneratedOnAdd()
@@ -1272,9 +1302,17 @@ namespace FishingOnline.Api.Persistence.Migrations
                         .HasMaxLength(64)
                         .HasColumnType("character varying(64)");
 
+                    b.Property<string>("SetId")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+
                     b.Property<string>("TitleId")
                         .HasMaxLength(32)
                         .HasColumnType("character varying(32)");
+
+                    b.Property<string>("TopId")
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
 
                     b.HasKey("Id");
 

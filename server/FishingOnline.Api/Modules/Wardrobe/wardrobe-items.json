@@ -1,0 +1,2135 @@
+{
+ "priceGold": 300,
+ "items": [
+  {
+   "id": "hat_black-beret",
+   "slot": "hat",
+   "atlas": "black-beret",
+   "name": "Mũ nồi đen"
+  },
+  {
+   "id": "hat_black-beret-cyan",
+   "slot": "hat",
+   "atlas": "black-beret-cyan",
+   "name": "Mũ nồi lam"
+  },
+  {
+   "id": "hat_black-beret-red",
+   "slot": "hat",
+   "atlas": "black-beret-red",
+   "name": "Mũ nồi đỏ"
+  },
+  {
+   "id": "hat_cap",
+   "slot": "hat",
+   "atlas": "cap",
+   "name": "Mũ lưỡi trai"
+  },
+  {
+   "id": "hat_cap-orb",
+   "slot": "hat",
+   "atlas": "cap-orb",
+   "name": "Mũ lưỡi trai cầu"
+  },
+  {
+   "id": "hat_cap-pink",
+   "slot": "hat",
+   "atlas": "cap-pink",
+   "name": "Mũ lưỡi trai hồng"
+  },
+  {
+   "id": "hat_demon-horns",
+   "slot": "hat",
+   "atlas": "demon-horns",
+   "name": "Sừng quỷ"
+  },
+  {
+   "id": "hat_demon-horns-albino",
+   "slot": "hat",
+   "atlas": "demon-horns-albino",
+   "name": "Sừng quỷ trắng"
+  },
+  {
+   "id": "hat_demon-horns-blue",
+   "slot": "hat",
+   "atlas": "demon-horns-blue",
+   "name": "Sừng quỷ xanh dương"
+  },
+  {
+   "id": "hat_demon-horns-gray",
+   "slot": "hat",
+   "atlas": "demon-horns-gray",
+   "name": "Sừng quỷ xám"
+  },
+  {
+   "id": "hat_demon-horns-green",
+   "slot": "hat",
+   "atlas": "demon-horns-green",
+   "name": "Sừng quỷ xanh lá"
+  },
+  {
+   "id": "hat_demon-horns-pink",
+   "slot": "hat",
+   "atlas": "demon-horns-pink",
+   "name": "Sừng quỷ hồng"
+  },
+  {
+   "id": "hat_doctor-reflector",
+   "slot": "hat",
+   "atlas": "doctor-reflector",
+   "name": "Gương bác sĩ"
+  },
+  {
+   "id": "hat_earmuffs",
+   "slot": "hat",
+   "atlas": "earmuffs",
+   "name": "Bịt tai"
+  },
+  {
+   "id": "hat_egg-on-head",
+   "slot": "hat",
+   "atlas": "egg-on-head",
+   "name": "Trứng ốp la"
+  },
+  {
+   "id": "hat_egg-on-head-blue",
+   "slot": "hat",
+   "atlas": "egg-on-head-blue",
+   "name": "Trứng ốp la xanh"
+  },
+  {
+   "id": "hat_egg-on-head-pink",
+   "slot": "hat",
+   "atlas": "egg-on-head-pink",
+   "name": "Trứng ốp la hồng"
+  },
+  {
+   "id": "hat_flower-crown",
+   "slot": "hat",
+   "atlas": "flower-crown",
+   "name": "Vòng hoa"
+  },
+  {
+   "id": "hat_flower-crown-blue",
+   "slot": "hat",
+   "atlas": "flower-crown-blue",
+   "name": "Vòng hoa xanh"
+  },
+  {
+   "id": "hat_flower-crown-rose",
+   "slot": "hat",
+   "atlas": "flower-crown-rose",
+   "name": "Vòng hoa hồng đào"
+  },
+  {
+   "id": "hat_headphones",
+   "slot": "hat",
+   "atlas": "headphones",
+   "name": "Tai nghe"
+  },
+  {
+   "id": "hat_headphones-blackgreen",
+   "slot": "hat",
+   "atlas": "headphones-blackgreen",
+   "name": "Tai nghe đen xanh lá"
+  },
+  {
+   "id": "hat_headphones-cyan",
+   "slot": "hat",
+   "atlas": "headphones-cyan",
+   "name": "Tai nghe lam"
+  },
+  {
+   "id": "hat_headphones-greenblack",
+   "slot": "hat",
+   "atlas": "headphones-greenblack",
+   "name": "Tai nghe xanh lá đen"
+  },
+  {
+   "id": "hat_lederhosen-hat",
+   "slot": "hat",
+   "atlas": "lederhosen-hat",
+   "name": "Mũ Bavaria"
+  },
+  {
+   "id": "hat_lederhosen-hat-bege",
+   "slot": "hat",
+   "atlas": "lederhosen-hat-bege",
+   "name": "Mũ Bavaria be"
+  },
+  {
+   "id": "hat_lederhosen-hat-teal",
+   "slot": "hat",
+   "atlas": "lederhosen-hat-teal",
+   "name": "Mũ Bavaria xanh ngọc"
+  },
+  {
+   "id": "hat_moon-earrings",
+   "slot": "hat",
+   "atlas": "moon-earrings",
+   "name": "Hoa tai trăng"
+  },
+  {
+   "id": "hat_nurse-cap",
+   "slot": "hat",
+   "atlas": "nurse-cap",
+   "name": "Mũ y tá"
+  },
+  {
+   "id": "hat_pink-bow",
+   "slot": "hat",
+   "atlas": "pink-bow",
+   "name": "Nơ hồng"
+  },
+  {
+   "id": "hat_pink-bow-blue",
+   "slot": "hat",
+   "atlas": "pink-bow-blue",
+   "name": "Nơ xanh dương"
+  },
+  {
+   "id": "hat_pink-bow-brown",
+   "slot": "hat",
+   "atlas": "pink-bow-brown",
+   "name": "Nơ nâu"
+  },
+  {
+   "id": "hat_pink-bow-green",
+   "slot": "hat",
+   "atlas": "pink-bow-green",
+   "name": "Nơ xanh lá"
+  },
+  {
+   "id": "hat_pink-bow-red",
+   "slot": "hat",
+   "atlas": "pink-bow-red",
+   "name": "Nơ đỏ"
+  },
+  {
+   "id": "hat_red-white-headphones",
+   "slot": "hat",
+   "atlas": "red-white-headphones",
+   "name": "Tai nghe đỏ trắng"
+  },
+  {
+   "id": "hat_silly-studying-headband",
+   "slot": "hat",
+   "atlas": "silly-studying-headband",
+   "name": "Băng đô học bài"
+  },
+  {
+   "id": "hat_trev-bandana",
+   "slot": "hat",
+   "atlas": "trev-bandana",
+   "name": "Khăn bịt đầu đỏ"
+  },
+  {
+   "id": "hat_trev-bandana-blue",
+   "slot": "hat",
+   "atlas": "trev-bandana-blue",
+   "name": "Khăn bịt đầu xanh dương"
+  },
+  {
+   "id": "hat_trev-bandana-grey",
+   "slot": "hat",
+   "atlas": "trev-bandana-grey",
+   "name": "Khăn bịt đầu xám"
+  },
+  {
+   "id": "hat_trev-bandana-purple",
+   "slot": "hat",
+   "atlas": "trev-bandana-purple",
+   "name": "Khăn bịt đầu tím"
+  },
+  {
+   "id": "top_astronaut-vest",
+   "slot": "top",
+   "atlas": "astronaut-vest",
+   "name": "Áo vest phi hành gia"
+  },
+  {
+   "id": "top_astronaut-vest-black",
+   "slot": "top",
+   "atlas": "astronaut-vest-black",
+   "name": "Áo vest phi hành gia đen"
+  },
+  {
+   "id": "top_astronaut-vest-orange",
+   "slot": "top",
+   "atlas": "astronaut-vest-orange",
+   "name": "Áo vest phi hành gia cam"
+  },
+  {
+   "id": "top_barista",
+   "slot": "top",
+   "atlas": "barista",
+   "name": "Tạp dề pha chế"
+  },
+  {
+   "id": "top_barista-blue",
+   "slot": "top",
+   "atlas": "barista-blue",
+   "name": "Tạp dề pha chế xanh dương"
+  },
+  {
+   "id": "top_barista-green",
+   "slot": "top",
+   "atlas": "barista-green",
+   "name": "Tạp dề pha chế xanh lá"
+  },
+  {
+   "id": "top_bege-stamped-shirt",
+   "slot": "top",
+   "atlas": "bege-stamped-shirt",
+   "name": "Áo in họa tiết be"
+  },
+  {
+   "id": "top_berry-croptop",
+   "slot": "top",
+   "atlas": "berry-croptop",
+   "name": "Áo croptop dâu"
+  },
+  {
+   "id": "top_black-jean-jacket",
+   "slot": "top",
+   "atlas": "black-jean-jacket",
+   "name": "Áo khoác jean đen"
+  },
+  {
+   "id": "top_blue-croptop",
+   "slot": "top",
+   "atlas": "blue-croptop",
+   "name": "Áo croptop xanh"
+  },
+  {
+   "id": "top_blue-croptop-orange",
+   "slot": "top",
+   "atlas": "blue-croptop-orange",
+   "name": "Áo croptop xanh cam"
+  },
+  {
+   "id": "top_blue-croptop-red",
+   "slot": "top",
+   "atlas": "blue-croptop-red",
+   "name": "Áo croptop xanh đỏ"
+  },
+  {
+   "id": "top_blue-jean-jacket",
+   "slot": "top",
+   "atlas": "blue-jean-jacket",
+   "name": "Áo khoác jean xanh"
+  },
+  {
+   "id": "top_blue-jean-jacket-green",
+   "slot": "top",
+   "atlas": "blue-jean-jacket-green",
+   "name": "Áo khoác jean xanh xanh lá"
+  },
+  {
+   "id": "top_blue-jean-jacket-red",
+   "slot": "top",
+   "atlas": "blue-jean-jacket-red",
+   "name": "Áo khoác jean xanh đỏ"
+  },
+  {
+   "id": "top_body-tattoo",
+   "slot": "top",
+   "atlas": "body-tattoo",
+   "name": "Hình xăm"
+  },
+  {
+   "id": "top_boho-pattern",
+   "slot": "top",
+   "atlas": "boho-pattern",
+   "name": "Áo họa tiết boho"
+  },
+  {
+   "id": "top_boho-pattern-black",
+   "slot": "top",
+   "atlas": "boho-pattern-black",
+   "name": "Áo họa tiết boho đen"
+  },
+  {
+   "id": "top_boho-pattern-teal",
+   "slot": "top",
+   "atlas": "boho-pattern-teal",
+   "name": "Áo họa tiết boho xanh ngọc"
+  },
+  {
+   "id": "top_cat-sweatshirt",
+   "slot": "top",
+   "atlas": "cat-sweatshirt",
+   "name": "Áo nỉ mèo"
+  },
+  {
+   "id": "top_cat-sweatshirt-blue",
+   "slot": "top",
+   "atlas": "cat-sweatshirt-blue",
+   "name": "Áo nỉ mèo xanh dương"
+  },
+  {
+   "id": "top_cat-sweatshirt-red",
+   "slot": "top",
+   "atlas": "cat-sweatshirt-red",
+   "name": "Áo nỉ mèo đỏ"
+  },
+  {
+   "id": "top_classic-student-uniform",
+   "slot": "top",
+   "atlas": "classic-student-uniform",
+   "name": "Đồng phục học sinh"
+  },
+  {
+   "id": "top_classic-student-uniform-blue",
+   "slot": "top",
+   "atlas": "classic-student-uniform-blue",
+   "name": "Đồng phục học sinh xanh dương"
+  },
+  {
+   "id": "top_classic-student-uniform-gray",
+   "slot": "top",
+   "atlas": "classic-student-uniform-gray",
+   "name": "Đồng phục học sinh xám"
+  },
+  {
+   "id": "top_classic-student-uniform-green",
+   "slot": "top",
+   "atlas": "classic-student-uniform-green",
+   "name": "Đồng phục học sinh xanh lá"
+  },
+  {
+   "id": "top_classic-student-uniform-red",
+   "slot": "top",
+   "atlas": "classic-student-uniform-red",
+   "name": "Đồng phục học sinh đỏ"
+  },
+  {
+   "id": "top_cloud-sweater",
+   "slot": "top",
+   "atlas": "cloud-sweater",
+   "name": "Áo len mây"
+  },
+  {
+   "id": "top_cloud-sweater-pink",
+   "slot": "top",
+   "atlas": "cloud-sweater-pink",
+   "name": "Áo len mây hồng"
+  },
+  {
+   "id": "top_cool-beach-shirt",
+   "slot": "top",
+   "atlas": "cool-beach-shirt",
+   "name": "Áo sơ mi đi biển"
+  },
+  {
+   "id": "top_cute-sweater",
+   "slot": "top",
+   "atlas": "cute-sweater",
+   "name": "Áo len dễ thương"
+  },
+  {
+   "id": "top_cute-sweater-green",
+   "slot": "top",
+   "atlas": "cute-sweater-green",
+   "name": "Áo len dễ thương xanh lá"
+  },
+  {
+   "id": "top_dapper-vest",
+   "slot": "top",
+   "atlas": "dapper-vest",
+   "name": "Áo gi-lê lịch lãm"
+  },
+  {
+   "id": "top_dapper-vest-green",
+   "slot": "top",
+   "atlas": "dapper-vest-green",
+   "name": "Áo gi-lê lịch lãm xanh lá"
+  },
+  {
+   "id": "top_dapper-vest-teal",
+   "slot": "top",
+   "atlas": "dapper-vest-teal",
+   "name": "Áo gi-lê lịch lãm xanh ngọc"
+  },
+  {
+   "id": "top_darkblue-turtleneck",
+   "slot": "top",
+   "atlas": "darkblue-turtleneck",
+   "name": "Áo cổ lọ xanh đậm"
+  },
+  {
+   "id": "top_darkblue-turtleneck-greeny",
+   "slot": "top",
+   "atlas": "darkblue-turtleneck-greeny",
+   "name": "Áo cổ lọ xanh đậm xanh lục"
+  },
+  {
+   "id": "top_darkblue-turtleneck-pinkysh",
+   "slot": "top",
+   "atlas": "darkblue-turtleneck-pinkysh",
+   "name": "Áo cổ lọ xanh đậm hồng nhạt"
+  },
+  {
+   "id": "top_doctors-labcoat",
+   "slot": "top",
+   "atlas": "doctors-labcoat",
+   "name": "Áo blouse bác sĩ"
+  },
+  {
+   "id": "top_eclipse-stamped-shirt",
+   "slot": "top",
+   "atlas": "eclipse-stamped-shirt",
+   "name": "Áo in nhật thực"
+  },
+  {
+   "id": "top_fall-turtleneck",
+   "slot": "top",
+   "atlas": "fall-turtleneck",
+   "name": "Áo cổ lọ mùa thu"
+  },
+  {
+   "id": "top_fisherman-cargo-vest",
+   "slot": "top",
+   "atlas": "fisherman-cargo-vest",
+   "name": "Áo gi-lê ngư dân"
+  },
+  {
+   "id": "top_fisherman-cargo-vest-brown",
+   "slot": "top",
+   "atlas": "fisherman-cargo-vest-brown",
+   "name": "Áo gi-lê ngư dân nâu"
+  },
+  {
+   "id": "top_fisherman-cargo-vest-red",
+   "slot": "top",
+   "atlas": "fisherman-cargo-vest-red",
+   "name": "Áo gi-lê ngư dân đỏ"
+  },
+  {
+   "id": "top_floral-shirt",
+   "slot": "top",
+   "atlas": "floral-shirt",
+   "name": "Áo sơ mi hoa"
+  },
+  {
+   "id": "top_floral-shirt-blue",
+   "slot": "top",
+   "atlas": "floral-shirt-blue",
+   "name": "Áo sơ mi hoa xanh dương"
+  },
+  {
+   "id": "top_floral-shirt-orange",
+   "slot": "top",
+   "atlas": "floral-shirt-orange",
+   "name": "Áo sơ mi hoa cam"
+  },
+  {
+   "id": "top_floral-shirt-purple",
+   "slot": "top",
+   "atlas": "floral-shirt-purple",
+   "name": "Áo sơ mi hoa tím"
+  },
+  {
+   "id": "top_fur-jacket",
+   "slot": "top",
+   "atlas": "fur-jacket",
+   "name": "Áo khoác lông"
+  },
+  {
+   "id": "top_fur-jacket-blue",
+   "slot": "top",
+   "atlas": "fur-jacket-blue",
+   "name": "Áo khoác lông xanh dương"
+  },
+  {
+   "id": "top_fur-jacket-ob",
+   "slot": "top",
+   "atlas": "fur-jacket-ob",
+   "name": "Áo khoác lông cam nâu"
+  },
+  {
+   "id": "top_graduation-gown",
+   "slot": "top",
+   "atlas": "graduation-gown",
+   "name": "Áo cử nhân"
+  },
+  {
+   "id": "top_green-sleeveless-shirt",
+   "slot": "top",
+   "atlas": "green-sleeveless-shirt",
+   "name": "Áo ba lỗ"
+  },
+  {
+   "id": "top_green-sleeveless-shirt-blue",
+   "slot": "top",
+   "atlas": "green-sleeveless-shirt-blue",
+   "name": "Áo ba lỗ xanh dương"
+  },
+  {
+   "id": "top_green-sleeveless-shirt-red",
+   "slot": "top",
+   "atlas": "green-sleeveless-shirt-red",
+   "name": "Áo ba lỗ đỏ"
+  },
+  {
+   "id": "top_heart-cropped-black",
+   "slot": "top",
+   "atlas": "heart-cropped-black",
+   "name": "Áo croptop tim đen"
+  },
+  {
+   "id": "top_heart-cropped-pink",
+   "slot": "top",
+   "atlas": "heart-cropped-pink",
+   "name": "Áo croptop tim hồng"
+  },
+  {
+   "id": "top_heart-cropped-teal",
+   "slot": "top",
+   "atlas": "heart-cropped-teal",
+   "name": "Áo croptop tim xanh ngọc"
+  },
+  {
+   "id": "top_hoodie",
+   "slot": "top",
+   "atlas": "hoodie",
+   "name": "Áo hoodie"
+  },
+  {
+   "id": "top_hoodie-orange",
+   "slot": "top",
+   "atlas": "hoodie-orange",
+   "name": "Áo hoodie cam"
+  },
+  {
+   "id": "top_hoodie-pink",
+   "slot": "top",
+   "atlas": "hoodie-pink",
+   "name": "Áo hoodie hồng"
+  },
+  {
+   "id": "top_kimono",
+   "slot": "top",
+   "atlas": "kimono",
+   "name": "Kimono"
+  },
+  {
+   "id": "top_kimono-green",
+   "slot": "top",
+   "atlas": "kimono-green",
+   "name": "Kimono xanh lá"
+  },
+  {
+   "id": "top_kimono-light-blue",
+   "slot": "top",
+   "atlas": "kimono-light-blue",
+   "name": "Kimono xanh nhạt"
+  },
+  {
+   "id": "top_kimono-light-pink",
+   "slot": "top",
+   "atlas": "kimono-light-pink",
+   "name": "Kimono hồng nhạt"
+  },
+  {
+   "id": "top_leaf-shirt",
+   "slot": "top",
+   "atlas": "leaf-shirt",
+   "name": "Áo lá"
+  },
+  {
+   "id": "top_leaf-shirt-autumn",
+   "slot": "top",
+   "atlas": "leaf-shirt-autumn",
+   "name": "Áo lá thu"
+  },
+  {
+   "id": "top_leaf-shirt-light",
+   "slot": "top",
+   "atlas": "leaf-shirt-light",
+   "name": "Áo lá nhạt"
+  },
+  {
+   "id": "top_lemon-shirt",
+   "slot": "top",
+   "atlas": "lemon-shirt",
+   "name": "Áo chanh"
+  },
+  {
+   "id": "top_lemon-shirt-pink",
+   "slot": "top",
+   "atlas": "lemon-shirt-pink",
+   "name": "Áo chanh hồng"
+  },
+  {
+   "id": "top_lemon-shirt-yellow",
+   "slot": "top",
+   "atlas": "lemon-shirt-yellow",
+   "name": "Áo chanh vàng"
+  },
+  {
+   "id": "top_light-blue-cardigan",
+   "slot": "top",
+   "atlas": "light-blue-cardigan",
+   "name": "Áo cardigan xanh nhạt"
+  },
+  {
+   "id": "top_light-blue-cardigan-light-orange",
+   "slot": "top",
+   "atlas": "light-blue-cardigan-light-orange",
+   "name": "Áo cardigan xanh nhạt cam nhạt"
+  },
+  {
+   "id": "top_light-blue-cardigan-light-pink",
+   "slot": "top",
+   "atlas": "light-blue-cardigan-light-pink",
+   "name": "Áo cardigan xanh nhạt hồng nhạt"
+  },
+  {
+   "id": "top_lofi-baggy-hoodie",
+   "slot": "top",
+   "atlas": "lofi-baggy-hoodie",
+   "name": "Áo hoodie lofi rộng"
+  },
+  {
+   "id": "top_long-sleeved-croptop",
+   "slot": "top",
+   "atlas": "long-sleeved-croptop",
+   "name": "Áo croptop tay dài"
+  },
+  {
+   "id": "top_long-sleeved-croptop-beige",
+   "slot": "top",
+   "atlas": "long-sleeved-croptop-beige",
+   "name": "Áo croptop tay dài be"
+  },
+  {
+   "id": "top_long-sleeved-croptop-lavender",
+   "slot": "top",
+   "atlas": "long-sleeved-croptop-lavender",
+   "name": "Áo croptop tay dài oải hương"
+  },
+  {
+   "id": "top_long-sleeved-croptop-yellow",
+   "slot": "top",
+   "atlas": "long-sleeved-croptop-yellow",
+   "name": "Áo croptop tay dài vàng"
+  },
+  {
+   "id": "top_longsleeve",
+   "slot": "top",
+   "atlas": "longsleeve",
+   "name": "Áo tay dài"
+  },
+  {
+   "id": "top_longsleeve-black",
+   "slot": "top",
+   "atlas": "longsleeve-black",
+   "name": "Áo tay dài đen"
+  },
+  {
+   "id": "top_longsleeve-blue",
+   "slot": "top",
+   "atlas": "longsleeve-blue",
+   "name": "Áo tay dài xanh dương"
+  },
+  {
+   "id": "top_longsleeve-green",
+   "slot": "top",
+   "atlas": "longsleeve-green",
+   "name": "Áo tay dài xanh lá"
+  },
+  {
+   "id": "top_longsleeve-orange",
+   "slot": "top",
+   "atlas": "longsleeve-orange",
+   "name": "Áo tay dài cam"
+  },
+  {
+   "id": "top_longsleeve-pink",
+   "slot": "top",
+   "atlas": "longsleeve-pink",
+   "name": "Áo tay dài hồng"
+  },
+  {
+   "id": "top_moon-stamped-shirt",
+   "slot": "top",
+   "atlas": "moon-stamped-shirt",
+   "name": "Áo in trăng"
+  },
+  {
+   "id": "top_nurse-labcoat",
+   "slot": "top",
+   "atlas": "nurse-labcoat",
+   "name": "Áo blouse y tá"
+  },
+  {
+   "id": "top_open-flannel",
+   "slot": "top",
+   "atlas": "open-flannel",
+   "name": "Áo flannel khoác ngoài"
+  },
+  {
+   "id": "top_open-flannel-beige",
+   "slot": "top",
+   "atlas": "open-flannel-beige",
+   "name": "Áo flannel khoác ngoài be"
+  },
+  {
+   "id": "top_open-flannel-blue",
+   "slot": "top",
+   "atlas": "open-flannel-blue",
+   "name": "Áo flannel khoác ngoài xanh dương"
+  },
+  {
+   "id": "top_open-flannel-orange",
+   "slot": "top",
+   "atlas": "open-flannel-orange",
+   "name": "Áo flannel khoác ngoài cam"
+  },
+  {
+   "id": "top_open-flannel-teal",
+   "slot": "top",
+   "atlas": "open-flannel-teal",
+   "name": "Áo flannel khoác ngoài xanh ngọc"
+  },
+  {
+   "id": "top_painter",
+   "slot": "top",
+   "atlas": "painter",
+   "name": "Yếm họa sĩ"
+  },
+  {
+   "id": "top_pastel-bikini",
+   "slot": "top",
+   "atlas": "pastel-bikini",
+   "name": "Bikini pastel"
+  },
+  {
+   "id": "top_pastel-bikini-grey",
+   "slot": "top",
+   "atlas": "pastel-bikini-grey",
+   "name": "Bikini pastel xám"
+  },
+  {
+   "id": "top_pastel-bikini-orange",
+   "slot": "top",
+   "atlas": "pastel-bikini-orange",
+   "name": "Bikini pastel cam"
+  },
+  {
+   "id": "top_pastel-bikini-teal",
+   "slot": "top",
+   "atlas": "pastel-bikini-teal",
+   "name": "Bikini pastel xanh ngọc"
+  },
+  {
+   "id": "top_pastel-goth-longsleeve",
+   "slot": "top",
+   "atlas": "pastel-goth-longsleeve",
+   "name": "Áo tay dài goth pastel"
+  },
+  {
+   "id": "top_pastel-goth-longsleeve-brown",
+   "slot": "top",
+   "atlas": "pastel-goth-longsleeve-brown",
+   "name": "Áo tay dài goth pastel nâu"
+  },
+  {
+   "id": "top_pastel-goth-longsleeve-green",
+   "slot": "top",
+   "atlas": "pastel-goth-longsleeve-green",
+   "name": "Áo tay dài goth pastel xanh lá"
+  },
+  {
+   "id": "top_pastel-goth-longsleeve-grey",
+   "slot": "top",
+   "atlas": "pastel-goth-longsleeve-grey",
+   "name": "Áo tay dài goth pastel xám"
+  },
+  {
+   "id": "top_pastel-goth-longsleeve-purple",
+   "slot": "top",
+   "atlas": "pastel-goth-longsleeve-purple",
+   "name": "Áo tay dài goth pastel tím"
+  },
+  {
+   "id": "top_patterned-cardigan",
+   "slot": "top",
+   "atlas": "patterned-cardigan",
+   "name": "Áo cardigan họa tiết"
+  },
+  {
+   "id": "top_patterned-cardigan-blue",
+   "slot": "top",
+   "atlas": "patterned-cardigan-blue",
+   "name": "Áo cardigan họa tiết xanh dương"
+  },
+  {
+   "id": "top_patterned-cardigan-diamond",
+   "slot": "top",
+   "atlas": "patterned-cardigan-diamond",
+   "name": "Áo cardigan họa tiết kim cương"
+  },
+  {
+   "id": "top_patterned-long-sleeve",
+   "slot": "top",
+   "atlas": "patterned-long-sleeve",
+   "name": "Áo tay dài họa tiết"
+  },
+  {
+   "id": "top_puffer-coat",
+   "slot": "top",
+   "atlas": "puffer-coat",
+   "name": "Áo phao"
+  },
+  {
+   "id": "top_puffer-coat-beige",
+   "slot": "top",
+   "atlas": "puffer-coat-beige",
+   "name": "Áo phao be"
+  },
+  {
+   "id": "top_puffer-coat-blue",
+   "slot": "top",
+   "atlas": "puffer-coat-blue",
+   "name": "Áo phao xanh dương"
+  },
+  {
+   "id": "top_puffer-coat-orange",
+   "slot": "top",
+   "atlas": "puffer-coat-orange",
+   "name": "Áo phao cam"
+  },
+  {
+   "id": "top_puffer-coat-teal",
+   "slot": "top",
+   "atlas": "puffer-coat-teal",
+   "name": "Áo phao xanh ngọc"
+  },
+  {
+   "id": "top_puffer-vest",
+   "slot": "top",
+   "atlas": "puffer-vest",
+   "name": "Áo phao ghi-lê"
+  },
+  {
+   "id": "top_puffer-vest-blue",
+   "slot": "top",
+   "atlas": "puffer-vest-blue",
+   "name": "Áo phao ghi-lê xanh dương"
+  },
+  {
+   "id": "top_puffer-vest-orange",
+   "slot": "top",
+   "atlas": "puffer-vest-orange",
+   "name": "Áo phao ghi-lê cam"
+  },
+  {
+   "id": "top_puffer-vest-pink",
+   "slot": "top",
+   "atlas": "puffer-vest-pink",
+   "name": "Áo phao ghi-lê hồng"
+  },
+  {
+   "id": "top_puffer-vest-teal",
+   "slot": "top",
+   "atlas": "puffer-vest-teal",
+   "name": "Áo phao ghi-lê xanh ngọc"
+  },
+  {
+   "id": "top_safari-suit",
+   "slot": "top",
+   "atlas": "safari-suit",
+   "name": "Đồ safari"
+  },
+  {
+   "id": "top_safari-suit-green",
+   "slot": "top",
+   "atlas": "safari-suit-green",
+   "name": "Đồ safari xanh lá"
+  },
+  {
+   "id": "top_safari-suit-orange",
+   "slot": "top",
+   "atlas": "safari-suit-orange",
+   "name": "Đồ safari cam"
+  },
+  {
+   "id": "top_sailor-shirt",
+   "slot": "top",
+   "atlas": "sailor-shirt",
+   "name": "Áo thủy thủ"
+  },
+  {
+   "id": "top_sailor-shirt-green",
+   "slot": "top",
+   "atlas": "sailor-shirt-green",
+   "name": "Áo thủy thủ xanh lá"
+  },
+  {
+   "id": "top_sailor-shirt-marine",
+   "slot": "top",
+   "atlas": "sailor-shirt-marine",
+   "name": "Áo thủy thủ xanh hải quân"
+  },
+  {
+   "id": "top_sailor-shirt-orange",
+   "slot": "top",
+   "atlas": "sailor-shirt-orange",
+   "name": "Áo thủy thủ cam"
+  },
+  {
+   "id": "top_sailor-shirt-pink",
+   "slot": "top",
+   "atlas": "sailor-shirt-pink",
+   "name": "Áo thủy thủ hồng"
+  },
+  {
+   "id": "top_sailor-shirt-red",
+   "slot": "top",
+   "atlas": "sailor-shirt-red",
+   "name": "Áo thủy thủ đỏ"
+  },
+  {
+   "id": "top_scout-shirt",
+   "slot": "top",
+   "atlas": "scout-shirt",
+   "name": "Áo hướng đạo"
+  },
+  {
+   "id": "top_scout-shirt-blue",
+   "slot": "top",
+   "atlas": "scout-shirt-blue",
+   "name": "Áo hướng đạo xanh dương"
+  },
+  {
+   "id": "top_scout-shirt-red",
+   "slot": "top",
+   "atlas": "scout-shirt-red",
+   "name": "Áo hướng đạo đỏ"
+  },
+  {
+   "id": "top_shark-camo-hoodie",
+   "slot": "top",
+   "atlas": "shark-camo-hoodie",
+   "name": "Áo hoodie cá mập rằn ri"
+  },
+  {
+   "id": "top_shark-camo-hoodie-black",
+   "slot": "top",
+   "atlas": "shark-camo-hoodie-black",
+   "name": "Áo hoodie cá mập rằn ri đen"
+  },
+  {
+   "id": "top_shark-camo-hoodie-green",
+   "slot": "top",
+   "atlas": "shark-camo-hoodie-green",
+   "name": "Áo hoodie cá mập rằn ri xanh lá"
+  },
+  {
+   "id": "top_shirt",
+   "slot": "top",
+   "atlas": "shirt",
+   "name": "Áo thun"
+  },
+  {
+   "id": "top_shirt-orange",
+   "slot": "top",
+   "atlas": "shirt-orange",
+   "name": "Áo thun cam"
+  },
+  {
+   "id": "top_shirt-purple",
+   "slot": "top",
+   "atlas": "shirt-purple",
+   "name": "Áo thun tím"
+  },
+  {
+   "id": "top_shirt-red",
+   "slot": "top",
+   "atlas": "shirt-red",
+   "name": "Áo thun đỏ"
+  },
+  {
+   "id": "top_shirt-teal",
+   "slot": "top",
+   "atlas": "shirt-teal",
+   "name": "Áo thun xanh ngọc"
+  },
+  {
+   "id": "top_simple-bikini",
+   "slot": "top",
+   "atlas": "simple-bikini",
+   "name": "Bikini đơn giản"
+  },
+  {
+   "id": "top_stamped-shirt",
+   "slot": "top",
+   "atlas": "stamped-shirt",
+   "name": "Áo in hình"
+  },
+  {
+   "id": "top_star-patterned-shirt",
+   "slot": "top",
+   "atlas": "star-patterned-shirt",
+   "name": "Áo họa tiết sao"
+  },
+  {
+   "id": "top_starry-sky-hoodie",
+   "slot": "top",
+   "atlas": "starry-sky-hoodie",
+   "name": "Áo hoodie bầu trời sao"
+  },
+  {
+   "id": "top_tangzhuang-coat",
+   "slot": "top",
+   "atlas": "tangzhuang-coat",
+   "name": "Áo Đường trang"
+  },
+  {
+   "id": "top_tangzhuang-coat-black",
+   "slot": "top",
+   "atlas": "tangzhuang-coat-black",
+   "name": "Áo Đường trang đen"
+  },
+  {
+   "id": "top_tangzhuang-coat-blue",
+   "slot": "top",
+   "atlas": "tangzhuang-coat-blue",
+   "name": "Áo Đường trang xanh dương"
+  },
+  {
+   "id": "top_tech-cloak",
+   "slot": "top",
+   "atlas": "tech-cloak",
+   "name": "Áo choàng công nghệ"
+  },
+  {
+   "id": "top_tech-cloak-blue",
+   "slot": "top",
+   "atlas": "tech-cloak-blue",
+   "name": "Áo choàng công nghệ xanh dương"
+  },
+  {
+   "id": "top_tech-cloak-green",
+   "slot": "top",
+   "atlas": "tech-cloak-green",
+   "name": "Áo choàng công nghệ xanh lá"
+  },
+  {
+   "id": "top_tenants-uniform",
+   "slot": "top",
+   "atlas": "tenants-uniform",
+   "name": "Đồng phục thợ"
+  },
+  {
+   "id": "top_tenants-uniform-black",
+   "slot": "top",
+   "atlas": "tenants-uniform-black",
+   "name": "Đồng phục thợ đen"
+  },
+  {
+   "id": "top_tenants-uniform-red",
+   "slot": "top",
+   "atlas": "tenants-uniform-red",
+   "name": "Đồng phục thợ đỏ"
+  },
+  {
+   "id": "top_trench-coat",
+   "slot": "top",
+   "atlas": "trench-coat",
+   "name": "Áo măng-tô"
+  },
+  {
+   "id": "top_trench-coat-blue",
+   "slot": "top",
+   "atlas": "trench-coat-blue",
+   "name": "Áo măng-tô xanh dương"
+  },
+  {
+   "id": "top_tuxedo",
+   "slot": "top",
+   "atlas": "tuxedo",
+   "name": "Áo tuxedo"
+  },
+  {
+   "id": "top_tuxedo-beige",
+   "slot": "top",
+   "atlas": "tuxedo-beige",
+   "name": "Áo tuxedo be"
+  },
+  {
+   "id": "top_tuxedo-deep-sea",
+   "slot": "top",
+   "atlas": "tuxedo-deep-sea",
+   "name": "Áo tuxedo xanh biển sâu"
+  },
+  {
+   "id": "top_urban-jacket-1",
+   "slot": "top",
+   "atlas": "urban-jacket-1",
+   "name": "Áo khoác đường phố 1"
+  },
+  {
+   "id": "top_urban-jacket-1-purple",
+   "slot": "top",
+   "atlas": "urban-jacket-1-purple",
+   "name": "Áo khoác đường phố 1 tím"
+  },
+  {
+   "id": "top_urban-jacket-1-red",
+   "slot": "top",
+   "atlas": "urban-jacket-1-red",
+   "name": "Áo khoác đường phố 1 đỏ"
+  },
+  {
+   "id": "top_urban-jacket-2",
+   "slot": "top",
+   "atlas": "urban-jacket-2",
+   "name": "Áo khoác đường phố 2"
+  },
+  {
+   "id": "top_urban-jacket-2-lavender",
+   "slot": "top",
+   "atlas": "urban-jacket-2-lavender",
+   "name": "Áo khoác đường phố 2 oải hương"
+  },
+  {
+   "id": "top_urban-jacket-2-pink",
+   "slot": "top",
+   "atlas": "urban-jacket-2-pink",
+   "name": "Áo khoác đường phố 2 hồng"
+  },
+  {
+   "id": "top_wavy-shirt",
+   "slot": "top",
+   "atlas": "wavy-shirt",
+   "name": "Áo họa tiết sóng"
+  },
+  {
+   "id": "top_wavy-shirt-black",
+   "slot": "top",
+   "atlas": "wavy-shirt-black",
+   "name": "Áo họa tiết sóng đen"
+  },
+  {
+   "id": "top_wavy-shirt-teal",
+   "slot": "top",
+   "atlas": "wavy-shirt-teal",
+   "name": "Áo họa tiết sóng xanh ngọc"
+  },
+  {
+   "id": "top_winter-sweater",
+   "slot": "top",
+   "atlas": "winter-sweater",
+   "name": "Áo len mùa đông"
+  },
+  {
+   "id": "top_wool-hoodie",
+   "slot": "top",
+   "atlas": "wool-hoodie",
+   "name": "Áo hoodie len"
+  },
+  {
+   "id": "legs_astronaut-pants",
+   "slot": "legs",
+   "atlas": "astronaut-pants",
+   "name": "Quần phi hành gia"
+  },
+  {
+   "id": "legs_astronaut-pants-black",
+   "slot": "legs",
+   "atlas": "astronaut-pants-black",
+   "name": "Quần phi hành gia đen"
+  },
+  {
+   "id": "legs_astronaut-pants-orange",
+   "slot": "legs",
+   "atlas": "astronaut-pants-orange",
+   "name": "Quần phi hành gia cam"
+  },
+  {
+   "id": "legs_baggy1",
+   "slot": "legs",
+   "atlas": "baggy1",
+   "name": "Quần ống rộng 1"
+  },
+  {
+   "id": "legs_baggy1-purple",
+   "slot": "legs",
+   "atlas": "baggy1-purple",
+   "name": "Quần ống rộng 1 tím"
+  },
+  {
+   "id": "legs_baggy1-white",
+   "slot": "legs",
+   "atlas": "baggy1-white",
+   "name": "Quần ống rộng 1 trắng"
+  },
+  {
+   "id": "legs_baggy2",
+   "slot": "legs",
+   "atlas": "baggy2",
+   "name": "Quần ống rộng 2"
+  },
+  {
+   "id": "legs_baggy2-aqua",
+   "slot": "legs",
+   "atlas": "baggy2-aqua",
+   "name": "Quần ống rộng 2 xanh nước"
+  },
+  {
+   "id": "legs_baggy2-dark",
+   "slot": "legs",
+   "atlas": "baggy2-dark",
+   "name": "Quần ống rộng 2 đậm"
+  },
+  {
+   "id": "legs_baggy3",
+   "slot": "legs",
+   "atlas": "baggy3",
+   "name": "Quần ống rộng 3"
+  },
+  {
+   "id": "legs_baggy3-pink",
+   "slot": "legs",
+   "atlas": "baggy3-pink",
+   "name": "Quần ống rộng 3 hồng"
+  },
+  {
+   "id": "legs_baggy3-red",
+   "slot": "legs",
+   "atlas": "baggy3-red",
+   "name": "Quần ống rộng 3 đỏ"
+  },
+  {
+   "id": "legs_beach-shorts",
+   "slot": "legs",
+   "atlas": "beach-shorts",
+   "name": "Quần short đi biển"
+  },
+  {
+   "id": "legs_black-sport-shorts",
+   "slot": "legs",
+   "atlas": "black-sport-shorts",
+   "name": "Quần short thể thao đen"
+  },
+  {
+   "id": "legs_black-sport-shorts-blue",
+   "slot": "legs",
+   "atlas": "black-sport-shorts-blue",
+   "name": "Quần short thể thao đen xanh dương"
+  },
+  {
+   "id": "legs_black-sport-shorts-green",
+   "slot": "legs",
+   "atlas": "black-sport-shorts-green",
+   "name": "Quần short thể thao đen xanh lá"
+  },
+  {
+   "id": "legs_black-sport-shorts-purple",
+   "slot": "legs",
+   "atlas": "black-sport-shorts-purple",
+   "name": "Quần short thể thao đen tím"
+  },
+  {
+   "id": "legs_blue-beach-pants",
+   "slot": "legs",
+   "atlas": "blue-beach-pants",
+   "name": "Quần đi biển xanh"
+  },
+  {
+   "id": "legs_blue-beach-pants-black",
+   "slot": "legs",
+   "atlas": "blue-beach-pants-black",
+   "name": "Quần đi biển xanh đen"
+  },
+  {
+   "id": "legs_blue-beach-pants-orange",
+   "slot": "legs",
+   "atlas": "blue-beach-pants-orange",
+   "name": "Quần đi biển xanh cam"
+  },
+  {
+   "id": "legs_brown-skirt",
+   "slot": "legs",
+   "atlas": "brown-skirt",
+   "name": "Chân váy nâu"
+  },
+  {
+   "id": "legs_brown-skirt-blue",
+   "slot": "legs",
+   "atlas": "brown-skirt-blue",
+   "name": "Chân váy nâu xanh dương"
+  },
+  {
+   "id": "legs_brown-skirt-brown",
+   "slot": "legs",
+   "atlas": "brown-skirt-brown",
+   "name": "Chân váy nâu nâu"
+  },
+  {
+   "id": "legs_brown-skirt-pink",
+   "slot": "legs",
+   "atlas": "brown-skirt-pink",
+   "name": "Chân váy nâu hồng"
+  },
+  {
+   "id": "legs_brown-skirt-yellow",
+   "slot": "legs",
+   "atlas": "brown-skirt-yellow",
+   "name": "Chân váy nâu vàng"
+  },
+  {
+   "id": "legs_cargo-pants",
+   "slot": "legs",
+   "atlas": "cargo-pants",
+   "name": "Quần túi hộp"
+  },
+  {
+   "id": "legs_denim-pants-with-sneakers",
+   "slot": "legs",
+   "atlas": "denim-pants-with-sneakers",
+   "name": "Quần jean kèm giày"
+  },
+  {
+   "id": "legs_denim-pants-with-sneakers-green",
+   "slot": "legs",
+   "atlas": "denim-pants-with-sneakers-green",
+   "name": "Quần jean kèm giày xanh lá"
+  },
+  {
+   "id": "legs_denim-pants-with-sneakers-red",
+   "slot": "legs",
+   "atlas": "denim-pants-with-sneakers-red",
+   "name": "Quần jean kèm giày đỏ"
+  },
+  {
+   "id": "legs_goth-mini-jeans",
+   "slot": "legs",
+   "atlas": "goth-mini-jeans",
+   "name": "Quần jean mini goth"
+  },
+  {
+   "id": "legs_goth-mini-jeans-dark",
+   "slot": "legs",
+   "atlas": "goth-mini-jeans-dark",
+   "name": "Quần jean mini goth đậm"
+  },
+  {
+   "id": "legs_goth-mini-jeans-teal",
+   "slot": "legs",
+   "atlas": "goth-mini-jeans-teal",
+   "name": "Quần jean mini goth xanh ngọc"
+  },
+  {
+   "id": "legs_green-parachute-pants",
+   "slot": "legs",
+   "atlas": "green-parachute-pants",
+   "name": "Quần dù xanh lá"
+  },
+  {
+   "id": "legs_green-parachute-pants-black",
+   "slot": "legs",
+   "atlas": "green-parachute-pants-black",
+   "name": "Quần dù xanh lá đen"
+  },
+  {
+   "id": "legs_green-parachute-pants-grey",
+   "slot": "legs",
+   "atlas": "green-parachute-pants-grey",
+   "name": "Quần dù xanh lá xám"
+  },
+  {
+   "id": "legs_green-parachute-pants-orange",
+   "slot": "legs",
+   "atlas": "green-parachute-pants-orange",
+   "name": "Quần dù xanh lá cam"
+  },
+  {
+   "id": "legs_kievan-rus-pants",
+   "slot": "legs",
+   "atlas": "kievan-rus-pants",
+   "name": "Quần Kievan Rus"
+  },
+  {
+   "id": "legs_kimono-linen",
+   "slot": "legs",
+   "atlas": "kimono-linen",
+   "name": "Quần kimono lanh"
+  },
+  {
+   "id": "legs_kimono-linen-blue",
+   "slot": "legs",
+   "atlas": "kimono-linen-blue",
+   "name": "Quần kimono lanh xanh dương"
+  },
+  {
+   "id": "legs_kimono-linen-green",
+   "slot": "legs",
+   "atlas": "kimono-linen-green",
+   "name": "Quần kimono lanh xanh lá"
+  },
+  {
+   "id": "legs_leaf-pants",
+   "slot": "legs",
+   "atlas": "leaf-pants",
+   "name": "Quần lá"
+  },
+  {
+   "id": "legs_leaf-pants-autumn",
+   "slot": "legs",
+   "atlas": "leaf-pants-autumn",
+   "name": "Quần lá thu"
+  },
+  {
+   "id": "legs_leaf-pants-light",
+   "slot": "legs",
+   "atlas": "leaf-pants-light",
+   "name": "Quần lá nhạt"
+  },
+  {
+   "id": "legs_long-floral-skirt",
+   "slot": "legs",
+   "atlas": "long-floral-skirt",
+   "name": "Chân váy hoa dài"
+  },
+  {
+   "id": "legs_long-floral-skirt-black",
+   "slot": "legs",
+   "atlas": "long-floral-skirt-black",
+   "name": "Chân váy hoa dài đen"
+  },
+  {
+   "id": "legs_long-floral-skirt-light-blue",
+   "slot": "legs",
+   "atlas": "long-floral-skirt-light-blue",
+   "name": "Chân váy hoa dài xanh nhạt"
+  },
+  {
+   "id": "legs_long-floral-skirt-pink",
+   "slot": "legs",
+   "atlas": "long-floral-skirt-pink",
+   "name": "Chân váy hoa dài hồng"
+  },
+  {
+   "id": "legs_mermaid-questionMark-jeans",
+   "slot": "legs",
+   "atlas": "mermaid-questionMark-jeans",
+   "name": "Quần jean nàng tiên cá"
+  },
+  {
+   "id": "legs_mermaid-questionMark-jeans-black",
+   "slot": "legs",
+   "atlas": "mermaid-questionMark-jeans-black",
+   "name": "Quần jean nàng tiên cá đen"
+  },
+  {
+   "id": "legs_mermaid-questionMark-jeans-teal",
+   "slot": "legs",
+   "atlas": "mermaid-questionMark-jeans-teal",
+   "name": "Quần jean nàng tiên cá xanh ngọc"
+  },
+  {
+   "id": "legs_mermaid-questionMark-jeans-white",
+   "slot": "legs",
+   "atlas": "mermaid-questionMark-jeans-white",
+   "name": "Quần jean nàng tiên cá trắng"
+  },
+  {
+   "id": "legs_moss-cargo-shorts",
+   "slot": "legs",
+   "atlas": "moss-cargo-shorts",
+   "name": "Quần short túi hộp rêu"
+  },
+  {
+   "id": "legs_pink-beach-pants",
+   "slot": "legs",
+   "atlas": "pink-beach-pants",
+   "name": "Quần đi biển hồng"
+  },
+  {
+   "id": "legs_pink-skirt",
+   "slot": "legs",
+   "atlas": "pink-skirt",
+   "name": "Chân váy hồng"
+  },
+  {
+   "id": "legs_pink-skirt-beige",
+   "slot": "legs",
+   "atlas": "pink-skirt-beige",
+   "name": "Chân váy hồng be"
+  },
+  {
+   "id": "legs_pink-skirt-teal",
+   "slot": "legs",
+   "atlas": "pink-skirt-teal",
+   "name": "Chân váy hồng xanh ngọc"
+  },
+  {
+   "id": "legs_red-sport-shorts",
+   "slot": "legs",
+   "atlas": "red-sport-shorts",
+   "name": "Quần short thể thao đỏ"
+  },
+  {
+   "id": "legs_safari-pants",
+   "slot": "legs",
+   "atlas": "safari-pants",
+   "name": "Quần safari"
+  },
+  {
+   "id": "legs_safari-pants-black",
+   "slot": "legs",
+   "atlas": "safari-pants-black",
+   "name": "Quần safari đen"
+  },
+  {
+   "id": "legs_safari-pants-teal",
+   "slot": "legs",
+   "atlas": "safari-pants-teal",
+   "name": "Quần safari xanh ngọc"
+  },
+  {
+   "id": "legs_side-skirt",
+   "slot": "legs",
+   "atlas": "side-skirt",
+   "name": "Chân váy xẻ"
+  },
+  {
+   "id": "legs_side-skirt-grey",
+   "slot": "legs",
+   "atlas": "side-skirt-grey",
+   "name": "Chân váy xẻ xám"
+  },
+  {
+   "id": "legs_side-skirt-purple",
+   "slot": "legs",
+   "atlas": "side-skirt-purple",
+   "name": "Chân váy xẻ tím"
+  },
+  {
+   "id": "legs_side-skirt-teal",
+   "slot": "legs",
+   "atlas": "side-skirt-teal",
+   "name": "Chân váy xẻ xanh ngọc"
+  },
+  {
+   "id": "legs_sweatpants1",
+   "slot": "legs",
+   "atlas": "sweatpants1",
+   "name": "Quần nỉ 1"
+  },
+  {
+   "id": "legs_sweatpants1-blue",
+   "slot": "legs",
+   "atlas": "sweatpants1-blue",
+   "name": "Quần nỉ 1 xanh dương"
+  },
+  {
+   "id": "legs_sweatpants1-orange",
+   "slot": "legs",
+   "atlas": "sweatpants1-orange",
+   "name": "Quần nỉ 1 cam"
+  },
+  {
+   "id": "legs_sweatpants2",
+   "slot": "legs",
+   "atlas": "sweatpants2",
+   "name": "Quần nỉ 2"
+  },
+  {
+   "id": "legs_sweatpants2-pink",
+   "slot": "legs",
+   "atlas": "sweatpants2-pink",
+   "name": "Quần nỉ 2 hồng"
+  },
+  {
+   "id": "legs_sweatpants2-teal",
+   "slot": "legs",
+   "atlas": "sweatpants2-teal",
+   "name": "Quần nỉ 2 xanh ngọc"
+  },
+  {
+   "id": "legs_sweatpants3",
+   "slot": "legs",
+   "atlas": "sweatpants3",
+   "name": "Quần nỉ 3"
+  },
+  {
+   "id": "legs_swim-trunks",
+   "slot": "legs",
+   "atlas": "swim-trunks",
+   "name": "Quần bơi"
+  },
+  {
+   "id": "legs_swim-trunks-blue",
+   "slot": "legs",
+   "atlas": "swim-trunks-blue",
+   "name": "Quần bơi xanh dương"
+  },
+  {
+   "id": "legs_swim-trunks-green",
+   "slot": "legs",
+   "atlas": "swim-trunks-green",
+   "name": "Quần bơi xanh lá"
+  },
+  {
+   "id": "legs_swim-trunks-pink",
+   "slot": "legs",
+   "atlas": "swim-trunks-pink",
+   "name": "Quần bơi hồng"
+  },
+  {
+   "id": "legs_swim-trunks-purple",
+   "slot": "legs",
+   "atlas": "swim-trunks-purple",
+   "name": "Quần bơi tím"
+  },
+  {
+   "id": "legs_swim-trunks-yellow",
+   "slot": "legs",
+   "atlas": "swim-trunks-yellow",
+   "name": "Quần bơi vàng"
+  },
+  {
+   "id": "legs_tenants-pants",
+   "slot": "legs",
+   "atlas": "tenants-pants",
+   "name": "Quần thợ"
+  },
+  {
+   "id": "legs_tenants-pants-black",
+   "slot": "legs",
+   "atlas": "tenants-pants-black",
+   "name": "Quần thợ đen"
+  },
+  {
+   "id": "legs_tenants-pants-red",
+   "slot": "legs",
+   "atlas": "tenants-pants-red",
+   "name": "Quần thợ đỏ"
+  },
+  {
+   "id": "legs_yellow-skirt",
+   "slot": "legs",
+   "atlas": "yellow-skirt",
+   "name": "Chân váy vàng"
+  },
+  {
+   "id": "legs_yellow-skirt-blue",
+   "slot": "legs",
+   "atlas": "yellow-skirt-blue",
+   "name": "Chân váy vàng xanh dương"
+  },
+  {
+   "id": "legs_yellow-skirt-green",
+   "slot": "legs",
+   "atlas": "yellow-skirt-green",
+   "name": "Chân váy vàng xanh lá"
+  },
+  {
+   "id": "legs_yellow-skirt-marine",
+   "slot": "legs",
+   "atlas": "yellow-skirt-marine",
+   "name": "Chân váy vàng xanh hải quân"
+  },
+  {
+   "id": "legs_yellow-skirt-orange",
+   "slot": "legs",
+   "atlas": "yellow-skirt-orange",
+   "name": "Chân váy vàng cam"
+  },
+  {
+   "id": "legs_yellow-skirt-red",
+   "slot": "legs",
+   "atlas": "yellow-skirt-red",
+   "name": "Chân váy vàng đỏ"
+  },
+  {
+   "id": "set_clown-trousers",
+   "slot": "set",
+   "atlas": "clown-trousers",
+   "name": "Quần yếm chú hề"
+  },
+  {
+   "id": "set_clown-trousers-blue",
+   "slot": "set",
+   "atlas": "clown-trousers-blue",
+   "name": "Quần yếm chú hề xanh dương"
+  },
+  {
+   "id": "set_clown-trousers-orange",
+   "slot": "set",
+   "atlas": "clown-trousers-orange",
+   "name": "Quần yếm chú hề cam"
+  },
+  {
+   "id": "set_cultist-cloak",
+   "slot": "set",
+   "atlas": "cultist-cloak",
+   "name": "Áo choàng tà giáo"
+  },
+  {
+   "id": "set_cultist-cloak-green",
+   "slot": "set",
+   "atlas": "cultist-cloak-green",
+   "name": "Áo choàng tà giáo xanh lá"
+  },
+  {
+   "id": "set_cultist-cloak-teal",
+   "slot": "set",
+   "atlas": "cultist-cloak-teal",
+   "name": "Áo choàng tà giáo xanh ngọc"
+  },
+  {
+   "id": "set_elvis-jumpsuit",
+   "slot": "set",
+   "atlas": "elvis-jumpsuit",
+   "name": "Bộ liền Elvis"
+  },
+  {
+   "id": "set_fall-dress",
+   "slot": "set",
+   "atlas": "fall-dress",
+   "name": "Váy mùa thu"
+  },
+  {
+   "id": "set_fall-dress-black",
+   "slot": "set",
+   "atlas": "fall-dress-black",
+   "name": "Váy mùa thu đen"
+  },
+  {
+   "id": "set_fall-dress-teal",
+   "slot": "set",
+   "atlas": "fall-dress-teal",
+   "name": "Váy mùa thu xanh ngọc"
+  },
+  {
+   "id": "set_farmer-overall",
+   "slot": "set",
+   "atlas": "farmer-overall",
+   "name": "Yếm nông dân"
+  },
+  {
+   "id": "set_fishing-overall-1",
+   "slot": "set",
+   "atlas": "fishing-overall-1",
+   "name": "Yếm câu cá"
+  },
+  {
+   "id": "set_fishing-overall-1-light",
+   "slot": "set",
+   "atlas": "fishing-overall-1-light",
+   "name": "Yếm câu cá nhạt"
+  },
+  {
+   "id": "set_fishing-overall-1-orange",
+   "slot": "set",
+   "atlas": "fishing-overall-1-orange",
+   "name": "Yếm câu cá cam"
+  },
+  {
+   "id": "set_fishing-overall-2",
+   "slot": "set",
+   "atlas": "fishing-overall-2",
+   "name": "Yếm câu cá 2"
+  },
+  {
+   "id": "set_flamenco-dress",
+   "slot": "set",
+   "atlas": "flamenco-dress",
+   "name": "Váy flamenco"
+  },
+  {
+   "id": "set_flamenco-dress-black",
+   "slot": "set",
+   "atlas": "flamenco-dress-black",
+   "name": "Váy flamenco đen"
+  },
+  {
+   "id": "set_flamenco-dress-carrot",
+   "slot": "set",
+   "atlas": "flamenco-dress-carrot",
+   "name": "Váy flamenco cà rốt"
+  },
+  {
+   "id": "set_flamenco-dress-pink",
+   "slot": "set",
+   "atlas": "flamenco-dress-pink",
+   "name": "Váy flamenco hồng"
+  },
+  {
+   "id": "set_fluffy-hoodie",
+   "slot": "set",
+   "atlas": "fluffy-hoodie",
+   "name": "Áo hoodie bông xù"
+  },
+  {
+   "id": "set_fluffy-hoodie-green",
+   "slot": "set",
+   "atlas": "fluffy-hoodie-green",
+   "name": "Áo hoodie bông xù xanh lá"
+  },
+  {
+   "id": "set_fluffy-hoodie-lavender",
+   "slot": "set",
+   "atlas": "fluffy-hoodie-lavender",
+   "name": "Áo hoodie bông xù oải hương"
+  },
+  {
+   "id": "set_forg-costume",
+   "slot": "set",
+   "atlas": "forg-costume",
+   "name": "Đồ hóa ếch"
+  },
+  {
+   "id": "set_gardening-overall",
+   "slot": "set",
+   "atlas": "gardening-overall",
+   "name": "Yếm làm vườn"
+  },
+  {
+   "id": "set_ghost-costume",
+   "slot": "set",
+   "atlas": "ghost-costume",
+   "name": "Đồ hóa ma"
+  },
+  {
+   "id": "set_guitar-band",
+   "slot": "set",
+   "atlas": "guitar-band",
+   "name": "Bộ ban nhạc guitar"
+  },
+  {
+   "id": "set_guitar-band-pink",
+   "slot": "set",
+   "atlas": "guitar-band-pink",
+   "name": "Bộ ban nhạc guitar hồng"
+  },
+  {
+   "id": "set_guitar-band-teal",
+   "slot": "set",
+   "atlas": "guitar-band-teal",
+   "name": "Bộ ban nhạc guitar xanh ngọc"
+  },
+  {
+   "id": "set_hanfu",
+   "slot": "set",
+   "atlas": "hanfu",
+   "name": "Hán phục"
+  },
+  {
+   "id": "set_hanfu-blue",
+   "slot": "set",
+   "atlas": "hanfu-blue",
+   "name": "Hán phục xanh dương"
+  },
+  {
+   "id": "set_lederhosen-overall",
+   "slot": "set",
+   "atlas": "lederhosen-overall",
+   "name": "Yếm Bavaria"
+  },
+  {
+   "id": "set_lederhosen-overall-bege",
+   "slot": "set",
+   "atlas": "lederhosen-overall-bege",
+   "name": "Yếm Bavaria be"
+  },
+  {
+   "id": "set_lederhosen-overall-teal",
+   "slot": "set",
+   "atlas": "lederhosen-overall-teal",
+   "name": "Yếm Bavaria xanh ngọc"
+  },
+  {
+   "id": "set_mary-dress",
+   "slot": "set",
+   "atlas": "mary-dress",
+   "name": "Váy Mary"
+  },
+  {
+   "id": "set_metal-band",
+   "slot": "set",
+   "atlas": "metal-band",
+   "name": "Bộ ban nhạc metal"
+  },
+  {
+   "id": "set_metal-band-yellow",
+   "slot": "set",
+   "atlas": "metal-band-yellow",
+   "name": "Bộ ban nhạc metal vàng"
+  },
+  {
+   "id": "set_mint-dress",
+   "slot": "set",
+   "atlas": "mint-dress",
+   "name": "Váy bạc hà"
+  },
+  {
+   "id": "set_mint-dress-blue",
+   "slot": "set",
+   "atlas": "mint-dress-blue",
+   "name": "Váy bạc hà xanh dương"
+  },
+  {
+   "id": "set_mint-dress-pink",
+   "slot": "set",
+   "atlas": "mint-dress-pink",
+   "name": "Váy bạc hà hồng"
+  },
+  {
+   "id": "set_mummy-wraps",
+   "slot": "set",
+   "atlas": "mummy-wraps",
+   "name": "Đồ xác ướp"
+  },
+  {
+   "id": "set_no-earholes-cultist-cloak",
+   "slot": "set",
+   "atlas": "no-earholes-cultist-cloak",
+   "name": "Áo choàng tà giáo kín"
+  },
+  {
+   "id": "set_no-earholes-cultist-cloak-green",
+   "slot": "set",
+   "atlas": "no-earholes-cultist-cloak-green",
+   "name": "Áo choàng tà giáo kín xanh lá"
+  },
+  {
+   "id": "set_no-earholes-cultist-cloak-teal",
+   "slot": "set",
+   "atlas": "no-earholes-cultist-cloak-teal",
+   "name": "Áo choàng tà giáo kín xanh ngọc"
+  },
+  {
+   "id": "set_pretty-pink-dress",
+   "slot": "set",
+   "atlas": "pretty-pink-dress",
+   "name": "Váy hồng xinh"
+  },
+  {
+   "id": "set_pretty-pink-dress-black",
+   "slot": "set",
+   "atlas": "pretty-pink-dress-black",
+   "name": "Váy hồng xinh đen"
+  },
+  {
+   "id": "set_pretty-pink-dress-blue",
+   "slot": "set",
+   "atlas": "pretty-pink-dress-blue",
+   "name": "Váy hồng xinh xanh dương"
+  },
+  {
+   "id": "set_red-dress",
+   "slot": "set",
+   "atlas": "red-dress",
+   "name": "Váy đỏ"
+  },
+  {
+   "id": "set_santa-outfit",
+   "slot": "set",
+   "atlas": "santa-outfit",
+   "name": "Đồ ông già Noel"
+  },
+  {
+   "id": "set_skeleton-costume",
+   "slot": "set",
+   "atlas": "skeleton-costume",
+   "name": "Đồ bộ xương"
+  },
+  {
+   "id": "set_strawberry-dress",
+   "slot": "set",
+   "atlas": "strawberry-dress",
+   "name": "Váy dâu tây"
+  },
+  {
+   "id": "set_swimsuit",
+   "slot": "set",
+   "atlas": "swimsuit",
+   "name": "Đồ bơi"
+  },
+  {
+   "id": "set_swimsuit-blue",
+   "slot": "set",
+   "atlas": "swimsuit-blue",
+   "name": "Đồ bơi xanh dương"
+  },
+  {
+   "id": "set_swimsuit-green",
+   "slot": "set",
+   "atlas": "swimsuit-green",
+   "name": "Đồ bơi xanh lá"
+  },
+  {
+   "id": "set_swimsuit-pink",
+   "slot": "set",
+   "atlas": "swimsuit-pink",
+   "name": "Đồ bơi hồng"
+  },
+  {
+   "id": "set_swimsuit-red",
+   "slot": "set",
+   "atlas": "swimsuit-red",
+   "name": "Đồ bơi đỏ"
+  },
+  {
+   "id": "set_swimsuit-yellow",
+   "slot": "set",
+   "atlas": "swimsuit-yellow",
+   "name": "Đồ bơi vàng"
+  },
+  {
+   "id": "set_tangzhuang-dress",
+   "slot": "set",
+   "atlas": "tangzhuang-dress",
+   "name": "Váy Đường trang"
+  },
+  {
+   "id": "set_tangzhuang-dress-black",
+   "slot": "set",
+   "atlas": "tangzhuang-dress-black",
+   "name": "Váy Đường trang đen"
+  },
+  {
+   "id": "set_tangzhuang-dress-blue",
+   "slot": "set",
+   "atlas": "tangzhuang-dress-blue",
+   "name": "Váy Đường trang xanh dương"
+  },
+  {
+   "id": "set_turtle-ghost-costume",
+   "slot": "set",
+   "atlas": "turtle-ghost-costume",
+   "name": "Đồ ma rùa"
+  },
+  {
+   "id": "set_winter-dress",
+   "slot": "set",
+   "atlas": "winter-dress",
+   "name": "Váy mùa đông"
+  },
+  {
+   "id": "set_yellow-raincoat",
+   "slot": "set",
+   "atlas": "yellow-raincoat",
+   "name": "Áo mưa vàng"
+  },
+  {
+   "id": "set_yellow-raincoat-bpy",
+   "slot": "set",
+   "atlas": "yellow-raincoat-bpy",
+   "name": "Áo mưa vàng xanh hồng"
+  },
+  {
+   "id": "set_yellow-raincoat-purple",
+   "slot": "set",
+   "atlas": "yellow-raincoat-purple",
+   "name": "Áo mưa vàng tím"
+  }
+ ]
+}

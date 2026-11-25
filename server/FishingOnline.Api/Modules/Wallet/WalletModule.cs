@@ -31,6 +31,9 @@ public static class LedgerReasons
 
     /// <summary>Mua skin ở tab "Ngoại hình" của cửa hàng; RefId là offerId.</summary>
     public const string BuySkin = "buy_skin";
+
+    /// <summary>Mua mũ/áo/quần ở tab "Trang phục" của cửa hàng; RefId là itemId.</summary>
+    public const string BuyWardrobe = "buy_wardrobe";
     public const string SellFish = "sell_fish";
     public const string AdminAdjust = "admin_adjust";
 

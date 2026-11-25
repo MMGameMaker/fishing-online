@@ -21,7 +21,7 @@ export const BAKED_SKINS = [
 ] as const;
 /**
  * Skin thú chỉ dành cho bot (tools/bake_outfit_skins.mjs, BOT_BODIES); khớp BotManager.Skins ở server.
- * Không nằm trong Social.Skins nên người chơi không chọn được, nhưng vẫn phải nạp để thấy bot trong hồ.
+ * Từ 2026-11-25 cũng nằm trong Social.Skins (miễn phí): người chơi chọn ở panel Chọn nhân vật; bot vẫn dùng các skin này.
  */
 export const BAKED_BOT_SKINS = [
   'skin_bot_bear_brown',

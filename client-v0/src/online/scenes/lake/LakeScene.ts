@@ -276,6 +276,7 @@ export class LakeScene extends Phaser.Scene {
       isMe: true,
     });
     this.me.setTitle(profile?.titleId);
+    this.me.setOutfit(mine?.outfit);
     // Không làm tròn khi bám: zoom thường là số lẻ (vd 2.4) nên camera làm tròn scroll về nguyên px map
     // chạy bước 1-2-1-2 trong khi nhân vật đi 1.5px/khung, nhân vật lắc ~1px màn hình mỗi khung (feedback 2026-11-17).
     this.cameras.main.startFollow(this.me.container, false);
@@ -429,6 +430,10 @@ export class LakeScene extends Phaser.Scene {
       // Đổi ngoại hình (khung Ngoại hình): nhân vật của mình thay skin ngay; người khác đã nhận qua danh sách players.
       hub.on('SkinChanged', ({ playerId, skinId }) => {
         if (playerId === this.myId) this.me.setSkin(skinId);
+      }),
+      // Đổi trang phục (tab Trang phục của Cửa hàng): nhân vật của mình mặc ngay; người khác nhận qua danh sách players.
+      hub.on('OutfitChanged', ({ playerId, hatId, topId, legsId, setId }) => {
+        if (playerId === this.myId) this.me.setOutfit({ hatId, topId, legsId, setId });
       }),
       hub.on('EmojiReceived', ({ playerId, emojiId }) => this.showEmoji(playerId, emojiId)),
       () => this.social.destroy(),
@@ -911,6 +916,7 @@ export class LakeScene extends Phaser.Scene {
     remote.view.setSkin(player.skinId);
     remote.view.setRod(player.rodId);
     remote.view.setTitle(player.titleId);
+    remote.view.setOutfit(player.outfit);
   }
 
   /**

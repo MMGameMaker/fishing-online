@@ -77,3 +77,95 @@ export function skinImage(skinId: string, scale: number, className = ''): HTMLIm
 
 export const loadSkins = (api: ApiClient): Promise<SkinsResponse> =>
   api.get<SkinsResponse>('/skins');
+
+// ---------- Xem thử trang phục (tab Trang phục của Cửa hàng, yêu cầu 2026-11-25) ----------
+
+interface WardrobeThumbs {
+  box: { x: number; y: number; w: number; h: number };
+  items: Record<string, { x: number; y: number }>;
+  image: HTMLImageElement;
+}
+
+let thumbsPromise: Promise<WardrobeThumbs | null> | null = null;
+
+/** Sheet ảnh xem thử mọi món (tools/bake_wardrobe.mjs, `_thumbs.png|json`): tải một lần. */
+function loadThumbs(): Promise<WardrobeThumbs | null> {
+  thumbsPromise ??= (async () => {
+    const response = await fetch('/assets/wardrobe/_thumbs.json');
+    if (!response.ok) return null;
+    const data = (await response.json()) as Omit<WardrobeThumbs, 'image'>;
+    const image = new Image();
+    image.src = '/assets/wardrobe/_thumbs.png';
+    await image.decode();
+    return { ...data, image };
+  })().catch(() => null);
+  return thumbsPromise;
+}
+
+const bodyCrops = new Map<string, Promise<HTMLCanvasElement | null>>();
+
+/** Thân đứng nhìn xuống của skin, cắt đúng vùng xem thử (cùng vùng với ảnh món). */
+function bodyCrop(skinId: string, box: WardrobeThumbs['box']): Promise<HTMLCanvasElement | null> {
+  let crop = bodyCrops.get(skinId);
+  if (!crop) {
+    crop = (async () => {
+      const response = await fetch(`${SKIN_DIR}${skinId}.json`);
+      if (!response.ok) return null;
+      const data = (await response.json()) as {
+        frames: Record<string, { frame: { x: number; y: number; w: number; h: number } }>;
+      };
+      const frame = data.frames['idle_down_0']?.frame;
+      if (!frame) return null;
+      const image = new Image();
+      image.src = `${SKIN_DIR}${skinId}.png`;
+      await image.decode();
+      const canvas = document.createElement('canvas');
+      canvas.width = box.w;
+      canvas.height = box.h;
+      canvas
+        .getContext('2d')!
+        .drawImage(image, frame.x + box.x, frame.y + box.y, box.w, box.h, 0, 0, box.w, box.h);
+      return canvas;
+    })().catch(() => null);
+    bodyCrops.set(skinId, crop);
+  }
+  return crop;
+}
+
+/**
+ * Ảnh nhân vật mặc thử `itemIds` (quần, áo, mũ theo thứ tự truyền vào), phóng nguyên số lần. Chưa nạp xong thì ẩn; thiếu art thân thì
+ * chỉ hiện món. Dùng ảnh xem thử chung nên 291 món chỉ tốn 1 ảnh + 1 JSON.
+ */
+export function outfitImage(
+  skinId: string,
+  itemIds: readonly string[],
+  scale: number,
+  className = '',
+): HTMLImageElement {
+  const node = document.createElement('img');
+  node.className = className;
+  node.alt = '';
+  node.draggable = false;
+  node.hidden = true;
+  void loadThumbs().then(async (thumbs) => {
+    if (!thumbs) return;
+    const { box } = thumbs;
+    const canvas = document.createElement('canvas');
+    canvas.width = box.w;
+    canvas.height = box.h;
+    const ctx = canvas.getContext('2d')!;
+    const body = await bodyCrop(skinId, box);
+    if (body) ctx.drawImage(body, 0, 0);
+    for (const id of itemIds) {
+      const at = thumbs.items[id];
+      if (at) ctx.drawImage(thumbs.image, at.x, at.y, box.w, box.h, 0, 0, box.w, box.h);
+    }
+    node.onload = () => {
+      node.style.width = `${box.w * scale}px`;
+      node.style.height = `${box.h * scale}px`;
+      node.hidden = false;
+    };
+    node.src = canvas.toDataURL();
+  });
+  return node;
+}

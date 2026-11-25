@@ -2,6 +2,7 @@
 // Art: public/new resources/ui/Login (khung Sign In Panel, nút Google, CHƠI, Đăng xuất) — feedback 2026-11-17.
 // Chỉ pier.html bật (qua BootOptions.screens); trang khác vẫn dùng chữ Phaser cũ.
 import { animateIn } from '../kit/motion';
+import { CharacterSelect, type CharacterSelectOptions } from './CharacterSelect';
 
 const TIPS = [
   'Mẹo: Ngồi vào ghế trống để bắt đầu câu cá.',
@@ -19,6 +20,7 @@ export class BootScreens {
   private readonly login: HTMLElement;
   private readonly menu: HTMLElement;
   private readonly blocked: HTMLElement;
+  private readonly select: HTMLElement;
   private readonly loading: HTMLElement;
   private readonly googleBtn: HTMLButtonElement;
   private readonly playBtn: HTMLButtonElement;
@@ -49,6 +51,10 @@ export class BootScreens {
           <button class="boot__google boot__art-btn" type="button" aria-label="Đăng nhập bằng Google">
             <img src="${ART}/Google.png" alt="" draggable="false" />
           </button>
+          <!-- Facebook chưa làm (art "later"): hiện nút nhưng chưa bấm được. -->
+          <button class="boot__facebook boot__art-btn" type="button" disabled title="Sắp ra mắt" aria-label="Đăng nhập bằng Facebook (sắp ra mắt)">
+            <img src="${ART}/Facebook%20(later).png" alt="" draggable="false" />
+          </button>
           <p class="boot__tagline">Bạn có thể câu được cá lớn cỡ nào?</p>
           <p class="boot__error" hidden></p>
         </div>
@@ -62,6 +68,7 @@ export class BootScreens {
           <img src="${ART}/Button%20Play.png" alt="" draggable="false" />
         </button>
       </div>
+      <div class="boot boot--select" hidden></div>
       <div class="boot boot--blocked" hidden role="alertdialog" aria-modal="true" aria-labelledby="boot-blocked-title">
         <div class="boot__logo-zone"><img class="boot__logo" src="${LOGO}" alt="Fishing Online" /></div>
         <div class="boot__panel">
@@ -84,6 +91,7 @@ export class BootScreens {
     this.login = q('.boot--login');
     this.menu = q('.boot--menu');
     this.blocked = q('.boot--blocked');
+    this.select = q('.boot--select');
     this.loading = q('.boot--loading');
     this.googleBtn = q('.boot__google');
     this.playBtn = q('.boot__play');
@@ -132,6 +140,15 @@ export class BootScreens {
     this.show(this.menu);
   }
 
+  /**
+   * Panel Chọn nhân vật (sau đăng nhập, trước khi vào hồ): hiện cho tới khi người chơi bấm VÀO HỒ (đã lưu xong). Nơi gọi tiếp tục
+   * bằng `showLoading`.
+   */
+  chooseCharacter(options: CharacterSelectOptions): Promise<void> {
+    this.show(this.select);
+    return new CharacterSelect(this.select, options).run();
+  }
+
   /** Hiện màn tải với dòng trạng thái và tiến độ 0–100. */
   showLoading(status = 'Đang tải...', percent = 0): void {
     if (this.loading.hidden) {
@@ -166,7 +183,7 @@ export class BootScreens {
     window.setTimeout(() => {
       if (!this.root.classList.contains('is-leaving')) return;
       this.root.classList.remove('is-open', 'is-leaving');
-      for (const screen of [this.login, this.menu, this.blocked, this.loading])
+      for (const screen of [this.login, this.menu, this.blocked, this.loading, this.select])
         screen.hidden = true;
     }, 350);
   }
@@ -174,7 +191,7 @@ export class BootScreens {
   private show(screen: HTMLElement): void {
     // Màn mới hiện mờ dần (đăng nhập, menu, tải đổi cho nhau), không bật tức thì.
     if (screen.hidden) animateIn(screen, 'fade');
-    for (const s of [this.login, this.menu, this.blocked, this.loading]) s.hidden = s !== screen;
+    for (const s of [this.login, this.menu, this.blocked, this.loading, this.select]) s.hidden = s !== screen;
     this.options.onGameVisible?.(false);
     this.root.classList.add('is-open');
     this.root.classList.remove('is-leaving');

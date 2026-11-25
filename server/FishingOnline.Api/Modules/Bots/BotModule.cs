@@ -26,7 +26,7 @@ public sealed class BotManager : IBotCoordinator
 {
     /// <summary>
     /// Skin bot random: 5 thỏ miễn phí + 20 skin thú chỉ-bot (skin_bot_*, GD chốt 2026-11-18, loại bear-panda, cat-calico, fox-red,
-    /// raccoon, shiba-orange). Skin skin_bot_* không nằm trong Social.Skins nên người chơi không chọn được. Bot đã tạo trước đó giữ skin cũ.
+    /// raccoon, shiba-orange). Từ 2026-11-25 skin_bot_* cũng nằm trong Social.Skins (miễn phí) để người chơi chọn ở panel Chọn nhân vật khi vào game. Bot đã tạo trước đó giữ skin cũ.
     /// Khớp BAKED_BOT_SKINS ở client-v0/src/online/entities/characterArt.ts.
     /// </summary>
     public static readonly string[] Skins =
@@ -380,6 +380,7 @@ public sealed class BotManager : IBotCoordinator
             Bio = content.BioFor(id),
             TitleId = BotContent.TitleFor(id, ProfileRules.TitleIds),
             IsBot = true,
+            CharacterChosen = true,
         };
         await using var transaction = await db.Database.BeginTransactionAsync(ct);
         db.Players.Add(player);

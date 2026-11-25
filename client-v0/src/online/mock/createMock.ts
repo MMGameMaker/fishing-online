@@ -25,6 +25,7 @@ export function createMock(
     latencyMs,
     botCount,
     fishingBots: extra.fishingBots,
+    persist: true,
   });
   if (query.get('mockEmpty') === '1') mock.setLakeEmpty(true);
   // Chỉ khi phát triển: __mockBackend.setLakeEmpty(true) để thử thông báo hồ hết cá.

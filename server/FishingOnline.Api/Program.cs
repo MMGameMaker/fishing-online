@@ -11,6 +11,7 @@ using FishingOnline.Api.Modules.Profile;
 using FishingOnline.Api.Modules.Ranking;
 using FishingOnline.Api.Modules.Social;
 using FishingOnline.Api.Modules.Wallet;
+using FishingOnline.Api.Modules.Wardrobe;
 using FishingOnline.Api.Persistence;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.EntityFrameworkCore;
@@ -54,6 +55,7 @@ if (hasDatabase)
     builder.Services.AddRanking();
     builder.Services.AddFishing();
     builder.Services.AddSocial(builder.Configuration);
+    builder.Services.AddWardrobe();
     // Sau AddLake/AddFishing để khi tắt máy chủ, bot rời hồ trước khi hai dịch vụ đó dừng.
     builder.Services.AddBots();
     builder.Services.AddAdmin(builder.Configuration);
@@ -96,6 +98,7 @@ if (hasDatabase)
     app.MapProfile();
     app.MapRanking();
     app.MapSocial();
+    app.MapWardrobe();
     app.MapAdmin();
     // Nạp Gold thử cho tab "Nạp Gold" khi chưa có cổng thanh toán; không có ở môi trường khác.
     if (isDevelopment)

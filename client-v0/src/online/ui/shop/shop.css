@@ -103,11 +103,12 @@
 
 .shop__tab {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
   height: 68px;
   padding: 0 6px;
-  font-size: 28px;
+  /* 25px để "Trang phục" vừa ô tab (yêu cầu 2026-11-25). */
+  font-size: 25px;
   text-align: left;
   white-space: nowrap;
   border: 12px solid transparent;
@@ -400,6 +401,11 @@
   height: 100%;
   padding: 16px 20px;
   overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.shop-cards::-webkit-scrollbar {
+  display: none;
 }
 
 .shop-cards--rods {
@@ -416,6 +422,9 @@
 .shop-card--rod .shop-card__price {
   min-width: 0;
   width: 100%;
+  /* Chữ nút (Trang bị / Tháo / Đang dùng) luôn một dòng, không xuống dòng làm tràn nút. */
+  white-space: nowrap;
+  font-size: 24px !important;
   /* Ghim nút xuống đáy thẻ để mọi nút mua/"Đã có" cùng một hàng (feedback 2026-11-14). */
   margin-top: auto;
 }
@@ -807,4 +816,49 @@
     scale: 0.75;
     rotate: 35deg;
   }
+}
+
+/* ---------- Tab Trang phục (wardrobeShop.ts): thanh Mũ/Áo/Quần + lưới thẻ xem thử ---------- */
+.shop-wardrobe {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.shop-wardrobe__bar {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex: none;
+  gap: 16px;
+  /* Hàng nút ghim trên dải nền đặc cùng màu khung (242,214,156) có đường kẻ dưới: thẻ cuộn lên bị che gọn dưới dải này, cắt sạch ngang
+     đường kẻ, không mờ (yêu cầu 2026-11-25). */
+  margin: 0 8px;
+  padding: 6px 12px 14px;
+  background: #f2d69c;
+  border-bottom: 4px solid #c18a47;
+}
+
+.shop-wardrobe__slot {
+  min-width: 170px;
+}
+
+.shop-wardrobe__slot--on {
+  color: #fff6d6;
+  text-shadow: 0 2px 0 #7a3a0c;
+  border-image-source: url('/new%20resources/ui/Primary%20M.png');
+}
+
+.shop-cards--wardrobe {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+  margin: 0 8px;
+}
+
+/* Ảnh xem thử vừa lòng ô 120×120 (trong viền 12px); JS đặt cỡ px theo tỉ lệ nguyên nên ghi đè. */
+.shop-card__outfit {
+  width: auto !important;
+  height: 96px !important;
+  image-rendering: pixelated;
 }

@@ -21,6 +21,9 @@ export const ERROR_CODES = [
   'ROD_ALREADY_OWNED',
   'SKIN_NOT_OWNED',
   'SKIN_ALREADY_OWNED',
+  // Trang phục lẻ (mũ, áo, quần) ở tab Trang phục của Cửa hàng (2026-11-25).
+  'WARDROBE_NOT_OWNED',
+  'WARDROBE_ALREADY_OWNED',
   'FISH_NOT_FOUND',
   'INVALID_QUANTITY',
   'PRICE_CHANGED',
@@ -64,6 +67,11 @@ export interface PlayerProfile {
   gold: string;
   selectedSkinId: string;
   equippedRodId: string;
+  /**
+   * Đã chọn nhân vật ở panel Chọn nhân vật chưa (2026-11-25): false thì hiện panel một lần khi vào game; Server cũ chưa gửi thì bỏ
+   * trống = không hiện.
+   */
+  characterChosen?: boolean;
   /** Danh hiệu đang đeo (màn Tài khoản). Dự thảo, chỉ mock có; Server thật chưa hỗ trợ. */
   titleId?: string;
   /** Lời nhắn tối đa 100 ký tự (màn Tài khoản). Dự thảo, chỉ mock có. */
@@ -429,6 +437,39 @@ export interface PlayerView {
   restSeatId?: string | null;
   /** Danh hiệu đang đeo, hiện dưới tên (yêu cầu 2026-11-18). Server cũ chưa gửi thì bỏ trống. */
   titleId?: string;
+  /** Trang phục đang mặc (mũ, áo, quần; 2026-11-25). Server cũ chưa gửi thì bỏ trống = không mặc gì. */
+  outfit?: OutfitView | null;
+}
+
+/** Đồ đang mặc; null là chưa mặc món ở loại đó. Id dạng `hat_beanie`, `top_cute-sweater`, `legs_cargo-pants`. */
+export interface OutfitView {
+  hatId: string | null;
+  topId: string | null;
+  legsId: string | null;
+  /** Nguyên bộ (bộ liền, `set_santa-outfit`): thay cả áo và quần, nên khi có thì topId và legsId là null. Server cũ chưa gửi thì bỏ trống. */
+  setId?: string | null;
+}
+
+export type WardrobeSlot = 'hat' | 'top' | 'legs' | 'set';
+
+/** Một món trong GET /wardrobe (tab Trang phục của Cửa hàng, 300 Gold mỗi món). */
+export interface WardrobeItemView {
+  itemId: string;
+  slot: WardrobeSlot;
+  name: string;
+  priceGold: number;
+  owned: boolean;
+}
+
+export interface WardrobeResponse {
+  items: WardrobeItemView[];
+  equipped: OutfitView;
+}
+
+/** POST /wardrobe/buy. */
+export interface BuyWardrobeResponse {
+  gold: string;
+  item: WardrobeItemView;
 }
 
 export interface SeatView {
@@ -584,6 +625,8 @@ export interface HubEvents {
   SkinChanged: { playerId: string; skinId: string };
   /** Đổi cần đang dùng (PUT /me/equipped-rod): cả hồ thấy cần mới ngay. */
   RodChanged: { playerId: string; rodId: string };
+  /** Đổi trang phục (PUT /me/outfit): cả hồ thấy ngay. */
+  OutfitChanged: { playerId: string } & OutfitView;
   /** Server gửi kèm tên người gửi và thời điểm (ISO); mock cũ có thể thiếu. */
   ChatReceived: {
     messageId: string;

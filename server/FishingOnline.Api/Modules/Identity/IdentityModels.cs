@@ -88,7 +88,7 @@ public interface ICurrentPlayer
 
 public sealed record PlayerProfileView(
     Guid PlayerId, string DisplayName, int Level, int Exp, string Gold, string SelectedSkinId, string EquippedRodId,
-    string TitleId, string Bio);
+    string TitleId, string Bio, bool CharacterChosen = false);
 
 public sealed record LoginRequest(string FirebaseIdToken, bool RememberMe = false);
 

@@ -1,11 +1,13 @@
 ﻿// Server giả chạy trong trình duyệt: cùng contract với Server thật nhưng chỉ làm luật đơn giản.
 // Hoàn tất với mock không đồng nghĩa đã tích hợp thật.
 import type { FishConfig, GameplayConfig } from '../core/gameplayConfig';
+import wardrobeCatalog from '../../../tools/wardrobe-items.json';
 import { mulberry32 } from '../fishing/minigameCore';
 import type { FetchLike } from '../net/ApiClient';
 import type {
   AttemptResult,
   AttemptView,
+  BuyWardrobeResponse,
   CodexEntry,
   CommandAck,
   Direction,
@@ -20,6 +22,7 @@ import type {
   MinigameParams,
   MySeat,
   MyTicket,
+  OutfitView,
   PlayerProfile,
   DailyFishEntry,
   DailyFishRanking,
@@ -33,6 +36,9 @@ import type {
   SkinsResponse,
   Stats,
   TicketPurchaseResult,
+  WardrobeItemView,
+  WardrobeResponse,
+  WardrobeSlot,
 } from '../net/contract';
 import type { HubConnectionLike, HubHandler } from '../net/GameHub';
 import {
@@ -105,7 +111,12 @@ export interface MockOptions {
   latencyMs?: number;
   /** Bot có tên người, ngồi ghế câu cá và khoe cá (pier.html, feedback 2026-11-14). */
   fishingBots?: boolean;
+  /** Nhớ nhân vật đã chọn trong localStorage (chỉ trình duyệt, createMock bật). */
+  persist?: boolean;
 }
+
+/** Khoá localStorage nhớ nhân vật đã chọn của mock. */
+const CHARACTER_STORAGE_KEY = 'mock.character';
 
 /** Bảng mã lỗi → HTTP theo BE-A-01 và SPEC mục 5. */
 const HTTP_STATUS: Partial<Record<ErrorCode, number>> = {
@@ -121,6 +132,8 @@ const HTTP_STATUS: Partial<Record<ErrorCode, number>> = {
   IDEMPOTENCY_CONFLICT: 409,
   ROD_ALREADY_OWNED: 409,
   SKIN_ALREADY_OWNED: 409,
+  WARDROBE_ALREADY_OWNED: 409,
+  WARDROBE_NOT_OWNED: 422,
   PRICE_CHANGED: 409,
   STATE_CONFLICT: 409,
   INSUFFICIENT_GOLD: 422,
@@ -232,6 +245,12 @@ export class MockBackend {
   /** Skin shop đã mua và skin đang dùng (skin free luôn dùng được). */
   private readonly skinsOwned = new Set<string>();
   private selectedSkinId = 'skin_01';
+  /** Đã chọn nhân vật ở panel Chọn nhân vật (giống cờ `CharacterChosen` của Server). */
+  private characterChosen = false;
+  private readonly persist: boolean;
+  /** Trang phục lẻ đã mua và đang mặc (tab Trang phục của Cửa hàng, 300 Gold/món; Server thật: Modules/Wardrobe). */
+  private readonly wardrobeOwned = new Set<string>();
+  private outfit: OutfitView = { hatId: null, topId: null, legsId: null, setId: null };
   private fish: FishItem[] = [];
   /** Mọi con mình đã câu (kể cả đã bán/đổi) để dựng BXH cá ngày. */
   private readonly dailyLog: { speciesId: string; lengthTenthCm: number; caughtAt: string }[] = [];
@@ -284,6 +303,21 @@ export class MockBackend {
   constructor(options: MockOptions) {
     this.config = options.config;
     this.map = options.map;
+    // Trình duyệt: nhớ nhân vật đã chọn qua các lần tải lại trang (Server thật lưu theo tài khoản).
+    this.persist = options.persist ?? false;
+    if (this.persist) {
+      try {
+        const saved = JSON.parse(globalThis.localStorage?.getItem(CHARACTER_STORAGE_KEY) ?? 'null') as {
+          skinId?: unknown;
+        } | null;
+        if (typeof saved?.skinId === 'string' && MOCK_SKINS.some((skin) => skin.skinId === saved.skinId)) {
+          this.selectedSkinId = saved.skinId;
+          this.characterChosen = true;
+        }
+      } catch {
+        // Không đọc được bộ nhớ trình duyệt thì coi như chưa chọn.
+      }
+    }
     this.random = mulberry32(options.seed ?? 20261109);
     this.forcedError = options.forcedError ?? null;
     this.latencyMs = options.latencyMs ?? 0;
@@ -952,6 +986,7 @@ export class MockBackend {
       gold: String(this.gold),
       selectedSkinId: this.selectedSkinId,
       equippedRodId: this.equippedRodId,
+      characterChosen: this.characterChosen,
       titleId: this.titleId,
       bio: this.bio,
     };
@@ -969,6 +1004,7 @@ export class MockBackend {
       seatId: this.session?.seatId ?? null,
       fishing: this.attempt !== null,
       restSeatId: this.myRestSeatId,
+      outfit: { ...this.outfit },
     };
   }
 
@@ -1037,6 +1073,21 @@ export class MockBackend {
   /** Công cụ dev (`?mockFish=1`): ép mọi lần cá cắn của người chơi là loài này; null = ngẫu nhiên như thường. */
   setForcedSpecies(speciesId: string | null): void {
     this.forcedSpeciesId = speciesId;
+  }
+
+  /** Công cụ dev (`?mockFish=1`): cộng Gold để thử mua đồ; trả số Gold mới. */
+  addGold(amount: number): number {
+    this.gold += amount;
+    return this.gold;
+  }
+
+  /** Công cụ dev (`?mockFish=1`): quên nhân vật đã chọn để lần tải lại trang hiện lại panel Chọn nhân vật. */
+  forgetCharacter(): void {
+    try {
+      globalThis.localStorage?.removeItem(CHARACTER_STORAGE_KEY);
+    } catch {
+      // Bộ nhớ trình duyệt bị chặn: không có gì để quên.
+    }
   }
 
   /** Công cụ dev: thêm vào túi mỗi loài một con (và ghi vào sổ cá) để thử bán cá, sổ tay, bảng xếp hạng. Trả số loài đã thêm. */
@@ -1594,6 +1645,12 @@ export class MockBackend {
         return this.inventory();
       case 'PUT /me/equipped-rod':
         return this.equipRod(String(body.rodId));
+      case 'GET /wardrobe':
+        return this.wardrobeList();
+      case 'POST /wardrobe/buy':
+        return this.wardrobeBuy(String(body.itemId));
+      case 'PUT /me/outfit':
+        return this.setOutfit(body);
       case 'GET /skins':
         return this.skinList();
       case 'PUT /me/skin':
@@ -1836,6 +1893,53 @@ export class MockBackend {
     return { gold: String(this.gold), inventory: this.inventory() };
   }
 
+  private wardrobeView(item: (typeof wardrobeCatalog.items)[number]): WardrobeItemView {
+    return {
+      itemId: item.id,
+      slot: item.slot as WardrobeSlot,
+      name: item.name,
+      priceGold: wardrobeCatalog.priceGold,
+      owned: this.wardrobeOwned.has(item.id),
+    };
+  }
+
+  private wardrobeList(): WardrobeResponse {
+    return { items: wardrobeCatalog.items.map((item) => this.wardrobeView(item)), equipped: { ...this.outfit } };
+  }
+
+  private wardrobeBuy(itemId: string): BuyWardrobeResponse {
+    const item = wardrobeCatalog.items.find((entry) => entry.id === itemId);
+    if (!item) throw new CommandError('VALIDATION_FAILED');
+    if (this.wardrobeOwned.has(itemId)) throw new CommandError('WARDROBE_ALREADY_OWNED');
+    if (this.gold < wardrobeCatalog.priceGold) throw new CommandError('INSUFFICIENT_GOLD');
+    this.gold -= wardrobeCatalog.priceGold;
+    this.wardrobeOwned.add(itemId);
+    return { gold: String(this.gold), item: this.wardrobeView(item) };
+  }
+
+  private setOutfit(body: Record<string, unknown>): OutfitView {
+    const pick = (value: unknown, slot: WardrobeSlot): string | null => {
+      if (value === null || value === undefined) return null;
+      const item = wardrobeCatalog.items.find((entry) => entry.id === value);
+      if (!item || item.slot !== slot) throw new CommandError('VALIDATION_FAILED');
+      if (!this.wardrobeOwned.has(item.id)) throw new CommandError('WARDROBE_NOT_OWNED');
+      return item.id;
+    };
+    const next: OutfitView = {
+      hatId: pick(body.hatId, 'hat'),
+      topId: pick(body.topId, 'top'),
+      legsId: pick(body.legsId, 'legs'),
+      setId: pick(body.setId, 'set'),
+    };
+    // Nguyên bộ thay cả áo và quần: không mặc cùng áo/quần lẻ (giống Server).
+    if (next.setId !== null && (next.topId !== null || next.legsId !== null)) {
+      throw new CommandError('VALIDATION_FAILED');
+    }
+    this.outfit = next;
+    this.emit('OutfitChanged', { playerId: MY_ID, ...next });
+    return { ...next };
+  }
+
   private skinList(): SkinsResponse {
     return {
       skins: MOCK_SKINS.map((skin) => ({
@@ -1852,6 +1956,14 @@ export class MockBackend {
     if (skin.unlock === 'shop' && !this.skinsOwned.has(skinId))
       throw new CommandError('SKIN_NOT_OWNED');
     this.selectedSkinId = skinId;
+    this.characterChosen = true;
+    if (this.persist) {
+      try {
+        globalThis.localStorage?.setItem(CHARACTER_STORAGE_KEY, JSON.stringify({ skinId }));
+      } catch {
+        // Bộ nhớ trình duyệt đầy hoặc bị chặn: lần sau hỏi lại.
+      }
+    }
     this.emit('SkinChanged', { playerId: MY_ID, skinId });
     return { selectedSkinId: skinId };
   }

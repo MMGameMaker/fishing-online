@@ -106,6 +106,8 @@ export const isApiFailure: Guard<ApiFailure> = (v): v is ApiFailure =>
   str(v.error.message) &&
   bool(v.error.retryable);
 
+const isOutfitId = (v: unknown): boolean => v === null || v === undefined || str(v);
+
 export const isPlayerView: Guard<PlayerView> = (v): v is PlayerView =>
   obj(v) &&
   str(v.playerId) &&
@@ -117,7 +119,14 @@ export const isPlayerView: Guard<PlayerView> = (v): v is PlayerView =>
   isDirection(v.dir) &&
   (v.seatId === null || str(v.seatId)) &&
   bool(v.fishing) &&
-  (v.restSeatId === undefined || v.restSeatId === null || str(v.restSeatId));
+  (v.restSeatId === undefined || v.restSeatId === null || str(v.restSeatId)) &&
+  (v.outfit === undefined ||
+    v.outfit === null ||
+    (obj(v.outfit) &&
+      isOutfitId(v.outfit.hatId) &&
+      isOutfitId(v.outfit.topId) &&
+      isOutfitId(v.outfit.legsId) &&
+      isOutfitId(v.outfit.setId)));
 
 export const isSeatView: Guard<SeatView> = (v): v is SeatView =>
   obj(v) &&
@@ -223,6 +232,13 @@ export const EVENT_GUARDS: { [K in HubEventName]: Guard<HubEvents[K]> } = {
   LakeStockChanged: (v): v is HubEvents['LakeStockChanged'] => obj(v) && bool(v.empty),
   SkinChanged: (v): v is HubEvents['SkinChanged'] => obj(v) && str(v.playerId) && str(v.skinId),
   RodChanged: (v): v is HubEvents['RodChanged'] => obj(v) && str(v.playerId) && str(v.rodId),
+  OutfitChanged: (v): v is HubEvents['OutfitChanged'] =>
+    obj(v) &&
+    str(v.playerId) &&
+    isOutfitId(v.hatId) &&
+    isOutfitId(v.topId) &&
+    isOutfitId(v.legsId) &&
+    isOutfitId(v.setId),
   ChatReceived: (v): v is HubEvents['ChatReceived'] =>
     obj(v) && str(v.messageId) && str(v.playerId) && str(v.text),
   EmojiReceived: (v): v is HubEvents['EmojiReceived'] =>

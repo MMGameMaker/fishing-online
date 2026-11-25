@@ -8,7 +8,15 @@ import { swimFish } from './swimFish';
 import { RARITY_LABELS, formatGold } from '../kit/format';
 import { UI_DESIGN_HEIGHT, UI_DESIGN_WIDTH } from '../../core/env';
 import type { Services } from '../../core/services';
-import type { InventoryResponse, ShopBuyResponse } from '../../net/contract';
+import type {
+  BuyWardrobeResponse,
+  InventoryResponse,
+  OutfitView,
+  ShopBuyResponse,
+  WardrobeItemView,
+  WardrobeResponse,
+  WardrobeSlot,
+} from '../../net/contract';
 import { showError, showToast } from '../kit/components';
 import { animateIn, animateOut } from '../kit/motion';
 import { snapshotScroll } from '../kit/scroll';
@@ -30,6 +38,7 @@ import {
 } from './shopModel';
 import { loadSkins, skinImage } from '../skin/skinArt';
 import { TOP_UP_PACKS, type TopUpResponse } from './topUpPacks';
+import { renderWardrobeTab } from './wardrobeShop';
 
 const UI = (file: string) => encodeURI(`/new resources/ui/${file}`);
 const MINI = (file: string) => encodeURI(`/mini game/${file}`);
@@ -44,11 +53,13 @@ const SHOP_H = 880;
 const SELL_W = 1160;
 const SELL_H = 620;
 
-export type TabId = 'sell' | 'equip' | 'skin' | 'topup';
+export type TabId = 'sell' | 'equip' | 'skin' | 'wardrobe' | 'topup';
 const TABS: { id: TabId; label: string; icon: string }[] = [
   { id: 'sell', label: 'Bán cá', icon: UI('Icon Sell.png') },
-  { id: 'equip', label: 'Trang bị', icon: UI('Icon Equipment.png') },
-  { id: 'skin', label: 'Ngoại hình', icon: UI('Icon Appearance.png') },
+  { id: 'equip', label: 'Cần câu', icon: UI('Icon Equipment.png') },
+  // Tab "Ngoại hình" (skin thỏ mặc đồ 300 Gold) đã bỏ khỏi Cửa hàng (yêu cầu 2026-11-25); mã tab 'skin' giữ lại, không có nút mở.
+  // Mũ, áo, quần lẻ 300 Gold/món, mặc lên nhân vật (yêu cầu 2026-11-25).
+  { id: 'wardrobe', label: 'Trang phục', icon: UI('Icon Inventory.png') },
   // Feedback 2026-11-16: ẩn tab "Nạp Gold" ở client (mã tab và route dev /dev/topup giữ lại để bật lại khi có cổng thanh toán).
   // { id: 'topup', label: 'Nạp Gold', icon: UI('Icon Gold.png') },
 ];
@@ -196,6 +207,7 @@ export class ShopPopup {
     }
     void this.reloadInventory();
     void this.loadSkinNames();
+    void this.loadWardrobe();
   }
 
   close(): void {
@@ -259,7 +271,9 @@ export class ShopPopup {
           ? this.equipTab()
           : this.tab === 'skin'
             ? this.skinTab()
-            : this.topUpTab();
+            : this.tab === 'wardrobe'
+              ? this.wardrobeTab()
+              : this.topUpTab();
     // Giữ vị trí cuộn khi chọn cá/mua/bán; chỉ về đầu khi mới mở hoặc đổi tab.
     const restore = this.resetScroll ? null : snapshotScroll(this.body, SCROLL_AREAS);
     this.body.replaceChildren(content);
@@ -495,15 +509,22 @@ export class ShopPopup {
 
   private equipTab(): HTMLElement {
     const { catalog, inventory } = this.options.services.store.getState();
+    const equippedRodId = inventory?.equippedRodId;
     const grid = el('div', 'shop-cards shop-cards--rods');
     for (const rod of rodOffers(catalog, inventory?.rods ?? [])) {
       const card = el('div', 'shop-card shop-card--rod');
       card.title = rod.name;
       const slot = el('span', 'shop-card__slot');
       slot.append(img(rodIcon(rod.rodId), 'shop-card__rod'));
-      const buy = button('shop-small shop-card__price', rod.owned ? 'Đã có' : `Mua ${rod.name}`);
-      if (rod.owned || !rod.offerId) {
-        buy.textContent = 'Đã có';
+      const buy = button('shop-small shop-card__price', rod.owned ? 'Trang bị' : `Mua ${rod.name}`);
+      if (rod.owned) {
+        // Đã có: bấm để trang bị (như tab Trang phục); cần đang cầm thì nút khoá, ghi "Đang dùng".
+        const worn = rod.rodId === equippedRodId;
+        buy.textContent = worn ? 'Đang dùng' : 'Trang bị';
+        buy.disabled = worn;
+        if (!worn) buy.addEventListener('click', () => void this.equipRod(rod.rodId, rod.name));
+      } else if (!rod.offerId) {
+        buy.textContent = 'Chưa bán';
         buy.disabled = true;
       } else {
         buy.append(goldTag(rod.priceGold, 'shop-gold-tag shop-gold-tag--button'));
@@ -515,6 +536,21 @@ export class ShopPopup {
     }
     if (!catalog) grid.append(el('p', 'shop-empty', 'Đang tải...'));
     return grid;
+  }
+
+  /** Trang bị cần đã mua; hub phát RodChanged nên store (và hiển thị) tự cập nhật. */
+  private async equipRod(rodId: string, name: string): Promise<void> {
+    if (this.busy) return;
+    this.busy = true;
+    try {
+      await this.options.services.api.put('/me/equipped-rod', { rodId });
+      showToast(this.options.root, `Đã trang bị ${name}.`);
+      this.render();
+    } catch (error) {
+      showError(this.options.root, error);
+    } finally {
+      this.busy = false;
+    }
   }
 
   // ---------- Ngoại hình ----------
@@ -554,6 +590,99 @@ export class ShopPopup {
     }
     if (!catalog) grid.append(el('p', 'shop-empty', 'Đang tải...'));
     return grid;
+  }
+
+  // ---------- Trang phục (mũ, áo, quần lẻ) ----------
+
+  private wardrobe: WardrobeResponse | null = null;
+  private wardrobeSlot: WardrobeSlot = 'hat';
+
+  private async loadWardrobe(): Promise<void> {
+    try {
+      this.wardrobe = await this.options.services.api.get<WardrobeResponse>('/wardrobe');
+      if (this.tab === 'wardrobe') this.render();
+    } catch (error) {
+      console.warn(error);
+    }
+  }
+
+  private wardrobeTab(): HTMLElement {
+    const profile = this.options.services.store.getState().session.profile;
+    return renderWardrobeTab({
+      data: this.wardrobe,
+      slot: this.wardrobeSlot,
+      skinId: profile?.selectedSkinId ?? 'skin_01',
+      busy: this.busy,
+      onSlot: (slot) => {
+        this.wardrobeSlot = slot;
+        this.resetScroll = true;
+        this.render();
+      },
+      onBuy: (item) => void this.buyWardrobe(item),
+      onToggle: (item) => void this.toggleWardrobe(item),
+    });
+  }
+
+  /** Mua một món (300 Gold): trừ Gold, đánh dấu đã có; muốn mang thì bấm Trang bị. */
+  private async buyWardrobe(item: WardrobeItemView): Promise<void> {
+    if (this.busy) return;
+    this.busy = true;
+    this.render();
+    const { api, store } = this.options.services;
+    try {
+      const result = await api.post<BuyWardrobeResponse>('/wardrobe/buy', { itemId: item.itemId });
+      store.dispatch({ type: 'session/gold', payload: result.gold });
+      if (this.wardrobe) {
+        this.wardrobe = {
+          ...this.wardrobe,
+          items: this.wardrobe.items.map((entry) => (entry.itemId === item.itemId ? result.item : entry)),
+        };
+      }
+      showToast(this.options.root, `Đã mua ${item.name}.`);
+      this.traded = true;
+      this.options.onPurchase?.();
+    } catch (error) {
+      showError(this.options.root, error);
+    } finally {
+      this.busy = false;
+      this.render();
+    }
+  }
+
+  /** Trang bị món chưa mang (thay món cũ cùng loại) hoặc tháo món đang mang. */
+  private async toggleWardrobe(item: WardrobeItemView): Promise<void> {
+    if (this.busy || !this.wardrobe) return;
+    this.busy = true;
+    this.render();
+    const { api } = this.options.services;
+    const current = this.wardrobe.equipped;
+    const key =
+      item.slot === 'hat' ? 'hatId' : item.slot === 'top' ? 'topId' : item.slot === 'legs' ? 'legsId' : 'setId';
+    const worn = (current[key] ?? null) === item.itemId;
+    const next: OutfitView = {
+      hatId: current.hatId,
+      topId: current.topId,
+      legsId: current.legsId,
+      setId: current.setId ?? null,
+      [key]: worn ? null : item.itemId,
+    };
+    // Nguyên bộ thay cả áo và quần: mặc bộ thì cởi áo, quần lẻ; mặc áo hoặc quần lẻ thì cởi bộ.
+    if (!worn && item.slot === 'set') {
+      next.topId = null;
+      next.legsId = null;
+    } else if (!worn && (item.slot === 'top' || item.slot === 'legs')) {
+      next.setId = null;
+    }
+    try {
+      const equipped = await api.put<OutfitView>('/me/outfit', next);
+      this.wardrobe = { ...this.wardrobe, equipped };
+      showToast(this.options.root, worn ? `Đã tháo ${item.name}.` : `Đã trang bị ${item.name}.`);
+    } catch (error) {
+      showError(this.options.root, error);
+    } finally {
+      this.busy = false;
+      this.render();
+    }
   }
 
   /** Mua cần hoặc skin: cùng POST /shop/buy, Server trả Gold và túi mới. */

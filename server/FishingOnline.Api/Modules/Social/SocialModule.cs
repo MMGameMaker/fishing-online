@@ -240,7 +240,9 @@ public sealed class SocialService(
             if (option.Unlock == SkinUnlock.Shop
                 && !await db.Set<SkinOwnedRow>().AsNoTracking().AnyAsync(row => row.PlayerId == playerId && row.SkinId == skinId, ct))
                 throw new GameException("SKIN_NOT_OWNED");
-            await db.Players.Where(row => row.Id == playerId).ExecuteUpdateAsync(setters => setters.SetProperty(row => row.SelectedSkinId, skinId), ct);
+            await db.Players.Where(row => row.Id == playerId).ExecuteUpdateAsync(setters => setters
+                .SetProperty(row => row.SelectedSkinId, skinId)
+                .SetProperty(row => row.CharacterChosen, true), ct);
         }
         await room.Queue.RunAsync(async () =>
         {

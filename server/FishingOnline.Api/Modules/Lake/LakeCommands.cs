@@ -57,6 +57,7 @@ public sealed class LakeCommands(
                 existing.DisplayName = profile.DisplayName;
                 existing.SkinId = profile.SelectedSkinId;
                 existing.RodId = profile.EquippedRodId;
+                existing.Outfit = new FishingOnline.Api.Modules.Wardrobe.OutfitView(profile.HatId, profile.TopId, profile.LegsId, profile.SetId);
                 existing.SeatId = session?.SeatId;
                 // Vào lại hồ (rớt mạng, tải lại trang) thì đứng; chỗ ngồi chơi đã giữ được trả.
                 existing.RestSeatId = null;
@@ -91,6 +92,7 @@ public sealed class LakeCommands(
                     Dir = command.Dir ?? "down",
                     SeatId = session?.SeatId,
                     TitleId = profile.TitleId,
+                    Outfit = new FishingOnline.Api.Modules.Wardrobe.OutfitView(profile.HatId, profile.TopId, profile.LegsId, profile.SetId),
                     LastMoveAt = now,
                 };
                 room.Add(player);

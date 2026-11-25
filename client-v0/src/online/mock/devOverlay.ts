@@ -83,7 +83,27 @@ export function mountFishPicker(mock: MockBackend): void {
     grant.textContent = `Đã thêm ${count} loài ✓`;
     window.setTimeout(() => (grant.textContent = 'Có tất cả cá'), 1800);
   });
-  box.append(head, list, grant);
+  // Nút chọn lại nhân vật: quên lựa chọn đã lưu rồi tải lại trang để hiện lại panel Chọn nhân vật (mock nhớ nhân vật qua localStorage).
+  const pick = document.createElement('button');
+  pick.type = 'button';
+  pick.className = 'mock-fish__pick';
+  pick.textContent = 'Chọn nhân vật';
+  pick.addEventListener('click', () => {
+    mock.forgetCharacter();
+    window.location.reload();
+  });
+  // Nút cộng 3000 vàng để thử mua đồ; cập nhật luôn Gold hiện trên HUD qua store của game.
+  const gold = document.createElement('button');
+  gold.type = 'button';
+  gold.className = 'mock-fish__gold';
+  gold.textContent = '+3000 vàng';
+  gold.addEventListener('click', () => {
+    const total = mock.addGold(3000);
+    const game = (window as unknown as { __fishing?: { services?: { store?: { dispatch: (action: unknown) => void } } } })
+      .__fishing;
+    game?.services?.store?.dispatch({ type: 'session/gold', payload: String(total) });
+  });
+  box.append(head, list, grant, gold, pick);
   document.body.append(box);
   refresh();
 

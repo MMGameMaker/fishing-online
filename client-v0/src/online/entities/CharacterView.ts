@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import type { Rarity } from '../core/gameplayConfig';
-import type { Direction } from '../net/contract';
+import type { Direction, OutfitView, WardrobeSlot } from '../net/contract';
 import { EMOTE_TEXTURE, emojiById, emoteAnimKey } from '../social/emojis';
 import { fishSpeciesOf } from '../social/fishEmoji';
 import { RARITY_COLORS } from '../ui/kit/format';
@@ -13,6 +13,7 @@ import {
   headBubbleTexture,
 } from './HeadBubble';
 import { smoothText, textResolution } from './smoothText';
+import { loadWardrobeArt } from './wardrobeArt';
 import {
   titleLabel,
   titleTier,
@@ -100,6 +101,15 @@ const BITE_COLOR = '#ff3b30';
  * trong art, nên thân diễn tư thế ngồi đứng yên, lớp cần vẫn diễn animation rung.
  */
 const BODY_STILL_ANIMS: ReadonlySet<CharacterAnim> = new Set(['bite', 'reel']);
+/** Thứ tự vẽ lớp trang phục trên thân: quần dưới, áo, nguyên bộ (thay áo + quần nên vẽ đè lên), mũ trên cùng. */
+const WARDROBE_ORDER: readonly WardrobeSlot[] = ['legs', 'top', 'set', 'hat'];
+
+interface WardrobeLayer {
+  id: string | null;
+  /** Art của món đã nạp xong, sprite đang hiện. */
+  ready: boolean;
+  sprite: Phaser.GameObjects.Sprite;
+}
 /**
  * Mặt buồn khi câu thất bại (feedback 2026-11-16): atlas không có biểu cảm buồn nên vẽ thêm vài điểm ảnh
  * (lông mày xếch lên ở giữa, miệng mếu, giọt nước mắt) lên mặt thỏ ở tư thế ngồi. Toạ độ tính từ chân (pivot),
@@ -159,6 +169,7 @@ export class CharacterView {
   }
   private readonly body: Phaser.GameObjects.Sprite;
   private readonly rod: Phaser.GameObjects.Sprite;
+  private readonly wardrobe = {} as Record<WardrobeSlot, WardrobeLayer>;
   private readonly iconSlot: Phaser.GameObjects.Container;
   private readonly label: Phaser.GameObjects.Text;
   /** Biệt hiệu (danh hiệu) dưới tên; chỉ trang có Head Bubble (pier) mới hiện. */
@@ -209,6 +220,14 @@ export class CharacterView {
     this.body = scene.add.sprite(0, 0, this.skinId, firstFrame).setOrigin(0.5, 1);
     this.sadFace = scene.add.graphics();
     this.rod = scene.add.sprite(0, 0, this.rodId, firstFrame).setOrigin(0.5, 1);
+    // Lớp trang phục (quần, áo, mũ) vẽ chồng lên thân, ẩn tới khi nạp xong art của món (yêu cầu 2026-11-25).
+    for (const slot of WARDROBE_ORDER) {
+      this.wardrobe[slot] = {
+        id: null,
+        ready: false,
+        sprite: scene.add.sprite(0, 0, this.skinId, firstFrame).setOrigin(0.5, 1).setVisible(false),
+      };
+    }
     this.label = scene.add
       .text(0, 0, options.name, {
         // Pier: cùng phông đậm với tên ở khung người chơi (Courier New), vẽ độ phân giải cao cho nét rõ.
@@ -255,6 +274,7 @@ export class CharacterView {
       .setVisible(false);
     this.container = scene.add.container(options.x, options.y, [
       this.body,
+      ...WARDROBE_ORDER.map((slot) => this.wardrobe[slot].sprite),
       this.sadFace,
       this.rod,
       this.label,
@@ -475,6 +495,31 @@ export class CharacterView {
     ensureSkin(this.scene, skinId);
     this.placeHeadItems();
     this.applyAnimation();
+  }
+
+  /** Đặt trang phục đang mặc (mũ, áo, quần); thiếu hoặc null = cởi. Art nạp lần đầu khi cần. */
+  setOutfit(outfit: OutfitView | null | undefined): void {
+    this.setWardrobe('hat', outfit?.hatId ?? null);
+    this.setWardrobe('top', outfit?.topId ?? null);
+    this.setWardrobe('legs', outfit?.legsId ?? null);
+    this.setWardrobe('set', outfit?.setId ?? null);
+  }
+
+  private setWardrobe(slot: WardrobeSlot, id: string | null): void {
+    const layer = this.wardrobe[slot];
+    if (layer.id === id) return;
+    layer.id = id;
+    layer.ready = false;
+    layer.sprite.setVisible(false);
+    if (id === null) return;
+    loadWardrobeArt(this.scene, id, () => {
+      // Đã đổi món khác (hoặc cởi) trong lúc nạp thì bỏ qua.
+      if (layer.id !== id) return;
+      layer.ready = true;
+      layer.sprite.setTexture(id, frameName('idle', this.dir, 0));
+      layer.sprite.setVisible(true);
+      this.applyAnimation();
+    });
   }
 
   setRod(rodId: string): void {
@@ -835,9 +880,16 @@ export class CharacterView {
     const speed = this.anim === 'walk' && hasHeadBubble(this.scene) ? WALK_ANIM_TIME_SCALE : 1;
     this.body.anims.timeScale = speed;
     this.rod.anims.timeScale = speed;
+    // Trang phục chạy đúng animation của thân (cả lúc thân đứng yên khi cá cắn) và cùng tốc độ.
+    for (const slot of WARDROBE_ORDER) {
+      const layer = this.wardrobe[slot];
+      if (!layer.ready || layer.id === null) continue;
+      layer.sprite.play(animKey(layer.id, bodyAnim, this.dir));
+      layer.sprite.anims.timeScale = speed;
+    }
     this.syncOutline();
     // Art thật mang pivot chân trong frame (Phaser tự áp); sprite vẽ tạm neo đáy-giữa.
-    for (const sprite of [this.body, this.rod]) {
+    for (const sprite of [this.body, this.rod, ...WARDROBE_ORDER.map((slot) => this.wardrobe[slot].sprite)]) {
       if (!sprite.frame.customPivot) sprite.setOrigin(0.5, 1);
     }
   }

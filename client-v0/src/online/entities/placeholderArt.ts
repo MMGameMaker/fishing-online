@@ -135,7 +135,7 @@ function drawRod(rodId: string): DrawFrame {
   };
 }
 
-function ensureAnimations(scene: Phaser.Scene, texture: string): void {
+export function ensureAnimations(scene: Phaser.Scene, texture: string): void {
   // Art thật ghi số frame/tốc độ riêng trong JSON; sprite vẽ tạm dùng bảng mặc định.
   const baked = bakedData(scene, texture).animations ?? {};
   for (const anim of ANIM_NAMES) {

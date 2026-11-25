@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { preloadCharacterArt } from '../entities/characterArt';
-import type { Catalog, PlayerProfile } from '../net/contract';
+import type { Catalog, PlayerProfile, SelectSkinResponse, SkinsResponse } from '../net/contract';
 import type { BootScreens } from '../ui/boot/BootScreens';
 import { startBackgroundMusic } from './backgroundMusic';
 import { shouldApplyGoogleName, toDisplayName } from './googleName';
@@ -164,6 +164,11 @@ export class BootScene extends Phaser.Scene {
       store.dispatch({ type: 'session/profile', payload: player });
       screens?.setProgress(55, 'Đang tải dữ liệu...');
       store.dispatch({ type: 'catalog/set', payload: await api.get<Catalog>('/catalog') });
+      if (screens) {
+        // Chọn nhân vật (thỏ hoặc bạn thú) trước khi vào hồ; lỗi tải danh sách thì bỏ qua, vào bằng nhân vật đang có.
+        await this.chooseCharacter(screens);
+        screens.showLoading('Đang kết nối...', 75);
+      }
       screens?.setProgress(75, 'Đang kết nối...');
       await hub.start();
       await hub.joinLake();
@@ -180,6 +185,34 @@ export class BootScene extends Phaser.Scene {
       }
       status.setText('Fishing Online\nKhông vào được hồ');
     }
+  }
+
+  /** Panel Chọn nhân vật (yêu cầu 2026-11-25): lưu skin đã chọn lên Server trước khi vào hồ. */
+  private async chooseCharacter(screens: BootScreens): Promise<void> {
+    const { api, store } = getServices(this);
+    // Chỉ hiện lần đầu, khi tài khoản chưa chọn nhân vật; chọn xong Server lưu lại và không hỏi nữa.
+    if (store.getState().session.profile?.characterChosen !== false) return;
+    let list: SkinsResponse;
+    try {
+      list = await api.get<SkinsResponse>('/skins');
+    } catch (error) {
+      console.warn('Không tải được danh sách nhân vật, bỏ qua bước chọn', error);
+      return;
+    }
+    await screens.chooseCharacter({
+      skins: list.skins,
+      selectedId: list.selectedSkinId,
+      select: async (skinId) => {
+        const result = await api.put<SelectSkinResponse>('/me/skin', { skinId });
+        const profile = store.getState().session.profile;
+        if (profile) {
+          store.dispatch({
+            type: 'session/profile',
+            payload: { ...profile, selectedSkinId: result.selectedSkinId, characterChosen: true },
+          });
+        }
+      },
+    });
   }
 
   /**

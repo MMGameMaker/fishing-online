@@ -15,6 +15,7 @@ const EVENTS: HubEventName[] = [
   'CatchShown',
   'SkinChanged',
   'RodChanged',
+  'OutfitChanged',
   'ChatReceived',
   'EmojiReceived',
   'CatchAnnounced',

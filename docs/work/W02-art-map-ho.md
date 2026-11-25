@@ -975,3 +975,53 @@ Người dùng gửi 5 điểm và bảo "hãy sửa đi". Đã làm, chưa comm
 
 ### 2026-11-21 — Chậm anim đi của người và bot (pier)
 - `CharacterView.applyAnimation`: trên pier (`hasHeadBubble`) anim `walk` chạy với `timeScale` 0,7 (12 → ~8,4 khung/giây) cho thân và cần, để chân không guồng nhanh hơn tốc độ di chuyển (90px/s); trang khác không đổi. Chỉnh hằng `WALK_ANIM_TIME_SCALE` nếu vẫn nhanh/chậm. Chưa xem trong game.
+
+### 2026-11-23 — Nút Facebook ở màn đăng nhập
+- `BootScreens.ts`: thêm nút `Login/Facebook (later).png` dưới nút Google, **chưa bấm được** (`disabled`, tooltip "Sắp ra mắt"; chưa có luồng đăng nhập Facebook, cần BE + Firebase provider). `boot.css`: hai nút thu còn 480/576 và gap 12 để vừa khung Sign In Panel 640x388. Đã xem trên trang đăng nhập (pier.html).
+
+### 2026-11-23 — Kiểm trang phục (mũ/áo/quần/bộ liền) dùng được cho NPC và thỏ
+- Kết quả và danh sách: `docs/work/W02-trang-phuc-npc-tho.md`. Chưa sửa code/art; chỉ khảo sát. Thỏ (6 thân) dùng được toàn bộ; npc_panda: mũ 134/315, áo 165/165, quần 87/87, bộ liền 82/102; npc_fox: mũ 17/315 (chỉ mũ trùm cả đầu), áo 165/165, quần 87/87, bộ liền 96/102.
+- Bổ sung 20 thân bot vào `docs/work/W02-trang-phuc-npc-tho.md`: áo/quần dùng được cho mọi thân; bộ liền dùng chung 68/102; mũ phải chọn theo loài (shiba, chuột, vịt gần như không có; mèo 180, gấu 134, rùa 44). Chưa xem bằng mắt từng món.
+- Bổ sung mục "Dùng chung cho TẤT CẢ" vào W02-trang-phuc-npc-tho.md: áo 165/165, quần 87/87, bộ liền 68/102, mũ 0/315.
+- Đã chọn 40 mũ dùng chung cho thỏ + NPC + bot (xem W02-trang-phuc-npc-tho.md): phụ kiện nhỏ (tai nghe, nơ, sừng quỷ, trứng ốp la, khăn bịt đầu, nón lưỡi trai/nón nồi, vòng hoa, mũ y tá...), đã xem mắt trên 9 thân, 3 hướng.
+- Đã ghi danh sách đầy đủ tên mũ (40), áo (165), quần (87), bộ liền (68) dùng chung vào phần TỔNG HỢP cuối W02-trang-phuc-npc-tho.md.
+- Xem bằng mắt xong (áo 165/165 ổn; quần 86/87, loại turtle-floaty; bộ liền 55 thường + 9 hóa trang, loại 4: mermaid x3 và big-ears-forg-costume; mũ 40/40). Danh sách CHỐT ở cuối W02-trang-phuc-npc-tho.md.
+- Đã chốt ghi chú đầu/cuối W02-trang-phuc-npc-tho.md: trỏ tới danh sách CHỐT, sửa số quần 86 và bộ liền 55+9, thêm "Việc tiếp theo".
+
+### 2026-11-25 — Panel "Chọn nhân vật" khi vào game
+- **Luồng:** đăng nhập xong (`BootScene.login`), trước khi vào hồ, hiện panel **Chọn nhân vật** (`ui/boot/CharacterSelect.ts`, dựng trong `BootScreens.chooseCharacter`, CSS `.pick__*` ở `boot.css`). Hai tab **Thỏ** (skin_01-10, thỏ đốm đỏ) và **Bạn thú** (19 skin bot); ô xem trước bên trái; skin shop chưa mua hiện mờ và không chọn được; bấm **VÀO HỒ** thì lưu (`PUT /me/skin`, chỉ khi đổi) rồi vào hồ. Lỗi tải `/skins` thì bỏ qua panel. Chỉ pier.html (có `screens`); đăng nhập dev (?dev=) bỏ qua panel.
+- **Server (BE):** `appsettings.json` `Social.Skins` thêm 20 skin `skin_bot_*` miễn phí (tên tiếng Việt) và đổi tên `Skin 1..5` -> `Thỏ 1..5` (mock `skinCatalog.ts` khớp). Bot vẫn random trong `BotManager.Skins`. Người chơi giờ chọn được cả skin bạn thú; skin cũ giữ nguyên.
+- **Kiểm tra:** tsc/eslint/vitest 359 pass; chạy thật trên mock (`?mockLogin`): chọn Mèo tuxedo -> vào hồ thì nhân vật là mèo tuxedo, `selectedSkinId` đúng. Test Server cần Postgres nên bị bỏ qua (chưa chạy thật); chỉ kiểm JSON hợp lệ và build.
+- **Chưa làm / lưu ý:** avatar trên HUD góc trái vẫn là icon thỏ cố định (chưa theo skin); không có nút mở lại panel trong game (đổi skin trong game vẫn dùng popup Ngoại hình, nay có cả bạn thú); `red_spotted_bunny` xếp vào tab Thỏ.
+- Sửa panel Chọn nhân vật theo yêu cầu: bỏ tab Thỏ/Bạn thú, chỉ còn MỘT lưới (Thỏ 1-5, rồi bạn thú, rồi skin shop đã mua); skin shop chưa mua không hiện nữa. Đã xem trên mock: 25 thẻ, không còn tab.
+
+### 2026-11-25 — Cửa hàng bán mũ, áo, quần (300 Gold/món) và mặc lên nhân vật
+- **Danh mục:** 291 món = 40 mũ (chọn tay) + 165 áo + 86 quần, đúng danh sách CHỐT trong `docs/work/W02-trang-phuc-npc-tho.md`; tên tiếng Việt viết tay trong `client-v0/tools/make_wardrobe_items.py` -> `client-v0/tools/wardrobe-items.json` (bản sao Server: `server/FishingOnline.Api/Modules/Wardrobe/wardrobe-items.json`, có test so khớp). Id dạng `hat_cap`, `top_hoodie`, `legs_cargo-pants`. Chưa gồm bộ liền (outfit).
+- **Art:** `client-v0/tools/bake_wardrobe.mjs` bake mỗi món một sheet lớp trong suốt 120×140 cùng animation với thân (`public/assets/wardrobe/<id>.png|json`, tổng ~4,2 MB PNG + ~10 MB JSON, nạp lười từng món) và `_thumbs.png|json` (ảnh xem thử chung cho Cửa hàng).
+- **Server (BE):** module `Modules/Wardrobe/WardrobeModule.cs`: `GET /api/v1/wardrobe`, `POST /api/v1/wardrobe/buy {itemId}` (trừ 300 Gold, `LedgerReasons.BuyWardrobe`), `PUT /api/v1/me/outfit {hatId,topId,legsId}` (null = cởi; phải đã mua và đúng loại); bảng `wardrobe_owned` + cột `HatId/TopId/LegsId` ở `players` (migration `20261125021101_WARDROBE_Outfit`, **chưa chạy lên DB thật**: chạy `server/migrate-local.ps1`); `PlayerView.outfit` và event `OutfitChanged` phát cả hồ; lỗi mới `WARDROBE_ALREADY_OWNED` (409), `WARDROBE_NOT_OWNED` (422).
+- **Client:** `CharacterView` vẽ 3 lớp (quần, áo, mũ) chồng lên thân, chạy cùng animation/tốc độ (`entities/wardrobeArt.ts` nạp lười); tab **Trang phục** trong Cửa hàng (`ui/shop/wardrobeShop.ts`: nhóm Mũ/Áo/Quần, xem thử trên nhân vật đang chọn, Mua/Mặc/Cởi); mock backend có đủ 3 route + event; test mock mới (`MockBackend.wardrobe.test.ts`).
+- **Kiểm tra:** vitest 364 pass, tsc/eslint sạch; Server: build ok, test danh mục 2/2 pass (test cần Postgres bị bỏ qua nên Server **chưa chạy thật**); trên mock trong trình duyệt: mua 3 món, mặc mũ + áo + quần, nhân vật hiện đủ 3 lớp, animation layer khớp thân (đi, ngồi).
+- **Chưa làm / lưu ý:** bot và NPC chưa mặc đồ; nhãn tên có thể hơi đè lên mũ cao (chưa nâng nhãn theo mũ); viền trắng khi trỏ vào nhân vật chỉ viền thân; bộ liền chưa bán; Admin chưa xem được đồ của người chơi.
+- Đã chạy migration lên DB dev portable (127.0.0.1:55432, fishing_online): áp dụng TRADE_FishTrades (còn chờ) và WARDROBE_Outfit; bảng wardrobe_owned và cột HatId/TopId/LegsId đã có. Postgres portable đang chạy nền (tắt bằng stop-all.bat hoặc pg_ctl stop).
+
+### 2026-11-25 — Panel Chọn nhân vật chỉ hiện lần đầu
+- **Cờ lưu theo tài khoản:** Server thêm `players.CharacterChosen` (migration `PLAYER_CharacterChosen`, đã chạy lên DB dev): người chơi mới = false, bot = true; người chơi cũ đã đổi skin khác `skin_01` và bot được đặt true. `PUT /me/skin` đặt true; `PlayerProfileView.characterChosen` trả khi đăng nhập.
+- **Client:** `BootScene.chooseCharacter` chỉ hiện panel khi `profile.characterChosen === false` (Server cũ không gửi = không hiện); bấm VÀO HỒ luôn gọi `PUT /me/skin` (kể cả giữ Thỏ 1) để lưu "đã chọn"; sau đó không hỏi nữa, nhân vật đã chọn lưu theo tài khoản. Mock nhớ qua `localStorage` (`mock.character`) để thử tải lại trang.
+- **Kiểm tra:** vitest 364+2 pass; trên mock: lần đầu hiện panel, chọn Mèo đen, tải lại thì vào thẳng game với Mèo đen (không hiện panel). Server mới build và áp migration, chưa chạy API thật.
+- Muốn thử lại panel trong mock: xoá khoá `mock.character` trong localStorage của trang.
+
+### 2026-11-25 — Cửa hàng: bỏ chữ "Mua", bỏ tab Ngoại hình, thêm ô Nguyên bộ
+- **Cửa hàng:** nút trong tab Trang phục chỉ hiện giá (xu + số), bỏ chữ "Mua"; bỏ tab **Ngoại hình** (skin thỏ mặc đồ 300 Gold) khỏi Cửa hàng (mã tab giữ lại trong code, không có nút mở); thêm nhóm **Nguyên bộ (64)** cạnh Mũ/Áo/Quần, 300 Gold/bộ.
+- **Nguyên bộ = 64 bộ liền (outfit)** gồm 55 dùng thường + 9 hóa trang trùm đầu (ếch, ma, áo choàng), bỏ mermaid x3 và big-ears-forg-costume (xem danh sách CHỐT). Id `set_<tên>`, tên tiếng Việt trong `tools/make_wardrobe_items.py`; danh mục nay 355 món; bake lại `public/assets/wardrobe` (355 sheet + `_thumbs`, tổng ~6 MB PNG).
+- **Luật:** nguyên bộ thay cả áo và quần nên không mặc cùng áo/quần lẻ: mặc bộ thì tự cởi áo, quần; mặc áo hoặc quần thì tự cởi bộ (Client làm, Server và mock cũng từ chối tổ hợp sai bằng VALIDATION_FAILED). Mũ mặc kèm nguyên bộ được.
+- **Server (BE):** `OutfitView.SetId`, cột `players.SetId` (migration `WARDROBE_SetId`, đã chạy lên DB dev), `SetOutfitRequest.SetId`, `OutfitChanged.setId`. **CharacterView** thêm lớp `set` (vẽ giữa áo và mũ).
+- **Kiểm tra:** vitest 367 pass, tsc/eslint sạch, test danh mục Server 2/2 pass; trên mock: tab Trang phục có 4 nhóm, mua và mặc "Váy mùa thu" thì áo lẻ tự cởi, lớp set hiện. Server chưa chạy API thật.
+- Ẩn thanh cuộn lưới thẻ trong Cửa hàng (`.shop-cards`, tab Trang bị/Trang phục), vẫn cuộn bằng chuột/vuốt, giống lưới bán cá.
+- Tab Trang phục: chừa dải đệm 18px dưới hàng nút Mũ/Áo/Quần/Nguyên bộ và làm mờ dần mép trên lưới (mask 26px) để thẻ trượt lên không bị cắt cụt sát nút.
+- Mock `?mockFish=1`: thêm nút xanh dương **Chọn nhân vật** dưới nút "Có tất cả cá": quên nhân vật đã lưu (`MockBackend.forgetCharacter`) rồi tải lại trang để hiện lại panel Chọn nhân vật. Đã thử: chọn Shiba kem, bấm nút, panel hiện lại.
+- Tab Trang phục (Zen chọn kiểu "Ghim hàng nút nền đặc"): hàng nút Mũ/Áo/Quần/Nguyên bộ nằm trên dải nền đặc #f2d69c có đường kẻ dưới #c18a47, lưới thẻ cuộn bị che gọn dưới dải và cắt sạch ngang đường kẻ; bỏ lớp mờ dần (mask) cũ. Đã xem khi cuộn.
+- Mock `?mockFish=1`: thêm nút vàng **+3000 vàng** (cộng Gold để thử mua đồ, cập nhật HUD luôn). Đã thử: 100 -> 3100.
+
+- 2026-11-25 (Web Client): Cửa hàng tab "Trang phục": chữ tab 25px vừa ô; nút Mặc→"Trang bị", Cởi→"Tháo", toast "Đã trang bị/Đã tháo". Kiểm tra: tsc/eslint sạch, vitest 367 pass, thử trên mock (mua → Trang bị → Tháo).
+
+- 2026-11-25 (Web Client): Cửa hàng: tab "Trang bị" đổi tên "Cần câu"; cần đã mua có nút Trang bị (PUT /me/equipped-rod, cần đang cầm ghi "Đang dùng"); nút thẻ cần/trang phục nowrap 24px để "Trang bị" không rớt dòng. Thử trên mock: mua cần → Trang bị → đổi sang cần mới.

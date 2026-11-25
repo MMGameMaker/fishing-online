@@ -31,6 +31,7 @@
 }
 .boot--login,
 .boot--menu,
+.boot--select,
 .boot--blocked {
   justify-content: center;
   gap: calc(40 * var(--s));
@@ -66,7 +67,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: calc(22 * var(--s));
+  gap: calc(12 * var(--s));
   width: min(calc(640 * var(--s)), 100%);
   aspect-ratio: 640 / 388;
   padding: calc(28 * var(--s)) calc(32 * var(--s)) calc(36 * var(--s));
@@ -144,8 +145,10 @@
   cursor: default;
   filter: grayscale(0.3) brightness(0.9);
 }
-.boot__google {
-  width: calc(576 * var(--s));
+.boot__google,
+.boot__facebook {
+  /* Hai nút xếp dọc trong khung 640×388 nên thu nhỏ còn 480/576 để vừa khung. */
+  width: calc(480 * var(--s));
   max-width: 100%;
 }
 .boot__play {
@@ -206,4 +209,148 @@
   /* Emoji cá vẽ đầu quay trái; lật ngang để đầu hướng về phía thanh đang chạy tới (feedback 2026-11-16). */
   transform: translateY(-50%) scaleX(-1);
   font-size: 16px;
+}
+
+/* Panel Chọn nhân vật (CharacterSelect.ts, yêu cầu 2026-11-25): khung Panel Art.png, xem trước bên trái, một lưới thẻ bên phải. */
+.pick__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(18 * var(--s));
+  box-sizing: border-box;
+  width: min(calc(1280 * var(--s)), 100%);
+  height: min(calc(780 * var(--s)), 100%);
+  padding: calc(26 * var(--s)) calc(34 * var(--s)) calc(30 * var(--s));
+  border: calc(30 * var(--s)) solid transparent;
+  border-image: url('/new%20resources/ui/Panel%20Art.png') 20 20 24 fill / calc(30 * var(--s)) calc(30 * var(--s)) calc(36 * var(--s))
+    stretch;
+  image-rendering: pixelated;
+}
+.pick__title {
+  margin: 0;
+  font-size: calc(54 * var(--s));
+  line-height: 1;
+  color: #4a2a14;
+  letter-spacing: calc(2 * var(--s));
+}
+.pick__body {
+  display: flex;
+  flex: 1;
+  gap: calc(28 * var(--s));
+  width: 100%;
+  min-height: 0;
+}
+.pick__left {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(14 * var(--s));
+  width: calc(380 * var(--s));
+}
+.pick__preview {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(420 * var(--s));
+  background: rgb(255 255 255 / 40%);
+  border: calc(5 * var(--s)) solid #8a5a2b;
+}
+.pick__preview-art,
+.pick__card-art {
+  image-rendering: pixelated;
+}
+/* Kích thước ảnh theo khung hình thiết kế (JS đặt cỡ px cố định theo tỉ lệ nguyên, ghi đè để co theo --s). */
+.pick__card-art {
+  width: auto !important;
+  height: calc(112 * var(--s)) !important;
+}
+.pick__preview-art {
+  width: auto !important;
+  height: calc(340 * var(--s)) !important;
+}
+.pick__name {
+  min-height: calc(46 * var(--s));
+  font-size: calc(40 * var(--s));
+  font-weight: bold;
+  line-height: 1.1;
+  color: #4a2a14;
+  text-align: center;
+}
+.pick__right {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: calc(14 * var(--s));
+  min-width: 0;
+}
+.pick__grid {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(auto-fill, minmax(calc(176 * var(--s)), 1fr));
+  grid-auto-rows: calc(212 * var(--s));
+  gap: calc(14 * var(--s));
+  align-content: start;
+  min-height: 0;
+  padding: calc(6 * var(--s));
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.pick__grid::-webkit-scrollbar {
+  display: none;
+}
+.pick__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: calc(8 * var(--s));
+  box-sizing: border-box;
+  padding: calc(6 * var(--s));
+  font: bold calc(24 * var(--s)) var(--ui-font, monospace);
+  color: #4a2a14;
+  cursor: pointer;
+  background: #fff3d0;
+  border: calc(5 * var(--s)) solid #8a5a2b;
+}
+.pick__card:hover:not(.pick__card--on) {
+  background: #ffe9ad;
+}
+.pick__card--on {
+  background: #ffd98a;
+  border-color: #e8782a;
+}
+.pick__card-name {
+  line-height: 1.1;
+  text-align: center;
+}
+.pick__error {
+  margin: 0;
+  font-size: calc(24 * var(--s));
+  font-weight: bold;
+  color: #8c2f23;
+}
+.pick__play {
+  flex: none;
+  width: calc(360 * var(--s));
+  height: calc(96 * var(--s));
+  padding: 0;
+  font: bold calc(44 * var(--s)) var(--ui-font, monospace);
+  color: #fff6d6;
+  text-shadow: 0 3px 0 #7a3a0c;
+  cursor: pointer;
+  background: url('/new%20resources/ui/Primary%20M.png') center / 100% 100% no-repeat;
+  border: 0;
+  image-rendering: pixelated;
+}
+.pick__play:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.pick__play:active:not(:disabled) {
+  transform: translateY(calc(4 * var(--s)));
+}
+.pick__play:disabled {
+  cursor: default;
+  filter: grayscale(0.4) brightness(0.9);
 }

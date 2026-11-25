@@ -20,6 +20,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Modules/Bots/pier-map.json" LogicalName="pier-map.json" />
     <EmbeddedResource Include="Modules/Bots/bot-content.json" LogicalName="bot-content.json" />
+    <EmbeddedResource Include="Modules/Wardrobe/wardrobe-items.json" LogicalName="wardrobe-items.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../FishingOnline.Domain/FishingOnline.Domain.csproj" />
