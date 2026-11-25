@@ -52,6 +52,9 @@ type InteractTarget =
   | { kind: 'player'; id: string }
   | { kind: 'npc'; npc: LakeNpc };
 
+/** Phải giữ phím di chuyển lâu chừng này (ms) mới đi; chạm nhanh hơn thì chỉ quay mặt. */
+const HOLD_TO_WALK_MS = 150;
+
 /** Tầm bấm F với NPC: NPC chặn ô dưới chân nên đứng sát nhất vẫn cách chân NPC khoảng 12–20px. */
 const NEAR_NPC_PX = 32;
 /** Hiệu ứng chữ tên NPC: nhún và dồn sóng khi người chơi cách chân NPC tối đa chừng này px; lề (px map) ngoài màn hình vẫn cập nhật. */
@@ -141,6 +144,8 @@ export class LakeScene extends Phaser.Scene {
   private readonly emojiTimers = new Map<string, Phaser.Time.TimerEvent>();
   /** Đang gửi SitRest/StandRest: bỏ qua bấm lặp. */
   private restPending = false;
+  /** Lúc bắt đầu giữ phím di chuyển (null khi không giữ), để chạm nhanh chỉ quay mặt. */
+  private holdStartMs: number | null = null;
   /** NPC đứng yên trên map (map.npcs), chỉ trang có HomeHud. */
   private readonly npcViews: {
     npc: LakeNpc;
@@ -994,7 +999,13 @@ export class LakeScene extends Phaser.Scene {
     const locked = this.flow.isLocked() || seated || resting;
     const axis = locked ? { x: 0, y: 0 } : this.readAxis();
     let moving = false;
-    if (axis.x !== 0 || axis.y !== 0) {
+    // Chạm phím nhanh chỉ quay mặt; giữ đủ HOLD_TO_WALK_MS mới bắt đầu đi (yêu cầu 2026-11-21: bấm nhẹ không nhích).
+    const pressed = axis.x !== 0 || axis.y !== 0;
+    if (!pressed) this.holdStartMs = null;
+    else if (this.holdStartMs === null) this.holdStartMs = nowMs;
+    if (pressed && nowMs - (this.holdStartMs ?? nowMs) < HOLD_TO_WALK_MS) {
+      this.me.setDirection(directionFromVector(axis.x, axis.y, this.me.direction));
+    } else if (pressed) {
       const distance =
         (this.map.moveRules.maxSpeedPxPerSec * Math.min(deltaMs, MAX_FRAME_MS)) / 1000;
       const next = stepMove(this.map, this.me.x, this.me.y, axis.x * distance, axis.y * distance);

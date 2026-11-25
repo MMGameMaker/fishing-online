@@ -51,7 +51,8 @@ const TAILS: Readonly<Record<string, [number, number, number, number]>> = {
   puffer: [0.83, 0, 1, 1],
   pangasius: [0.82, 0, 1, 1],
   sturgeon: [0.83, 0, 1, 1],
-  carp: [0.81, 0, 1, 1],
+  // Vây lưng và vây hậu môn lấn sang tới x≈0,87: chỉ lấy dải giữa (2026-11-21, trước dính vây lưng vào đuôi).
+  carp: [0.833, 0.25, 1, 0.8],
 };
 /** Đuôi chồng lên thân thêm chừng này (tỉ lệ chiều rộng ảnh) để chỗ nối không hở khi đuôi co lại. */
 const TAIL_OVERLAP = 0.02;
