@@ -16,6 +16,8 @@ export default defineConfig(({ mode }) => {
   return {
     define: {
       'import.meta.env.VITE_USE_MOCK': JSON.stringify(useMock),
+      // Meta App ID của game (công khai, không phải secret): mặc định có sẵn để máy build khác không cần .env.local; đặt VITE_FACEBOOK_APP_ID để ghi đè.
+      'import.meta.env.VITE_FACEBOOK_APP_ID': JSON.stringify(env.VITE_FACEBOOK_APP_ID ?? '3636737856506865'),
     },
     resolve: {
       alias: [
