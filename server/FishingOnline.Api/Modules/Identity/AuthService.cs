@@ -1,8 +1,10 @@
+using SocialKit.Auth;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using FishingOnline.Api.Modules.Common;
+using SocialKit.Community;
 using FishingOnline.Api.Modules.Config;
 using FishingOnline.Api.Modules.Wallet;
 using FishingOnline.Api.Persistence;
@@ -82,6 +84,7 @@ public sealed class AuthService(
     IWallet wallet,
     INewPlayerGrant newPlayerGrant,
     IConfigProvider configs,
+    IAvatarService avatars,
     JwtIssuer issuer,
     IOptions<AuthOptions> options,
     TimeProvider time)
@@ -92,6 +95,8 @@ public sealed class AuthService(
         var (account, isNew) = await FindOrCreateAccountAsync(identity, playerId: null, ct);
         if (account.Status != AccountStatus.Active) throw new GameException("UNAUTHENTICATED");
 
+        // Ảnh đại diện Google/Facebook: lỗi tải ảnh không làm hỏng đăng nhập (AvatarService tự nuốt lỗi và có hạn 4 giây).
+        await avatars.RefreshAsync(account.PlayerId, identity.Picture, identity.Provider, ct);
         var tokens = await OpenSessionAsync(account, rememberMe, ct);
         return new LoginOutcome(tokens, isNew, await GetProfileAsync(account.PlayerId, ct));
     }

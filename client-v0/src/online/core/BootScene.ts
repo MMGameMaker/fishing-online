@@ -4,7 +4,7 @@ import type { Catalog, PlayerProfile, SelectSkinResponse, SkinsResponse } from '
 import type { BootScreens } from '../ui/boot/BootScreens';
 import { startBackgroundMusic } from './backgroundMusic';
 import { shouldApplyGoogleName, toDisplayName } from './googleName';
-import { getFirebaseIdToken } from './idToken';
+import { getFirebaseIdToken, type LoginProvider } from './idToken';
 import { getServices } from './services';
 
 export const BOOT_SCENE = 'Boot';
@@ -115,10 +115,20 @@ export class BootScene extends Phaser.Scene {
 
   /** Khung Đăng nhập; bấm nút Google thì đăng nhập rồi vào thẳng hồ. Popup phải mở ngay trong thao tác bấm. */
   private showGoogleLogin(status: Phaser.GameObjects.Text, screens: BootScreens): void {
-    screens.showLogin(() => {
+    this.showLoginScreen(status, screens);
+  }
+
+  /** Khung Đăng nhập với hai nút Google và Facebook (Facebook từ 2026-11-27); popup phải mở ngay trong thao tác bấm. */
+  private showLoginScreen(status: Phaser.GameObjects.Text, screens: BootScreens, error?: string): void {
+    const start = (provider: LoginProvider) => () => {
       screens.showLoading('Đang đăng nhập...', 20);
-      void this.login(status, true);
-    });
+      void this.login(status, true, provider);
+    };
+    screens.showLogin(start('google'), error, start('facebook'));
+    // Nạp trước Facebook SDK để FB.login mở được ngay trong thao tác bấm (lỗi thì bỏ qua, bấm nút sẽ báo).
+    if (!getServices(this).isMock || this.usesGoogle()) {
+      void import('../../firebaseAuth.js').then((auth) => auth.prepareFacebook()).catch(() => undefined);
+    }
   }
 
   /** Main Menu: CHƠI thì vào hồ bằng tài khoản Google đã nhớ; Đăng xuất thì về khung Đăng nhập. */
@@ -149,12 +159,16 @@ export class BootScene extends Phaser.Scene {
     this.showGoogleLogin(status, screens);
   }
 
-  private async login(status: Phaser.GameObjects.Text, interactive: boolean): Promise<void> {
+  private async login(
+    status: Phaser.GameObjects.Text,
+    interactive: boolean,
+    provider: LoginProvider = 'google',
+  ): Promise<void> {
     const { api, hub, store, isMock } = getServices(this);
     const screens = this.screens();
     try {
       // Mock có bật Google: vẫn mở popup Google thật để lấy tên, Server mock không cần token.
-      const google = this.usesGoogle() ? await getFirebaseIdToken(false, interactive) : null;
+      const google = this.usesGoogle() ? await getFirebaseIdToken(false, interactive, provider) : null;
       if (this.usesGoogle() && !google) throw new Error('Chưa đăng nhập');
       const idToken = isMock ? 'mock' : google;
       if (!idToken) throw new Error('Chưa đăng nhập');
@@ -177,10 +191,7 @@ export class BootScene extends Phaser.Scene {
     } catch (error) {
       console.error(error);
       if (screens) {
-        screens.showError('Không đăng nhập được, vui lòng thử lại.', () => {
-          screens.showLoading('Đang đăng nhập...', 20);
-          void this.login(status, true);
-        });
+        this.showLoginScreen(status, screens, 'Không đăng nhập được, vui lòng thử lại.');
         return;
       }
       status.setText('Fishing Online\nKhông vào được hồ');

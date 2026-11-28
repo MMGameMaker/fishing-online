@@ -1,0 +1,98 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>body{margin:0;background:#222}canvas{display:block}</style></head>
+<body><canvas id="c" width="512" height="512"></canvas>
+<script>
+const N = 128, SC = 4;
+const out = document.getElementById('c');
+const og = out.getContext('2d');
+const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+
+async function main() {
+  const [ref, body, bodyJson] = await Promise.all([
+    load('/ref.jpg'),
+    load('/assets/characters/skin_02.png'),
+    fetch('/assets/characters/skin_02.json').then((r) => r.json()),
+  ]);
+  // 1) Ảnh mẫu thu về lưới 128×128 (lấy trung bình vùng), tăng nhẹ độ tươi.
+  const small = document.createElement('canvas');
+  small.width = N; small.height = N;
+  const sg = small.getContext('2d', { willReadFrequently: true });
+  sg.imageSmoothingEnabled = true; sg.imageSmoothingQuality = 'high';
+  sg.drawImage(ref, 0, 0, N, N);
+  const img = sg.getImageData(0, 0, N, N);
+  const d = img.data;
+  // 2) Giảm màu: mỗi kênh 7 mức (343 màu), giữ nét pixel art.
+  const L = 7;
+  for (let i = 0; i < d.length; i += 4) {
+    for (let k = 0; k < 3; k++) {
+      let v = d[i + k] / 255;
+      v = Math.min(1, Math.max(0, (v - 0.5) * 1.12 + 0.5)); // tương phản nhẹ
+      d[i + k] = Math.round(Math.round(v * (L - 1)) * 255 / (L - 1));
+    }
+    d[i + 3] = 255;
+  }
+  sg.putImageData(img, 0, 0);
+
+  // 3) Xoá nhân vật cũ: lấp vùng người + cần bằng màu nền lân cận (lấy bên phải vùng, theo từng hàng).
+  const px = (x, y) => { const i = (y * N + x) * 4; return [d[i], d[i + 1], d[i + 2]]; };
+  const set = (x, y, c) => { if (x < 0 || y < 0 || x >= N || y >= N) return; const i = (y * N + x) * 4; d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255; };
+  // Đa giác bao người chơi (toạ độ lưới 128): mũ, đầu, thân, tay, cần quay.
+  const poly = [[0, 44], [46, 44], [46, 66], [49, 74], [51, 80], [49, 100], [52, 118], [0, 118]];
+  const inside = (x, y) => { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j]; if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; } return c; };
+  const fill = [];
+  for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) if (inside(x, y)) fill.push([x, y]);
+  // Nền tự vẽ trong vùng xoá: trời chuyển màu, hai cây pixel, hồ nước gợn sóng.
+  const lerp = (a, b, t) => a.map((v, k) => Math.round(v + (b[k] - v) * t));
+  const q = (c) => c.map((v) => Math.round(Math.round((v / 255) * 6) * 255 / 6));
+  const inFill = new Set(fill.map(([x, y]) => x + ',' + y));
+  const paint = (x, y, c) => { if (inFill.has(x + ',' + y)) set(x, y, q(c)); };
+  const HORIZON = 80;
+  // Màu trời lấy từ hàng ngay trên vùng xoá (cột 34..45) để vá khớp với phần ảnh còn lại.
+  const ref0 = [0, 0, 0];
+  let nref = 0;
+  for (let xx = 34; xx <= 45; xx++) for (let yy = 41; yy <= 43; yy++) { const c = px(xx, yy); ref0[0] += c[0]; ref0[1] += c[1]; ref0[2] += c[2]; nref++; }
+  const skyRef = ref0.map((v) => Math.round(v / nref));
+  for (const [x, y] of fill) {
+    if (y < HORIZON) set(x, y, q(lerp(skyRef, [190, 230, 252], Math.min(1, (y - 44) / 40) * 0.6)));
+    else {
+      let c = lerp([62, 168, 232], [30, 112, 208], (y - HORIZON) / 38);
+      if (y % 6 === 0 && ((x + Math.floor(y / 6) * 7) % 14) < 6) c = lerp(c, [210, 240, 255], 0.55);
+      set(x, y, q(c));
+    }
+  }
+  const disc = (cx, cy, r, c) => { for (let yy = -r; yy <= r; yy++) for (let xx = -r; xx <= r; xx++) if (xx * xx + yy * yy <= r * r) paint(cx + xx, cy + yy, c); };
+  const tree = (cx, base, r) => {
+    for (let yy = base - r; yy <= base; yy++) for (let xx = -1; xx <= 1; xx++) paint(cx + xx, yy, [120, 82, 48]);
+    disc(cx, base - r * 2, r, [47, 143, 58]);
+    disc(cx - 2, base - r * 2 - 2, Math.round(r * 0.7), [88, 194, 86]);
+  };
+  disc(8, 50, 14, [47, 143, 58]);
+  disc(5, 46, 9, [88, 194, 86]);
+  disc(26, 58, 9, [47, 143, 58]);
+  disc(24, 55, 6, [88, 194, 86]);
+  for (let yy = 60; yy <= HORIZON + 1; yy++) { for (const xx of [8, 9]) paint(xx, yy, [120, 82, 48]); }
+  for (let yy = 64; yy <= HORIZON + 1; yy++) { for (const xx of [26, 27]) paint(xx, yy, [120, 82, 48]); }
+  sg.putImageData(img, 0, 0);
+
+  // 4) Phóng 4 lần (nearest) ra canvas 512.
+  og.imageSmoothingEnabled = false;
+  og.drawImage(small, 0, 0, N * SC, N * SC);
+
+  // 5) Thuyền gỗ pixel và thỏ (sprite thật, mỗi điểm ảnh sprite = 7 điểm ảnh ngoài) ở chỗ nhân vật cũ.
+  const cell = (gx, gy, w, h, col) => { og.fillStyle = col; og.fillRect(gx * SC, gy * SC, w * SC, h * SC); };
+  cell(0, 116, 76, 12, '#8a5a2b');
+  cell(0, 114, 78, 3, '#c9a06a');
+  cell(0, 117, 78, 1, '#5a3818');
+  for (let x = 6; x < 76; x += 12) cell(x, 118, 1, 10, '#6d4220');
+  cell(0, 126, 70, 2, '#5a3818');
+  const f = bodyJson.frames['wait_right_0'].frame;
+  const Z = 7, CX = 36, CY = 34, CW = 44, CH = 44;
+  const left = -24, top = 156;
+  og.drawImage(body, f.x + CX, f.y + CY, CW, CH, left, top, CW * Z, CH * Z);
+
+  const blob = await new Promise((ok) => out.toBlob(ok, 'image/png'));
+  const r = await fetch('http://localhost:5199/save', { method: 'POST', body: blob });
+  document.title = 'saved ' + (await r.text());
+}
+main().catch((e) => { document.title = 'error ' + e; console.error(e); });
+</script></body></html>

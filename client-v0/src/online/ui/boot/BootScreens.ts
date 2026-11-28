@@ -32,6 +32,8 @@ export class BootScreens {
   private readonly fillEl: HTMLElement;
   private readonly tipEl: HTMLElement;
   private onGoogle: (() => void) | null = null;
+  private onFacebook: (() => void) | null = null;
+  private readonly facebookBtn: HTMLButtonElement;
   private onPlay: (() => void) | null = null;
   private onLogout: (() => void) | null = null;
 
@@ -51,8 +53,7 @@ export class BootScreens {
           <button class="boot__google boot__art-btn" type="button" aria-label="Đăng nhập bằng Google">
             <img src="${ART}/Google.png" alt="" draggable="false" />
           </button>
-          <!-- Facebook chưa làm (art "later"): hiện nút nhưng chưa bấm được. -->
-          <button class="boot__facebook boot__art-btn" type="button" disabled title="Sắp ra mắt" aria-label="Đăng nhập bằng Facebook (sắp ra mắt)">
+          <button class="boot__facebook boot__art-btn" type="button" aria-label="Đăng nhập bằng Facebook">
             <img src="${ART}/Facebook%20(later).png" alt="" draggable="false" />
           </button>
           <p class="boot__tagline">Bạn có thể câu được cá lớn cỡ nào?</p>
@@ -94,6 +95,7 @@ export class BootScreens {
     this.select = q('.boot--select');
     this.loading = q('.boot--loading');
     this.googleBtn = q('.boot__google');
+    this.facebookBtn = q('.boot__facebook');
     this.playBtn = q('.boot__play');
     this.logoutBtn = q('.boot__logout');
     this.taglineEl = q('.boot--login .boot__tagline');
@@ -106,6 +108,10 @@ export class BootScreens {
     this.googleBtn.addEventListener('click', () => {
       if (this.googleBtn.disabled) return;
       this.onGoogle?.();
+    });
+    this.facebookBtn.addEventListener('click', () => {
+      if (this.facebookBtn.disabled) return;
+      this.onFacebook?.();
     });
     this.playBtn.addEventListener('click', () => {
       if (this.playBtn.disabled) return;
@@ -124,9 +130,13 @@ export class BootScreens {
   }
 
   /** Hiện màn đăng nhập (không có nút Đăng xuất); `onClick` chạy trong thao tác bấm nút Google. */
-  showLogin(onClick: () => void, error?: string): void {
+  showLogin(onClick: () => void, error?: string, onFacebook?: () => void): void {
     this.onGoogle = onClick;
+    this.onFacebook = onFacebook ?? null;
     this.googleBtn.disabled = false;
+    // Không có hàm Facebook (bản không hỗ trợ) thì ẩn nút.
+    this.facebookBtn.hidden = !onFacebook;
+    this.facebookBtn.disabled = !onFacebook;
     this.setError(error);
     this.show(this.login);
   }

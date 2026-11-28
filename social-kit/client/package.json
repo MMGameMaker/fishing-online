@@ -1,0 +1,11 @@
+{
+  "name": "@social-kit/client",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SocialKit client: đăng nhập Google/Facebook (Firebase), popup Cộng đồng. Chưa publish; host dùng qua alias.",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "firebase": "^11.10.0"
+  }
+}

@@ -4,6 +4,9 @@ import { defineConfig, loadEnv } from 'vite';
 const rootDir = fileURLToPath(new URL('.', import.meta.url));
 const repoDir = fileURLToPath(new URL('..', import.meta.url));
 const fixturesDir = fileURLToPath(new URL('../docs/v01/fixtures', import.meta.url));
+// SocialKit (../social-kit/client): module dùng lại được; file của kit nằm ngoài client-v0 nên firebase phải trỏ về node_modules của game.
+const socialKitDir = fileURLToPath(new URL('../social-kit/client/src', import.meta.url));
+const firebaseDir = fileURLToPath(new URL('./node_modules/firebase', import.meta.url));
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, rootDir, 'VITE_');
@@ -15,7 +18,11 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.VITE_USE_MOCK': JSON.stringify(useMock),
     },
     resolve: {
-      alias: { '@fixtures': fixturesDir },
+      alias: [
+        { find: '@fixtures', replacement: fixturesDir },
+        { find: '@social-kit', replacement: socialKitDir },
+        { find: /^firebase\/(.*)$/, replacement: `${firebaseDir}/$1` },
+      ],
     },
     server: {
       port: 5173,
@@ -38,7 +45,11 @@ export default defineConfig(({ mode }) => {
     },
     test: {
       environment: 'node',
-      include: ['src/online/**/*.test.ts'],
+      // dir '..' để vitest đọc cả test của SocialKit (ngoài client-v0).
+      dir: '..',
+      include: ['client-v0/src/online/**/*.test.ts', 'social-kit/client/src/**/*.test.ts'],
+      // Test của kit nằm ngoài root; cho vitest đọc.
+      dir: '..',
     },
   };
 });

@@ -16,6 +16,10 @@ public sealed class GameExceptionMiddleware(RequestDelegate next, ILogger<GameEx
         {
             await WriteAsync(context, exception.HttpStatus, exception.Code, exception.Message, exception.Retryable);
         }
+        catch (SocialKit.SocialException exception) when (!context.Response.HasStarted)
+        {
+            await WriteAsync(context, exception.HttpStatus, exception.Code, exception.Message, exception.Retryable);
+        }
         catch (BadHttpRequestException exception) when (!context.Response.HasStarted)
         {
             // JSON hỏng hoặc sai kiểu tham số; không trả message gốc vì có thể lộ chi tiết binding.

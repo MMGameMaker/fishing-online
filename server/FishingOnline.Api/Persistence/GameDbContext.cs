@@ -68,5 +68,7 @@ public sealed class GameDbContext(DbContextOptions<GameDbContext> options) : DbC
             entity.Property(player => player.CharacterChosen).HasDefaultValue(false);
         });
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(GameDbContext).Assembly);
+        // Bảng của SocialKit (avatar, trạng thái nhóm Facebook, lượt chia sẻ).
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(SocialKit.SocialKitModule).Assembly);
     }
 }

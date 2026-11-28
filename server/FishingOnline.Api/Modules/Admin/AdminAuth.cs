@@ -1,3 +1,4 @@
+using SocialKit.Auth;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using FishingOnline.Api.Modules.Common;

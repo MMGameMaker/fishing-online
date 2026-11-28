@@ -23,6 +23,7 @@ export const ERROR_TEXT: Record<ErrorCode | ClientErrorCode, string> = {
   SKIN_ALREADY_OWNED: 'Bạn đã sở hữu trang phục này.',
   WARDROBE_ALREADY_OWNED: 'Bạn đã sở hữu món đồ này.',
   WARDROBE_NOT_OWNED: 'Bạn chưa sở hữu món đồ này.',
+  GROUP_CODE_INVALID: 'Mã không đúng, hãy kiểm tra lại mã ghim trong nhóm.',
   FISH_NOT_FOUND: 'Có con cá không còn trong túi (đã bán hoặc đã đổi).',
   INVALID_QUANTITY: 'Số lượng vé không hợp lệ.',
   PRICE_CHANGED: 'Giá vé vừa thay đổi, hãy xác nhận lại.',

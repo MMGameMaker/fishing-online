@@ -301,6 +301,85 @@ namespace FishingOnline.Api.Persistence.Migrations
                     b.ToTable("idempotency_receipts", "game");
                 });
 
+            modelBuilder.Entity("SocialKit.Community.CommunityState", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTimeOffset?>("GroupVerifiedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<DateTimeOffset?>("JoinClickedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("JoinClicks")
+                        .HasColumnType("integer");
+
+                    b.HasKey("PlayerId");
+
+                    b.ToTable("community_state", "game");
+                });
+
+            modelBuilder.Entity("SocialKit.Community.PlayerAvatar", b =>
+                {
+                    b.Property<Guid>("PlayerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("ContentType")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("character varying(64)");
+
+                    b.Property<byte[]>("Data")
+                        .IsRequired()
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("Provider")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("character varying(32)");
+
+                    b.Property<string>("SourceUrl")
+                        .IsRequired()
+                        .HasMaxLength(1024)
+                        .HasColumnType("character varying(1024)");
+
+                    b.Property<DateTimeOffset>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.HasKey("PlayerId");
+
+                    b.ToTable("player_avatars", "game");
+                });
+
+            modelBuilder.Entity("SocialKit.Community.ShareEvent", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<DateTimeOffset>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Kind")
+                        .IsRequired()
+                        .HasMaxLength(16)
+                        .HasColumnType("character varying(16)");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId", "CreatedAt");
+
+                    b.ToTable("share_events", "game");
+                });
+
             modelBuilder.Entity("FishingOnline.Api.Modules.Config.ConfigVersionRow", b =>
                 {
                     b.Property<string>("Version")

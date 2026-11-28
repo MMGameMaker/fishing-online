@@ -18,8 +18,12 @@
     "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
-      "@fixtures/*": ["../docs/v01/fixtures/*"]
+      "@fixtures/*": ["../docs/v01/fixtures/*"],
+      "@social-kit": ["../social-kit/client/src/index.ts"],
+      "@social-kit/*": ["../social-kit/client/src/*"],
+      "firebase/*": ["./node_modules/firebase/*"],
+      "vitest": ["./node_modules/vitest"]
     }
   },
-  "include": ["src/online"]
+  "include": ["src/online", "../social-kit/client/src"]
 }

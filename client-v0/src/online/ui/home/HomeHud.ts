@@ -15,6 +15,8 @@ import { InventoryPopup } from '../inventory/InventoryPopup';
 import { LeaderboardPopup } from '../leaderboard/LeaderboardPopup';
 import { ProfilePopup } from '../profile/ProfilePopup';
 import { FriendsPopup } from '../friends/FriendsPopup';
+import type { CommunityPopup } from '@social-kit';
+import { communityIconUrl, createCommunityPopup } from '../community/communityHost';
 import { COIN_ART } from '../coinArt';
 import { ShopPopup } from '../shop/ShopPopup';
 import { faceElement } from '../../social/skinFace';
@@ -44,6 +46,8 @@ const MENU_ITEMS: readonly MenuItem[] = [
   { id: 'codex', label: 'Sổ tay cá', icon: 'Icon So tay.png' },
   // BOT-02 (2026-11-18): danh sách bạn. Icon thật do người dùng thêm 2026-11-19 (ảnh 1024x1024, thu về 56px).
   { id: 'friends', label: 'Bạn bè', icon: 'friend icon.png', smooth: true },
+  // Cộng đồng Facebook (2026-11-27): ảnh tài khoản, vào nhóm, chia sẻ. Icon vẽ bằng canvas (data URL).
+  { id: 'community', label: 'Cộng đồng', icon: communityIconUrl() },
   { id: 'settings', label: 'Cài đặt', icon: 'Icon Settings.png' },
 ];
 const menuIcon = (icon: string) => (icon.startsWith('data:') ? icon : asset(icon));
@@ -145,6 +149,7 @@ export class HomeHud {
   private readonly profile: ProfilePopup;
   private readonly leaderboard: LeaderboardPopup;
   private readonly friends: FriendsPopup;
+  private readonly community: CommunityPopup;
   /** Chấm báo có lời mời kết bạn: trên nút mở menu và trên ô "Bạn bè". */
   // Ẩn sẵn; renderFriendDots hiện khi có lời mời (setDotShown).
   private readonly menuDot = hiddenDot();
@@ -172,6 +177,7 @@ export class HomeHud {
       openDirect: options.openDirect,
       openPlayer: options.openPlayer,
     });
+    this.community = createCommunityPopup({ root: options.root, services: options.services });
     this.inventory = new InventoryPopup({
       root: options.root,
       services: options.services,
@@ -291,6 +297,7 @@ export class HomeHud {
     this.leaderboard.destroy();
     this.profile.destroy();
     this.friends.destroy();
+    this.community.destroy();
     this.layer.remove();
     this.menu.remove();
   }
@@ -411,6 +418,9 @@ export class HomeHud {
         } else if (item.id === 'shop') {
           void this.setMenuOpen(false);
           this.shop.open('sell');
+        } else if (item.id === 'community') {
+          void this.setMenuOpen(false);
+          void this.community.open();
         } else if (item.id === 'friends') {
           void this.setMenuOpen(false);
           this.friends.open();

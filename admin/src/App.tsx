@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { currentSession, logout, onSessionChange, refresh } from './api';
 import { firebaseSignOut } from './firebase';
 import { AuditPage } from './pages/AuditPage';
+import { CommunityPage } from './pages/CommunityPage';
 import { ConfigPage } from './pages/ConfigPage';
 import { LakePage } from './pages/LakePage';
 import { LoginPage } from './pages/LoginPage';
@@ -9,12 +10,13 @@ import { PlayersPage } from './pages/PlayersPage';
 import { StockingPage } from './pages/StockingPage';
 import type { AdminSession } from './types';
 
-type PageKey = 'config' | 'players' | 'lake' | 'stocking' | 'audit';
+type PageKey = 'config' | 'players' | 'lake' | 'community' | 'stocking' | 'audit';
 
 const PAGES: { key: PageKey; label: string; permission: string }[] = [
   { key: 'config', label: 'Config', permission: 'config.read' },
   { key: 'players', label: 'Người chơi', permission: 'player.read' },
   { key: 'lake', label: 'Hồ', permission: 'player.read' },
+  { key: 'community', label: 'Cộng đồng', permission: 'player.read' },
   { key: 'stocking', label: 'Thả cá', permission: 'stocking.read' },
   { key: 'audit', label: 'Audit', permission: 'audit.read' },
 ];
@@ -63,6 +65,7 @@ export function App() {
         {current === 'config' && <ConfigPage canWrite={can('config.write')} canPublish={can('config.publish')} />}
         {current === 'players' && <PlayersPage canReview={can('signal.review')} />}
         {current === 'lake' && <LakePage />}
+        {current === 'community' && <CommunityPage />}
         {current === 'stocking' && (
           <StockingPage
             canWrite={can('stocking.write')}

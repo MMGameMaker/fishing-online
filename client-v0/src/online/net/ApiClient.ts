@@ -89,6 +89,27 @@ export class ApiClient {
     return this.request<T>('DELETE', path);
   }
 
+  /** Tải một tệp nhị phân (ảnh) cần đăng nhập, ví dụ /me/avatar. `path` có hoặc không có tiền tố /api/v1. */
+  async getBlob(path: string): Promise<Blob> {
+    const relative = path.startsWith(API_PREFIX) ? path.slice(API_PREFIX.length) : path;
+    for (let refreshed = false; ;) {
+      const headers: Record<string, string> = {};
+      if (this.accessToken) headers.Authorization = `Bearer ${this.accessToken}`;
+      if (this.options.devPlayerId) headers['X-Dev-Player'] = this.options.devPlayerId;
+      const response = await this.fetchWithTimeout(`${this.options.baseUrl}${API_PREFIX}${relative}`, {
+        method: 'GET',
+        headers,
+        credentials: 'include',
+      });
+      if (response.status === 401 && !refreshed && (await this.refreshSession())) {
+        refreshed = true;
+        continue;
+      }
+      if (!response.ok) throw new ApiError('NETWORK_ERROR', `HTTP ${response.status}`, false);
+      return response.blob();
+    }
+  }
+
   /** Đổi Firebase ID token lấy access token và lưu để các request sau tự gửi. */
   async login(firebaseIdToken: string, rememberMe = true): Promise<LoginResponse> {
     const result = await this.post<LoginResponse>('/auth/login', { firebaseIdToken, rememberMe });

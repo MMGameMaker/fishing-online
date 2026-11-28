@@ -30,6 +30,7 @@ import type {
   RankingEntry,
   RankingResponse,
   SeatView,
+  CommunityView,
   SelectSkinResponse,
   ShowcaseSlot,
   SitDownResult,
@@ -135,6 +136,7 @@ const HTTP_STATUS: Partial<Record<ErrorCode, number>> = {
   SKIN_ALREADY_OWNED: 409,
   WARDROBE_ALREADY_OWNED: 409,
   WARDROBE_NOT_OWNED: 422,
+  GROUP_CODE_INVALID: 422,
   PRICE_CHANGED: 409,
   STATE_CONFLICT: 409,
   INSUFFICIENT_GOLD: 422,
@@ -1657,6 +1659,15 @@ export class MockBackend {
         return this.inventory();
       case 'PUT /me/equipped-rod':
         return this.equipRod(String(body.rodId));
+      case 'GET /me/community':
+        return this.communityView();
+      case 'POST /me/community/join-click':
+        this.community.joinClicked = true;
+        return this.communityView();
+      case 'POST /me/community/verify-group':
+        return this.communityVerify(String(body.code ?? ''));
+      case 'POST /me/community/share':
+        return this.communityShare(String(body.kind));
       case 'GET /wardrobe':
         return this.wardrobeList();
       case 'POST /wardrobe/buy':
@@ -1960,6 +1971,34 @@ export class MockBackend {
       })),
       selectedSkinId: this.selectedSkinId,
     };
+  }
+
+  /** Cộng đồng Facebook trong mock: nhóm/chia sẻ mẫu, mã xác nhận là FISH2026 (Server thật lấy từ cấu hình Community). */
+  private readonly community = { joinClicked: false, verified: false, feed: 0, group: 0 };
+
+  private communityView(): CommunityView {
+    return {
+      avatarUrl: null,
+      avatarProvider: null,
+      groupUrl: 'https://www.facebook.com/groups/1663456675430943',
+      shareUrl: 'https://example.com/fishing-online',
+      groupCodeEnabled: true,
+      joinLinkClicked: this.community.joinClicked,
+      groupVerified: this.community.verified,
+      shares: { feed: this.community.feed, group: this.community.group },
+    };
+  }
+
+  private communityVerify(code: string): CommunityView {
+    if (code.trim().toUpperCase() !== 'FISH2026') throw new CommandError('GROUP_CODE_INVALID');
+    this.community.verified = true;
+    return this.communityView();
+  }
+
+  private communityShare(kind: string): CommunityView {
+    if (kind !== 'feed' && kind !== 'group') throw new CommandError('VALIDATION_FAILED');
+    this.community[kind] += 1;
+    return this.communityView();
   }
 
   private selectSkin(skinId: string): SelectSkinResponse {

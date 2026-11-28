@@ -1,45 +1,21 @@
-import { getApps, initializeApp } from 'firebase/app';
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from 'firebase/auth';
+// Đăng nhập Google / Facebook của game: logic nằm trong SocialKit (social-kit/client/src/firebaseAuth.ts), đây chỉ nạp cấu hình từ .env.
+import { createSocialAuth } from '@social-kit/firebaseAuth';
 
-function config() {
+const auth = createSocialAuth(() => {
   const env = import.meta.env;
-  const apiKey = env.VITE_FIREBASE_API_KEY;
-  const projectId = env.VITE_FIREBASE_PROJECT_ID;
-  if (!apiKey || !projectId)
-    throw new Error('Missing Firebase config: create client-v0/.env.local (see .env.example).');
   return {
-    apiKey,
-    projectId,
-    authDomain: env.VITE_FIREBASE_AUTH_DOMAIN ?? `${projectId}.firebaseapp.com`,
+    apiKey: env.VITE_FIREBASE_API_KEY,
+    projectId: env.VITE_FIREBASE_PROJECT_ID,
+    authDomain: env.VITE_FIREBASE_AUTH_DOMAIN,
     appId: env.VITE_FIREBASE_APP_ID,
+    facebookAppId: env.VITE_FACEBOOK_APP_ID,
   };
-}
+});
 
-function auth() {
-  return getAuth(getApps()[0] ?? initializeApp(config()));
-}
-
-// Opens the Google sign-in popup and returns a Firebase ID token for the server to verify.
-export async function googleIdToken() {
-  const credential = await signInWithPopup(auth(), new GoogleAuthProvider());
-  return credential.user.getIdToken();
-}
-
-// Returns a fresh ID token for the already signed-in user, or null when nobody is signed in.
-export async function currentIdToken() {
-  const instance = auth();
-  await instance.authStateReady();
-  return instance.currentUser ? instance.currentUser.getIdToken() : null;
-}
-
-// Signs the Google account out of Firebase, so the next visit shows the sign-in screen again.
-export async function signOutGoogle() {
-  await signOut(auth());
-}
-
-// Display name of the signed-in Google account, or null when nobody is signed in.
-export async function currentDisplayName() {
-  const instance = auth();
-  await instance.authStateReady();
-  return instance.currentUser?.displayName ?? null;
-}
+export const googleIdToken = () => auth.googleIdToken();
+export const facebookIdToken = () => auth.facebookIdToken();
+export const prepareFacebook = () => auth.prepareFacebook();
+export const currentProviderId = () => auth.currentProviderId();
+export const currentIdToken = () => auth.currentIdToken();
+export const signOutGoogle = () => auth.signOut();
+export const currentDisplayName = () => auth.currentDisplayName();

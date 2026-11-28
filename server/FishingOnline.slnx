@@ -6,4 +6,6 @@
   <Project Path="FishingOnline.IntegrationChecks/FishingOnline.IntegrationChecks.csproj" />
   <Project Path="FishingOnline.LoadTest/FishingOnline.LoadTest.csproj" />
   <Project Path="FishingOnline.Sim/FishingOnline.Sim.csproj" />
+  <Project Path="../social-kit/server/SocialKit.Tests/SocialKit.Tests.csproj" />
+  <Project Path="../social-kit/server/SocialKit/SocialKit.csproj" />
 </Solution>

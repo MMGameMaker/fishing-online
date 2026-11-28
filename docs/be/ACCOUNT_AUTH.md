@@ -100,3 +100,20 @@ const analytics = getAnalytics(app);
 
 
 **M0 2026-11-09:** Các đề xuất cụ thể về phiên/reauth/quyền điều khiển/MFA được user đồng ý; contract auth/session phải đồng bộ theo nguồn này (Player10 phút, Admin5 phút). Khi tiếp quản gây ngắt kết nối cũ, luật gameplay disconnect vẫn hủy attempt, không cấp cá cho attempt hủy; giữ dữ liệu nhân vật/ghế theo rule hiện hành. Không phải bằng chứng auth runtime đã chạy.
+
+## Facebook login, avatar, cộng đồng Facebook — 2026-11-27
+
+**Đã làm (code + mock + test, chưa chạy Facebook thật vì chưa có Meta app):**
+
+- **Facebook login** qua Firebase: Client `firebaseAuth.js` thêm `facebookIdToken()` (chỉ scope `public_profile`; bỏ `email` từ 2026-11-28 vì server không dùng và Meta app phải thêm riêng quyền đó), màn Đăng nhập có nút Google và Facebook. Server `JwksFirebaseTokenVerifier` chấp nhận provider `google.com` và `facebook.com`. Facebook và Google là hai UID Firebase khác nhau nên là hai tài khoản game riêng trừ khi liên kết (account linking ở phần "Facebook về sau" phía trên; chưa làm nút liên kết).
+- **Avatar:** claim `picture` trong Firebase ID token được Server tải về lúc đăng nhập (`AvatarService`: chỉ https, chỉ host `googleusercontent.com`, `graph.facebook.com`, `fbcdn.net`, `fbsbx.com`, ≤ 512 KB, phải là ảnh, hạn 4 giây, lỗi không làm hỏng đăng nhập, không tải lại trong 6 giờ nếu URL không đổi) và lưu trong bảng `game.player_avatars`; Client lấy qua `GET /api/v1/me/avatar` (cần đăng nhập). Chưa kiểm chứng claim `picture` của Facebook qua Firebase có đủ để tải ảnh hay không: cần thử với Meta app thật.
+- **Cộng đồng:** menu ☰ có ô "Cộng đồng" (popup): mở link nhóm Facebook, xác nhận đã vào nhóm bằng mã, chia sẻ qua `facebook.com/sharer/sharer.php` (người chơi tự chọn trang cá nhân hoặc nhóm trong cửa sổ Facebook), đếm lượt bấm. Server (từ 2026-11-28 nằm trong module `social-kit/server/SocialKit`): `GET /me/community`, `POST /me/community/join-click | verify-group | share`, `GET /me/avatar`, Admin `GET /admin/community/stats` (trang "Cộng đồng" trong Admin Tool).
+- **Giới hạn do Meta:** Groups API đã bị gỡ (22/4/2024) nên không kiểm tra thành viên nhóm, không đọc react hay bài viết trong nhóm. "Đã vào nhóm" = nhập đúng mã ghim trong nhóm (chỉ thành viên mới thấy); "đã chia sẻ" = lượt bấm nút chia sẻ do Server đếm (tối đa 10 lượt/ngày/người được tính). Không có số react.
+
+**Đóng gói 2026-11-28:** toàn bộ phần Google/Facebook (xác minh Firebase token, avatar, cộng đồng, popup, đăng nhập client, bảng Admin) nằm trong `social-kit/` để dùng lại ở dự án khác; cách tích hợp, cấu hình và giới hạn Meta ở `social-kit/README.md`. Game chỉ giữ phần keo: `Modules/SocialKitAdapters`, `client-v0/src/online/ui/community/communityHost.ts`, `client-v0/src/firebaseAuth.js`, `admin/src/pages/CommunityPage.tsx`. Cấu hình không đổi (`Community:*`, `Auth:FirebaseProjectId`).
+
+**Việc cần bạn làm (Server/Firebase/Meta, không có trong code):**
+
+1. Tạo Meta app, bật Facebook provider trong Firebase Console (App ID/secret), thêm redirect URI do Firebase hiện ra vào Meta app; chỉ xin `public_profile`.
+2. Đặt cấu hình Server (appsettings hoặc biến môi trường `Community__GroupUrl`, `Community__GroupCode`, `Community__ShareUrl`): link nhóm, mã ghim trong nhóm (đổi mã được bất cứ lúc nào, người đã xác nhận giữ nguyên), trang web có thẻ Open Graph để chia sẻ. Để trống thì Client ẩn nút/bước tương ứng.
+3. Migration `COMMUNITY_AvatarsAndShares` (3 bảng mới) đã chạy lên DB dev portable; môi trường khác cần chạy `dotnet ef database update`.

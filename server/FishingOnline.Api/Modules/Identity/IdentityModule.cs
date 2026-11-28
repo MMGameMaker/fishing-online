@@ -33,7 +33,6 @@ public static class IdentityModule
         services.AddSingleton<DevPlayerCache>();
         services.AddSingleton<IAuthorizationMiddlewareResultHandler, EnvelopeAuthorizationResultHandler>();
         services.AddScoped<ICurrentPlayer, HttpCurrentPlayer>();
-        services.AddHttpClient<IFirebaseTokenVerifier, JwksFirebaseTokenVerifier>();
         if (hasDatabase) services.AddScoped<AuthService>();
 
         services.AddAuthentication(SelectorScheme)

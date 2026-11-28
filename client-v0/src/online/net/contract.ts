@@ -24,6 +24,8 @@ export const ERROR_CODES = [
   // Trang phục lẻ (mũ, áo, quần) ở tab Trang phục của Cửa hàng (2026-11-25).
   'WARDROBE_NOT_OWNED',
   'WARDROBE_ALREADY_OWNED',
+  // Cộng đồng Facebook (2026-11-27): mã xác nhận đã vào nhóm sai.
+  'GROUP_CODE_INVALID',
   'FISH_NOT_FOUND',
   'INVALID_QUANTITY',
   'PRICE_CHANGED',
@@ -312,6 +314,9 @@ export interface SkinsResponse {
 export interface SelectSkinResponse {
   selectedSkinId: string;
 }
+
+// Kiểu cộng đồng Facebook nằm trong SocialKit (social-kit/client/src/types.ts); re-export để code game không đổi.
+export type { CommunityView, ShareCounts, ShareKind } from '@social-kit/types';
 
 export interface ShopBuyRequest {
   offerId: string;

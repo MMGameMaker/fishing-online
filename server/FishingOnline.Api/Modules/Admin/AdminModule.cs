@@ -91,6 +91,9 @@ public static class AdminModule
         admin.MapPost("/config/drafts/{id:guid}/publish", async (Guid id, PublishDraftRequest request, AdminConfigService config, HttpContext http) =>
             ApiResult.Ok(await config.PublishAsync(Actor(http), id, request, http.RequestAborted))).Require(AdminPermissions.ConfigPublish);
 
+        // Thống kê cộng đồng Facebook (2026-11-27): lượt bấm vào nhóm, xác nhận bằng mã, lượt bấm chia sẻ; không có react (Meta không cho đọc).
+        admin.MapGet("/community/stats", async (SocialKit.Community.CommunityService community, CancellationToken ct) =>
+            ApiResult.Ok(await community.StatsAsync(ct))).Require(AdminPermissions.PlayerRead);
         admin.MapGet("/players", async (string? query, AdminLookupService lookup, CancellationToken ct) => ApiResult.Ok(await lookup.SearchAsync(query, ct)))
             .Require(AdminPermissions.PlayerRead);
         admin.MapGet("/players/{id:guid}", async (Guid id, AdminLookupService lookup, CancellationToken ct) => ApiResult.Ok(await lookup.DetailAsync(id, ct)))

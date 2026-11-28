@@ -1,0 +1,9 @@
+{
+  "name": "@social-kit/admin",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SocialKit admin: bảng thống kê cộng đồng Facebook (React). Chưa publish; host dùng qua alias.",
+  "main": "src/index.ts",
+  "peerDependencies": { "react": "^18 || ^19" }
+}

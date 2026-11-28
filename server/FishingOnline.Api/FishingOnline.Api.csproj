@@ -24,5 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../FishingOnline.Domain/FishingOnline.Domain.csproj" />
+    <!-- Đăng nhập Google/Facebook, avatar, chia sẻ, nhóm Facebook: module dùng lại được, xem social-kit/README.md. -->
+    <ProjectReference Include="../../social-kit/server/SocialKit/SocialKit.csproj" />
   </ItemGroup>
 </Project>
